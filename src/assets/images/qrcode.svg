@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect x="0" y="0" width="200" height="200" fill="white"/>
+  
+  <!-- 外边框 -->
+  <rect x="10" y="10" width="180" height="180" stroke="#2563eb" stroke-width="2" fill="none"/>
+  
+  <!-- QR码样式模拟 -->
+  <rect x="25" y="25" width="20" height="20" fill="#000"/>
+  <rect x="45" y="25" width="20" height="20" fill="#000"/>
+  <rect x="65" y="25" width="20" height="20" fill="#000"/>
+  <rect x="25" y="45" width="20" height="20" fill="#000"/>
+  <rect x="65" y="45" width="20" height="20" fill="#000"/>
+  <rect x="25" y="65" width="20" height="20" fill="#000"/>
+  <rect x="45" y="65" width="20" height="20" fill="#000"/>
+  <rect x="65" y="65" width="20" height="20" fill="#000"/>
+  
+  <rect x="115" y="25" width="20" height="20" fill="#000"/>
+  <rect x="135" y="25" width="20" height="20" fill="#000"/>
+  <rect x="155" y="25" width="20" height="20" fill="#000"/>
+  <rect x="115" y="45" width="20" height="20" fill="#000"/>
+  <rect x="155" y="45" width="20" height="20" fill="#000"/>
+  <rect x="115" y="65" width="20" height="20" fill="#000"/>
+  <rect x="135" y="65" width="20" height="20" fill="#000"/>
+  <rect x="155" y="65" width="20" height="20" fill="#000"/>
+  
+  <rect x="25" y="115" width="20" height="20" fill="#000"/>
+  <rect x="45" y="115" width="20" height="20" fill="#000"/>
+  <rect x="65" y="115" width="20" height="20" fill="#000"/>
+  <rect x="25" y="135" width="20" height="20" fill="#000"/>
+  <rect x="65" y="135" width="20" height="20" fill="#000"/>
+  <rect x="25" y="155" width="20" height="20" fill="#000"/>
+  <rect x="45" y="155" width="20" height="20" fill="#000"/>
+  <rect x="65" y="155" width="20" height="20" fill="#000"/>
+  
+  <!-- 中间部分 -->
+  <rect x="85" y="85" width="30" height="30" fill="#2563eb"/>
+  <text x="100" y="105" font-family="Arial" font-size="12" fill="white" text-anchor="middle">扎马</text>
+  
+  <!-- 随机QR码点 -->
+  <rect x="95" y="45" width="10" height="10" fill="#000"/>
+  <rect x="135" y="95" width="10" height="10" fill="#000"/>
+  <rect x="55" y="95" width="10" height="10" fill="#000"/>
+  <rect x="95" y="135" width="10" height="10" fill="#000"/>
+  <rect x="125" y="155" width="10" height="10" fill="#000"/>
+  <rect x="155" y="125" width="10" height="10" fill="#000"/>
+  <rect x="135" y="135" width="10" height="10" fill="#000"/>
+  <rect x="145" y="115" width="10" height="10" fill="#000"/>
+</svg> 
