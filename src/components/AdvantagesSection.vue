@@ -7,10 +7,7 @@
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="lg:text-center mb-16">
-        <h2 class="text-base text-accent-400 font-semibold tracking-wide uppercase relative inline-block">
-          核心优势
-          <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-accent-400 transform scale-x-0 transition-transform origin-left group-hover:scale-x-100"></span>
-        </h2>
+        
         <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-white sm:text-4xl bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
           扎马笔记：认知升级的操作系统
         </p>

@@ -3,7 +3,6 @@
     <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center mb-12">
-        <h2 class="text-base text-accent-400 font-semibold tracking-wide uppercase animate-pulse-subtle">开始使用</h2>
         <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-white sm:text-4xl">
           立即体验扎马笔记
         </p>

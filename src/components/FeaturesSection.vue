@@ -4,7 +4,6 @@
     <div class="particle-background" ref="particleContainer"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="lg:text-center">
-        <h2 class="text-base text-accent-400 font-semibold tracking-wide uppercase">核心能力</h2>
         <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-white sm:text-4xl">
           AI驱动的全场景生产力引擎
         </p>
