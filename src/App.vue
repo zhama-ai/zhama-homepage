@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-white overflow-x-hidden">
+  <div class="min-h-screen bg-dark-900 bg-grid-pattern overflow-x-hidden">
     <Header />
     <main class="animate-fadeIn">
       <HeroSection />

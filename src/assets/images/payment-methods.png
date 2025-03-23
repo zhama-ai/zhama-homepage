@@ -1,0 +1,13 @@
+<svg width="120" height="24" xmlns="http://www.w3.org/2000/svg">
+  <!-- Visa -->
+  <rect x="0" y="2" width="30" height="20" rx="2" fill="#1A1F71" />
+  <text x="15" y="16" font-family="Arial" font-size="10" fill="white" text-anchor="middle">VISA</text>
+  
+  <!-- Mastercard -->
+  <rect x="35" y="2" width="30" height="20" rx="2" fill="#EB001B" />
+  <text x="50" y="16" font-family="Arial" font-size="8" fill="white" text-anchor="middle">MC</text>
+  
+  <!-- Alipay -->
+  <rect x="70" y="2" width="30" height="20" rx="2" fill="#00A1E9" />
+  <text x="85" y="16" font-family="Arial" font-size="8" fill="white" text-anchor="middle">支付宝</text>
+</svg> 
