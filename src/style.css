@@ -1,3 +1,46 @@
+/* 全局字体设置 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* 标题样式 */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+/* 自定义过渡动效 */
+@layer components {
+  .transition-all-ease {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .hover-lift:hover {
+    @apply transform -translate-y-1;
+  }
+}
+
+/* 自定义动画 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
