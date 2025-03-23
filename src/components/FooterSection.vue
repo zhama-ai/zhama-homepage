@@ -4,7 +4,7 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
         <!-- 公司信息 -->
         <div class="col-span-1">
-          <h3 class="text-xl font-bold mb-6">扎马<span class="neon-text">笔记</span></h3>
+          <h3 class="text-xl font-bold mb-6">扎马<span class="neon-text">科技</span></h3>
           <p class="text-gray-300 leading-relaxed">
             基于最前沿人工智能技术，重新定义笔记的记录、整理与应用方式，让知识随需调用，支持深度思考。
           </p>
@@ -67,11 +67,11 @@
       <div class="mt-12 pt-8 border-t border-dark-500">
         <div class="flex flex-col md:flex-row justify-between items-center">
           <p class="text-gray-400 text-sm">
-            © 2023 扎马笔记. 保留所有权利.
+            © 2023 扎马科技. 保留所有权利.
           </p>
-          <p class="text-gray-400 text-sm mt-4 md:mt-0">
+          <!-- <p class="text-gray-400 text-sm mt-4 md:mt-0">
             京ICP备XXXXXXXX号-X | 京公网安备XXXXXXXXXXXX号
-          </p>
+          </p> -->
         </div>
       </div>
     </div>

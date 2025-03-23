@@ -4,7 +4,8 @@
       <div class="flex justify-between h-20">
         <div class="flex items-center">
           <div class="flex-shrink-0 flex items-center">
-            <span class="text-2xl font-semibold text-white">扎马<span class="neon-text">笔记</span></span>
+            <img src="@/assets/images/logo.png" alt="Logo" class="h-10 w-auto mr-2" />
+            <span class="text-2xl font-semibold text-white">扎马<span class="neon-text">科技</span></span>
           </div>
           <nav class="hidden md:ml-10 md:flex md:space-x-10">
             <a href="#" class="text-gray-300 hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">首页</a>
