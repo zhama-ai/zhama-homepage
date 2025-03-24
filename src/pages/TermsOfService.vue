@@ -101,7 +101,7 @@
             <p class="mb-4">如果您对本服务协议有任何问题或疑虑，请通过以下方式联系我们：</p>
             <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
               <p>电子邮箱：<a href="mailto:support@grasp.ai" class="text-blue-600 hover:underline">support@grasp.ai</a></p>
-              <p>地址：北京市海淀区中关村软件园</p>
+              <!-- <p>地址：北京市海淀区中关村软件园</p> -->
             </div>
           </section>
         </div>
