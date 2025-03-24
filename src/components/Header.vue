@@ -8,7 +8,7 @@
             <span class="text-2xl font-semibold text-white">扎马<span class="neon-text">科技</span></span>
           </div>
           <nav class="hidden md:ml-10 md:flex md:space-x-10">
-            <a href="#" class="text-gray-300 hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">首页</a>
+            <router-link to="/" class="text-gray-300 hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">首页</router-link>
             <a href="#features" class="text-gray-300 hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">核心能力</a>
             <a href="#advantages" class="text-gray-300 hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">产品价值</a>
             <a href="#download" class="text-gray-300 hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">立即使用</a>
@@ -33,7 +33,7 @@
     <!-- Mobile menu -->
     <div v-if="mobileMenuOpen" class="md:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-dark-700 border-t border-dark-600">
-        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-dark-600">首页</a>
+        <router-link to="/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-dark-600">首页</router-link>
         <a href="#features" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-dark-600">核心能力</a>
         <a href="#advantages" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-dark-600">产品价值</a>
         <a href="#download" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-dark-600">立即使用</a>
