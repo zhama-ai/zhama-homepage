@@ -85,19 +85,19 @@
             <div class="feature-display-wrapper w-full border border-accent-500/30 rounded-xl overflow-hidden">
               <img 
                 v-if="activeFeature === 0" 
-                src="/img/features/multi-source-collection.jpg" 
+                src="/images/features/multi-source-collection.jpg" 
                 alt="多源智能采集" 
                 class="w-full h-full object-cover"
               />
               <img 
                 v-if="activeFeature === 1" 
-                src="/img/features/ai-content-refinement.jpg" 
+                src="/images/features/ai-note.jpg" 
                 alt="AI内容精炼与摘要" 
                 class="w-full h-full object-cover"
               />
               <img 
                 v-if="activeFeature === 2" 
-                src="/img/features/knowledge-graph.jpg" 
+                src="/images/features/knowledge-graph.jpg" 
                 alt="智能分类与主动检索" 
                 class="w-full h-full object-cover"
               />
@@ -138,7 +138,7 @@
               </p>
               <div class="mt-4 w-full">
                 <div class="interactive-image">
-                  <img src="/img/features/audio-transcription.jpg" alt="实时录音与转写" class="w-full transition-all duration-500" />
+                  <img src="/images/features/audio-transcription.jpg" alt="实时录音与转写" class="w-full transition-all duration-500" />
                 </div>
               </div>
             </div>
@@ -158,7 +158,7 @@
               </p>
               <div class="mt-4 w-full">
                 <div class="interactive-image">
-                  <img src="/img/features/knowledge-assets.jpg" alt="知识资产化与复用" class="w-full transition-all duration-500" />
+                  <img src="/images/features/knowledge-assets.jpg" alt="知识资产化与复用" class="w-full transition-all duration-500" />
                 </div>
               </div>
             </div>
@@ -178,7 +178,7 @@
               </p>
               <div class="mt-4 w-full">
                 <div class="interactive-image">
-                  <img src="/img/features/professional-scenarios.jpg" alt="专业应用场景" class="w-full transition-all duration-500" />
+                  <img src="/images/features/professional-scenarios.jpg" alt="专业应用场景" class="w-full transition-all duration-500" />
                 </div>
               </div>
             </div>

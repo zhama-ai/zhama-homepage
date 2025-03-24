@@ -4,7 +4,7 @@
       <div class="flex justify-between h-20">
         <div class="flex items-center">
           <div class="flex-shrink-0 flex items-center">
-            <img src="@/assets/images/logo.png" alt="Logo" class="h-10 w-auto mr-2" />
+            <img src="/images/logo.png" alt="Logo" class="h-10 w-auto mr-2" />
             <span class="text-2xl font-semibold text-white">扎马<span class="neon-text">科技</span></span>
           </div>
           <nav class="hidden md:ml-10 md:flex md:space-x-10">

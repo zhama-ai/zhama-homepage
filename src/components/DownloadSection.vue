@@ -94,9 +94,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import deviceMockupImg from '@/assets/images/home-o.png';
 
-const deviceMockup = deviceMockupImg;
 const activePlatform = ref('ios');
 </script>
 
