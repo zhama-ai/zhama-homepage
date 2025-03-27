@@ -58,8 +58,14 @@
           <ul class="space-y-3">
             <li><a href="#about" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">公司介绍</a></li>
             <li><a href="#" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">加入我们</a></li>
-            <li><router-link to="/privacy-policy" target="_blank" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">隐私政策</router-link></li>
-            <li><router-link to="/terms-of-service" target="_blank" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">服务协议</router-link></li>
+            <li>
+              <a href="#privacy-policy" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">隐私政策</a>
+              <!-- <router-link to="/privacy-policy" class="ml-1 text-xs text-gray-500 hover:text-white transition duration-150 ease-in-out" target="_blank">(独立页面)</router-link> -->
+            </li>
+            <li>
+              <a href="#terms-of-service" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">服务协议</a>
+              <!-- <router-link to="/terms-of-service" class="ml-1 text-xs text-gray-500 hover:text-white transition duration-150 ease-in-out" target="_blank">(独立页面)</router-link> -->
+            </li>
           </ul>
         </div>
       </div>
