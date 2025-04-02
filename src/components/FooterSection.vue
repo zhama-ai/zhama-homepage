@@ -4,9 +4,9 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
         <!-- 公司信息 -->
         <div class="col-span-1">
-          <h3 class="text-xl font-bold mb-6">扎马<span class="neon-text">科技</span></h3>
+          <h3 class="text-xl font-bold mb-6">扎马<span class="neon-text">AI</span></h3>
           <p class="text-gray-300 leading-relaxed">
-            基于最前沿人工智能技术，重新定义笔记的记录、整理与应用方式，让知识随需调用，支持深度思考。
+            基于最前沿人工智能技术，融合深度知识管理与智能生活辅助，让每一次记录、思考、规划都转化为可搜索、可行动、可成长的智能资产。
           </p>
           <div class="mt-6 flex space-x-4">
             <a href="#" class="text-gray-400 hover:text-accent-400 transition duration-150 ease-in-out">
@@ -34,7 +34,7 @@
         <div class="col-span-1">
           <h3 class="text-lg font-semibold mb-6 text-accent-400">产品与服务</h3>
           <ul class="space-y-3">
-            <li><a href="#" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">扎马笔记</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">扎马AI</a></li>
             <li><a href="#" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">企业解决方案</a></li>
             <li><a href="#" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">API 集成</a></li>
             <li><a href="#download" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">立即使用</a></li>
@@ -56,8 +56,8 @@
         <div class="col-span-1">
           <h3 class="text-lg font-semibold mb-6 text-accent-400">关于我们</h3>
           <ul class="space-y-3">
-            <li><a href="#about" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">公司介绍</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">加入我们</a></li>
+            <!-- <li><a href="#about" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">公司介绍</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">加入我们</a></li> -->
             <li>
               <a href="#privacy-policy" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">隐私政策</a>
               <!-- <router-link to="/privacy-policy" class="ml-1 text-xs text-gray-500 hover:text-white transition duration-150 ease-in-out" target="_blank">(独立页面)</router-link> -->
@@ -73,7 +73,7 @@
       <div class="mt-12 pt-8 border-t border-dark-500">
         <div class="flex flex-col md:flex-row justify-between items-center">
           <p class="text-gray-400 text-sm">
-            © 2023 扎马科技. 保留所有权利.
+            © 2025 扎马AI. 保留所有权利.
           </p>
           <!-- <p class="text-gray-400 text-sm mt-4 md:mt-0">
             京ICP备XXXXXXXX号-X | 京公网安备XXXXXXXXXXXX号

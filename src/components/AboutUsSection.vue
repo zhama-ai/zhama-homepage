@@ -11,11 +11,11 @@
         <div ref="headerRef">
           <h2 class="text-accent-400 font-semibold text-lg uppercase tracking-wider mb-3">关于我们</h2>
           <p class="text-4xl font-bold tracking-tight text-white sm:text-5xl leading-tight">
-            用AI技术<span class="text-accent-400">重新定义</span>知识管理体验
+            用AI技术<span class="text-accent-400">重新定义</span>认知与生活体验
           </p>
           <p class="mt-6 text-xl text-gray-300 leading-relaxed">
-            扎马笔记融合尖端人工智能技术，彻底革新信息的获取、整理与转化方式，
-            助您构建高效决策系统，释放认知潜能
+            扎马AI融合尖端人工智能技术，革命性地融合深度知识管理与智能生活辅助，
+            助您提升效率、优化决策，实现品质生活
           </p>
         </div>
       </div>
@@ -33,10 +33,10 @@
           </h3>
           <div class="space-y-6">
             <p class="text-gray-300 leading-relaxed text-lg">
-              扎马笔记致力于构建全球领先的<span class="text-white font-medium">AI知识管理平台</span>，让每一次会议、访谈、阅读与思考，转化为结构化、可交互的洞见资产。
+              扎马AI致力于构建全球领先的<span class="text-white font-medium">AI认知与生活引擎</span>，让每一次记录、思考、规划都转化为可搜索、可行动、可成长的智能资产。
             </p>
             <p class="text-gray-300 leading-relaxed text-lg">
-              我们的核心团队汇聚<span class="text-white font-medium">顶尖AI研究机构与科技企业</span>的专业人才，拥有深厚的技术积淀和丰富的行业实践，致力于打造最符合人类认知规律的智能工作环境。
+              我们的核心团队汇聚<span class="text-white font-medium">顶尖AI研究机构与科技企业</span>的专业人才，拥有深厚的技术积淀和丰富的行业实践，致力于打造符合人类认知规律的智能生活环境。
             </p>
           </div>
           
@@ -62,9 +62,9 @@
       <!-- Final statement with typing animation -->
       <div class="mt-16 text-center" ref="footerRef">
         <p class="text-2xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
-          <span class="text-accent-400 font-bold">扎马笔记</span>，不止于工具，
+          <span class="text-accent-400 font-bold">扎马AI</span>，不止于工具，
           <br class="hidden sm:block" />
-          <span ref="typingText" class="inline-block h-8">重塑思考与决策的方式</span>
+          <span ref="typingText" class="inline-block h-8">重塑认知与生活的方式</span>
         </p>
       </div>
     </div>
@@ -106,29 +106,29 @@ onMounted(() => {
 // Features data
 const features = [
   {
-    title: "突破性AI技术",
-    description: "融合大语言模型与知识图谱技术，实现内容的智能理解、关联与推理",
+    title: "全面智能集成",
+    description: "融合大语言模型、知识图谱与多模态技术，实现跨场景、跨设备的全面信息智能处理",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
           </svg>`
   },
   {
-    title: "高效工作流",
-    description: "自动化信息提取、整理与检索流程，释放创造力，将时间专注于思考与决策",
+    title: "无缝生活管理",
+    description: "从工作笔记到生活规划，从财务管理到习惯养成，打造一站式个人与生活管理系统",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>`
   },
   {
-    title: "知识资产化",
-    description: "将零散信息转化为系统化知识网络，构建可持续增长的个人与组织智慧库",
+    title: "主动赋能决策",
+    description: "从被动记录到主动提醒，智能分析信息并提供洞见，赋能更高效的决策与行动执行",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
           </svg>`
   },
   {
-    title: "数据驱动决策",
-    description: "基于深度分析与智能推荐，辅助制定更精准、更具前瞻性的决策",
+    title: "深度个性化",
+    description: "随使用逐渐深入了解用户需求，提供更精准的推荐与服务，创造个性化的使用体验",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
           </svg>`
@@ -139,7 +139,7 @@ const features = [
 onMounted(async () => {
   await nextTick();
   if (typingText.value) {
-    const phrases = ["重塑思考与决策的方式", "激发创新与认知潜能", "打造个人知识管理体系"];
+    const phrases = ["重塑认知与生活的方式", "激发创新与效率潜能", "打造品质生活管理体系"];
     let currentPhraseIndex = 0;
     
     const typePhrase = async (phrase) => {

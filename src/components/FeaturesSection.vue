@@ -5,10 +5,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="lg:text-center">
         <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-white sm:text-4xl">
-          AI驱动的全场景生产力引擎
+          AI驱动的全能认知与生活引擎
         </p>
         <p class="mt-4 max-w-3xl text-xl text-gray-300 lg:mx-auto mb-12">
-          扎马笔记不仅是记录工具，更是你的AI知识中枢，能打破信息孤岛，深度提炼价值，主动赋能决策
+          扎马AI不仅是记录工具，更是你的AI驱动的认知与生活操作系统，融合深度知识管理与智能生活辅助
         </p>
       </div>
 
@@ -25,14 +25,14 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-white">多源智能采集</h3>
+                <h3 class="text-2xl font-bold text-white">全域智能采集</h3>
               </div>
               <p class="text-gray-300 leading-relaxed my-6">
-                支持文本、音频、图片、PDF、网页、YouTube视频等<span class="text-accent-400">全格式解析</span>，无论是会议录音、手写草图、白板照片，还是跨平台内容，AI自动识别并结构化归档。
+                支持<span class="text-accent-400">文本、语音、图片、PDF、网页、YouTube视频</span>等全格式解析，会议纪要、手写草图、白板照片、语音备忘、网页剪藏，AI自动识别并结构化归档。通过便捷的"操作按钮"或语音指令激活，轻松捕捉灵感与信息。
               </p>
               <div class="mt-auto flex flex-wrap gap-3">
                 <span class="feature-tag">文本识别</span>
-                <span class="feature-tag">音频转写</span>
+                <span class="feature-tag">语音转写</span>
                 <span class="feature-tag">图片解析</span>
                 <span class="feature-tag">PDF提取</span>
                 <span class="feature-tag">网页抓取</span>
@@ -46,16 +46,16 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                   </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-white">AI内容精炼与摘要</h3>
+                <h3 class="text-2xl font-bold text-white">AI内容精炼与洞察</h3>
               </div>
               <p class="text-gray-300 leading-relaxed my-6">
-                一键生成会议纪要、决策要点、项目待办清单，<span class="text-accent-400">节省90%整理时间</span>。支持逻辑结构提取与语义总结，适用于战略复盘、访谈分析、研究速览等场景。
+                一键生成会议纪要、决策要点、项目待办清单，<span class="text-accent-400">节省高达90%的整理时间</span>。支持逻辑结构提取、语义总结、情绪趋势分析，适用于工作复盘、用户访谈、研究速览、个人成长反思等场景。
               </p>
               <div class="mt-auto flex flex-wrap gap-3">
                 <span class="feature-tag">会议摘要</span>
                 <span class="feature-tag">决策要点</span>
                 <span class="feature-tag">待办清单</span>
-                <span class="feature-tag">结构化提炼</span>
+                <span class="feature-tag">情绪分析</span>
               </div>
             </div>
 
@@ -66,16 +66,16 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
                   </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-white">智能分类+主动检索</h3>
+                <h3 class="text-2xl font-bold text-white">智能组织与主动检索</h3>
               </div>
               <p class="text-gray-300 leading-relaxed my-6">
-                基于知识图谱按<span class="text-accent-400">项目/主题/人物/时间</span>自动分类，支持模糊搜索、标签筛选、时间线视图。交互式AI问答：直接提问如"上周会议的关键矛盾是什么？"，即时获取上下文精准答案。
+                基于知识图谱，按<span class="text-accent-400">项目/主题/人物/时间/情绪/收支类别</span>等智能分类，构建个人/团队知识网络。交互式AI问答：直接提问如"上周关于XX项目的关键风险是什么？"或"我近一个月的主要开销在哪方面？"，即时获取上下文精准答案。
               </p>
               <div class="mt-auto flex flex-wrap gap-3">
                 <span class="feature-tag">知识图谱</span>
                 <span class="feature-tag">语义搜索</span>
                 <span class="feature-tag">智能问答</span>
-                <span class="feature-tag">标签筛选</span>
+                <span class="feature-tag">多维分类</span>
               </div>
             </div>
           </div>
@@ -124,61 +124,61 @@
         <h3 class="text-xl font-bold text-white text-center mb-12">更多强大功能</h3>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- 功能4：实时录音+高精度转写 -->
+          <!-- 功能4：高效任务与时间管理 -->
           <div class="tech-card p-6 hover-lift transition-transform duration-300" data-aos="zoom-in" data-aos-delay="100">
             <div class="flex flex-col items-center text-center">
               <div class="flex items-center justify-center h-16 w-16 rounded-full bg-accent-600/20 text-accent-400 mb-4">
                 <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                 </svg>
               </div>
-              <h4 class="text-lg font-semibold text-white mb-2">实时录音+高精度转写</h4>
+              <h4 class="text-lg font-semibold text-white mb-2">高效任务与时间管理</h4>
               <p class="text-sm text-gray-300 leading-relaxed">
-                商务会议、客户访谈、培训课程全程录音，<span class="text-accent-400">语音转文字准确率超98%</span>，支持多语言识别与重点标记。
+                强大的待办事项、日程安排与提醒功能，支持<span class="text-accent-400">语音创建任务</span>。从会议记录、笔记中自动识别并生成行动项，一键添加到待办清单。
               </p>
               <div class="mt-4 w-full">
                 <div class="interactive-image">
-                  <img src="/images/features/audio-transcription.jpg" alt="实时录音与转写" class="w-full transition-all duration-500" />
+                  <img src="/images/features/audio-transcription.jpg" alt="高效任务与时间管理" class="w-full transition-all duration-500" />
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- 功能5：知识资产化与复用 -->
+          <!-- 功能5：习惯养成与健康追踪 -->
           <div class="tech-card p-6 hover-lift transition-transform duration-300" data-aos="zoom-in" data-aos-delay="200">
             <div class="flex flex-col items-center text-center">
               <div class="flex items-center justify-center h-16 w-16 rounded-full bg-accent-600/20 text-accent-400 mb-4">
                 <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                 </svg>
               </div>
-              <h4 class="text-lg font-semibold text-white mb-2">知识资产化与复用</h4>
+              <h4 class="text-lg font-semibold text-white mb-2">习惯养成与健康追踪</h4>
               <p class="text-sm text-gray-300 leading-relaxed">
-                个性化闪卡 & 智能测验：基于笔记生成记忆卡片与测试题，结合<span class="text-accent-400">间隔重复算法</span>，强化知识留存。
+                设定运动、阅读、学习等目标，利用待办清单与<span class="text-accent-400">习惯追踪器</span>培养良好习惯。可同步Apple Health等健康平台数据，结合饮食、运动记录，全面了解身体状况。
               </p>
               <div class="mt-4 w-full">
                 <div class="interactive-image">
-                  <img src="/images/features/knowledge-assets.jpg" alt="知识资产化与复用" class="w-full transition-all duration-500" />
+                  <img src="/images/features/knowledge-assets.jpg" alt="习惯养成与健康追踪" class="w-full transition-all duration-500" />
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- 功能6：适用各类专业场景 -->
+          <!-- 功能6：智能记账与财务管理 -->
           <div class="tech-card p-6 hover-lift transition-transform duration-300" data-aos="zoom-in" data-aos-delay="300">
             <div class="flex flex-col items-center text-center">
               <div class="flex items-center justify-center h-16 w-16 rounded-full bg-accent-600/20 text-accent-400 mb-4">
                 <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h4 class="text-lg font-semibold text-white mb-2">适用各类专业场景</h4>
+              <h4 class="text-lg font-semibold text-white mb-2">智能记账与财务管理</h4>
               <p class="text-sm text-gray-300 leading-relaxed">
-                职场效率专家：高管/创业者的战略会议要点速记，产品/咨询团队的<span class="text-accent-400">跨项目资料整合</span>，远程协作场景支持。
+                通过语音轻松记录每笔收支，"<span class="text-accent-400">报销打车费50元</span>"，AI自动分类记账。提供清晰的收支统计与预算管理，助你轻松掌控资金流向，简化理财。
               </p>
               <div class="mt-4 w-full">
                 <div class="interactive-image">
-                  <img src="/images/features/professional-scenarios.jpg" alt="专业应用场景" class="w-full transition-all duration-500" />
+                  <img src="/images/features/professional-scenarios.jpg" alt="智能记账与财务管理" class="w-full transition-all duration-500" />
                 </div>
               </div>
             </div>
@@ -195,7 +195,7 @@ import { onMounted, ref } from 'vue';
 
 const particleContainer = ref(null);
 const activeFeature = ref(0);
-const tabs = ['多源智能采集', 'AI内容精炼与摘要', '智能分类与检索'];
+const tabs = ['全域智能采集', 'AI内容精炼与洞察', '智能组织与主动检索'];
 
 // 创建粒子效果
 const createParticles = () => {
