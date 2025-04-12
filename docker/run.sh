@@ -1,1 +1,1 @@
-/bin/sh -c "envsubst < /app/nginx.conf.template > /etc/nginx/conf.d/default.conf && sed -i 's|__R__|$|g' /etc/nginx/conf.d/default.conf  && exec nginx -g 'daemon off;'"
+# /bin/sh -c "envsubst < /app/nginx.conf.template > /etc/nginx/conf.d/default.conf && sed -i 's|__R__|$|g' /etc/nginx/conf.d/default.conf  && exec nginx -g 'daemon off;'"

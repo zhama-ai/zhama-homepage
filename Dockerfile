@@ -12,4 +12,4 @@ EXPOSE 80
 
 USER nginx
 
-CMD ["/app/run.sh"]
+CMD ["nginx", "-g", "daemon off;"]
