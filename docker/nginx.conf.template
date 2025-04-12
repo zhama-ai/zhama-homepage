@@ -5,11 +5,11 @@ server {
   error_log /var/log/nginx/error.log;
   
   location / {
-    root /app
+    root /app;
   }
 
   location /download {
-    root /app
+    root /app;
   }
   
 }
