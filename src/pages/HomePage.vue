@@ -209,6 +209,9 @@
       <TermsOfServiceEN />
     </main>
   </div>
+  <div v-else-if="currentHash === 'download'" class="min-h-screen bg-white overflow-x-hidden">
+    <AppDownload />
+  </div>
   <div v-else class="min-h-screen bg-dark-900 bg-grid-pattern overflow-x-hidden">
     <Header />
     <main class="animate-fadeIn">
@@ -236,6 +239,7 @@ import ContactSection from '../components/ContactSection.vue';
 import FooterSection from '../components/FooterSection.vue';
 import PrivacyPolicyEN from '../pages/PrivacyPolicyEN.vue';
 import TermsOfServiceEN from '../pages/TermsOfServiceEN.vue';
+import AppDownload from '../pages/AppDownload.vue';
 // 获取当前路由实例
 const route = useRoute();
 const currentHash = ref('');
