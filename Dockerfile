@@ -7,6 +7,7 @@ COPY --chown=nginx:nginx ./docker/nginx.conf /etc/nginx/nginx.conf
 
 RUN chown -R nginx:nginx /etc/nginx 
 
+RUN chmod +x /app/run.sh
 EXPOSE 80
 
 USER nginx
