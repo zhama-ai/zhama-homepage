@@ -199,7 +199,16 @@
       </div>
     </main>
   </div>
-  
+  <div v-else-if="currentHash === 'privacy-policy-en'" class="min-h-screen bg-white overflow-x-hidden">
+    <main class="animate-fadeIn py-12">
+      <PrivacyPolicyEN />
+    </main>
+  </div>
+  <div v-else-if="currentHash === 'terms-of-service-en'" class="min-h-screen bg-white overflow-x-hidden">
+    <main class="animate-fadeIn py-12">
+      <TermsOfServiceEN />
+    </main>
+  </div>
   <div v-else class="min-h-screen bg-dark-900 bg-grid-pattern overflow-x-hidden">
     <Header />
     <main class="animate-fadeIn">
@@ -225,7 +234,8 @@ import DownloadSection from '../components/DownloadSection.vue';
 import AboutUsSection from '../components/AboutUsSection.vue';
 import ContactSection from '../components/ContactSection.vue';
 import FooterSection from '../components/FooterSection.vue';
-
+import PrivacyPolicyEN from '../pages/PrivacyPolicyEN.vue';
+import TermsOfServiceEN from '../pages/TermsOfServiceEN.vue';
 // 获取当前路由实例
 const route = useRoute();
 const currentHash = ref('');

@@ -66,6 +66,7 @@
               <a href="#terms-of-service" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">服务协议</a>
               <!-- <router-link to="/terms-of-service" class="ml-1 text-xs text-gray-500 hover:text-white transition duration-150 ease-in-out" target="_blank">(独立页面)</router-link> -->
             </li>
+           
           </ul>
         </div>
       </div>

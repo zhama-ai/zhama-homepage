@@ -2,6 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from './pages/HomePage.vue'
 import PrivacyPolicy from './pages/PrivacyPolicy.vue'
 import TermsOfService from './pages/TermsOfService.vue'
+import PrivacyPolicyEN from './pages/PrivacyPolicyEN.vue'
+import TermsOfServiceEN from './pages/TermsOfServiceEN.vue'
+import AppDownload from './pages/AppDownload.vue'
 
 const routes = [
   {
@@ -18,6 +21,21 @@ const routes = [
     path: '/terms-of-service',
     name: 'terms-of-service',
     component: TermsOfService
+  },
+  {
+    path: '/privacy-policy-en',
+    name: 'privacy-policy-en',
+    component: PrivacyPolicyEN
+  },
+  {
+    path: '/terms-of-service-en',
+    name: 'terms-of-service-en',
+    component: TermsOfServiceEN
+  },
+  {
+    path: '/download',
+    name: 'app-download',
+    component: AppDownload
   }
 ]
 
