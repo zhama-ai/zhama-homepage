@@ -1,12 +1,42 @@
 <template>
   <div class="min-h-screen bg-white overflow-x-hidden">
+    <!-- WeChat Open-in-Browser Overlay -->
+    <div v-if="isWechat && !maskClosed" class="wechat-browser-mask fixed inset-0 z-50 bg-black bg-opacity-70 flex flex-col items-stretch">
+      <div class="relative flex-1">
+        <!-- Top-right arrow pointing to menu -->
+        <div class="absolute top-3 right-10">
+          <div class="relative">
+            <!-- Arrow with glow effect -->
+            <div class="arrow-glow absolute inset-0"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-white transform rotate-20 animate-bounce-slow" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+            </svg>
+            <div class="absolute top-28 right-0 w-48 text-white text-lg font-bold text-center">
+              <p class="text-shadow">点击右上角</p>
+              <div class="flex items-center justify-center mt-1 mb-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                </svg>
+              </div>
+              <p class="text-shadow">选择 <span class="bg-white text-blue-600 px-1 rounded text-sm">在浏览器打开</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Bottom instructions -->
+      <div class="text-center text-white p-6 bg-black bg-opacity-60">
+        <p class="text-lg mb-2">请按照上方提示在浏览器中打开本页面</p>
+        <button @click="closeWeChatMask" class="mt-2 px-6 py-2 bg-yellow-500 text-black rounded-full font-bold hover:bg-yellow-400 transition-colors">我知道了</button>
+      </div>
+    </div>
+
     <main class="animate-fadeIn py-8 px-4">
       <div class="max-w-md mx-auto">
         <!-- Page Title -->
         <h1 class="text-2xl font-bold text-center text-gray-900 mb-6">下载扎马 AI 应用</h1>
         
-        <!-- WeChat Open-in-Browser Notice -->
-        <div v-if="isWechat" class="wechat-notice bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6 rounded-md shadow-sm">
+        <!-- WeChat Open-in-Browser Notice (smaller notice that remains after dismissing overlay) -->
+        <div v-if="isWechat && !maskClosed" class="wechat-notice bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6 rounded-md shadow-sm">
           <div class="flex">
             <div class="flex-shrink-0 text-yellow-500 mr-3">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
@@ -22,11 +52,6 @@
                 </svg>
                 然后选择<strong>"在浏览器中打开"</strong>
               </p>
-              <div class="flex flex-row-reverse">
-                <svg class="h-6 w-6 text-yellow-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </div>
             </div>
           </div>
         </div>
@@ -135,7 +160,9 @@ export default {
       // Detect if user is in WeChat browser
       isWechat: false,
       // Detect iOS platform
-      isIOS: false
+      isIOS: false,
+      // WeChat mask state
+      maskClosed: false
     }
   },
   mounted() {
@@ -149,6 +176,10 @@ export default {
     // Handle iOS app download - ensures App Store opens correctly
     openIOSAppStore() {
       window.location.href = this.iosAppStoreUrl;
+    },
+    // Close WeChat mask
+    closeWeChatMask() {
+      this.maskClosed = true;
     }
   }
 }
@@ -170,5 +201,51 @@ export default {
   100% {
     box-shadow: 0 0 0 0 rgba(253, 224, 71, 0);
   }
+}
+
+/* WeChat browser mask styles */
+.wechat-browser-mask {
+  backdrop-filter: blur(2px);
+}
+
+/* Custom slow bounce animation for the arrow */
+.animate-bounce-slow {
+  animation: bounce-slow 2s infinite;
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0) rotate(20deg);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-15px) rotate(20deg);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+/* Arrow glow effect */
+.arrow-glow {
+  animation: glow 1.5s ease-in-out infinite alternate;
+  border-radius: 50%;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+  }
+  to {
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Text shadow for better readability */
+.text-shadow {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Rotate by 20 degrees */
+.rotate-20 {
+  transform: rotate(20deg);
 }
 </style> 
