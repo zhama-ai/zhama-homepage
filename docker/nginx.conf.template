@@ -6,10 +6,12 @@ server {
   
   location / {
     root /app;
+    try_files $uri $uri/ /index.html;
   }
 
   location /download {
     root /app;
+    try_files $uri $uri/ /index.html;
   }
   
 }
