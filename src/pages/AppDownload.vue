@@ -154,9 +154,9 @@ export default {
   data() {
     return {
       // App Store URL using universal link format for direct opening in App Store
-      iosAppStoreUrl: 'https://itunes.apple.com/app/id********',
+      iosAppStoreUrl: 'https://itunes.apple.com/app/id6472388362',
       // Android Download URL - Replace with your actual Google Play or APK download URL
-      androidDownloadUrl: 'https://play.google.com/store/apps/details?id=your.package.id',
+      androidDownloadUrl: 'https://static-1251849568.cos.ap-guangzhou.myqcloud.com/apks/app-release.apk',
       // Detect if user is in WeChat browser
       isWechat: false,
       // Detect iOS platform
