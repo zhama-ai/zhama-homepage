@@ -127,7 +127,7 @@
               </div>
               <div class="flex-1">
                 <span class="block text-sm font-normal">立即体验</span>
-                <span class="block text-base font-bold group-hover:translate-x-1 transition-transform">打开扎马 AI 网页版</span>
+                <span class="block text-base font-bold group-hover:translate-x-1 transition-transform">打开扎马AI</span>
               </div>
               <div class="flex-shrink-0 text-white opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
