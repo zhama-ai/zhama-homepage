@@ -92,10 +92,10 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
-const activePlatform = ref('ios');
+const activePlatform = ref<string>('ios');
 </script>
 
 <style scoped>

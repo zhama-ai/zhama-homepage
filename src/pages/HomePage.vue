@@ -191,7 +191,7 @@
             <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-4">11. 联系我们</h2>
             <p class="mb-4">如果您对本服务协议有任何问题或疑虑，请通过以下方式联系我们：</p>
             <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
-              <p>电子邮箱：<a href="mailto:support@grasp.ai" class="text-blue-600 hover:underline">support@grasp.ai</a></p>
+              <p>电子邮箱：<a href="mailto:support@zhama.com" class="text-blue-600 hover:underline">support@zhama.com</a></p>
               <!-- <p>地址：北京市海淀区中关村软件园</p> -->
             </div>
           </section>
@@ -226,7 +226,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import Header from '../components/Header.vue';
@@ -242,10 +242,10 @@ import TermsOfServiceEN from '../pages/TermsOfServiceEN.vue';
 import AppDownload from '../pages/AppDownload.vue';
 // 获取当前路由实例
 const route = useRoute();
-const currentHash = ref('');
+const currentHash = ref<string>('');
 
 // 处理hash变化
-const handleHashChange = () => {
+const handleHashChange = (): void => {
   // 去掉#号
   currentHash.value = window.location.hash.substring(1);
 };
@@ -263,5 +263,8 @@ onMounted(() => {
   handleHashChange();
   // 监听hash变化
   window.addEventListener('hashchange', handleHashChange);
+
+
+  
 });
 </script> 

@@ -100,7 +100,7 @@
             <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-4">11. 联系我们</h2>
             <p class="mb-4">如果您对本服务协议有任何问题或疑虑，请通过以下方式联系我们：</p>
             <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
-              <p>电子邮箱：<a href="mailto:support@grasp.ai" class="text-blue-600 hover:underline">support@grasp.ai</a></p>
+              <p>电子邮箱：<a href="mailto:support@zhama.com" class="text-blue-600 hover:underline">support@zhama.com</a></p>
               <!-- <p>地址：北京市海淀区中关村软件园</p> -->
             </div>
           </section>
@@ -110,6 +110,6 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 // 移除了Header和FooterSection的导入
 </script> 

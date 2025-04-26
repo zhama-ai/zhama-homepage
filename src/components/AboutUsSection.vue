@@ -71,17 +71,24 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, nextTick } from 'vue';
 import { MotionPlugin, useMotion } from '@vueuse/motion';
 
+// Define types
+interface Feature {
+  title: string;
+  description: string;
+  icon: string;
+}
+
 // Typing animation reference
-const typingText = ref(null);
+const typingText = ref<HTMLElement | null>(null);
 
 // For motion animations
-const headerRef = ref(null);
-const visionRef = ref(null);
-const footerRef = ref(null);
+const headerRef = ref<HTMLElement | null>(null);
+const visionRef = ref<HTMLElement | null>(null);
+const footerRef = ref<HTMLElement | null>(null);
 
 // Apply motions
 onMounted(() => {
@@ -104,7 +111,7 @@ onMounted(() => {
 });
 
 // Features data
-const features = [
+const features: Feature[] = [
   {
     title: "全面智能集成",
     description: "融合大语言模型、知识图谱与多模态技术，实现跨场景、跨设备的全面信息智能处理",
@@ -139,11 +146,13 @@ const features = [
 onMounted(async () => {
   await nextTick();
   if (typingText.value) {
-    const phrases = ["重塑认知与生活的方式", "激发创新与效率潜能", "打造品质生活管理体系"];
-    let currentPhraseIndex = 0;
+    const phrases: string[] = ["重塑认知与生活的方式", "激发创新与效率潜能", "打造品质生活管理体系"];
+    let currentPhraseIndex: number = 0;
     
-    const typePhrase = async (phrase) => {
+    const typePhrase = async (phrase: string): Promise<void> => {
       const element = typingText.value;
+      if (!element) return;
+      
       element.textContent = "";
       
       // Type characters one by one

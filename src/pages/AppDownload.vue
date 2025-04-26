@@ -112,25 +112,91 @@
           </div>
         </div>
 
-        <!-- Download Buttons -->
-        <div class="space-y-4">
-          <a href="javascript:void(0)" @click.prevent="openIOSAppStore" class="block w-full bg-accent-500 hover:bg-accent-400 text-white font-medium py-4 px-6 rounded-lg shadow-md transition-all duration-300 text-center">
-            <div class="flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 384 512" fill="currentColor">
-                <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
-              </svg>
-              <span>iOS 版下载</span>
+        <!-- Download Buttons - Redesigned Layout -->
+        <div class="space-y-6">
+          <h2 class="text-xl font-semibold text-gray-900 mb-3">获取扎马 AI</h2>
+          
+          <!-- Web App Button -->
+          <a href="http://localhost:5173/app/home?code=123456" target="_blank" 
+             class="group block w-full bg-gradient-to-r from-blue-500 to-accent-500 hover:from-blue-600 hover:to-accent-600 text-white font-medium py-3 px-5 rounded-xl shadow-md transition-all duration-300">
+            <div class="flex items-center">
+              <div class="flex-shrink-0 bg-white bg-opacity-20 p-2.5 rounded-lg mr-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9" />
+                </svg>
+              </div>
+              <div class="flex-1">
+                <span class="block text-sm font-normal">立即体验</span>
+                <span class="block text-base font-bold group-hover:translate-x-1 transition-transform">打开扎马 AI 网页版</span>
+              </div>
+              <div class="flex-shrink-0 text-white opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </div>
             </div>
           </a>
           
-          <a :href="androidDownloadUrl" target="_blank" class="block w-full bg-gray-800 hover:bg-gray-700 text-white font-medium py-4 px-6 rounded-lg shadow-md transition-all duration-300 text-center">
-            <div class="flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 576 512" fill="currentColor">
-                <path d="M420.55,301.93a24,24,0,1,1,24-24,24,24,0,0,1-24,24m-265.1,0a24,24,0,1,1,24-24,24,24,0,0,1-24,24m273.7-144.48,47.94-83a10,10,0,1,0-17.27-10h0l-48.54,84.07a301.25,301.25,0,0,0-246.56,0L116.18,64.45a10,10,0,1,0-17.27,10h0l47.94,83C64.53,202.22,8.24,285.55,0,384H576c-8.24-98.45-64.54-181.78-146.85-226.55"/>
-              </svg>
-              <span>Android 版下载</span>
+          <div class="relative py-2">
+            <div class="absolute inset-0 flex items-center">
+              <div class="w-full border-t border-gray-200"></div>
             </div>
-          </a>
+            <div class="relative flex justify-center">
+              <span class="bg-white px-3 text-sm text-gray-500">下载应用</span>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- iOS App Button -->
+            <a href="javascript:void(0)" @click.prevent="openIOSAppStore"
+               class="group flex flex-col h-full bg-white border border-gray-200 hover:border-accent-300 hover:shadow-lg rounded-xl p-4 transition-all duration-300">
+              <div class="flex items-center mb-3">
+                <div class="flex-shrink-0 bg-black rounded-xl p-2 mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 384 512" fill="currentColor">
+                    <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+                  </svg>
+                </div>
+                <div>
+                  <span class="block text-sm text-gray-500">App Store</span>
+                  <span class="block text-base font-bold text-gray-900">iOS 版下载</span>
+                </div>
+              </div>
+              <div class="mt-auto pt-2 border-t border-gray-100 flex justify-between items-center">
+                <span class="text-xs text-gray-500">适用于 iPhone/iPad</span>
+                <span class="flex items-center text-accent-500 group-hover:translate-x-1 transition-transform">
+                  <span class="text-sm font-medium mr-1">下载</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+            
+            <!-- Android App Button -->
+            <a :href="androidDownloadUrl" target="_blank"
+               class="group flex flex-col h-full bg-white border border-gray-200 hover:border-accent-300 hover:shadow-lg rounded-xl p-4 transition-all duration-300">
+              <div class="flex items-center mb-3">
+                <div class="flex-shrink-0 bg-accent-500 rounded-xl p-2 mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 576 512" fill="currentColor">
+                    <path d="M420.55,301.93a24,24,0,1,1,24-24,24,24,0,0,1-24,24m-265.1,0a24,24,0,1,1,24-24,24,24,0,0,1-24,24m273.7-144.48,47.94-83a10,10,0,1,0-17.27-10h0l-48.54,84.07a301.25,301.25,0,0,0-246.56,0L116.18,64.45a10,10,0,1,0-17.27,10h0l47.94,83C64.53,202.22,8.24,285.55,0,384H576c-8.24-98.45-64.54-181.78-146.85-226.55"/>
+                  </svg>
+                </div>
+                <div>
+                  <span class="block text-sm text-gray-500">Android</span>
+                  <span class="block text-base font-bold text-gray-900">安卓版下载</span>
+                </div>
+              </div>
+              <div class="mt-auto pt-2 border-t border-gray-100 flex justify-between items-center">
+                <span class="text-xs text-gray-500">直接下载APK文件</span>
+                <span class="flex items-center text-accent-500 group-hover:translate-x-1 transition-transform">
+                  <span class="text-sm font-medium mr-1">下载</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </div>
         </div>
 
         <!-- QR Code Section (Optional) -->
@@ -148,13 +214,23 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+interface AppDownloadData {
+  iosAppStoreUrl: string;
+  androidDownloadUrl: string;
+  isWechat: boolean;
+  isIOS: boolean;
+  maskClosed: boolean;
+}
+
+export default defineComponent({
   name: 'AppDownload',
-  data() {
+  data(): AppDownloadData {
     return {
       // App Store URL using universal link format for direct opening in App Store
-      iosAppStoreUrl: 'https://itunes.apple.com/app/id6472388362',
+      iosAppStoreUrl: 'https://itunes.apple.com/app/6472388362',
       // Android Download URL - Replace with your actual Google Play or APK download URL
       androidDownloadUrl: 'https://static-1251849568.cos.ap-guangzhou.myqcloud.com/apks/app-release.apk',
       // Detect if user is in WeChat browser
@@ -170,19 +246,32 @@ export default {
     this.isWechat = /MicroMessenger/i.test(navigator.userAgent);
     
     // Detect iOS platform
-    this.isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    this.isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+
+
+    // Get code from URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+    console.log(code);
+    // if (code) {
+    //   // Store the code in localStorage for later use
+    //   // localStorage.setItem('inviteCode', code);
+    //   setTimeout(() => {
+    //     window.location.href = `https://www.zhama.com/app/home?code=${code}`;
+    //   }, 1000);
+    // }
   },
   methods: {
     // Handle iOS app download - ensures App Store opens correctly
-    openIOSAppStore() {
+    openIOSAppStore(): void {
       window.location.href = this.iosAppStoreUrl;
     },
     // Close WeChat mask
-    closeWeChatMask() {
+    closeWeChatMask(): void {
       this.maskClosed = true;
     }
   }
-}
+})
 </script>
 
 <style scoped>

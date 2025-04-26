@@ -189,40 +189,40 @@
   </section>
 </template>
 
-<script setup>
-// 可以在这里引入需要的图片或其他资源
+<script setup lang="ts">
 import { onMounted, ref } from 'vue';
+import type { Ref } from 'vue';
 
-const particleContainer = ref(null);
-const activeFeature = ref(0);
-const tabs = ['全域智能采集', 'AI内容精炼与洞察', '智能组织与主动检索'];
+const particleContainer: Ref<HTMLElement | null> = ref(null);
+const activeFeature: Ref<number> = ref(0);
+const tabs: string[] = ['全域智能采集', 'AI内容精炼与洞察', '智能组织与主动检索'];
 
 // 创建粒子效果
-const createParticles = () => {
+const createParticles = (): void => {
   if (!particleContainer.value) return;
   
-  const container = particleContainer.value;
-  const containerWidth = container.offsetWidth;
-  const containerHeight = container.offsetHeight;
+  const container: HTMLElement = particleContainer.value;
+  const containerWidth: number = container.offsetWidth;
+  const containerHeight: number = container.offsetHeight;
   
   // 清空容器
   container.innerHTML = '';
   
   // 创建粒子
   for (let i = 0; i < 30; i++) {
-    const particle = document.createElement('div');
+    const particle: HTMLDivElement = document.createElement('div');
     particle.classList.add('particle');
     
     // 随机位置
-    const x = Math.random() * containerWidth;
-    const y = Math.random() * containerHeight;
+    const x: number = Math.random() * containerWidth;
+    const y: number = Math.random() * containerHeight;
     
     // 随机大小
-    const size = Math.random() * 4 + 1;
+    const size: number = Math.random() * 4 + 1;
     
     // 随机动画持续时间
-    const duration = Math.random() * 10 + 10;
-    const delay = Math.random() * 5;
+    const duration: number = Math.random() * 10 + 10;
+    const delay: number = Math.random() * 5;
     
     // 应用样式
     particle.style.left = `${x}px`;
@@ -245,19 +245,19 @@ onMounted(() => {
   
   // 首次加载时添加动画类
   setTimeout(() => {
-    const elements = document.querySelectorAll('[data-aos]');
-    elements.forEach(element => {
+    const elements: NodeListOf<Element> = document.querySelectorAll('[data-aos]');
+    elements.forEach((element: Element) => {
       element.classList.add('aos-animate');
     });
   }, 100);
 
   // 监听滚动事件，在元素进入视口时添加动画类
-  const handleScroll = () => {
-    const elements = document.querySelectorAll('[data-aos]:not(.aos-animate)');
+  const handleScroll = (): void => {
+    const elements: NodeListOf<Element> = document.querySelectorAll('[data-aos]:not(.aos-animate)');
     
-    elements.forEach(element => {
-      const elementPosition = element.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
+    elements.forEach((element: Element) => {
+      const elementPosition: number = element.getBoundingClientRect().top;
+      const windowHeight: number = window.innerHeight;
       
       if (elementPosition < windowHeight * 0.9) {
         element.classList.add('aos-animate');

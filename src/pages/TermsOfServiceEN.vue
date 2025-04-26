@@ -20,6 +20,6 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 // No imports needed
 </script> 

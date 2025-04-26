@@ -59,7 +59,7 @@
               <li>限制或反对处理您的个人信息</li>
               <li>获取您的个人信息的副本</li>
             </ul>
-            <p>要行使这些权利，请通过 support@grasp.ai 联系我们。</p>
+            <p>要行使这些权利，请通过 support@zhama.com 联系我们。</p>
           </section>
 
           <section class="mb-8">
@@ -91,6 +91,6 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 // 移除了Header和FooterSection的导入
 </script> 

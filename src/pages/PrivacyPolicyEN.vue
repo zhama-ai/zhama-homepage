@@ -59,7 +59,7 @@
               <li>Restrict or object to the processing of your personal information</li>
               <li>Obtain a copy of your personal information</li>
             </ul>
-            <p>To exercise these rights, please contact us at support@grasp.ai.</p>
+            <p>To exercise these rights, please contact us at support@zhama.com.</p>
           </section>
 
           <section class="mb-8">
@@ -81,7 +81,7 @@
             <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-4">9. Contact Us</h2>
             <p class="mb-4">If you have any questions or concerns about this Privacy Policy, or if you want to exercise your privacy rights, please contact us through the following methods:</p>
             <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
-              <p>Email: <a href="mailto:support@grasp.ai" class="text-blue-600 hover:underline">support@zhama.com</a></p>
+              <p>Email: <a href="mailto:support@zhama.com" class="text-blue-600 hover:underline">support@zhama.com</a></p>
               <!-- <p>Address: Zhongguancun Software Park, Haidian District, Beijing</p> -->
             </div>
           </section>
@@ -91,6 +91,6 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 // Removed Header and FooterSection imports
 </script> 
