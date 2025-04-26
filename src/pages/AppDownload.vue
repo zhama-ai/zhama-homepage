@@ -62,51 +62,79 @@
             <img src="/images/logo.png" alt="扎马 AI Logo" class="w-full h-full object-contain">
           </div>
           <h1 class="text-3xl font-bold text-gray-900 mb-2">扎马 AI</h1>
-          <p class="text-gray-600">智能笔记与知识管理工具</p>
+          <p class="text-gray-600 text-lg">你的全能认知与生活引擎</p>
+          <p class="text-accent-600 font-medium mt-2 text-sm">记得少，想得深，做得快，活得好</p>
         </div>
 
         <!-- App Features -->
         <div class="mb-8">
-          <h2 class="text-xl font-semibold text-gray-900 mb-4">应用亮点</h2>
-          <div class="space-y-3">
+          <h2 class="text-xl font-semibold text-gray-900 mb-4">为什么选择扎马 AI？</h2>
+          <div class="space-y-4">
             <div class="flex items-start">
               <div class="flex-shrink-0 text-accent-500">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
               </div>
               <div class="ml-3">
-                <p class="text-gray-700">AI 驱动的智能笔记系统</p>
+                <p class="text-gray-800 font-medium">全域智能采集</p>
+                <p class="text-gray-600 text-sm">支持文本、语音、图片、PDF、网页等全格式解析，98%准确率的实时语音转文字</p>
               </div>
             </div>
             <div class="flex items-start">
               <div class="flex-shrink-0 text-accent-500">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
               </div>
               <div class="ml-3">
-                <p class="text-gray-700">自动生成知识图谱</p>
+                <p class="text-gray-800 font-medium">AI内容精炼与洞察</p>
+                <p class="text-gray-600 text-sm">一键生成会议纪要、决策要点、待办清单，节省90%整理时间</p>
               </div>
             </div>
             <div class="flex items-start">
               <div class="flex-shrink-0 text-accent-500">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
               </div>
               <div class="ml-3">
-                <p class="text-gray-700">多设备同步与云端备份</p>
+                <p class="text-gray-800 font-medium">高效任务与时间管理</p>
+                <p class="text-gray-600 text-sm">智能待办事项、日程规划与提醒，自动从会议记录生成行动项</p>
               </div>
             </div>
             <div class="flex items-start">
               <div class="flex-shrink-0 text-accent-500">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
               </div>
               <div class="ml-3">
-                <p class="text-gray-700">智能搜索与内容推荐</p>
+                <p class="text-gray-800 font-medium">智能记账与财务管理</p>
+                <p class="text-gray-600 text-sm">语音记账、智能分类、财务概览，轻松掌控资金流向</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Ideal for sections -->
+          <div class="mt-6 bg-gradient-to-r from-accent-50 to-blue-50 p-4 rounded-lg border border-accent-100">
+            <h3 class="font-medium text-accent-700 mb-2">适用人群</h3>
+            <div class="grid grid-cols-2 gap-2 text-sm">
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
+                <span class="text-gray-700">高管/创业者</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
+                <span class="text-gray-700">产品/研究人员</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
+                <span class="text-gray-700">学生/终身学习者</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
+                <span class="text-gray-700">生活规划者</span>
               </div>
             </div>
           </div>
@@ -114,7 +142,7 @@
 
         <!-- Download Buttons - Redesigned Layout -->
         <div class="space-y-6">
-          <h2 class="text-xl font-semibold text-gray-900 mb-3">获取扎马 AI</h2>
+          <h2 class="text-xl font-semibold text-gray-900 mb-3">立即体验，让AI成为你最强大的效率杠杆与生活伙伴</h2>
           
           <!-- Web App Button -->
           <a :href="appLinksUrl" target="_blank" 
@@ -164,7 +192,7 @@
               <div class="mt-auto pt-2 border-t border-gray-100 flex justify-between items-center">
                 <span class="text-xs text-gray-500">适用于 iPhone/iPad</span>
                 <span class="flex items-center text-accent-500 group-hover:translate-x-1 transition-transform">
-                  <span class="text-sm font-medium mr-1">下载</span>
+                  <span class="text-sm font-medium mr-1">立即获取</span>
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                   </svg>
@@ -189,7 +217,7 @@
               <div class="mt-auto pt-2 border-t border-gray-100 flex justify-between items-center">
                 <span class="text-xs text-gray-500">直接下载APK文件</span>
                 <span class="flex items-center text-accent-500 group-hover:translate-x-1 transition-transform">
-                  <span class="text-sm font-medium mr-1">下载</span>
+                  <span class="text-sm font-medium mr-1">立即获取</span>
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                   </svg>
@@ -206,7 +234,7 @@
             <!-- Real QR code image -->
             <img src="/images/link_qrcode.png" alt="扎马 AI 下载二维码" class="w-full h-full object-contain" />
           </div>
-          <p class="text-xs text-gray-500 mt-2">扫描上方二维码，获取扎马 AI</p>
+          <p class="text-xs text-gray-500 mt-2">扫描二维码，立即开启AI赋能新体验</p>
         </div>
       </div>
     </main>
