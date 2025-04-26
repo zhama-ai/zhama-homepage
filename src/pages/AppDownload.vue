@@ -256,13 +256,13 @@ export default defineComponent({
     const code = urlParams.get('code');
     console.log(code);
     this.appLinksUrl = `zhamaapp://app/home?code=${code}`;
-    // if (code) {
-    //   // Store the code in localStorage for later use
-    //   // localStorage.setItem('inviteCode', code);
-    //   setTimeout(() => {
-    //     window.location.href = `https://www.zhama.com/app/home?code=${code}`;
-    //   }, 1000);
-    // }
+    if (code) {
+      // Store the code in localStorage for later use
+      // localStorage.setItem('inviteCode', code);
+      setTimeout(() => {
+        window.location.href = `zhamaapp://app/home?code=${code}`;
+      }, 500);
+    }
   },
   methods: {
     // Handle iOS app download - ensures App Store opens correctly
