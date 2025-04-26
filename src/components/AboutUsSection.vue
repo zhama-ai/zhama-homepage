@@ -73,7 +73,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, nextTick } from 'vue';
-import { MotionPlugin, useMotion } from '@vueuse/motion';
+// import {  useMotion } from '@vueuse/motion';
 
 // Define types
 interface Feature {
@@ -92,20 +92,20 @@ const footerRef = ref<HTMLElement | null>(null);
 
 // Apply motions
 onMounted(() => {
-  const headerMotion = useMotion(headerRef, {
-    initial: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 800 } }
-  });
+  // const headerMotion = useMotion(headerRef, {
+  //   initial: { opacity: 0, y: 50 },
+  //   visible: { opacity: 1, y: 0, transition: { duration: 800 } }
+  // });
   
-  const visionMotion = useMotion(visionRef, {
-    initial: { opacity: 0 },
-    visible: { opacity: 1, transition: { delay: 300, duration: 800 } }
-  });
+  // const visionMotion = useMotion(visionRef, {
+  //   initial: { opacity: 0 },
+  //   visible: { opacity: 1, transition: { delay: 300, duration: 800 } }
+  // });
   
-  const footerMotion = useMotion(footerRef, {
-    initial: { opacity: 0 },
-    visible: { opacity: 1, transition: { delay: 800, duration: 1000 } }
-  });
+  // const footerMotion = useMotion(footerRef, {
+  //   initial: { opacity: 0 },
+  //   visible: { opacity: 1, transition: { delay: 800, duration: 1000 } }
+  // });
   
   // Feature card animations will be handled with CSS
 });

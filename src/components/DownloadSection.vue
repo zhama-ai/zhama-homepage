@@ -93,9 +93,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+// import { ref } from 'vue';
 
-const activePlatform = ref<string>('ios');
+// const activePlatform = ref<string>('ios');
 </script>
 
 <style scoped>
