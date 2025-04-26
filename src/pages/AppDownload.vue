@@ -117,7 +117,7 @@
           <h2 class="text-xl font-semibold text-gray-900 mb-3">获取扎马 AI</h2>
           
           <!-- Web App Button -->
-          <a href="http://localhost:5173/app/home?code=123456" target="_blank" 
+          <a :href="appLinksUrl" target="_blank" 
              class="group block w-full bg-gradient-to-r from-blue-500 to-accent-500 hover:from-blue-600 hover:to-accent-600 text-white font-medium py-3 px-5 rounded-xl shadow-md transition-all duration-300">
             <div class="flex items-center">
               <div class="flex-shrink-0 bg-white bg-opacity-20 p-2.5 rounded-lg mr-4">
@@ -223,6 +223,7 @@ interface AppDownloadData {
   isWechat: boolean;
   isIOS: boolean;
   maskClosed: boolean;
+  appLinksUrl: string;
 }
 
 export default defineComponent({
@@ -238,7 +239,9 @@ export default defineComponent({
       // Detect iOS platform
       isIOS: false,
       // WeChat mask state
-      maskClosed: false
+      maskClosed: false,
+      // App Links URL
+      appLinksUrl: 'https://www.zhama.com/app/home?code=123456'
     }
   },
   mounted() {
@@ -253,6 +256,7 @@ export default defineComponent({
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
     console.log(code);
+    this.appLinksUrl = `https://www.zhama.com/app/home?code=${code}`;
     // if (code) {
     //   // Store the code in localStorage for later use
     //   // localStorage.setItem('inviteCode', code);
