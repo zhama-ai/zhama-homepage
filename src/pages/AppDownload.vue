@@ -255,7 +255,7 @@ export default defineComponent({
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
     console.log(code);
-    this.appLinksUrl = `https://www.zhama.com/app/home?code=${code}`;
+    this.appLinksUrl = `zhamaapp://app/home?code=${code}`;
     // if (code) {
     //   // Store the code in localStorage for later use
     //   // localStorage.setItem('inviteCode', code);
