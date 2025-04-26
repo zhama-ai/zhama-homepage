@@ -256,7 +256,7 @@ export default defineComponent({
     const code = urlParams.get('code');
     console.log(code);
     this.appLinksUrl = `zhamaapp://app/home?code=${code}`;
-    if (code) {
+    if (this.isIOS) {
       // Store the code in localStorage for later use
       // localStorage.setItem('inviteCode', code);
       setTimeout(() => {
