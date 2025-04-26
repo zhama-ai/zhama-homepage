@@ -202,12 +202,11 @@
         <!-- QR Code Section (Optional) -->
         <div class="mt-8 text-center">
           <p class="text-sm text-gray-500 mb-2">或扫描二维码下载</p>
-          <div class="w-40 h-40 bg-white p-2 mx-auto rounded-md shadow-md border border-gray-200">
-            <!-- Placeholder for QR code image -->
-            <div class="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400 text-xs">
-              扫描下载
-            </div>
+          <div class="w-48 h-48 bg-white p-2 mx-auto rounded-md shadow-md border border-gray-200 overflow-hidden">
+            <!-- Real QR code image -->
+            <img src="/images/link_qrcode.png" alt="扎马 AI 下载二维码" class="w-full h-full object-contain" />
           </div>
+          <p class="text-xs text-gray-500 mt-2">扫描上方二维码，获取扎马 AI</p>
         </div>
       </div>
     </main>
