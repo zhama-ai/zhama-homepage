@@ -286,12 +286,12 @@ export default defineComponent({
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
     console.log(code);
-    this.appLinksUrl = `zhamaapp://app/home?code=${code}`;
+    this.appLinksUrl = `zhamaapp://app/home?route=invite&code=${code}`;
     if (this.isIOS || this.isAndroid ) {
       // Store the code in localStorage for later use
       // localStorage.setItem('inviteCode', code);
       setTimeout(() => {
-        window.location.href = `zhamaapp://app/home?code=${code}`;
+        window.location.href = this.appLinksUrl;
       }, 500);
     }
   },
