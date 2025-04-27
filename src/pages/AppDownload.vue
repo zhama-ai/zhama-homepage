@@ -249,6 +249,7 @@ interface AppDownloadData {
   androidDownloadUrl: string;
   isWechat: boolean;
   isIOS: boolean;
+  isAndroid: boolean;
   maskClosed: boolean;
   appLinksUrl: string;
 }
@@ -265,6 +266,8 @@ export default defineComponent({
       isWechat: false,
       // Detect iOS platform
       isIOS: false,
+
+      isAndroid: false,
       // WeChat mask state
       maskClosed: false,
       // App Links URL
@@ -278,13 +281,13 @@ export default defineComponent({
     // Detect iOS platform
     this.isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
 
-
+    this.isAndroid = /Android/.test(navigator.userAgent);
     // Get code from URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
     console.log(code);
     this.appLinksUrl = `zhamaapp://app/home?code=${code}`;
-    if (this.isIOS) {
+    if (this.isIOS || this.isAndroid ) {
       // Store the code in localStorage for later use
       // localStorage.setItem('inviteCode', code);
       setTimeout(() => {
