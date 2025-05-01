@@ -259,7 +259,7 @@ export default defineComponent({
   data(): AppDownloadData {
     return {
       // App Store URL using universal link format for direct opening in App Store
-      iosAppStoreUrl: 'https://itunes.apple.com/app/6472388362',
+      iosAppStoreUrl: 'https://apps.apple.com/us/app/%E6%89%8E%E9%A9%ACai/id6744411300',
       // Android Download URL - Replace with your actual Google Play or APK download URL
       androidDownloadUrl: 'https://static-1251849568.cos.ap-guangzhou.myqcloud.com/apks/app-release.apk',
       // Detect if user is in WeChat browser
@@ -271,7 +271,7 @@ export default defineComponent({
       // WeChat mask state
       maskClosed: false,
       // App Links URL
-      appLinksUrl: 'https://www.zhama.com/app/home?code=123456'
+      appLinksUrl: 'https://www.zhama.com/app/home'
     }
   },
   mounted() {
