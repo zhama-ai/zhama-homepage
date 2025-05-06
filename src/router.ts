@@ -39,6 +39,11 @@ const routes: Array<RouteRecordRaw> = [
     component: AppDownload
   },
   {
+    path: '/guide',
+    name: 'guide',
+    component: AppDownload
+  },
+  {
     path: '/app/home',
     name: 'app-home',
     component: AppDownload
