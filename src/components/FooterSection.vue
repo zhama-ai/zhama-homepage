@@ -48,7 +48,7 @@
             <li><a href="#" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">帮助中心</a></li>
             <li><a href="#" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">使用教程</a></li>
             <li><a href="#" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">常见问题</a></li>
-            <li><a href="#contact" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">联系我们</a></li>
+            <li><a href="mailto:contact@zhama.com" class="text-gray-300 hover:text-white transition duration-150 ease-in-out">联系我们</a></li>
           </ul>
         </div>
 
