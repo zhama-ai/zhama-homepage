@@ -12,28 +12,28 @@
               <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
             </svg>
             <div class="absolute top-28 right-0 w-48 text-white text-lg font-bold text-center">
-              <p class="text-shadow">点击右上角</p>
+              <p class="text-shadow">{{ t('appDownload.wechatBrowser.topArrow') }}</p>
               <div class="flex items-center justify-center mt-1 mb-1">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
                 </svg>
               </div>
-              <p class="text-shadow">选择 <span class="bg-white text-blue-600 px-1 rounded text-sm">在浏览器打开</span></p>
+              <p class="text-shadow">{{ t('appDownload.wechatBrowser.selectBrowser') }}</p>
             </div>
           </div>
         </div>
       </div>
       <!-- Bottom instructions -->
       <div class="text-center text-white p-6 bg-black bg-opacity-60">
-        <p class="text-lg mb-2">请按照上方提示在浏览器中打开本页面</p>
-        <button @click="closeWeChatMask" class="mt-2 px-6 py-2 bg-yellow-500 text-black rounded-full font-bold hover:bg-yellow-400 transition-colors">我知道了</button>
+        <p class="text-lg mb-2">{{ t('appDownload.wechatBrowser.message') }}</p>
+        <button @click="closeWeChatMask" class="mt-2 px-6 py-2 bg-yellow-500 text-black rounded-full font-bold hover:bg-yellow-400 transition-colors">{{ t('appDownload.wechatBrowser.button') }}</button>
       </div>
     </div>
 
     <main class="animate-fadeIn py-8 px-4 sm:px-6 lg:px-8">
       <div class="max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto">
         <!-- Page Title -->
-        <h1 class="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-6 md:mb-8">下载扎马 AI 应用</h1>
+        <h1 class="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-6 md:mb-8">{{ t('appDownload.title') }}</h1>
         
         <!-- WeChat Open-in-Browser Notice (smaller notice that remains after dismissing overlay) -->
         <div v-if="isWechat && !maskClosed" class="wechat-notice bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6 rounded-md shadow-sm max-w-md mx-auto">
@@ -44,13 +44,12 @@
               </svg>
             </div>
             <div>
-              <h3 class="text-md font-semibold text-yellow-800 mb-1">请在浏览器中打开</h3>
+              <h3 class="text-md font-semibold text-yellow-800 mb-1">{{ t('appDownload.wechatBrowser.notice') }}</h3>
               <p class="text-sm text-yellow-700 mb-2">
-                微信内无法直接下载应用，请点击右上角 
+                {{ t('appDownload.wechatBrowser.instruction') }}
                 <svg xmlns="http://www.w3.org/2000/svg" class="inline-block h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
                 </svg>
-                然后选择<strong>"在浏览器中打开"</strong>
               </p>
             </div>
           </div>
@@ -66,13 +65,13 @@
                 <img src="/images/logo.png" alt="扎马 AI Logo" class="w-full h-full object-contain">
               </div>
               <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">扎马 AI</h1>
-              <p class="text-gray-600 text-lg md:text-xl">你的全能认知与生活引擎</p>
-              <p class="text-accent-600 font-medium mt-2 text-sm md:text-base">记得少，想得深，做得快，活得好</p>
+              <p class="text-gray-600 text-lg md:text-xl">{{ t('appDownload.appIntro.slogan') }}</p>
+              <p class="text-accent-600 font-medium mt-2 text-sm md:text-base">{{ t('appDownload.appIntro.tagline') }}</p>
             </div>
 
             <!-- App Features -->
             <div class="mb-8">
-              <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-4 lg:text-left">为什么选择扎马 AI？</h2>
+              <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-4 lg:text-left">{{ t('appDownload.whyChoose') }}</h2>
               <div class="space-y-4">
                 <div class="flex items-start">
                   <div class="flex-shrink-0 text-accent-500">
@@ -81,8 +80,8 @@
                     </svg>
                   </div>
                   <div class="ml-3">
-                    <p class="text-gray-800 font-medium md:text-lg">全域智能采集</p>
-                    <p class="text-gray-600 text-sm md:text-base">支持文本、语音、图片、PDF、网页等全格式解析，98%准确率的实时语音转文字</p>
+                    <p class="text-gray-800 font-medium md:text-lg">{{ t('appDownload.features.dataCollection.title') }}</p>
+                    <p class="text-gray-600 text-sm md:text-base">{{ t('appDownload.features.dataCollection.description') }}</p>
                   </div>
                 </div>
                 <div class="flex items-start">
@@ -92,8 +91,8 @@
                     </svg>
                   </div>
                   <div class="ml-3">
-                    <p class="text-gray-800 font-medium md:text-lg">AI内容精炼与洞察</p>
-                    <p class="text-gray-600 text-sm md:text-base">一键生成会议纪要、决策要点、待办清单，节省90%整理时间</p>
+                    <p class="text-gray-800 font-medium md:text-lg">{{ t('appDownload.features.aiContent.title') }}</p>
+                    <p class="text-gray-600 text-sm md:text-base">{{ t('appDownload.features.aiContent.description') }}</p>
                   </div>
                 </div>
                 <div class="flex items-start">
@@ -103,8 +102,8 @@
                     </svg>
                   </div>
                   <div class="ml-3">
-                    <p class="text-gray-800 font-medium md:text-lg">高效任务与时间管理</p>
-                    <p class="text-gray-600 text-sm md:text-base">智能待办事项、日程规划与提醒，自动从会议记录生成行动项</p>
+                    <p class="text-gray-800 font-medium md:text-lg">{{ t('appDownload.features.taskManagement.title') }}</p>
+                    <p class="text-gray-600 text-sm md:text-base">{{ t('appDownload.features.taskManagement.description') }}</p>
                   </div>
                 </div>
                 <div class="flex items-start">
@@ -114,31 +113,31 @@
                     </svg>
                   </div>
                   <div class="ml-3">
-                    <p class="text-gray-800 font-medium md:text-lg">智能记账与财务管理</p>
-                    <p class="text-gray-600 text-sm md:text-base">语音记账、智能分类、财务概览，轻松掌控资金流向</p>
+                    <p class="text-gray-800 font-medium md:text-lg">{{ t('appDownload.features.finance.title') }}</p>
+                    <p class="text-gray-600 text-sm md:text-base">{{ t('appDownload.features.finance.description') }}</p>
                   </div>
                 </div>
               </div>
               
               <!-- Ideal for sections -->
               <div class="mt-6 bg-gradient-to-r from-accent-50 to-blue-50 p-4 rounded-lg border border-accent-100">
-                <h3 class="font-medium text-accent-700 mb-2 lg:text-left">适用人群</h3>
+                <h3 class="font-medium text-accent-700 mb-2 lg:text-left">{{ t('appDownload.targetUsers.title') }}</h3>
                 <div class="grid grid-cols-2 gap-2 text-sm md:text-base">
                   <div class="flex items-center">
                     <span class="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
-                    <span class="text-gray-700">高管/创业者</span>
+                    <span class="text-gray-700">{{ t('appDownload.targetUsers.executive') }}</span>
                   </div>
                   <div class="flex items-center">
                     <span class="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
-                    <span class="text-gray-700">产品/研究人员</span>
+                    <span class="text-gray-700">{{ t('appDownload.targetUsers.researcher') }}</span>
                   </div>
                   <div class="flex items-center">
                     <span class="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
-                    <span class="text-gray-700">学生/终身学习者</span>
+                    <span class="text-gray-700">{{ t('appDownload.targetUsers.student') }}</span>
                   </div>
                   <div class="flex items-center">
                     <span class="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
-                    <span class="text-gray-700">生活规划者</span>
+                    <span class="text-gray-700">{{ t('appDownload.targetUsers.planner') }}</span>
                   </div>
                 </div>
               </div>
@@ -149,7 +148,7 @@
           <div class="lg:w-1/2">
             <!-- Download Buttons - Redesigned Layout -->
             <div class="space-y-6">
-              <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-3 lg:text-left">立即体验，让AI成为你最强大的效率杠杆与生活伙伴</h2>
+              <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-3 lg:text-left">{{ t('appDownload.download.heading') }}</h2>
               
               <!-- Web App Button -->
               <a :href="appLinksUrl" target="_blank" 
@@ -161,8 +160,8 @@
                     </svg>
                   </div>
                   <div class="flex-1">
-                    <span class="block text-sm font-normal md:text-base">立即体验</span>
-                    <span class="block text-base font-bold group-hover:translate-x-1 transition-transform md:text-lg">打开扎马AI</span>
+                    <span class="block text-sm font-normal md:text-base">{{ t('appDownload.download.webapp.title') }}</span>
+                    <span class="block text-base font-bold group-hover:translate-x-1 transition-transform md:text-lg">{{ t('appDownload.download.webapp.action') }}</span>
                   </div>
                   <div class="flex-shrink-0 text-white opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" viewBox="0 0 20 20" fill="currentColor">
@@ -177,7 +176,7 @@
                   <div class="w-full border-t border-gray-200"></div>
                 </div>
                 <div class="relative flex justify-center">
-                  <span class="bg-white px-3 text-sm text-gray-500 md:text-base">下载应用</span>
+                  <span class="bg-white px-3 text-sm text-gray-500 md:text-base">{{ t('appDownload.download.appSection') }}</span>
                 </div>
               </div>
               
@@ -192,14 +191,14 @@
                       </svg>
                     </div>
                     <div>
-                      <span class="block text-sm text-gray-500 md:text-base">App Store</span>
-                      <span class="block text-base font-bold text-gray-900 md:text-lg">iOS 版下载</span>
+                      <span class="block text-sm text-gray-500 md:text-base">{{ t('appDownload.download.ios.title') }}</span>
+                      <span class="block text-base font-bold text-gray-900 md:text-lg">{{ t('appDownload.download.ios.subtitle') }}</span>
                     </div>
                   </div>
                   <div class="mt-auto pt-2 border-t border-gray-100 flex justify-between items-center">
-                    <span class="text-xs text-gray-500 md:text-sm">适用于 iPhone/iPad</span>
+                    <span class="text-xs text-gray-500 md:text-sm">{{ t('appDownload.download.ios.description') }}</span>
                     <span class="flex items-center text-accent-500 group-hover:translate-x-1 transition-transform">
-                      <span class="text-sm font-medium mr-1 md:text-base">立即获取</span>
+                      <span class="text-sm font-medium mr-1 md:text-base">{{ t('appDownload.download.ios.action') }}</span>
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                       </svg>
@@ -217,14 +216,14 @@
                       </svg>
                     </div>
                     <div>
-                      <span class="block text-sm text-gray-500 md:text-base">Android</span>
-                      <span class="block text-base font-bold text-gray-900 md:text-lg">安卓版下载</span>
+                      <span class="block text-sm text-gray-500 md:text-base">{{ t('appDownload.download.android.title') }}</span>
+                      <span class="block text-base font-bold text-gray-900 md:text-lg">{{ t('appDownload.download.android.subtitle') }}</span>
                     </div>
                   </div>
                   <div class="mt-auto pt-2 border-t border-gray-100 flex justify-between items-center">
-                    <span class="text-xs text-gray-500 md:text-sm">直接下载APK文件</span>
+                    <span class="text-xs text-gray-500 md:text-sm">{{ t('appDownload.download.android.description') }}</span>
                     <span class="flex items-center text-accent-500 group-hover:translate-x-1 transition-transform">
-                      <span class="text-sm font-medium mr-1 md:text-base">立即获取</span>
+                      <span class="text-sm font-medium mr-1 md:text-base">{{ t('appDownload.download.android.action') }}</span>
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                       </svg>
@@ -235,12 +234,12 @@
               
               <!-- QR Code Section (Optional) -->
               <div class="mt-8 text-center">
-                <p class="text-sm text-gray-500 mb-2 md:text-base">或扫描二维码下载</p>
+                <p class="text-sm text-gray-500 mb-2 md:text-base">{{ t('appDownload.download.qrCode.notice') }}</p>
                 <div class="w-48 h-48 md:w-56 md:h-56 bg-white p-2 mx-auto rounded-md shadow-md border border-gray-200 overflow-hidden">
                   <!-- Real QR code image -->
                   <img src="/images/link_qrcode.png" alt="扎马 AI 下载二维码" class="w-full h-full object-contain" />
                 </div>
-                <p class="text-xs text-gray-500 mt-2 md:text-sm">扫描二维码，立即开启AI赋能新体验</p>
+                <p class="text-xs text-gray-500 mt-2 md:text-sm">{{ t('appDownload.download.qrCode.description') }}</p>
               </div>
             </div>
           </div>
@@ -252,6 +251,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 interface AppDownloadData {
   iosAppStoreUrl: string;
@@ -265,6 +265,10 @@ interface AppDownloadData {
 
 export default defineComponent({
   name: 'AppDownload',
+  setup() {
+    const { t, locale } = useI18n();
+    return { t, locale };
+  },
   data(): AppDownloadData {
     return {
       // App Store URL using universal link format for direct opening in App Store

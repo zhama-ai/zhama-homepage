@@ -9,13 +9,13 @@
       <div class="lg:text-center mb-16">
         
         <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-white sm:text-4xl bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
-          扎马AI：认知升级与品质生活的操作系统
+          {{ t('advantagesSection.title') }}
         </p>
         <div class="mt-4 max-w-2xl lg:mx-auto flex items-center justify-center space-x-4 text-xl text-gray-300">
-          <span class="flex items-center"><span class="text-accent-400 mr-2">•</span> 记得少</span>
-          <span class="flex items-center"><span class="text-accent-400 mr-2">•</span> 想得深</span>
-          <span class="flex items-center"><span class="text-accent-400 mr-2">•</span> 做得快</span>
-          <span class="flex items-center"><span class="text-accent-400 mr-2">•</span> 活得好</span>
+          <span class="flex items-center"><span class="text-accent-400 mr-2">•</span> {{ t('advantagesSection.values.remember') }}</span>
+          <span class="flex items-center"><span class="text-accent-400 mr-2">•</span> {{ t('advantagesSection.values.think') }}</span>
+          <span class="flex items-center"><span class="text-accent-400 mr-2">•</span> {{ t('advantagesSection.values.do') }}</span>
+          <span class="flex items-center"><span class="text-accent-400 mr-2">•</span> {{ t('advantagesSection.values.live') }}</span>
         </div>
       </div>
 
@@ -29,19 +29,11 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-accent-400 transition-colors">极致效率</h3>
+            <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-accent-400 transition-colors">{{ t('advantagesSection.efficiency.title') }}</h3>
             <div class="mt-2 space-y-2 text-gray-300">
-              <div class="flex items-start">
+              <div class="flex items-start" v-for="(point, index) in efficiencyPoints" :key="index">
                 <span class="bg-accent-500/10 p-1 rounded mr-2 text-accent-400">→</span>
-                <span>AI自动整理+摘要，解放重复劳动</span>
-              </div>
-              <div class="flex items-start">
-                <span class="bg-accent-500/10 p-1 rounded mr-2 text-accent-400">→</span>
-                <span>语音/多模态输入，随时随地轻松记录</span>
-              </div>
-              <div class="flex items-start">
-                <span class="bg-accent-500/10 p-1 rounded mr-2 text-accent-400">→</span>
-                <span>多终端无缝同步，信息触手可及</span>
+                <span>{{ point }}</span>
               </div>
             </div>
           </div>
@@ -55,19 +47,11 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-accent-400 transition-colors">知识与生活沉淀</h3>
+            <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-accent-400 transition-colors">{{ t('advantagesSection.knowledge.title') }}</h3>
             <div class="mt-2 space-y-2 text-gray-300">
-              <div class="flex items-start">
+              <div class="flex items-start" v-for="(point, index) in knowledgePoints" :key="index">
                 <span class="bg-accent-500/10 p-1 rounded mr-2 text-accent-400">→</span>
-                <span>工作生活信息一站式结构化归档</span>
-              </div>
-              <div class="flex items-start">
-                <span class="bg-accent-500/10 p-1 rounded mr-2 text-accent-400">→</span>
-                <span>构建个人/团队知识库与生活档案</span>
-              </div>
-              <div class="flex items-start">
-                <span class="bg-accent-500/10 p-1 rounded mr-2 text-accent-400">→</span>
-                <span>支持企业级部署，保障数据安全</span>
+                <span>{{ point }}</span>
               </div>
             </div>
           </div>
@@ -81,19 +65,11 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
               </svg>
             </div>
-            <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-accent-400 transition-colors">智慧决策与行动</h3>
+            <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-accent-400 transition-colors">{{ t('advantagesSection.decision.title') }}</h3>
             <div class="mt-2 space-y-2 text-gray-300">
-              <div class="flex items-start">
+              <div class="flex items-start" v-for="(point, index) in decisionPoints" :key="index">
                 <span class="bg-accent-500/10 p-1 rounded mr-2 text-accent-400">→</span>
-                <span>语义检索+智能问答，快速定位关键信息</span>
-              </div>
-              <div class="flex items-start">
-                <span class="bg-accent-500/10 p-1 rounded mr-2 text-accent-400">→</span>
-                <span>智能生成待办/提醒，推动计划落地</span>
-              </div>
-              <div class="flex items-start">
-                <span class="bg-accent-500/10 p-1 rounded mr-2 text-accent-400">→</span>
-                <span>提供趋势分析（情绪/财务），辅助决策</span>
+                <span>{{ point }}</span>
               </div>
             </div>
           </div>
@@ -104,7 +80,7 @@
       <div class="mt-20">
         <div class="relative mb-12 flex justify-center">
           <h3 class="text-2xl font-bold text-white inline-block relative">
-            适用场景
+            {{ t('advantagesSection.scenarios.title') }}
             <span class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-accent-400 rounded-full"></span>
           </h3>
         </div>
@@ -121,8 +97,8 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h4 class="text-lg font-semibold text-white mb-3 text-center">职场与专业人士</h4>
-              <div class="text-center text-gray-300 text-sm">高管/创业者的会议决策，产品/咨询团队的用户访谈分析，内容创作者的素材整理</div>
+              <h4 class="text-lg font-semibold text-white mb-3 text-center">{{ t('advantagesSection.scenarios.professional.title') }}</h4>
+              <div class="text-center text-gray-300 text-sm">{{ t('advantagesSection.scenarios.professional.description') }}</div>
             </div>
           </div>
 
@@ -137,8 +113,8 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
               </div>
-              <h4 class="text-lg font-semibold text-white mb-3 text-center">个人生活与成长</h4>
-              <div class="text-center text-gray-300 text-sm">学习笔记整理，习惯养成追踪，健康数据管理，生活规划与日程安排</div>
+              <h4 class="text-lg font-semibold text-white mb-3 text-center">{{ t('advantagesSection.scenarios.personal.title') }}</h4>
+              <div class="text-center text-gray-300 text-sm">{{ t('advantagesSection.scenarios.personal.description') }}</div>
             </div>
           </div>
           
@@ -153,8 +129,8 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
-              <h4 class="text-lg font-semibold text-white mb-3 text-center">企业与团队</h4>
-              <div class="text-center text-gray-300 text-sm">团队知识库共建，垂直领域AI定制，安全合规的协同管理</div>
+              <h4 class="text-lg font-semibold text-white mb-3 text-center">{{ t('advantagesSection.scenarios.enterprise.title') }}</h4>
+              <div class="text-center text-gray-300 text-sm">{{ t('advantagesSection.scenarios.enterprise.description') }}</div>
             </div>
           </div>
         </div>
@@ -169,8 +145,8 @@
               </svg>
             </div>
             <div class="p-4 flex-1 relative z-10">
-              <h4 class="text-lg font-semibold text-white mb-1">多终端支持</h4>
-              <p class="text-gray-300 text-sm">PC、移动端、平板全覆盖，随时随地记录与使用</p>
+              <h4 class="text-lg font-semibold text-white mb-1">{{ t('advantagesSection.features.multiPlatform.title') }}</h4>
+              <p class="text-gray-300 text-sm">{{ t('advantagesSection.features.multiPlatform.description') }}</p>
             </div>
           </div>
           
@@ -182,8 +158,8 @@
               </svg>
             </div>
             <div class="p-4 flex-1 relative z-10">
-              <h4 class="text-lg font-semibold text-white mb-1">数据安全</h4>
-              <p class="text-gray-300 text-sm">企业级加密，权限精细控制，自主可控部署选项</p>
+              <h4 class="text-lg font-semibold text-white mb-1">{{ t('advantagesSection.features.dataSecurity.title') }}</h4>
+              <p class="text-gray-300 text-sm">{{ t('advantagesSection.features.dataSecurity.description') }}</p>
             </div>
           </div>
         </div>
@@ -191,7 +167,7 @@
 
       <div class="mt-16 text-center">
         <a href="#" class="glow-button inline-flex items-center px-8 py-4 text-base relative overflow-hidden group">
-          <span class="relative z-10">立即体验</span>
+          <span class="relative z-10">{{ t('advantagesSection.cta') }}</span>
           <svg class="ml-2 h-5 w-5 relative z-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
@@ -201,4 +177,34 @@
       </div>
     </div>
   </section>
-</template> 
+</template>
+
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+import { computed } from 'vue';
+import enMessages from '../i18n/en';
+import zhMessages from '../i18n/zh';
+
+const { t, locale } = useI18n();
+
+// 获取效率点列表
+const efficiencyPoints = computed(() => {
+  return locale.value === 'zh' 
+    ? zhMessages.advantagesSection.efficiency.points 
+    : enMessages.advantagesSection.efficiency.points;
+});
+
+// 获取知识点列表
+const knowledgePoints = computed(() => {
+  return locale.value === 'zh' 
+    ? zhMessages.advantagesSection.knowledge.points 
+    : enMessages.advantagesSection.knowledge.points;
+});
+
+// 获取决策点列表
+const decisionPoints = computed(() => {
+  return locale.value === 'zh' 
+    ? zhMessages.advantagesSection.decision.points 
+    : enMessages.advantagesSection.decision.points;
+});
+</script> 

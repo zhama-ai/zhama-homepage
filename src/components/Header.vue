@@ -5,19 +5,20 @@
         <div class="flex items-center">
           <div class="flex-shrink-0 flex items-center">
             <img src="/images/logo.png" alt="Logo" class="h-10 w-auto mr-2" />
-            <span class="text-2xl font-semibold text-white">扎马<span class="neon-text">AI</span></span>
+            <span class="text-2xl font-semibold text-white">{{ $t('home.hero.title') }}</span>
           </div>
           <nav class="hidden md:ml-10 md:flex md:space-x-10">
-            <router-link to="/" class="text-gray-300 hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">首页</router-link>
-            <a href="#features" class="text-gray-300 hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">核心能力</a>
-            <a href="#advantages" class="text-gray-300 hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">产品价值</a>
-            <a href="#download" class="text-gray-300 hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">立即使用</a>
-            <a href="#about" class="text-gray-300 hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">关于我们</a>
-            <!-- <a href="#contact" class="text-gray-300 hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">联系我们</a> -->
+            <router-link to="/" class="text-gray-300 hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">{{ $t('nav.home') }}</router-link>
+            <a href="#features" class="text-gray-300 hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">{{ $t('nav.features') }}</a>
+            <a href="#advantages" class="text-gray-300 hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">{{ $t('nav.advantages') }}</a>
+            <a href="#download" class="text-gray-300 hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">{{ $t('nav.download') }}</a>
+            <a href="#about" class="text-gray-300 hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">{{ $t('nav.about') }}</a>
+            <!-- <a href="#contact" class="text-gray-300 hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">{{ $t('nav.contact') }}</a> -->
           </nav>
         </div>
-        <div class="flex items-center">
-          <router-link to="/download"  class="glow-button">立即体验扎马AI</router-link>
+        <div class="flex items-center space-x-4">
+          <LanguageSwitcher />
+          <router-link to="/download" class="glow-button">{{ $t('nav.tryNow') }}</router-link>
         </div>
         <div class="flex items-center md:hidden">
           <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-300 hover:text-accent-400">
@@ -33,12 +34,12 @@
     <!-- Mobile menu -->
     <div v-if="mobileMenuOpen" class="md:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-dark-700 border-t border-dark-600">
-        <router-link to="/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-dark-600">首页</router-link>
-        <a href="#features" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-dark-600">核心能力</a>
-        <a href="#advantages" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-dark-600">产品价值</a>
-        <a href="#download" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-dark-600">立即使用</a>
-        <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-dark-600">关于我们</a>
-        <!-- <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-dark-600">联系我们</a> -->
+        <router-link to="/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-dark-600">{{ $t('nav.home') }}</router-link>
+        <a href="#features" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-dark-600">{{ $t('nav.features') }}</a>
+        <a href="#advantages" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-dark-600">{{ $t('nav.advantages') }}</a>
+        <a href="#download" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-dark-600">{{ $t('nav.download') }}</a>
+        <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-dark-600">{{ $t('nav.about') }}</a>
+        <!-- <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-dark-600">{{ $t('nav.contact') }}</a> -->
       </div>
     </div>
   </header>
@@ -46,6 +47,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import LanguageSwitcher from './LanguageSwitcher.vue';
 
 const mobileMenuOpen = ref<boolean>(false);
 </script> 

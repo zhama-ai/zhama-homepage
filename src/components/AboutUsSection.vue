@@ -9,13 +9,11 @@
       <!-- Section header with animation -->
       <div class="text-center max-w-3xl mx-auto mb-20">
         <div ref="headerRef">
-          <h2 class="text-accent-400 font-semibold text-lg uppercase tracking-wider mb-3">关于我们</h2>
-          <p class="text-4xl font-bold tracking-tight text-white sm:text-5xl leading-tight">
-            用AI技术<span class="text-accent-400">重新定义</span>认知与生活体验
+          <h2 class="text-accent-400 font-semibold text-lg uppercase tracking-wider mb-3">{{ t('aboutSection.title') }}</h2>
+          <p class="text-4xl font-bold tracking-tight text-white sm:text-5xl leading-tight" v-html="t('aboutSection.subtitle')">
           </p>
           <p class="mt-6 text-xl text-gray-300 leading-relaxed">
-            扎马AI融合尖端人工智能技术，革命性地融合深度知识管理与智能生活辅助，
-            助您提升效率、优化决策，实现品质生活
+            {{ t('aboutSection.description') }}
           </p>
         </div>
       </div>
@@ -29,25 +27,23 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
               </svg>
             </span>
-            我们的愿景
+            {{ t('aboutSection.vision.title') }}
           </h3>
           <div class="space-y-6">
-            <p class="text-gray-300 leading-relaxed text-lg">
-              扎马AI致力于构建全球领先的<span class="text-white font-medium">AI认知与生活引擎</span>，让每一次记录、思考、规划都转化为可搜索、可行动、可成长的智能资产。
+            <p class="text-gray-300 leading-relaxed text-lg" v-html="t('aboutSection.vision.paragraphs[0]')">
             </p>
-            <p class="text-gray-300 leading-relaxed text-lg">
-              我们的核心团队汇聚<span class="text-white font-medium">顶尖AI研究机构与科技企业</span>的专业人才，拥有深厚的技术积淀和丰富的行业实践，致力于打造符合人类认知规律的智能生活环境。
+            <p class="text-gray-300 leading-relaxed text-lg" v-html="t('aboutSection.vision.paragraphs[1]')">
             </p>
           </div>
           
           <!-- Features with animated hover -->
           <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div v-for="(feature, index) in features" :key="index"
+            <div v-for="(feature, index) in localizedFeatures" :key="index"
                  class="feature-card group p-6 rounded-xl border border-dark-700 bg-dark-800/50 transition-all duration-300 hover:border-accent-400/30 hover:bg-accent-400/5 hover:shadow-lg hover:-translate-y-1"
                  :style="{ animationDelay: `${index * 100}ms`, animation: 'fadeInUp 0.6s both' }">
               <div class="flex items-start gap-4">
                 <div class="text-accent-400 bg-accent-400/10 p-3 rounded-lg group-hover:bg-accent-400/20 transition-all">
-                  <div v-html="feature.icon" class="h-6 w-6"></div>
+                  <div v-html="featureIcons[index]" class="h-6 w-6"></div>
                 </div>
                 <div>
                   <h4 class="text-white text-lg font-medium mb-2 group-hover:text-accent-400 transition-colors">{{ feature.title }}</h4>
@@ -62,9 +58,9 @@
       <!-- Final statement with typing animation -->
       <div class="mt-16 text-center" ref="footerRef">
         <p class="text-2xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
-          <span class="text-accent-400 font-bold">扎马AI</span>，不止于工具，
+          <span class="text-accent-400 font-bold">{{ t('aboutSection.footer.prefix') }}</span>{{ t('aboutSection.footer.suffix') }}
           <br class="hidden sm:block" />
-          <span ref="typingText" class="inline-block h-8">重塑认知与生活的方式</span>
+          <span ref="typingText" class="inline-block h-8"></span>
         </p>
       </div>
     </div>
@@ -72,15 +68,50 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, nextTick } from 'vue';
+import { ref, onMounted, nextTick, computed, watch } from 'vue';
+import { useI18n } from 'vue-i18n';
+import enMessages from '../i18n/en';
+import zhMessages from '../i18n/zh';
 // import {  useMotion } from '@vueuse/motion';
+
+// 国际化设置
+const { t, locale } = useI18n();
 
 // Define types
 interface Feature {
   title: string;
   description: string;
-  icon: string;
 }
+
+// 获取本地化特性数据
+const localizedFeatures = computed(() => {
+  return locale.value === 'zh' 
+    ? zhMessages.aboutSection.features 
+    : enMessages.aboutSection.features;
+});
+
+// 获取打字效果文本
+const typingPhrases = computed(() => {
+  return locale.value === 'zh' 
+    ? zhMessages.aboutSection.typingPhrases 
+    : enMessages.aboutSection.typingPhrases;
+});
+
+// 特性图标数据
+const featureIcons = [
+  `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+  </svg>`,
+  `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>`,
+  `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+  </svg>`,
+  `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+  </svg>`
+];
 
 // Typing animation reference
 const typingText = ref<HTMLElement | null>(null);
@@ -89,6 +120,36 @@ const typingText = ref<HTMLElement | null>(null);
 const headerRef = ref<HTMLElement | null>(null);
 const visionRef = ref<HTMLElement | null>(null);
 const footerRef = ref<HTMLElement | null>(null);
+
+// 打字效果的当前短语索引
+let currentPhraseIndex = 0;
+
+// 定义打字效果函数
+const typePhrase = async (phrase: string): Promise<void> => {
+  const element = typingText.value;
+  if (!element) return;
+  
+  element.textContent = "";
+  
+  // Type characters one by one
+  for (let i = 0; i < phrase.length; i++) {
+    element.textContent += phrase[i];
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+  
+  // Wait before erasing
+  await new Promise(resolve => setTimeout(resolve, 2000));
+  
+  // Erase characters one by one
+  for (let i = phrase.length; i > 0; i--) {
+    element.textContent = phrase.substring(0, i-1);
+    await new Promise(resolve => setTimeout(resolve, 50));
+  }
+  
+  // Move to next phrase
+  currentPhraseIndex = (currentPhraseIndex + 1) % typingPhrases.value.length;
+  await typePhrase(typingPhrases.value[currentPhraseIndex]);
+};
 
 // Apply motions
 onMounted(() => {
@@ -110,72 +171,22 @@ onMounted(() => {
   // Feature card animations will be handled with CSS
 });
 
-// Features data
-const features: Feature[] = [
-  {
-    title: "全面智能集成",
-    description: "融合大语言模型、知识图谱与多模态技术，实现跨场景、跨设备的全面信息智能处理",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-          </svg>`
-  },
-  {
-    title: "无缝生活管理",
-    description: "从工作笔记到生活规划，从财务管理到习惯养成，打造一站式个人与生活管理系统",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>`
-  },
-  {
-    title: "主动赋能决策",
-    description: "从被动记录到主动提醒，智能分析信息并提供洞见，赋能更高效的决策与行动执行",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
-          </svg>`
-  },
-  {
-    title: "深度个性化",
-    description: "随使用逐渐深入了解用户需求，提供更精准的推荐与服务，创造个性化的使用体验",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-          </svg>`
-  }
-];
-
 // Implement typing animation
 onMounted(async () => {
   await nextTick();
   if (typingText.value) {
-    const phrases: string[] = ["重塑认知与生活的方式", "激发创新与效率潜能", "打造品质生活管理体系"];
-    let currentPhraseIndex: number = 0;
-    
-    const typePhrase = async (phrase: string): Promise<void> => {
-      const element = typingText.value;
-      if (!element) return;
-      
-      element.textContent = "";
-      
-      // Type characters one by one
-      for (let i = 0; i < phrase.length; i++) {
-        element.textContent += phrase[i];
-        await new Promise(resolve => setTimeout(resolve, 100));
-      }
-      
-      // Wait before erasing
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Erase characters one by one
-      for (let i = phrase.length; i > 0; i--) {
-        element.textContent = phrase.substring(0, i-1);
-        await new Promise(resolve => setTimeout(resolve, 50));
-      }
-      
-      // Move to next phrase
-      currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-      await typePhrase(phrases[currentPhraseIndex]);
-    };
-    
-    typePhrase(phrases[0]);
+    currentPhraseIndex = 0;
+    typePhrase(typingPhrases.value[0]);
+  }
+});
+
+// 监听语言变化，重新开始打字效果
+watch(locale, async () => {
+  if (typingText.value) {
+    typingText.value.textContent = "";
+    await nextTick();
+    currentPhraseIndex = 0;
+    typePhrase(typingPhrases.value[0]);
   }
 });
 </script>
