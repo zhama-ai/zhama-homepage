@@ -1,0 +1,19 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Routing System
+
+The application uses Vue Router for navigation. All routes are defined in [src/router.ts](mdc:src/router.ts).
+
+## Available Routes
+
+- `/` - Homepage ([src/pages/HomePage.vue](mdc:src/pages/HomePage.vue))
+- `/download`, `/guide`, `/app/home` - App download page ([src/pages/AppDownload.vue](mdc:src/pages/AppDownload.vue))
+- `/privacy-policy` - Privacy policy ([src/pages/PrivacyPolicy.vue](mdc:src/pages/PrivacyPolicy.vue))
+- `/terms-of-service` - Terms of service ([src/pages/TermsOfService.vue](mdc:src/pages/TermsOfService.vue))
+- `/privacy-policy-en` - English privacy policy ([src/pages/PrivacyPolicyEN.vue](mdc:src/pages/PrivacyPolicyEN.vue))
+- `/terms-of-service-en` - English terms of service ([src/pages/TermsOfServiceEN.vue](mdc:src/pages/TermsOfServiceEN.vue))
+
+The router is configured with smooth scrolling for anchor links and automatic scroll restoration.

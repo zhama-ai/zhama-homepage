@@ -1,0 +1,23 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Homepage Components
+
+The main landing page ([src/pages/HomePage.vue](mdc:src/pages/HomePage.vue)) is composed of several section components:
+
+## Header and Navigation
+- [src/components/Header.vue](mdc:src/components/Header.vue) - The main navigation header
+
+## Content Sections
+- [src/components/HeroSection.vue](mdc:src/components/HeroSection.vue) - Hero section at the top of the page
+- [src/components/FeaturesSection.vue](mdc:src/components/FeaturesSection.vue) - Features showcase
+- [src/components/AdvantagesSection.vue](mdc:src/components/AdvantagesSection.vue) - Advantages of the app/product
+- [src/components/AboutUsSection.vue](mdc:src/components/AboutUsSection.vue) - About the company/team
+- [src/components/DownloadSection.vue](mdc:src/components/DownloadSection.vue) - App download information
+
+## Footer
+- [src/components/FooterSection.vue](mdc:src/components/FooterSection.vue) - Page footer with links and information
+
+These components are designed to be reused across different pages of the site when needed.

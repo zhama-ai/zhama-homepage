@@ -1,0 +1,26 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Zhama Homepage
+
+This is the Vue 3 + TypeScript + Vite project for Zhama's homepage. The website includes:
+
+- Main landing page
+- App download page
+- Terms of service and privacy policy pages (both in English and another language)
+
+## Key Files
+- [src/main.ts](mdc:src/main.ts) - Entry point of the application
+- [src/App.vue](mdc:src/App.vue) - Root Vue component
+- [src/router.ts](mdc:src/router.ts) - Vue Router configuration
+- [vite.config.ts](mdc:vite.config.ts) - Vite build configuration
+- [index.html](mdc:index.html) - HTML entry point
+- [package.json](mdc:package.json) - Dependencies and scripts
+
+## Project Structure
+- `/src/pages` - Page components for different routes
+- `/src/components` - Reusable Vue components
+- `/public` - Static assets served as-is
+- `/dist` - Built files (generated during build)
