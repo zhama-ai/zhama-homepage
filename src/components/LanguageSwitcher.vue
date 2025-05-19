@@ -3,7 +3,7 @@
     <select 
       :value="currentLocale" 
       @change="changeLocale" 
-      class="bg-transparent text-white border border-gray-600 rounded px-2 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+      class="bg-transparent text-gray-700 dark:text-white border border-gray-300 dark:border-gray-600 rounded px-2 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
     >
       <option value="zh">中文</option>
       <option value="en">English</option>
@@ -34,6 +34,11 @@ if (storedLocale && (storedLocale === 'zh' || storedLocale === 'en')) {
 
 <style scoped>
 .language-switcher select option {
+  background-color: white;
+  color: #333;
+}
+
+.dark .language-switcher select option {
   background-color: #1f2937;
   color: white;
 }

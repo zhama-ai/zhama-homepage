@@ -1,7 +1,7 @@
 <template>
-  <section id="about" class="py-32 bg-dark-900 relative overflow-hidden">
+  <section id="about" class="py-32 bg-white dark:bg-dark-900 relative overflow-hidden">
     <!-- Animated background particles -->
-    <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+    <div class="absolute inset-0 bg-light-grid-pattern dark:bg-grid-pattern opacity-5"></div>
     <div class="absolute -right-32 -top-32 w-96 h-96 bg-accent-400 opacity-10 rounded-full blur-3xl"></div>
     <div class="absolute -left-32 -bottom-32 w-96 h-96 bg-accent-400 opacity-10 rounded-full blur-3xl"></div>
     
@@ -10,18 +10,18 @@
       <div class="text-center max-w-3xl mx-auto mb-20">
         <div ref="headerRef">
           <h2 class="text-accent-400 font-semibold text-lg uppercase tracking-wider mb-3">{{ t('aboutSection.title') }}</h2>
-          <p class="text-4xl font-bold tracking-tight text-white sm:text-5xl leading-tight" v-html="t('aboutSection.subtitle')">
+          <p class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl leading-tight" v-html="t('aboutSection.subtitle')">
           </p>
-          <p class="mt-6 text-xl text-gray-300 leading-relaxed">
+          <p class="mt-6 text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
             {{ t('aboutSection.description') }}
           </p>
         </div>
       </div>
 
       <!-- Vision card with hover effects -->
-      <div class="tech-card p-10 max-w-4xl mx-auto rounded-2xl backdrop-blur-sm bg-dark-800/80 border border-dark-700 shadow-xl transform transition-all duration-300 hover:shadow-accent-400/10">
+      <div class="tech-card p-10 max-w-4xl mx-auto rounded-2xl backdrop-blur-sm bg-gray-50 dark:bg-dark-800/80 border border-gray-200 dark:border-dark-700 shadow-xl transform transition-all duration-300 hover:shadow-accent-400/10">
         <div ref="visionRef">
-          <h3 class="text-2xl font-bold text-white mb-8 flex items-center">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center">
             <span class="inline-flex items-center justify-center p-2 bg-accent-400/10 rounded-md mr-4">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -30,24 +30,24 @@
             {{ t('aboutSection.vision.title') }}
           </h3>
           <div class="space-y-6">
-            <p class="text-gray-300 leading-relaxed text-lg" v-html="t('aboutSection.vision.paragraphs[0]')">
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-lg" v-html="t('aboutSection.vision.paragraphs[0]')">
             </p>
-            <p class="text-gray-300 leading-relaxed text-lg" v-html="t('aboutSection.vision.paragraphs[1]')">
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-lg" v-html="t('aboutSection.vision.paragraphs[1]')">
             </p>
           </div>
           
           <!-- Features with animated hover -->
           <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
             <div v-for="(feature, index) in localizedFeatures" :key="index"
-                 class="feature-card group p-6 rounded-xl border border-dark-700 bg-dark-800/50 transition-all duration-300 hover:border-accent-400/30 hover:bg-accent-400/5 hover:shadow-lg hover:-translate-y-1"
+                 class="feature-card group p-6 rounded-xl border border-gray-200 dark:border-dark-700 bg-white dark:bg-dark-800/50 transition-all duration-300 hover:border-accent-400/30 hover:bg-accent-400/5 hover:shadow-lg hover:-translate-y-1"
                  :style="{ animationDelay: `${index * 100}ms`, animation: 'fadeInUp 0.6s both' }">
               <div class="flex items-start gap-4">
                 <div class="text-accent-400 bg-accent-400/10 p-3 rounded-lg group-hover:bg-accent-400/20 transition-all">
                   <div v-html="featureIcons[index]" class="h-6 w-6"></div>
                 </div>
                 <div>
-                  <h4 class="text-white text-lg font-medium mb-2 group-hover:text-accent-400 transition-colors">{{ feature.title }}</h4>
-                  <p class="text-gray-400 leading-relaxed">{{ feature.description }}</p>
+                  <h4 class="text-gray-900 dark:text-white text-lg font-medium mb-2 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">{{ feature.title }}</h4>
+                  <p class="text-gray-600 dark:text-gray-400 leading-relaxed">{{ feature.description }}</p>
                 </div>
               </div>
             </div>
@@ -57,7 +57,7 @@
       
       <!-- Final statement with typing animation -->
       <div class="mt-16 text-center" ref="footerRef">
-        <p class="text-2xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
+        <p class="text-2xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
           <span class="text-accent-400 font-bold">{{ t('aboutSection.footer.prefix') }}</span>{{ t('aboutSection.footer.suffix') }}
           <br class="hidden sm:block" />
           <span ref="typingText" class="inline-block h-8"></span>

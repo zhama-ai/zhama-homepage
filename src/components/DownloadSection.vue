@@ -1,9 +1,9 @@
 <template>
-  <section id="download" class="py-16 bg-dark-900 relative overflow-hidden">
-    <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+  <section id="download" class="py-16 bg-white dark:bg-dark-900 relative overflow-hidden">
+    <div class="absolute inset-0 bg-light-grid-pattern dark:bg-grid-pattern opacity-5"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center mb-12">
-        <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-white sm:text-4xl">
+        <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
           {{ t('downloadSection.title') }}
         </p>
       </div>
@@ -18,8 +18,8 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3 transform group-hover:translate-y-[-4px] transition-transform duration-300">{{ t('downloadSection.enterprise.title') }}</h3>
-            <p class="text-gray-300 mb-5 group-hover:text-gray-200 transition-colors duration-300">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 transform group-hover:translate-y-[-4px] transition-transform duration-300">{{ t('downloadSection.enterprise.title') }}</h3>
+            <p class="text-gray-700 dark:text-gray-300 mb-5 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">
               {{ t('downloadSection.enterprise.description') }}
             </p>
             <a href="#" class="btn-shine inline-flex items-center text-center transition-all duration-300 ease-in-out">
@@ -40,8 +40,8 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3 transform group-hover:translate-y-[-4px] transition-transform duration-300">{{ t('downloadSection.ios.title') }}</h3>
-            <p class="text-gray-300 mb-5 group-hover:text-gray-200 transition-colors duration-300">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 transform group-hover:translate-y-[-4px] transition-transform duration-300">{{ t('downloadSection.ios.title') }}</h3>
+            <p class="text-gray-700 dark:text-gray-300 mb-5 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">
               {{ t('downloadSection.ios.description') }}
             </p>
             <a href="#" class="btn-shine inline-flex items-center text-center transition-all duration-300 ease-in-out">
@@ -62,8 +62,8 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3 transform group-hover:translate-y-[-4px] transition-transform duration-300">{{ t('downloadSection.android.title') }}</h3>
-            <p class="text-gray-300 mb-5 group-hover:text-gray-200 transition-colors duration-300">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 transform group-hover:translate-y-[-4px] transition-transform duration-300">{{ t('downloadSection.android.title') }}</h3>
+            <p class="text-gray-700 dark:text-gray-300 mb-5 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">
               {{ t('downloadSection.android.description') }}
             </p>
             <a href="#" class="btn-shine inline-flex items-center text-center transition-all duration-300 ease-in-out">
@@ -102,7 +102,7 @@ const { t } = useI18n();
 
 <style scoped>
 .hover-card {
-  @apply rounded-xl bg-dark-800 shadow-lg overflow-hidden cursor-pointer;
+  @apply rounded-xl bg-gray-50 dark:bg-dark-800 shadow-lg overflow-hidden cursor-pointer;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 

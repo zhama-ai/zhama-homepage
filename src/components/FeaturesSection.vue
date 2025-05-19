@@ -1,13 +1,13 @@
 <template>
-  <section id="features" class="py-20 bg-dark-800 overflow-hidden relative">
-    <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+  <section id="features" class="py-20 bg-white dark:bg-dark-800 overflow-hidden relative">
+    <div class="absolute inset-0 bg-light-grid-pattern dark:bg-grid-pattern opacity-5"></div>
     <div class="particle-background" ref="particleContainer"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="lg:text-center">
-        <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-white sm:text-4xl">
+        <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
           {{ t('featuresSection.title') }}
         </p>
-        <p class="mt-4 max-w-3xl text-xl text-gray-300 lg:mx-auto mb-12">
+        <p class="mt-4 max-w-3xl text-xl text-gray-600 dark:text-gray-300 lg:mx-auto mb-12">
           {{ t('featuresSection.subtitle') }}
         </p>
       </div>
@@ -15,7 +15,7 @@
       <!-- 新的布局：卡片内容展示 -->
       <div class="feature-showcase mt-12 relative">
         <!-- 主要展示区域 -->
-        <div class="flex flex-col lg:flex-row bg-dark-900/60 rounded-2xl p-4 lg:p-8 gap-6 lg:gap-12 border border-accent-500/20 h-full">
+        <div class="flex flex-col lg:flex-row bg-gray-100/80 dark:bg-dark-900/60 rounded-2xl p-4 lg:p-8 gap-6 lg:gap-12 border border-gray-300 dark:border-accent-500/20 h-full">
           <!-- 左侧内容 -->
           <div class="lg:w-5/12 flex flex-col">
             <div v-if="activeFeature === 0" class="feature-content h-full">
@@ -25,9 +25,9 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-white">{{ t('featuresSection.collection.title') }}</h3>
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">{{ t('featuresSection.collection.title') }}</h3>
               </div>
-              <p class="text-gray-300 leading-relaxed my-6" v-html="highlightText(t('featuresSection.collection.description'))"></p>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed my-6" v-html="highlightText(t('featuresSection.collection.description'))"></p>
               <div class="mt-auto flex flex-wrap gap-3">
                 <span v-for="(tag, idx) in collectionTags" :key="idx" class="feature-tag">{{ tag }}</span>
               </div>
@@ -40,9 +40,9 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                   </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-white">{{ t('featuresSection.analysis.title') }}</h3>
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">{{ t('featuresSection.analysis.title') }}</h3>
               </div>
-              <p class="text-gray-300 leading-relaxed my-6" v-html="highlightText(t('featuresSection.analysis.description'))"></p>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed my-6" v-html="highlightText(t('featuresSection.analysis.description'))"></p>
               <div class="mt-auto flex flex-wrap gap-3">
                 <span v-for="(tag, idx) in analysisTags" :key="idx" class="feature-tag">{{ tag }}</span>
               </div>
@@ -55,9 +55,9 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
                   </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-white">{{ t('featuresSection.organization.title') }}</h3>
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">{{ t('featuresSection.organization.title') }}</h3>
               </div>
-              <p class="text-gray-300 leading-relaxed my-6" v-html="highlightText(t('featuresSection.organization.description'))"></p>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed my-6" v-html="highlightText(t('featuresSection.organization.description'))"></p>
               <div class="mt-auto flex flex-wrap gap-3">
                 <span v-for="(tag, idx) in organizationTags" :key="idx" class="feature-tag">{{ tag }}</span>
               </div>
@@ -90,13 +90,13 @@
         </div>
 
         <!-- Tab 切换按钮 -->
-        <div class="tab-container mt-8 p-2 bg-dark-700/50 rounded-full inline-flex mx-auto">
+        <div class="tab-container mt-8 p-2 bg-gray-200/70 dark:bg-dark-700/50 rounded-full inline-flex mx-auto">
           <button 
             v-for="(_, index) in tabsList" 
             :key="index"
             @click="activeFeature = index"
             class="tab-button py-2 px-6 rounded-full text-sm transition-all duration-300"
-            :class="activeFeature === index ? 'active-tab' : 'text-gray-300 hover:text-white'"
+            :class="activeFeature === index ? 'active-tab' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'"
           >
             {{ tabsList[index] }}
           </button>
@@ -105,7 +105,7 @@
 
       <!-- 更多功能 -->
       <div class="mt-24" data-aos="fade-up">
-        <h3 class="text-xl font-bold text-white text-center mb-12">{{ t('featuresSection.moreFeatures.title') }}</h3>
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white text-center mb-12">{{ t('featuresSection.moreFeatures.title') }}</h3>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- 功能4：高效任务与时间管理 -->
@@ -116,8 +116,8 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                 </svg>
               </div>
-              <h4 class="text-lg font-semibold text-white mb-2">{{ t('featuresSection.moreFeatures.taskManagement.title') }}</h4>
-              <p class="text-sm text-gray-300 leading-relaxed" v-html="highlightText(t('featuresSection.moreFeatures.taskManagement.description'))">
+              <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{{ t('featuresSection.moreFeatures.taskManagement.title') }}</h4>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed" v-html="highlightText(t('featuresSection.moreFeatures.taskManagement.description'))">
               </p>
               <div class="mt-4 w-full">
                 <div class="interactive-image">
@@ -135,8 +135,8 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                 </svg>
               </div>
-              <h4 class="text-lg font-semibold text-white mb-2">{{ t('featuresSection.moreFeatures.habitTracking.title') }}</h4>
-              <p class="text-sm text-gray-300 leading-relaxed" v-html="highlightText(t('featuresSection.moreFeatures.habitTracking.description'))">
+              <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{{ t('featuresSection.moreFeatures.habitTracking.title') }}</h4>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed" v-html="highlightText(t('featuresSection.moreFeatures.habitTracking.description'))">
               </p>
               <div class="mt-4 w-full">
                 <div class="interactive-image">
@@ -154,8 +154,8 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h4 class="text-lg font-semibold text-white mb-2">{{ t('featuresSection.moreFeatures.financeManagement.title') }}</h4>
-              <p class="text-sm text-gray-300 leading-relaxed" v-html="highlightText(t('featuresSection.moreFeatures.financeManagement.description'))">
+              <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{{ t('featuresSection.moreFeatures.financeManagement.title') }}</h4>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed" v-html="highlightText(t('featuresSection.moreFeatures.financeManagement.description'))">
               </p>
               <div class="mt-4 w-full">
                 <div class="interactive-image">
@@ -308,9 +308,13 @@ onMounted(() => {
 
 .active-tab {
   background-color: rgba(132, 90, 223, 0.2);
-  color: #fff;
+  color: #333;
   font-weight: 600;
   box-shadow: 0 0 15px rgba(132, 90, 223, 0.4);
+}
+
+.dark .active-tab {
+  color: #fff;
 }
 
 /* 展示区样式 */
@@ -323,14 +327,19 @@ onMounted(() => {
 .feature-display-wrapper {
   width: 100%;
   height: 100%;
-  background-color: #252847;
+  background-color: #f5f5f5;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
   aspect-ratio: 16/9;
   position: relative;
   min-height: 350px;
   max-height: 420px;
+}
+
+.dark .feature-display-wrapper {
+  background-color: #252847;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
 }
 
 .feature-display-wrapper img {
@@ -346,9 +355,14 @@ onMounted(() => {
 /* 其它原有样式 */
 .feature-content-card {
   border-radius: 16px;
+  border: 1px solid rgba(200, 200, 200, 0.3);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(245, 245, 245, 0.95));
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.dark .feature-content-card {
   border: 1px solid rgba(132, 90, 223, 0.1);
   background: linear-gradient(145deg, rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.95));
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .feature-icon {
@@ -403,9 +417,14 @@ onMounted(() => {
 /* 特性卡片（下面小卡片）样式 */
 .tech-card {
   border-radius: 16px;
+  border: 1px solid rgba(200, 200, 200, 0.5);
+  background: white;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.dark .tech-card {
   border: 1px solid rgba(132, 90, 223, 0.1);
   background: linear-gradient(145deg, rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.95));
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 /* 小卡片专用的图片容器 */
@@ -426,14 +445,23 @@ onMounted(() => {
 }
 
 .interactive-image .relative {
-  background-color: #252847;
+  background-color: #f5f5f5;
   border-radius: 16px;
   overflow: hidden;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+}
+
+.dark .interactive-image .relative {
+  background-color: #252847;
   box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.4);
 }
 
 .hover-lift:hover {
   transform: translateY(-10px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+.dark .hover-lift:hover {
   box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
 }
 
