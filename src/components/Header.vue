@@ -17,7 +17,7 @@
           </nav>
         </div>
         <div class="flex items-center">
-          <button class="glow-button">立即体验扎马AI</button>
+          <router-link to="/download"  class="glow-button">立即体验扎马AI</router-link>
         </div>
         <div class="flex items-center md:hidden">
           <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-300 hover:text-accent-400">

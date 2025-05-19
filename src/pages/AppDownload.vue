@@ -30,13 +30,13 @@
       </div>
     </div>
 
-    <main class="animate-fadeIn py-8 px-4">
-      <div class="max-w-md mx-auto">
+    <main class="animate-fadeIn py-8 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto">
         <!-- Page Title -->
-        <h1 class="text-2xl font-bold text-center text-gray-900 mb-6">下载扎马 AI 应用</h1>
+        <h1 class="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-6 md:mb-8">下载扎马 AI 应用</h1>
         
         <!-- WeChat Open-in-Browser Notice (smaller notice that remains after dismissing overlay) -->
-        <div v-if="isWechat && !maskClosed" class="wechat-notice bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6 rounded-md shadow-sm">
+        <div v-if="isWechat && !maskClosed" class="wechat-notice bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6 rounded-md shadow-sm max-w-md mx-auto">
           <div class="flex">
             <div class="flex-shrink-0 text-yellow-500 mr-3">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
@@ -56,185 +56,194 @@
           </div>
         </div>
 
-        <!-- App Logo and Title -->
-        <div class="text-center mb-8">
-          <div class="w-24 h-24 bg-gradient-to-br from-accent-500 to-accent-700 rounded-xl mx-auto mb-4 flex items-center justify-center shadow-lg">
-            <img src="/images/logo.png" alt="扎马 AI Logo" class="w-full h-full object-contain">
-          </div>
-          <h1 class="text-3xl font-bold text-gray-900 mb-2">扎马 AI</h1>
-          <p class="text-gray-600 text-lg">你的全能认知与生活引擎</p>
-          <p class="text-accent-600 font-medium mt-2 text-sm">记得少，想得深，做得快，活得好</p>
-        </div>
+        <!-- Desktop/Mobile Layout -->
+        <div class="flex flex-col lg:flex-row lg:items-start lg:gap-12">
+          <!-- Left Column for Desktop (App Logo, Features) -->
+          <div class="lg:w-1/2">
+            <!-- App Logo and Title -->
+            <div class="text-center lg:text-left mb-8">
+              <div class="w-24 h-24 md:w-28 md:h-28 bg-gradient-to-br from-accent-500 to-accent-700 rounded-xl mx-auto lg:mx-0 mb-4 flex items-center justify-center shadow-lg">
+                <img src="/images/logo.png" alt="扎马 AI Logo" class="w-full h-full object-contain">
+              </div>
+              <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">扎马 AI</h1>
+              <p class="text-gray-600 text-lg md:text-xl">你的全能认知与生活引擎</p>
+              <p class="text-accent-600 font-medium mt-2 text-sm md:text-base">记得少，想得深，做得快，活得好</p>
+            </div>
 
-        <!-- App Features -->
-        <div class="mb-8">
-          <h2 class="text-xl font-semibold text-gray-900 mb-4">为什么选择扎马 AI？</h2>
-          <div class="space-y-4">
-            <div class="flex items-start">
-              <div class="flex-shrink-0 text-accent-500">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
+            <!-- App Features -->
+            <div class="mb-8">
+              <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-4 lg:text-left">为什么选择扎马 AI？</h2>
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <div class="flex-shrink-0 text-accent-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-7 md:w-7" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <div class="ml-3">
+                    <p class="text-gray-800 font-medium md:text-lg">全域智能采集</p>
+                    <p class="text-gray-600 text-sm md:text-base">支持文本、语音、图片、PDF、网页等全格式解析，98%准确率的实时语音转文字</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex-shrink-0 text-accent-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-7 md:w-7" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <div class="ml-3">
+                    <p class="text-gray-800 font-medium md:text-lg">AI内容精炼与洞察</p>
+                    <p class="text-gray-600 text-sm md:text-base">一键生成会议纪要、决策要点、待办清单，节省90%整理时间</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex-shrink-0 text-accent-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-7 md:w-7" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <div class="ml-3">
+                    <p class="text-gray-800 font-medium md:text-lg">高效任务与时间管理</p>
+                    <p class="text-gray-600 text-sm md:text-base">智能待办事项、日程规划与提醒，自动从会议记录生成行动项</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex-shrink-0 text-accent-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-7 md:w-7" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <div class="ml-3">
+                    <p class="text-gray-800 font-medium md:text-lg">智能记账与财务管理</p>
+                    <p class="text-gray-600 text-sm md:text-base">语音记账、智能分类、财务概览，轻松掌控资金流向</p>
+                  </div>
+                </div>
               </div>
-              <div class="ml-3">
-                <p class="text-gray-800 font-medium">全域智能采集</p>
-                <p class="text-gray-600 text-sm">支持文本、语音、图片、PDF、网页等全格式解析，98%准确率的实时语音转文字</p>
-              </div>
-            </div>
-            <div class="flex items-start">
-              <div class="flex-shrink-0 text-accent-500">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-              </div>
-              <div class="ml-3">
-                <p class="text-gray-800 font-medium">AI内容精炼与洞察</p>
-                <p class="text-gray-600 text-sm">一键生成会议纪要、决策要点、待办清单，节省90%整理时间</p>
-              </div>
-            </div>
-            <div class="flex items-start">
-              <div class="flex-shrink-0 text-accent-500">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-              </div>
-              <div class="ml-3">
-                <p class="text-gray-800 font-medium">高效任务与时间管理</p>
-                <p class="text-gray-600 text-sm">智能待办事项、日程规划与提醒，自动从会议记录生成行动项</p>
-              </div>
-            </div>
-            <div class="flex items-start">
-              <div class="flex-shrink-0 text-accent-500">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-              </div>
-              <div class="ml-3">
-                <p class="text-gray-800 font-medium">智能记账与财务管理</p>
-                <p class="text-gray-600 text-sm">语音记账、智能分类、财务概览，轻松掌控资金流向</p>
+              
+              <!-- Ideal for sections -->
+              <div class="mt-6 bg-gradient-to-r from-accent-50 to-blue-50 p-4 rounded-lg border border-accent-100">
+                <h3 class="font-medium text-accent-700 mb-2 lg:text-left">适用人群</h3>
+                <div class="grid grid-cols-2 gap-2 text-sm md:text-base">
+                  <div class="flex items-center">
+                    <span class="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
+                    <span class="text-gray-700">高管/创业者</span>
+                  </div>
+                  <div class="flex items-center">
+                    <span class="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
+                    <span class="text-gray-700">产品/研究人员</span>
+                  </div>
+                  <div class="flex items-center">
+                    <span class="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
+                    <span class="text-gray-700">学生/终身学习者</span>
+                  </div>
+                  <div class="flex items-center">
+                    <span class="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
+                    <span class="text-gray-700">生活规划者</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          
-          <!-- Ideal for sections -->
-          <div class="mt-6 bg-gradient-to-r from-accent-50 to-blue-50 p-4 rounded-lg border border-accent-100">
-            <h3 class="font-medium text-accent-700 mb-2">适用人群</h3>
-            <div class="grid grid-cols-2 gap-2 text-sm">
-              <div class="flex items-center">
-                <span class="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
-                <span class="text-gray-700">高管/创业者</span>
-              </div>
-              <div class="flex items-center">
-                <span class="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
-                <span class="text-gray-700">产品/研究人员</span>
-              </div>
-              <div class="flex items-center">
-                <span class="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
-                <span class="text-gray-700">学生/终身学习者</span>
-              </div>
-              <div class="flex items-center">
-                <span class="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
-                <span class="text-gray-700">生活规划者</span>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- Download Buttons - Redesigned Layout -->
-        <div class="space-y-6">
-          <h2 class="text-xl font-semibold text-gray-900 mb-3">立即体验，让AI成为你最强大的效率杠杆与生活伙伴</h2>
-          
-          <!-- Web App Button -->
-          <a :href="appLinksUrl" target="_blank" 
-             class="group block w-full bg-gradient-to-r from-blue-500 to-accent-500 hover:from-blue-600 hover:to-accent-600 text-white font-medium py-3 px-5 rounded-xl shadow-md transition-all duration-300">
-            <div class="flex items-center">
-              <div class="flex-shrink-0 bg-white bg-opacity-20 p-2.5 rounded-lg mr-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9" />
-                </svg>
+          <!-- Right Column for Desktop (Download Options) -->
+          <div class="lg:w-1/2">
+            <!-- Download Buttons - Redesigned Layout -->
+            <div class="space-y-6">
+              <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-3 lg:text-left">立即体验，让AI成为你最强大的效率杠杆与生活伙伴</h2>
+              
+              <!-- Web App Button -->
+              <a :href="appLinksUrl" target="_blank" 
+                class="group block w-full bg-gradient-to-r from-blue-500 to-accent-500 hover:from-blue-600 hover:to-accent-600 text-white font-medium py-3 px-5 rounded-xl shadow-md transition-all duration-300">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0 bg-white bg-opacity-20 p-2.5 rounded-lg mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-7 md:w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9" />
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <span class="block text-sm font-normal md:text-base">立即体验</span>
+                    <span class="block text-base font-bold group-hover:translate-x-1 transition-transform md:text-lg">打开扎马AI</span>
+                  </div>
+                  <div class="flex-shrink-0 text-white opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+              </a>
+              
+              <div class="relative py-2">
+                <div class="absolute inset-0 flex items-center">
+                  <div class="w-full border-t border-gray-200"></div>
+                </div>
+                <div class="relative flex justify-center">
+                  <span class="bg-white px-3 text-sm text-gray-500 md:text-base">下载应用</span>
+                </div>
               </div>
-              <div class="flex-1">
-                <span class="block text-sm font-normal">立即体验</span>
-                <span class="block text-base font-bold group-hover:translate-x-1 transition-transform">打开扎马AI</span>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- iOS App Button -->
+                <a href="javascript:void(0)" @click.prevent="openIOSAppStore"
+                  class="group flex flex-col h-full bg-white border border-gray-200 hover:border-accent-300 hover:shadow-lg rounded-xl p-4 transition-all duration-300">
+                  <div class="flex items-center mb-3">
+                    <div class="flex-shrink-0 bg-black rounded-xl p-2 mr-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-7 md:w-7 text-white" viewBox="0 0 384 512" fill="currentColor">
+                        <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <span class="block text-sm text-gray-500 md:text-base">App Store</span>
+                      <span class="block text-base font-bold text-gray-900 md:text-lg">iOS 版下载</span>
+                    </div>
+                  </div>
+                  <div class="mt-auto pt-2 border-t border-gray-100 flex justify-between items-center">
+                    <span class="text-xs text-gray-500 md:text-sm">适用于 iPhone/iPad</span>
+                    <span class="flex items-center text-accent-500 group-hover:translate-x-1 transition-transform">
+                      <span class="text-sm font-medium mr-1 md:text-base">立即获取</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+                
+                <!-- Android App Button -->
+                <a :href="androidDownloadUrl" target="_blank"
+                  class="group flex flex-col h-full bg-white border border-gray-200 hover:border-accent-300 hover:shadow-lg rounded-xl p-4 transition-all duration-300">
+                  <div class="flex items-center mb-3">
+                    <div class="flex-shrink-0 bg-accent-500 rounded-xl p-2 mr-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-7 md:w-7 text-white" viewBox="0 0 576 512" fill="currentColor">
+                        <path d="M420.55,301.93a24,24,0,1,1,24-24,24,24,0,0,1-24,24m-265.1,0a24,24,0,1,1,24-24,24,24,0,0,1-24,24m273.7-144.48,47.94-83a10,10,0,1,0-17.27-10h0l-48.54,84.07a301.25,301.25,0,0,0-246.56,0L116.18,64.45a10,10,0,1,0-17.27,10h0l47.94,83C64.53,202.22,8.24,285.55,0,384H576c-8.24-98.45-64.54-181.78-146.85-226.55"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <span class="block text-sm text-gray-500 md:text-base">Android</span>
+                      <span class="block text-base font-bold text-gray-900 md:text-lg">安卓版下载</span>
+                    </div>
+                  </div>
+                  <div class="mt-auto pt-2 border-t border-gray-100 flex justify-between items-center">
+                    <span class="text-xs text-gray-500 md:text-sm">直接下载APK文件</span>
+                    <span class="flex items-center text-accent-500 group-hover:translate-x-1 transition-transform">
+                      <span class="text-sm font-medium mr-1 md:text-base">立即获取</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                      </svg>
+                    </span>
+                  </div>
+                </a>
               </div>
-              <div class="flex-shrink-0 text-white opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
+              
+              <!-- QR Code Section (Optional) -->
+              <div class="mt-8 text-center">
+                <p class="text-sm text-gray-500 mb-2 md:text-base">或扫描二维码下载</p>
+                <div class="w-48 h-48 md:w-56 md:h-56 bg-white p-2 mx-auto rounded-md shadow-md border border-gray-200 overflow-hidden">
+                  <!-- Real QR code image -->
+                  <img src="/images/link_qrcode.png" alt="扎马 AI 下载二维码" class="w-full h-full object-contain" />
+                </div>
+                <p class="text-xs text-gray-500 mt-2 md:text-sm">扫描二维码，立即开启AI赋能新体验</p>
               </div>
             </div>
-          </a>
-          
-          <div class="relative py-2">
-            <div class="absolute inset-0 flex items-center">
-              <div class="w-full border-t border-gray-200"></div>
-            </div>
-            <div class="relative flex justify-center">
-              <span class="bg-white px-3 text-sm text-gray-500">下载应用</span>
-            </div>
           </div>
-          
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- iOS App Button -->
-            <a href="javascript:void(0)" @click.prevent="openIOSAppStore"
-               class="group flex flex-col h-full bg-white border border-gray-200 hover:border-accent-300 hover:shadow-lg rounded-xl p-4 transition-all duration-300">
-              <div class="flex items-center mb-3">
-                <div class="flex-shrink-0 bg-black rounded-xl p-2 mr-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 384 512" fill="currentColor">
-                    <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
-                  </svg>
-                </div>
-                <div>
-                  <span class="block text-sm text-gray-500">App Store</span>
-                  <span class="block text-base font-bold text-gray-900">iOS 版下载</span>
-                </div>
-              </div>
-              <div class="mt-auto pt-2 border-t border-gray-100 flex justify-between items-center">
-                <span class="text-xs text-gray-500">适用于 iPhone/iPad</span>
-                <span class="flex items-center text-accent-500 group-hover:translate-x-1 transition-transform">
-                  <span class="text-sm font-medium mr-1">立即获取</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
-                </span>
-              </div>
-            </a>
-            
-            <!-- Android App Button -->
-            <a :href="androidDownloadUrl" target="_blank"
-               class="group flex flex-col h-full bg-white border border-gray-200 hover:border-accent-300 hover:shadow-lg rounded-xl p-4 transition-all duration-300">
-              <div class="flex items-center mb-3">
-                <div class="flex-shrink-0 bg-accent-500 rounded-xl p-2 mr-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 576 512" fill="currentColor">
-                    <path d="M420.55,301.93a24,24,0,1,1,24-24,24,24,0,0,1-24,24m-265.1,0a24,24,0,1,1,24-24,24,24,0,0,1-24,24m273.7-144.48,47.94-83a10,10,0,1,0-17.27-10h0l-48.54,84.07a301.25,301.25,0,0,0-246.56,0L116.18,64.45a10,10,0,1,0-17.27,10h0l47.94,83C64.53,202.22,8.24,285.55,0,384H576c-8.24-98.45-64.54-181.78-146.85-226.55"/>
-                  </svg>
-                </div>
-                <div>
-                  <span class="block text-sm text-gray-500">Android</span>
-                  <span class="block text-base font-bold text-gray-900">安卓版下载</span>
-                </div>
-              </div>
-              <div class="mt-auto pt-2 border-t border-gray-100 flex justify-between items-center">
-                <span class="text-xs text-gray-500">直接下载APK文件</span>
-                <span class="flex items-center text-accent-500 group-hover:translate-x-1 transition-transform">
-                  <span class="text-sm font-medium mr-1">立即获取</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <!-- QR Code Section (Optional) -->
-        <div class="mt-8 text-center">
-          <p class="text-sm text-gray-500 mb-2">或扫描二维码下载</p>
-          <div class="w-48 h-48 bg-white p-2 mx-auto rounded-md shadow-md border border-gray-200 overflow-hidden">
-            <!-- Real QR code image -->
-            <img src="/images/link_qrcode.png" alt="扎马 AI 下载二维码" class="w-full h-full object-contain" />
-          </div>
-          <p class="text-xs text-gray-500 mt-2">扫描二维码，立即开启AI赋能新体验</p>
         </div>
       </div>
     </main>
@@ -370,5 +379,13 @@ export default defineComponent({
 /* Rotate by 20 degrees */
 .rotate-20 {
   transform: rotate(20deg);
+}
+
+/* Responsive media queries */
+@media (min-width: 1024px) {
+  .lg-container-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 </style> 
