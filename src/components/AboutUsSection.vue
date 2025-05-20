@@ -78,10 +78,10 @@ import zhMessages from '../i18n/zh';
 const { t, locale } = useI18n();
 
 // Define types
-interface Feature {
-  title: string;
-  description: string;
-}
+// interface Feature {
+//   title: string;
+//   description: string;
+// }
 
 // 获取本地化特性数据
 const localizedFeatures = computed(() => {
