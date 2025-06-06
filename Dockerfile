@@ -14,7 +14,11 @@ RUN npm ci --omit=dev
 # Rebuild the source code only when needed
 FROM base AS builder
 WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+
+# Install ALL dependencies (including dev) for building
+COPY package.json package-lock.json* ./
+RUN npm ci
+
 COPY . .
 
 # Set environment variables for build
