@@ -12,63 +12,63 @@ export default {
     features: 'Features',
     advantages: 'Benefits',
     download: 'Download',
-    about: 'About Us',
+    about: 'About',
     contact: 'Contact',
-    tryNow: 'Try Zhama AI Now'
+    tryNow: 'Try Now'
   },
   home: {
     // Homepage translations
     hero: {
       title: 'Zhama AI',
-      tagline: 'All-in-one Cognitive & Life Engine',
-      description: 'In an era where information and tasks intertwine, high-performers must not only capture information but excel at extracting value, integrating resources, and optimizing life. Zhama AI transforms every note, thought, and plan into searchable, actionable, and growing intelligent assets.',
-      cta: 'Get Started',
+      tagline: 'Personalized AI Research Assistant',
+      description: 'Upload materials, ask questions, get precise answers with traceable sources. Transform documents into interactive knowledge bases for efficient research.',
+      cta: 'Try Now',
       secondaryCta: 'Learn More',
-      imgAlt: 'Zhama AI - All-in-one Cognitive & Life Engine'
+      imgAlt: 'Zhama AI - Personalized AI Research Assistant'
     },
     features: {
       title: 'Key Features',
-      subtitle: 'Discover how Zhama AI can transform your workflow',
+      subtitle: 'Discover how Zhama AI transforms your research workflow',
       // Add specific feature translations here
     },
     // Add more homepage sections as needed
   },
   featuresSection: {
-    title: 'AI-Driven Cognitive & Life Engine',
-    subtitle: 'Zhama AI is not just a note-taking tool but an AI-powered cognitive and life operating system, combining deep knowledge management with intelligent life assistance',
+    title: 'Document-Based Intelligent Research & Knowledge Management',
+    subtitle: 'Zhama AI doesn\'t rely on general knowledge but strictly provides precise analysis based on your documents, making every material an interactive intelligent assistant',
     tabs: {
-      collection: 'Intelligent Collection',
-      analysis: 'AI Content Refinement',
-      organization: 'Smart Organization'
+      collection: 'Multi-Format Document Parsing',
+      analysis: 'Intelligent Analysis & Q&A',
+      organization: 'Knowledge Organization & Notes'
     },
     collection: {
-      title: 'Intelligent Collection',
-      description: 'Supporting text, voice, images, PDFs, webpages, YouTube videos, and more, Zhama AI automatically recognizes and structurally archives meeting notes, handwritten drafts, whiteboard photos, voice memos, and web clippings. Easily capture inspiration and information through convenient "action buttons" or voice commands.',
-      tags: ['Text Recognition', 'Voice Transcription', 'Image Analysis', 'PDF Extraction', 'Web Capture']
+      title: 'Multi-Format Document Parsing',
+      description: 'Supports intelligent parsing of PDF, Word, TXT, Markdown, web pages, audio, video and other formats. Whether academic papers, research reports, meeting recordings or online articles, AI accurately extracts and understands content to build your exclusive knowledge base.',
+      tags: ['PDF Parsing', 'Audio Transcription', 'Web Extraction', 'Multi-Format Support', 'Intelligent Recognition']
     },
     analysis: {
-      title: 'AI Content Refinement & Insights',
-      description: 'Generate meeting summaries, decision points, and project to-do lists with one click, saving up to 90% of organization time. Supports logical structure extraction, semantic summarization, and emotional trend analysis, ideal for work reviews, user interviews, research overviews, and personal growth reflection.',
-      tags: ['Meeting Summaries', 'Decision Points', 'To-Do Lists', 'Sentiment Analysis']
+      title: 'Intelligent Analysis & Q&A',
+      description: 'Precise Q&A based on uploaded documents with clear source citations for all answers. Supports cross-document analysis, content comparison, and deep summarization. Generate research summaries, key insights, and structured notes with one click to significantly improve research efficiency.',
+      tags: ['Precise Q&A', 'Source Citations', 'Cross-Document Analysis', 'Intelligent Summaries']
     },
     organization: {
-      title: 'Smart Organization & Proactive Retrieval',
-      description: 'Based on knowledge graphs, intelligently classify by project/topic/person/time/emotion/income category to build personal/team knowledge networks. Interactive AI Q&A: directly ask questions like "What were the key risks for project XX last week?" or "Where were my main expenses last month?" and get precise answers in context instantly.',
-      tags: ['Knowledge Graph', 'Semantic Search', 'Smart Q&A', 'Multi-dimensional Classification']
+      title: 'Knowledge Organization & Notes',
+      description: 'Intelligent note system deeply connected to original documents, supports saving AI responses, creating personal insights, and merging multiple notes. Quickly locate information through semantic search to build personal knowledge networks and transform scattered information into systematic cognition.',
+      tags: ['Intelligent Notes', 'Source Association', 'Semantic Search', 'Knowledge Network']
     },
     moreFeatures: {
-      title: 'More Powerful Features',
+      title: 'More Professional Features',
       taskManagement: {
-        title: 'Efficient Task & Time Management',
-        description: 'Powerful to-do items, scheduling, and reminder functions supporting voice-created tasks. Automatically identify and generate action items from meeting records and notes, adding them to your to-do list with one click.'
+        title: 'Research Task Management',
+        description: 'Automatically identify to-do items from documents and notes, intelligently generate research plans and learning checklists. Support setting reminders for important findings to ensure key information is not missed.'
       },
       habitTracking: {
-        title: 'Habit Formation & Health Tracking',
-        description: 'Set goals for exercise, reading, learning, and more, using to-do lists and habit trackers to develop good habits. Sync with health platforms like Apple Health, combining diet and exercise records for a comprehensive understanding of your physical condition.'
+        title: 'Learning Habit Tracking',
+        description: 'Record reading progress, study notes, and research achievements, track knowledge accumulation trajectory. Understand learning patterns through data visualization and optimize research workflows.'
       },
       financeManagement: {
-        title: 'Smart Accounting & Financial Management',
-        description: 'Easily record each transaction by voice, like "Reimburse taxi fare 50 yuan," and AI automatically categorizes the entry. Provides clear income and expense statistics and budget management, helping you easily control cash flow and simplify financial management.'
+        title: 'Research Cost Management',
+        description: 'Record research-related expenses such as book purchases, software subscriptions, conference fees, etc. Intelligently categorize research investments to help you plan academic budgets reasonably.'
       }
     }
   },
@@ -76,119 +76,119 @@ export default {
     title: 'Experience Zhama AI Now',
     enterprise: {
       title: 'Enterprise',
-      description: 'Enterprise deployment, secure management, team collaboration',
-      button: 'Business Inquiry'
+      description: 'Team collaboration, knowledge sharing, secure and controllable',
+      button: 'Enterprise Inquiry'
     },
     ios: {
       title: 'iOS Version',
-      description: 'Optimized for iPhone/iPad, supports Apple Pencil',
+      description: 'iPhone/iPad optimized, capture inspiration anytime',
       button: 'App Store'
     },
     android: {
       title: 'Android Version',
-      description: 'Multi-device support, split-screen multitasking',
+      description: 'Cross-device sync, mobile research tool',
       button: 'Google Play'
     },
     web: {
-      button: 'Access Web Version'
+      button: 'Access Web Version Now'
     }
   },
   advantagesSection: {
-    title: 'Zhama AI: Operating System for Cognitive Enhancement & Quality Life',
+    title: 'Zhama AI: Making Research Smarter, Thinking Deeper',
     values: {
-      remember: 'Remember Less',
-      think: 'Think Deeper',
-      do: 'Act Faster',
-      live: 'Live Better'
+      remember: 'Traceable Sources',
+      think: 'Deep Analysis',
+      do: 'Efficient Output',
+      live: 'Knowledge Accumulation'
     },
     efficiency: {
-      title: 'Ultimate Efficiency',
+      title: 'Research Efficiency',
       points: [
-        'AI auto-organization + summarization, freeing you from repetitive work',
-        'Voice/multi-modal input, effortless recording anytime, anywhere',
-        'Seamless multi-device sync, information at your fingertips'
+        'AI intelligent summaries and Q&A for rapid understanding of complex documents',
+        'Multi-format support for unified processing of various research materials',
+        'Precise citation tracking ensuring reliable information sources'
       ]
     },
     knowledge: {
-      title: 'Knowledge & Life Accumulation',
+      title: 'Knowledge Management',
       points: [
-        'One-stop structured archiving of work and life information',
-        'Build personal/team knowledge base and life records',
-        'Support enterprise-level deployment, ensuring data security'
+        'Deep connection between documents and notes to build knowledge networks',
+        'Intelligent tagging and classification for easy organization of massive information',
+        'Team collaboration support for co-building knowledge bases'
       ]
     },
     decision: {
-      title: 'Smart Decision-making & Action',
+      title: 'Insight Analysis',
       points: [
-        'Semantic search + intelligent Q&A, quickly locate key information',
-        'Smart to-do/reminder generation, promoting plan implementation',
-        'Provide trend analysis (emotional/financial), assisting decision-making'
+        'Cross-document comparative analysis to discover deep connections',
+        'Document-based AI Q&A to avoid hallucinated responses',
+        'Structured output supporting research report generation'
       ]
     },
     scenarios: {
       title: 'Use Cases',
       professional: {
-        title: 'Workplace & Professionals',
-        description: 'Meeting decisions for executives/entrepreneurs, user interview analysis for product/consulting teams, material organization for content creators'
+        title: 'Academic Research',
+        description: 'Literature reviews, paper writing, academic research - quickly organize large amounts of literature and discover research opportunities'
       },
       personal: {
-        title: 'Personal Life & Growth',
-        description: 'Study note organization, habit tracking, health data management, life planning and scheduling'
+        title: 'Study Notes',
+        description: 'Course learning, skill improvement, reading notes - transform knowledge input into personal insights'
       },
       enterprise: {
-        title: 'Enterprise & Team',
-        description: 'Team knowledge base co-creation, vertical domain AI customization, secure and compliant collaborative management'
+        title: 'Business Analysis',
+        description: 'Market research, competitive analysis, industry reports - make accurate business judgments based on materials'
       }
     },
     features: {
       multiPlatform: {
-        title: 'Multi-device Support',
-        description: 'PC, mobile, tablet full coverage, record and use anytime, anywhere'
+        title: 'Full Platform Support',
+        description: 'Web, mobile, desktop full coverage for research anytime, anywhere'
       },
       dataSecurity: {
         title: 'Data Security',
-        description: 'Enterprise-grade encryption, fine permission control, self-controlled deployment options'
+        description: 'Private document processing with strict protection of intellectual property and privacy'
       }
     },
     cta: 'Try Now'
   },
   aboutSection: {
     title: 'About Us',
-    subtitle: '<span class="text-accent-400">Redefining</span> Cognition and Life Experience with AI Technology',
-    description: 'Zhama AI integrates cutting-edge artificial intelligence technology, revolutionizing deep knowledge management and intelligent life assistance to help you improve efficiency, optimize decisions, and achieve quality living',
+    subtitle: '<span class="text-accent-400">Redefining</span> Knowledge Management & Research Methods with AI Technology',
+    description: 'Zhama AI is committed to building document-based intelligent research assistants, making every material a conversational knowledge source to help you research efficiently, think deeply, and gain precise insights',
     vision: {
       title: 'Our Vision',
       paragraphs: [
-        'Zhama AI is committed to building the world\'s leading <span class="text-white font-medium">AI cognitive and life engine</span>, transforming every record, thought, and plan into searchable, actionable, and growable intelligent assets.',
-        'Our core team brings together professional talents from <span class="text-white font-medium">top AI research institutions and tech companies</span>, with deep technical foundation and rich industry experience, dedicated to creating an intelligent living environment that aligns with human cognitive patterns.'
+        'Zhama AI is committed to building the world\'s leading <span class="text-primary font-medium">document-based AI research assistant</span>, transforming every uploaded material into conversational, traceable, and deeply analyzable intelligent knowledge bases.',
+        'Our core team brings together <span class="text-primary font-medium">top AI research institutions and knowledge management experts</span>, with deep understanding of research workflows, dedicated to creating intelligent tools that align with scholars\' and knowledge workers\' cognitive habits.'
       ]
     },
     features: [
       {
-        title: "Comprehensive Intelligence Integration",
-        description: "Combining large language models, knowledge graphs, and multi-modal technology to achieve comprehensive intelligent information processing across scenarios and devices"
+        title: "Intelligent Document Parsing",
+        description: "Supports deep understanding of various document formats with accurate extraction of structured information, laying the foundation for subsequent analysis"
       },
       {
-        title: "Seamless Life Management",
-        description: "From work notes to life planning, from financial management to habit formation, creating an all-in-one personal and life management system"
+        title: "Traceable Q&A",
+        description: "All AI responses are based on your documents with precise citations, making every conclusion traceable and verifiable"
       },
       {
-        title: "Proactive Decision Empowerment",
-        description: "From passive recording to active reminders, intelligently analyzing information and providing insights, enabling more efficient decision-making and action execution"
+        title: "Knowledge Network Construction",
+        description: "Intelligently connects document content with personal notes to build personalized knowledge graphs and discover hidden connections"
       },
       {
-        title: "Deep Personalization",
-        description: "Gradually understanding user needs through usage, providing more precise recommendations and services, creating a personalized experience"
+        title: "Research Workflow Integration",
+        description: "From document input to note organization, from Q&A analysis to report generation, connecting the complete research chain"
       }
     ],
     footer: {
       prefix: 'Zhama AI',
-      suffix: ', more than just a tool, '
+      suffix: ', more than just notes, '
     },
     typingPhrases: [
-      "reshaping the way of cognition and life",
-      "inspiring innovation and efficiency potential",
-      "creating a quality life management system"
+      "reshaping knowledge management and research methods",
+      "making every document an intelligent assistant",
+      "building reliable AI research partners"
     ]
   },
   footer: {
@@ -199,7 +199,7 @@ export default {
     helpCenter: 'Help Center',
     tutorials: 'Tutorials',
     faq: 'FAQ',
-    copyright: '© 2025 Zhama AI. All rights reserved.'
+    copyright: '© 2025 Zhama AI. All rights reserved. Shenzhen Zhama Future Technology Co., Ltd.'
   },
   privacy: {
     title: 'Privacy Policy',
@@ -256,8 +256,8 @@ export default {
     }
   },
   appDownload: {
-    title: 'Download Zhama AI',
-    subtitle: 'Experience the power of Zhama AI on your device',
+    title: 'Download Zhama AI App',
+    subtitle: 'Experience the powerful research capabilities of Zhama AI on your device',
     wechatBrowser: {
       notice: 'Please Open in Browser',
       instruction: 'WeChat cannot download apps directly. Please tap the top-right corner and select "Open in Browser"',
@@ -267,37 +267,37 @@ export default {
       button: 'Got it'
     },
     appIntro: {
-      slogan: 'Your All-in-one Cognitive & Life Engine',
-      tagline: 'Remember less, think deeper, act faster, live better'
+      slogan: 'Your Personalized AI Research Assistant',
+      tagline: 'Traceable sources, deep analysis, efficient output, knowledge accumulation'
     },
     whyChoose: 'Why Choose Zhama AI?',
     features: {
       dataCollection: {
-        title: 'Intelligent Data Collection',
-        description: 'Supports text, voice, images, PDFs, and websites with 98% accurate real-time speech-to-text'
+        title: 'Multi-Format Document Parsing',
+        description: 'Supports PDF, Word, audio, video formats with 98% accuracy in intelligent content extraction and structured analysis'
       },
       aiContent: {
-        title: 'AI Content Refinement & Insights',
-        description: 'Generate meeting summaries, decision points, and to-do lists with one click, saving 90% of organization time'
+        title: 'Document-Based AI Q&A',
+        description: 'All answers based on your materials with precise citations, avoiding AI hallucinations and ensuring information reliability'
       },
       taskManagement: {
-        title: 'Efficient Task & Time Management',
-        description: 'Smart to-do items, scheduling, and reminders that automatically generate action items from meeting notes'
+        title: 'Intelligent Notes & Knowledge Management',
+        description: 'Document-associated note system, semantic search, knowledge network construction, transforming information into insights'
       },
       finance: {
-        title: 'Smart Accounting & Finance',
-        description: 'Voice accounting, smart categorization, financial overview, easily control your cash flow'
+        title: 'Research Workflow Support',
+        description: 'Complete support from document input to report generation for the entire research process, improving academic and business analysis efficiency'
       }
     },
     targetUsers: {
-      title: 'Ideal For',
-      executive: 'Executives/Entrepreneurs',
-      researcher: 'Product/Research Teams',
-      student: 'Students/Lifelong Learners',
-      planner: 'Life Planners'
+      title: 'Target Users',
+      executive: 'Scholars/Researchers',
+      researcher: 'Students/Learners',
+      student: 'Analysts/Consultants',
+      planner: 'Knowledge Workers'
     },
     download: {
-      heading: 'Experience now and let AI become your most powerful efficiency lever and life partner',
+      heading: 'Experience now and let AI become your most reliable research partner',
       webapp: {
         title: 'Try Now',
         action: 'Open Zhama AI'
@@ -305,19 +305,19 @@ export default {
       appSection: 'Download Apps',
       ios: {
         title: 'App Store',
-        subtitle: 'iOS Version',
+        subtitle: 'iOS Download',
         description: 'For iPhone/iPad',
         action: 'Get Now'
       },
       android: {
         title: 'Android',
-        subtitle: 'Android Version',
+        subtitle: 'Android Download',
         description: 'Direct APK download',
         action: 'Get Now'
       },
       qrCode: {
         notice: 'Or scan QR code to download',
-        description: 'Scan the QR code to start your AI-enhanced experience now'
+        description: 'Scan the QR code to start your intelligent research experience now'
       }
     }
   }

@@ -10,7 +10,7 @@
       <div class="text-center max-w-3xl mx-auto mb-20">
         <div ref="headerRef">
           <h2 class="text-accent-400 font-semibold text-lg uppercase tracking-wider mb-3">{{ t('aboutSection.title') }}</h2>
-          <p class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl leading-tight" v-html="t('aboutSection.subtitle')">
+          <p class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl leading-tight" v-html="t('aboutSection.subtitle')">
           </p>
           <p class="mt-6 text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
             {{ t('aboutSection.description') }}

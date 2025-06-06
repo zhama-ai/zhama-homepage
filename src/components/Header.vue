@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white/95 dark:bg-dark-800/80 backdrop-blur-sm border-b border-light-400 dark:border-dark-600 shadow-lg fixed top-0 left-0 right-0 z-50">
+  <header class="glass border-b border-light-400/50 dark:border-dark-600/50 shadow-light-medium dark:shadow-lg fixed top-0 left-0 right-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-20">
         <div class="flex items-center">
@@ -8,11 +8,11 @@
             <span class="text-2xl font-semibold text-gray-900 dark:text-white">{{ $t('home.hero.title') }}</span>
           </div>
           <nav class="hidden md:ml-10 md:flex md:space-x-10">
-            <router-link to="/" class="text-gray-700 dark:text-gray-300 hover:text-accent-600 dark:hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">{{ $t('nav.home') }}</router-link>
-            <a href="#features" class="text-gray-700 dark:text-gray-300 hover:text-accent-600 dark:hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">{{ $t('nav.features') }}</a>
-            <a href="#advantages" class="text-gray-700 dark:text-gray-300 hover:text-accent-600 dark:hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">{{ $t('nav.advantages') }}</a>
-            <a href="#download" class="text-gray-700 dark:text-gray-300 hover:text-accent-600 dark:hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">{{ $t('nav.download') }}</a>
-            <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-accent-600 dark:hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">{{ $t('nav.about') }}</a>
+            <router-link to="/" class="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">{{ $t('nav.home') }}</router-link>
+            <a href="#features" class="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">{{ $t('nav.features') }}</a>
+            <a href="#advantages" class="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">{{ $t('nav.advantages') }}</a>
+            <a href="#download" class="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">{{ $t('nav.download') }}</a>
+            <a href="#about" class="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">{{ $t('nav.about') }}</a>
             <!-- <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-accent-600 dark:hover:text-accent-400 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out">{{ $t('nav.contact') }}</a> -->
           </nav>
         </div>
@@ -34,13 +34,13 @@
     
     <!-- Mobile menu -->
     <div v-if="mobileMenuOpen" class="md:hidden">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-light-300 dark:bg-dark-700 border-t border-light-400 dark:border-dark-600">
-        <router-link to="/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-accent-600 dark:hover:text-accent-400 hover:bg-light-400 dark:hover:bg-dark-600">{{ $t('nav.home') }}</router-link>
-        <a href="#features" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-accent-600 dark:hover:text-accent-400 hover:bg-light-400 dark:hover:bg-dark-600">{{ $t('nav.features') }}</a>
-        <a href="#advantages" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-accent-600 dark:hover:text-accent-400 hover:bg-light-400 dark:hover:bg-dark-600">{{ $t('nav.advantages') }}</a>
-        <a href="#download" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-accent-600 dark:hover:text-accent-400 hover:bg-light-400 dark:hover:bg-dark-600">{{ $t('nav.download') }}</a>
-        <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-accent-600 dark:hover:text-accent-400 hover:bg-light-400 dark:hover:bg-dark-600">{{ $t('nav.about') }}</a>
-        <!-- <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-accent-600 dark:hover:text-accent-400 hover:bg-light-400 dark:hover:bg-dark-600">{{ $t('nav.contact') }}</a> -->
+      <div class="px-4 pt-4 pb-4 space-y-2 sm:px-6 glass border-t border-light-400/30 dark:border-dark-600/30">
+        <router-link to="/" class="block px-4 py-3 rounded-xl text-base font-semibold text-secondary hover:text-accent-600 dark:hover:text-accent-400 hover:bg-light-100 dark:hover:bg-dark-600 transition-all duration-200">{{ $t('nav.home') }}</router-link>
+        <a href="#features" class="block px-4 py-3 rounded-xl text-base font-semibold text-secondary hover:text-accent-600 dark:hover:text-accent-400 hover:bg-light-100 dark:hover:bg-dark-600 transition-all duration-200">{{ $t('nav.features') }}</a>
+        <a href="#advantages" class="block px-4 py-3 rounded-xl text-base font-semibold text-secondary hover:text-accent-600 dark:hover:text-accent-400 hover:bg-light-100 dark:hover:bg-dark-600 transition-all duration-200">{{ $t('nav.advantages') }}</a>
+        <a href="#download" class="block px-4 py-3 rounded-xl text-base font-semibold text-secondary hover:text-accent-600 dark:hover:text-accent-400 hover:bg-light-100 dark:hover:bg-dark-600 transition-all duration-200">{{ $t('nav.download') }}</a>
+        <a href="#about" class="block px-4 py-3 rounded-xl text-base font-semibold text-secondary hover:text-accent-600 dark:hover:text-accent-400 hover:bg-light-100 dark:hover:bg-dark-600 transition-all duration-200">{{ $t('nav.about') }}</a>
+        <!-- <a href="#contact" class="block px-4 py-3 rounded-xl text-base font-semibold text-secondary hover:text-accent-600 dark:hover:text-accent-400 hover:bg-light-100 dark:hover:bg-dark-600 transition-all duration-200">{{ $t('nav.contact') }}</a> -->
       </div>
     </div>
   </header>
