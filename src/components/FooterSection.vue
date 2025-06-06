@@ -72,13 +72,14 @@
       </div>
 
       <div class="mt-12 pt-8 border-t border-gray-200 dark:border-dark-500">
-        <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="flex flex-col md:flex-row justify-start items-center">
           <p class="text-gray-500 dark:text-gray-400 text-sm">
             {{ $t('footer.copyright') }}
           </p>
-          <!-- <p class="text-gray-500 dark:text-gray-400 text-sm mt-4 md:mt-0">
-            京ICP备XXXXXXXX号-X | 京公网安备XXXXXXXXXXXX号
-          </p> -->
+          <p class="text-gray-500 dark:text-gray-400 text-sm mt-4 ml-4 md:mt-0">
+            <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2025426259号-1</a> 
+           
+          </p>
         </div>
       </div>
     </div>

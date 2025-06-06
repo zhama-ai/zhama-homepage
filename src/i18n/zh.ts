@@ -199,7 +199,7 @@ export default {
     helpCenter: '帮助中心',
     tutorials: '使用教程',
     faq: '常见问题',
-    copyright: '© 2025 扎马AI. 保留所有权利.'
+    copyright: '© 2025 扎马AI. 版权所有 深圳市扎马未来科技有限公司'
   },
   privacy: {
     title: '隐私政策',

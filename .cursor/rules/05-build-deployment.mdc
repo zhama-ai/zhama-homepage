@@ -3,3 +3,23 @@ description:
 globs:
 alwaysApply: false
 ---
+# Build and Deployment
+
+## Development
+- Run `npm run dev` to start the development server with hot-reloading
+- Run `npm run type-check` to check TypeScript types without compiling
+
+## Build
+- [vite.config.ts](mdc:vite.config.ts) - Vite configuration for building the project
+- Run `npm run build` to create a production build in the `dist` directory
+- Run `npm run preview` to preview the production build locally
+
+## Docker Deployment
+- [Dockerfile](mdc:Dockerfile) - Configuration for containerizing the application
+- [docker/](mdc:docker/) - Additional Docker configurations
+- [tag.sh](mdc:tag.sh) - Script for tagging Docker images
+
+## CI/CD
+- [.github/](mdc:.github/) - GitHub Actions workflows for CI/CD
+
+The built files will be generated in the `dist` directory and can be deployed to any static hosting service.

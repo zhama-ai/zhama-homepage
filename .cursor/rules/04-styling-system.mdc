@@ -3,3 +3,21 @@ description:
 globs:
 alwaysApply: false
 ---
+# Styling System
+
+This project uses a combination of:
+
+## CSS Tools
+- [Tailwind CSS](mdc:tailwind.config.cjs) - For utility-first styling
+- [PostCSS](mdc:postcss.config.cjs) - For CSS processing
+- Global styles in [src/style.css](mdc:src/style.css)
+
+## Animation
+- [@vueuse/motion](mdc:package.json) - For animations and transitions
+
+## Style Practices
+- Components use Vue's scoped styles for component-specific styling
+- Tailwind utility classes for responsive design
+- Custom CSS variables for theme consistency
+
+When adding new styles, follow the existing patterns in the components and prefer using Tailwind classes when possible.
