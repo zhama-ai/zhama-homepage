@@ -98,8 +98,8 @@ export default function TermsOfService() {
                 <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4">9. 联系我们</h2>
                 <p className="mb-4">如果您对本协议有任何疑问，可以通过以下方式联系我们：</p>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li>邮箱：support@zhama.ai</li>
-                  <li>地址：中国 · 北京</li>
+                  <li>邮箱：contact@zhama.com</li>
+                  <li>地址：中国 · 深圳</li>
                 </ul>
               </section>
             </div>
@@ -200,8 +200,8 @@ export default function TermsOfService() {
               <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4">9. Contact Us</h2>
               <p className="mb-4">If you have any questions about this agreement, you can contact us in the following ways:</p>
               <ul className="list-disc pl-6 space-y-2">
-                <li>Email: support@zhama.ai</li>
-                <li>Address: Beijing, China</li>
+                <li>Email: contact@zhama.com</li>
+                <li>Address: Shenzhen, China</li>
               </ul>
             </section>
           </div>

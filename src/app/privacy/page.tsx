@@ -1,11 +1,44 @@
 'use client';
 
 import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react';
 
 export default function PrivacyPolicy() {
   const { i18n } = useTranslation();
+  const [mounted, setMounted] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState('zh');
 
-  const isZh = i18n.language === 'zh';
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (mounted) {
+      setCurrentLanguage(i18n.language);
+    }
+  }, [i18n.language, mounted]);
+
+  useEffect(() => {
+    const handleLanguageChange = (lng: string) => {
+      setCurrentLanguage(lng);
+    };
+
+    i18n.on('languageChanged', handleLanguageChange);
+    
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n]);
+
+  if (!mounted) {
+    return (
+      <div className="min-h-screen bg-white dark:bg-gray-900 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900 dark:border-white"></div>
+      </div>
+    );
+  }
+
+  const isZh = currentLanguage === 'zh';
 
   if (isZh) {
     return (
@@ -89,8 +122,8 @@ export default function PrivacyPolicy() {
                 <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4">9. 联系我们</h2>
                 <p className="mb-4">如您对本隐私政策或数据处理有任何疑问或权利请求，您可以通过以下方式与我们联系：</p>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li>邮箱：privacy@zhama.ai</li>
-                  <li>地址：中国 · 北京</li>
+                  <li>邮箱：contact@zhama.com</li>
+                  <li>地址：中国 · 深圳</li>
                 </ul>
                 <p className="mt-4">我们将在收到您的请求后尽快回复您。</p>
               </section>
@@ -183,8 +216,8 @@ export default function PrivacyPolicy() {
               <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4">9. Contact Us</h2>
               <p className="mb-4">If you have any questions about this privacy policy or data processing, or any rights requests, you can contact us in the following ways:</p>
               <ul className="list-disc pl-6 space-y-2">
-                <li>Email: privacy@zhama.ai</li>
-                <li>Address: Beijing, China</li>
+                <li>Email: contact@zhama.com</li>
+                <li>Address: Shenzhen, China</li>
               </ul>
               <p className="mt-4">We will reply to you as soon as possible after receiving your request.</p>
             </section>

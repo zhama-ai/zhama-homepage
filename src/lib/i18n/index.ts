@@ -42,12 +42,15 @@ const getUserLocale = (): string => {
 
 // 初始化 i18n
 if (!i18n.isInitialized) {
+  const initialLanguage = typeof window !== 'undefined' ? getUserLocale() : 'zh';
+  
   i18n
     .use(initReactI18next)
     .init({
       resources,
-      lng: 'zh', // 始终初始化为中文
+      lng: initialLanguage, // 使用动态语言检测
       fallbackLng: 'zh',
+      debug: false, // 可以在开发时设置为 true
       interpolation: {
         escapeValue: false,
       },
@@ -55,6 +58,13 @@ if (!i18n.isInitialized) {
         useSuspense: false
       }
     });
+
+  // 在客户端环境下，监听语言变化并保存到 localStorage
+  if (typeof window !== 'undefined') {
+    i18n.on('languageChanged', (lng) => {
+      localStorage.setItem('locale', lng);
+    });
+  }
 }
 
 export { getUserLocale, getBrowserLocale };
