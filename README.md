@@ -1,158 +1,102 @@
 # Zhama Homepage
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 扎马AI官方网站
 
-## Features
+这是扎马AI有限公司的官方网站项目，展示了公司的主要产品"知学易"——一款智能AI笔记助手。
 
-- ⚡ Built with Next.js 15 and React 19
-- 🎨 Styled with Tailwind CSS
-- 🌙 Dark mode support with next-themes
-- 🌍 Internationalization with react-i18next
-- ✨ Smooth animations with Framer Motion
-- 🐳 Docker support for containerized deployment
-- 🚀 CI/CD pipeline with GitHub Actions
-- 🔒 Security scanning and dependency review
+# **扎马AI (ZhaMa AI): 你的全能认知与生活引擎**
 
-## Getting Started
+**在信息与事务交织的时代，高效能人士不仅要善于捕捉信息，更要精于提炼价值、整合资源、优化生活。**
+扎马AI (ZhaMa AI) 基于尖端人工智能技术，革命性地融合了深度知识管理与智能生活辅助，将每一次记录、思考、规划都转化为可搜索、可行动、可成长的智能资产。无论你是追求卓越的职场精英、锐意进取的创业者、勤奋探索的终身学习者，还是希望高效管理日常生活的每一个人，扎马AI都能成为你的认知副驾与生活管家，助你实现效率、决策与生活品质的全面跃升。
 
-### Development
+---
 
-First, run the development server:
+## 🚀 为什么选择扎马AI？
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+扎马AI不仅是记录工具，更是你的 **AI驱动的认知与生活操作系统**。它能：
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   **打破壁垒，全面整合**：从工作文档到生活点滴，从会议录音到随口想法，无缝整合多模态、跨场景信息。
+-   **深度洞察，提炼精华**：AI自动萃取核心要点、生成待办、分析趋势，将繁杂信息转化为清晰洞见。
+-   **主动赋能，智慧生活**：通过自然语言交互与智能提醒，让知识与计划随需调用，支持深度思考与高效行动。
+-   **语音优先，便捷交互**：强大的语音识别与处理能力，让记录、查询、管理任务、追踪收支等操作轻松自然。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-### Docker Development
+## 🔥 核心能力：AI赋能的全场景智能引擎
 
-To run the application in development mode with Docker:
+### 💡 **全域智能采集**
+-   支持**文本、语音（实时录音/导入）、图片、PDF、网页、YouTube视频**等全格式解析。会议纪要、手写草图、白板照片、语音备忘、网页剪藏，AI自动识别并结构化归档。
+-   **语音即时记录**：通过便捷的“操作按钮”或语音指令激活，轻松捕捉灵感、日记、工作日志、学习笔记、饮食记录、生活感悟，即时转化为可编辑文本。
 
-```bash
-# Build and run development container
-docker-compose --profile dev up --build
+### 🧠 **AI内容精炼与洞察**
+-   **一键生成**：会议纪要、决策要点、项目待办清单、内容摘要，节省高达90%的整理时间。
+-   **智能分析**：支持逻辑结构提取、语义总结、情绪趋势分析（基于日记/记录），适用于**工作复盘、用户访谈、研究速览、个人成长反思**等场景。
 
-# Or use npm scripts
-npm run docker:build
-npm run docker:run
-```
+### 🗂 **智能组织与主动检索**
+-   **自动分类与关联**：基于知识图谱，按项目/主题/人物/时间/情绪/收支类别等智能分类，构建个人/团队知识网络。支持模糊搜索、标签筛选、时间线视图。
+-   **交互式AI问答**：直接提问，如“上周关于XX项目的关键风险是什么？”或“我近一个月的主要开销在哪方面？”，即时获取上下文精准答案。
 
-### Production Build
+### ✅ **高效任务与时间管理**
+-   **待办清单与日程规划**：强大的待办事项、日程安排与提醒功能，支持语音创建任务。拆解目标、制定计划，与**苹果/谷歌日历及提醒事项**等同步，确保工作与生活井然有序。
+-   **行动项自动生成**：从会议记录、笔记中自动识别并生成行动项，一键添加到待办清单。
 
-```bash
-# Build for production
-npm run build
+### 🌱 **习惯养成与健康追踪**
+-   **习惯打卡与追踪**：设定运动、阅读、学习等目标，利用待办清单与习惯追踪器培养良好习惯。通过数据可视化查看进度。
+-   **健康数据整合**：可同步**Apple Health**等健康平台数据，结合饮食、运动记录，全面了解身体状况。
 
-# Start production server
-npm start
-```
+### 💰 **智能记账与财务管理**
+-   **语音记账**：通过语音轻松记录每笔收支，“报销打车费50元”，AI自动分类记账。
+-   **财务概览**：提供清晰的收支统计与预算管理，助你轻松掌控资金流向，简化理财。
 
-## Docker Deployment
+### 😊 **情绪记录与关怀**
+-   **情绪追踪**：便捷记录每日心情，AI辅助分析情绪波动趋势，更好地理解与管理个人心理健康。
 
-### Building the Docker Image
+### 🎙 **高精度录音与转写**
+-   **实时录音转文字**：商务会议、客户访谈、课程讲座、个人口述，全程录音，**语音转文字准确率超98%**，支持多语言识别、重点标记、说话人分离（可选）。
+-   **音文双向联动**：点击文本精准跳转对应音频位置，复盘校对更高效。
 
-```bash
-# Build production image
-docker build -t zhama-homepage .
+### 📌 **知识资产化与复用**
+-   **个性化闪卡 & 智能测验**：基于笔记/学习资料生成记忆卡片与测试题，结合间隔重复算法，强化知识留存。
+-   **智能关联与复用**：自动链接相似主题的笔记、过往项目经验、灵感素材，加速内容创作与问题解决。
 
-# Run the container
-docker run -p 3000:3000 zhama-homepage
-```
+---
 
-### Using Docker Compose
+## ✅ 扎马AI的独特价值
 
-```bash
-# Run production version
-docker-compose up -d
+| **极致效率**                     | **知识与生活沉淀**               | **智慧决策与行动**               |
+| :------------------------------- | :------------------------------- | :------------------------------- |
+| AI自动整理+摘要，解放重复劳动    | 工作生活信息一站式结构化归档     | 语义检索+智能问答，快速定位关键信息 |
+| 语音/多模态输入，随时随地轻松记录 | 构建个人/团队知识库与生活档案    | 智能生成待办/提醒，推动计划落地     |
+| 多终端无缝同步，信息触手可及       | 支持企业级部署，保障数据安全     | 提供趋势分析（情绪/财务），辅助决策 |
 
-# Run development version
-docker-compose --profile dev up -d
-```
+---
 
-## CI/CD Pipeline
+## 🌟 适用场景与人群
 
-This project includes a comprehensive CI/CD pipeline with GitHub Actions:
+### 💼 **职场与专业人士**
+-   **高管/创业者**：会议速记，决策复盘，跨项目知识管理。
+-   **产品/咨询/研究人员**：用户访谈分析，竞品信息整合，研究报告撰写。
+-   **内容创作者/讲师**：灵感库管理，素材整理，课程结构化。
+-   **所有需高效处理信息、管理任务的职场人**。
 
-### Workflows
+### 🏡 **个人生活与成长**
+-   **学生/终身学习者**：课堂录音转写，文献要点提炼，知识点记忆巩固。
+-   **生活规划者**：用语音轻松管理日程、待办、习惯、收支、情绪。
+-   **追求健康的个体**：记录饮食运动，追踪健康数据，培养良好生活习惯。
+-   **希望记录生活、反思成长的每一个人**。
 
-1. **CI Pipeline** (`.github/workflows/ci.yml`)
-   - Runs on push to `main`/`develop` and pull requests
-   - Tests on Node.js 18.x and 20.x
-   - Performs linting, building, and type checking
-   - Security scanning with npm audit
-   - Multi-platform Docker image building
+### 🏢 **企业与团队（To B扩展能力）**
+-   **团队知识库共建**：权限管理，协同编辑，版本控制。
+-   **垂直领域AI定制**：为金融、法律、医疗等行业训练专属模型。
+-   **API集成**：与其他企业系统无缝对接。
 
-2. **Deployment** (`.github/workflows/deploy.yml`)
-   - Triggered on push to `main` or version tags
-   - Builds and pushes Docker images to registry
-   - Ready for server deployment
+---
 
-3. **Dependency Review** (`.github/workflows/dependency-review.yml`)
-   - Reviews new dependencies in pull requests
-   - Scans for security vulnerabilities
+**扎马AI (ZhaMa AI)，不止是笔记，不止是助手，它是你认知升级与品质生活的操作系统。**
+立即体验，让AI成为你最强大的效率杠杆与生活伙伴——**记得少，想得深，做得快，活得好。**
 
-### Required Secrets
+---
 
-To use the CI/CD pipeline, configure these secrets in your GitHub repository:
+**[ 可选扩展模块 ]**
+如需针对**企业级客户**强化协同管理、数据看板、安全合规等功能，或为**教育/金融/医疗**等行业提供深度定制方案，欢迎垂询。
 
-- `DOCKER_USERNAME`: Docker Hub username
-- `DOCKER_PASSWORD`: Docker Hub password or access token
-
-Optional secrets for server deployment:
-- `HOST`: Server hostname/IP
-- `USERNAME`: SSH username
-- `KEY`: SSH private key
-
-## Project Structure
-
-```
-├── src/
-│   ├── app/          # Next.js app directory
-│   ├── components/   # React components
-│   └── lib/          # Utility functions
-├── public/           # Static assets
-├── .github/          # GitHub Actions workflows
-├── Dockerfile        # Production Docker image
-├── Dockerfile.dev    # Development Docker image
-├── docker-compose.yml # Docker Compose configuration
-└── ...
-```
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deployment Options
-
-### Vercel (Recommended)
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-### Docker Deployment
-
-For containerized deployment on any platform:
-
-1. Push your code to GitHub
-2. The CI pipeline will build and push Docker images
-3. Pull and run the image on your server:
-
-```bash
-docker pull your-username/zhama-homepage:latest
-docker run -d -p 3000:3000 --name zhama-homepage your-username/zhama-homepage:latest
-```
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
