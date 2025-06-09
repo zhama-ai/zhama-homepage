@@ -7,7 +7,10 @@ export const metadata: Metadata = {
   description: "基于文档的智能笔记与知识管理工具。上传资料、提出问题，获得有据可查的精准回答。让每一份文档都成为可对话的智能知识库，助您高效研究、深度思考、快速洞察。",
   keywords: "AI助理,智能笔记,知识管理,文档分析,研究工具",
   icons: {
-    icon: "/images/logo.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
   },
 };
 
