@@ -17,11 +17,11 @@ export default function HeroSection() {
       <div className="max-w-7xl mx-auto">
         <div className="relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 px-4 sm:px-6 lg:px-8">
           <main className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 xl:mt-16 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center lg:text-left">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-primary animate-fadeIn">
+            <div className="text-center lg:text-left lg:max-w-lg xl:max-w-xl">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-primary animate-fadeIn">
                 <span className="block">{mounted ? t('home.hero.title') : '扎马 AI'}</span>
               </h1>
-              <h2 className="mt-2 sm:mt-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight animate-slideInUp">
+              <h2 className="mt-2 sm:mt-3 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-tight animate-slideInUp">
                 <span className="block neon-text">{mounted ? t('home.hero.tagline') : '你的个性化 AI 研究助理'}</span>
               </h2>
               <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-muted max-w-3xl mx-auto lg:mx-0 leading-relaxed animate-slideInUp">

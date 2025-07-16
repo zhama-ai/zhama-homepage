@@ -10,9 +10,9 @@ const resources = {
 
 // 获取浏览器语言偏好
 const getBrowserLocale = (): string => {
-  if (typeof window === 'undefined') return 'zh';
+  if (typeof window === 'undefined') return 'en';
   
-  const browserLanguage = navigator.language || (window.navigator.languages?.[0]) || 'zh-CN';
+  const browserLanguage = navigator.language || (window.navigator.languages?.[0]) || 'en-US';
   
   // 检测是否为中文相关语言
   if (browserLanguage.startsWith('zh')) {
@@ -24,13 +24,13 @@ const getBrowserLocale = (): string => {
     return 'en';
   }
   
-  // 默认返回中文
-  return 'zh';
+  // 默认返回英文
+  return 'en';
 };
 
-// 获取用户偏好语言，优先级：localStorage > 浏览器语言 > 默认中文
+// 获取用户偏好语言，优先级：localStorage > 浏览器语言 > 默认英文
 const getUserLocale = (): string => {
-  if (typeof window === 'undefined') return 'zh';
+  if (typeof window === 'undefined') return 'en';
   
   const savedLocale = localStorage.getItem('locale');
   if (savedLocale && resources[savedLocale as keyof typeof resources]) {
@@ -40,17 +40,15 @@ const getUserLocale = (): string => {
   return getBrowserLocale();
 };
 
-// 初始化 i18n
+// 确保 i18n 始终以英文初始化
 if (!i18n.isInitialized) {
-  const initialLanguage = typeof window !== 'undefined' ? getUserLocale() : 'zh';
-  
   i18n
     .use(initReactI18next)
     .init({
       resources,
-      lng: initialLanguage, // 使用动态语言检测
-      fallbackLng: 'zh',
-      debug: false, // 可以在开发时设置为 true
+      lng: 'en', // 硬编码英文，确保服务端和客户端一致
+      fallbackLng: 'en',
+      debug: false,
       interpolation: {
         escapeValue: false,
       },
@@ -58,13 +56,31 @@ if (!i18n.isInitialized) {
         useSuspense: false
       }
     });
+}
 
-  // 在客户端环境下，监听语言变化并保存到 localStorage
-  if (typeof window !== 'undefined') {
-    i18n.on('languageChanged', (lng) => {
-      localStorage.setItem('locale', lng);
+// 客户端语言检测 - 仅在hydration完成后执行
+if (typeof window !== 'undefined') {
+  // 确保在React hydration完成后再执行语言切换
+  const setUserLanguage = () => {
+    const userLocale = getUserLocale();
+    if (userLocale !== 'en' && i18n.language === 'en') {
+      i18n.changeLanguage(userLocale);
+    }
+  };
+
+  // 使用多种方式确保在hydration之后执行
+  if (document.readyState === 'complete') {
+    setTimeout(setUserLanguage, 100);
+  } else {
+    window.addEventListener('load', () => {
+      setTimeout(setUserLanguage, 100);
     });
   }
+
+  // 监听语言变化
+  i18n.on('languageChanged', (lng) => {
+    localStorage.setItem('locale', lng);
+  });
 }
 
 export { getUserLocale, getBrowserLocale };

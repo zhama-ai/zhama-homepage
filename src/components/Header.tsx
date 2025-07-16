@@ -91,9 +91,7 @@ export default function Header() {
           <div className="flex items-center flex-1">
             <div className="flex-shrink-0 flex items-center">
               <img src={getLogoSrc()} alt="Logo" className="h-8 sm:h-10 w-auto mr-2" />
-              <span className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white">
-                {t('home.hero.title')}
-              </span>
+              
             </div>
             <nav className="hidden md:ml-10 md:flex md:space-x-6 lg:space-x-10">
               <Link href="/" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">

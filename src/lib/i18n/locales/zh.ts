@@ -16,252 +16,252 @@ const zh = {
   },
   nav: {
     home: '首页',
-    features: '核心能力',
-    advantages: '产品价值',
-    download: '立即使用',
+    features: '核心价值',
+    advantages: '平台架构',
+    download: '联系我们',
     about: '关于我们',
     contact: '联系我们',
     tryNow: '立即体验'
   },
   home: {
     hero: {
-      title: '扎马 AI',
-      tagline: '你的全能认知与生活引擎',
-      description: '在信息与事务交织的时代，扎马AI基于尖端人工智能技术，革命性地融合深度知识管理与智能生活辅助，将每一次记录、思考、规划都转化为可搜索、可行动、可成长的智能资产。成为你的认知副驾与生活管家，助你实现效率、决策与生活品质的全面跃升。',
+      title: 'TeGo智能体平台',
+      tagline: '用 AI 基建，驱动企业智能化未来',
+      description: 'TeGo 平台致力于打造一站式企业智能体平台，以 AI 技术为核心驱动力，帮助企业全面实现业务流程的自动化、智能化与高效协同。我们连接终端接入、智能开发、LLM网关等关键能力，构建真正贯穿"感知—理解—执行"的企业智能基础设施。',
       cta: '立即体验',
       secondaryCta: '了解更多',
-      imgAlt: '扎马AI-全能认知与生活引擎'
+      imgAlt: 'TeGo 企业智能体综合服务平台'
     },
     features: {
-      title: '主要功能',
-      subtitle: '发现扎马 AI 如何改变你的认知与生活方式',
+      title: '核心价值',
+      subtitle: '发现 TeGo 如何驱动企业智能化转型',
     },
   },
   featuresSection: {
-    title: 'AI赋能的全场景智能引擎',
-    subtitle: '扎马AI不仅是记录工具，更是你的AI驱动的认知与生活操作系统，打破壁垒，全面整合，深度洞察，主动赋能',
+    title: '核心价值',
+    subtitle: 'TeGo 平台为企业提供模块化、智能化、可视化的全方位解决方案',
     tabs: {
-      collection: '全域智能采集',
-      analysis: 'AI内容精炼与洞察',
-      organization: '智能组织与生活管理'
+      collection: '模块化架构',
+      analysis: '智能体中台',
+      organization: '可视化开发'
     },
     collection: {
-      title: '全域智能采集',
-      description: '支持文本、语音、图片、PDF、网页、YouTube视频等全格式解析。会议纪要、手写草图、白板照片、语音备忘、网页剪藏，AI自动识别并结构化归档。通过便捷的语音指令，轻松捕捉灵感、日记、工作日志、学习笔记、饮食记录、生活感悟。',
-      tags: ['多模态输入', '语音优先', '实时录音', '全格式支持']
+      title: '模块化架构，灵活集成部署',
+      description: '所有能力单元支持组件化组合与按需部署，适应不同行业与企业规模。灵活的架构设计确保企业能够根据自身需求选择和集成所需功能模块。',
+      tags: ['组件化设计', '按需部署', '灵活扩展', '行业适配']
     },
     analysis: {
-      title: 'AI内容精炼与洞察',
-      description: '一键生成会议纪要、决策要点、项目待办清单、内容摘要，节省90%整理时间。智能分析支持逻辑结构提取、语义总结、情绪趋势分析，适用于工作复盘、用户访谈、研究速览、个人成长反思等场景。',
-      tags: ['智能摘要', '自动生成', '趋势分析', '洞察提取']
+      title: '智能体中台，自主可控',
+      description: '自主研发的 MCP（Model Context Protocol）框架支持智能体服务的注册、发现与动态路由，保障企业数据与业务逻辑的安全与稳定。',
+      tags: ['MCP框架', '服务注册', '动态路由', '安全稳定']
     },
     organization: {
-      title: '智能组织与生活管理',
-      description: '基于知识图谱，按项目/主题/人物/时间/情绪/收支类别等智能分类，构建个人知识网络。交互式AI问答，直接提问如"上周关键风险是什么？"或"我的主要开销在哪？"，即时获取精准答案。包含任务管理、习惯追踪、财务记账等生活管理功能。',
-      tags: ['智能分类', 'AI问答', '任务管理', '生活助手']
+      title: '无代码可视化，极简开发体验',
+      description: '支持通过拖拽、节点配置快速搭建工作流，非技术人员也能构建智能业务流程。兼容 VSCode 插件生态，构建高效、定制的开发环境。',
+      tags: ['可视化配置', '无代码开发', 'VSCode兼容', '简单易用']
     },
     moreFeatures: {
-      title: '全场景生活引擎',
+      title: '更多核心能力',
       taskManagement: {
-        title: '高效任务与时间管理',
-        description: '强大的待办事项、日程安排与提醒功能，支持语音创建任务。从会议记录、笔记中自动识别并生成行动项，与苹果/谷歌日历同步，确保工作与生活井然有序。'
+        title: '插件化工作空间（Workspace）',
+        description: '支持多角色多终端接入，统一管理插件与应用，完美支持上万种 VSCode 插件，构建高效、定制的开发环境。'
       },
       habitTracking: {
-        title: '习惯养成与健康追踪',
-        description: '设定运动、阅读、学习等目标，利用待办清单与习惯追踪器培养良好习惯。可同步Apple Health等健康平台数据，结合饮食、运动记录，全面了解身体状况。'
+        title: '流程引擎与数据总线',
+        description: '实现数据追踪、任务编排、触发逻辑等业务自动化能力，确保业务流程的智能化执行与监控。'
       },
       financeManagement: {
-        title: '智能记账与财务管理',
-        description: '通过语音轻松记录每笔收支，"报销打车费50元"，AI自动分类记账。提供清晰的收支统计与预算管理，助你轻松掌控资金流向，简化理财。'
+        title: 'LLM网关与多模态引擎',
+        description: '集成主流大模型与本地模型，支持语义理解、文生图、RAG等智能交互，提供强大的AI能力支撑。'
       }
     }
   },
   downloadSection: {
-    title: '立即体验扎马AI',
+    title: '立即加入 TeGo，开启企业智能化转型之路',
     enterprise: {
-      title: '企业版',
-      description: '团队协作，知识共享，安全可控',
-      button: '企业咨询'
+      title: '企业咨询',
+      description: '获取定制化解决方案',
+      button: '立即咨询'
     },
     ios: {
-      title: 'iOS 版本',
-      description: 'iPhone/iPad适配，随时记录灵感',
-      button: 'App Store'
+      title: '产品演示',
+      description: '在线体验平台功能',
+      button: '预约演示'
     },
     android: {
-      title: 'Android 版本',
-      description: '跨设备同步，移动认知引擎',
-      button: 'Google Play'
+      title: '技术文档',
+      description: '了解技术架构与API',
+      button: '查看文档'
     },
     web: {
-      title: '网页版',
-      description: '无需下载，即刻体验',
-      button: '立即访问网页版'
+      title: '私有化部署',
+      description: '支持本地部署与定制',
+      button: '了解详情'
     }
   },
   advantagesSection: {
-    title: '扎马AI：认知升级与品质生活的操作系统',
+    title: 'TeGo 平台架构：四大核心层构建企业智能基础设施',
     values: {
-      remember: '极致效率',
-      think: '知识沉淀',
-      do: '智慧决策',
-      live: '品质生活'
+      remember: '服务中台',
+      think: '工作空间',
+      do: '流程引擎',
+      live: 'LLM网关'
     },
     efficiency: {
-      title: '极致效率',
+      title: '智能体服务中台',
       points: [
-        'AI自动整理+摘要，解放重复劳动',
-        '语音/多模态输入，随时随地轻松记录',
-        '多终端无缝同步，信息触手可及'
+        '提供注册发现、权限控制能力',
+        '支持负载均衡、对话服务',
+        '保障系统稳定与高可用'
       ]
     },
     knowledge: {
-      title: '知识与生活沉淀',
+      title: '插件化工作空间',
       points: [
-        '工作生活信息一站式结构化归档',
-        '构建个人/团队知识库与生活档案',
-        '支持企业级部署，保障数据安全'
+        '支持多角色多终端接入',
+        '统一管理插件与应用',
+        '兼容VSCode插件生态'
       ]
     },
     decision: {
-      title: '智慧决策与行动',
+      title: '流程引擎与数据总线',
       points: [
-        '语义检索+智能问答，快速定位关键信息',
-        '智能生成待办/提醒，推动计划落地',
-        '提供趋势分析（情绪/财务），辅助决策'
+        '实现数据追踪、任务编排',
+        '支持触发逻辑、业务自动化',
+        '提供完整的监控与分析'
       ]
     },
     scenarios: {
-      title: '适用场景',
+      title: '应用场景',
       professional: {
-        title: '职场与专业人士',
-        description: '高管创业者的会议速记、产品经理的用户访谈分析、内容创作者的灵感库管理'
+        title: '智能诊疗助手',
+        description: '通过语音识别与自然语言处理技术，实时转写医生与患者对话，提取关键信息生成电子病历，大幅提升诊疗效率。'
       },
       personal: {
-        title: '个人生活与成长',
-        description: '学生的课堂录音转写、生活规划者的日程管理、健康追求者的饮食运动记录'
+        title: '自动研究报告生成',
+        description: '平台自动采集财报、舆情、市场数据，结合智能摘要与结构化模板，一键生成专业研究报告，释放分析师时间。'
       },
       enterprise: {
-        title: '企业与团队',
-        description: '团队知识库共建、垂直领域AI定制、与企业系统无缝对接'
+        title: '智能贷前调查',
+        description: '系统集成工商、司法、财务等多源数据，智能生成行业分析与企业风险报告，提升信贷决策的效率与准确性。'
       }
     },
     features: {
       multiPlatform: {
-        title: '全平台支持',
-        description: '网页、移动端、桌面端全覆盖，随时随地进行认知与生活管理'
+        title: 'LLM网关与多模态引擎',
+        description: '集成主流大模型与本地模型，支持语义理解、文生图、RAG等智能交互'
       },
       dataSecurity: {
-        title: '数据安全',
-        description: '文档私有化处理，严格保护知识产权和隐私'
+        title: '数据安全保障',
+        description: '企业级安全架构，支持私有化部署，确保数据安全与合规'
       }
     },
     cta: '立即体验'
   },
   aboutSection: {
-    title: '关于我们',
-    subtitle: '用AI技术<span class="text-accent-400">重新定义</span>认知与生活方式',
-    description: '扎马AI致力于构建全能认知与生活引擎，将每一次记录、思考、规划都转化为智能资产，成为你认知升级与品质生活的操作系统',
+    title: '技术亮点',
+    subtitle: '用 AI 技术<span class="text-accent-400">重新定义</span>企业智能化基础设施',
+    description: 'TeGo 平台基于先进的AI技术栈，为企业提供标准化、可扩展的智能体服务能力',
     vision: {
-      title: '我们的愿景',
+      title: '为什么选择 TeGo？',
       paragraphs: [
-        '扎马AI致力于构建全球领先的<span class="text-primary font-medium">AI驱动的认知与生活操作系统</span>，让每一份信息、每一个想法、每一次规划都转化为可搜索、可行动、可成长的智能资产。',
-        '我们的核心团队汇聚<span class="text-primary font-medium">顶尖AI研究机构与认知科学专家</span>，深度理解现代人的工作与生活需求，致力于打造符合高效能人士认知习惯的智能引擎。'
+        'TeGo 平台已在<span class="text-primary font-medium">医疗、金融、运营等多个行业</span>成功落地，支持企业"验证—迭代—复制"的完整闭环。',
+        '我们提供<span class="text-primary font-medium">高性能、可扩展、支持私有化部署</span>的全生命周期 AI 解决方案与技术服务。'
       ]
     },
     features: [
       {
-        title: "全域智能采集",
-        description: "支持多模态信息输入，语音优先设计，随时随地捕捉工作灵感与生活点滴"
+        title: "MCP 智能体协议",
+        description: "标准化服务接口，支持 AI 服务组件的自动注册与组合"
       },
       {
-        title: "AI深度洞察",
-        description: "智能分析提炼核心要点，生成可行动见解，让繁杂信息转化为清晰认知"
+        title: "RAG 检索增强能力",
+        description: "实现上下文感知与企业知识库结合的智能问答"
       },
       {
-        title: "生活全场景管理",
-        description: "整合任务管理、习惯追踪、财务记账、情绪记录等，构建完整生活管理系统"
+        title: "多模态 AI 支持",
+        description: "接入语音、图像、文本等多模态输入，实现复杂任务连续执行"
       },
       {
-        title: "认知网络构建",
-        description: "智能关联工作与生活信息，构建个性化知识图谱，发现隐藏联系与机会"
+        title: "主流大模型支持",
+        description: "支持 OpenAI、百度文心、通义千问、Gemini 等主流大模型以及私有部署模型"
       }
     ],
     footer: {
-      prefix: '扎马AI',
-      suffix: '，不止是笔记，不止是助手，'
+      prefix: 'TeGo 平台',
+      suffix: '，让 AI 成为每一个企业的核心竞争力。'
     },
     typingPhrases: [
-      "是你认知升级与品质生活的操作系统",
-      "让AI成为你最强大的效率杠杆与生活伙伴",
-      "记得少，想得深，做得快，活得好"
+      "让 AI 成为每一个企业的核心竞争力",
+      "构建真正贯穿\"感知—理解—执行\"的企业智能基础设施",
+      "驱动企业智能化未来"
     ]
   },
   appDownload: {
-    title: '下载扎马 AI 应用',
+    title: '立即加入 TeGo',
     appLogo: {
-      title: '扎马 AI',
-      alt: '扎马 AI Logo'
+      title: 'TeGo',
+      alt: 'TeGo Logo'
     },
     appIntro: {
-      slogan: '你的全能认知与生活引擎',
-      tagline: '极致效率，知识沉淀，智慧决策，品质生活'
+      slogan: '企业智能体综合服务平台',
+      tagline: '用 AI 基建，驱动企业智能化未来'
     },
-    whyChoose: '为什么选择扎马AI？',
+    whyChoose: '为什么选择 TeGo？',
     features: {
       dataCollection: {
-        title: '全域智能采集',
-        description: '支持文本、语音、图片、视频等全格式，98%准确率的语音转文字，随时随地记录'
+        title: '模块化架构',
+        description: '组件化组合与按需部署，适应不同行业与企业规模'
       },
       aiContent: {
-        title: 'AI深度洞察',
-        description: '智能分析提炼要点，自动生成待办，趋势分析辅助决策，让信息变成智慧'
+        title: '智能体中台',
+        description: 'MCP框架支持智能体服务的注册、发现与动态路由'
       },
       taskManagement: {
-        title: '生活全场景管理',
-        description: '任务管理、习惯追踪、财务记账、情绪记录，打造完整的生活管理系统'
+        title: '无代码开发',
+        description: '可视化配置，非技术人员也能构建智能业务流程'
       },
       finance: {
-        title: '认知网络构建',
-        description: '智能关联工作与生活信息，构建个性化知识图谱，发现深层联系与机会'
+        title: '全面集成',
+        description: '支持主流大模型，兼容VSCode插件生态'
       }
     },
     targetUsers: {
-      title: '理想用户',
-      executive: '职场精英',
-      researcher: '创业者',
-      student: '终身学习者',
-      planner: '生活规划者'
+      title: '适用对象',
+      executive: '企业高管',
+      researcher: '技术团队',
+      student: '产品经理',
+      planner: '业务人员'
     },
     download: {
-      heading: '立即体验，让AI成为你最强大的认知与生活伙伴',
+      heading: '立即加入 TeGo，开启企业智能化转型之路',
       webapp: {
-        title: 'Web版 - 无需下载',
-        action: '立即体验扎马AI'
+        title: '在线体验',
+        action: '立即体验 TeGo'
       },
-      appSection: '或下载移动应用',
+      appSection: '获取更多信息',
       ios: {
-        title: 'App Store',
-        subtitle: 'iOS 版',
-        description: 'iPhone/iPad 版本',
-        action: '下载'
+        title: '企业咨询',
+        subtitle: '定制方案',
+        description: '获取专属解决方案',
+        action: '立即咨询'
       },
       android: {
-        title: '安卓应用',
-        subtitle: 'Android 版',
-        description: '直接下载APK',
-        action: '下载'
+        title: '技术文档',
+        subtitle: 'API文档',
+        description: '查看完整技术文档',
+        action: '查看文档'
       },
       qrCode: {
-        notice: '或扫描二维码下载',
-        description: '扫描二维码，立即开启智能认知与生活新体验',
-        alt: '扎马 AI 下载二维码'
+        notice: '扫描二维码了解更多',
+        description: '扫描二维码，立即开启企业智能化转型之路',
+        alt: 'TeGo 联系二维码'
       }
     },
     wechatBrowser: {
       topArrow: '点击右上角菜单',
       selectBrowser: '选择在浏览器中打开',
-      message: '请在浏览器中打开以获得最佳下载体验',
+      message: '请在浏览器中打开以获得最佳体验',
       button: '我知道了',
       notice: '微信内置浏览器提醒',
       instruction: '请点击右上角菜单 选择在浏览器中打开'
@@ -275,7 +275,7 @@ const zh = {
     helpCenter: '帮助中心',
     tutorials: '使用教程',
     faq: '常见问题',
-    copyright: '© 2025 扎马AI. 版权所有 深圳市扎马未来科技有限公司',
+    copyright: '© 2025 TeGo. 版权所有 深圳市扎马未来科技有限公司',
     icp: '粤ICP备2025426259号-1'
   }
 };
