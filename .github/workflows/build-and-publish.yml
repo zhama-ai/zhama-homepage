@@ -51,7 +51,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install --no-lockfile
+        run: pnpm install
 
       - name: Build all applications
         env:
