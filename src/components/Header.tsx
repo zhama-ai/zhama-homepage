@@ -80,24 +80,24 @@ export default function Header() {
                 <Link href="/" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">
                   首页
                 </Link>
-                <a href="/#features" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
+                <Link href="/#features" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
                   核心能力
-                </a>
-                <a href="/#advantages" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
+                </Link>
+                <Link href="/#advantages" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
                   产品价值
-                </a>
-                <a href="/#pricing" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
+                </Link>
+                <Link href="/#pricing" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
                   价格
-                </a>
+                </Link>
                 <a href="https://docs.zhama.com.cn" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
                   文档中心
                 </a>
-                <a href="/contact" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
+                <Link href="/contact" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
                   立即使用
-                </a>
-                <a href="/#about" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
+                </Link>
+                <Link href="/#about" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
                   关于我们
-                </a>
+                </Link>
               </nav>
             </div>
             
@@ -141,24 +141,24 @@ export default function Header() {
               <Link href="/" className={`btn btn-ghost ${activeSection === 'home' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.home')}
               </Link>
-              <a href="/#features" className={`btn btn-ghost ${activeSection === 'features' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
+              <Link href="/#features" className={`btn btn-ghost ${activeSection === 'features' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.features')}
-              </a>
-              <a href="/#advantages" className={`btn btn-ghost ${activeSection === 'advantages' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
+              </Link>
+              <Link href="/#advantages" className={`btn btn-ghost ${activeSection === 'advantages' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.advantages')}
-              </a>
-              <a href="/#pricing" className={`btn btn-ghost ${activeSection === 'pricing' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
+              </Link>
+              <Link href="/#pricing" className={`btn btn-ghost ${activeSection === 'pricing' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.pricing')}
-              </a>
+              </Link>
               <a href="https://docs.zhama.com.cn" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
                 {t('nav.docs')}
               </a>
-              <a href="/contact" className="btn btn-ghost">
+              <Link href="/contact" className="btn btn-ghost">
                 {t('nav.download')}
-              </a>
-              <a href="/#about" className={`btn btn-ghost ${activeSection === 'about' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
+              </Link>
+              <Link href="/#about" className={`btn btn-ghost ${activeSection === 'about' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.about')}
-              </a>
+              </Link>
             </nav>
           </div>
           
@@ -203,27 +203,27 @@ export default function Header() {
               >
                 {t('nav.home')}
               </Link>
-              <a 
+              <Link 
                 href="/#features" 
                 className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'features' ? 'text-primary-600 dark:text-primary-400' : ''}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t('nav.features')}
-              </a>
-              <a 
+              </Link>
+              <Link 
                 href="/#advantages" 
                 className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'advantages' ? 'text-primary-600 dark:text-primary-400' : ''}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t('nav.advantages')}
-              </a>
-              <a 
+              </Link>
+              <Link 
                 href="/#pricing" 
                 className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'pricing' ? 'text-primary-600 dark:text-primary-400' : ''}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t('nav.pricing')}
-              </a>
+              </Link>
               <a 
                 href="https://docs.zhama.com.cn" 
                 target="_blank" 
@@ -233,20 +233,20 @@ export default function Header() {
               >
                 {t('nav.docs')}
               </a>
-              <a 
+              <Link 
                 href="/contact" 
                 className="block btn btn-ghost w-full text-left justify-start"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t('nav.download')}
-              </a>
-              <a 
+              </Link>
+              <Link 
                 href="/#about" 
                 className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'about' ? 'text-primary-600 dark:text-primary-400' : ''}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t('nav.about')}
-              </a>
+              </Link>
               
               {/* 移动端设置 */}
               <div className="pt-4 border-t border-light-200/50 dark:border-dark-700/50">
