@@ -21,7 +21,7 @@ COPY .next/static ./.next/static
 COPY public ./public
 
 # 重新构建原生模块以确保与当前环境兼容
-RUN npm rebuild
+RUN npm install --production
 
 # 设置文件所有者为nextjs用户
 RUN chown -R nextjs:nodejs /app
