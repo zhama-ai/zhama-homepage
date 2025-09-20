@@ -6,17 +6,36 @@ Allow: /
 Allow: /images/
 Allow: /favicon.ico
 Allow: /favicon.svg
+Allow: /manifest.json
 
-# Disallow crawling of API routes
+# Specifically allow important pages for better indexing
+Allow: /zh/
+Allow: /en/
+Allow: /zh/contact
+Allow: /en/contact
+Allow: /zh/download
+Allow: /en/download
+Allow: /zh/guide
+Allow: /en/guide
+
+# Disallow crawling of API routes and build files
 Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: *.json$
 
-# Disallow crawling of private pages (if any)
-# Add any specific paths you don't want crawled here
-
-# Sitemap location
-Sitemap: https://zhama.com/sitemap.xml
-Sitemap: https://zhama.com/zh/sitemap.xml
-Sitemap: https://zhama.com/en/sitemap.xml
-
-# Crawl-delay for respectful crawling
+# Baidu specific optimizations
+User-agent: Baiduspider
+Allow: /
 Crawl-delay: 1
+
+# Google specific optimizations
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Sitemap locations (most important for fast indexing)
+Sitemap: https://zhama.com/sitemap.xml
+
+# Additional crawling guidelines
+Host: https://zhama.com

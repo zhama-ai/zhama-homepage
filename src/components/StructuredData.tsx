@@ -59,7 +59,7 @@ export default function StructuredData() {
   const baseUrl = 'https://zhama.com'
   
   const organizationData: OrganizationData = {
-    "@context": "https://zhama.com",
+    "@context": "https://schema.org",
     "@type": "Organization",
     name: locale === 'zh' ? '深圳市扎马未来科技有限公司' : 'Shenzhen Zhama Future Technology Co., Ltd.',
     url: baseUrl,
@@ -84,7 +84,7 @@ export default function StructuredData() {
   }
 
   const websiteData: WebsiteData = {
-    "@context": "https://zhama.com",
+    "@context": "https://schema.org",
     "@type": "WebSite",
     name: locale === 'zh' ? 'TeGo-AI智能体操作系统' : 'TeGo AI Agent Platform',
     url: baseUrl,
@@ -96,7 +96,7 @@ export default function StructuredData() {
   }
 
   const softwareData: SoftwareApplicationData = {
-    "@context": "https://zhama.com",
+    "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: locale === 'zh' ? 'TeGo-AI智能体操作系统' : 'TeGo AI Agent Platform',
     description: locale === 'zh'

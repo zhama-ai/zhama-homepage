@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { Providers } from "@/components/providers";
 import { locales } from '@/i18n';
 import StructuredData from '@/components/StructuredData';
+import BaiduSEO from '@/components/BaiduSEO';
 
 type Props = {
   children: React.ReactNode;
@@ -102,8 +103,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     verification: {
       // Add verification codes for search engines when available
+      // To get these codes:
+      // Google: https://search.google.com/search-console -> Add property -> HTML tag method
+      // Bing: https://www.bing.com/webmasters -> Add site -> HTML tag method
+      // 
+      // Uncomment and replace with actual verification codes:
       // google: 'your-google-verification-code',
       // bing: 'your-bing-verification-code',
+      // yandex: 'your-yandex-verification-code',
     },
     category: 'technology',
   };
@@ -126,6 +133,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     <NextIntlClientProvider messages={messages} locale={locale}>
       <Providers>
         <StructuredData />
+        <BaiduSEO />
         {children}
       </Providers>
     </NextIntlClientProvider>
