@@ -14,7 +14,7 @@ export default function DownloadPage() {
 
   // App Store and download URLs
   const iosAppStoreUrl = 'https://apps.apple.com/us/app/%E6%89%8E%E9%A9%ACai/id6744411300';
-  const androidDownloadUrl = 'https://static-1251849568.cos.ap-guangzhou.myqcloud.com/apks/app-release.apk';
+  const androidDownloadUrl = 'https://docs.zhama.com.cn/architecture/';
 
   useEffect(() => {
     // Detect WeChat browser

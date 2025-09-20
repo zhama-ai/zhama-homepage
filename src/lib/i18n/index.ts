@@ -10,9 +10,9 @@ const resources = {
 
 // 获取浏览器语言偏好
 const getBrowserLocale = (): string => {
-  if (typeof window === 'undefined') return 'en';
+  if (typeof window === 'undefined') return 'zh';
   
-  const browserLanguage = navigator.language || (window.navigator.languages?.[0]) || 'en-US';
+  const browserLanguage = navigator.language || (window.navigator.languages?.[0]) || 'zh-CN';
   
   // 检测是否为中文相关语言
   if (browserLanguage.startsWith('zh')) {
@@ -24,13 +24,13 @@ const getBrowserLocale = (): string => {
     return 'en';
   }
   
-  // 默认返回英文
-  return 'en';
+  // 默认返回中文
+  return 'zh';
 };
 
-// 获取用户偏好语言，优先级：localStorage > 浏览器语言 > 默认英文
+// 获取用户偏好语言，优先级：localStorage > 浏览器语言 > 默认中文
 const getUserLocale = (): string => {
-  if (typeof window === 'undefined') return 'en';
+  if (typeof window === 'undefined') return 'zh';
   
   const savedLocale = localStorage.getItem('locale');
   if (savedLocale && resources[savedLocale as keyof typeof resources]) {
@@ -40,14 +40,14 @@ const getUserLocale = (): string => {
   return getBrowserLocale();
 };
 
-// 确保 i18n 始终以英文初始化
+// 确保 i18n 始终以中文初始化
 if (!i18n.isInitialized) {
   i18n
     .use(initReactI18next)
     .init({
       resources,
-      lng: 'en', // 硬编码英文，确保服务端和客户端一致
-      fallbackLng: 'en',
+      lng: 'zh', // 硬编码中文，确保服务端和客户端一致
+      fallbackLng: 'zh',
       debug: false,
       interpolation: {
         escapeValue: false,
@@ -63,7 +63,7 @@ if (typeof window !== 'undefined') {
   // 确保在React hydration完成后再执行语言切换
   const setUserLanguage = () => {
     const userLocale = getUserLocale();
-    if (userLocale !== 'en' && i18n.language === 'en') {
+    if (userLocale !== 'zh' && i18n.language === 'zh') {
       i18n.changeLanguage(userLocale);
     }
   };

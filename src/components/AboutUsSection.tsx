@@ -126,9 +126,9 @@ export default function AboutUsSection() {
       <div className="absolute -right-32 -top-32 w-96 h-96 bg-accent-400 opacity-10 rounded-full blur-3xl"></div>
       <div className="absolute -left-32 -bottom-32 w-96 h-96 bg-accent-400 opacity-10 rounded-full blur-3xl"></div>
       
-      <div className="container relative z-10">
+      <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section header with animation */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center mb-20">
           <div className="animate-fadeIn">
             <h2 className="text-accent-400 font-semibold text-lg uppercase tracking-wider mb-3">{t('aboutSection.title')}</h2>
             <p className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl leading-tight" dangerouslySetInnerHTML={{ __html: t('aboutSection.subtitle') }}>
@@ -140,7 +140,7 @@ export default function AboutUsSection() {
         </div>
 
         {/* Vision card with hover effects */}
-        <div className="tech-card p-10 max-w-4xl mx-auto rounded-2xl backdrop-blur-sm bg-gray-50 dark:bg-dark-800/80 border border-gray-200 dark:border-dark-700 shadow-xl transform transition-all duration-300 hover:shadow-accent-400/10">
+        <div className="tech-card p-10 mx-auto rounded-2xl backdrop-blur-sm bg-gray-50 dark:bg-dark-800/80 border border-gray-200 dark:border-dark-700 shadow-xl transform transition-all duration-300 hover:shadow-accent-400/10">
           <div className="animate-slideInUp">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center">
               <span className="inline-flex items-center justify-center p-2 bg-accent-400/10 rounded-md mr-4">
@@ -180,7 +180,7 @@ export default function AboutUsSection() {
         
         {/* Final statement with typing animation */}
         <div className="mt-16 text-center">
-          <p className="text-2xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-2xl text-gray-700 dark:text-gray-300 mx-auto font-light leading-relaxed">
             <span className="text-accent-400 font-bold">{t('aboutSection.footer.prefix')}</span>{t('aboutSection.footer.suffix')}
             <br className="hidden sm:block" />
             <span ref={typingTextRef} className="inline-block h-8"></span>

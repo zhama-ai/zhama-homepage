@@ -8,7 +8,7 @@ export default function FooterSection() {
 
   return (
     <footer className="bg-light-100 dark:bg-dark-900 border-t border-light-300 dark:border-dark-700 text-light-700 dark:text-white">
-      <div className="container py-16">
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* 公司信息 */}
           <div className="col-span-1">
@@ -55,9 +55,9 @@ export default function FooterSection() {
           <div className="col-span-1">
             <h3 className="text-lg font-semibold mb-6 text-accent-400">{t('footer.support')}</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('footer.helpCenter')}</a></li>
-              <li><a href="#" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('footer.tutorials')}</a></li>
-              <li><a href="#" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('footer.faq')}</a></li>
+              <li><a href="https://docs.zhama.com.cn/architecture/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('footer.helpCenter')}</a></li>
+              <li><a href="https://docs.zhama.com.cn/requirements/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('footer.tutorials')}</a></li>
+              <li><a href="https://docs.zhama.com.cn/faq/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('footer.faq')}</a></li>
               <li><a href="mailto:contact@zhama.com" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('common.contactUs')}</a></li>
             </ul>
           </div>

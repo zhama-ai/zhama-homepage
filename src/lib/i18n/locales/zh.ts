@@ -21,8 +21,9 @@ const zh = {
     pricing: '价格',
     download: '联系我们',
     about: '关于我们',
+    docs: '文档中心',
     contact: '联系我们',
-    tryNow: '联系销售'
+    tryNow: '立即试用'
   },
   home: {
     hero: {
@@ -104,6 +105,11 @@ const zh = {
       title: '私有化部署',
       description: '支持本地部署与定制',
       button: '了解详情'
+    },
+    docs: {
+      title: '文档中心',
+      description: '完整的技术文档和开发指南',
+      button: '查看文档'
     }
   },
   pricingSection: {
@@ -320,10 +326,10 @@ const zh = {
         action: '立即咨询'
       },
       android: {
-        title: '私有化部署',
-        subtitle: '本地化服务',
-        description: '支持企业私有化部署与定制开发',
-        action: '了解部署'
+        title: '技术文档',
+        subtitle: '架构说明',
+        description: '查看完整的技术架构和API文档',
+        action: '查看文档'
       },
       qrCode: {
         notice: '扫描二维码联系我们',
@@ -338,6 +344,41 @@ const zh = {
       button: '我知道了',
       notice: '微信内置浏览器提醒',
       instruction: '请点击右上角菜单 选择在浏览器中打开'
+    }
+  },
+  contactPage: {
+    title: '联系我们',
+    subtitle: '有任何问题或建议？我们很乐意为您提供帮助。请填写下面的表单，我们会尽快与您联系。',
+    form: {
+      title: {
+        label: '标题',
+        placeholder: '请输入您的问题或咨询主题'
+      },
+      email: {
+        label: '邮箱地址',
+        placeholder: '请输入您的邮箱地址'
+      },
+      phone: {
+        label: '手机号',
+        placeholder: '请输入您的手机号（可选）'
+      },
+      content: {
+        label: '详细内容',
+        placeholder: '请详细描述您的问题、建议或需求...'
+      },
+      submit: '提交信息',
+      submitting: '提交中...'
+    },
+    successMessage: '感谢您的联系！我们已收到您的信息，会在24小时内回复您。',
+    errorMessage: '提交失败，请稍后重试。如问题持续存在，请直接发送邮件至 contact@zhama.com',
+    info: {
+      email: {
+        title: '邮箱联系'
+      },
+      response: {
+        title: '响应时间',
+        time: '我们通常在24小时内回复'
+      }
     }
   },
   footer: {

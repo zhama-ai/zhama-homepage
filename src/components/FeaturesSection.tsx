@@ -52,7 +52,7 @@ export default function FeaturesSection() {
       <div className="absolute inset-0 bg-grid-subtle opacity-20"></div>
       <div className="particles" ref={particleContainer} aria-hidden="true"></div>
       
-      <div className="container">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="section-header">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-light-700 dark:text-white animate-fade-in">
             {t('featuresSection.title')}

@@ -12,7 +12,7 @@ export default function PricingSection() {
   return (
     <section id="pricing" className="section bg-gradient relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-subtle opacity-40"></div>
-      <div className="container">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="section-header">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-light-700 dark:text-white">
             {t('pricingSection.title')}
@@ -73,7 +73,7 @@ export default function PricingSection() {
                   {t('pricingSection.community.period')}
                 </div>
               </div>
-              <a href="#download" className="btn btn-outline px-6 py-3 rounded-2xl border-2 border-primary-500 text-primary-600 dark:text-primary-400 hover:bg-primary-500 hover:text-white dark:hover:text-white transition-all min-w-[120px] text-center">
+              <a href="https://tego.zhama.com.cn" target="_blank" rel="noopener noreferrer" className="btn btn-outline px-6 py-3 rounded-2xl border-2 border-primary-500 text-primary-600 dark:text-primary-400 hover:bg-primary-500 hover:text-white dark:hover:text-white transition-all min-w-[120px] text-center">
                 {t('pricingSection.community.cta')}
               </a>
             </div>
@@ -146,7 +146,7 @@ export default function PricingSection() {
                   {t('pricingSection.subscription.period')}
                 </div>
               </div>
-              <a href="#download" className="btn btn-primary px-6 py-3 rounded-2xl min-w-[120px] text-center">
+              <a href="https://tego.zhama.com.cn" target="_blank" rel="noopener noreferrer" className="btn btn-primary px-6 py-3 rounded-2xl min-w-[120px] text-center">
                 {t('pricingSection.subscription.cta')}
               </a>
             </div>
@@ -219,7 +219,7 @@ export default function PricingSection() {
                   {t('pricingSection.enterprise.period')}
                 </div>
               </div>
-              <a href="#download" className="btn btn-primary px-6 py-3 rounded-2xl min-w-[120px] text-center">
+              <a href="https://tego.zhama.com.cn" target="_blank" rel="noopener noreferrer" className="btn btn-primary px-6 py-3 rounded-2xl min-w-[120px] text-center">
                 {t('pricingSection.enterprise.cta')}
               </a>
             </div>

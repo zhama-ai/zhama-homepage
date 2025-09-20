@@ -70,32 +70,32 @@ export default function Header() {
   if (!mounted) {
     return (
       <header className="backdrop-blur-md bg-white/90 dark:bg-dark-800/90 border-b border-light-400/50 dark:border-dark-600/50 shadow-light-medium dark:shadow-lg fixed top-0 left-0 right-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-20">
             <div className="flex items-center flex-1">
               <div className="flex-shrink-0 flex items-center">
-                <img src="/images/logo.png" alt="Logo" className="h-8 sm:h-10 w-auto mr-2" />
-                <span className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white">
-                  扎马 AI
-                </span>
+                <img src="/images/logo.png" alt="Logo" className="h-10 sm:h-12 lg:h-14 w-auto mr-2" />
               </div>
               <nav className="hidden md:ml-10 md:flex md:space-x-6 lg:space-x-8 flex-nowrap whitespace-nowrap">
                 <Link href="/" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">
                   首页
                 </Link>
-                <a href="#features" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
+                <a href="/#features" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
                   核心能力
                 </a>
-                <a href="#advantages" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
+                <a href="/#advantages" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
                   产品价值
                 </a>
-                <a href="#pricing" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
+                <a href="/#pricing" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
                   价格
                 </a>
-                <a href="#download" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
+                <a href="https://docs.zhama.com.cn" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
+                  文档中心
+                </a>
+                <a href="/contact" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
                   立即使用
                 </a>
-                <a href="#about" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
+                <a href="/#about" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
                   关于我们
                 </a>
               </nav>
@@ -106,8 +106,8 @@ export default function Header() {
                 <ThemeSwitcher />
                 <LanguageSwitcher />
               </div>
-              <a href="#download" className="btn btn-primary text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3">
-                联系销售
+              <a href="https://tego.zhama.com.cn" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center px-4 py-2 rounded-lg transition-all duration-300 bg-white/80 dark:bg-dark-700/80 backdrop-blur-md border border-light-400/30 dark:border-dark-500/30 shadow-light-soft hover:shadow-light-medium dark:shadow-lg text-secondary hover:text-accent-600 dark:hover:text-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-400/50 transform hover:scale-105 active:scale-95 group">
+                <span className="text-sm font-semibold transition-all duration-300 group-hover:text-accent-600 dark:group-hover:text-accent-400">立即试用</span>
               </a>
               
               <div className="flex items-center md:hidden ml-2">
@@ -131,30 +131,32 @@ export default function Header() {
   return (
     <header className={`glass-strong border-b border-light-200/50 dark:border-dark-700/50 ${scrolled ? 'shadow-large' : 'shadow-medium'} fixed top-0 left-0 right-0 z-50 transition-shadow`}>
       <div className="w-full">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 lg:h-20">
+         <div className="w-full px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 lg:h-20">
           <div className="flex items-center flex-1">
             <div className="flex-shrink-0 flex items-center">
-              <img src={getLogoSrc()} alt="Logo" className="h-8 lg:h-10 w-auto mr-3" />
-              
+              <img src={getLogoSrc()} alt="Logo" className="h-10 sm:h-12 lg:h-14 w-auto mr-3" />
             </div>
             
             <nav className="hidden lg:ml-12 lg:flex lg:space-x-8">
               <Link href="/" className={`btn btn-ghost ${activeSection === 'home' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.home')}
               </Link>
-              <a href="#features" className={`btn btn-ghost ${activeSection === 'features' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
+              <a href="/#features" className={`btn btn-ghost ${activeSection === 'features' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.features')}
               </a>
-              <a href="#advantages" className={`btn btn-ghost ${activeSection === 'advantages' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
+              <a href="/#advantages" className={`btn btn-ghost ${activeSection === 'advantages' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.advantages')}
               </a>
-              <a href="#pricing" className={`btn btn-ghost ${activeSection === 'pricing' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
+              <a href="/#pricing" className={`btn btn-ghost ${activeSection === 'pricing' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.pricing')}
               </a>
-              <a href="#download" className={`btn btn-ghost ${activeSection === 'download' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
+              <a href="https://docs.zhama.com.cn" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+                {t('nav.docs')}
+              </a>
+              <a href="/contact" className="btn btn-ghost">
                 {t('nav.download')}
               </a>
-              <a href="#about" className={`btn btn-ghost ${activeSection === 'about' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
+              <a href="/#about" className={`btn btn-ghost ${activeSection === 'about' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.about')}
               </a>
             </nav>
@@ -166,8 +168,8 @@ export default function Header() {
               <LanguageSwitcher />
             </div>
             
-            <a href="#download" className="btn btn-primary">
-              <span>{t('nav.tryNow')}</span>
+            <a href="https://tego.zhama.com.cn" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center px-4 py-2 rounded-lg transition-all duration-300 bg-white/80 dark:bg-dark-700/80 backdrop-blur-md border border-light-400/30 dark:border-dark-500/30 shadow-light-soft hover:shadow-light-medium dark:shadow-lg text-secondary hover:text-accent-600 dark:hover:text-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-400/50 transform hover:scale-105 active:scale-95 group">
+              <span className="text-sm font-semibold transition-all duration-300 group-hover:text-accent-600 dark:group-hover:text-accent-400">{t('nav.tryNow')}</span>
             </a>
             
             <div className="flex items-center lg:hidden">
@@ -193,7 +195,7 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="lg:hidden">
           <div className="glass-strong border-t border-light-200/50 dark:border-dark-700/50 shadow-large">
-            <div className="container py-6 space-y-4">
+             <div className="w-full px-4 sm:px-6 lg:px-8 py-6 space-y-4">
               <Link 
                 href="/" 
                 className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'home' ? 'text-primary-600 dark:text-primary-400' : ''}`}
@@ -202,35 +204,44 @@ export default function Header() {
                 {t('nav.home')}
               </Link>
               <a 
-                href="#features" 
+                href="/#features" 
                 className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'features' ? 'text-primary-600 dark:text-primary-400' : ''}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t('nav.features')}
               </a>
               <a 
-                href="#advantages" 
+                href="/#advantages" 
                 className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'advantages' ? 'text-primary-600 dark:text-primary-400' : ''}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t('nav.advantages')}
               </a>
               <a 
-                href="#pricing" 
+                href="/#pricing" 
                 className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'pricing' ? 'text-primary-600 dark:text-primary-400' : ''}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t('nav.pricing')}
               </a>
               <a 
-                href="#download" 
-                className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'download' ? 'text-primary-600 dark:text-primary-400' : ''}`}
+                href="https://docs.zhama.com.cn" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block btn btn-ghost w-full text-left justify-start"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t('nav.docs')}
+              </a>
+              <a 
+                href="/contact" 
+                className="block btn btn-ghost w-full text-left justify-start"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t('nav.download')}
               </a>
               <a 
-                href="#about" 
+                href="/#about" 
                 className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'about' ? 'text-primary-600 dark:text-primary-400' : ''}`}
                 onClick={() => setMobileMenuOpen(false)}
               >

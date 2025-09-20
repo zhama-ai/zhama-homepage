@@ -11,6 +11,8 @@
     "docker:run": "docker run -p 3000:3000 zhama-homepage"
   },
   "dependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "better-sqlite3": "^12.2.0",
     "framer-motion": "^12.16.0",
     "i18next": "^25.2.1",
     "next": "15.3.3",

@@ -15,7 +15,7 @@ export default function HeroSection() {
     <section className="relative min-h-[80vh] lg:min-h-[86vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-light-50 to-light-200 dark:from-dark-950 dark:to-dark-900"></div>
       <div className="absolute inset-0 bg-dots-pattern opacity-10"></div>
-      <div className="container relative z-10">
+      <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center py-20">
           <div className="space-y-8">
             <div className="space-y-6">
@@ -28,7 +28,7 @@ export default function HeroSection() {
                 {mounted ? t('home.hero.tagline') : 'A1·基建驱动 · 万物皆智能体 · 全链路智能协作平台'}
               </p>
             </div>
-            <p className="text-base md:text-lg text-light-600 dark:text-dark-400 leading-relaxed max-w-2xl animate-slide-up">
+            <p className="text-base md:text-lg text-light-600 dark:text-dark-400 leading-relaxed animate-slide-up">
               {mounted ? t('home.hero.description') : '用AI驱动企业服务全面升级，构建一站式智能化业务平台。'}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 animate-slide-up">

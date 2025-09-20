@@ -15,7 +15,7 @@ export function Providers({ children }: ProvidersProps) {
       <ThemeProvider
         attribute="class"
         defaultTheme="dark"
-        enableSystem={true}
+        enableSystem={false}
         storageKey="theme"
         disableTransitionOnChange={false}
         forcedTheme={undefined}

@@ -12,12 +12,12 @@ export default function AdvantagesSection() {
       <div className="absolute top-20 left-10 w-64 h-64 bg-accent-600 rounded-full filter blur-[100px] opacity-20 animate-pulse"></div>
       <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent-400 rounded-full filter blur-[120px] opacity-10 animate-pulse" style={{ animationDelay: '1s' }}></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12 sm:mb-16">
           <p className="mt-2 text-2xl sm:text-3xl md:text-4xl leading-8 font-bold tracking-tight text-gray-900 dark:text-white">
             {t('advantagesSection.title')}
           </p>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
             {t('advantagesSection.subtitle')}
           </p>
         </div>

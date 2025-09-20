@@ -21,8 +21,9 @@ export default {
     pricing: 'Pricing',
     download: 'Contact Us',
     about: 'About Us',
+    docs: 'Docs',
     contact: 'Contact Us',
-    tryNow: 'Contact Sales'
+    tryNow: 'Try Now'
   },
   home: {
     hero: {
@@ -104,6 +105,11 @@ export default {
       title: 'Private Deployment',
       description: 'Support local deployment & customization',
       button: 'Learn More'
+    },
+    docs: {
+      title: 'Documentation',
+      description: 'Complete technical docs and developer guides',
+      button: 'View Docs'
     }
   },
   pricingSection: {
@@ -338,6 +344,41 @@ export default {
       button: 'Got it',
       notice: 'WeChat built-in browser reminder',
       instruction: 'Please click top-right menu and select open in browser'
+    }
+  },
+  contactPage: {
+    title: 'Contact Us',
+    subtitle: 'Have questions or suggestions? We\'d love to help. Fill out the form below and we\'ll get back to you as soon as possible.',
+    form: {
+      title: {
+        label: 'Subject',
+        placeholder: 'Please enter your question or inquiry topic'
+      },
+      email: {
+        label: 'Email Address',
+        placeholder: 'Please enter your email address'
+      },
+      phone: {
+        label: 'Phone Number',
+        placeholder: 'Please enter your phone number (optional)'
+      },
+      content: {
+        label: 'Message',
+        placeholder: 'Please describe your question, suggestion, or requirements in detail...'
+      },
+      submit: 'Send Message',
+      submitting: 'Sending...'
+    },
+    successMessage: 'Thank you for contacting us! We have received your message and will reply within 24 hours.',
+    errorMessage: 'Submission failed. Please try again later. If the problem persists, please send an email directly to contact@zhama.com',
+    info: {
+      email: {
+        title: 'Email Contact'
+      },
+      response: {
+        title: 'Response Time',
+        time: 'We typically respond within 24 hours'
+      }
     }
   },
   footer: {
