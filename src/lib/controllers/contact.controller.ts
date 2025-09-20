@@ -5,10 +5,20 @@ import { contactRateLimiter } from '@/lib/utils/rate-limiter';
 import { config } from '@/lib/config';
 
 export class ContactController {
-  private emailService: EmailService;
+  private emailService: EmailService | null = null;
 
   constructor() {
-    this.emailService = new EmailService();
+    // EmailService将在需要时延迟初始化
+  }
+
+  /**
+   * 获取或创建邮件服务实例
+   */
+  private getEmailService(): EmailService {
+    if (!this.emailService) {
+      this.emailService = new EmailService();
+    }
+    return this.emailService;
   }
 
   /**
@@ -49,7 +59,8 @@ export class ContactController {
       const contactData = this.prepareContactData(formData, request);
 
       // 发送邮件
-      await this.emailService.sendContactEmail(contactData);
+      const emailService = this.getEmailService();
+      await emailService.sendContactEmail(contactData);
 
       console.log('Contact form submitted and email sent successfully');
       console.log('Contact details:', {

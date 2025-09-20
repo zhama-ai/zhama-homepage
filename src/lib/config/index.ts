@@ -33,13 +33,21 @@ export interface AppConfig {
  * 从环境变量中读取配置
  */
 function loadConfig(): AppConfig {
-  // 验证必需的环境变量
+  // 在非构建环境下验证必需的环境变量
   const requiredEnvVars = ['SMTP_USER', 'SMTP_PASS'];
   const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
   
-  if (missingVars.length > 0) {
-    console.warn(`Warning: Missing required environment variables: ${missingVars.join(', ')}`);
-    console.warn('Email functionality may not work properly');
+  // 只在运行时（非构建时）显示警告
+  if (missingVars.length > 0 && typeof window === 'undefined' && process.env.NODE_ENV !== 'test') {
+    // 检查是否是在构建阶段
+    const isBuild = process.env.NEXT_PHASE === 'phase-production-build' || 
+                   process.env.npm_lifecycle_event === 'build' ||
+                   process.argv.includes('build');
+    
+    if (!isBuild) {
+      console.warn(`Warning: Missing required environment variables: ${missingVars.join(', ')}`);
+      console.warn('Email functionality may not work properly');
+    }
   }
 
   return {
@@ -79,15 +87,22 @@ export const config = loadConfig();
 export const isSmtpConfigured = validateSmtpConfig(config.email.smtp);
 
 // 开发环境下打印配置信息（敏感信息脱敏）
-if (config.nodeEnv === 'development') {
-  console.log('📋 App Configuration:');
-  console.log(`  Environment: ${config.nodeEnv}`);
-  console.log(`  Port: ${config.port}`);
-  console.log(`  Contact Email: ${config.email.targetEmail}`);
-  console.log(`  SMTP Host: ${config.email.smtp.host}:${config.email.smtp.port}`);
-  console.log(`  SMTP User: ${config.email.smtp.user ? `${config.email.smtp.user.substring(0, 3)}***` : 'Not configured'}`);
-  console.log(`  SMTP Configured: ${isSmtpConfigured ? '✅' : '❌'}`);
-  console.log(`  Rate Limit: ${config.rateLimit.maxRequests} requests per ${config.rateLimit.windowMs}ms`);
+if (config.nodeEnv === 'development' && typeof window === 'undefined') {
+  // 检查是否是在构建阶段
+  const isBuild = process.env.NEXT_PHASE === 'phase-production-build' || 
+                 process.env.npm_lifecycle_event === 'build' ||
+                 process.argv.includes('build');
+  
+  if (!isBuild) {
+    console.log('📋 App Configuration:');
+    console.log(`  Environment: ${config.nodeEnv}`);
+    console.log(`  Port: ${config.port}`);
+    console.log(`  Contact Email: ${config.email.targetEmail}`);
+    console.log(`  SMTP Host: ${config.email.smtp.host}:${config.email.smtp.port}`);
+    console.log(`  SMTP User: ${config.email.smtp.user ? `${config.email.smtp.user.substring(0, 3)}***` : 'Not configured'}`);
+    console.log(`  SMTP Configured: ${isSmtpConfigured ? '✅' : '❌'}`);
+    console.log(`  Rate Limit: ${config.rateLimit.maxRequests} requests per ${config.rateLimit.windowMs}ms`);
+  }
 }
 
 export default config;

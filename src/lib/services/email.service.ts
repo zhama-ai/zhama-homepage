@@ -3,28 +3,40 @@ import type { ContactData } from '@/lib/types/contact';
 import { config, isSmtpConfigured } from '@/lib/config';
 
 export class EmailService {
-  private transporter: nodemailer.Transporter;
+  private transporter: nodemailer.Transporter | null = null;
 
   constructor() {
-    if (!isSmtpConfigured) {
-      throw new Error('SMTP configuration is incomplete. Please check your environment variables.');
-    }
+    // 延迟初始化，避免构建时检查环境变量
+  }
 
-    this.transporter = nodemailer.createTransport({
-      host: config.email.smtp.host,
-      port: config.email.smtp.port,
-      secure: config.email.smtp.secure,
-      auth: {
-        user: config.email.smtp.user,
-        pass: config.email.smtp.pass
+  /**
+   * 获取或创建传输器
+   */
+  private getTransporter(): nodemailer.Transporter {
+    if (!this.transporter) {
+      if (!isSmtpConfigured) {
+        throw new Error('SMTP configuration is incomplete. Please check your environment variables: SMTP_USER, SMTP_PASS');
       }
-    });
+
+      this.transporter = nodemailer.createTransport({
+        host: config.email.smtp.host,
+        port: config.email.smtp.port,
+        secure: config.email.smtp.secure,
+        auth: {
+          user: config.email.smtp.user,
+          pass: config.email.smtp.pass
+        }
+      });
+    }
+    
+    return this.transporter;
   }
 
   /**
    * 发送联系表单邮件到指定邮箱
    */
   async sendContactEmail(contactData: ContactData, targetEmail?: string): Promise<void> {
+    const transporter = this.getTransporter(); // 延迟获取传输器
     const emailContent = this.formatContactEmail(contactData);
     const recipient = targetEmail || config.email.targetEmail;
     
@@ -36,7 +48,7 @@ export class EmailService {
       replyTo: contactData.email
     };
 
-    await this.transporter.sendMail(mailOptions);
+    await transporter.sendMail(mailOptions);
   }
 
   /**
@@ -67,7 +79,8 @@ IP地址: ${contactData.ip}
    */
   async verifyConnection(): Promise<boolean> {
     try {
-      await this.transporter.verify();
+      const transporter = this.getTransporter();
+      await transporter.verify();
       return true;
     } catch (error) {
       console.error('SMTP connection failed:', error);
