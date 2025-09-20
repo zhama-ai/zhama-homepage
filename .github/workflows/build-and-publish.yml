@@ -1,0 +1,154 @@
+name: Build and Push Docker Images
+
+on:
+  push:
+    tags:
+      - 'v*' # 版本标签 (v1.0.0, v2.1.3, etc.)
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Custom tag for images'
+        required: false
+        default: 'latest'
+
+env:
+  NODE_OPTIONS: '--max-old-space-size=8192'
+  REGISTRY: ghcr.io
+  IMAGE_PREFIX: ${{ github.repository_owner }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    strategy:
+      matrix:
+        platform: [amd64, arm64]
+        include:
+          - platform: amd64
+            docker_platform: linux/amd64
+          - platform: arm64
+            docker_platform: linux/arm64
+        image:
+          - name: zhama-homepage
+            dockerfile: ./Dockerfile
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: '9.0.0'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --no-lockfile
+
+      - name: Build all applications
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+        run: pnpm build
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}/${{ matrix.image.name }}
+          tags: |
+            type=ref,event=tag
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=raw,value=${{ github.event.inputs.tag }},enable=${{ github.event_name == 'workflow_dispatch' }}
+          flavor: |
+            suffix=-${{ matrix.platform }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ${{ matrix.image.dockerfile }}
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          platforms: ${{ matrix.docker_platform }}
+          cache-from: type=gha,scope=${{ matrix.image.name }}-${{ matrix.platform }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.image.name }}-${{ matrix.platform }}
+          provenance: false
+
+  create-manifest:
+    name: Create Multi-Arch Manifest
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    strategy:
+      matrix:
+        image: [tego-os, tego-os-server]
+
+    steps:
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create and push multi-arch manifest
+        run: |
+          IMAGE_BASE="${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}/${{ matrix.image }}"
+
+          # 处理不同的触发事件
+          if [[ "${{ github.ref }}" == refs/tags/* ]]; then
+            # 标签推送事件
+            TAG_NAME="${{ github.ref_name }}"
+            echo "Creating multi-arch manifest for tag: ${IMAGE_BASE}:${TAG_NAME}"
+            docker buildx imagetools create \
+              --tag ${IMAGE_BASE}:${TAG_NAME} \
+              ${IMAGE_BASE}:${TAG_NAME}-amd64 \
+              ${IMAGE_BASE}:${TAG_NAME}-arm64
+            echo "✅ Created multi-arch manifest: ${IMAGE_BASE}:${TAG_NAME}"
+          fi
+
+          # 如果是默认分支，也创建latest标签
+          if [ "${{ github.ref }}" == "refs/heads/${{ github.event.repository.default_branch }}" ]; then
+            echo "Creating multi-arch manifest for latest: ${IMAGE_BASE}:latest"
+            docker buildx imagetools create \
+              --tag ${IMAGE_BASE}:latest \
+              ${IMAGE_BASE}:latest-amd64 \
+              ${IMAGE_BASE}:latest-arm64
+            echo "✅ Created multi-arch manifest: ${IMAGE_BASE}:latest"
+          fi
+
+          # 手动触发的自定义标签
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ] && [ -n "${{ github.event.inputs.tag }}" ]; then
+            CUSTOM_TAG="${{ github.event.inputs.tag }}"
+            echo "Creating multi-arch manifest for custom tag: ${IMAGE_BASE}:${CUSTOM_TAG}"
+            docker buildx imagetools create \
+              --tag ${IMAGE_BASE}:${CUSTOM_TAG} \
+              ${IMAGE_BASE}:${CUSTOM_TAG}-amd64 \
+              ${IMAGE_BASE}:${CUSTOM_TAG}-arm64
+            echo "✅ Created multi-arch manifest: ${IMAGE_BASE}:${CUSTOM_TAG}"
+          fi

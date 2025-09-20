@@ -1,8 +1,8 @@
 name: Deploy to Production
 
-on:
-  push:
-    tags: [ 'v*' ]
+# on:
+#   push:
+#     tags: [ 'v*' ]
 
 jobs:
   deploy:
