@@ -9,12 +9,9 @@ RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
 # 复制构建产物（从CI构建）
-COPY .next/standalone ./
+COPY .next/standalone/ ./
 COPY .next/static ./.next/static
 COPY public ./public
-
-# Next.js standalone 模式需要的package.json
-COPY package.json ./package.json
 
 # 设置文件所有者为nextjs用户
 RUN chown -R nextjs:nodejs /app
