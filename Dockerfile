@@ -7,10 +7,9 @@ WORKDIR /app
 # 创建非root用户
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
-
 # 复制构建产物（从CI构建）
 COPY .next/standalone/ ./
-COPY .next/static ./.next/static
+COPY .next/static/ ./static/
 COPY public ./public
 
 # 设置文件所有者为nextjs用户
