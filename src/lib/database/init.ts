@@ -1,5 +1,6 @@
 import Database from 'better-sqlite3';
 import path from 'path';
+import fs from 'fs';
 
 export interface ContactRecord {
   id: string;
@@ -19,7 +20,13 @@ let db: Database.Database | null = null;
 export function getDatabase(): Database.Database {
   if (!db) {
     // 确保数据库目录存在
-    const dbPath = path.join(process.cwd(), 'data', 'database.sqlite');
+    const dataDir = path.join(process.cwd(), 'data');
+    const dbPath = path.join(dataDir, 'database.sqlite');
+    
+    // 创建 data 目录（如果不存在）
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
     
     db = new Database(dbPath);
     
