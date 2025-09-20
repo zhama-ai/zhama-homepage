@@ -32,13 +32,13 @@ export default function HeroSection() {
               {mounted ? t('home.hero.description') : '用AI驱动企业服务全面升级，构建一站式智能化业务平台。'}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 animate-slide-up">
-              <a href="#download" className="btn btn-primary group">
+              <a href="https://tego.zhama.com.cn" target="_blank" className="btn btn-primary group">
                 <span>{mounted ? t('nav.tryNow') : '联系销售'}</span>
                 <svg className="ml-2 -mr-1 w-5 h-5 transition-transform group-hover:translate-x-1" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
               </a>
-              <a href="#features" className="btn btn-secondary">
+              <a href="https://tego.zhama.com.cn" target="_blank" className="btn btn-secondary">
                 {mounted ? t('home.hero.secondaryCta') : '产品演示'}
               </a>
             </div>
