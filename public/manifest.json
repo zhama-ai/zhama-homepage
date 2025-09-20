@@ -1,0 +1,26 @@
+{
+  "name": "TeGo AI Agent Platform",
+  "short_name": "TeGo",
+  "description": "Enterprise AI Agent Platform and Solutions",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1f2937",
+  "categories": ["business", "productivity", "technology"],
+  "lang": "zh",
+  "scope": "/",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Providers } from "@/components/providers";
 import { locales } from '@/i18n';
+import StructuredData from '@/components/StructuredData';
 
 type Props = {
   children: React.ReactNode;
@@ -27,6 +28,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Extract SEO-specific translations from the seo section
   const seo = messages?.seo || {};
 
+  const baseUrl = 'https://zhama.com';
+  const currentPath = locale === 'zh' ? '/zh' : '/en';
+
   return {
     title: {
       default: seo.title || (locale === 'zh' 
@@ -40,33 +44,68 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? '深圳市扎马未来科技有限公司官方平台：TeGo-AI智能体操作系统与企业级AI解决方案'
       : 'Shenzhen Zhama Future Technology Co., Ltd. official platform: TeGo AI Agent Platform and enterprise AI solutions'),
     keywords: seo.keywords || (locale === 'zh'
-      ? 'TeGo, 智能体, AI Agent, 企业智能, 私有化部署, MCP 框架'
-      : 'TeGo, AI Agent, Enterprise Intelligence, Private Deployment, MCP Framework'),
+      ? 'TeGo, 智能体, AI Agent, 企业智能, 私有化部署, MCP 框架, 深圳扎马, 人工智能, 企业级AI, 智能化解决方案'
+      : 'TeGo, AI Agent, Enterprise Intelligence, Private Deployment, MCP Framework, Zhama Technology, Artificial Intelligence, Enterprise AI, Intelligent Solutions'),
+    authors: [{ name: 'Shenzhen Zhama Future Technology Co., Ltd.' }],
+    creator: 'Shenzhen Zhama Future Technology Co., Ltd.',
+    publisher: 'Shenzhen Zhama Future Technology Co., Ltd.',
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
     openGraph: {
-      title: seo.openGraph?.title || seo.title,
+      title: seo.openGraph?.title || seo.title || (locale === 'zh' 
+        ? 'TeGo-AI智能体操作系统 | 深圳市扎马未来科技有限公司'
+        : 'TeGo AI Agent Platform | Shenzhen Zhama Future Technology Co., Ltd.'),
       description: seo.openGraph?.description || seo.description,
       siteName: messages?.home?.hero?.title || (locale === 'zh' ? 'TeGo-AI 智能体操作系统' : 'TeGo AI Agent Platform'),
       type: 'website',
-      locale: locale === 'zh' ? 'zh_CN' : 'en_US'
+      locale: locale === 'zh' ? 'zh_CN' : 'en_US',
+      url: `${baseUrl}${currentPath}`,
+      images: [
+        {
+          url: `${baseUrl}/images/home.png`,
+          width: 1200,
+          height: 630,
+          alt: locale === 'zh' ? 'TeGo-AI智能体操作系统平台展示' : 'TeGo AI Agent Platform Display',
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: seo.twitter?.title || seo.title,
-      description: seo.twitter?.description || seo.description
+      description: seo.twitter?.description || seo.description,
+      images: [`${baseUrl}/images/home.png`],
+      creator: '@ZhamaFuture',
     },
     icons: {
       icon: [
         { url: '/favicon.ico', sizes: 'any' },
         { url: '/favicon.svg', type: 'image/svg+xml' }
-      ]
+      ],
+      apple: '/favicon.svg',
     },
+    manifest: '/manifest.json',
     alternates: {
-      canonical: locale === 'zh' ? '/zh' : '/en',
+      canonical: `${baseUrl}${currentPath}`,
       languages: {
-        'zh-CN': '/zh',
-        'en-US': '/en'
+        'zh-CN': `${baseUrl}/zh`,
+        'en-US': `${baseUrl}/en`
       }
-    }
+    },
+    verification: {
+      // Add verification codes for search engines when available
+      // google: 'your-google-verification-code',
+      // bing: 'your-bing-verification-code',
+    },
+    category: 'technology',
   };
 }
 
@@ -86,6 +125,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
       <Providers>
+        <StructuredData />
         {children}
       </Providers>
     </NextIntlClientProvider>

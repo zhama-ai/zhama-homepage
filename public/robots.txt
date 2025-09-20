@@ -1,0 +1,22 @@
+# Robots.txt for TeGo AI Agent Platform
+User-agent: *
+Allow: /
+
+# Allow crawling of all static assets
+Allow: /images/
+Allow: /favicon.ico
+Allow: /favicon.svg
+
+# Disallow crawling of API routes
+Disallow: /api/
+
+# Disallow crawling of private pages (if any)
+# Add any specific paths you don't want crawled here
+
+# Sitemap location
+Sitemap: https://zhama.com/sitemap.xml
+Sitemap: https://zhama.com/zh/sitemap.xml
+Sitemap: https://zhama.com/en/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
