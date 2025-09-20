@@ -25,11 +25,6 @@ ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
-ENV SMTP_HOST=smtp.exmail.qq.com
-ENV SMTP_PORT=465
-ENV SMTP_SECURE=true
-ENV SMTP_USER=support@zhama.com
-ENV SMTP_PASS=AxudKH3SMJJ2Yb4p
 
 # 启动应用
 CMD ["node", "server.js"]
