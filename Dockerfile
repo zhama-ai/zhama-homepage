@@ -8,13 +8,13 @@ WORKDIR /app
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-RUN mkdir .next
-RUN chown nextjs:nodejs .next
-
-
 # 复制构建产物（从CI构建）
 COPY .next/standalone ./
+COPY .next/static ./.next/static
 COPY public ./public
+
+# Next.js standalone 模式需要的package.json
+COPY package.json ./package.json
 
 # 设置文件所有者为nextjs用户
 RUN chown -R nextjs:nodejs /app
@@ -28,7 +28,6 @@ ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
-
 
 # 启动应用
 CMD ["node", "server.js"]
