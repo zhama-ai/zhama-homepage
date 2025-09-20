@@ -15,7 +15,6 @@ RUN chown nextjs:nodejs .next
 # 复制构建产物（从CI构建）
 COPY .next/standalone ./
 COPY public ./public
-COPY .next/static .next/static
 
 # 设置文件所有者为nextjs用户
 RUN chown -R nextjs:nodejs /app
