@@ -7,15 +7,17 @@ export default function FooterSection() {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-gray-100 dark:bg-dark-700 border-t border-gray-200 dark:border-dark-600 text-gray-800 dark:text-white">
-      <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-light-100 dark:bg-dark-900 border-t border-light-300 dark:border-dark-700 text-light-700 dark:text-white">
+      <div className="container py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* 公司信息 */}
           <div className="col-span-1">
-            <h3 className="text-xl font-bold mb-6">{t('home.hero.title')}</h3>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-              {t('home.hero.description')}
-            </p>
+            <div className="flex items-center gap-3 mb-4">
+              <img src="/images/logo_light.png" alt="TeGo Logo" className="h-8 w-auto hidden dark:block" />
+              <img src="/images/logo.png" alt="TeGo Logo" className="h-8 w-auto dark:hidden" />
+              <h3 className="text-xl font-bold">扎马未来</h3>
+            </div>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">TeGo-AI智能体操作系统 · 企业级AI解决方案与服务</p>
             <div className="mt-6 flex space-x-4">
               <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-accent-600 dark:hover:text-accent-400 transition duration-150 ease-in-out">
                 <span className="sr-only">WeChat</span>
@@ -74,14 +76,14 @@ export default function FooterSection() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-dark-500">
+        <div className="mt-12 pt-8 border-t border-light-300 dark:border-dark-700">
           <div className="flex flex-col md:flex-row justify-start items-center">
-            <p className="text-gray-500 dark:text-gray-400 text-sm">
+            <p className="text-light-600 dark:text-dark-400 text-sm">
               {t('footer.copyright')}
             </p>
             {t('footer.icp') && (
-              <p className="text-gray-500 dark:text-gray-400 text-sm mt-4 ml-4 md:mt-0">
-                <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{t('footer.icp')}</a> 
+              <p className="text-light-600 dark:text-dark-400 text-sm mt-4 ml-4 md:mt-0">
+                <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{t('footer.icp')}</a>
               </p>
             )}
           </div>

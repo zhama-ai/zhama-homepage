@@ -9,7 +9,7 @@ export default function DownloadSection() {
   return (
     <section id="download" className="py-16 bg-white dark:bg-dark-900 relative overflow-hidden">
       <div className="absolute inset-0 bg-light-grid-pattern dark:bg-grid-pattern opacity-5"></div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container relative z-10">
         <div className="text-center mb-12">
           <p className="mt-2 text-3xl leading-8 font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
             {t('downloadSection.title')}

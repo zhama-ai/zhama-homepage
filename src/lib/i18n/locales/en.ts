@@ -17,11 +17,12 @@ export default {
   nav: {
     home: 'Home',
     features: 'Features',
-    advantages: 'Platform',
+    advantages: 'Cases',
+    pricing: 'Pricing',
     download: 'Contact Us',
     about: 'About Us',
     contact: 'Contact Us',
-    tryNow: 'Try Now'
+    tryNow: 'Contact Sales'
   },
   home: {
     hero: {
@@ -38,27 +39,33 @@ export default {
     },
   },
   featuresSection: {
-    title: 'Features',
-    subtitle: 'Discover how TeGo drives enterprise intelligent transformation',
+    title: 'Four Core Components',
+    subtitle: 'TeGo Enterprise Agent Service Platform Architecture, providing complete agent operation and governance capabilities for enterprises',
     tabs: {
-      collection: 'Modular Architecture',
-      analysis: 'AI Agent Middleware',
-      organization: 'Visual Development'
+      collection: 'TeGo-OS',
+      analysis: 'TeGo-Engine',
+      organization: 'TeGo-MCP',
+      gateway: 'TeGo-LLM'
     },
     collection: {
-      title: 'Modular Architecture, Flexible Integration and Deployment',
-      description: 'All capability units support componentized combination and on-demand deployment, adapting to different industries and enterprise scales. Flexible architectural design ensures enterprises can select and integrate required functional modules according to their needs.',
-      tags: ['Componentized Design', 'On-demand Deployment', 'Flexible Scaling', 'Industry Adaptation']
+      title: 'TeGo-OS Enterprise Intelligent Operating System',
+      description: 'Multi-terminal agent access, covering recommendation, general, and industry-specific agent types. Unified user management, permission control, application market and token management. Provides core services like triggers, API integration, and plugin management.',
+      tags: ['Agent Access', 'Permission Control', 'API Integration', 'Plugin Management']
     },
     analysis: {
-      title: 'AI Agent Middleware, Autonomous and Controllable',
-      description: 'Self-developed MCP (Model Context Protocol) framework supports AI agent service registration, discovery and dynamic routing, ensuring security and stability of enterprise data and business logic.',
-      tags: ['MCP Framework', 'Service Registration', 'Dynamic Routing', 'Security & Stability']
+      title: 'TeGo-Engine Agent Development Platform',
+      description: 'Visual drag-and-drop interface supporting process engine and node management. Channel management and data tracking for business process automation. Permission control and load balancing ensure enterprise-grade stable operation.',
+      tags: ['Visual Drag-and-drop', 'Process Engine', 'Data Tracking', 'Load Balancing']
     },
     organization: {
-      title: 'No-code Visual, Extremely Simple Development Experience',
-      description: 'Support rapid workflow construction through drag-and-drop and node configuration, allowing non-technical personnel to build intelligent business processes. Compatible with VSCode plugin ecosystem, building efficient and customized development environment.',
-      tags: ['Visual Configuration', 'No-code Development', 'VSCode Compatible', 'Simple and Easy']
+      title: 'TeGo-MCP Routing and Registry Center',
+      description: 'MCP service discovery and registration for dynamic routing of agent services. Agent management and conversation services supporting multi-agent collaboration. Vector indexing and retrieval augmentation (RAG) to enhance intelligent Q&A capabilities.',
+      tags: ['Service Discovery', 'Dynamic Routing', 'Multi-agent Collaboration', 'RAG Enhancement']
+    },
+    gateway: {
+      title: 'TeGo-LLM Model Gateway',
+      description: 'Integrate mainstream large models like OpenAI, Gemini, QWen, DeepSeek. Load balancing, route distribution, flow control, and access security. Support local LLM model deployment with multimodal intelligent interaction capabilities.',
+      tags: ['Mainstream Models', 'Load Balancing', 'Flow Control', 'Multimodal Interaction']
     },
     moreFeatures: {
       title: 'More Core Capabilities',
@@ -71,7 +78,7 @@ export default {
         description: 'Realize business automation capabilities such as data tracking, task orchestration, and trigger logic, ensuring intelligent execution and monitoring of business processes.'
       },
       financeManagement: {
-        title: 'LLM Gateway and Multimodal Engine',
+        title: 'TeGo-LLM Model Gateway',
         description: 'Integrate mainstream large models and local models, support semantic understanding, text-to-image, RAG and other intelligent interactions, providing powerful AI capability support.'
       }
     }
@@ -99,8 +106,66 @@ export default {
       button: 'Learn More'
     }
   },
+  pricingSection: {
+    title: 'Pricing & Plans',
+    subtitle: 'Flexible plans to support teams of all sizes with intelligent agent operations and governance',
+    community: {
+      badge: 'Forever Free',
+      name: 'Community',
+      lead: 'Experience the full agent ecosystem',
+      desc: 'Single-machine deployment for light usage, free forever.',
+      featuresTitle: 'Included Features',
+      features: [
+        'Agent listing and linked app management',
+        'Member management',
+        'Domain management and certificate binding',
+        'Agent search'
+      ],
+      price: '¥0',
+      period: 'Free forever',
+      cta: 'Get Started'
+    },
+    subscription: {
+      ribbon: 'On-Premise',
+      badge: 'Annual Subscription',
+      name: 'Subscription',
+      lead: 'Privately deployed subscription edition',
+      desc: 'Pricing from ¥50,000/year',
+      featuresTitle: 'Includes all Community features, plus',
+      features: [
+        'High availability and concurrency',
+        'Private environment deployment',
+        'Service availability monitoring',
+        'K8S / DevOps',
+        'Open API support',
+        '1:1 customer support',
+        'Deployment and managed operations services'
+      ],
+      price: '¥50,000',
+      period: 'per year from',
+      cta: 'Contact Sales'
+    },
+    enterprise: {
+      ribbon: 'On-Premise',
+      badge: 'Enterprise Flagship',
+      name: 'TeGo-AI Agent OS',
+      lead: 'Build an enterprise-grade agent operations and governance platform',
+      desc: 'Supports private cluster deployment and enterprise ownership.',
+      featuresTitle: 'Includes all Subscription features, plus',
+      features: [
+        'High autonomy and security assurance',
+        'Custom enterprise branding',
+        'Premium after-sales service',
+        'Support for audits, deployment, and POC'
+      ],
+      price: 'Custom Quote',
+      period: 'Contact us',
+      cta: 'Contact Sales'
+    }
+  },
   advantagesSection: {
-    title: 'TeGo Platform Architecture: Four Core Layers Building Enterprise Intelligence Infrastructure',
+    title: 'TeGo Typical Application Scenarios',
+    subtitle: 'Demonstrate the application value of TeGo platform in different industries and scenarios through real cases',
     values: {
       remember: 'Service Middleware',
       think: 'Workspace',
@@ -131,6 +196,14 @@ export default {
         'Provide complete monitoring and analysis'
       ]
     },
+    gateway: {
+      title: 'TeGo-LLM Model Gateway',
+      points: [
+        'Integrate mainstream large models like OpenAI, Gemini, QWen, DeepSeek',
+        'Load balancing, route distribution, flow control, access security',
+        'Support local LLM model deployment, multimodal intelligent interaction'
+      ]
+    },
     scenarios: {
       title: 'Application Scenarios',
       professional: {
@@ -148,7 +221,7 @@ export default {
     },
     features: {
       multiPlatform: {
-        title: 'LLM Gateway and Multimodal Engine',
+        title: 'TeGo-LLM Model Gateway',
         description: 'Integrate mainstream large models and local models, support semantic understanding, text-to-image, RAG and other intelligent interactions'
       },
       dataSecurity: {

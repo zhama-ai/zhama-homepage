@@ -5,6 +5,7 @@ import HeroSection from '@/components/HeroSection';
 import FeaturesSection from '@/components/FeaturesSection';
 import AdvantagesSection from '@/components/AdvantagesSection';
 import DownloadSection from '@/components/DownloadSection';
+import PricingSection from '@/components/PricingSection';
 import AboutUsSection from '@/components/AboutUsSection';
 import ContactSection from '@/components/ContactSection';
 import FooterSection from '@/components/FooterSection';
@@ -13,10 +14,11 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-light-200 bg-light-grid-pattern dark:bg-dark-900 dark:bg-grid-pattern overflow-x-hidden">
       <Header />
-      <main className="animate-fadeIn">
+      <main className="animate-fade-in">
         <HeroSection />
         <FeaturesSection />
         <AdvantagesSection />
+        <PricingSection />
         <DownloadSection />
         <AboutUsSection />
         {/* <ContactSection /> */}

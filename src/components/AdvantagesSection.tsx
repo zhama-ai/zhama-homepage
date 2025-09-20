@@ -5,13 +5,6 @@ import { useTranslation } from 'react-i18next';
 export default function AdvantagesSection() {
   const { t } = useTranslation();
 
-  // 优势点数据
-  const efficiencyPoints = t('advantagesSection.efficiency.points', { returnObjects: true }) as string[];
-
-  const knowledgePoints = t('advantagesSection.knowledge.points', { returnObjects: true }) as string[];
-
-  const decisionPoints = t('advantagesSection.decision.points', { returnObjects: true }) as string[];
-
   return (
     <section id="advantages" className="py-16 sm:py-20 md:py-24 bg-white dark:bg-dark-900 relative overflow-hidden">
       <div className="absolute inset-0 bg-light-grid-pattern dark:bg-grid-pattern opacity-5"></div>
@@ -24,78 +17,12 @@ export default function AdvantagesSection() {
           <p className="mt-2 text-2xl sm:text-3xl md:text-4xl leading-8 font-bold tracking-tight text-gray-900 dark:text-white">
             {t('advantagesSection.title')}
           </p>
-          <div className="mt-4 max-w-4xl mx-auto">
-            <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4 text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300">
-              <span className="flex items-center whitespace-nowrap"><span className="text-accent-400 mr-1 sm:mr-2">•</span> {t('advantagesSection.values.remember')}</span>
-              <span className="flex items-center whitespace-nowrap"><span className="text-accent-400 mr-1 sm:mr-2">•</span> {t('advantagesSection.values.think')}</span>
-              <span className="flex items-center whitespace-nowrap"><span className="text-accent-400 mr-1 sm:mr-2">•</span> {t('advantagesSection.values.do')}</span>
-              <span className="flex items-center whitespace-nowrap"><span className="text-accent-400 mr-1 sm:mr-2">•</span> {t('advantagesSection.values.live')}</span>
-            </div>
-          </div>
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            {t('advantagesSection.subtitle')}
+          </p>
         </div>
 
-        {/* 核心价值卡片 */}
-        <div className="grid grid-cols-1 gap-6 sm:gap-8 md:gap-10 md:grid-cols-2 lg:grid-cols-3">
-          {/* 价值1 */}
-          <div className="group p-1 rounded-xl bg-gradient-to-br from-accent-500/10 to-accent-600/10 dark:from-accent-500/20 dark:to-accent-700/20 hover:from-accent-500/20 hover:to-accent-600/20 dark:hover:from-accent-500/30 dark:hover:to-accent-700/30 transition-all duration-300">
-            <div className="tech-card bg-white dark:bg-dark-800 p-6 sm:p-8 rounded-xl flex flex-col h-full hover-lift transform transition-all duration-300 hover:-translate-y-1">
-              <div className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-gradient-to-br from-accent-500 to-accent-700 text-white mb-4 sm:mb-6 shadow-lg group-hover:shadow-accent-600/50">
-                <svg className="h-6 w-6 sm:h-7 sm:w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">{t('advantagesSection.efficiency.title')}</h3>
-              <div className="mt-2 space-y-2 text-sm sm:text-base text-gray-700 dark:text-gray-300">
-                {efficiencyPoints.map((point, index) => (
-                  <div key={index} className="flex items-start">
-                    <span className="bg-accent-500/10 p-1 rounded mr-2 text-accent-600 dark:text-accent-400 flex-shrink-0">→</span>
-                    <span>{point}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* 价值2 */}
-          <div className="group p-1 rounded-xl bg-gradient-to-br from-accent-500/20 to-accent-700/20 hover:from-accent-500/30 hover:to-accent-700/30 transition-all duration-300" style={{ transitionDelay: '100ms' }}>
-            <div className="tech-card bg-white dark:bg-dark-800 p-6 sm:p-8 rounded-xl flex flex-col h-full hover-lift transform transition-all duration-300 hover:-translate-y-1">
-              <div className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-gradient-to-br from-accent-500 to-accent-700 text-white mb-4 sm:mb-6 shadow-lg group-hover:shadow-accent-600/50">
-                <svg className="h-6 w-6 sm:h-7 sm:w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">{t('advantagesSection.knowledge.title')}</h3>
-              <div className="mt-2 space-y-2 text-sm sm:text-base text-gray-700 dark:text-gray-300">
-                {knowledgePoints.map((point, index) => (
-                  <div key={index} className="flex items-start">
-                    <span className="bg-accent-500/10 p-1 rounded mr-2 text-accent-600 dark:text-accent-400 flex-shrink-0">→</span>
-                    <span>{point}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* 价值3 */}
-          <div className="group p-1 rounded-xl bg-gradient-to-br from-accent-500/20 to-accent-700/20 hover:from-accent-500/30 hover:to-accent-700/30 transition-all duration-300 md:col-span-2 lg:col-span-1" style={{ transitionDelay: '200ms' }}>
-            <div className="tech-card bg-white dark:bg-dark-800 p-6 sm:p-8 rounded-xl flex flex-col h-full hover-lift transform transition-all duration-300 hover:-translate-y-1">
-              <div className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-gradient-to-br from-accent-500 to-accent-700 text-white mb-4 sm:mb-6 shadow-lg group-hover:shadow-accent-600/50">
-                <svg className="h-6 w-6 sm:h-7 sm:w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                </svg>
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">{t('advantagesSection.decision.title')}</h3>
-              <div className="mt-2 space-y-2 text-sm sm:text-base text-gray-700 dark:text-gray-300">
-                {decisionPoints.map((point, index) => (
-                  <div key={index} className="flex items-start">
-                    <span className="bg-accent-500/10 p-1 rounded mr-2 text-accent-600 dark:text-accent-400 flex-shrink-0">→</span>
-                    <span>{point}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* 核心价值卡片已移动到FeaturesSection */}
 
         {/* 适用场景 */}
         <div className="mt-16 sm:mt-20">

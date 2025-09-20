@@ -6,13 +6,13 @@ import { useTranslation } from 'react-i18next';
 export function ThemeSwitcher() {
   const { t } = useTranslation();
   const [mounted, setMounted] = useState(false);
-  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark' | 'system'>('light');
+  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark' | 'system'>('dark');
 
   useEffect(() => {
     setMounted(true);
     
     // 读取本地存储的主题
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | 'system' || 'light';
+    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | 'system' || 'dark';
     setCurrentTheme(savedTheme);
     applyTheme(savedTheme);
   }, []);
@@ -39,12 +39,12 @@ export function ThemeSwitcher() {
   const toggleTheme = () => {
     let nextTheme: 'light' | 'dark' | 'system';
     
-    if (currentTheme === 'light') {
-      nextTheme = 'dark';
-    } else if (currentTheme === 'dark') {
+    if (currentTheme === 'dark') {
+      nextTheme = 'light';
+    } else if (currentTheme === 'light') {
       nextTheme = 'system';
     } else {
-      nextTheme = 'light';
+      nextTheme = 'dark';
     }
     
     console.log(`Switching from ${currentTheme} to ${nextTheme}`);

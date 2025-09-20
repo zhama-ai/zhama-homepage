@@ -11,10 +11,51 @@ export default function Header() {
   const { t, i18n } = useTranslation();
   const { theme, resolvedTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('home');
   const [mounted, setMounted] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const onScroll = () => {
+      setScrolled(window.scrollY > 4);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const sectionIds = ['features', 'advantages', 'pricing', 'download', 'about'];
+    const elements = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => Boolean(el));
+
+    if (elements.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => (b.intersectionRatio || 0) - (a.intersectionRatio || 0));
+        if (visible[0]?.target?.id) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px 0px -40% 0px',
+        threshold: [0.25, 0.5, 0.75]
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   // 根据主题选择logo
@@ -38,20 +79,23 @@ export default function Header() {
                   扎马 AI
                 </span>
               </div>
-              <nav className="hidden md:ml-10 md:flex md:space-x-6 lg:space-x-10">
+              <nav className="hidden md:ml-10 md:flex md:space-x-6 lg:space-x-8 flex-nowrap whitespace-nowrap">
                 <Link href="/" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">
                   首页
                 </Link>
-                <a href="#features" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">
+                <a href="#features" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
                   核心能力
                 </a>
-                <a href="#advantages" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">
+                <a href="#advantages" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
                   产品价值
                 </a>
-                <a href="#download" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">
+                <a href="#pricing" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
+                  价格
+                </a>
+                <a href="#download" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
                   立即使用
                 </a>
-                <a href="#about" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">
+                <a href="#about" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
                   关于我们
                 </a>
               </nav>
@@ -62,9 +106,9 @@ export default function Header() {
                 <ThemeSwitcher />
                 <LanguageSwitcher />
               </div>
-              <Link href="/download" className="glow-button text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3">
-                立即体验
-              </Link>
+              <a href="#download" className="btn btn-primary text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3">
+                联系销售
+              </a>
               
               <div className="flex items-center md:hidden ml-2">
                 <button 
@@ -85,49 +129,54 @@ export default function Header() {
   }
 
   return (
-    <header className="backdrop-blur-md bg-white/90 dark:bg-dark-800/90 border-b border-light-400/50 dark:border-dark-600/50 shadow-light-medium dark:shadow-lg fixed top-0 left-0 right-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 sm:h-20">
+    <header className={`glass-strong border-b border-light-200/50 dark:border-dark-700/50 ${scrolled ? 'shadow-large' : 'shadow-medium'} fixed top-0 left-0 right-0 z-50 transition-shadow`}>
+      <div className="w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 lg:h-20">
           <div className="flex items-center flex-1">
             <div className="flex-shrink-0 flex items-center">
-              <img src={getLogoSrc()} alt="Logo" className="h-8 sm:h-10 w-auto mr-2" />
+              <img src={getLogoSrc()} alt="Logo" className="h-8 lg:h-10 w-auto mr-3" />
               
             </div>
-            <nav className="hidden md:ml-10 md:flex md:space-x-6 lg:space-x-10">
-              <Link href="/" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">
+            
+            <nav className="hidden lg:ml-12 lg:flex lg:space-x-8">
+              <Link href="/" className={`btn btn-ghost ${activeSection === 'home' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.home')}
               </Link>
-              <a href="#features" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">
+              <a href="#features" className={`btn btn-ghost ${activeSection === 'features' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.features')}
               </a>
-              <a href="#advantages" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">
+              <a href="#advantages" className={`btn btn-ghost ${activeSection === 'advantages' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.advantages')}
               </a>
-              <a href="#download" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">
+              <a href="#pricing" className={`btn btn-ghost ${activeSection === 'pricing' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
+                {t('nav.pricing')}
+              </a>
+              <a href="#download" className={`btn btn-ghost ${activeSection === 'download' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.download')}
               </a>
-              <a href="#about" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">
+              <a href="#about" className={`btn btn-ghost ${activeSection === 'about' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.about')}
               </a>
             </nav>
           </div>
           
-          <div className="flex items-center space-x-2 sm:space-x-4">
-            <div className="hidden sm:flex items-center space-x-3">
+          <div className="flex items-center space-x-4">
+            <div className="hidden lg:flex items-center space-x-4">
               <ThemeSwitcher />
               <LanguageSwitcher />
             </div>
-            <Link href="/download" className="glow-button text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3">
-              {t('nav.tryNow')}
-            </Link>
             
-            <div className="flex items-center md:hidden ml-2">
+            <a href="#download" className="btn btn-primary">
+              <span>{t('nav.tryNow')}</span>
+            </a>
+            
+            <div className="flex items-center lg:hidden">
               <button 
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-                className="text-gray-700 dark:text-gray-300 hover:text-accent-600 dark:hover:text-accent-400 p-2 transition-colors duration-200"
+                className="btn btn-ghost p-2"
                 aria-label="Toggle mobile menu"
               >
-                <svg className="h-6 w-6 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-6 h-6 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   {!mobileMenuOpen ? (
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                   ) : (
@@ -140,56 +189,69 @@ export default function Header() {
         </div>
       </div>
       
-      {/* Mobile menu */}
+      {/* 移动端菜单 */}
       {mobileMenuOpen && (
-        <div className="md:hidden">
-          <div className="px-4 pt-4 pb-6 space-y-3 sm:px-6 backdrop-blur-md bg-white/95 dark:bg-dark-800/95 border-t border-light-400/30 dark:border-dark-600/30 shadow-lg">
-            <Link 
-              href="/" 
-              className="block px-4 py-3 rounded-xl text-base font-semibold text-secondary hover:text-accent-600 dark:hover:text-accent-400 hover:bg-light-100 dark:hover:bg-dark-600 transition-all duration-200"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {t('nav.home')}
-            </Link>
-            <a 
-              href="#features" 
-              className="block px-4 py-3 rounded-xl text-base font-semibold text-secondary hover:text-accent-600 dark:hover:text-accent-400 hover:bg-light-100 dark:hover:bg-dark-600 transition-all duration-200"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {t('nav.features')}
-            </a>
-            <a 
-              href="#advantages" 
-              className="block px-4 py-3 rounded-xl text-base font-semibold text-secondary hover:text-accent-600 dark:hover:text-accent-400 hover:bg-light-100 dark:hover:bg-dark-600 transition-all duration-200"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {t('nav.advantages')}
-            </a>
-            <a 
-              href="#download" 
-              className="block px-4 py-3 rounded-xl text-base font-semibold text-secondary hover:text-accent-600 dark:hover:text-accent-400 hover:bg-light-100 dark:hover:bg-dark-600 transition-all duration-200"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {t('nav.download')}
-            </a>
-            <a 
-              href="#about" 
-              className="block px-4 py-3 rounded-xl text-base font-semibold text-secondary hover:text-accent-600 dark:hover:text-accent-400 hover:bg-light-100 dark:hover:bg-dark-600 transition-all duration-200"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {t('nav.about')}
-            </a>
-            
-            {/* 移动端显示主题和语言切换 */}
-            <div className="pt-3 border-t border-light-400/30 dark:border-dark-600/30">
-              <div className="flex items-center justify-center space-x-4 px-4 py-2">
-                <div className="flex items-center space-x-3">
-                  <span className="text-sm text-muted">主题 / Theme:</span>
-                  <ThemeSwitcher />
-                </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-sm text-muted">语言 / Language:</span>
-                  <LanguageSwitcher />
+        <div className="lg:hidden">
+          <div className="glass-strong border-t border-light-200/50 dark:border-dark-700/50 shadow-large">
+            <div className="container py-6 space-y-4">
+              <Link 
+                href="/" 
+                className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'home' ? 'text-primary-600 dark:text-primary-400' : ''}`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t('nav.home')}
+              </Link>
+              <a 
+                href="#features" 
+                className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'features' ? 'text-primary-600 dark:text-primary-400' : ''}`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t('nav.features')}
+              </a>
+              <a 
+                href="#advantages" 
+                className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'advantages' ? 'text-primary-600 dark:text-primary-400' : ''}`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t('nav.advantages')}
+              </a>
+              <a 
+                href="#pricing" 
+                className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'pricing' ? 'text-primary-600 dark:text-primary-400' : ''}`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t('nav.pricing')}
+              </a>
+              <a 
+                href="#download" 
+                className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'download' ? 'text-primary-600 dark:text-primary-400' : ''}`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t('nav.download')}
+              </a>
+              <a 
+                href="#about" 
+                className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'about' ? 'text-primary-600 dark:text-primary-400' : ''}`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t('nav.about')}
+              </a>
+              
+              {/* 移动端设置 */}
+              <div className="pt-4 border-t border-light-200/50 dark:border-dark-700/50">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <span className="text-sm font-medium text-light-600 dark:text-dark-400">
+                      主题
+                    </span>
+                    <ThemeSwitcher />
+                  </div>
+                  <div className="space-y-2">
+                    <span className="text-sm font-medium text-light-600 dark:text-dark-400">
+                      语言
+                    </span>
+                    <LanguageSwitcher />
+                  </div>
                 </div>
               </div>
             </div>

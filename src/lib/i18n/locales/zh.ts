@@ -17,20 +17,21 @@ const zh = {
   nav: {
     home: '首页',
     features: '核心价值',
-    advantages: '平台架构',
+    advantages: '场景案例',
+    pricing: '价格',
     download: '联系我们',
     about: '关于我们',
     contact: '联系我们',
-    tryNow: '立即体验'
+    tryNow: '联系销售'
   },
   home: {
     hero: {
-      title: 'TeGo智能体平台',
-      tagline: '用 AI 基建，驱动企业智能化未来',
-      description: 'TeGo 平台致力于打造一站式企业智能体平台，以 AI 技术为核心驱动力，帮助企业全面实现业务流程的自动化、智能化与高效协同。我们连接终端接入、智能开发、LLM网关等关键能力，构建真正贯穿"感知—理解—执行"的企业智能基础设施。',
-      cta: '立即体验',
-      secondaryCta: '了解更多',
-      imgAlt: 'TeGo 企业智能体综合服务平台'
+      title: 'TeGo-智能体操作系统',
+      tagline: 'A1·基建驱动 · 万物皆智能体 · 全链路智能协作平台',
+      description: '用AI驱动企业服务全面升级，构建一站式智能化业务平台，实现各业务流程的无缝连接与智能化管理，助力企业数字化转型。打造一站式智能体平台，全面打通从终端接入、智能开发到LLM网关的全链路能力，为企业提供完整的AI解决方案。',
+      cta: '立即咨询',
+      secondaryCta: '产品演示',
+      imgAlt: 'TeGo-AI智能体操作系统 - 企业智能体综合服务平台'
     },
     features: {
       title: '核心价值',
@@ -38,41 +39,47 @@ const zh = {
     },
   },
   featuresSection: {
-    title: '核心价值',
-    subtitle: 'TeGo 平台为企业提供模块化、智能化、可视化的全方位解决方案',
+    title: '四大核心组件',
+    subtitle: 'TeGo 企业智能体综合服务平台架构，为企业提供完整的智能体运行与治理能力',
     tabs: {
-      collection: '模块化架构',
-      analysis: '智能体中台',
-      organization: '可视化开发'
+      collection: 'TeGo-OS',
+      analysis: 'TeGo-Engine',
+      organization: 'TeGo-MCP',
+      gateway: 'TeGo-LLM'
     },
     collection: {
-      title: '模块化架构，灵活集成部署',
-      description: '所有能力单元支持组件化组合与按需部署，适应不同行业与企业规模。灵活的架构设计确保企业能够根据自身需求选择和集成所需功能模块。',
-      tags: ['组件化设计', '按需部署', '灵活扩展', '行业适配']
+      title: 'TeGo-OS 企业智能操作系统',
+      description: '全终端智能体接入，涵盖推荐类、通用类、行业类等多种智能体类型。统一用户管理、权限控制、应用市场和令牌管理。提供触发器、API集成、插件管理等核心服务。',
+      tags: ['智能体接入', '权限控制', 'API集成', '插件管理']
     },
     analysis: {
-      title: '智能体中台，自主可控',
-      description: '自主研发的 MCP（Model Context Protocol）框架支持智能体服务的注册、发现与动态路由，保障企业数据与业务逻辑的安全与稳定。',
-      tags: ['MCP框架', '服务注册', '动态路由', '安全稳定']
+      title: 'TeGo-Engine 智能体开发平台',
+      description: '可视化拖拽界面，支持流程引擎和节点管理。渠道管理和数据追踪，实现业务流程自动化。权限控制和负载均衡，确保企业级稳定运行。',
+      tags: ['可视化拖拽', '流程引擎', '数据追踪', '负载均衡']
     },
     organization: {
-      title: '无代码可视化，极简开发体验',
-      description: '支持通过拖拽、节点配置快速搭建工作流，非技术人员也能构建智能业务流程。兼容 VSCode 插件生态，构建高效、定制的开发环境。',
-      tags: ['可视化配置', '无代码开发', 'VSCode兼容', '简单易用']
+      title: 'TeGo-MCP 路由与注册中心',
+      description: 'MCP服务发现与注册，实现智能体服务的动态路由。Agent管理和对话服务，支持多智能体协同工作。向量索引和检索增强（RAG），提升智能问答能力。',
+      tags: ['服务发现', '动态路由', '多智能体协同', 'RAG增强']
+    },
+    gateway: {
+      title: 'TeGo-LLM 模型网关',
+      description: '集成OpenAI、Gemini、QWen、DeepSeek等主流大模型。负载均衡、路由分发、流速控制、接入安全。支持本地LLM模型部署，提供多模态智能交互能力。',
+      tags: ['主流大模型', '负载均衡', '流速控制', '多模态交互']
     },
     moreFeatures: {
-      title: '更多核心能力',
+      title: 'TeGo 平台技术优势',
       taskManagement: {
-        title: '插件化工作空间（Workspace）',
-        description: '支持多角色多终端接入，统一管理插件与应用，完美支持上万种 VSCode 插件，构建高效、定制的开发环境。'
+        title: '状态数据完整可控',
+        description: '可视化追踪每个节点的输入输出，支持历史重放和错误断点恢复，便于调试和排查问题。强大的触发机制与调度能力，支持定时器、Webhook、事件驱动等多种触发方式。'
       },
       habitTracking: {
-        title: '流程引擎与数据总线',
-        description: '实现数据追踪、任务编排、触发逻辑等业务自动化能力，确保业务流程的智能化执行与监控。'
+        title: '本地部署与插件扩展',
+        description: '企业可以完全私有化部署，并支持自定义节点和集成插件，便于安全控制和个性化开发。高性能架构，异步处理和错误隔离，确保系统稳定运行。'
       },
       financeManagement: {
-        title: 'LLM网关与多模态引擎',
-        description: '集成主流大模型与本地模型，支持语义理解、文生图、RAG等智能交互，提供强大的AI能力支撑。'
+        title: '发明专利：MCP动态服务器统一管理',
+        description: '一种基于模型上下文协议的动态服务器统一管理平台及方法。通过配置创建、启动、停止MCP服务器，根据数据库配置动态生成和注册工具，提供完整的CRUD API。'
       }
     }
   },
@@ -99,163 +106,229 @@ const zh = {
       button: '了解详情'
     }
   },
+  pricingSection: {
+    title: 'TeGo 定价与版本',
+    subtitle: '为不同阶段与规模的团队提供灵活的智能体运行与治理能力',
+    community: {
+      badge: '永久免费',
+      name: '社区版',
+      lead: '体验智能体生态的全部功能',
+      desc: '用于轻度使用的单机部署版，永久免费。',
+      featuresTitle: '功能包含',
+      features: [
+        '智能体上架、关联应用管理',
+        '成员管理',
+        '域名管理、证书绑定',
+        '智能体搜索'
+      ],
+      price: '¥0',
+      period: '永久免费',
+      cta: '立即使用'
+    },
+    subscription: {
+      ribbon: 'On-Premise',
+      badge: '年度订阅',
+      name: '订阅版',
+      lead: '按年度订阅的私有化版本',
+      desc: '价格低至 ¥50,000/年',
+      featuresTitle: '包含「社区版全部特性」，并提供',
+      features: [
+        '高可用、并发支持',
+        '私有化环境部署',
+        '服务可用性监控',
+        'K8S / DevOps',
+        'Open API 支持',
+        '一对一客户支持',
+        '委托部署与代运维服务'
+      ],
+      price: '¥50,000',
+      period: '年起',
+      cta: '联系销售'
+    },
+    enterprise: {
+      ribbon: 'On-Premise',
+      badge: '企业旗舰',
+      name: 'TeGo-AI智能体操作系统',
+      lead: '打造企业级智能体运行与治理平台',
+      desc: '支持私有化集群部署、企业私有。',
+      featuresTitle: '包含「订阅版特性」，并提供',
+      features: [
+        '高自主保证，高安全保障',
+        '自主品牌形象',
+        '高品质售后服务',
+        '配合审计、部署、POC 支持服务'
+      ],
+      price: '定制报价',
+      period: '联系咨询',
+      cta: '联系销售'
+    }
+  },
   advantagesSection: {
-    title: 'TeGo 平台架构：四大核心层构建企业智能基础设施',
+    title: 'TeGo 典型应用场景',
+    subtitle: '通过实际案例展示TeGo平台在不同行业和场景中的应用价值',
     values: {
-      remember: '服务中台',
-      think: '工作空间',
-      do: '流程引擎',
-      live: 'LLM网关'
+      remember: 'TeGo-OS',
+      think: 'TeGo-Engine',
+      do: 'TeGo-MCP',
+      live: 'TeGo-LLM'
     },
     efficiency: {
-      title: '智能体服务中台',
+      title: 'TeGo-OS 企业智能操作系统',
       points: [
-        '提供注册发现、权限控制能力',
-        '支持负载均衡、对话服务',
-        '保障系统稳定与高可用'
+        '全终端智能体接入，涵盖推荐类、通用类、行业类等多种智能体类型',
+        '统一用户管理、权限控制、应用市场和令牌管理',
+        '提供触发器、API集成、插件管理等核心服务'
       ]
     },
     knowledge: {
-      title: '插件化工作空间',
+      title: 'TeGo-Engine 智能体开发平台',
       points: [
-        '支持多角色多终端接入',
-        '统一管理插件与应用',
-        '兼容VSCode插件生态'
+        '可视化拖拽界面，支持流程引擎和节点管理',
+        '渠道管理和数据追踪，实现业务流程自动化',
+        '权限控制和负载均衡，确保企业级稳定运行'
       ]
     },
     decision: {
-      title: '流程引擎与数据总线',
+      title: 'TeGo-MCP 路由与注册中心',
       points: [
-        '实现数据追踪、任务编排',
-        '支持触发逻辑、业务自动化',
-        '提供完整的监控与分析'
+        'MCP服务发现与注册，实现智能体服务的动态路由',
+        'Agent管理和对话服务，支持多智能体协同工作',
+        '向量索引和检索增强（RAG），提升智能问答能力'
+      ]
+    },
+    gateway: {
+      title: 'TeGo-LLM 模型网关',
+      points: [
+        '集成OpenAI、Gemini、QWen、DeepSeek等主流大模型',
+        '负载均衡、路由分发、流速控制、接入安全',
+        '支持本地LLM模型部署，提供多模态智能交互能力'
       ]
     },
     scenarios: {
-      title: '应用场景',
+      title: '典型应用场景',
       professional: {
-        title: '智能诊疗助手',
-        description: '通过语音识别与自然语言处理技术，实时转写医生与患者对话，提取关键信息生成电子病历，大幅提升诊疗效率。'
+        title: '对话即操作智能助手',
+        description: 'AI搜索直达服务，从自然语言表达需求到自动完成服务调用，重构用户交互体验。用户只需说一句话，就能跳转到对应服务页面完成操作。'
       },
       personal: {
-        title: '自动研究报告生成',
-        description: '平台自动采集财报、舆情、市场数据，结合智能摘要与结构化模板，一键生成专业研究报告，释放分析师时间。'
+        title: '智能诊疗助手 - 解放医生双手',
+        description: 'AI实时诊疗助手通过语音识别与自然语言理解技术，辅助医生高效完成问诊记录与病历生成，支持与HIS等医院信息系统集成。'
       },
       enterprise: {
-        title: '智能贷前调查',
-        description: '系统集成工商、司法、财务等多源数据，智能生成行业分析与企业风险报告，提升信贷决策的效率与准确性。'
+        title: '自动研究报告生成 - 解放分析师双手',
+        description: '自动采集财报、市场数据与新闻资讯，只需一键便可生成涵盖摘要、市场分析、图表与风险评估等内容的完整报告。'
       }
     },
     features: {
       multiPlatform: {
-        title: 'LLM网关与多模态引擎',
-        description: '集成主流大模型与本地模型，支持语义理解、文生图、RAG等智能交互'
+        title: 'TeGo-LLM 模型网关',
+        description: '负载均衡、路由分发、流速控制、接入安全。集成OpenAI、Gemini、QWen、DeepSeek等主流大模型以及本地LLM模型'
       },
       dataSecurity: {
-        title: '数据安全保障',
-        description: '企业级安全架构，支持私有化部署，确保数据安全与合规'
+        title: '基础设施与数据安全',
+        description: '支持Redis、PostgreSQL、MySQL、MinIO、ClickHouse等基础设施，提供企业级数据安全保障与私有化部署能力'
       }
     },
     cta: '立即体验'
   },
   aboutSection: {
-    title: '技术亮点',
-    subtitle: '用 AI 技术<span class="text-accent-400">重新定义</span>企业智能化基础设施',
-    description: 'TeGo 平台基于先进的AI技术栈，为企业提供标准化、可扩展的智能体服务能力',
+    title: 'TeGo 核心优势',
+    subtitle: '用 AI 基建<span class="text-accent-400">驱动企业智能化未来</span>',
+    description: '深圳市扎马未来科技有限公司专注于企业级AI解决方案与智能服务，拥有发明专利和多行业验证经验',
     vision: {
-      title: '为什么选择 TeGo？',
+      title: 'TeGo vs 其他平台的差异化优势',
       paragraphs: [
-        'TeGo 平台已在<span class="text-primary font-medium">医疗、金融、运营等多个行业</span>成功落地，支持企业"验证—迭代—复制"的完整闭环。',
-        '我们提供<span class="text-primary font-medium">高性能、可扩展、支持私有化部署</span>的全生命周期 AI 解决方案与技术服务。'
+        '<span class="text-primary font-medium">全场景自动化</span>：面向"AI + 业务流程"的自动化执行平台，不仅仅是LLM应用搭建平台（偏AI App前端）',
+        '<span class="text-primary font-medium">面向后端自动化+多系统集成</span>：高度模块化，支持JS编写逻辑、函数、条件、循环等，相比可视化为主的平台具有更高灵活度'
       ]
     },
     features: [
       {
-        title: "MCP 智能体协议",
-        description: "标准化服务接口，支持 AI 服务组件的自动注册与组合"
+        title: "发明专利：MCP动态服务器统一管理",
+        description: "一种基于模型上下文协议的动态服务器统一管理平台及方法，实现智能实例管理、服务动态发现、服务自动生成"
       },
       {
-        title: "RAG 检索增强能力",
-        description: "实现上下文感知与企业知识库结合的智能问答"
+        title: "行业验证：多源异构数据融合",
+        description: "已服务多个客户业务场景，完成典型AI模型部署及ROI跟踪，支持项目级别「验证-迭代-复制」闭环"
       },
       {
-        title: "多模态 AI 支持",
-        description: "接入语音、图像、文本等多模态输入，实现复杂任务连续执行"
+        title: "差异化AI服务能力",
+        description: "针对不同行业与场景挖掘特征与策略，构建差异化推荐/风控/预测模型。已覆盖工业智能、金融AI、运营优化、内容生成等"
       },
       {
-        title: "主流大模型支持",
-        description: "支持 OpenAI、百度文心、通义千问、Gemini 等主流大模型以及私有部署模型"
+        title: "运行时UI生成",
+        description: "当AI在执行任务过程中需要用户提供额外信息或进行决策确认时，能即时、动态地生成交互界面，实现流畅智能的人机协作"
       }
     ],
     footer: {
-      prefix: 'TeGo 平台',
-      suffix: '，让 AI 成为每一个企业的核心竞争力。'
+      prefix: 'TeGo-AI智能体操作系统',
+      suffix: '，用AI基建驱动企业智能化未来。'
     },
     typingPhrases: [
-      "让 AI 成为每一个企业的核心竞争力",
+      "用AI基建驱动企业智能化未来",
       "构建真正贯穿\"感知—理解—执行\"的企业智能基础设施",
-      "驱动企业智能化未来"
+      "万物皆智能体，全链路智能协作"
     ]
   },
   appDownload: {
-    title: '立即加入 TeGo',
+    title: '立即体验 TeGo-AI智能体操作系统',
     appLogo: {
-      title: 'TeGo',
-      alt: 'TeGo Logo'
+      title: 'TeGo-AI',
+      alt: 'TeGo-AI智能体操作系统 Logo'
     },
     appIntro: {
-      slogan: '企业智能体综合服务平台',
-      tagline: '用 AI 基建，驱动企业智能化未来'
+      slogan: 'A1·基建驱动 · 万物皆智能体 · 全链路智能协作平台',
+      tagline: '深圳市扎马未来科技有限公司 - 企业级AI解决方案与智能服务提供商'
     },
-    whyChoose: '为什么选择 TeGo？',
+    whyChoose: '为什么选择 TeGo 平台？',
     features: {
       dataCollection: {
-        title: '模块化架构',
-        description: '组件化组合与按需部署，适应不同行业与企业规模'
+        title: 'TeGo-Engine 智能体引擎',
+        description: '全场景自动化，支持AI和非AI混合流程，代码级灵活性与流程可观测'
       },
       aiContent: {
-        title: '智能体中台',
-        description: 'MCP框架支持智能体服务的注册、发现与动态路由'
+        title: 'TeGo-MCP 零代码框架',
+        description: '发明专利技术，@Tool装饰器快速定义智能体工具，动态服务器管理'
       },
       taskManagement: {
-        title: '无代码开发',
-        description: '可视化配置，非技术人员也能构建智能业务流程'
+        title: 'TeGo-Market 应用市场',
+        description: '标准化智能体组件，即插即用，支持多模态输入与版本管理'
       },
       finance: {
-        title: '全面集成',
-        description: '支持主流大模型，兼容VSCode插件生态'
+        title: 'TeGo-LLM 模型网关',
+        description: '集成OpenAI、Gemini、QWen、DeepSeek等主流大模型，负载均衡与安全控制'
       }
     },
     targetUsers: {
-      title: '适用对象',
-      executive: '企业高管',
-      researcher: '技术团队',
-      student: '产品经理',
-      planner: '业务人员'
+      title: '服务客户',
+      executive: '大型企业',
+      researcher: '中小企业',
+      student: '政府机构',
+      planner: '技术团队'
     },
     download: {
-      heading: '立即加入 TeGo，开启企业智能化转型之路',
+      heading: '立即启动 TeGo-AI智能体操作系统，开启企业智能化转型',
       webapp: {
-        title: '在线体验',
-        action: '立即体验 TeGo'
+        title: '在线演示',
+        action: '预约产品演示'
       },
-      appSection: '获取更多信息',
+      appSection: '企业服务',
       ios: {
         title: '企业咨询',
-        subtitle: '定制方案',
-        description: '获取专属解决方案',
+        subtitle: '定制解决方案',
+        description: '获取专属企业智能化方案',
         action: '立即咨询'
       },
       android: {
-        title: '技术文档',
-        subtitle: 'API文档',
-        description: '查看完整技术文档',
-        action: '查看文档'
+        title: '私有化部署',
+        subtitle: '本地化服务',
+        description: '支持企业私有化部署与定制开发',
+        action: '了解部署'
       },
       qrCode: {
-        notice: '扫描二维码了解更多',
-        description: '扫描二维码，立即开启企业智能化转型之路',
-        alt: 'TeGo 联系二维码'
+        notice: '扫描二维码联系我们',
+        description: '扫描二维码，获取TeGo-AI智能体操作系统专业服务',
+        alt: 'TeGo-AI 企业服务联系二维码'
       }
     },
     wechatBrowser: {
@@ -269,13 +342,13 @@ const zh = {
   },
   footer: {
     products: '产品与服务',
-    enterprise: '企业解决方案',
-    api: 'API 集成',
+    enterprise: 'TeGo-AI智能体操作系统',
+    api: 'MCP框架与API集成',
     support: '支持与资源',
-    helpCenter: '帮助中心',
-    tutorials: '使用教程',
-    faq: '常见问题',
-    copyright: '© 2025 TeGo. 版权所有 深圳市扎马未来科技有限公司',
+    helpCenter: '技术文档',
+    tutorials: '部署指南',
+    faq: '企业服务',
+    copyright: '© 2025 深圳市扎马未来科技有限公司 版权所有 TeGo-AI智能体操作系统',
     icp: '粤ICP备2025426259号-1'
   }
 };

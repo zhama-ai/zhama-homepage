@@ -14,7 +14,7 @@ export function Providers({ children }: ProvidersProps) {
     <I18nextProvider i18n={i18n}>
       <ThemeProvider
         attribute="class"
-        defaultTheme="light"
+        defaultTheme="dark"
         enableSystem={true}
         storageKey="theme"
         disableTransitionOnChange={false}
