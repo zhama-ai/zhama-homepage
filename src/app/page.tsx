@@ -1,29 +1,14 @@
-'use client';
+import { redirect } from 'next/navigation';
+import { headers } from 'next/headers';
 
-import Header from '@/components/Header';
-import HeroSection from '@/components/HeroSection';
-import FeaturesSection from '@/components/FeaturesSection';
-import AdvantagesSection from '@/components/AdvantagesSection';
-import DownloadSection from '@/components/DownloadSection';
-import PricingSection from '@/components/PricingSection';
-import AboutUsSection from '@/components/AboutUsSection';
-import ContactSection from '@/components/ContactSection';
-import FooterSection from '@/components/FooterSection';
-
-export default function Home() {
-  return (
-    <div className="min-h-screen bg-light-200 bg-light-grid-pattern dark:bg-dark-900 dark:bg-grid-pattern overflow-x-hidden">
-      <Header />
-      <main className="animate-fade-in">
-        <HeroSection />
-        <FeaturesSection />
-        <AdvantagesSection />
-        <PricingSection />
-        <DownloadSection />
-        <AboutUsSection />
-        {/* <ContactSection /> */}
-      </main>
-      <FooterSection />
-    </div>
-  );
-} 
+// Root page that redirects to the appropriate locale
+export default async function RootPage() {
+  const headersList = await headers();
+  const acceptLanguage = headersList.get('accept-language');
+  
+  // Simple language detection - check if browser prefers English
+  const preferEnglish = acceptLanguage?.includes('en') && !acceptLanguage?.includes('zh');
+  
+  // Redirect to the preferred language, defaulting to Chinese
+  redirect(preferEnglish ? '/en' : '/zh');
+}

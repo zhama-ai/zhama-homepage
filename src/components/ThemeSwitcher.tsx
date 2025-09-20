@@ -1,8 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 export function ThemeSwitcher() {
+  const t = useTranslations('ui');
   const [mounted, setMounted] = useState(false);
   const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>('dark');
 
@@ -60,8 +62,8 @@ export function ThemeSwitcher() {
     <button 
       onClick={toggleTheme}
       className="flex items-center justify-center w-9 h-9 rounded-lg transition-all duration-300 bg-white/80 dark:bg-dark-700/80 backdrop-blur-md border border-light-400/30 dark:border-dark-500/30 shadow-light-soft hover:shadow-light-medium dark:shadow-lg text-secondary hover:text-accent-600 dark:hover:text-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-400/50 transform hover:scale-105 active:scale-95 group"
-      title={currentTheme === 'dark' ? '切换到亮色模式' : '切换到暗色模式'}
-      aria-label="切换主题"
+      title={currentTheme === 'dark' ? t('switchToLightMode') : t('switchToDarkMode')}
+      aria-label={t('switchTheme')}
     >
       <div className="transition-transform duration-300 ease-out group-hover:rotate-12 group-hover:scale-110">
         {getThemeIcon()}

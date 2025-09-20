@@ -1,13 +1,16 @@
-'use client';
+import { getTranslations } from 'next-intl/server';
+import Link from 'next/link';
 
-import { useTranslation } from 'react-i18next';
+interface PricingSectionProps {
+  locale: string;
+}
 
-export default function PricingSection() {
-  const { t } = useTranslation();
+export default async function PricingSection({ locale }: PricingSectionProps) {
+  const t = await getTranslations({ locale, namespace: 'pricingSection' });
 
-  const communityFeatures = t('pricingSection.community.features', { returnObjects: true }) as string[];
-  const subscriptionFeatures = t('pricingSection.subscription.features', { returnObjects: true }) as string[];
-  const enterpriseFeatures = t('pricingSection.enterprise.features', { returnObjects: true }) as string[];
+  const communityFeatures = t.raw('community.features') as string[];
+  const subscriptionFeatures = t.raw('subscription.features') as string[];
+  const enterpriseFeatures = t.raw('enterprise.features') as string[];
 
   return (
     <section id="pricing" className="section bg-gradient relative overflow-hidden">
@@ -15,10 +18,10 @@ export default function PricingSection() {
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="section-header">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-light-700 dark:text-white">
-            {t('pricingSection.title')}
+            {t('title')}
           </h2>
           <p className="mt-6 text-lg text-light-600 dark:text-dark-400">
-            {t('pricingSection.subtitle')}
+            {t('subtitle')}
           </p>
         </div>
 
@@ -29,16 +32,16 @@ export default function PricingSection() {
             <div className="p-6 lg:p-8" style={{ minHeight: '180px' }}>
               <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-900 border border-emerald-200 shadow-sm animate-pulse">
                 <span className="w-2 h-2 rounded-full bg-accent-500 shadow-[0_0_8px_#34d399]"></span>
-                {t('pricingSection.community.badge')}
+                {t('community.badge')}
               </span>
               <h3 className="name text-xl font-extrabold mt-3 text-light-700 dark:text-white leading-tight">
-                {t('pricingSection.community.name')}
+                {t('community.name')}
               </h3>
               <p className="lead text-sm text-light-700 dark:text-white/90 font-semibold mt-2">
-                {t('pricingSection.community.lead')}
+                {t('community.lead')}
               </p>
               <p className="desc text-xs text-light-600 dark:text-dark-400 mt-1">
-                {t('pricingSection.community.desc')}
+                {t('community.desc')}
               </p>
             </div>
             
@@ -46,7 +49,7 @@ export default function PricingSection() {
             <div className="border-t border-light-200/60 dark:border-dark-700/60" />
             <div className="p-6 lg:p-8 flex-grow">
               <h4 className="text-sm font-semibold tracking-wide text-light-700/80 dark:text-white/80 mb-3">
-                {t('pricingSection.community.featuresTitle')}
+                {t('community.featuresTitle')}
               </h4>
               <ul className="space-y-2">
                 {communityFeatures.map((item, idx) => (
@@ -67,15 +70,15 @@ export default function PricingSection() {
             <div className="p-6 lg:p-6 flex items-center justify-between" style={{ minHeight: '100px' }}>
               <div>
                 <div className="text-2xl font-black tracking-tight text-light-700 dark:text-white">
-                  {t('pricingSection.community.price')}
+                  {t('community.price')}
                 </div>
                 <div className="text-sm text-muted">
-                  {t('pricingSection.community.period')}
+                  {t('community.period')}
                 </div>
               </div>
-              <a href="/contact" className="btn btn-outline px-6 py-3 rounded-2xl border-2 border-primary-500 text-primary-600 dark:text-primary-400 hover:bg-primary-500 hover:text-white dark:hover:text-white transition-all min-w-[120px] text-center">
-                {t('pricingSection.community.cta')}
-              </a>
+              <Link href={`/${locale}/contact`} className="btn btn-outline px-6 py-3 rounded-2xl border-2 border-primary-500 text-primary-600 dark:text-primary-400 hover:bg-primary-500 hover:text-white dark:hover:text-white transition-all min-w-[120px] text-center">
+                {t('community.cta')}
+              </Link>
             </div>
           </article>
 
@@ -94,7 +97,7 @@ export default function PricingSection() {
                   boxShadow: '0 8px 25px rgba(249,115,22,.3), 0 2px 8px rgba(0, 0, 0, 0.1)'
                 }}
               >
-                {t('pricingSection.subscription.ribbon')}
+                {t('subscription.ribbon')}
               </div>
             </div>
             
@@ -102,16 +105,16 @@ export default function PricingSection() {
             <div className="p-6 lg:p-8" style={{ minHeight: '180px' }}>
               <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-indigo-100 text-indigo-900 border border-indigo-200 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-indigo-500"></span>
-                {t('pricingSection.subscription.badge')}
+                {t('subscription.badge')}
               </span>
               <h3 className="name text-xl font-extrabold mt-3 text-light-700 dark:text-white leading-tight">
-                {t('pricingSection.subscription.name')}
+                {t('subscription.name')}
               </h3>
               <p className="lead text-sm text-light-700 dark:text-white/90 font-semibold mt-2">
-                {t('pricingSection.subscription.lead')}
+                {t('subscription.lead')}
               </p>
               <p className="desc text-xs text-light-600 dark:text-dark-400 mt-1">
-                {t('pricingSection.subscription.desc')}
+                {t('subscription.desc')}
               </p>
             </div>
             
@@ -119,7 +122,7 @@ export default function PricingSection() {
             <div className="border-t border-light-200/60 dark:border-dark-700/60" />
             <div className="p-6 lg:p-8 flex-grow">
               <h4 className="text-sm font-semibold tracking-wide text-light-700/80 dark:text-white/80 mb-3">
-                {t('pricingSection.subscription.featuresTitle')}
+                {t('subscription.featuresTitle')}
               </h4>
               <ul className="space-y-2">
                 {subscriptionFeatures.map((item, idx) => (
@@ -140,15 +143,15 @@ export default function PricingSection() {
             <div className="p-6 lg:p-6 flex items-center justify-between" style={{ minHeight: '100px' }}>
               <div>
                 <div className="text-2xl font-black tracking-tight text-light-700 dark:text-white">
-                  {t('pricingSection.subscription.price')}
+                  {t('subscription.price')}
                 </div>
                 <div className="text-sm text-muted">
-                  {t('pricingSection.subscription.period')}
+                  {t('subscription.period')}
                 </div>
               </div>
-              <a href="/contact" className="btn btn-primary px-6 py-3 rounded-2xl min-w-[120px] text-center">
-                {t('pricingSection.subscription.cta')}
-              </a>
+              <Link href={`/${locale}/contact`} className="btn btn-primary px-6 py-3 rounded-2xl min-w-[120px] text-center">
+                {t('subscription.cta')}
+              </Link>
             </div>
           </article>
 
@@ -167,7 +170,7 @@ export default function PricingSection() {
                   boxShadow: '0 8px 25px rgba(249,115,22,.3), 0 2px 8px rgba(0, 0, 0, 0.1)'
                 }}
               >
-                {t('pricingSection.enterprise.ribbon')}
+                {t('enterprise.ribbon')}
               </div>
             </div>
             
@@ -175,16 +178,16 @@ export default function PricingSection() {
             <div className="p-6 lg:p-8" style={{ minHeight: '180px' }}>
               <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-extrabold bg-rose-100 text-rose-900 border border-rose-200 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-rose-500"></span>
-                {t('pricingSection.enterprise.badge')}
+                {t('enterprise.badge')}
               </span>
               <h3 className="name text-xl font-extrabold mt-3 text-light-700 dark:text-white leading-tight">
-                {t('pricingSection.enterprise.name')}
+                {t('enterprise.name')}
               </h3>
               <p className="lead text-sm text-light-700 dark:text-white/90 font-semibold mt-2">
-                {t('pricingSection.enterprise.lead')}
+                {t('enterprise.lead')}
               </p>
               <p className="desc text-xs text-light-600 dark:text-dark-400 mt-1">
-                {t('pricingSection.enterprise.desc')}
+                {t('enterprise.desc')}
               </p>
             </div>
             
@@ -192,7 +195,7 @@ export default function PricingSection() {
             <div className="border-t border-light-200/60 dark:border-dark-700/60" />
             <div className="p-6 lg:p-8 flex-grow">
               <h4 className="text-sm font-semibold tracking-wide text-light-700/80 dark:text-white/80 mb-3">
-                {t('pricingSection.enterprise.featuresTitle')}
+                {t('enterprise.featuresTitle')}
               </h4>
               <ul className="space-y-2">
                 {enterpriseFeatures.map((item, idx) => (
@@ -213,15 +216,15 @@ export default function PricingSection() {
             <div className="p-6 lg:p-6 flex items-center justify-between" style={{ minHeight: '100px' }}>
               <div>
                 <div className="text-2xl font-black tracking-tight text-light-700 dark:text-white">
-                  {t('pricingSection.enterprise.price')}
+                  {t('enterprise.price')}
                 </div>
                 <div className="text-sm text-muted">
-                  {t('pricingSection.enterprise.period')}
+                  {t('enterprise.period')}
                 </div>
               </div>
-              <a href="/contact" className="btn btn-primary px-6 py-3 rounded-2xl min-w-[120px] text-center">
-                {t('pricingSection.enterprise.cta')}
-              </a>
+              <Link href={`/${locale}/contact`} className="btn btn-primary px-6 py-3 rounded-2xl min-w-[120px] text-center">
+                {t('enterprise.cta')}
+              </Link>
             </div>
           </article>
         </div>

@@ -1,10 +1,14 @@
-'use client';
-
-import { useTranslation } from 'react-i18next';
+import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 
-export default function FooterSection() {
-  const { t } = useTranslation();
+interface FooterSectionProps {
+  locale: string;
+}
+
+export default async function FooterSection({ locale }: FooterSectionProps) {
+  const t = await getTranslations({ locale, namespace: 'footer' });
+  const tc = await getTranslations({ locale, namespace: 'common' });
+  const tn = await getTranslations({ locale, namespace: 'nav' });
 
   return (
     <footer className="bg-light-100 dark:bg-dark-900 border-t border-light-300 dark:border-dark-700 text-light-700 dark:text-white">
@@ -15,9 +19,9 @@ export default function FooterSection() {
             <div className="flex items-center gap-3 mb-4">
               <img src="/images/logo_light.png" alt="TeGo Logo" className="h-8 w-auto hidden dark:block" />
               <img src="/images/logo.png" alt="TeGo Logo" className="h-8 w-auto dark:hidden" />
-              <h3 className="text-xl font-bold">扎马未来</h3>
+              <h3 className="text-xl font-bold">{t('companyName')}</h3>
             </div>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">TeGo-AI智能体操作系统 · 企业级AI解决方案与服务</p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{t('companyDescription')}</p>
             <div className="mt-6 flex space-x-4">
               
               <a href="https://github.com/zhama-ai" className="text-gray-500 dark:text-gray-400 hover:text-accent-600 dark:hover:text-accent-400 transition duration-150 ease-in-out">
@@ -31,34 +35,34 @@ export default function FooterSection() {
 
           {/* 产品 */}
           <div className="col-span-1">
-            <h3 className="text-lg font-semibold mb-6 text-accent-400">{t('footer.products')}</h3>
+            <h3 className="text-lg font-semibold mb-6 text-accent-400">{t('products')}</h3>
             <ul className="space-y-3">
               <li><a href="#" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('home.hero.title')}</a></li>
-              <li><a href="#" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('footer.enterprise')}</a></li>
-              <li><a href="#" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('footer.api')}</a></li>
+              <li><a href="#" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('enterprise')}</a></li>
+              <li><a href="#" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('api')}</a></li>
             </ul>
           </div>
 
           {/* 支持 */}
           <div className="col-span-1">
-            <h3 className="text-lg font-semibold mb-6 text-accent-400">{t('footer.support')}</h3>
+            <h3 className="text-lg font-semibold mb-6 text-accent-400">{t('support')}</h3>
             <ul className="space-y-3">
-              <li><a href="https://docs.zhama.com.cn/architecture/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('footer.helpCenter')}</a></li>
-              <li><a href="https://docs.zhama.com.cn/requirements/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('footer.tutorials')}</a></li>
-              <li><a href="https://docs.zhama.com.cn/faq/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('footer.faq')}</a></li>
-              <li><a href="/contact" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('common.contactUs')}</a></li>
+              <li><a href="https://docs.zhama.com.cn/architecture/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('helpCenter')}</a></li>
+              <li><a href="https://docs.zhama.com.cn/requirements/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('tutorials')}</a></li>
+              <li><a href="https://docs.zhama.com.cn/faq/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('faq')}</a></li>
+              <li><Link href={`/${locale}/contact`} className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{tc('contactUs')}</Link></li>
             </ul>
           </div>
 
           {/* 公司 */}
           <div className="col-span-1">
-            <h3 className="text-lg font-semibold mb-6 text-accent-400">{t('nav.about')}</h3>
+            <h3 className="text-lg font-semibold mb-6 text-accent-400">{tn('about')}</h3>
             <ul className="space-y-3">
               <li>
-                <a href="/privacy" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('common.privacyPolicy')}</a>
+                <Link href={`/${locale}/privacy`} className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{tc('privacyPolicy')}</Link>
               </li>
               <li>
-                <a href="/terms" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{t('common.termsOfService')}</a>
+                <Link href={`/${locale}/terms`} className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-150 ease-in-out">{tc('termsOfService')}</Link>
               </li>
             </ul>
           </div>
@@ -67,11 +71,11 @@ export default function FooterSection() {
         <div className="mt-12 pt-8 border-t border-light-300 dark:border-dark-700">
           <div className="flex flex-col md:flex-row justify-start items-center">
             <p className="text-light-600 dark:text-dark-400 text-sm">
-              {t('footer.copyright')}
+              {t('copyright')}
             </p>
-            {t('footer.icp') && (
+            {t('icp') && (
               <p className="text-light-600 dark:text-dark-400 text-sm mt-4 ml-4 md:mt-0">
-                <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{t('footer.icp')}</a>
+                <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{t('icp')}</a>
               </p>
             )}
           </div>

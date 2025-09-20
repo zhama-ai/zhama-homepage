@@ -1,0 +1,589 @@
+{
+  "common": {
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "lastUpdated": "Last Updated: ",
+    "email": "Email: ",
+    "address": "Address: ",
+    "contactUs": "Contact Us"
+  },
+  "ui": {
+    "theme": "Theme",
+    "language": "Language",
+    "switchToEnglish": "Switch to Chinese",
+    "switchLanguage": "Switch language",
+    "switchToLightMode": "Switch to light mode",
+    "switchToDarkMode": "Switch to dark mode",
+    "switchTheme": "Switch theme"
+  },
+  "nav": {
+    "home": "Home",
+    "features": "Features",
+    "advantages": "Cases",
+    "pricing": "Pricing",
+    "download": "Contact Us",
+    "about": "About Us",
+    "docs": "Docs",
+    "contact": "Contact Us",
+    "tryNow": "Try Now"
+  },
+  "home": {
+    "hero": {
+      "title": "TeGo AI Agent Platform",
+      "tagline": "Building with AI Infrastructure, Driving Enterprise Intelligent Future",
+      "description": "TeGo Platform is a one-stop enterprise AI agent platform that empowers full automation, intelligence, and collaboration across business processes.",
+      "cta": "Try Now",
+      "secondaryCta": "Learn More",
+      "imgAlt": "TeGo AI Agent Platform Display"
+    }
+  },
+  "contactPage": {
+    "title": "Contact Us",
+    "subtitle": "Have questions or suggestions? We'd love to help. Fill out the form below and we'll get back to you as soon as possible.",
+    "form": {
+      "title": {
+        "label": "Subject",
+        "placeholder": "Please enter your question or inquiry topic"
+      },
+      "email": {
+        "label": "Email Address",
+        "placeholder": "Please enter your email address"
+      },
+      "phone": {
+        "label": "Phone Number",
+        "placeholder": "Please enter your phone number (optional)"
+      },
+      "content": {
+        "label": "Message",
+        "placeholder": "Please describe your question, suggestion, or requirements in detail..."
+      },
+      "submit": "Send Message",
+      "submitting": "Sending..."
+    },
+    "successMessage": "Thank you for contacting us! We have received your message and will reply within 24 hours.",
+    "errorMessage": "Submission failed. Please try again later. If the problem persists, please send an email directly to contact@zhama.com",
+    "info": {
+      "email": {
+        "title": "Email Contact"
+      },
+      "response": {
+        "title": "Response Time",
+        "time": "We typically respond within 24 hours"
+      }
+    },
+    "seo": {
+      "title": "Contact Us - TeGo AI Agent Platform",
+      "description": "Contact TeGo AI Agent Platform team for enterprise AI solution consultation. We provide customized agent platform deployment and technical support.",
+      "keywords": "TeGo, contact us, AI agent platform, enterprise AI, technical support, Zhama",
+      "openGraph": {
+        "title": "Contact Us - TeGo AI Agent Platform",
+        "description": "Contact TeGo AI Agent Platform team for professional enterprise AI solution consultation and technical support."
+      }
+    }
+  },
+  "appDownload": {
+    "title": "Join TeGo Now",
+    "appLogo": {
+      "title": "TeGo",
+      "alt": "TeGo Logo"
+    },
+    "appIntro": {
+      "slogan": "Enterprise AI Agent Comprehensive Service Platform",
+      "tagline": "Building with AI Infrastructure, Driving Enterprise Intelligent Future"
+    },
+    "whyChoose": "Why Choose TeGo?",
+    "features": {
+      "dataCollection": {
+        "title": "Modular Architecture",
+        "description": "Componentized combination and on-demand deployment"
+      }
+    },
+    "targetUsers": {
+      "title": "Target Users",
+      "executive": "Enterprise Executives",
+      "researcher": "Technical Teams",
+      "student": "Product Managers",
+      "planner": "Business Personnel"
+    },
+    "download": {
+      "heading": "Join TeGo Now, Start Your Enterprise Intelligent Transformation Journey",
+      "webapp": {
+        "title": "Online Experience",
+        "action": "Try TeGo Now"
+      },
+      "appSection": "Get More Information",
+      "ios": {
+        "title": "Enterprise Consultation",
+        "subtitle": "Custom Solutions",
+        "description": "Get exclusive solutions",
+        "action": "Consult Now"
+      },
+      "android": {
+        "title": "Technical Documentation",
+        "subtitle": "API Documentation",
+        "description": "View complete technical documentation",
+        "action": "View Documentation"
+      },
+      "qrCode": {
+        "notice": "Scan QR Code for More Information",
+        "description": "Scan QR code to immediately start your enterprise intelligent transformation journey",
+        "alt": "TeGo Contact QR Code"
+      }
+    },
+    "wechatBrowser": {
+      "topArrow": "Click top-right menu",
+      "selectBrowser": "Select open in browser",
+      "message": "Please open in browser for best experience",
+      "button": "Got it",
+      "notice": "WeChat built-in browser reminder",
+      "instruction": "Please click top-right menu and select open in browser"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last Updated: March 23, 2025",
+    "sections": {
+      "introduction": {
+        "title": "Introduction",
+        "content": "Shenzhen Zhama Future Technology Co., Ltd. (hereinafter referred to as \\\"we\\\") is committed to protecting your personal privacy. This privacy policy explains how we collect, use, store, and protect your personal information.",
+        "content2": "By using our services, you agree to the terms of this privacy policy. If you do not agree, please do not use our services."
+      },
+      "collection": {
+        "title": "Information Collection",
+        "content": "We may collect the following types of information:",
+        "items": [
+          {
+            "title": "Personal Identity Information: ",
+            "content": "name, email address, phone number, etc."
+          },
+          {
+            "title": "Technical Information: ",
+            "content": "IP address, browser type, device information, access time, etc."
+          },
+          {
+            "title": "Usage Data: ",
+            "content": "how you use our services, including pages and features accessed"
+          }
+        ],
+        "usageIntro": "We use the collected information for:",
+        "usageItems": [
+          "Providing and improving our services",
+          "Processing your requests and inquiries",
+          "Sending important notices and updates",
+          "Analyzing usage patterns to improve user experience",
+          "Complying with legal obligations"
+        ]
+      },
+      "sharing": {
+        "title": "Information Sharing",
+        "content": "We do not sell, trade, or rent your personal information to third parties. We may share your information in the following circumstances:",
+        "items": [
+          {
+            "title": "Service Providers: ",
+            "content": "with trusted third parties who help us operate our business"
+          },
+          {
+            "title": "Legal Requirements: ",
+            "content": "when required by law or to protect our rights"
+          },
+          {
+            "title": "Business Transfers: ",
+            "content": "in the event of a merger, acquisition, or asset sale"
+          }
+        ]
+      },
+      "security": {
+        "title": "Data Security",
+        "content": "We implement appropriate technical and organizational measures to protect your personal information from unauthorized access, use, disclosure, modification, or destruction. However, please note that no system is 100% secure."
+      },
+      "retention": {
+        "title": "Data Retention",
+        "content": "We will only retain your personal information for as long as necessary to fulfill the purposes for which it was collected.",
+        "content2": "When your information is no longer needed, we will securely delete or anonymize it."
+      },
+      "rights": {
+        "title": "Your Rights",
+        "content": "Under applicable data protection laws, you may have the following rights:",
+        "items": [
+          "Access information we hold about you",
+          "Request correction of inaccurate information",
+          "Request deletion of your personal information",
+          "Object to processing of your information",
+          "Data portability rights"
+        ]
+      },
+      "children": {
+        "title": "Children's Privacy",
+        "content": "Our services are not directed to children under 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and know that your child has provided us with personal information, please contact us."
+      },
+      "changes": {
+        "title": "Policy Changes",
+        "content": "We may update this privacy policy from time to time. Any changes will be posted on this page, and significant changes will be notified to you via email or service notifications."
+      },
+      "contact": {
+        "title": "Contact Us",
+        "content": "If you have any questions or concerns about this privacy policy, please contact us through:",
+        "items": [
+          "Email: privacy@zhama.com.cn",
+          "Phone: +86-0755-8888-8888",
+          "Address: Shenzhen Science and Technology Park, Nanshan District"
+        ],
+        "response": "We will endeavor to respond to your inquiry within 30 days."
+      }
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last Updated: March 23, 2025",
+    "sections": {
+      "acceptance": {
+        "title": "Acceptance of Terms",
+        "content": "Welcome to the TeGo platform. By accessing and using our services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.",
+        "content2": "We reserve the right to modify these terms at any time. Your continued use of the service will be deemed acceptance of the modified terms."
+      },
+      "service": {
+        "title": "Service Description",
+        "content": "TeGo is an enterprise-level AI agent platform that provides the following services:",
+        "items": [
+          "Agent engines and development tools",
+          "MCP framework and application marketplace",
+          "Access gateways and integration services",
+          "Private deployment solutions"
+        ],
+        "modification": "We reserve the right to modify, suspend, or terminate any services at any time without prior notice."
+      },
+      "account": {
+        "title": "User Accounts",
+        "content": "To use certain services, you need to create an account. You agree to:",
+        "promises": [
+          "Provide accurate and complete registration information",
+          "Maintain the accuracy of account information",
+          "Protect the security of your account password",
+          "Take responsibility for all activities under your account"
+        ],
+        "restrictions": "You may not:",
+        "restrictionItems": [
+          "Share account credentials with others",
+          "Create false accounts",
+          "Violate any applicable laws or regulations"
+        ]
+      },
+      "conduct": {
+        "title": "User Conduct Guidelines",
+        "content": "When using our services, you may not engage in the following activities:",
+        "prohibited": [
+          "Upload malware or harmful code",
+          "Infringe on others' intellectual property rights",
+          "Send spam or unsolicited communications",
+          "Interfere with or disrupt the normal operation of services",
+          "Attempt unauthorized access to systems or data"
+        ]
+      },
+      "ip": {
+        "title": "Intellectual Property",
+        "content": "All content in the service, including but not limited to text, graphics, interfaces, and code, is protected by intellectual property laws.",
+        "userContent": "You retain ownership of uploaded content but grant us a license to use, modify, and display such content."
+      },
+      "disclaimer": {
+        "title": "Disclaimer",
+        "content": "Our services are provided \\\"as is\\\" without any express or implied warranties. We do not guarantee that the services will:",
+        "reasons": [
+          "Operate uninterrupted or error-free",
+          "Meet your specific needs",
+          "Be fully compatible with third-party services",
+          "Be completely secure or free from unauthorized access"
+        ]
+      },
+      "changes": {
+        "title": "Terms Changes",
+        "content": "We reserve the right to modify these terms at any time. Significant changes will be notified to you via email or service notifications. Continued use of the service indicates acceptance of the modified terms."
+      },
+      "disputes": {
+        "title": "Dispute Resolution",
+        "content": "Any disputes arising from the use of this service should be resolved through friendly consultation. If consultation fails, they should be submitted to a court with jurisdiction."
+      },
+      "contact": {
+        "title": "Contact Information",
+        "content": "If you have any questions about these terms, please contact us through the following methods:",
+        "methods": [
+          "Email: contact@zhama.com.cn",
+          "Phone: +86-0755-8888-8888",
+          "Address: Shenzhen Science and Technology Park, Nanshan District"
+        ]
+      }
+    }
+  },
+  "aboutSection": {
+    "title": "Technical Highlights",
+    "subtitle": "Using AI Technology to Redefine Enterprise Intelligence Infrastructure",
+    "description": "TeGo platform is based on advanced AI technology stack, providing standardized and scalable AI agent service capabilities for enterprises",
+    "vision": {
+      "title": "Why Choose TeGo?",
+      "paragraphs": [
+        "TeGo platform has successfully landed in multiple industries including healthcare, finance, and operations, supporting enterprises' complete closed-loop of \"Validation-Iteration-Replication\".",
+        "We provide high-performance, scalable, private deployment-supported full lifecycle AI solutions and technical services."
+      ]
+    },
+    "features": [
+      {
+        "title": "MCP AI Agent Protocol",
+        "description": "Standardized service interfaces supporting automatic registration and composition of AI service components"
+      },
+      {
+        "title": "RAG Retrieval Enhancement Capability",
+        "description": "Realize intelligent Q&A combining context awareness with enterprise knowledge base"
+      },
+      {
+        "title": "Multimodal AI Support",
+        "description": "Access voice, image, text and other multimodal inputs, realizing continuous execution of complex tasks"
+      },
+      {
+        "title": "Mainstream Large Model Support",
+        "description": "Support OpenAI, Baidu ERNIE, Tongyi Qianwen, Gemini and other mainstream large models as well as privately deployed models"
+      }
+    ],
+    "footer": {
+      "prefix": "TeGo Platform",
+      "suffix": ", making AI the core competitiveness of every enterprise."
+    },
+    "typingPhrases": [
+      "Making AI the core competitiveness of every enterprise",
+      "Building truly comprehensive enterprise intelligence infrastructure spanning \"Perception-Understanding-Execution\"",
+      "Driving enterprise intelligent future"
+    ]
+  },
+  "featuresSection": {
+    "title": "Four Core Components",
+    "subtitle": "TeGo Enterprise Agent Service Platform Architecture, providing complete agent operation and governance capabilities for enterprises",
+    "tabs": {
+      "collection": "TeGo-OS",
+      "analysis": "TeGo-Engine",
+      "organization": "TeGo-MCP",
+      "gateway": "TeGo-LLM"
+    },
+    "collection": {
+      "title": "TeGo-OS Enterprise Intelligent Operating System",
+      "description": "Multi-terminal agent access, covering recommendation, general, and industry-specific agent types. Unified user management, permission control, application market and token management. Provides core services like triggers, API integration, and plugin management.",
+      "tags": ["Agent Access", "Permission Control", "API Integration", "Plugin Management"]
+    },
+    "analysis": {
+      "title": "TeGo-Engine Agent Development Platform",
+      "description": "Visual drag-and-drop interface supporting process engine and node management. Channel management and data tracking for business process automation. Permission control and load balancing ensure enterprise-grade stable operation.",
+      "tags": ["Visual Drag-and-drop", "Process Engine", "Data Tracking", "Load Balancing"]
+    },
+    "organization": {
+      "title": "TeGo-MCP Routing and Registry Center",
+      "description": "MCP service discovery and registration for dynamic routing of agent services. Agent management and conversation services supporting multi-agent collaboration. Vector indexing and retrieval augmentation (RAG) to enhance intelligent Q&A capabilities.",
+      "tags": ["Service Discovery", "Dynamic Routing", "Multi-agent Collaboration", "RAG Enhancement"]
+    },
+    "gateway": {
+      "title": "TeGo-LLM Model Gateway",
+      "description": "Integrate mainstream large models like OpenAI, Gemini, QWen, DeepSeek. Load balancing, route distribution, flow control, and access security. Support local LLM model deployment with multimodal intelligent interaction capabilities.",
+      "tags": ["Mainstream Models", "Load Balancing", "Flow Control", "Multimodal Interaction"]
+    },
+    "moreFeatures": {
+      "title": "More Core Capabilities",
+      "taskManagement": {
+        "title": "Plugin-based Workspace",
+        "description": "Support multi-role and multi-terminal access, unified management of plugins and applications, perfect support for tens of thousands of VSCode plugins, building efficient and customized development environment."
+      },
+      "habitTracking": {
+        "title": "Process Engine and Data Bus",
+        "description": "Realize business automation capabilities such as data tracking, task orchestration, and trigger logic, ensuring intelligent execution and monitoring of business processes."
+      },
+      "financeManagement": {
+        "title": "TeGo-LLM Model Gateway",
+        "description": "Integrate mainstream large models and local models, support semantic understanding, text-to-image, RAG and other intelligent interactions, providing powerful AI capability support."
+      }
+    }
+  },
+  "footer": {
+    "companyName": "Zhama Future",
+    "companyDescription": "TeGo AI Agent Platform · Enterprise AI Solutions & Services",
+    "products": "Products & Services",
+    "home": {
+      "hero": {
+        "title": "TeGo AI Agent Platform"
+      }
+    },
+    "enterprise": "Enterprise Solutions",
+    "api": "API Integration",
+    "support": "Support & Resources",
+    "helpCenter": "Help Center",
+    "tutorials": "Tutorials",
+    "faq": "FAQ",
+    "contact": {
+      "title": "Contact Us",
+      "business": {
+        "title": "Business Partnership",
+        "description": "Enterprise solutions and custom service consultation",
+        "email": "business@zhama.com"
+      },
+      "support": {
+        "title": "Technical Support",
+        "description": "Product usage and technical issue support",
+        "email": "support@zhama.com"
+      }
+    },
+    "copyright": "© 2025 TeGo. All rights reserved. Shenzhen Zhama Future Technology Co., Ltd.",
+    "icp": ""
+  },
+  "advantagesSection": {
+    "title": "Use Cases",
+    "subtitle": "TeGo platform applications across multiple industry scenarios",
+    "scenarios": {
+      "title": "Application Scenarios",
+      "professional": {
+        "title": "Professional Services",
+        "description": "Efficient AI solutions for professional teams"
+      },
+      "personal": {
+        "title": "Personal Users",
+        "description": "AI tools for individual developers and entrepreneurs"
+      },
+      "enterprise": {
+        "title": "Enterprise Applications",
+        "description": "Comprehensive AI transformation solutions for large enterprises"
+      }
+    }
+  },
+  "pricingSection": {
+    "title": "Choose the Right Plan for You",
+    "subtitle": "Flexible pricing plans to meet the needs of businesses of all sizes",
+    "community": {
+      "badge": "Forever Free",
+      "name": "Community Edition",
+      "lead": "Experience all features of the agent ecosystem",
+      "desc": "All basics for lightweight usage, forever free.",
+      "featuresTitle": "Features Included",
+      "features": [
+        "Agent publishing & app management",
+        "Member management",
+        "Domain management & certificate binding",
+        "Agent search"
+      ],
+      "price": "$0",
+      "period": "Forever free",
+      "cta": "Get Started"
+    },
+    "subscription": {
+      "ribbon": "ON PREMISE",
+      "badge": "Annual Subscription",
+      "name": "Subscription Edition",
+      "lead": "Annual subscription private deployment version",
+      "desc": "Starting from $7,000/year",
+      "featuresTitle": "Includes all Community features, plus:",
+      "features": [
+        "High availability & concurrency support",
+        "Private environment deployment",
+        "Service availability monitoring",
+        "K8S / DevOps",
+        "Open API support",
+        "One-on-one customer support",
+        "Delegated deployment & maintenance services"
+      ],
+      "price": "$7,000",
+      "period": "per year",
+      "cta": "Contact Sales"
+    },
+    "enterprise": {
+      "ribbon": "ON PREMISE",
+      "badge": "Enterprise Flagship",
+      "name": "TeGo-AI Agent Operating System",
+      "lead": "Build enterprise-grade agent operation & governance platform",
+      "desc": "Support private deployment version, enterprise priority.",
+      "featuresTitle": "Includes all Subscription features, plus:",
+      "features": [
+        "High autonomy guarantee & security",
+        "Custom brand identity",
+        "Premium after-sales service",
+        "Audit, deployment & POC support services"
+      ],
+      "price": "Custom Quote",
+      "period": "Contact for consultation",
+      "cta": "Contact Sales"
+    }
+  },
+  "downloadSection": {
+    "title": "Experience TeGo Now",
+    "subtitle": "Multiple ways to experience our AI agent platform",
+    "enterprise": {
+      "title": "Enterprise Services",
+      "description": "Get enterprise-grade solutions and custom services",
+      "button": "Contact Sales"
+    },
+    "ios": {
+      "title": "iOS App",
+      "description": "Download TeGo mobile app from App Store",
+      "button": "App Store"
+    },
+    "android": {
+      "title": "Android App",
+      "description": "Get TeGo app for Android devices",
+      "button": "Download Now"
+    },
+    "docs": {
+      "title": "Developer Docs",
+      "description": "View complete API documentation and development guides",
+      "button": "View Docs"
+    },
+    "web": {
+      "title": "Web Version",
+      "description": "No installation required, use directly in your browser",
+      "button": "Try Now"
+    },
+    "downloadApp": {
+      "title": "Download Client",
+      "description": "Get the best desktop experience",
+      "windows": "Windows Version",
+      "mac": "macOS Version",
+      "linux": "Linux Version"
+    },
+    "webAccess": {
+      "title": "Web Version",
+      "description": "No installation required, use directly in your browser",
+      "button": "Access Now"
+    },
+    "documentation": {
+      "title": "Developer Docs",
+      "description": "View complete API documentation and development guides",
+      "button": "View Docs"
+    }
+  },
+  "contactSection": {
+    "title": "Contact Us",
+    "subtitle": "Have questions or need a custom solution? We're happy to help",
+    "business": {
+      "title": "Business Partnership",
+      "description": "Enterprise solutions and custom service consultation"
+    },
+    "support": {
+      "title": "Technical Support",
+      "description": "Product usage and technical issue support"
+    }
+  },
+  "downloadPage": {
+    "seo": {
+      "title": "Download & Experience - TeGo AI Agent Platform",
+      "description": "TeGo AI Agent Platform download and experience page. Support enterprise consultation, product demo, technical documentation and private deployment services.",
+      "keywords": "TeGo download, AI agent platform experience, enterprise AI demo, private deployment, technical documentation",
+      "openGraph": {
+        "title": "Download & Experience - TeGo AI Agent Platform",
+        "description": "Experience TeGo AI Agent Platform now, get enterprise AI solution demo and technical support."
+      }
+    }
+  },
+  "seo": {
+    "title": "TeGo AI Agent Platform | Shenzhen Zhama Future Technology Co., Ltd.",
+    "description": "Shenzhen Zhama Future Technology Co., Ltd. official platform: TeGo AI Agent Platform and enterprise AI solutions, covering agent engines, MCP frameworks, application markets and access gateways, supporting enterprise privatization and high availability deployment.",
+    "keywords": "TeGo, AI Agent, Enterprise Intelligence, Private Deployment, MCP Framework, Agent Operating System, Enterprise AI, Shenzhen Zhama Future Technology",
+    "openGraph": {
+      "title": "TeGo AI Agent Platform | Shenzhen Zhama Future Technology Co., Ltd.",
+      "description": "TeGo provides a one-stop enterprise agent platform and privatization solutions, covering the full chain capabilities of perception-understanding-execution, supporting high availability and compliant deployment."
+    },
+    "twitter": {
+      "title": "TeGo AI Agent Platform",
+      "description": "Enterprise AI Agent Platform and Solutions"
+    }
+  }
+}

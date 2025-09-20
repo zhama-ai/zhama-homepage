@@ -1,0 +1,589 @@
+{
+  "common": {
+    "privacyPolicy": "隐私政策",
+    "termsOfService": "服务协议",
+    "lastUpdated": "最后更新日期：",
+    "email": "电子邮箱：",
+    "address": "地址：",
+    "contactUs": "联系我们"
+  },
+  "ui": {
+    "theme": "主题",
+    "language": "语言",
+    "switchToEnglish": "切换到英文",
+    "switchLanguage": "切换语言",
+    "switchToLightMode": "切换到亮色模式",
+    "switchToDarkMode": "切换到暗色模式",
+    "switchTheme": "切换主题"
+  },
+  "nav": {
+    "home": "首页",
+    "features": "核心价值",
+    "advantages": "场景案例",
+    "pricing": "价格",
+    "download": "联系我们",
+    "about": "关于我们",
+    "docs": "文档中心",
+    "contact": "联系我们",
+    "tryNow": "立即试用"
+  },
+  "home": {
+    "hero": {
+      "title": "TeGo-智能体操作系统",
+      "tagline": "A1·基建驱动 · 万物皆智能体 · 全链路智能协作平台",
+      "description": "用AI驱动企业服务全面升级，构建一站式智能化业务平台，实现各业务流程的无缝连接与智能化管理，助力企业数字化转型。",
+      "cta": "立即咨询",
+      "secondaryCta": "产品演示",
+      "imgAlt": "TeGo-AI智能体操作系统平台展示"
+    }
+  },
+  "contactPage": {
+    "title": "联系我们",
+    "subtitle": "有任何问题或建议？我们很乐意为您提供帮助。请填写下面的表单，我们会尽快与您联系。",
+    "form": {
+      "title": {
+        "label": "标题",
+        "placeholder": "请输入您的问题或咨询主题"
+      },
+      "email": {
+        "label": "邮箱地址",
+        "placeholder": "请输入您的邮箱地址"
+      },
+      "phone": {
+        "label": "手机号",
+        "placeholder": "请输入您的手机号（可选）"
+      },
+      "content": {
+        "label": "详细内容",
+        "placeholder": "请详细描述您的问题、建议或需求..."
+      },
+      "submit": "提交信息",
+      "submitting": "提交中..."
+    },
+    "successMessage": "感谢您的联系！我们已收到您的信息，会在24小时内回复您。",
+    "errorMessage": "提交失败，请稍后重试。如问题持续存在，请直接发送邮件至 contact@zhama.com",
+    "info": {
+      "email": {
+        "title": "邮箱联系"
+      },
+      "response": {
+        "title": "响应时间",
+        "time": "我们通常在24小时内回复"
+      }
+    },
+    "seo": {
+      "title": "联系我们 - TeGo AI智能体操作系统",
+      "description": "联系TeGo AI智能体操作系统团队，获取企业级AI解决方案咨询服务。我们提供定制化智能体平台部署与技术支持。",
+      "keywords": "TeGo, 联系我们, 智能体平台, 企业AI, 技术支持, 深圳扎马",
+      "openGraph": {
+        "title": "联系我们 - TeGo AI智能体操作系统",
+        "description": "联系TeGo AI智能体操作系统团队，获取专业的企业级AI解决方案咨询与技术支持服务。"
+      }
+    }
+  },
+  "appDownload": {
+    "title": "立即体验 TeGo-AI智能体操作系统",
+    "appLogo": {
+      "title": "TeGo-AI",
+      "alt": "TeGo-AI智能体操作系统 Logo"
+    },
+    "appIntro": {
+      "slogan": "A1·基建驱动 · 万物皆智能体 · 全链路智能协作平台",
+      "tagline": "深圳市扎马未来科技有限公司"
+    },
+    "whyChoose": "为什么选择 TeGo 平台？",
+    "features": {
+      "dataCollection": {
+        "title": "TeGo-Engine 智能体引擎",
+        "description": "全场景自动化"
+      }
+    },
+    "targetUsers": {
+      "title": "服务客户",
+      "executive": "大型企业",
+      "researcher": "中小企业", 
+      "student": "政府机构",
+      "planner": "技术团队"
+    },
+    "download": {
+      "heading": "立即启动 TeGo-AI智能体操作系统",
+      "webapp": {
+        "title": "在线演示",
+        "action": "预约产品演示"
+      },
+      "appSection": "企业服务",
+      "ios": {
+        "title": "企业咨询",
+        "subtitle": "定制解决方案",
+        "description": "获取专属企业智能化方案",
+        "action": "立即咨询"
+      },
+      "android": {
+        "title": "技术文档",
+        "subtitle": "架构说明", 
+        "description": "查看完整的技术架构",
+        "action": "查看文档"
+      },
+      "qrCode": {
+        "notice": "扫描二维码联系我们",
+        "description": "扫描二维码，获取TeGo-AI专业服务",
+        "alt": "TeGo-AI 企业服务联系二维码"
+      }
+    },
+    "wechatBrowser": {
+      "topArrow": "点击右上角菜单",
+      "selectBrowser": "选择在浏览器中打开", 
+      "message": "请在浏览器中打开以获得最佳体验",
+      "button": "我知道了",
+      "notice": "微信内置浏览器提醒",
+      "instruction": "请点击右上角菜单 选择在浏览器中打开"
+    }
+  },
+  "privacy": {
+    "title": "隐私政策",
+    "lastUpdated": "最后更新日期：2025年3月23日",
+    "sections": {
+      "introduction": {
+        "title": "引言",
+        "content": "深圳市扎马未来科技有限公司（以下简称\"我们\"）致力于保护您的个人隐私。本隐私政策说明我们如何收集、使用、存储和保护您的个人信息。",
+        "content2": "使用我们的服务即表示您同意本隐私政策的条款。如果您不同意，请不要使用我们的服务。"
+      },
+      "collection": {
+        "title": "信息收集",
+        "content": "我们可能收集以下类型的信息：",
+        "items": [
+          {
+            "title": "个人身份信息：",
+            "content": "姓名、电子邮件地址、电话号码等"
+          },
+          {
+            "title": "技术信息：",
+            "content": "IP地址、浏览器类型、设备信息、访问时间等"
+          },
+          {
+            "title": "使用数据：",
+            "content": "您如何使用我们的服务，包括访问的页面和功能"
+          }
+        ],
+        "usageIntro": "我们使用收集的信息用于：",
+        "usageItems": [
+          "提供和改进我们的服务",
+          "处理您的请求和查询",
+          "发送重要通知和更新",
+          "分析使用模式以改善用户体验",
+          "遵守法律义务"
+        ]
+      },
+      "sharing": {
+        "title": "信息共享",
+        "content": "我们不会出售、交易或出租您的个人信息给第三方。我们可能在以下情况下共享您的信息：",
+        "items": [
+          {
+            "title": "服务提供商：",
+            "content": "与帮助我们运营业务的可信第三方"
+          },
+          {
+            "title": "法律要求：",
+            "content": "当法律要求或为保护我们的权利时"
+          },
+          {
+            "title": "业务转让：",
+            "content": "在合并、收购或资产出售的情况下"
+          }
+        ]
+      },
+      "security": {
+        "title": "数据安全",
+        "content": "我们实施适当的技术和组织措施来保护您的个人信息免受未经授权的访问、使用、披露、修改或销毁。但是，请注意没有任何系统是100%安全的。"
+      },
+      "retention": {
+        "title": "数据保留",
+        "content": "我们只会在实现收集目的所需的时间内保留您的个人信息。",
+        "content2": "当不再需要您的信息时，我们将安全地删除或匿名化处理。"
+      },
+      "rights": {
+        "title": "您的权利",
+        "content": "根据适用的数据保护法，您可能拥有以下权利：",
+        "items": [
+          "访问我们持有的关于您的信息",
+          "要求更正不准确的信息",
+          "要求删除您的个人信息",
+          "反对处理您的信息",
+          "数据可携带权"
+        ]
+      },
+      "children": {
+        "title": "儿童隐私",
+        "content": "我们的服务不面向13岁以下的儿童。我们不会故意收集13岁以下儿童的个人信息。如果您是父母或监护人并知道您的孩子向我们提供了个人信息，请联系我们。"
+      },
+      "changes": {
+        "title": "政策变更",
+        "content": "我们可能会不时更新本隐私政策。任何更改将在本页面发布，重大更改将通过电子邮件或服务通知您。"
+      },
+      "contact": {
+        "title": "联系我们",
+        "content": "如果您对本隐私政策有任何疑问或关切，请通过以下方式联系我们：",
+        "items": [
+          "邮箱：privacy@zhama.com.cn",
+          "电话：+86-0755-8888-8888",
+          "地址：深圳市南山区科技园"
+        ],
+        "response": "我们将尽力在30天内回复您的询问。"
+      }
+    }
+  },
+  "terms": {
+    "title": "服务协议", 
+    "lastUpdated": "最后更新日期：2025年3月23日",
+    "sections": {
+      "acceptance": {
+        "title": "接受条款",
+        "content": "欢迎使用TeGo平台。通过访问和使用我们的服务，您表示同意受本服务条款的约束。如果您不同意这些条款，请不要使用我们的服务。",
+        "content2": "我们保留随时修改这些条款的权利。您继续使用服务将被视为接受修改后的条款。"
+      },
+      "service": {
+        "title": "服务描述",
+        "content": "TeGo是一个企业级AI智能体平台，提供以下服务：",
+        "items": [
+          "智能体引擎和开发工具",
+          "MCP框架和应用市场",
+          "接入网关和集成服务",
+          "私有化部署解决方案"
+        ],
+        "modification": "我们保留随时修改、暂停或终止任何服务的权利，恕不另行通知。"
+      },
+      "account": {
+        "title": "用户账户",
+        "content": "为了使用某些服务，您需要创建一个账户。您同意：",
+        "promises": [
+          "提供准确、完整的注册信息",
+          "维护账户信息的准确性",
+          "保护账户密码的安全性",
+          "对账户下的所有活动承担责任"
+        ],
+        "restrictions": "您不得：",
+        "restrictionItems": [
+          "与他人共享账户凭据",
+          "创建虚假账户",
+          "违反任何适用法律或法规"
+        ]
+      },
+      "conduct": {
+        "title": "用户行为准则",
+        "content": "使用我们的服务时，您不得从事以下活动：",
+        "prohibited": [
+          "上传恶意软件或有害代码",
+          "侵犯他人的知识产权",
+          "发送垃圾邮件或未经请求的通信",
+          "干扰或破坏服务的正常运行",
+          "尝试未经授权访问系统或数据"
+        ]
+      },
+      "ip": {
+        "title": "知识产权",
+        "content": "服务中的所有内容，包括但不限于文本、图形、界面、代码等，均受知识产权法保护。",
+        "userContent": "您保留对上传内容的所有权，但授予我们使用、修改和显示此类内容的许可。"
+      },
+      "disclaimer": {
+        "title": "免责声明",
+        "content": "我们的服务按\"现状\"提供，不提供任何明示或暗示的保证。我们不保证服务将：",
+        "reasons": [
+          "不间断或无错误地运行",
+          "满足您的特定需求",
+          "与第三方服务完全兼容",
+          "完全安全或免受未经授权的访问"
+        ]
+      },
+      "changes": {
+        "title": "条款变更",
+        "content": "我们保留随时修改这些条款的权利。重大变更将通过电子邮件或服务通知您。继续使用服务即表示接受修改后的条款。"
+      },
+      "disputes": {
+        "title": "争议解决",
+        "content": "因使用本服务产生的任何争议应通过友好协商解决。如协商不成，应提交有管辖权的法院解决。"
+      },
+      "contact": {
+        "title": "联系信息",
+        "content": "如您对这些条款有任何疑问，请通过以下方式联系我们：",
+        "methods": [
+          "邮箱：contact@zhama.com.cn",
+          "电话：+86-0755-8888-8888",
+          "地址：深圳市南山区科技园"
+        ]
+      }
+    }
+  },
+  "aboutSection": {
+    "title": "TeGo 核心优势",
+    "subtitle": "用 AI 基建驱动企业智能化未来",
+    "description": "深圳市扎马未来科技有限公司专注于企业级AI解决方案与智能服务，拥有发明专利和多行业验证经验",
+    "vision": {
+      "title": "TeGo vs 其他平台的差异化优势",
+      "paragraphs": [
+        "全场景自动化：面向\"AI + 业务流程\"的自动化执行平台，不仅仅是LLM应用搭建平台（偏AI App前端）",
+        "面向后端自动化+多系统集成：高度模块化，支持JS编写逻辑、函数、条件、循环等，相比可视化为主的平台具有更高灵活度"
+      ]
+    },
+    "features": [
+      {
+        "title": "发明专利：MCP动态服务器统一管理",
+        "description": "一种基于模型上下文协议的动态服务器统一管理平台及方法，实现智能实例管理、服务动态发现、服务自动生成"
+      },
+      {
+        "title": "行业验证：多源异构数据融合",
+        "description": "已服务多个客户业务场景，完成典型AI模型部署及ROI跟踪，支持项目级别「验证-迭代-复制」闭环"
+      },
+      {
+        "title": "差异化AI服务能力",
+        "description": "针对不同行业与场景挖掘特征与策略，构建差异化推荐/风控/预测模型。已覆盖工业智能、金融AI、运营优化、内容生成等"
+      },
+      {
+        "title": "运行时UI生成",
+        "description": "当AI在执行任务过程中需要用户提供额外信息或进行决策确认时，能即时、动态地生成交互界面，实现流畅智能的人机协作"
+      }
+    ],
+    "footer": {
+      "prefix": "TeGo-AI智能体操作系统",
+      "suffix": "，用AI基建驱动企业智能化未来。"
+    },
+    "typingPhrases": [
+      "用AI基建驱动企业智能化未来",
+      "构建真正贯穿\\\"感知—理解—执行\\\"的企业智能基础设施",
+      "万物皆智能体，全链路智能协作"
+    ]
+  },
+  "featuresSection": {
+    "title": "四大核心组件",
+    "subtitle": "TeGo 企业智能体综合服务平台架构，为企业提供完整的智能体运行与治理能力",
+    "tabs": {
+      "collection": "TeGo-OS",
+      "analysis": "TeGo-Engine",
+      "organization": "TeGo-MCP",
+      "gateway": "TeGo-LLM"
+    },
+    "collection": {
+      "title": "TeGo-OS 企业智能操作系统",
+      "description": "全终端智能体接入，涵盖推荐类、通用类、行业类等多种智能体类型。统一用户管理、权限控制、应用市场和令牌管理。提供触发器、API集成、插件管理等核心服务。",
+      "tags": ["智能体接入", "权限控制", "API集成", "插件管理"]
+    },
+    "analysis": {
+      "title": "TeGo-Engine 智能体开发平台",
+      "description": "可视化拖拽界面，支持流程引擎和节点管理。渠道管理和数据追踪，实现业务流程自动化。权限控制和负载均衡，确保企业级稳定运行。",
+      "tags": ["可视化拖拽", "流程引擎", "数据追踪", "负载均衡"]
+    },
+    "organization": {
+      "title": "TeGo-MCP 路由与注册中心",
+      "description": "MCP服务发现与注册，实现智能体服务的动态路由。Agent管理和对话服务，支持多智能体协同工作。向量索引和检索增强（RAG），提升智能问答能力。",
+      "tags": ["服务发现", "动态路由", "多智能体协同", "RAG增强"]
+    },
+    "gateway": {
+      "title": "TeGo-LLM 模型网关",
+      "description": "集成OpenAI、Gemini、QWen、DeepSeek等主流大模型。负载均衡、路由分发、流速控制、接入安全。支持本地LLM模型部署，提供多模态智能交互能力。",
+      "tags": ["主流大模型", "负载均衡", "流速控制", "多模态交互"]
+    },
+    "moreFeatures": {
+      "title": "TeGo 平台技术优势",
+      "taskManagement": {
+        "title": "状态数据完整可控",
+        "description": "可视化追踪每个节点的输入输出，支持历史重放和错误断点恢复，便于调试和排查问题。强大的触发机制与调度能力，支持定时器、Webhook、事件驱动等多种触发方式。"
+      },
+      "habitTracking": {
+        "title": "本地部署与插件扩展",
+        "description": "企业可以完全私有化部署，并支持自定义节点和集成插件，便于安全控制和个性化开发。高性能架构，异步处理和错误隔离，确保系统稳定运行。"
+      },
+      "financeManagement": {
+        "title": "发明专利：MCP动态服务器统一管理",
+        "description": "一种基于模型上下文协议的动态服务器统一管理平台及方法。通过配置创建、启动、停止MCP服务器，根据数据库配置动态生成和注册工具，提供完整的CRUD API。"
+      }
+    }
+  },
+  "footer": {
+    "companyName": "扎马未来",
+    "companyDescription": "TeGo-AI智能体操作系统 · 企业级AI解决方案与服务",
+    "products": "产品服务",
+    "home": {
+      "hero": {
+        "title": "TeGo-AI智能体操作系统"
+      }
+    },
+    "enterprise": "企业解决方案",
+    "api": "API与开发",
+    "support": "支持与资源",
+    "helpCenter": "技术文档",
+    "tutorials": "部署指南",
+    "faq": "企业服务",
+    "contact": {
+      "title": "联系我们",
+      "business": {
+        "title": "商务合作",
+        "description": "企业解决方案和定制服务咨询",
+        "email": "business@zhama.com"
+      },
+      "support": {
+        "title": "技术支持", 
+        "description": "产品使用和技术问题支持",
+        "email": "support@zhama.com"
+      }
+    },
+    "copyright": "© 2025 深圳市扎马未来科技有限公司 版权所有 TeGo-AI智能体操作系统",
+    "icp": "粤ICP备2025426259号-1"
+  },
+  "advantagesSection": {
+    "title": "场景案例",
+    "subtitle": "TeGo在多个行业场景中的应用实践",
+    "scenarios": {
+      "title": "适用场景",
+      "professional": {
+        "title": "专业服务",
+        "description": "为专业团队提供高效的智能化解决方案"
+      },
+      "personal": {
+        "title": "个人用户",
+        "description": "个人开发者和创业者的智能化工具"
+      },
+      "enterprise": {
+        "title": "企业级应用",
+        "description": "大型企业的全面智能化转型方案"
+      }
+    }
+  },
+  "pricingSection": {
+    "title": "选择适合您的方案",
+    "subtitle": "灵活的定价方案，满足不同规模企业需求",
+    "community": {
+      "badge": "永久免费",
+      "name": "社区版",
+      "lead": "体验智能体生态的全部功能",
+      "desc": "用于轻度使用的所有基础，永久免费。",
+      "featuresTitle": "功能包含",
+      "features": [
+        "智能体上架、关联应用管理",
+        "成员管理",
+        "域名管理、证书绑定",
+        "智能体搜索"
+      ],
+      "price": "¥0",
+      "period": "永久免费",
+      "cta": "立即使用"
+    },
+    "subscription": {
+      "ribbon": "ON PREMISE",
+      "badge": "年度订阅",
+      "name": "订阅版",
+      "lead": "按年度订阅的私有化版本",
+      "desc": "价格低至 ¥50,000/年",
+      "featuresTitle": "包含「社区版全部特性」，并提供",
+      "features": [
+        "高可用、并发支持",
+        "私有化环境部署",
+        "服务可用性监控",
+        "K8S / DevOps",
+        "Open API 支持",
+        "一对一客户支持",
+        "委托部署与代维服务"
+      ],
+      "price": "¥50,000",
+      "period": "年起",
+      "cta": "联系销售"
+    },
+    "enterprise": {
+      "ribbon": "ON PREMISE",
+      "badge": "企业旗舰",
+      "name": "TeGo-AI智能体操作系统",
+      "lead": "打造企业级智能体运行与治理平台",
+      "desc": "支持私有化部署版本，企业优先。",
+      "featuresTitle": "包含「订阅版特性」，并提供",
+      "features": [
+        "高自主保证、高安全保障",
+        "自主品牌形象",
+        "高品质售后服务",
+        "配合审计、部署、POC 支持服务"
+      ],
+      "price": "定制报价",
+      "period": "联系咨询",
+      "cta": "联系销售"
+    }
+  },
+  "downloadSection": {
+    "title": "立即体验 TeGo",
+    "subtitle": "多种方式体验我们的AI智能体平台",
+    "enterprise": {
+      "title": "企业服务",
+      "description": "获取企业级解决方案和定制服务",
+      "button": "联系销售"
+    },
+    "ios": {
+      "title": "iOS 应用",
+      "description": "在 App Store 下载 TeGo 移动版",
+      "button": "App Store"
+    },
+    "android": {
+      "title": "Android 应用",
+      "description": "获取 Android 版本的 TeGo 应用",
+      "button": "立即下载"
+    },
+    "docs": {
+      "title": "开发文档",
+      "description": "查看完整的 API 文档和开发指南",
+      "button": "查看文档"
+    },
+    "web": {
+      "title": "Web版本",
+      "description": "无需安装，直接在浏览器中使用",
+      "button": "立即体验"
+    },
+    "downloadApp": {
+      "title": "下载客户端",
+      "description": "获取最佳的桌面体验",
+      "windows": "Windows版本",
+      "mac": "macOS版本",
+      "linux": "Linux版本"
+    },
+    "webAccess": {
+      "title": "Web版本",
+      "description": "无需安装，直接在浏览器中使用",
+      "button": "立即访问"
+    },
+    "documentation": {
+      "title": "开发文档",
+      "description": "查看完整的API文档和开发指南",
+      "button": "查看文档"
+    }
+  },
+  "contactSection": {
+    "title": "联系我们",
+    "subtitle": "有任何问题或需要定制方案？我们很乐意为您提供帮助",
+    "business": {
+      "title": "商务合作",
+      "description": "企业解决方案和定制服务咨询"
+    },
+    "support": {
+      "title": "技术支持",
+      "description": "产品使用和技术问题支持"
+    }
+  },
+  "downloadPage": {
+    "seo": {
+      "title": "下载体验 - TeGo AI智能体操作系统",
+      "description": "TeGo AI智能体操作系统下载与体验页面。支持企业咨询、产品演示、技术文档查看和私有化部署服务。",
+      "keywords": "TeGo下载, 智能体平台体验, 企业AI演示, 私有化部署, 技术文档",
+      "openGraph": {
+        "title": "下载体验 - TeGo AI智能体操作系统",
+        "description": "立即体验TeGo AI智能体操作系统，获取企业级AI解决方案演示与技术支持。"
+      }
+    }
+  },
+  "seo": {
+    "title": "TeGo-AI智能体操作系统 | 深圳市扎马未来科技有限公司",
+    "description": "深圳市扎马未来科技有限公司官方平台：TeGo-AI智能体操作系统与企业级AI解决方案，覆盖智能体引擎、MCP框架、应用市场与接入网关，助力企业私有化与高可用部署。",
+    "keywords": "TeGo, 智能体, AI Agent, 企业智能, 私有化部署, MCP 框架, 智能体操作系统, 企业级 AI, 深圳市扎马未来科技有限公司",
+    "openGraph": {
+      "title": "TeGo-AI智能体操作系统 | 深圳市扎马未来科技有限公司",
+      "description": "TeGo 提供一站式企业智能体平台与私有化解决方案，覆盖感知-理解-执行全链路能力，支持高可用与合规落地。"
+    },
+    "twitter": {
+      "title": "TeGo-AI智能体操作系统",
+      "description": "企业级AI智能体平台与解决方案"
+    }
+  }
+}

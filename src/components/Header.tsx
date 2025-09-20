@@ -1,14 +1,15 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslations, useLocale } from 'next-intl';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
 export default function Header() {
-  const { t, i18n } = useTranslation();
+  const t = useTranslations();
+  const locale = useLocale();
   const { theme, resolvedTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('home');
@@ -77,26 +78,26 @@ export default function Header() {
                 <img src="/images/logo.png" alt="Logo" className="h-10 sm:h-12 lg:h-14 w-auto mr-2" />
               </div>
               <nav className="hidden md:ml-10 md:flex md:space-x-6 lg:space-x-8 flex-nowrap whitespace-nowrap">
-                <Link href="/" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">
-                  首页
+                <Link href={`/${locale}`} className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">
+                  {t('nav.home')}
                 </Link>
-                <Link href="/#features" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
-                  核心能力
+                <Link href={`/${locale}/#features`} className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
+                  {t('nav.features')}
                 </Link>
-                <Link href="/#advantages" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
-                  产品价值
+                <Link href={`/${locale}/#advantages`} className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
+                  {t('nav.advantages')}
                 </Link>
-                <Link href="/#pricing" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
-                  价格
+                <Link href={`/${locale}/#pricing`} className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
+                  {t('nav.pricing')}
                 </Link>
                 <a href="https://docs.zhama.com.cn" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
-                  文档中心
+                  {t('nav.docs')}
                 </a>
-                <Link href="/contact" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
-                  立即使用
+                <Link href={`/${locale}/contact`} className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
+                  {t('nav.contact')}
                 </Link>
-                <Link href="/#about" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
-                  关于我们
+                <Link href={`/${locale}/#about`} className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
+                  {t('nav.about')}
                 </Link>
               </nav>
             </div>
@@ -106,8 +107,8 @@ export default function Header() {
                 <ThemeSwitcher />
                 <LanguageSwitcher />
               </div>
-              <a href="/contact" className="flex items-center justify-center px-4 py-2 rounded-lg transition-all duration-300 bg-white/80 dark:bg-dark-700/80 backdrop-blur-md border border-light-400/30 dark:border-dark-500/30 shadow-light-soft hover:shadow-light-medium dark:shadow-lg text-secondary hover:text-accent-600 dark:hover:text-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-400/50 transform hover:scale-105 active:scale-95 group">
-                <span className="text-sm font-semibold transition-all duration-300 group-hover:text-accent-600 dark:group-hover:text-accent-400">立即试用</span>
+              <a href={`/${locale}/contact`} className="flex items-center justify-center px-4 py-2 rounded-lg transition-all duration-300 bg-white/80 dark:bg-dark-700/80 backdrop-blur-md border border-light-400/30 dark:border-dark-500/30 shadow-light-soft hover:shadow-light-medium dark:shadow-lg text-secondary hover:text-accent-600 dark:hover:text-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-400/50 transform hover:scale-105 active:scale-95 group">
+                <span className="text-sm font-semibold transition-all duration-300 group-hover:text-accent-600 dark:group-hover:text-accent-400">{t('nav.tryNow')}</span>
               </a>
               
               <div className="flex items-center md:hidden ml-2">
@@ -138,25 +139,25 @@ export default function Header() {
             </div>
             
             <nav className="hidden lg:ml-12 lg:flex lg:space-x-8">
-              <Link href="/" className={`btn btn-ghost ${activeSection === 'home' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
+              <Link href={`/${locale}`} className={`btn btn-ghost ${activeSection === 'home' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.home')}
               </Link>
-              <Link href="/#features" className={`btn btn-ghost ${activeSection === 'features' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
+              <Link href={`/${locale}/#features`} className={`btn btn-ghost ${activeSection === 'features' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.features')}
               </Link>
-              <Link href="/#advantages" className={`btn btn-ghost ${activeSection === 'advantages' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
+              <Link href={`/${locale}/#advantages`} className={`btn btn-ghost ${activeSection === 'advantages' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.advantages')}
               </Link>
-              <Link href="/#pricing" className={`btn btn-ghost ${activeSection === 'pricing' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
+              <Link href={`/${locale}/#pricing`} className={`btn btn-ghost ${activeSection === 'pricing' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.pricing')}
               </Link>
               <a href="https://docs.zhama.com.cn" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
                 {t('nav.docs')}
               </a>
-              <Link href="/contact" className="btn btn-ghost">
+              <Link href={`/${locale}/contact`} className="btn btn-ghost">
                 {t('nav.download')}
               </Link>
-              <Link href="/#about" className={`btn btn-ghost ${activeSection === 'about' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
+              <Link href={`/${locale}/#about`} className={`btn btn-ghost ${activeSection === 'about' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.about')}
               </Link>
             </nav>
@@ -197,28 +198,28 @@ export default function Header() {
           <div className="glass-strong border-t border-light-200/50 dark:border-dark-700/50 shadow-large">
              <div className="w-full px-4 sm:px-6 lg:px-8 py-6 space-y-4">
               <Link 
-                href="/" 
+                href={`/${locale}`} 
                 className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'home' ? 'text-primary-600 dark:text-primary-400' : ''}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t('nav.home')}
               </Link>
               <Link 
-                href="/#features" 
+                href={`/${locale}/#features`} 
                 className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'features' ? 'text-primary-600 dark:text-primary-400' : ''}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t('nav.features')}
               </Link>
               <Link 
-                href="/#advantages" 
+                href={`/${locale}/#advantages`} 
                 className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'advantages' ? 'text-primary-600 dark:text-primary-400' : ''}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t('nav.advantages')}
               </Link>
               <Link 
-                href="/#pricing" 
+                href={`/${locale}/#pricing`} 
                 className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'pricing' ? 'text-primary-600 dark:text-primary-400' : ''}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -234,14 +235,14 @@ export default function Header() {
                 {t('nav.docs')}
               </a>
               <Link 
-                href="/contact" 
+                href={`/${locale}/contact`} 
                 className="block btn btn-ghost w-full text-left justify-start"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t('nav.download')}
               </Link>
               <Link 
-                href="/#about" 
+                href={`/${locale}/#about`} 
                 className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'about' ? 'text-primary-600 dark:text-primary-400' : ''}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -253,13 +254,13 @@ export default function Header() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <span className="text-sm font-medium text-light-600 dark:text-dark-400">
-                      主题
+                      {t('ui.theme')}
                     </span>
                     <ThemeSwitcher />
                   </div>
                   <div className="space-y-2">
                     <span className="text-sm font-medium text-light-600 dark:text-dark-400">
-                      语言
+                      {t('ui.language')}
                     </span>
                     <LanguageSwitcher />
                   </div>

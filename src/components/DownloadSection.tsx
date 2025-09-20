@@ -1,10 +1,12 @@
-'use client';
-
-import { useTranslation } from 'react-i18next';
+import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 
-export default function DownloadSection() {
-  const { t } = useTranslation();
+interface DownloadSectionProps {
+  locale: string;
+}
+
+export default async function DownloadSection({ locale }: DownloadSectionProps) {
+  const t = await getTranslations({ locale, namespace: 'downloadSection' });
 
   return (
     <section id="download" className="py-16 bg-white dark:bg-dark-900 relative overflow-hidden">
@@ -12,7 +14,7 @@ export default function DownloadSection() {
       <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
           <p className="mt-2 text-3xl leading-8 font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-            {t('downloadSection.title')}
+            {t('title')}
           </p>
         </div>
 
@@ -27,16 +29,16 @@ export default function DownloadSection() {
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 transform group-hover:translate-y-[-4px] transition-transform duration-300">
-                {t('downloadSection.enterprise.title')}
+                {t('enterprise.title')}
               </h3>
               <p className="text-gray-700 dark:text-gray-300 mb-5 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">
-                {t('downloadSection.enterprise.description')}
+                {t('enterprise.description')}
               </p>
               <a href="https://docs.zhama.com.cn/faq/" target="_blank" rel="noopener noreferrer" className="btn-shine inline-flex items-center text-center transition-all duration-300 ease-in-out">
                 <svg className="w-5 h-5 mr-2 transform group-hover:rotate-[-5deg] transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                {t('downloadSection.enterprise.button')}
+                {t('enterprise.button')}
               </a>
             </div>
           </div>
@@ -51,16 +53,16 @@ export default function DownloadSection() {
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 transform group-hover:translate-y-[-4px] transition-transform duration-300">
-                {t('downloadSection.ios.title')}
+                {t('ios.title')}
               </h3>
               <p className="text-gray-700 dark:text-gray-300 mb-5 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">
-                {t('downloadSection.ios.description')}
+                {t('ios.description')}
               </p>
               <Link href="https://tego.zhama.com.cn" target="_blank" rel="noopener noreferrer" className="btn-shine inline-flex items-center text-center transition-all duration-300 ease-in-out">
                 <svg className="w-5 h-5 mr-2 transform group-hover:rotate-[-5deg] transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M16.36 14.218c-.004-2.677 2.189-3.961 2.289-4.018-1.244-1.822-3.178-2.071-3.869-2.103-1.649-.168-3.213.968-4.047.968-.834 0-2.12-.945-3.488-.92-1.789.027-3.441 1.044-4.356 2.649-1.858 3.219-.475 7.97 1.337 10.57.886 1.281 1.932 2.711 3.316 2.659 1.33-.054 1.832-.86 3.438-.86 1.604 0 2.058.86 3.464.835 1.433-.024 2.343-1.3 3.215-2.586.815-1.19 1.15-2.341 1.169-2.4-.025-.013-2.24-.862-2.262-3.412-.02-2.131 1.743-3.152 1.821-3.202-1.001-1.464-2.548-1.621-3.096-1.659"/>
                 </svg>
-                {t('downloadSection.ios.button')}
+                {t('ios.button')}
               </Link>
             </div>
           </div>
@@ -75,16 +77,16 @@ export default function DownloadSection() {
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 transform group-hover:translate-y-[-4px] transition-transform duration-300">
-                {t('downloadSection.android.title')}
+                {t('android.title')}
               </h3>
               <p className="text-gray-700 dark:text-gray-300 mb-5 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">
-                {t('downloadSection.android.description')}
+                {t('android.description')}
               </p>
               <a href="https://docs.zhama.com.cn/architecture/" target="_blank" rel="noopener noreferrer" className="btn-shine inline-flex items-center text-center transition-all duration-300 ease-in-out">
                 <svg className="w-5 h-5 mr-2 transform group-hover:rotate-[-5deg] transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                {t('downloadSection.android.button')}
+                {t('android.button')}
               </a>
             </div>
           </div>
@@ -99,16 +101,16 @@ export default function DownloadSection() {
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 transform group-hover:translate-y-[-4px] transition-transform duration-300">
-                {t('downloadSection.docs.title')}
+                {t('docs.title')}
               </h3>
               <p className="text-gray-700 dark:text-gray-300 mb-5 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">
-                {t('downloadSection.docs.description')}
+                {t('docs.description')}
               </p>
               <a href="https://docs.zhama.com.cn" target="_blank" rel="noopener noreferrer" className="btn-shine inline-flex items-center text-center transition-all duration-300 ease-in-out">
                 <svg className="w-5 h-5 mr-2 transform group-hover:rotate-[-5deg] transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-1M10 6V5a2 2 0 011-1.732l4-2.267a2 2 0 011.732 0L20 3M10 6v10a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h2" />
                 </svg>
-                {t('downloadSection.docs.button')}
+                {t('docs.button')}
               </a>
             </div>
           </div>
@@ -121,7 +123,7 @@ export default function DownloadSection() {
               <svg className="w-5 h-5 mr-2 transform group-hover:rotate-180 transition-transform duration-500 ease-out" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
               </svg>
-              {t('downloadSection.web.button')}
+              {t('web.button')}
             </span>
             <span className="absolute inset-0 bg-accent-500/10 transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out"></span>
           </a>
