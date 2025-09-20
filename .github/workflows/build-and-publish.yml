@@ -39,24 +39,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: '9.0.0'
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: 'pnpm'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       - name: Build all applications
         env:
           NEXT_TELEMETRY_DISABLED: 1
-        run: pnpm build
+        run: npm run build
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -103,7 +98,7 @@ jobs:
 
     strategy:
       matrix:
-        image: [tego-os, tego-os-server]
+        image: [zhama-homepage]
 
     steps:
       - name: Set up Docker Buildx
