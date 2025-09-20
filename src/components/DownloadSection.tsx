@@ -116,7 +116,7 @@ export default function DownloadSection() {
         
         {/* 网页版入口 */}
         <div className="mt-10 text-center">
-          <a href="https://dashboard.zhama.com.cn" className="web-button inline-flex items-center text-center mx-auto relative overflow-hidden group">
+          <a href="https://docs.zhama.com.cn" target="_blank" className="web-button inline-flex items-center text-center mx-auto relative overflow-hidden group">
             <span className="relative z-10 inline-flex items-center">
               <svg className="w-5 h-5 mr-2 transform group-hover:rotate-180 transition-transform duration-500 ease-out" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
