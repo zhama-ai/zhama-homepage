@@ -5,9 +5,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # Next.js
-.next/
+# .next/ - commented out because we need .next/standalone and .next/static for Docker
 out/
-
 # Production build
 dist/
 build/

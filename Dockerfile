@@ -9,28 +9,8 @@ RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 # 复制构建产物（从CI构建）
 COPY .next/standalone/ ./
-
-# Debug: Check what files we have after copying standalone
-RUN echo "=== Debug: Files after copying standalone ===" && \
-    ls -la && \
-    echo "=== Debug: .next directory structure ===" && \
-    ls -la .next/ 2>/dev/null || echo "No .next directory yet"
-
 COPY .next/static ./.next/static
-
-# Debug: Check static files after copy
-RUN echo "=== Debug: Files after copying static ===" && \
-    ls -la .next/ && \
-    echo "=== Debug: Static directory content ===" && \
-    ls -la .next/static/ 2>/dev/null || echo "No static directory"
-
 COPY public ./public
-
-# Debug: Final file check
-RUN echo "=== Debug: Final file structure ===" && \
-    ls -la && \
-    echo "=== Debug: Final .next structure ===" && \
-    find .next/ -type d | head -10 2>/dev/null || echo "No .next structure found"
 
 # 设置文件所有者为nextjs用户
 RUN chown -R nextjs:nodejs /app

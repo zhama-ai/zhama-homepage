@@ -52,38 +52,6 @@ jobs:
         env:
           NEXT_TELEMETRY_DISABLED: 1
         run: npm run build
-
-      - name: Debug - Check files before Docker build
-        run: |
-          echo "=== Files in workspace root ==="
-          ls -la
-          echo ""
-          echo "=== Contents of .next ==="
-          ls -la .next/ || echo ".next directory not found"
-          echo ""
-          echo "=== Contents of .next/standalone ==="
-          ls -la .next/standalone/ || echo ".next/standalone directory not found"
-          echo ""
-          echo "=== Contents of .next/static ==="
-          ls -la .next/static/ || echo ".next/static directory not found"
-          echo ""
-          echo "=== Contents of public ==="
-          ls -la public/ || echo "public directory not found"
-          echo ""
-          echo "=== File tree structure ==="
-          find .next/ -type f | head -20 || echo "No .next files found"
-          echo ""
-          echo "=== Checking specific paths that Docker will copy ==="
-          test -d ".next/standalone" && echo "✅ .next/standalone exists" || echo "❌ .next/standalone missing"
-          test -d ".next/static" && echo "✅ .next/static exists" || echo "❌ .next/static missing"
-          test -d "public" && echo "✅ public exists" || echo "❌ public missing"
-          echo ""
-          echo "=== Current working directory ==="
-          pwd
-          echo ""
-          echo "=== Git status ==="
-          git status --porcelain || echo "Not a git repo or no git"
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
