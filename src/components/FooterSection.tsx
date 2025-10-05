@@ -17,8 +17,8 @@ export default async function FooterSection({ locale }: FooterSectionProps) {
           {/* 公司信息 */}
           <div className="col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <img src="/images/logo_light.png" alt="TeGo Logo" className="h-8 w-auto hidden dark:block" />
-              <img src="/images/logo.png" alt="TeGo Logo" className="h-8 w-auto dark:hidden" />
+              <img src="/images/logo_dark.png" alt="TeGo Logo" className="h-8 w-auto hidden dark:block" />
+              <img src="/images/logo_light.png" alt="TeGo Logo" className="h-8 w-auto dark:hidden" />
               <h3 className="text-xl font-bold">{t('companyName')}</h3>
             </div>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{t('companyDescription')}</p>

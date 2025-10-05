@@ -18,7 +18,7 @@ export default async function DownloadSection({ locale }: DownloadSectionProps) 
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* 企业版 */}
           <div className="tech-card p-6 hover-card group relative">
             <div className="absolute inset-0 bg-gradient-to-br from-accent-500/5 to-accent-500/20 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-500 ease-in-out"></div>
@@ -39,54 +39,6 @@ export default async function DownloadSection({ locale }: DownloadSectionProps) 
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 {t('enterprise.button')}
-              </a>
-            </div>
-          </div>
-
-          {/* iOS 下载 */}
-          <div className="tech-card p-6 hover-card group relative transform hover:-translate-y-1 transition-all duration-300">
-            <div className="absolute inset-0 bg-gradient-to-br from-accent-500/5 to-accent-500/20 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-500 ease-in-out"></div>
-            <div className="flex flex-col items-center text-center relative z-10">
-              <div className="p-4 rounded-full bg-accent-500/10 mb-5 group-hover:bg-accent-500/20 transform group-hover:scale-110 transition-all duration-300 ease-out">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-accent-400 group-hover:text-accent-400 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 transform group-hover:translate-y-[-4px] transition-transform duration-300">
-                {t('ios.title')}
-              </h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-5 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">
-                {t('ios.description')}
-              </p>
-              <Link href="https://tego.zhama.com.cn" target="_blank" rel="noopener noreferrer" className="btn-shine inline-flex items-center text-center transition-all duration-300 ease-in-out">
-                <svg className="w-5 h-5 mr-2 transform group-hover:rotate-[-5deg] transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M16.36 14.218c-.004-2.677 2.189-3.961 2.289-4.018-1.244-1.822-3.178-2.071-3.869-2.103-1.649-.168-3.213.968-4.047.968-.834 0-2.12-.945-3.488-.92-1.789.027-3.441 1.044-4.356 2.649-1.858 3.219-.475 7.97 1.337 10.57.886 1.281 1.932 2.711 3.316 2.659 1.33-.054 1.832-.86 3.438-.86 1.604 0 2.058.86 3.464.835 1.433-.024 2.343-1.3 3.215-2.586.815-1.19 1.15-2.341 1.169-2.4-.025-.013-2.24-.862-2.262-3.412-.02-2.131 1.743-3.152 1.821-3.202-1.001-1.464-2.548-1.621-3.096-1.659"/>
-                </svg>
-                {t('ios.button')}
-              </Link>
-            </div>
-          </div>
-
-          {/* Android 下载 */}
-          <div className="tech-card p-6 hover-card group relative transform hover:-translate-y-1 transition-all duration-300">
-            <div className="absolute inset-0 bg-gradient-to-br from-accent-500/5 to-accent-500/20 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-500 ease-in-out"></div>
-            <div className="flex flex-col items-center text-center relative z-10">
-              <div className="p-4 rounded-full bg-accent-500/10 mb-5 group-hover:bg-accent-500/20 transform group-hover:scale-110 transition-all duration-300 ease-out">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-accent-400 group-hover:text-accent-400 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 transform group-hover:translate-y-[-4px] transition-transform duration-300">
-                {t('android.title')}
-              </h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-5 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">
-                {t('android.description')}
-              </p>
-              <a href="https://docs.zhama.com.cn/architecture/" target="_blank" rel="noopener noreferrer" className="btn-shine inline-flex items-center text-center transition-all duration-300 ease-in-out">
-                <svg className="w-5 h-5 mr-2 transform group-hover:rotate-[-5deg] transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-                {t('android.button')}
               </a>
             </div>
           </div>

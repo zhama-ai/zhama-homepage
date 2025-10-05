@@ -81,20 +81,25 @@
 
   /* 现代卡片系统 */
   .card {
-    @apply bg-white/60 dark:bg-dark-800/60 backdrop-blur-xl border border-light-300/50 dark:border-dark-700/50 rounded-2xl shadow-soft dark:shadow-dark-soft;
+    @apply bg-white/70 dark:bg-dark-800/60 backdrop-blur-xl border border-light-300/60 dark:border-dark-700/50 rounded-2xl shadow-medium dark:shadow-dark-soft;
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(248, 249, 251, 0.6) 100%), var(--noise);
+  }
+  
+  .dark .card {
     background-image: var(--tw-gradient-to), var(--noise);
   }
   
   .card:hover {
-    @apply shadow-large dark:shadow-dark-large transform -translate-y-1 border-primary-200/60 dark:border-primary-800/60;
+    @apply shadow-xl dark:shadow-dark-large transform -translate-y-1 border-primary-300/70 dark:border-primary-800/60;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .card-elevated {
     @apply bg-white dark:bg-dark-800 shadow-xl dark:shadow-dark-large rounded-3xl border-0;
     background: linear-gradient(135deg, 
-      rgba(255, 255, 255, 0.9) 0%, 
-      rgba(255, 255, 255, 0.7) 100%), 
+      rgba(255, 255, 255, 0.95) 0%, 
+      rgba(248, 249, 251, 0.85) 50%,
+      rgba(237, 240, 245, 0.8) 100%), 
       var(--noise);
   }
   
@@ -107,7 +112,7 @@
 
   /* 现代文本样式 */
   .text-gradient {
-    @apply bg-gradient-to-r from-primary-600 to-primary-700 dark:from-primary-400 dark:to-primary-300 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary-600 via-primary-500 to-primary-700 dark:from-primary-400 dark:to-primary-300 bg-clip-text text-transparent;
     -webkit-background-clip: text;
   }
   
@@ -145,7 +150,7 @@
   }
   
   .btn-secondary {
-    @apply btn bg-white/70 dark:bg-dark-800/70 hover:bg-white dark:hover:bg-dark-700 text-light-700 dark:text-white border border-light-300 dark:border-dark-600 hover:border-primary-300 dark:hover:border-primary-700 px-7 py-3 rounded-full backdrop-blur-xl;
+    @apply btn bg-white/80 dark:bg-dark-800/70 hover:bg-white dark:hover:bg-dark-700 text-light-700 dark:text-white border border-light-400/60 dark:border-dark-600 hover:border-primary-400 dark:hover:border-primary-700 shadow-soft hover:shadow-medium px-7 py-3 rounded-full backdrop-blur-xl;
   }
   
   .btn-ghost {
@@ -172,7 +177,7 @@
 
   .section-header h2 {
     @apply font-bold;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    background: linear-gradient(135deg, #1A202C 0%, #2D3748 50%, #4A5568 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -197,12 +202,12 @@
   
   /* 改进的表面样式 */
   .surface {
-    @apply bg-white/90 dark:bg-dark-800/90 backdrop-blur-md border border-light-400/20 dark:border-dark-600/20;
+    @apply bg-white/95 dark:bg-dark-800/90 backdrop-blur-md border border-light-400/40 dark:border-dark-600/20 shadow-soft;
   }
   
   /* 现代背景系统 */
   .bg-gradient {
-    background: linear-gradient(135deg, #FAFAFA 0%, #F4F4F5 100%);
+    background: linear-gradient(135deg, #F8F9FB 0%, #EDF0F5 50%, #E8EBF2 100%);
     background-attachment: fixed;
   }
   
@@ -235,14 +240,15 @@
   .glass {
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    @apply bg-white/30 dark:bg-dark-800/30 border border-white/20 dark:border-dark-700/20;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    @apply bg-white/40 dark:bg-dark-800/30 border border-light-400/30 dark:border-dark-700/20;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 4px 6px -1px rgba(45, 55, 72, 0.06);
   }
   
   .glass-strong {
     backdrop-filter: blur(40px) saturate(200%);
     -webkit-backdrop-filter: blur(40px) saturate(200%);
-    @apply bg-white/80 dark:bg-dark-800/80 border border-white/30 dark:border-dark-700/30;
+    @apply bg-white/85 dark:bg-dark-800/80 border border-light-400/40 dark:border-dark-700/30;
+    box-shadow: 0 10px 15px -3px rgba(45, 55, 72, 0.08), 0 4px 6px -2px rgba(45, 55, 72, 0.05);
   }
   
   /* 新增文本样式 */
@@ -260,13 +266,15 @@
 
   /* 新增下载页面样式 */
   .hover-card {
-    @apply rounded-xl bg-gray-50 dark:bg-dark-800 shadow-lg overflow-hidden cursor-pointer;
+    @apply rounded-xl bg-light-150 dark:bg-dark-800 shadow-lg overflow-hidden cursor-pointer;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 15px -3px rgba(45, 55, 72, 0.08), 0 4px 6px -2px rgba(45, 55, 72, 0.05);
   }
 
   .hover-card:hover {
     @apply shadow-xl shadow-primary-500/20;
     transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(45, 55, 72, 0.12), 0 10px 10px -5px rgba(45, 55, 72, 0.05), 0 0 20px rgba(59, 130, 246, 0.15);
   }
 
   .btn-shine {
@@ -414,7 +422,8 @@
 
 .tab-button.active {
   @apply bg-white dark:bg-dark-700 text-primary-600 dark:text-primary-400 shadow-medium;
-  background: linear-gradient(135deg, #FFFFFF 0%, #F9FAFB 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FB 50%, #F3F4F8 100%);
+  box-shadow: 0 4px 6px -1px rgba(45, 55, 72, 0.08), 0 2px 4px -1px rgba(45, 55, 72, 0.05);
 }
 
 .dark .tab-button.active {
@@ -436,8 +445,8 @@
 }
 
 .feature-display {
-  @apply relative w-full aspect-video rounded-2xl overflow-hidden border border-light-200 dark:border-dark-700 shadow-xl;
-  background: linear-gradient(145deg, #F9FAFB 0%, #F3F4F6 100%);
+  @apply relative w-full aspect-video rounded-2xl overflow-hidden border border-light-300/70 dark:border-dark-700 shadow-xl;
+  background: linear-gradient(145deg, #F8F9FB 0%, #EDF0F5 100%);
 }
 
 .dark .feature-display {
@@ -459,11 +468,12 @@
   transition: all 0.5s ease;
 }
 
-/* 特性卡片（下面小卡片）样式 */
+  /* 特性卡片（下面小卡片）样式 */
 .feature-content-card {
   border-radius: 16px;
-  border: 1px solid rgba(200, 200, 200, 0.3);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(245, 245, 245, 0.95));
+  border: 1px solid rgba(194, 201, 214, 0.4);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 251, 0.9));
+  box-shadow: 0 4px 6px -1px rgba(45, 55, 72, 0.06), 0 2px 4px -1px rgba(45, 55, 72, 0.04);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -527,10 +537,10 @@
 }
 
 .interactive-image .relative {
-  background-color: #f5f5f5;
+  background-color: #F3F4F8;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px -5px rgba(45, 55, 72, 0.1);
 }
 
 .dark .interactive-image .relative {

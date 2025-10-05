@@ -63,7 +63,7 @@ export default function StructuredData() {
     "@type": "Organization",
     name: locale === 'zh' ? '深圳市扎马未来科技有限公司' : 'Shenzhen Zhama Future Technology Co., Ltd.',
     url: baseUrl,
-    logo: `${baseUrl}/images/logo.png`,
+    logo: `${baseUrl}/images/logo_light.png`,
     description: locale === 'zh'
       ? 'TeGo 提供一站式企业智能体平台与私有化解决方案，覆盖感知-理解-执行全链路能力。'
       : 'TeGo provides a one-stop enterprise agent platform and privatization solutions, covering the full chain capabilities of perception-understanding-execution.',

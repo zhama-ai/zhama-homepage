@@ -26,7 +26,7 @@ export default function BaiduSEO() {
       name: "深圳市扎马未来科技有限公司",
       logo: {
         "@type": "ImageObject",
-        url: `${baseUrl}/images/logo.png`
+        url: `${baseUrl}/images/logo_light.png`
       }
     },
     datePublished: "2024-01-01",

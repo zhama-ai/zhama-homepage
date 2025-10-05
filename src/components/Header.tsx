@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
-import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { LanguageSwitcher } from './LanguageSwitcher';
@@ -10,7 +9,6 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 export default function Header() {
   const t = useTranslations();
   const locale = useLocale();
-  const { theme, resolvedTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('home');
   const [mounted, setMounted] = useState(false);
@@ -59,14 +57,6 @@ export default function Header() {
     return () => observer.disconnect();
   }, []);
 
-  // 根据主题选择logo
-  const getLogoSrc = () => {
-    if (!mounted) return "/images/logo.png"; // 默认logo
-    
-    const currentTheme = resolvedTheme || theme;
-    return currentTheme === 'light' ? '/images/logo_light.png' : '/images/logo.png';
-  };
-
   // 如果还没有挂载，直接返回带有默认中文文本的JSX
   if (!mounted) {
     return (
@@ -75,7 +65,8 @@ export default function Header() {
           <div className="flex justify-between items-center h-16 sm:h-20">
             <div className="flex items-center flex-1">
               <div className="flex-shrink-0 flex items-center">
-                <img src="/images/logo.png" alt="Logo" className="h-10 sm:h-12 lg:h-14 w-auto mr-2" />
+                <img src="/images/logo_light.png" alt="Logo" className="h-10 sm:h-12 lg:h-14 w-auto mr-2 dark:hidden" />
+                <img src="/images/logo_dark.png" alt="Logo" className="h-10 sm:h-12 lg:h-14 w-auto mr-2 hidden dark:block" />
               </div>
               <nav className="hidden md:ml-10 md:flex md:space-x-6 lg:space-x-8 flex-nowrap whitespace-nowrap">
                 <Link href={`/${locale}`} className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">
@@ -135,7 +126,8 @@ export default function Header() {
          <div className="w-full px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 lg:h-20">
           <div className="flex items-center flex-1">
             <div className="flex-shrink-0 flex items-center">
-              <img src={getLogoSrc()} alt="Logo" className="h-10 sm:h-12 lg:h-14 w-auto mr-3" />
+              <img src="/images/logo_light.png" alt="Logo" className="h-10 sm:h-12 lg:h-14 w-auto mr-3 dark:hidden" />
+              <img src="/images/logo_dark.png" alt="Logo" className="h-10 sm:h-12 lg:h-14 w-auto mr-3 hidden dark:block" />
             </div>
             
             <nav className="hidden lg:ml-12 lg:flex lg:space-x-8">
