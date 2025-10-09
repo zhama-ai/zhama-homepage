@@ -13,10 +13,11 @@ interface HomeProps {
 
 export default async function Home({ params }: HomeProps) {
   const { locale } = await params;
+  
   return (
-    <div className="min-h-screen bg-light-200 bg-light-grid-pattern dark:bg-dark-900 dark:bg-grid-pattern overflow-x-hidden">
+    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950">
       <Header />
-      <main className="animate-fade-in">
+      <main>
         <HeroSection locale={locale} />
         <FeaturesSection locale={locale} />
         <AdvantagesSection locale={locale} />
@@ -27,4 +28,4 @@ export default async function Home({ params }: HomeProps) {
       <FooterSection locale={locale} />
     </div>
   );
-} 
+}

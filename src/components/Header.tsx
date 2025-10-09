@@ -3,40 +3,42 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
-import { ChevronDown } from 'lucide-react';
+import { cn } from '@/lib/utils';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { Plug, Puzzle, Settings } from 'lucide-react';
 
 export default function Header() {
   const t = useTranslations();
   const locale = useLocale();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [platformMenuOpen, setPlatformMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('home');
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [techMenuOpen, setTechMenuOpen] = useState(false);
-  const [mobileTechMenuOpen, setMobileTechMenuOpen] = useState(false);
-  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const menuCloseTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     setMounted(true);
-    
-    // 清理函数，在组件卸载时清除定时器
-    return () => {
-      if (closeTimeoutRef.current) {
-        clearTimeout(closeTimeoutRef.current);
-      }
-    };
   }, []);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const onScroll = () => {
-      setScrolled(window.scrollY > 4);
+      setScrolled(window.scrollY > 10);
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // 清理定时器
+  useEffect(() => {
+    return () => {
+      if (menuCloseTimerRef.current) {
+        clearTimeout(menuCloseTimerRef.current);
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -68,85 +70,48 @@ export default function Header() {
     return () => observer.disconnect();
   }, []);
 
-  // 如果还没有挂载，直接返回带有默认中文文本的JSX
+  const navItems = [
+    { href: `/${locale}`, label: t('nav.home'), section: 'home' },
+    { href: `/${locale}/#features`, label: t('nav.features'), section: 'features' },
+    { href: `/${locale}/#advantages`, label: t('nav.advantages'), section: 'advantages' },
+    { href: `/${locale}/#pricing`, label: t('nav.pricing'), section: 'pricing' },
+    { href: 'https://docs.zhama.com.cn', label: t('nav.docs'), external: true },
+    { href: `/${locale}/contact`, label: t('nav.contact') },
+    { href: `/${locale}/#about`, label: t('nav.about'), section: 'about' },
+  ];
+
+  const platformMenuItems = [
+    { href: `/${locale}/platform`, label: t('nav.platform.mcpPlatform'), icon: Plug },
+    { href: `/${locale}/plugin-system`, label: t('nav.platform.pluginSystem'), icon: Puzzle },
+    { href: `/${locale}/technical`, label: t('nav.platform.technicalFeatures'), icon: Settings },
+  ];
+
+  // 处理鼠标进入菜单
+  const handleMouseEnter = () => {
+    if (menuCloseTimerRef.current) {
+      clearTimeout(menuCloseTimerRef.current);
+      menuCloseTimerRef.current = null;
+    }
+    setPlatformMenuOpen(true);
+  };
+
+  // 处理鼠标离开菜单，添加延迟
+  const handleMouseLeave = () => {
+    menuCloseTimerRef.current = setTimeout(() => {
+      setPlatformMenuOpen(false);
+    }, 200);
+  };
+
   if (!mounted) {
     return (
-      <header className="backdrop-blur-md bg-white/90 dark:bg-dark-800/90 border-b border-light-400/50 dark:border-dark-600/50 shadow-light-medium dark:shadow-lg fixed top-0 left-0 right-0 z-50">
-        <div className="w-full px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 sm:h-20">
-            <div className="flex items-center flex-1">
-              <div className="flex-shrink-0 flex items-center">
-                <img src="/images/logo_light.png" alt="Logo" className="h-10 sm:h-12 lg:h-14 w-auto mr-2 dark:hidden" />
-                <img src="/images/logo_dark.png" alt="Logo" className="h-10 sm:h-12 lg:h-14 w-auto mr-2 hidden dark:block" />
-              </div>
-              <nav className="hidden md:ml-10 md:flex md:space-x-6 lg:space-x-8 flex-nowrap whitespace-nowrap">
-                <Link href={`/${locale}`} className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50">
-                  {t('nav.home')}
-                </Link>
-                <Link href={`/${locale}/#features`} className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
-                  {t('nav.features')}
-                </Link>
-              
-              {/* 技术平台下拉菜单（中等屏幕） */}
-              <div className="relative group">
-                <button className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap flex items-center gap-1">
-                  <span>{t('nav.techPlatform')}</span>
-                  <ChevronDown className="h-3 w-3 transition-transform group-hover:rotate-180" />
-                </button>
-                <div className="absolute left-0 top-full z-50 pt-1 hidden group-hover:block">
-                  <div className="min-w-[180px] rounded-lg border border-gray-200 bg-white py-2 shadow-lg dark:border-gray-700 dark:bg-gray-800">
-                    <Link 
-                      href={`/${locale}/platform`}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
-                    >
-                      {t('nav.platform')}
-                    </Link>
-                    <Link 
-                      href={`/${locale}/plugin-system`}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
-                    >
-                      {t('nav.pluginSystem')}
-                    </Link>
-                    <Link 
-                      href={`/${locale}/technical`}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
-                    >
-                      {t('nav.technical')}
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              
-              <a href="https://docs.zhama.com.cn" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
-                  {t('nav.docs')}
-                </a>
-                <Link href={`/${locale}/contact`} className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
-                  {t('nav.contact')}
-                </Link>
-              </nav>
-            </div>
-            
-            <div className="flex items-center space-x-2 sm:space-x-4">
-              <div className="hidden sm:flex items-center space-x-3">
-                <ThemeSwitcher />
-                <LanguageSwitcher />
-              </div>
-              <a href={`/${locale}/contact`} className="flex items-center justify-center px-4 py-2 rounded-lg transition-all duration-300 bg-white/80 dark:bg-dark-700/80 backdrop-blur-md border border-light-400/30 dark:border-dark-500/30 shadow-light-soft hover:shadow-light-medium dark:shadow-lg text-secondary hover:text-accent-600 dark:hover:text-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-400/50 transform hover:scale-105 active:scale-95 group">
-                <span className="text-sm font-semibold transition-all duration-300 group-hover:text-accent-600 dark:group-hover:text-accent-400">{t('nav.tryNow')}</span>
-              </a>
-              
-              <div className="flex items-center md:hidden ml-2">
-                <button 
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-                  className="text-gray-700 dark:text-gray-300 hover:text-accent-600 dark:hover:text-accent-400 p-2"
-                  aria-label="Toggle mobile menu"
-                >
-                  <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                </button>
-              </div>
-            </div>
+      <header className="glass border-b border-zinc-200 dark:border-zinc-800 shadow-md fixed top-0 left-0 right-0 z-50">
+        <div className="container-custom">
+          <div className="flex justify-between items-center h-16 lg:h-20">
+            <Link href={`/${locale}`} className="flex items-center flex-shrink-0">
+              <img src="/images/logo_light.png" alt="Logo" className="h-10 sm:h-12 w-auto dark:hidden" />
+              <img src="/images/logo_dark.png" alt="Logo" className="h-10 sm:h-12 w-auto hidden dark:block" />
+            </Link>
+            <div className="h-9 w-24 bg-zinc-200 dark:bg-zinc-800 rounded-lg animate-pulse" />
           </div>
         </div>
       </header>
@@ -154,84 +119,123 @@ export default function Header() {
   }
 
   return (
-    <header className={`glass-strong border-b border-light-200/50 dark:border-dark-700/50 ${scrolled ? 'shadow-large' : 'shadow-medium'} fixed top-0 left-0 right-0 z-50 transition-shadow`}>
-      <div className="w-full">
-         <div className="w-full px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 lg:h-20">
+    <header 
+      className={cn(
+        'glass border-b border-zinc-200 dark:border-zinc-800 fixed top-0 left-0 right-0 z-50 transition-shadow',
+        scrolled ? 'shadow-lg' : 'shadow-md'
+      )}
+    >
+      <div className="container-custom">
+        <div className="flex justify-between items-center h-16 lg:h-20">
           <div className="flex items-center flex-1">
-            <div className="flex-shrink-0 flex items-center">
-              <img src="/images/logo_light.png" alt="Logo" className="h-10 sm:h-12 lg:h-14 w-auto mr-3 dark:hidden" />
-              <img src="/images/logo_dark.png" alt="Logo" className="h-10 sm:h-12 lg:h-14 w-auto mr-3 hidden dark:block" />
-            </div>
+            {/* Logo */}
+            <Link href={`/${locale}`} className="flex items-center flex-shrink-0">
+              <img src="/images/logo_light.png" alt="Logo" className="h-10 sm:h-12 w-auto dark:hidden" />
+              <img src="/images/logo_dark.png" alt="Logo" className="h-10 sm:h-12 w-auto hidden dark:block" />
+            </Link>
             
-              <nav className="hidden lg:ml-12 lg:flex lg:space-x-8">
-              <Link href={`/${locale}`} className={`btn btn-ghost ${activeSection === 'home' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
-                {t('nav.home')}
-              </Link>
-              <Link href={`/${locale}/#features`} className={`btn btn-ghost ${activeSection === 'features' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
-                {t('nav.features')}
-              </Link>
-              <Link href={`/${locale}/#advantages`} className={`btn btn-ghost ${activeSection === 'advantages' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
-                {t('nav.advantages')}
-              </Link>
-              <Link href={`/${locale}/#pricing`} className={`btn btn-ghost ${activeSection === 'pricing' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
-                {t('nav.pricing')}
-              </Link>
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex lg:items-center lg:space-x-2 ml-12">
+              {navItems.slice(0, 4).map((item) => {
+                const linkClass = cn(
+                  'px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200',
+                  'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
+                  'hover:bg-zinc-100 dark:hover:bg-zinc-800',
+                  activeSection === item.section && 'text-primary-600 dark:text-primary-400'
+                );
+                
+                return item.external ? (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={linkClass}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={linkClass}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
               
               {/* 技术平台下拉菜单 */}
               <div 
                 className="relative"
-                onMouseEnter={() => {
-                  if (closeTimeoutRef.current) {
-                    clearTimeout(closeTimeoutRef.current);
-                    closeTimeoutRef.current = null;
-                  }
-                  setTechMenuOpen(true);
-                }}
-                onMouseLeave={() => {
-                  closeTimeoutRef.current = setTimeout(() => {
-                    setTechMenuOpen(false);
-                  }, 200);
-                }}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
-                <button className="btn btn-ghost flex items-center gap-1">
-                  <span>{t('nav.techPlatform')}</span>
-                  <ChevronDown className={`h-4 w-4 transition-transform ${techMenuOpen ? 'rotate-180' : ''}`} />
+                <button
+                  className={cn(
+                    'px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 flex items-center gap-1',
+                    'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
+                    'hover:bg-zinc-100 dark:hover:bg-zinc-800'
+                  )}
+                >
+                  {t('nav.platform.title')}
+                  <svg 
+                    className={cn('w-4 h-4 transition-transform duration-200', platformMenuOpen && 'rotate-180')} 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
                 </button>
-                {techMenuOpen && (
-                  <div className="absolute left-0 top-full z-50 pt-1">
-                    <div className="min-w-[200px] rounded-lg border border-gray-200 bg-white py-2 shadow-lg dark:border-gray-700 dark:bg-gray-800">
-                      <Link 
-                        href={`/${locale}/platform`}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
-                      >
-                        {t('nav.platform')}
-                      </Link>
-                      <Link 
-                        href={`/${locale}/plugin-system`}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
-                      >
-                        {t('nav.pluginSystem')}
-                      </Link>
-                      <Link 
-                        href={`/${locale}/technical`}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
-                      >
-                        {t('nav.technical')}
-                      </Link>
-                    </div>
+                
+                {platformMenuOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-56 py-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-xl">
+                    {platformMenuItems.map((item) => {
+                      const IconComponent = item.icon;
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="flex items-center gap-3 px-4 py-3 text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                        >
+                          <IconComponent className="w-4 h-4" />
+                          <span>{item.label}</span>
+                        </Link>
+                      );
+                    })}
                   </div>
                 )}
               </div>
               
-              <a href="https://docs.zhama.com.cn" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
-                {t('nav.docs')}
-              </a>
-              <Link href={`/${locale}/contact`} className="btn btn-ghost">
-                {t('nav.download')}
-              </Link>
-              <Link href={`/${locale}/#about`} className={`btn btn-ghost ${activeSection === 'about' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
-                {t('nav.about')}
-              </Link>
+              {navItems.slice(4).map((item) => {
+                const linkClass = cn(
+                  'px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200',
+                  'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
+                  'hover:bg-zinc-100 dark:hover:bg-zinc-800',
+                  activeSection === item.section && 'text-primary-600 dark:text-primary-400'
+                );
+                
+                return item.external ? (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={linkClass}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={linkClass}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </nav>
           </div>
           
@@ -241,144 +245,154 @@ export default function Header() {
               <LanguageSwitcher />
             </div>
             
-            <a href="https://tego.zhama.com.cn" target="_blank" className="flex items-center justify-center px-4 py-2 rounded-lg transition-all duration-300 bg-white/80 dark:bg-dark-700/80 backdrop-blur-md border border-light-400/30 dark:border-dark-500/30 shadow-light-soft hover:shadow-light-medium dark:shadow-lg text-secondary hover:text-accent-600 dark:hover:text-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-400/50 transform hover:scale-105 active:scale-95 group">
-              <span className="text-sm font-semibold transition-all duration-300 group-hover:text-accent-600 dark:group-hover:text-accent-400">{t('nav.tryNow')}</span>
+            <a 
+              href="https://tego.zhama.com.cn" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center px-6 py-2 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-medium shadow-md hover:shadow-lg transition-all duration-300 active:scale-95"
+            >
+              {t('nav.tryNow')}
             </a>
             
-            <div className="flex items-center lg:hidden">
-              <button 
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-                className="btn btn-ghost p-2"
-                aria-label="Toggle mobile menu"
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-2 rounded-lg text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+              aria-label="Toggle mobile menu"
+            >
+              <svg 
+                className="w-6 h-6 transition-transform duration-200" 
+                xmlns="http://www.w3.org/2000/svg" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
               >
-                <svg className="w-6 h-6 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  {!mobileMenuOpen ? (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                  ) : (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                  )}
-                </svg>
-              </button>
-            </div>
+                {!mobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                )}
+              </svg>
+            </button>
           </div>
         </div>
       </div>
       
-      {/* 移动端菜单 */}
+      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden">
-          <div className="glass-strong border-t border-light-200/50 dark:border-dark-700/50 shadow-large">
-             <div className="w-full px-4 sm:px-6 lg:px-8 py-6 space-y-4">
-              <Link 
-                href={`/${locale}`} 
-                className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'home' ? 'text-primary-600 dark:text-primary-400' : ''}`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t('nav.home')}
-              </Link>
-              <Link 
-                href={`/${locale}/#features`} 
-                className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'features' ? 'text-primary-600 dark:text-primary-400' : ''}`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t('nav.features')}
-              </Link>
-              <Link 
-                href={`/${locale}/#advantages`} 
-                className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'advantages' ? 'text-primary-600 dark:text-primary-400' : ''}`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t('nav.advantages')}
-              </Link>
-              <Link 
-                href={`/${locale}/#pricing`} 
-                className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'pricing' ? 'text-primary-600 dark:text-primary-400' : ''}`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t('nav.pricing')}
-              </Link>
+          <div className="glass border-t border-zinc-200 dark:border-zinc-800 shadow-lg">
+            <div className="container-custom py-6 space-y-4">
+              {navItems.slice(0, 4).map((item) => {
+                const linkClass = cn(
+                  'block px-4 py-3 text-base font-medium rounded-lg transition-colors',
+                  'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
+                  'hover:bg-zinc-100 dark:hover:bg-zinc-800',
+                  activeSection === item.section && 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-950'
+                );
+                
+                return item.external ? (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={linkClass}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={linkClass}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
               
-              {/* 移动端技术平台下拉 */}
+              {/* 技术平台下拉菜单 - 移动端 */}
               <div>
-                <button 
-                  className="flex w-full items-center justify-between btn btn-ghost text-left"
-                  onClick={() => setMobileTechMenuOpen(!mobileTechMenuOpen)}
+                <button
+                  onClick={() => setPlatformMenuOpen(!platformMenuOpen)}
+                  className={cn(
+                    'w-full flex items-center justify-between px-4 py-3 text-base font-medium rounded-lg transition-colors',
+                    'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
+                    'hover:bg-zinc-100 dark:hover:bg-zinc-800'
+                  )}
                 >
-                  <span>{t('nav.techPlatform')}</span>
-                  <ChevronDown className={`h-4 w-4 transition-transform ${mobileTechMenuOpen ? 'rotate-180' : ''}`} />
+                  <span>{t('nav.platform.title')}</span>
+                  <svg 
+                    className={cn('w-5 h-5 transition-transform duration-200', platformMenuOpen && 'rotate-180')} 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
                 </button>
-                {mobileTechMenuOpen && (
-                  <div className="ml-4 mt-2 space-y-2">
-                    <Link 
-                      href={`/${locale}/platform`} 
-                      className="block btn btn-ghost w-full text-left justify-start text-sm"
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setMobileTechMenuOpen(false);
-                      }}
-                    >
-                      {t('nav.platform')}
-                    </Link>
-                    <Link 
-                      href={`/${locale}/plugin-system`} 
-                      className="block btn btn-ghost w-full text-left justify-start text-sm"
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setMobileTechMenuOpen(false);
-                      }}
-                    >
-                      {t('nav.pluginSystem')}
-                    </Link>
-                    <Link 
-                      href={`/${locale}/technical`} 
-                      className="block btn btn-ghost w-full text-left justify-start text-sm"
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setMobileTechMenuOpen(false);
-                      }}
-                    >
-                      {t('nav.technical')}
-                    </Link>
+                
+                {platformMenuOpen && (
+                  <div className="mt-2 ml-4 space-y-2">
+                    {platformMenuItems.map((item) => {
+                      const IconComponent = item.icon;
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center gap-3 px-4 py-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-primary-600 dark:hover:text-primary-400 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+                        >
+                          <IconComponent className="w-4 h-4" />
+                          <span>{item.label}</span>
+                        </Link>
+                      );
+                    })}
                   </div>
                 )}
               </div>
               
-              {/* 文档中心 */}
-              <a 
-                href="https://docs.zhama.com.cn" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block btn btn-ghost w-full text-left justify-start"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t('nav.docs')}
-              </a>
-              <Link 
-                href={`/${locale}/contact`} 
-                className="block btn btn-ghost w-full text-left justify-start"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t('nav.download')}
-              </Link>
-              <Link 
-                href={`/${locale}/#about`} 
-                className={`block btn btn-ghost w-full text-left justify-start ${activeSection === 'about' ? 'text-primary-600 dark:text-primary-400' : ''}`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t('nav.about')}
-              </Link>
+              {navItems.slice(4).map((item) => {
+                const linkClass = cn(
+                  'block px-4 py-3 text-base font-medium rounded-lg transition-colors',
+                  'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
+                  'hover:bg-zinc-100 dark:hover:bg-zinc-800',
+                  activeSection === item.section && 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-950'
+                );
+                
+                return item.external ? (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={linkClass}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={linkClass}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
               
-              {/* 移动端设置 */}
-              <div className="pt-4 border-t border-light-200/50 dark:border-dark-700/50">
+              <div className="pt-6 border-t border-zinc-200 dark:border-zinc-800">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <span className="text-sm font-medium text-light-600 dark:text-dark-400">
+                    <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400">
                       {t('ui.theme')}
                     </span>
                     <ThemeSwitcher />
                   </div>
                   <div className="space-y-2">
-                    <span className="text-sm font-medium text-light-600 dark:text-dark-400">
+                    <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400">
                       {t('ui.language')}
                     </span>
                     <LanguageSwitcher />
@@ -391,4 +405,4 @@ export default function Header() {
       )}
     </header>
   );
-} 
+}

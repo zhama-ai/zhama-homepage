@@ -92,12 +92,12 @@ export default function DownloadClient() {
             <div className="lg:w-1/2">
               {/* App Logo and Title */}
               <div className="text-center lg:text-left mb-8">
-                <div className="w-24 h-24 md:w-28 md:h-28 bg-gradient-to-br from-accent-500 to-accent-700 rounded-xl mx-auto lg:mx-0 mb-4 flex items-center justify-center shadow-lg">
+                <div className="w-24 h-24 md:w-28 md:h-28 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl mx-auto lg:mx-0 mb-4 flex items-center justify-center shadow-lg">
                   <img src="/images/logo_light.png" alt={t('appLogo.alt')} className="w-full h-full object-contain" />
                 </div>
                 <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{t('appLogo.title')}</h1>
                 <p className="text-gray-600 text-lg md:text-xl">{t('appIntro.slogan')}</p>
-                <p className="text-accent-600 font-medium mt-2 text-sm md:text-base">{t('appIntro.tagline')}</p>
+                <p className="text-primary-600 font-medium mt-2 text-sm md:text-base">{t('appIntro.tagline')}</p>
               </div>
 
               {/* App Features */}
@@ -105,7 +105,7 @@ export default function DownloadClient() {
                 <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4 text-center lg:text-left">{t('whyChoose')}</h2>
                 <div className="space-y-4">
                   <div className="flex items-start">
-                    <div className="flex-shrink-0 text-accent-500">
+                    <div className="flex-shrink-0 text-primary-600">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-7 md:w-7" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
@@ -119,23 +119,23 @@ export default function DownloadClient() {
                 </div>
                 
                 {/* Ideal for sections */}
-                <div className="mt-6 bg-gradient-to-r from-accent-50 to-blue-50 p-4 rounded-lg border border-accent-100">
-                  <h3 className="font-medium text-accent-700 mb-2 text-center lg:text-left">{t('targetUsers.title')}</h3>
+                <div className="mt-6 bg-gradient-to-r from-primary-50 to-blue-50 p-4 rounded-lg border border-primary-200">
+                  <h3 className="font-medium text-primary-700 mb-2 text-center lg:text-left">{t('targetUsers.title')}</h3>
                   <div className="grid grid-cols-2 gap-2 text-sm md:text-base">
                     <div className="flex items-center">
-                      <span className="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
+                      <span className="w-2 h-2 bg-primary-600 rounded-full mr-2"></span>
                       <span className="text-gray-700">{t('targetUsers.executive')}</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
+                      <span className="w-2 h-2 bg-primary-600 rounded-full mr-2"></span>
                       <span className="text-gray-700">{t('targetUsers.researcher')}</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
+                      <span className="w-2 h-2 bg-primary-600 rounded-full mr-2"></span>
                       <span className="text-gray-700">{t('targetUsers.student')}</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
+                      <span className="w-2 h-2 bg-primary-600 rounded-full mr-2"></span>
                       <span className="text-gray-700">{t('targetUsers.planner')}</span>
                     </div>
                   </div>
@@ -151,7 +151,7 @@ export default function DownloadClient() {
                 
                 {/* Web App Button */}
                 <a href={appLinksUrl} target="_blank" 
-                  className="group block w-full bg-gradient-to-r from-blue-500 to-accent-500 hover:from-blue-600 hover:to-accent-600 text-white font-medium py-3 px-5 rounded-xl shadow-md transition-all duration-300">
+                  className="group block w-full bg-gradient-to-r from-blue-500 to-primary-600 hover:from-blue-600 hover:to-primary-700 text-white font-medium py-3 px-5 rounded-xl shadow-md transition-all duration-300">
                   <div className="flex items-center">
                     <div className="flex-shrink-0 bg-white bg-opacity-20 p-2.5 rounded-lg mr-4">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-7 md:w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">

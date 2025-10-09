@@ -26,10 +26,12 @@
     "docs": "Documentation",
     "contact": "Contact Us",
     "tryNow": "Try Now",
-    "platform": "MCP Platform",
-    "pluginSystem": "Plugin System",
-    "technical": "Technical",
-    "techPlatform": "Platform"
+    "platform": {
+      "title": "Tech Platform",
+      "mcpPlatform": "MCP Platform",
+      "pluginSystem": "Plugin System",
+      "technicalFeatures": "Technical Features"
+    }
   },
   "home": {
     "hero": {

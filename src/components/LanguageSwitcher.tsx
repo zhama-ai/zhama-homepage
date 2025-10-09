@@ -4,6 +4,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import { useTransition } from 'react';
 import type { Locale } from '@/i18n';
+import { cn } from '@/lib/utils';
 
 export function LanguageSwitcher() {
   const locale = useLocale() as Locale;
@@ -14,7 +15,6 @@ export function LanguageSwitcher() {
   
   const handleLanguageSwitch = () => {
     const newLocale = locale === 'zh' ? 'en' : 'zh';
-    // Remove current locale prefix and add new one
     const pathWithoutLocale = pathname.startsWith(`/${locale}`) 
       ? pathname.slice(`/${locale}`.length) || '/'
       : pathname;
@@ -25,29 +25,23 @@ export function LanguageSwitcher() {
     });
   };
 
-  const getLanguageIcon = () => {
-    if (locale === 'zh') {
-      return (
-        <div className="text-sm font-bold">中</div>
-      );
-    } else {
-      return (
-        <div className="text-sm font-bold">EN</div>
-      );
-    }
-  };
-
   return (
     <button 
       onClick={handleLanguageSwitch}
       disabled={isPending}
-      className="flex items-center justify-center w-9 h-9 rounded-lg transition-all duration-300 bg-white/80 dark:bg-dark-700/80 backdrop-blur-md border border-light-400/30 dark:border-dark-500/30 shadow-light-soft hover:shadow-light-medium dark:shadow-lg text-secondary hover:text-accent-600 dark:hover:text-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-400/50 transform hover:scale-105 active:scale-95 group disabled:opacity-50"
-      title={t('switchToEnglish')}
+      className={cn(
+        'flex items-center justify-center w-9 h-9 rounded-lg transition-all duration-300',
+        'bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700',
+        'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
+        'focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:ring-offset-2 dark:focus:ring-offset-zinc-900',
+        'active:scale-95 disabled:opacity-50'
+      )}
+      title={t('switchLanguage')}
       aria-label={t('switchLanguage')}
     >
-      <div className={`transition-transform duration-300 ease-out group-hover:rotate-12 group-hover:scale-110 ${isPending ? 'animate-pulse' : ''}`}>
-        {getLanguageIcon()}
+      <div className={cn('text-sm font-bold', isPending && 'animate-pulse')}>
+        {locale === 'zh' ? '中' : 'EN'}
       </div>
     </button>
   );
-} 
+}

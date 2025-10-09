@@ -10,6 +10,7 @@ import {
   CheckCircle, 
   Lightbulb 
 } from 'lucide-react';
+import { Card, CardContent } from './ui/Card';
 
 export default function TechnicalFeaturesSection() {
   const t = useTranslations('technicalFeatures');
@@ -17,42 +18,45 @@ export default function TechnicalFeaturesSection() {
   return (
     <div className="max-w-7xl mx-auto">
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          {/* 左侧：功能特点 */}
-          <div className="space-y-4">
-            {[
-              { key: 'framework', icon: Package },
-              { key: 'standardization', icon: Code2 },
-              { key: 'simplification', icon: Rocket },
-            ].map((feature) => {
-              const FeatureIcon = feature.icon;
-              return (
-              <div
+        {/* 左侧：功能特点 */}
+        <div className="space-y-4">
+          {[
+            { key: 'framework', icon: Package },
+            { key: 'standardization', icon: Code2 },
+            { key: 'simplification', icon: Rocket },
+          ].map((feature) => {
+            const FeatureIcon = feature.icon;
+            return (
+              <Card
                 key={feature.key}
-                className="tech-card p-6 transition-all hover:-translate-y-1"
+                hover
               >
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary-50 dark:bg-primary-900/20">
-                    <FeatureIcon className="h-6 w-6 text-primary-600 dark:text-primary-400" />
+                <CardContent>
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary-50 dark:bg-primary-900/20">
+                      <FeatureIcon className="h-6 w-6 text-primary-600 dark:text-primary-400" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-50">
+                        {t(`features.${feature.key}.title`)}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                        {t(`features.${feature.key}.description`)}
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="mb-2 text-lg font-semibold text-light-700 dark:text-white">
-                      {t(`features.${feature.key}.title`)}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-light-600 dark:text-dark-400">
-                      {t(`features.${feature.key}.description`)}
-                    </p>
-                  </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             );
-            })}
-          </div>
+          })}
+        </div>
 
-          {/* 右侧：代码示例 */}
-          <div>
-            <div className="tech-card p-6">
+        {/* 右侧：代码示例 */}
+        <div>
+          <Card>
+            <CardContent>
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-lg font-semibold text-light-700 dark:text-white">
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
                   {t('codeExample.title')}
                 </h3>
                 <div className="flex items-center gap-2">
@@ -61,7 +65,7 @@ export default function TechnicalFeaturesSection() {
                   </span>
                 </div>
               </div>
-              <p className="mb-4 text-sm text-light-600 dark:text-dark-400">
+              <p className="mb-4 text-sm text-zinc-600 dark:text-zinc-400">
                 {t('codeExample.description')}
               </p>
 
@@ -129,41 +133,45 @@ export default function TechnicalFeaturesSection() {
                 {['typeSafety', 'autoValidation'].map((point) => (
                   <div
                     key={point}
-                    className="rounded-lg bg-light-100 p-3 dark:bg-dark-800"
+                    className="rounded-lg bg-zinc-100 p-3 dark:bg-zinc-800"
                   >
                     <div className="mb-1 flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400" />
-                      <span className="text-xs font-medium text-light-700 dark:text-white">
+                      <CheckCircle className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                      <span className="text-xs font-medium text-zinc-900 dark:text-zinc-50">
                         {t(`codeExample.keyPoints.${point}.title`)}
                       </span>
                     </div>
-                    <p className="text-xs text-light-600 dark:text-dark-400">
+                    <p className="text-xs text-zinc-600 dark:text-zinc-400">
                       {t(`codeExample.keyPoints.${point}.description`)}
                     </p>
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
+      </div>
 
       {/* 底部总结 */}
-      <div className="mt-6 tech-card p-6 bg-gradient-to-br from-primary-50 to-purple-50 dark:from-primary-900/20 dark:to-purple-900/20">
-        <div className="flex items-start gap-4">
-          <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-white shadow-sm dark:bg-dark-700">
-            <Lightbulb className="h-5 w-5 text-yellow-500" />
-          </div>
-          <div>
-            <h3 className="mb-2 text-lg font-semibold text-light-700 dark:text-white">
-              {t('summary.title')}
-            </h3>
-            <p className="text-sm leading-relaxed text-light-600 dark:text-dark-400">
-              {t('summary.content')}
-            </p>
-          </div>
-        </div>
+      <div className="mt-6">
+        <Card className="bg-gradient-to-br from-primary-50 to-purple-50 dark:from-primary-900/20 dark:to-purple-900/20">
+          <CardContent>
+            <div className="flex items-start gap-4">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-white shadow-sm dark:bg-zinc-800">
+                <Lightbulb className="h-5 w-5 text-yellow-500" />
+              </div>
+              <div>
+                <h3 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-50">
+                  {t('summary.title')}
+                </h3>
+                <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  {t('summary.content')}
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
 }
-

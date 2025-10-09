@@ -26,10 +26,12 @@
     "docs": "文档中心",
     "contact": "联系我们",
     "tryNow": "立即试用",
-    "platform": "MCP平台",
-    "pluginSystem": "插件系统",
-    "technical": "技术特点",
-    "techPlatform": "技术平台"
+    "platform": {
+      "title": "技术特性",
+      "mcpPlatform": "MCP平台",
+      "pluginSystem": "插件系统",
+      "technicalFeatures": "MCP框架"
+    }
   },
   "home": {
     "hero": {
