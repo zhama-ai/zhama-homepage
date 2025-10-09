@@ -25,7 +25,11 @@
     "about": "关于我们",
     "docs": "文档中心",
     "contact": "联系我们",
-    "tryNow": "立即试用"
+    "tryNow": "立即试用",
+    "platform": "MCP平台",
+    "pluginSystem": "插件系统",
+    "technical": "技术特点",
+    "techPlatform": "技术平台"
   },
   "home": {
     "hero": {
@@ -348,7 +352,7 @@
     },
     "typingPhrases": [
       "用AI基建驱动企业智能化未来",
-      "构建真正贯穿\\\"感知—理解—执行\\\"的企业智能基础设施",
+      "构建真正贯穿\"感知—理解—执行\"的企业智能基础设施",
       "万物皆智能体，全链路智能协作"
     ]
   },
@@ -584,6 +588,184 @@
     "twitter": {
       "title": "TeGo-AI智能体操作系统",
       "description": "企业级AI智能体平台与解决方案"
+    }
+  },
+  "mcpPlatform": {
+    "title": "MCP 统一管理平台架构",
+    "subtitle": "企业级模型上下文协议动态服务器统一管理平台",
+    "coreFeatures": {
+      "title": "核心特性",
+      "dynamicServer": {
+        "title": "动态MCP服务器管理",
+        "description": "通过配置创建、启动、停止MCP服务器"
+      },
+      "dynamicTool": {
+        "title": "动态工具生成",
+        "description": "根据数据库配置动态生成和注册工具"
+      },
+      "dynamicRoute": {
+        "title": "动态路由",
+        "description": "自动为每个MCP服务器生成独立的路由端点"
+      },
+      "monitoring": {
+        "title": "实时监控",
+        "description": "健康检查和状态监控"
+      },
+      "hotReload": {
+        "title": "热更新",
+        "description": "支持配置变更时的热重载"
+      },
+      "customImpl": {
+        "title": "自定义实现",
+        "description": "支持JavaScript自定义工具实现"
+      },
+      "highPerf": {
+        "title": "高性能架构",
+        "description": "异步处理和错误隔离"
+      },
+      "noCode": {
+        "title": "无代码",
+        "description": "一键生成MCP 服务、无需开发和部署"
+      }
+    },
+    "architecture": {
+      "title": "系统架构",
+      "diagramPlaceholder": "MCP 统一管理平台架构图",
+      "services": {
+        "llm": "小模型",
+        "vector": "向量化",
+        "retrieval": "召回"
+      }
+    },
+    "seo": {
+      "title": "MCP 统一管理平台 - TeGo AI智能体操作系统",
+      "description": "基于模型上下文协议的动态服务器统一管理平台，提供动态MCP服务器管理、工具生成、路由管理等核心能力。",
+      "keywords": "MCP平台, 模型上下文协议, 动态服务器管理, 工具生成, TeGo",
+      "openGraph": {
+        "title": "MCP 统一管理平台 - TeGo AI智能体操作系统",
+        "description": "企业级MCP动态服务器统一管理平台，支持无代码一键生成MCP服务。"
+      }
+    }
+  },
+  "pluginSystem": {
+    "title": "Tego OS 企业级插件平台",
+    "subtitle": "像安装手机 App 一样为系统添加新功能",
+    "badge": "安全 · 高效 · 灵活 · 零侵入",
+    "features": {
+      "title": "四大核心特性",
+      "secure": {
+        "title": "安全可靠",
+        "items": [
+          "系统安全有保障",
+          "权限精准控制",
+          "操作全程可追溯",
+          "插件互不干扰"
+        ]
+      },
+      "rapid": {
+        "title": "极速开发",
+        "items": [
+          "快速上手,5分钟搞定",
+          "内置模板,即刻启动",
+          "即改即生效",
+          "无需重启系统"
+        ]
+      },
+      "advanced": {
+        "title": "技术先进",
+        "items": [
+          "使用主流开发框架",
+          "代码智能提示",
+          "企业级vscode架构",
+          "实时双向通信"
+        ]
+      },
+      "roi": {
+        "title": "超高回报",
+        "items": [
+          "开发效率提升 3 倍",
+          "运维成本减半",
+          "投资回报率 5 倍以上",
+          "免费试用零风险"
+        ]
+      }
+    },
+    "stats": {
+      "title": "关键数据一目了然",
+      "development": {
+        "label": "开发周期",
+        "value": "2天",
+        "change": "90%"
+      },
+      "codeLines": {
+        "label": "代码量",
+        "value": "200行",
+        "change": "80%"
+      },
+      "learning": {
+        "label": "学习时间",
+        "value": "1天",
+        "change": "93%"
+      },
+      "roi": {
+        "label": "投资回报",
+        "value": "500%",
+        "change": "5x"
+      },
+      "highlight": "唯一支持 React Hooks 的企业级插件系统"
+    },
+    "seo": {
+      "title": "企业级插件平台 - TeGo OS",
+      "description": "Tego OS 企业级插件平台，支持React Hooks，提供安全可靠、极速开发的插件扩展能力。开发周期缩短90%，投资回报率超500%。",
+      "keywords": "企业级插件, TeGo OS, React Hooks, 插件系统, 快速开发",
+      "openGraph": {
+        "title": "企业级插件平台 - TeGo OS",
+        "description": "唯一支持React Hooks的企业级插件系统，极速开发，安全可靠。"
+      }
+    }
+  },
+  "technicalFeatures": {
+    "title": "技术特点",
+    "features": {
+      "framework": {
+        "title": "自主研发的 MCP 框架",
+        "description": "平台基于自主研发的 MCP 框架，通过使用 @Tool 装饰器来快速定义智能体工具。"
+      },
+      "standardization": {
+        "title": "标准化工具注册",
+        "description": "不仅支持元数据自动声明，还实现了工具能力的结构化、标准化注册。"
+      },
+      "simplification": {
+        "title": "简化开发流程",
+        "description": "极大简化了开发流程，实现「几行代码定义一个可调用的智能服务」。"
+      }
+    },
+    "codeExample": {
+      "title": "装饰器驱动开发",
+      "description": "项目使用 @Tool 装饰器来定义工具，提供了清晰的元数据声明：",
+      "keyPoints": {
+        "typeSafety": {
+          "title": "类型安全",
+          "description": "完整的 TypeScript 类型支持"
+        },
+        "autoValidation": {
+          "title": "自动验证",
+          "description": "参数自动校验和类型检查"
+        }
+      }
+    },
+    "summary": {
+      "title": "核心优势",
+      "content": "通过装饰器驱动的开发模式，开发者可以专注于业务逻辑实现，而无需关心底层的工具注册、参数验证和类型检查等繁琐细节。这种声明式的开发方式大幅提升了开发效率和代码可维护性。"
+    },
+    "seo": {
+      "title": "技术特点 - TeGo MCP 平台",
+      "description": "TeGo MCP 平台技术特点：自主研发MCP框架、装饰器驱动开发、标准化工具注册、简化开发流程，大幅提升开发效率。",
+      "keywords": "MCP框架, 装饰器驱动, 工具注册, TypeScript, 智能体开发",
+      "openGraph": {
+        "title": "技术特点 - TeGo MCP 平台",
+        "description": "装饰器驱动的开发模式，极大简化智能体工具开发流程。"
+      }
     }
   }
 }

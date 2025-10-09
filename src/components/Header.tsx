@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
+import { ChevronDown } from 'lucide-react';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
@@ -13,9 +14,19 @@ export default function Header() {
   const [activeSection, setActiveSection] = useState<string>('home');
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [techMenuOpen, setTechMenuOpen] = useState(false);
+  const [mobileTechMenuOpen, setMobileTechMenuOpen] = useState(false);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     setMounted(true);
+    
+    // 清理函数，在组件卸载时清除定时器
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -75,20 +86,42 @@ export default function Header() {
                 <Link href={`/${locale}/#features`} className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
                   {t('nav.features')}
                 </Link>
-                <Link href={`/${locale}/#advantages`} className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
-                  {t('nav.advantages')}
-                </Link>
-                <Link href={`/${locale}/#pricing`} className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
-                  {t('nav.pricing')}
-                </Link>
-                <a href="https://docs.zhama.com.cn" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
+              
+              {/* 技术平台下拉菜单（中等屏幕） */}
+              <div className="relative group">
+                <button className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap flex items-center gap-1">
+                  <span>{t('nav.techPlatform')}</span>
+                  <ChevronDown className="h-3 w-3 transition-transform group-hover:rotate-180" />
+                </button>
+                <div className="absolute left-0 top-full z-50 pt-1 hidden group-hover:block">
+                  <div className="min-w-[180px] rounded-lg border border-gray-200 bg-white py-2 shadow-lg dark:border-gray-700 dark:bg-gray-800">
+                    <Link 
+                      href={`/${locale}/platform`}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+                    >
+                      {t('nav.platform')}
+                    </Link>
+                    <Link 
+                      href={`/${locale}/plugin-system`}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+                    >
+                      {t('nav.pluginSystem')}
+                    </Link>
+                    <Link 
+                      href={`/${locale}/technical`}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+                    >
+                      {t('nav.technical')}
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              
+              <a href="https://docs.zhama.com.cn" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
                   {t('nav.docs')}
                 </a>
                 <Link href={`/${locale}/contact`} className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
                   {t('nav.contact')}
-                </Link>
-                <Link href={`/${locale}/#about`} className="text-secondary hover:text-accent-600 dark:hover:text-accent-400 px-3 lg:px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg hover:bg-light-300/50 dark:hover:bg-dark-700/50 whitespace-nowrap">
-                  {t('nav.about')}
                 </Link>
               </nav>
             </div>
@@ -130,7 +163,7 @@ export default function Header() {
               <img src="/images/logo_dark.png" alt="Logo" className="h-10 sm:h-12 lg:h-14 w-auto mr-3 hidden dark:block" />
             </div>
             
-            <nav className="hidden lg:ml-12 lg:flex lg:space-x-8">
+              <nav className="hidden lg:ml-12 lg:flex lg:space-x-8">
               <Link href={`/${locale}`} className={`btn btn-ghost ${activeSection === 'home' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.home')}
               </Link>
@@ -143,6 +176,53 @@ export default function Header() {
               <Link href={`/${locale}/#pricing`} className={`btn btn-ghost ${activeSection === 'pricing' ? 'text-primary-600 dark:text-primary-400' : ''}`}>
                 {t('nav.pricing')}
               </Link>
+              
+              {/* 技术平台下拉菜单 */}
+              <div 
+                className="relative"
+                onMouseEnter={() => {
+                  if (closeTimeoutRef.current) {
+                    clearTimeout(closeTimeoutRef.current);
+                    closeTimeoutRef.current = null;
+                  }
+                  setTechMenuOpen(true);
+                }}
+                onMouseLeave={() => {
+                  closeTimeoutRef.current = setTimeout(() => {
+                    setTechMenuOpen(false);
+                  }, 200);
+                }}
+              >
+                <button className="btn btn-ghost flex items-center gap-1">
+                  <span>{t('nav.techPlatform')}</span>
+                  <ChevronDown className={`h-4 w-4 transition-transform ${techMenuOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {techMenuOpen && (
+                  <div className="absolute left-0 top-full z-50 pt-1">
+                    <div className="min-w-[200px] rounded-lg border border-gray-200 bg-white py-2 shadow-lg dark:border-gray-700 dark:bg-gray-800">
+                      <Link 
+                        href={`/${locale}/platform`}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+                      >
+                        {t('nav.platform')}
+                      </Link>
+                      <Link 
+                        href={`/${locale}/plugin-system`}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+                      >
+                        {t('nav.pluginSystem')}
+                      </Link>
+                      <Link 
+                        href={`/${locale}/technical`}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+                      >
+                        {t('nav.technical')}
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+              
               <a href="https://docs.zhama.com.cn" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
                 {t('nav.docs')}
               </a>
@@ -217,6 +297,53 @@ export default function Header() {
               >
                 {t('nav.pricing')}
               </Link>
+              
+              {/* 移动端技术平台下拉 */}
+              <div>
+                <button 
+                  className="flex w-full items-center justify-between btn btn-ghost text-left"
+                  onClick={() => setMobileTechMenuOpen(!mobileTechMenuOpen)}
+                >
+                  <span>{t('nav.techPlatform')}</span>
+                  <ChevronDown className={`h-4 w-4 transition-transform ${mobileTechMenuOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {mobileTechMenuOpen && (
+                  <div className="ml-4 mt-2 space-y-2">
+                    <Link 
+                      href={`/${locale}/platform`} 
+                      className="block btn btn-ghost w-full text-left justify-start text-sm"
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setMobileTechMenuOpen(false);
+                      }}
+                    >
+                      {t('nav.platform')}
+                    </Link>
+                    <Link 
+                      href={`/${locale}/plugin-system`} 
+                      className="block btn btn-ghost w-full text-left justify-start text-sm"
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setMobileTechMenuOpen(false);
+                      }}
+                    >
+                      {t('nav.pluginSystem')}
+                    </Link>
+                    <Link 
+                      href={`/${locale}/technical`} 
+                      className="block btn btn-ghost w-full text-left justify-start text-sm"
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setMobileTechMenuOpen(false);
+                      }}
+                    >
+                      {t('nav.technical')}
+                    </Link>
+                  </div>
+                )}
+              </div>
+              
+              {/* 文档中心 */}
               <a 
                 href="https://docs.zhama.com.cn" 
                 target="_blank" 

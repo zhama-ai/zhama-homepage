@@ -23,9 +23,13 @@
     "pricing": "Pricing",
     "download": "Contact Us",
     "about": "About Us",
-    "docs": "Docs",
+    "docs": "Documentation",
     "contact": "Contact Us",
-    "tryNow": "Try Now"
+    "tryNow": "Try Now",
+    "platform": "MCP Platform",
+    "pluginSystem": "Plugin System",
+    "technical": "Technical",
+    "techPlatform": "Platform"
   },
   "home": {
     "hero": {
@@ -584,6 +588,184 @@
     "twitter": {
       "title": "TeGo AI Agent Platform",
       "description": "Enterprise AI Agent Platform and Solutions"
+    }
+  },
+  "mcpPlatform": {
+    "title": "MCP Unified Management Platform Architecture",
+    "subtitle": "Enterprise-grade Model Context Protocol Dynamic Server Unified Management Platform",
+    "coreFeatures": {
+      "title": "Core Features",
+      "dynamicServer": {
+        "title": "Dynamic MCP Server Management",
+        "description": "Create, start, and stop MCP servers through configuration"
+      },
+      "dynamicTool": {
+        "title": "Dynamic Tool Generation",
+        "description": "Dynamically generate and register tools based on database configuration"
+      },
+      "dynamicRoute": {
+        "title": "Dynamic Routing",
+        "description": "Automatically generate independent routing endpoints for each MCP server"
+      },
+      "monitoring": {
+        "title": "Real-time Monitoring",
+        "description": "Health checks and status monitoring"
+      },
+      "hotReload": {
+        "title": "Hot Reload",
+        "description": "Support hot reload when configuration changes"
+      },
+      "customImpl": {
+        "title": "Custom Implementation",
+        "description": "Support JavaScript custom tool implementation"
+      },
+      "highPerf": {
+        "title": "High Performance Architecture",
+        "description": "Asynchronous processing and error isolation"
+      },
+      "noCode": {
+        "title": "No Code",
+        "description": "One-click MCP service generation, no development and deployment required"
+      }
+    },
+    "architecture": {
+      "title": "System Architecture",
+      "diagramPlaceholder": "MCP Unified Management Platform Architecture Diagram",
+      "services": {
+        "llm": "Small Models",
+        "vector": "Vectorization",
+        "retrieval": "Retrieval"
+      }
+    },
+    "seo": {
+      "title": "MCP Unified Management Platform - TeGo AI Agent Platform",
+      "description": "Dynamic server unified management platform based on Model Context Protocol, providing core capabilities like dynamic MCP server management, tool generation, and route management.",
+      "keywords": "MCP Platform, Model Context Protocol, Dynamic Server Management, Tool Generation, TeGo",
+      "openGraph": {
+        "title": "MCP Unified Management Platform - TeGo AI Agent Platform",
+        "description": "Enterprise-grade MCP dynamic server unified management platform, supporting no-code one-click MCP service generation."
+      }
+    }
+  },
+  "pluginSystem": {
+    "title": "Tego OS Enterprise Plugin Platform",
+    "subtitle": "Add new features to your system like installing mobile apps",
+    "badge": "Secure · Efficient · Flexible · Zero Intrusion",
+    "features": {
+      "title": "Four Core Features",
+      "secure": {
+        "title": "Secure & Reliable",
+        "items": [
+          "System security guaranteed",
+          "Precise permission control",
+          "Full operation traceability",
+          "Plugins don't interfere with each other"
+        ]
+      },
+      "rapid": {
+        "title": "Rapid Development",
+        "items": [
+          "Quick start, 5 minutes to complete",
+          "Built-in templates, instant launch",
+          "Immediate effect on changes",
+          "No system restart required"
+        ]
+      },
+      "advanced": {
+        "title": "Advanced Technology",
+        "items": [
+          "Using mainstream frameworks",
+          "Intelligent code hints",
+          "Enterprise-grade vscode architecture",
+          "Real-time bidirectional communication"
+        ]
+      },
+      "roi": {
+        "title": "High ROI",
+        "items": [
+          "3x development efficiency",
+          "50% operation cost reduction",
+          "5x+ ROI",
+          "Risk-free trial"
+        ]
+      }
+    },
+    "stats": {
+      "title": "Key Metrics at a Glance",
+      "development": {
+        "label": "Development Cycle",
+        "value": "2 Days",
+        "change": "90%"
+      },
+      "codeLines": {
+        "label": "Code Lines",
+        "value": "200 Lines",
+        "change": "80%"
+      },
+      "learning": {
+        "label": "Learning Time",
+        "value": "1 Day",
+        "change": "93%"
+      },
+      "roi": {
+        "label": "ROI",
+        "value": "500%",
+        "change": "5x"
+      },
+      "highlight": "The only enterprise-grade plugin system supporting React Hooks"
+    },
+    "seo": {
+      "title": "Enterprise Plugin Platform - TeGo OS",
+      "description": "Tego OS enterprise plugin platform, supporting React Hooks, providing secure and rapid plugin extension capabilities. 90% reduction in development cycle, 500%+ ROI.",
+      "keywords": "Enterprise Plugin, TeGo OS, React Hooks, Plugin System, Rapid Development",
+      "openGraph": {
+        "title": "Enterprise Plugin Platform - TeGo OS",
+        "description": "The only enterprise-grade plugin system supporting React Hooks, rapid development, secure and reliable."
+      }
+    }
+  },
+  "technicalFeatures": {
+    "title": "Technical Features",
+    "features": {
+      "framework": {
+        "title": "Self-developed MCP Framework",
+        "description": "The platform is based on a self-developed MCP framework, using @Tool decorators to quickly define agent tools."
+      },
+      "standardization": {
+        "title": "Standardized Tool Registration",
+        "description": "Not only supports automatic metadata declaration, but also implements structured and standardized registration of tool capabilities."
+      },
+      "simplification": {
+        "title": "Simplified Development Process",
+        "description": "Greatly simplifies the development process, achieving \"define an invocable intelligent service with just a few lines of code\"."
+      }
+    },
+    "codeExample": {
+      "title": "Decorator-Driven Development",
+      "description": "The project uses @Tool decorators to define tools, providing clear metadata declarations:",
+      "keyPoints": {
+        "typeSafety": {
+          "title": "Type Safety",
+          "description": "Complete TypeScript type support"
+        },
+        "autoValidation": {
+          "title": "Auto Validation",
+          "description": "Automatic parameter validation and type checking"
+        }
+      }
+    },
+    "summary": {
+      "title": "Core Advantages",
+      "content": "Through the decorator-driven development model, developers can focus on business logic implementation without worrying about tedious details such as tool registration, parameter validation, and type checking. This declarative development approach greatly improves development efficiency and code maintainability."
+    },
+    "seo": {
+      "title": "Technical Features - TeGo MCP Platform",
+      "description": "TeGo MCP Platform technical features: self-developed MCP framework, decorator-driven development, standardized tool registration, simplified development process, significantly improving development efficiency.",
+      "keywords": "MCP Framework, Decorator-Driven, Tool Registration, TypeScript, Agent Development",
+      "openGraph": {
+        "title": "Technical Features - TeGo MCP Platform",
+        "description": "Decorator-driven development model that greatly simplifies agent tool development process."
+      }
     }
   }
 }

@@ -1,0 +1,1026 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MCP 统一管理平台架构</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+      :root {
+        --color-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --color-card-bg: #ffffff;
+        --color-white: #ffffff;
+        --color-text-primary: #1e293b;
+        --color-text-secondary: #64748b;
+        --color-text-tertiary: #94a3b8;
+        --color-border: #e2e8f0;
+
+        --color-pink: #fbbfd4;
+        --color-pink-border: #f09cb5;
+        --color-blue: #b3d9f2;
+        --color-blue-border: #7eb8db;
+        --color-orange: #ffd699;
+        --color-orange-border: #ffb84d;
+        --color-green: #c8e6c9;
+        --color-green-border: #81c784;
+        --color-yellow: #fff9c4;
+        --color-yellow-border: #fff176;
+        --color-purple: #7b7fc6;
+
+        --font-xs: 0.6875rem;
+        --font-sm: 0.8125rem;
+        --font-base: 0.9375rem;
+        --font-md: 1.0625rem;
+        --font-lg: 1.375rem;
+        --font-xl: 1.75rem;
+
+        --space-xs: 4px;
+        --space-sm: 8px;
+        --space-md: 12px;
+        --space-lg: 16px;
+        --space-xl: 24px;
+        --space-2xl: 32px;
+        --space-3xl: 48px;
+
+        --radius-sm: 6px;
+        --radius-md: 12px;
+        --radius-lg: 16px;
+        --radius-xl: 24px;
+
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+        --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+        --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+          'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+        background: #ffffff;
+        color: var(--color-text-primary);
+        min-height: 100vh;
+        padding: 0;
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .container {
+        background: var(--color-card-bg);
+        padding: var(--space-3xl);
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          #667eea 0%,
+          #764ba2 50%,
+          #667eea 100%
+        );
+        background-size: 200% 100%;
+        animation: gradient 3s ease infinite;
+      }
+
+      @keyframes gradient {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: 620px 1fr;
+        gap: var(--space-3xl);
+        align-items: start;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: var(--space-md);
+        margin-bottom: var(--space-2xl);
+        padding-bottom: var(--space-lg);
+        border-bottom: 2px solid var(--color-border);
+      }
+
+      .section-icon {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+        border-radius: var(--radius-md);
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        box-shadow: var(--shadow-sm);
+        flex-shrink: 0;
+      }
+
+      .section-icon.arch {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+      }
+
+      .section-title {
+        font-size: var(--font-xl);
+        font-weight: 700;
+        color: var(--color-text-primary);
+        letter-spacing: -0.02em;
+      }
+
+      .features-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-xl);
+        padding: var(--space-sm);
+        border-radius: var(--radius-md);
+        transition: all 0.2s ease;
+        background: transparent;
+      }
+
+      .feature-item:hover {
+        background: #f8fafc;
+        box-shadow: var(--shadow-sm);
+        transform: translateX(4px);
+      }
+
+      .feature-icon {
+        width: 48px;
+        height: 48px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        border: 2px solid var(--color-border);
+        border-radius: var(--radius-md);
+        font-size: 20px;
+        color: #667eea;
+        transition: all 0.2s ease;
+      }
+
+      .feature-item:hover .feature-icon {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-color: #667eea;
+        transform: scale(1.05);
+      }
+
+      .section-icon i {
+        font-size: 16px;
+      }
+
+      .feature-content {
+        flex: 1;
+        padding-top: 4px;
+      }
+
+      .feature-title {
+        font-size: var(--font-xl);
+        font-weight: 600;
+        color: var(--color-text-primary);
+        margin-bottom: 10px;
+        letter-spacing: -0.01em;
+      }
+
+      .feature-desc {
+        font-size: var(--font-lg);
+        color: var(--color-text-secondary);
+        line-height: 1.6;
+      }
+
+      .architecture-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2xl);
+        background: linear-gradient(to bottom, #fafbfc 0%, #ffffff 100%);
+        border-radius: var(--radius-lg);
+        padding: var(--space-2xl);
+        border: 1px solid var(--color-border);
+      }
+
+      .architecture-svg {
+        width: 100%;
+        max-width: 900px;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+      }
+
+      .arch-node-rect {
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .arch-node-rect:hover {
+        filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.12));
+        transform: translateY(-2px);
+      }
+
+      .arch-text {
+        font-size: 12px;
+        font-weight: 600;
+        fill: #1e293b;
+        pointer-events: none;
+        user-select: none;
+        letter-spacing: 0.3px;
+      }
+
+      .arch-text-small {
+        font-size: 9.5px;
+        font-weight: 500;
+        fill: #64748b;
+        letter-spacing: 0.2px;
+      }
+
+      .arch-text-market {
+        font-size: 20px;
+        font-weight: 700;
+        fill: white;
+        letter-spacing: 1px;
+      }
+
+      .connection-line {
+        stroke: #94a3b8;
+        stroke-width: 2.5;
+        fill: none;
+        opacity: 0.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .bottom-services {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-3xl);
+        margin-top: 0;
+        padding-top: var(--space-2xl);
+        border-top: 1px solid var(--color-border);
+      }
+
+      .bottom-service {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-md);
+        transition: all 0.3s ease;
+      }
+
+      .bottom-service:hover {
+        transform: translateY(-4px);
+      }
+
+      .service-box {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        border: 2px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        color: #667eea;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .bottom-service:hover .service-box {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-color: #667eea;
+        box-shadow: var(--shadow-md);
+        transform: scale(1.1);
+      }
+
+      .service-label {
+        font-size: var(--font-base);
+        font-weight: 600;
+        color: var(--color-text-primary);
+        letter-spacing: -0.01em;
+      }
+
+      @media (max-width: 1400px) {
+        .layout {
+          grid-template-columns: 1fr;
+          gap: var(--space-3xl);
+        }
+
+        .container {
+          padding: var(--space-2xl);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: var(--space-xl);
+        }
+
+        .section-header {
+          margin-bottom: var(--space-xl);
+        }
+
+        .section-title {
+          font-size: var(--font-lg);
+        }
+
+        .feature-item {
+          padding: var(--space-lg);
+        }
+
+        .feature-icon {
+          width: 40px;
+          height: 40px;
+          font-size: 16px;
+        }
+
+        .feature-title {
+          font-size: var(--font-lg);
+        }
+
+        .feature-desc {
+          font-size: var(--font-base);
+        }
+
+        .bottom-services {
+          gap: var(--space-xl);
+        }
+
+        .service-box {
+          width: 64px;
+          height: 64px;
+          font-size: 24px;
+        }
+
+        .architecture-wrapper {
+          padding: var(--space-lg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="layout">
+        <section class="features-section">
+          <div class="section-header">
+            <div class="section-icon"><i class="fas fa-star"></i></div>
+            <h2 class="section-title">核心特性</h2>
+          </div>
+          <ul class="features-list">
+            <li class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-server"></i>
+              </div>
+              <div class="feature-content">
+                <div class="feature-title">动态MCP服务器管理</div>
+                <div class="feature-desc">
+                  通过配置创建、启动、停止MCP服务器
+                </div>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <div class="feature-content">
+                <div class="feature-title">动态工具生成</div>
+                <div class="feature-desc">根据数据库配置动态生成和注册工具</div>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-route"></i>
+              </div>
+              <div class="feature-content">
+                <div class="feature-title">动态路由</div>
+                <div class="feature-desc">
+                  自动为每个MCP服务器生成独立的路由端点
+                </div>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-heartbeat"></i>
+              </div>
+              <div class="feature-content">
+                <div class="feature-title">实时监控</div>
+                <div class="feature-desc">健康检查和状态监控</div>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-sync-alt"></i>
+              </div>
+              <div class="feature-content">
+                <div class="feature-title">热更新</div>
+                <div class="feature-desc">支持配置变更时的热重载</div>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <div class="feature-content">
+                <div class="feature-title">自定义实现</div>
+                <div class="feature-desc">支持JavaScript自定义工具实现</div>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-bolt"></i>
+              </div>
+              <div class="feature-content">
+                <div class="feature-title">高性能架构</div>
+                <div class="feature-desc">异步处理和错误隔离</div>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-magic"></i>
+              </div>
+              <div class="feature-content">
+                <div class="feature-title">无代码</div>
+                <div class="feature-desc">一键生成MCP 服务、无需开发和部署</div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="architecture-section">
+          <div class="section-header">
+            <div class="section-icon arch"><i class="fas fa-sitemap"></i></div>
+            <h2 class="section-title">系统架构</h2>
+          </div>
+          <div class="architecture-wrapper">
+            <svg
+              class="architecture-svg"
+              viewBox="0 0 800 700"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <filter id="shadow">
+                  <feDropShadow
+                    dx="0"
+                    dy="2"
+                    stdDeviation="4"
+                    flood-opacity="0.12"
+                  />
+                </filter>
+                <linearGradient
+                  id="purpleGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop offset="0%" style="stop-color: #7b7fc6" />
+                  <stop offset="100%" style="stop-color: #5a5ea8" />
+                </linearGradient>
+                <linearGradient
+                  id="pinkGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="0%"
+                  y2="100%"
+                >
+                  <stop
+                    offset="0%"
+                    style="stop-color: #fbbfd4; stop-opacity: 1"
+                  />
+                  <stop
+                    offset="100%"
+                    style="stop-color: #fbbfd4; stop-opacity: 0.9"
+                  />
+                </linearGradient>
+                <linearGradient
+                  id="blueGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="0%"
+                  y2="100%"
+                >
+                  <stop
+                    offset="0%"
+                    style="stop-color: #b3d9f2; stop-opacity: 1"
+                  />
+                  <stop
+                    offset="100%"
+                    style="stop-color: #b3d9f2; stop-opacity: 0.9"
+                  />
+                </linearGradient>
+                <linearGradient
+                  id="orangeGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="0%"
+                  y2="100%"
+                >
+                  <stop
+                    offset="0%"
+                    style="stop-color: #ffd699; stop-opacity: 1"
+                  />
+                  <stop
+                    offset="100%"
+                    style="stop-color: #ffd699; stop-opacity: 0.9"
+                  />
+                </linearGradient>
+                <linearGradient
+                  id="greenGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="0%"
+                  y2="100%"
+                >
+                  <stop
+                    offset="0%"
+                    style="stop-color: #c8e6c9; stop-opacity: 1"
+                  />
+                  <stop
+                    offset="100%"
+                    style="stop-color: #c8e6c9; stop-opacity: 0.9"
+                  />
+                </linearGradient>
+                <linearGradient
+                  id="yellowGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="0%"
+                  y2="100%"
+                >
+                  <stop
+                    offset="0%"
+                    style="stop-color: #fff9c4; stop-opacity: 1"
+                  />
+                  <stop
+                    offset="100%"
+                    style="stop-color: #fff9c4; stop-opacity: 0.9"
+                  />
+                </linearGradient>
+              </defs>
+
+              <!-- Connection Lines -->
+              <g class="connections">
+                <!-- From Platform Manager to Managers -->
+                <path
+                  d="M 400 120 L 400 130 L 120 130 L 120 140"
+                  class="connection-line"
+                  stroke-dasharray="0"
+                />
+                <line
+                  x1="400"
+                  y1="120"
+                  x2="400"
+                  y2="140"
+                  class="connection-line"
+                />
+                <path
+                  d="M 400 120 L 400 130 L 680 130 L 680 140"
+                  class="connection-line"
+                  stroke-dasharray="0"
+                />
+
+                <!-- From Managers to Sub-components -->
+                <line
+                  x1="120"
+                  y1="190"
+                  x2="120"
+                  y2="220"
+                  class="connection-line"
+                />
+                <path
+                  d="M 680 190 L 680 205 L 640 205 L 640 220"
+                  class="connection-line"
+                />
+                <line
+                  x1="680"
+                  y1="190"
+                  x2="680"
+                  y2="220"
+                  class="connection-line"
+                />
+
+                <!-- From Service A to MCP Market -->
+                <line
+                  x1="400"
+                  y1="420"
+                  x2="400"
+                  y2="430"
+                  class="connection-line"
+                />
+
+                <!-- From MCP Market to Services B & C -->
+                <path
+                  d="M 350 540 L 340 555 L 250 555 L 250 580"
+                  class="connection-line"
+                />
+                <path
+                  d="M 450 540 L 460 555 L 550 555 L 550 580"
+                  class="connection-line"
+                />
+              </g>
+
+              <!-- Management Page (Top Right) -->
+              <g class="arch-node-rect" filter="url(#shadow)">
+                <rect
+                  x="660"
+                  y="20"
+                  width="120"
+                  height="40"
+                  rx="10"
+                  fill="url(#pinkGradient)"
+                  stroke="#f09cb5"
+                  stroke-width="2.5"
+                />
+                <text x="720" y="44" text-anchor="middle" class="arch-text">
+                  管理页
+                </text>
+              </g>
+
+              <!-- Platform Manager (Center Top) -->
+              <g class="arch-node-rect" filter="url(#shadow)">
+                <rect
+                  x="270"
+                  y="70"
+                  width="260"
+                  height="50"
+                  rx="10"
+                  fill="url(#blueGradient)"
+                  stroke="#7eb8db"
+                  stroke-width="2.5"
+                />
+                <text x="400" y="92" text-anchor="middle" class="arch-text">
+                  统一管理平台
+                </text>
+                <text
+                  x="400"
+                  y="107"
+                  text-anchor="middle"
+                  class="arch-text-small"
+                >
+                  MCPPlatformManager
+                </text>
+              </g>
+
+              <!-- Transport Manager -->
+              <g class="arch-node-rect" filter="url(#shadow)">
+                <rect
+                  x="20"
+                  y="140"
+                  width="200"
+                  height="50"
+                  rx="10"
+                  fill="url(#pinkGradient)"
+                  stroke="#f09cb5"
+                  stroke-width="2.5"
+                />
+                <text x="120" y="162" text-anchor="middle" class="arch-text">
+                  传输层管理
+                </text>
+                <text
+                  x="120"
+                  y="177"
+                  text-anchor="middle"
+                  class="arch-text-small"
+                >
+                  TransportManager
+                </text>
+              </g>
+
+              <!-- Server Instance Manager -->
+              <g class="arch-node-rect" filter="url(#shadow)">
+                <rect
+                  x="270"
+                  y="140"
+                  width="260"
+                  height="50"
+                  rx="10"
+                  fill="url(#blueGradient)"
+                  stroke="#7eb8db"
+                  stroke-width="2.5"
+                />
+                <text x="400" y="162" text-anchor="middle" class="arch-text">
+                  服务器实例管理器
+                </text>
+                <text
+                  x="400"
+                  y="177"
+                  text-anchor="middle"
+                  class="arch-text-small"
+                >
+                  ServerInstanceManager
+                </text>
+              </g>
+
+              <!-- Runtime Code Generator -->
+              <g class="arch-node-rect" filter="url(#shadow)">
+                <rect
+                  x="580"
+                  y="140"
+                  width="200"
+                  height="50"
+                  rx="10"
+                  fill="url(#blueGradient)"
+                  stroke="#7eb8db"
+                  stroke-width="2.5"
+                />
+                <text x="680" y="162" text-anchor="middle" class="arch-text">
+                  运行时代码生成
+                </text>
+                <text
+                  x="680"
+                  y="177"
+                  text-anchor="middle"
+                  class="arch-text-small"
+                >
+                  RuntimeCodeGenerator
+                </text>
+              </g>
+
+              <!-- Protocol Support -->
+              <g class="arch-node-rect" filter="url(#shadow)">
+                <rect
+                  x="20"
+                  y="220"
+                  width="200"
+                  height="50"
+                  rx="10"
+                  fill="url(#pinkGradient)"
+                  stroke="#f09cb5"
+                  stroke-width="2.5"
+                />
+                <text x="120" y="242" text-anchor="middle" class="arch-text">
+                  多传输协议
+                </text>
+                <text
+                  x="120"
+                  y="257"
+                  text-anchor="middle"
+                  class="arch-text-small"
+                >
+                  HTTP/SSE/WebSocket
+                </text>
+              </g>
+
+              <!-- API Router -->
+              <g class="arch-node-rect" filter="url(#shadow)">
+                <rect
+                  x="240"
+                  y="220"
+                  width="160"
+                  height="50"
+                  rx="10"
+                  fill="url(#pinkGradient)"
+                  stroke="#f09cb5"
+                  stroke-width="2.5"
+                />
+                <text x="320" y="242" text-anchor="middle" class="arch-text">
+                  动态API路由
+                </text>
+                <text
+                  x="320"
+                  y="257"
+                  text-anchor="middle"
+                  class="arch-text-small"
+                >
+                  APIRouter
+                </text>
+              </g>
+
+              <!-- Security Code Executor -->
+              <g class="arch-node-rect" filter="url(#shadow)">
+                <rect
+                  x="440"
+                  y="220"
+                  width="200"
+                  height="50"
+                  rx="10"
+                  fill="url(#orangeGradient)"
+                  stroke="#ffb84d"
+                  stroke-width="2.5"
+                />
+                <text x="540" y="242" text-anchor="middle" class="arch-text">
+                  安全代码执行
+                </text>
+                <text
+                  x="540"
+                  y="257"
+                  text-anchor="middle"
+                  class="arch-text-small"
+                >
+                  SecureCodeExecutor
+                </text>
+              </g>
+
+              <!-- Database Manager -->
+              <g class="arch-node-rect" filter="url(#shadow)">
+                <rect
+                  x="660"
+                  y="220"
+                  width="120"
+                  height="50"
+                  rx="10"
+                  fill="url(#greenGradient)"
+                  stroke="#81c784"
+                  stroke-width="2.5"
+                />
+                <text x="720" y="238" text-anchor="middle" class="arch-text">
+                  数据库配置
+                </text>
+                <text
+                  x="720"
+                  y="253"
+                  text-anchor="middle"
+                  class="arch-text-small"
+                >
+                  管理
+                </text>
+              </g>
+
+              <!-- MCP Client -->
+              <g class="arch-node-rect" filter="url(#shadow)">
+                <rect
+                  x="20"
+                  y="300"
+                  width="120"
+                  height="40"
+                  rx="10"
+                  fill="url(#pinkGradient)"
+                  stroke="#f09cb5"
+                  stroke-width="2.5"
+                />
+                <text x="80" y="324" text-anchor="middle" class="arch-text">
+                  MCP客户端
+                </text>
+              </g>
+
+              <!-- Database Storage -->
+              <g class="arch-node-rect" filter="url(#shadow)">
+                <rect
+                  x="640"
+                  y="300"
+                  width="120"
+                  height="40"
+                  rx="10"
+                  fill="url(#greenGradient)"
+                  stroke="#81c784"
+                  stroke-width="2.5"
+                />
+                <text x="700" y="324" text-anchor="middle" class="arch-text">
+                  数据库配置存储
+                </text>
+              </g>
+
+              <!-- Worker Process -->
+              <g class="arch-node-rect" filter="url(#shadow)">
+                <rect
+                  x="440"
+                  y="300"
+                  width="180"
+                  height="50"
+                  rx="10"
+                  fill="url(#yellowGradient)"
+                  stroke="#fff176"
+                  stroke-width="2.5"
+                />
+                <text x="530" y="322" text-anchor="middle" class="arch-text">
+                  Worker线程
+                </text>
+                <text
+                  x="530"
+                  y="337"
+                  text-anchor="middle"
+                  class="arch-text-small"
+                >
+                  安全隔离环境
+                </text>
+              </g>
+
+              <!-- Service A -->
+              <g class="arch-node-rect" filter="url(#shadow)">
+                <rect
+                  x="330"
+                  y="380"
+                  width="140"
+                  height="40"
+                  rx="10"
+                  fill="url(#blueGradient)"
+                  stroke="#7eb8db"
+                  stroke-width="2.5"
+                />
+                <text x="400" y="404" text-anchor="middle" class="arch-text">
+                  服务A
+                </text>
+              </g>
+
+              <!-- MCP Market Circle -->
+              <g filter="url(#shadow)">
+                <circle cx="400" cy="500" r="70" fill="url(#purpleGradient)" />
+                <text
+                  x="400"
+                  y="495"
+                  text-anchor="middle"
+                  class="arch-text-market"
+                >
+                  MCP
+                </text>
+                <text
+                  x="400"
+                  y="515"
+                  text-anchor="middle"
+                  class="arch-text-market"
+                >
+                  市场
+                </text>
+              </g>
+
+              <!-- Service C -->
+              <g class="arch-node-rect" filter="url(#shadow)">
+                <rect
+                  x="180"
+                  y="580"
+                  width="140"
+                  height="40"
+                  rx="8"
+                  fill="#b3d9f2"
+                  stroke="#7eb8db"
+                  stroke-width="2"
+                />
+                <text x="250" y="604" text-anchor="middle" class="arch-text">
+                  服务C
+                </text>
+              </g>
+
+              <!-- Service B -->
+              <g class="arch-node-rect" filter="url(#shadow)">
+                <rect
+                  x="480"
+                  y="580"
+                  width="140"
+                  height="40"
+                  rx="8"
+                  fill="#b3d9f2"
+                  stroke="#7eb8db"
+                  stroke-width="2"
+                />
+                <text x="550" y="604" text-anchor="middle" class="arch-text">
+                  服务B
+                </text>
+              </g>
+            </svg>
+
+            <div class="bottom-services">
+              <div class="bottom-service">
+                <div class="service-box">
+                  <i class="fas fa-robot"></i>
+                </div>
+                <div class="service-label">小模型</div>
+              </div>
+              <div class="bottom-service">
+                <div class="service-box">
+                  <i class="fas fa-project-diagram"></i>
+                </div>
+                <div class="service-label">向量化</div>
+              </div>
+              <div class="bottom-service">
+                <div class="service-box">
+                  <i class="fas fa-search"></i>
+                </div>
+                <div class="service-label">召回</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
