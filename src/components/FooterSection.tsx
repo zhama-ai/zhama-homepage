@@ -40,19 +40,19 @@ export default async function FooterSection({ locale }: FooterSectionProps) {
 
   return (
     <footer className="bg-zinc-100 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-50">
-      <Container className="py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+      <Container className="py-12 md:py-16">
+        <div className="flex flex-col md:flex-row md:justify-between gap-8 md:gap-12">
           {/* 公司信息 */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
+          <div className="md:w-1/4 space-y-4">
+            <div className="flex items-center gap-3 justify-center md:justify-start">
               <img src="/images/logo_light.png" alt="TeGo Logo" className="h-8 w-auto dark:hidden" />
               <img src="/images/logo_dark.png" alt="TeGo Logo" className="h-8 w-auto hidden dark:block" />
-              <h3 className="text-xl font-bold">{t('companyName')}</h3>
+              <h3 className="text-lg md:text-xl font-bold">{t('companyName')}</h3>
             </div>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed text-center md:text-left">
               {t('companyDescription')}
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 justify-center md:justify-start">
               <a 
                 href="https://github.com/zhama-ai" 
                 target="_blank"
@@ -67,49 +67,51 @@ export default async function FooterSection({ locale }: FooterSectionProps) {
             </div>
           </div>
 
-          {/* Footer 链接列 */}
-          {footerSections.map((section) => (
-            <div key={section.title}>
-              <h3 className="text-lg font-semibold mb-4 text-primary-600 dark:text-primary-400">
-                {section.title}
-              </h3>
-              <ul className="space-y-3">
-                {section.links.map((link, index) => (
-                  <li key={`${section.title}-${link.label}-${index}`}>
-                    {link.external ? (
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors"
-                      >
-                        {link.label}
-                      </a>
-                    ) : (
-                      <Link
-                        href={link.href}
-                        className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors"
-                      >
-                        {link.label}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Footer 链接 - 移动端两列，桌面端三列 */}
+          <div className="md:flex-1 grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+            {footerSections.map((section) => (
+              <div key={section.title}>
+                <h3 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-primary-600 dark:text-primary-400">
+                  {section.title}
+                </h3>
+                <ul className="space-y-2 md:space-y-3">
+                  {section.links.map((link, index) => (
+                    <li key={`${section.title}-${link.label}-${index}`}>
+                      {link.external ? (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors inline-block"
+                        >
+                          {link.label}
+                        </a>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors inline-block"
+                        >
+                          {link.label}
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800">
-          <div className="flex flex-col md:flex-row justify-start items-center gap-4 text-sm text-zinc-600 dark:text-zinc-400">
-            <p>{t('copyright')}</p>
+        <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-zinc-200 dark:border-zinc-800">
+          <div className="flex flex-col md:flex-row justify-center md:justify-start items-center gap-2 md:gap-4 text-xs md:text-sm text-zinc-600 dark:text-zinc-400 text-center md:text-left">
+            <p className="break-words max-w-full">{t('copyright')}</p>
             {t('icp') && (
               <a 
                 href="https://beian.miit.gov.cn/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors"
+                className="hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors whitespace-nowrap"
               >
                 {t('icp')}
               </a>
