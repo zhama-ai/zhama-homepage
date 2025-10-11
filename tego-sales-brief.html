@@ -6,7 +6,7 @@
     <title>TeGo-AI 企业智能体综合服务平台 - 产品介绍</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600&display=swap');
 
         * {
             margin: 0;
@@ -26,6 +26,9 @@
             margin: 0;
             min-height: 100vh;
             display: block;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #1e293b;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -91,29 +94,32 @@
         }
 
         .logo {
+            font-family: 'Montserrat', sans-serif;
             font-size: 56px;
             font-weight: 900;
             color: white;
-            letter-spacing: -2px;
+            letter-spacing: -1.5px;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .badge {
+            font-family: 'Montserrat', sans-serif;
             background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
             padding: 8px 20px;
             border-radius: 24px;
             color: white;
-            font-size: 13px;
-            font-weight: 800;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
             box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
         }
 
         .tagline {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 500;
             color: rgba(255, 255, 255, 0.98);
-            line-height: 1.6;
-            letter-spacing: 0.5px;
+            line-height: 1.7;
+            letter-spacing: 0.3px;
         }
 
         /* 电梯摘要 */
@@ -162,12 +168,14 @@
             padding: 40px 45px;
             border-radius: 16px;
             border: 3px solid #f59e0b;
-            font-size: 16px;
-            line-height: 2;
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 1.9;
             color: #ffffff;
             position: relative;
             box-shadow: 0 10px 40px rgba(30, 58, 138, 0.3);
             z-index: 1;
+            letter-spacing: 0.3px;
         }
 
         .elevator-pitch::before {
@@ -182,8 +190,9 @@
         }
 
         .elevator-pitch strong {
+            font-family: 'Montserrat', sans-serif;
             color: #fbbf24;
-            font-weight: 800;
+            font-weight: 700;
         }
 
         /* 核心价值主张 */
@@ -250,6 +259,7 @@
         }
 
         .value-number {
+            font-family: 'Montserrat', sans-serif;
             font-size: 32px;
             font-weight: 900;
             color: #f59e0b;
@@ -260,12 +270,13 @@
         }
 
         .value-text {
-            font-size: 18px;
-            line-height: 1.75;
+            font-size: 17px;
+            line-height: 1.7;
             color: #0f172a;
-            font-weight: 600;
+            font-weight: 500;
             position: relative;
             z-index: 1;
+            letter-spacing: 0.2px;
         }
 
         /* 章节样式 */
@@ -333,8 +344,9 @@
         }
 
         .section-title {
-            font-size: 30px;
-            font-weight: 900;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
             color: #1e3a8a;
             margin-bottom: 35px;
             display: flex;
@@ -344,6 +356,7 @@
             border-bottom: 3px solid #f59e0b;
             position: relative;
             z-index: 1;
+            letter-spacing: -0.5px;
         }
 
         .section-title::before {
@@ -397,17 +410,19 @@
         }
 
         .card-title {
-            font-size: 18px;
-            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
             color: #1e3a8a;
             margin-bottom: 14px;
+            letter-spacing: -0.3px;
         }
 
         .card-content {
-            font-size: 14.5px;
-            line-height: 1.85;
+            font-size: 15px;
+            line-height: 1.75;
             color: #1e293b;
-            font-weight: 500;
+            font-weight: 400;
         }
 
         /* 平台组件 */
@@ -463,17 +478,19 @@
         }
 
         .component-name {
-            font-size: 17px;
-            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
             color: #1e3a8a;
             margin-bottom: 10px;
+            letter-spacing: -0.2px;
         }
 
         .component-desc {
-            font-size: 13.5px;
+            font-size: 15px;
             color: #334155;
-            line-height: 1.8;
-            font-weight: 500;
+            line-height: 1.7;
+            font-weight: 400;
         }
 
         /* 典型场景 */
@@ -516,23 +533,26 @@
         }
 
         .scenario-title {
+            font-family: 'Montserrat', sans-serif;
             font-size: 32px;
-            font-weight: 900;
+            font-weight: 800;
             color: white;
             margin-bottom: 16px;
             text-align: center;
             position: relative;
             z-index: 1;
+            letter-spacing: -0.5px;
         }
 
         .scenario-subtitle {
             color: rgba(255, 255, 255, 0.95);
-            font-size: 16px;
+            font-size: 17px;
             margin-bottom: 45px;
             text-align: center;
             position: relative;
             z-index: 1;
-            font-weight: 500;
+            font-weight: 400;
+            letter-spacing: 0.2px;
         }
 
         .scenario-grid {
@@ -565,17 +585,20 @@
         }
 
         .scenario-card-title {
-            font-size: 19px;
-            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
             margin-bottom: 14px;
             color: white;
+            letter-spacing: -0.2px;
         }
 
         .scenario-desc {
-            font-size: 14px;
-            line-height: 1.75;
+            font-size: 15px;
+            line-height: 1.7;
             color: rgba(255, 255, 255, 0.92);
-            font-weight: 500;
+            font-weight: 400;
+            letter-spacing: 0.1px;
         }
 
         /* 技术创新 */
@@ -590,13 +613,14 @@
             background: white;
             padding: 28px 32px 28px 70px;
             border-radius: 16px;
-            font-size: 14.5px;
-            line-height: 1.85;
+            font-size: 15px;
+            line-height: 1.75;
             color: #1e293b;
             border: 2px solid #e5e7eb;
             position: relative;
             box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
             z-index: 1;
+            font-weight: 400;
         }
 
         .feature-item::before {
@@ -619,8 +643,9 @@
         }
 
         .feature-item strong {
+            font-family: 'Montserrat', sans-serif;
             color: #1e3a8a;
-            font-weight: 800;
+            font-weight: 700;
         }
 
         /* 底部信息 */
@@ -632,45 +657,26 @@
             overflow: hidden;
         }
 
-        /* 渐变条纹装饰 */
         .footer::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 400px;
-            height: 100%;
-            background: 
-                repeating-linear-gradient(-45deg,
-                    transparent,
-                    transparent 30px,
-                    rgba(245, 158, 11, 0.08) 30px,
-                    rgba(245, 158, 11, 0.08) 32px,
-                    transparent 32px,
-                    transparent 60px,
-                    rgba(245, 158, 11, 0.12) 60px,
-                    rgba(245, 158, 11, 0.12) 64px);
-            opacity: 0.6;
+            top: -100px;
+            left: -100px;
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
         }
 
         .footer::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 450px;
-            height: 100%;
-            background: 
-                repeating-linear-gradient(45deg,
-                    transparent,
-                    transparent 40px,
-                    rgba(255, 255, 255, 0.05) 40px,
-                    rgba(255, 255, 255, 0.05) 42px,
-                    transparent 42px,
-                    transparent 80px,
-                    rgba(255, 255, 255, 0.08) 80px,
-                    rgba(255, 255, 255, 0.08) 85px);
-            opacity: 0.5;
+            bottom: -120px;
+            right: -120px;
+            width: 600px;
+            height: 600px;
+            border: 50px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
         }
 
         .footer-grid {
@@ -685,21 +691,23 @@
         .footer-section {
             position: relative;
             z-index: 1;
-            font-size: 14px;
+            font-size: 15px;
         }
 
         .footer-title {
-            font-weight: 900;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
             color: white;
             margin-bottom: 14px;
-            font-size: 19px;
+            font-size: 20px;
+            letter-spacing: -0.2px;
         }
 
         .footer-content {
             color: rgba(255, 255, 255, 0.9);
-            line-height: 1.9;
-            font-size: 14.5px;
-            font-weight: 500;
+            line-height: 1.8;
+            font-size: 15px;
+            font-weight: 400;
         }
 
         .qr-section {
@@ -718,9 +726,9 @@
 
         .qr-text {
             color: rgba(255, 255, 255, 0.9);
-            line-height: 1.9;
+            line-height: 1.8;
             font-size: 15px;
-            font-weight: 600;
+            font-weight: 500;
         }
 
         .footer-bottom {
@@ -729,16 +737,17 @@
             text-align: center;
             color: rgba(255, 255, 255, 0.9);
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 500;
             position: relative;
             z-index: 1;
         }
 
         .footer-bottom a {
+            font-family: 'Montserrat', sans-serif;
             color: #fbbf24;
             text-decoration: none;
             margin-left: 10px;
-            font-weight: 800;
+            font-weight: 700;
         }
 
         /* 确保 Font Awesome 图标正常加载 */
