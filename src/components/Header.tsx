@@ -138,7 +138,7 @@ export default function Header() {
             <nav className="hidden lg:flex lg:items-center lg:space-x-2 ml-12">
               {navItems.slice(0, 4).map((item) => {
                 const linkClass = cn(
-                  'px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200',
+                  'px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 whitespace-nowrap',
                   'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
                   'hover:bg-zinc-100 dark:hover:bg-zinc-800',
                   activeSection === item.section && 'text-primary-600 dark:text-primary-400'
@@ -173,7 +173,7 @@ export default function Header() {
               >
                 <button
                   className={cn(
-                    'px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 flex items-center gap-1',
+                    'px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 flex items-center gap-1 whitespace-nowrap',
                     'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
                     'hover:bg-zinc-100 dark:hover:bg-zinc-800'
                   )}
@@ -190,16 +190,16 @@ export default function Header() {
                 </button>
                 
                 {platformMenuOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-56 py-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-xl">
+                  <div className="absolute top-full left-0 mt-2 min-w-[240px] py-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-xl">
                     {platformMenuItems.map((item) => {
                       const IconComponent = item.icon;
                       return (
                         <Link
                           key={item.href}
                           href={item.href}
-                          className="flex items-center gap-3 px-4 py-3 text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                          className="flex items-center gap-3 px-4 py-3 text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-primary-600 dark:hover:text-primary-400 transition-colors whitespace-nowrap"
                         >
-                          <IconComponent className="w-4 h-4" />
+                          <IconComponent className="w-4 h-4 flex-shrink-0" />
                           <span>{item.label}</span>
                         </Link>
                       );
@@ -210,7 +210,7 @@ export default function Header() {
               
               {navItems.slice(4).map((item) => {
                 const linkClass = cn(
-                  'px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200',
+                  'px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 whitespace-nowrap',
                   'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
                   'hover:bg-zinc-100 dark:hover:bg-zinc-800',
                   activeSection === item.section && 'text-primary-600 dark:text-primary-400'

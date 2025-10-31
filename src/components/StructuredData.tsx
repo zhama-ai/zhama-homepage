@@ -61,7 +61,7 @@ export default function StructuredData() {
   const organizationData: OrganizationData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: locale === 'zh' ? '深圳市扎马未来科技有限公司' : 'Shenzhen Zhama Future Technology Co., Ltd.',
+    name: locale === 'zh' ? '深圳市扎马星辰科技有限公司' : 'Shenzhen Zhama Future Technology Co., Ltd.',
     url: baseUrl,
     logo: `${baseUrl}/images/logo_light.png`,
     description: locale === 'zh'
@@ -86,7 +86,7 @@ export default function StructuredData() {
   const websiteData: WebsiteData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: locale === 'zh' ? 'TeGo-AI智能体操作系统' : 'TeGo AI Agent Platform',
+    name: locale === 'zh' ? 'TeGo-OS智能体操作系统' : 'TeGo AI Agent Platform',
     url: baseUrl,
     potentialAction: {
       "@type": "SearchAction",
@@ -98,7 +98,7 @@ export default function StructuredData() {
   const softwareData: SoftwareApplicationData = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: locale === 'zh' ? 'TeGo-AI智能体操作系统' : 'TeGo AI Agent Platform',
+    name: locale === 'zh' ? 'TeGo-OS智能体操作系统' : 'TeGo AI Agent Platform',
     description: locale === 'zh'
       ? '企业级AI智能体平台，提供全链路智能化解决方案，支持私有化部署。'
       : 'Enterprise AI Agent Platform providing full-chain intelligent solutions with private deployment support.',
@@ -112,7 +112,7 @@ export default function StructuredData() {
     },
     publisher: {
       "@type": "Organization",
-      name: locale === 'zh' ? '深圳市扎马未来科技有限公司' : 'Shenzhen Zhama Future Technology Co., Ltd.'
+      name: locale === 'zh' ? '深圳市扎马星辰科技有限公司' : 'Shenzhen Zhama Future Technology Co., Ltd.'
     }
   }
 

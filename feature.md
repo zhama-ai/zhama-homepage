@@ -1,10 +1,10 @@
 <!-- M 扎马科技 ZHAMA TECHNOLOGY -->
 
-# TeGo-AI智能体操作系统
+# TeGo-OS智能体操作系统
 
 A1·基建驱动·万物皆智能体·全链路智能协作平台
 
-2025©深圳市扎马未来科技有限公司
+2025©深圳市扎马星辰科技有限公司
 
 
 ![](https://web-api.textin.com/ocr_image/external/91323fdbb88c31a3.jpg)

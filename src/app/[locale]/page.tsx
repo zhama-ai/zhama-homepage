@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import FeaturesSection from '@/components/FeaturesSection';
+import TegoOSSection from '@/components/TegoOSSection';
 import AdvantagesSection from '@/components/AdvantagesSection';
 import DownloadSection from '@/components/DownloadSection';
 import PricingSection from '@/components/PricingSection';
@@ -20,6 +21,7 @@ export default async function Home({ params }: HomeProps) {
       <main>
         <HeroSection locale={locale} />
         <FeaturesSection locale={locale} />
+        <TegoOSSection locale={locale} />
         <AdvantagesSection locale={locale} />
         <PricingSection locale={locale} />
         <DownloadSection locale={locale} />

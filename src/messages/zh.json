@@ -35,12 +35,12 @@
   },
   "home": {
     "hero": {
-      "title": "TeGo-AI 智能体操作系统",
+      "title": "TeGo-OS 智能体操作系统",
       "tagline": "AI·基建驱动 · 万物皆智能体 · 全链路智能协作平台",
       "description": "面向企业的“AI 基建 + 智能体操作系统”，打通接入→编排→模型→集成全链路，以低门槛与高 ROI 将业务流程升级为可自动执行的智能体工作流。",
       "cta": "预约演示",
       "secondaryCta": "在线体验",
-      "imgAlt": "TeGo-AI智能体操作系统平台展示"
+      "imgAlt": "TeGo-OS智能体操作系统平台展示"
     }
   },
   "contactPage": {
@@ -88,14 +88,14 @@
     }
   },
   "appDownload": {
-    "title": "立即体验 TeGo-AI 智能体操作系统",
+    "title": "立即体验 TeGo-OS 智能体操作系统",
     "appLogo": {
-      "title": "TeGo-AI",
-      "alt": "TeGo-AI智能体操作系统 Logo"
+      "title": "TeGo-OS",
+      "alt": "TeGo-OS智能体操作系统 Logo"
     },
     "appIntro": {
       "slogan": "AI·基建驱动 · 万物皆智能体 · 全链路智能协作平台",
-      "tagline": "深圳市扎马未来科技有限公司"
+      "tagline": "深圳市扎马星辰科技有限公司"
     },
     "whyChoose": "为什么选择 TeGo？六大核心优势",
     "features": {
@@ -112,7 +112,7 @@
       "planner": "技术团队 · 灵活二次开发"
     },
     "download": {
-      "heading": "多种方式快速对接 TeGo-AI 智能体平台",
+      "heading": "多种方式快速对接 TeGo-OS 智能体平台",
       "webapp": {
         "title": "在线演示",
         "action": "预约产品演示"
@@ -132,8 +132,8 @@
       },
       "qrCode": {
         "notice": "扫描二维码联系我们",
-        "description": "扫描二维码，获取TeGo-AI专业服务",
-        "alt": "TeGo-AI 企业服务联系二维码"
+        "description": "扫描二维码，获取TeGo-OS专业服务",
+        "alt": "TeGo-OS 企业服务联系二维码"
       }
     },
     "wechatBrowser": {
@@ -151,7 +151,7 @@
     "sections": {
       "introduction": {
         "title": "引言",
-        "content": "深圳市扎马未来科技有限公司（以下简称\"我们\"）致力于保护您的个人隐私。本隐私政策说明我们如何收集、使用、存储和保护您的个人信息。",
+        "content": "深圳市扎马星辰科技有限公司（以下简称\"我们\"）致力于保护您的个人隐私。本隐私政策说明我们如何收集、使用、存储和保护您的个人信息。",
         "content2": "使用我们的服务即表示您同意本隐私政策的条款。如果您不同意，请不要使用我们的服务。"
       },
       "collection": {
@@ -350,7 +350,7 @@
       }
     ],
     "footer": {
-      "prefix": "TeGo-AI智能体操作系统",
+      "prefix": "TeGo-OS智能体操作系统",
       "suffix": "，用AI基建驱动企业智能化未来。"
     },
     "typingPhrases": [
@@ -405,12 +405,12 @@
     }
   },
   "footer": {
-    "companyName": "扎马未来",
-    "companyDescription": "TeGo-AI智能体操作系统 · 企业级AI解决方案与服务",
+    "companyName": "扎马星辰",
+    "companyDescription": "TeGo-OS智能体操作系统 · 企业级AI解决方案与服务",
     "products": "产品服务",
     "home": {
       "hero": {
-        "title": "TeGo-AI智能体操作系统"
+        "title": "TeGo-OS智能体操作系统"
       }
     },
     "enterprise": "企业解决方案",
@@ -432,7 +432,7 @@
         "email": "support@zhama.com"
       }
     },
-    "copyright": "© 2025 深圳市扎马未来科技有限公司 版权所有 TeGo-AI智能体操作系统",
+    "copyright": "© 2025 深圳市扎马星辰科技有限公司 版权所有 TeGo-OS智能体操作系统",
     "icp": "粤ICP备2025426259号-1"
   },
   "advantagesSection": {
@@ -496,7 +496,7 @@
     "enterprise": {
       "ribbon": "ON PREMISE",
       "badge": "企业旗舰",
-      "name": "TeGo-AI智能体操作系统",
+      "name": "TeGo-OS智能体操作系统",
       "lead": "全链路智能体运行与治理平台，企业优先",
       "desc": "自主品牌 + 高安全 + 专属支持 + POC 验证，定制化报价",
       "featuresTitle": "包含「订阅版特性」，并提供",
@@ -581,15 +581,15 @@
     }
   },
   "seo": {
-    "title": "TeGo-AI智能体操作系统 | 深圳市扎马未来科技有限公司",
+    "title": "TeGo-OS智能体操作系统 | 深圳市扎马星辰科技有限公司",
     "description": "官方平台：TeGo‑AI 智能体操作系统与企业级 AI 解决方案，覆盖接入网关、智能体引擎、MCP 框架、模型网关与应用市场，支持私有化与高可用部署，助力“对话即操作”的流程自动化。",
-    "keywords": "TeGo, 智能体, AI Agent, 企业智能, 私有化部署, MCP 框架, 智能体操作系统, 业务流程自动化, 模型网关, 智能体工作流, AI 基建, 深圳市扎马未来科技有限公司",
+    "keywords": "TeGo, 智能体, AI Agent, 企业智能, 私有化部署, MCP 框架, 智能体操作系统, 业务流程自动化, 模型网关, 智能体工作流, AI 基建, 深圳市扎马星辰科技有限公司",
     "openGraph": {
-      "title": "TeGo-AI智能体操作系统 | 深圳市扎马未来科技有限公司",
+      "title": "TeGo-OS智能体操作系统 | 深圳市扎马星辰科技有限公司",
       "description": "一站式企业智能体平台：从接入到治理全链路打通，支持私有化与高可用落地，推动对话即操作与流程自动化。"
     },
     "twitter": {
-      "title": "TeGo-AI智能体操作系统",
+      "title": "TeGo-OS智能体操作系统",
       "description": "企业级AI智能体平台与解决方案"
     }
   },
@@ -768,6 +768,68 @@
       "openGraph": {
         "title": "技术特点 - TeGo MCP 平台",
         "description": "装饰器驱动的开发模式，极大简化智能体工具开发流程。"
+      }
+    }
+  },
+  "tegoOS": {
+    "title": "TeGo-OS 智能体操作系统",
+    "subtitle": "打通企业各业务系统之间的信息孤岛，实现系统互联、数据互通、智能调度",
+    "problem": {
+      "title": "企业信息孤岛现状",
+      "description": "在大多数企业内部，CRM、ERP、OA、财务、人事、客服、BI等系统彼此独立，数据分散、标准不一，员工需手动切换多个系统重复录入，信息流断裂导致决策滞后、效率低下。",
+      "systems": {
+        "crm": "CRM",
+        "erp": "ERP",
+        "oa": "OA",
+        "finance": "财务",
+        "hr": "人事",
+        "service": "客服",
+        "bi": "BI",
+        "supply": "供应链"
+      }
+    },
+    "mission": {
+      "title": "TeGo 的使命",
+      "description": "让企业所有系统通过智能体的形式自动协作，实现「系统互联、数据互通、智能调度」，让 AI 成为跨系统的信息中枢。不再需要人工在多个系统间切换，一句话即可完成跨系统的复杂业务流程。"
+    },
+    "technologies": {
+      "title": "四大核心技术",
+      "subtitle": "创新技术栈，打造企业级AI智能体操作系统",
+      "apiToMcp": {
+        "title": "API → MCP 自动转换算法",
+        "description": "智能解析与自动生成，让既有 API 秒变智能体工具",
+        "features": [
+          "从 Swagger/OpenAPI/GraphQL Schema 自动推理",
+          "生成 MCP 服务定义与上下文映射",
+          "支持自动参数匹配与类型转换"
+        ]
+      },
+      "orchestration": {
+        "title": "跨智能体编排调度架构",
+        "description": "智能体可以调用智能体，形成多层协作调度树",
+        "features": [
+          "多层 Agent 调度树，支持复杂业务流程",
+          "通过上下文传递共享数据",
+          "动态路由与负载均衡"
+        ]
+      },
+      "decisionEngine": {
+        "title": "上下文驱动的动态决策引擎",
+        "description": "结合语义理解与规则判断，动态选择最优执行路径",
+        "features": [
+          "TeGo-LLM 的语义理解与意图识别",
+          "规则引擎与决策树融合",
+          "实时上下文感知与路径优化"
+        ]
+      },
+      "feedbackLoop": {
+        "title": "反馈学习与知识闭环",
+        "description": "每次调用都是学习机会，持续优化模型与决策",
+        "features": [
+          "QueryLog → Feedback → 知识回灌",
+          "模型微调与持续优化",
+          "企业专属知识库积累"
+        ]
       }
     }
   }

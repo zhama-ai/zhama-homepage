@@ -495,7 +495,7 @@
     "enterprise": {
       "ribbon": "ON PREMISE",
       "badge": "Enterprise Flagship",
-      "name": "TeGo-AI Agent Operating System",
+      "name": "TeGo-OS Agent Operating System",
       "lead": "Build enterprise-grade agent operation & governance platform",
       "desc": "Support private deployment version, enterprise priority.",
       "featuresTitle": "Includes all Subscription features, plus:",
@@ -767,6 +767,68 @@
       "openGraph": {
         "title": "Technical Features - TeGo MCP Platform",
         "description": "Decorator-driven development model that greatly simplifies agent tool development process."
+      }
+    }
+  },
+  "tegoOS": {
+    "title": "TeGo-OS Agent Operating System",
+    "subtitle": "Breaking down information silos between enterprise systems, achieving system interconnection, data interoperability, and intelligent scheduling",
+    "problem": {
+      "title": "Enterprise Information Silos",
+      "description": "In most enterprises, CRM, ERP, OA, Finance, HR, Customer Service, BI and other systems operate independently. Data is scattered and non-standardized, employees need to manually switch between multiple systems for repetitive data entry, leading to information flow disruption, delayed decision-making, and reduced efficiency.",
+      "systems": {
+        "crm": "CRM",
+        "erp": "ERP",
+        "oa": "OA",
+        "finance": "Finance",
+        "hr": "HR",
+        "service": "Customer Service",
+        "bi": "BI",
+        "supply": "Supply Chain"
+      }
+    },
+    "mission": {
+      "title": "TeGo's Mission",
+      "description": "Enable all enterprise systems to collaborate automatically through intelligent agents, achieving 'system interconnection, data interoperability, and intelligent scheduling'. Let AI become the information hub across systems. No more manual switching between systems - complete complex cross-system business processes with a single command."
+    },
+    "technologies": {
+      "title": "Four Core Technologies",
+      "subtitle": "Innovative technology stack for enterprise-grade AI agent operating system",
+      "apiToMcp": {
+        "title": "API → MCP Auto-Conversion",
+        "description": "Intelligent parsing and automatic generation, transforming existing APIs into agent tools instantly",
+        "features": [
+          "Auto-inference from Swagger/OpenAPI/GraphQL Schema",
+          "Generate MCP service definitions and context mapping",
+          "Support automatic parameter matching and type conversion"
+        ]
+      },
+      "orchestration": {
+        "title": "Cross-Agent Orchestration Architecture",
+        "description": "Agents can invoke other agents, forming multi-layer collaboration scheduling trees",
+        "features": [
+          "Multi-layer Agent scheduling tree for complex workflows",
+          "Share data through context passing",
+          "Dynamic routing and load balancing"
+        ]
+      },
+      "decisionEngine": {
+        "title": "Context-Driven Dynamic Decision Engine",
+        "description": "Combining semantic understanding with rule-based judgment for optimal execution path selection",
+        "features": [
+          "TeGo-LLM semantic understanding and intent recognition",
+          "Fusion of rule engine and decision tree",
+          "Real-time context awareness and path optimization"
+        ]
+      },
+      "feedbackLoop": {
+        "title": "Feedback Learning and Knowledge Loop",
+        "description": "Every invocation is a learning opportunity for continuous model and decision optimization",
+        "features": [
+          "QueryLog → Feedback → Knowledge infusion",
+          "Model fine-tuning and continuous optimization",
+          "Enterprise-specific knowledge base accumulation"
+        ]
       }
     }
   }
