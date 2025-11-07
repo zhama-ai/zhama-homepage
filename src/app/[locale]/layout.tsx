@@ -35,14 +35,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: {
       default: seo.title || (locale === 'zh' 
-        ? 'TeGo-OS智能体操作系统 | 深圳市扎马星辰科技有限公司'
+        ? 'TeGo-OS智能体操作系统 | 深圳市扎马未来科技有限公司'
         : 'TeGo AI Agent Platform | Shenzhen Zhama Future Technology Co., Ltd.'),
       template: locale === 'zh'
         ? `%s | ${messages?.home?.hero?.title || 'TeGo-OS智能体操作系统'}`
         : `%s | ${messages?.home?.hero?.title || 'TeGo AI Agent Platform'}`
     },
     description: seo.description || (locale === 'zh'
-      ? '深圳市扎马星辰科技有限公司官方平台：TeGo-OS智能体操作系统与企业级AI解决方案'
+      ? '深圳市扎马未来科技有限公司官方平台：TeGo-OS智能体操作系统与企业级AI解决方案'
       : 'Shenzhen Zhama Future Technology Co., Ltd. official platform: TeGo AI Agent Platform and enterprise AI solutions'),
     keywords: seo.keywords || (locale === 'zh'
       ? 'TeGo, 智能体, AI Agent, 企业智能, 私有化部署, MCP 框架, 深圳扎马, 人工智能, 企业级AI, 智能化解决方案'
@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     openGraph: {
       title: seo.openGraph?.title || seo.title || (locale === 'zh' 
-        ? 'TeGo-OS智能体操作系统 | 深圳市扎马星辰科技有限公司'
+        ? 'TeGo-OS智能体操作系统 | 深圳市扎马未来科技有限公司'
         : 'TeGo AI Agent Platform | Shenzhen Zhama Future Technology Co., Ltd.'),
       description: seo.openGraph?.description || seo.description,
       siteName: messages?.home?.hero?.title || (locale === 'zh' ? 'TeGo-OS 智能体操作系统' : 'TeGo AI Agent Platform'),

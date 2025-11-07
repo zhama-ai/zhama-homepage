@@ -61,7 +61,7 @@ export default function StructuredData() {
   const organizationData: OrganizationData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: locale === 'zh' ? '深圳市扎马星辰科技有限公司' : 'Shenzhen Zhama Future Technology Co., Ltd.',
+    name: locale === 'zh' ? '深圳市扎马未来科技有限公司' : 'Shenzhen Zhama Future Technology Co., Ltd.',
     url: baseUrl,
     logo: `${baseUrl}/images/logo_light.png`,
     description: locale === 'zh'
@@ -112,7 +112,7 @@ export default function StructuredData() {
     },
     publisher: {
       "@type": "Organization",
-      name: locale === 'zh' ? '深圳市扎马星辰科技有限公司' : 'Shenzhen Zhama Future Technology Co., Ltd.'
+      name: locale === 'zh' ? '深圳市扎马未来科技有限公司' : 'Shenzhen Zhama Future Technology Co., Ltd.'
     }
   }
 

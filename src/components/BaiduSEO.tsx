@@ -15,15 +15,15 @@ export default function BaiduSEO() {
     "@context": "https://ziyuan.baidu.com/college/courseinfo",
     "@type": "WebPage",
     name: "TeGo-OS智能体操作系统",
-    description: "深圳市扎马星辰科技有限公司旗下TeGo-OS智能体操作系统，提供企业级AI智能体平台与私有化解决方案，覆盖感知-理解-执行全链路能力。",
+    description: "深圳市扎马未来科技有限公司旗下TeGo-OS智能体操作系统，提供企业级AI智能体平台与私有化解决方案，覆盖感知-理解-执行全链路能力。",
     url: `${baseUrl}/zh`,
     author: {
       "@type": "Organization",
-      name: "深圳市扎马星辰科技有限公司"
+      name: "深圳市扎马未来科技有限公司"
     },
     publisher: {
       "@type": "Organization", 
-      name: "深圳市扎马星辰科技有限公司",
+      name: "深圳市扎马未来科技有限公司",
       logo: {
         "@type": "ImageObject",
         url: `${baseUrl}/images/logo_light.png`
