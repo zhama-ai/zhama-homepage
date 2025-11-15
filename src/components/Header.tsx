@@ -76,6 +76,7 @@ export default function Header() {
     { href: `/${locale}/#advantages`, label: t('nav.advantages'), section: 'advantages' },
     { href: `/${locale}/#pricing`, label: t('nav.pricing'), section: 'pricing' },
     { href: 'https://docs.zhama.com.cn', label: t('nav.docs'), external: true },
+    { href: `/${locale}/blog`, label: t('nav.blog'), external: true },
     { href: `/${locale}/contact`, label: t('nav.contact') },
     { href: `/${locale}/#about`, label: t('nav.about'), section: 'about' },
   ];
@@ -127,18 +128,18 @@ export default function Header() {
     >
       <div className="container-custom">
         <div className="flex justify-between items-center h-16 lg:h-20">
-          <div className="flex items-center flex-1">
+          <div className="flex items-center min-w-0">
             {/* Logo */}
-            <Link href={`/${locale}`} className="flex items-center flex-shrink-0">
+            <Link href={`/${locale}`} className="flex items-center flex-shrink-0 mr-6">
               <img src="/images/logo_light.png" alt="Logo" className="h-10 sm:h-12 w-auto dark:hidden" />
               <img src="/images/logo_dark.png" alt="Logo" className="h-10 sm:h-12 w-auto hidden dark:block" />
             </Link>
             
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex lg:items-center lg:space-x-2 ml-12">
+            <nav className="hidden lg:flex lg:items-center lg:gap-1">
               {navItems.slice(0, 4).map((item) => {
                 const linkClass = cn(
-                  'px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 whitespace-nowrap',
+                  'px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 whitespace-nowrap',
                   'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
                   'hover:bg-zinc-100 dark:hover:bg-zinc-800',
                   activeSection === item.section && 'text-primary-600 dark:text-primary-400'
@@ -173,7 +174,7 @@ export default function Header() {
               >
                 <button
                   className={cn(
-                    'px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 flex items-center gap-1 whitespace-nowrap',
+                    'px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 flex items-center gap-1 whitespace-nowrap',
                     'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
                     'hover:bg-zinc-100 dark:hover:bg-zinc-800'
                   )}
@@ -210,7 +211,7 @@ export default function Header() {
               
               {navItems.slice(4).map((item) => {
                 const linkClass = cn(
-                  'px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 whitespace-nowrap',
+                  'px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 whitespace-nowrap',
                   'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
                   'hover:bg-zinc-100 dark:hover:bg-zinc-800',
                   activeSection === item.section && 'text-primary-600 dark:text-primary-400'
@@ -239,24 +240,29 @@ export default function Header() {
             </nav>
           </div>
           
-          <div className="flex items-center space-x-4">
-            <div className="hidden lg:flex items-center space-x-4">
-              <ThemeSwitcher />
-              <LanguageSwitcher />
+          <div className="flex items-center gap-3 flex-shrink-0">
+            <div className="hidden lg:flex items-center gap-3">
+              <div className="flex items-center" style={{ height: '40px' }}>
+                <ThemeSwitcher />
+              </div>
+              <div className="flex items-center" style={{ height: '40px' }}>
+                <LanguageSwitcher />
+              </div>
             </div>
             
             <a 
               href="https://tego.zhama.com.cn" 
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center px-6 py-2 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-medium shadow-md hover:shadow-lg transition-all duration-300 active:scale-95"
+              className="hidden sm:flex items-center justify-center px-5 rounded-xl bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium shadow-md hover:shadow-lg transition-all duration-300 active:scale-95 whitespace-nowrap"
+              style={{ height: '40px' }}
             >
               {t('nav.tryNow')}
             </a>
             
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+              className="lg:hidden p-2 rounded-lg text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50 hover:bg-zinc-100 dark:hover:bg-zinc-800 flex items-center justify-center"
               aria-label="Toggle mobile menu"
             >
               <svg 

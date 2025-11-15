@@ -24,6 +24,7 @@
     "download": "Contact Us",
     "about": "About Us",
     "docs": "Documentation",
+    "blog": "Blog",
     "contact": "Contact Us",
     "tryNow": "Try Now",
     "platform": {
@@ -830,6 +831,39 @@
           "Enterprise-specific knowledge base accumulation"
         ]
       }
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Technical Blog - TeGo-OS AI Agent Platform",
+      "description": "Latest technical updates, product news, industry insights and best practices from TeGo-OS"
+    },
+    "title": "Technical Blog",
+    "subtitle": "Explore cutting-edge AI technology and share enterprise intelligence practices",
+    "breadcrumb": {
+      "blog": "Blog"
+    },
+    "featured": {
+      "title": "Featured Articles"
+    },
+    "allPosts": {
+      "title": "All Posts",
+      "count": "{count} articles in total"
+    },
+    "sidebar": {
+      "categories": "Categories",
+      "allCategories": "All Categories",
+      "tags": "Tags"
+    },
+    "noPosts": "No posts yet",
+    "share": "Share",
+    "category": "Category",
+    "tag": "Tag",
+    "tags": {
+      "title": "Tags"
+    },
+    "related": {
+      "title": "Related Articles"
     }
   }
 }

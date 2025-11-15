@@ -24,6 +24,7 @@
     "download": "联系我们",
     "about": "关于我们",
     "docs": "文档中心",
+    "blog": "技术博客",
     "contact": "联系我们",
     "tryNow": "预约演示",
     "platform": {
@@ -831,6 +832,39 @@
           "企业专属知识库积累"
         ]
       }
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "技术博客 - TeGo-OS智能体操作系统",
+      "description": "TeGo-OS最新技术动态、产品更新、行业洞察和最佳实践分享"
+    },
+    "title": "技术博客",
+    "subtitle": "探索AI技术前沿，分享企业智能化实践经验",
+    "breadcrumb": {
+      "blog": "博客"
+    },
+    "featured": {
+      "title": "精选文章"
+    },
+    "allPosts": {
+      "title": "全部文章",
+      "count": "共 {count} 篇文章"
+    },
+    "sidebar": {
+      "categories": "分类",
+      "allCategories": "全部分类",
+      "tags": "标签"
+    },
+    "noPosts": "暂无文章",
+    "share": "分享",
+    "category": "分类",
+    "tag": "标签",
+    "tags": {
+      "title": "标签"
+    },
+    "related": {
+      "title": "相关文章"
     }
   }
 }

@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next'
 import { locales } from '@/i18n'
+import { getAllBlogPostsMetadata } from '@/lib/blog/blog-utils'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://zhama.com'
   
   // Base pages with detailed configuration
@@ -41,6 +42,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFreq: 'yearly' as const, 
       priority: 0.5,
       lastMod: new Date('2024-10-01')
+    },
+    { 
+      path: '/blog', 
+      changeFreq: 'weekly' as const, 
+      priority: 0.9, // High priority for blog index
+      lastMod: new Date('2024-11-14')
     }
   ]
   
@@ -68,6 +75,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'daily',
     priority: 0.8,
   })
+  
+  // Add blog posts for each locale
+  for (const locale of locales) {
+    try {
+      const posts = await getAllBlogPostsMetadata(locale)
+      posts.forEach(post => {
+        sitemapEntries.push({
+          url: `${baseUrl}/${locale}/blog/${post.slug}`,
+          lastModified: new Date(post.date),
+          changeFrequency: 'monthly',
+          priority: post.featured ? 0.85 : 0.7, // Higher priority for featured posts
+        })
+      })
+    } catch (error) {
+      // If blog posts don't exist yet, continue
+      console.warn(`No blog posts found for locale: ${locale}`)
+    }
+  }
   
   return sitemapEntries.sort((a, b) => (b.priority || 0) - (a.priority || 0)) // Sort by priority
 }

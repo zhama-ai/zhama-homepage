@@ -135,6 +135,82 @@
   .text-gradient {
     @apply bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent;
   }
+
+  /* 博客内容样式 - 仅针对博客文章内容区域 */
+  article .blog-content h1 {
+    @apply text-2xl md:text-3xl !important;
+    @apply mb-10 mt-16 !important;
+    line-height: 1.4 !important;
+  }
+
+  article .blog-content h2 {
+    @apply text-xl md:text-2xl !important;
+    @apply mt-24 mb-10 !important;
+    @apply border-b border-gray-200 dark:border-gray-700 pb-5 !important;
+    line-height: 1.4 !important;
+  }
+
+  article .blog-content h3 {
+    @apply text-lg md:text-xl !important;
+    @apply mt-16 mb-8 !important;
+    line-height: 1.5 !important;
+  }
+
+  article .blog-content h4 {
+    @apply text-base md:text-lg !important;
+    @apply mt-12 mb-6 !important;
+    @apply font-semibold !important;
+    line-height: 1.5 !important;
+  }
+
+  article .blog-content p {
+    @apply text-base md:text-lg !important;
+    @apply mb-10 !important;
+    line-height: 2 !important;
+    @apply text-gray-700 dark:text-gray-300 !important;
+  }
+
+  article .blog-content ul,
+  article .blog-content ol {
+    @apply my-10 pl-6 !important;
+  }
+
+  article .blog-content li {
+    @apply text-base md:text-lg !important;
+    @apply mb-4 !important;
+    line-height: 2 !important;
+    @apply text-gray-700 dark:text-gray-300 !important;
+  }
+
+  article .blog-content pre {
+    @apply my-10 p-6 rounded-xl !important;
+    @apply bg-gray-900 dark:bg-gray-950 !important;
+    line-height: 1.6 !important;
+  }
+
+  article .blog-content code {
+    @apply text-sm md:text-base !important;
+    @apply px-2 py-1 rounded !important;
+    @apply text-pink-600 dark:text-pink-400 !important;
+    @apply bg-gray-100 dark:bg-gray-800 !important;
+  }
+
+  article .blog-content blockquote {
+    @apply my-10 py-5 px-6 !important;
+    @apply border-l-4 border-blue-500 !important;
+    @apply bg-blue-50 dark:bg-blue-900/20 !important;
+    @apply italic !important;
+    line-height: 1.8 !important;
+  }
+
+  article .blog-content img {
+    @apply my-12 rounded-lg shadow-lg !important;
+  }
+
+  article .blog-content hr {
+    @apply my-20 !important;
+    @apply border-gray-300 dark:border-gray-700 !important;
+  }
 }
 
 @layer utilities {
