@@ -47,7 +47,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       path: '/blog', 
       changeFreq: 'weekly' as const, 
       priority: 0.9, // High priority for blog index
-      lastMod: new Date('2024-11-14')
+      lastMod: new Date('2024-11-19')
     }
   ]
   

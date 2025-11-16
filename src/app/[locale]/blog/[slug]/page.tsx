@@ -5,7 +5,7 @@ import { Calendar, Clock, User } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
-import Breadcrumb from '@/components/blog/Breadcrumb';
+import BlogNav from '@/components/blog/BlogNav';
 import BlogContent from '@/components/blog/BlogContent';
 import CategoryBadge from '@/components/blog/CategoryBadge';
 import TagList from '@/components/blog/TagList';
@@ -94,19 +94,9 @@ export default async function BlogPostPage({ params }: Props) {
 
   const t = await getTranslations({ locale, namespace: 'blog' });
 
-  const breadcrumbItems = [
-    { label: t('breadcrumb.blog'), href: `/${locale}/blog` },
-    { label: post.title },
-  ];
-
   return (
-    <main>
-      <Section className="py-12 bg-gray-50 dark:bg-gray-900">
-        <Container>
-          <Breadcrumb items={breadcrumbItems} locale={locale} />
-        </Container>
-      </Section>
-
+    <main className="pt-16">
+      <BlogNav />
       <article>
         <Section className="py-16 bg-white dark:bg-gray-900">
           <Container className="max-w-5xl">

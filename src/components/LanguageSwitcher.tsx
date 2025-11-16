@@ -18,7 +18,7 @@ export function LanguageSwitcher() {
     const pathWithoutLocale = pathname.startsWith(`/${locale}`) 
       ? pathname.slice(`/${locale}`.length) || '/'
       : pathname;
-    const newPath = newLocale === 'zh' ? pathWithoutLocale : `/${newLocale}${pathWithoutLocale}`;
+    const newPath = `/${newLocale}${pathWithoutLocale}`;
     
     startTransition(() => {
       router.replace(newPath);

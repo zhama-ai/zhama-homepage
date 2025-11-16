@@ -5,7 +5,7 @@ import { getTranslations } from 'next-intl/server';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import BlogCard from '@/components/blog/BlogCard';
-import Breadcrumb, { type BreadcrumbItem } from '@/components/blog/Breadcrumb';
+import BlogNav from '@/components/blog/BlogNav';
 import { getAllBlogPostsMetadata } from '@/lib/blog/blog-utils';
 import { getAllCategories, getAllTags, getFeaturedPosts } from '@/lib/blog/markdown';
 import { locales } from '@/i18n';
@@ -70,22 +70,11 @@ export default async function BlogPage({ params, searchParams }: Props) {
 
   const t = await getTranslations({ locale, namespace: 'blog' });
 
-  const breadcrumbItems: BreadcrumbItem[] = [
-    { label: t('breadcrumb.blog'), href: `/${locale}/blog` },
-  ];
-  
-  // Add category or tag to breadcrumb if filtered
-  if (category) {
-    breadcrumbItems.push({ label: category });
-  } else if (tag) {
-    breadcrumbItems.push({ label: `#${tag}` });
-  }
-
   return (
-    <main>
+    <main className="pt-16">
+      <BlogNav />
       <Section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
         <Container>
-          <Breadcrumb items={breadcrumbItems} locale={locale} />
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               {t('title')}

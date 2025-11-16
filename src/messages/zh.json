@@ -839,6 +839,10 @@
       "title": "技术博客 - TeGo-OS智能体操作系统",
       "description": "TeGo-OS最新技术动态、产品更新、行业洞察和最佳实践分享"
     },
+    "nav": {
+      "title": "技术博客",
+      "allPosts": "全部文章"
+    },
     "title": "技术博客",
     "subtitle": "探索AI技术前沿，分享企业智能化实践经验",
     "breadcrumb": {

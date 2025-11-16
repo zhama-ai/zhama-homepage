@@ -838,6 +838,10 @@
       "title": "Technical Blog - TeGo-OS AI Agent Platform",
       "description": "Latest technical updates, product news, industry insights and best practices from TeGo-OS"
     },
+    "nav": {
+      "title": "Tech Blog",
+      "allPosts": "All Posts"
+    },
     "title": "Technical Blog",
     "subtitle": "Explore cutting-edge AI technology and share enterprise intelligence practices",
     "breadcrumb": {
