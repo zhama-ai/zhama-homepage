@@ -71,3 +71,9 @@ export default function BlogCard({ post, locale }: BlogCardProps) {
 
 
 
+
+
+
+
+
+
