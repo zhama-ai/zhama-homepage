@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多智能体协同决策 - TeGo-OS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .presentation {
+            width: 1920px;
+            height: 1080px;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            padding: 80px 120px;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        /* Slide 1 - 标题页 */
+        .slide-1 {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        .badge svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        h1 {
+            font-size: 76px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 32px;
+            color: #666;
+            margin-bottom: 50px;
+            line-height: 1.6;
+        }
+
+        .lamp-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .lamp-card {
+            background: white;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-top: 6px solid;
+            transition: transform 0.3s ease;
+        }
+
+        .lamp-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .lamp-card.think {
+            border-top-color: #2196f3;
+        }
+
+        .lamp-card.speak {
+            border-top-color: #9c27b0;
+        }
+
+        .lamp-card.decide {
+            border-top-color: #ff5722;
+        }
+
+        .lamp-card h3 {
+            font-size: 30px;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .lamp-card p {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Slide 2 - 核心能力 */
+        .slide-2 {
+            background: white;
+        }
+
+        h2 {
+            font-size: 58px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .capability-item {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 28px;
+            border-left: 6px solid #1976d2;
+        }
+
+        .capability-item h4 {
+            font-size: 24px;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .capability-item p {
+            font-size: 17px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .metric-card {
+            text-align: center;
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            border-radius: 16px;
+            padding: 35px 20px;
+            color: white;
+        }
+
+        .metric-value {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .metric-label {
+            font-size: 18px;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+
+        .metric-desc {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 6px;
+        }
+
+        /* Footer */
+        .footer {
+            position: absolute;
+            bottom: 50px;
+            right: 120px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: #999;
+            font-size: 18px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1976d2;
+        }
+
+        /* Navigation */
+        .nav-buttons {
+            position: fixed;
+            bottom: 60px;
+            right: 60px;
+            display: none;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: #1976d2;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+        }
+
+        .nav-btn:hover {
+            background: #1565c0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(25, 118, 210, 0.4);
+        }
+
+        .nav-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .page-indicator {
+            position: fixed;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            gap: 12px;
+            z-index: 1000;
+        }
+
+        .page-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #ccc;
+            transition: all 0.3s ease;
+        }
+
+        .page-dot.active {
+            background: #1976d2;
+            width: 42px;
+            border-radius: 7px;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <!-- Slide 1: 标题页 + LAMP框架 -->
+        <div class="slide slide-1 active">
+            <div class="badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                发明专利技术
+            </div>
+            
+            <h1>多智能体协同决策</h1>
+            
+            <p class="subtitle">
+                基于语言增强的 LAMP 框架，融合 Think-Speak-Decide 三阶段推理管道<br>
+                实现智能体间深度协作与智能决策
+            </p>
+
+            <div class="lamp-container">
+                <div class="lamp-card think">
+                    <h3>Think 模块</h3>
+                    <p>持续推理分析</p>
+                    <p style="margin-top: 16px; font-size: 17px;">
+                        • 并行短期和长期推理<br>
+                        • 环境冲击检测<br>
+                        • 趋势追踪与战略分析
+                    </p>
+                </div>
+
+                <div class="lamp-card speak">
+                    <h3>Speak 模块</h3>
+                    <p>智能体通信</p>
+                    <p style="margin-top: 16px; font-size: 17px;">
+                        • 语义化消息生成<br>
+                        • 信念状态管理<br>
+                        • 共享知识库维护
+                    </p>
+                </div>
+
+                <div class="lamp-card decide">
+                    <h3>Decide 模块</h3>
+                    <p>决策融合</p>
+                    <p style="margin-top: 16px; font-size: 17px;">
+                        • 三源数据融合<br>
+                        • 加权评分决策<br>
+                        • 降级机制保障
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer">
+                <span class="logo">TeGo-OS</span>
+                <span>|</span>
+                <span>智能体操作系统</span>
+            </div>
+        </div>
+
+        <!-- Slide 2: 核心能力 + 性能指标 -->
+        <div class="slide slide-2">
+            <h2>核心能力与性能优势</h2>
+
+            <div class="capabilities-grid">
+                <div class="capability-item">
+                    <h4>智能任务路由</h4>
+                    <p>自动分析任务复杂度，智能选择单智能体或多智能体执行策略</p>
+                </div>
+
+                <div class="capability-item">
+                    <h4>混合推理机制</h4>
+                    <p>并行执行短期和长期推理，同时关注即时情况和长期趋势</p>
+                </div>
+
+                <div class="capability-item">
+                    <h4>语义化通信</h4>
+                    <p>基于自然语言的智能体间通信，包含丰富的语义信息和推理依据</p>
+                </div>
+
+                <div class="capability-item">
+                    <h4>三源决策融合</h4>
+                    <p>整合数值观测、推理分析和信念状态，生成可解释的智能决策</p>
+                </div>
+
+                <div class="capability-item">
+                    <h4>向量化经验池</h4>
+                    <p>智能经验复用，通过向量检索加速新任务规划，缩短规划时间</p>
+                </div>
+
+                <div class="capability-item">
+                    <h4>动态重规划</h4>
+                    <p>检测环境变化时自动触发重规划，在保留已完成工作基础上优化执行计划</p>
+                </div>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">15-25%</div>
+                    <div class="metric-label">任务成功率提升</div>
+                    <div class="metric-desc">启用推理模块后</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-value">2-5x</div>
+                    <div class="metric-label">执行效率提升</div>
+                    <div class="metric-desc">并发执行相比串行</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-value">40-60%</div>
+                    <div class="metric-label">规划时间缩短</div>
+                    <div class="metric-desc">经验复用加速</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-value">2-5x</div>
+                    <div class="metric-label">并发性能提升</div>
+                    <div class="metric-desc">DAG 调度优化</div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <span class="logo">TeGo-OS</span>
+                <span>|</span>
+                <span>智能体操作系统</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-buttons">
+        <button class="nav-btn" id="prevBtn" onclick="prevSlide()">← 上一页</button>
+        <button class="nav-btn" id="nextBtn" onclick="nextSlide()">下一页 →</button>
+    </div>
+
+    <div class="page-indicator">
+        <div class="page-dot active" data-slide="0"></div>
+        <div class="page-dot" data-slide="1"></div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dots = document.querySelectorAll('.page-dot');
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = n;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+            
+            // Update button states
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showSlide(index));
+        });
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>
+

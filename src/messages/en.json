@@ -31,7 +31,8 @@
       "title": "Tech Platform",
       "mcpPlatform": "MCP Platform",
       "pluginSystem": "Plugin System",
-      "technicalFeatures": "Technical Features"
+      "technicalFeatures": "Technical Features",
+      "multiAgent": "Multi-Agent Collaboration"
     }
   },
   "home": {
@@ -741,6 +742,10 @@
       "simplification": {
         "title": "Simplified Development Process",
         "description": "Greatly simplifies the development process, achieving \"define an invocable intelligent service with just a few lines of code\"."
+      },
+      "multiAgent": {
+        "title": "Multi-Agent Collaboration (LAMP Framework)",
+        "description": "Patented Technology: Language-enhanced multi-agent collaborative decision system featuring Think-Speak-Decide three-stage reasoning pipeline. Enables semantic communication between agents, continuous reasoning analysis, and multi-source information fusion for intelligent decisions. Supports DAG concurrent scheduling and dynamic replanning, achieving 15-25% improvement in task success rate and 2-5x performance boost."
       }
     },
     "codeExample": {
@@ -830,6 +835,138 @@
           "Model fine-tuning and continuous optimization",
           "Enterprise-specific knowledge base accumulation"
         ]
+      }
+    }
+  },
+  "multiAgent": {
+    "badge": "Patented Technology",
+    "title": "Multi-Agent Collaborative Decision System",
+    "subtitle": "Language-enhanced LAMP framework featuring Think-Speak-Decide three-stage reasoning pipeline for deep agent collaboration and intelligent decision-making",
+    "tags": {
+      "patent": "Patent",
+      "lamp": "LAMP Framework",
+      "dag": "DAG Scheduling"
+    },
+    "lamp": {
+      "title": "LAMP Three-Stage Reasoning Pipeline",
+      "subtitle": "Language-enhanced Multi-Agent Planning Framework",
+      "think": {
+        "title": "Think Module - Continuous Reasoning",
+        "description": "Hybrid reasoning mechanism with parallel short-term and long-term analysis",
+        "features": {
+          "1": "Parallel short-term and long-term reasoning",
+          "2": "Environmental shock detection and severity assessment",
+          "3": "Trend tracking and strategic analysis"
+        }
+      },
+      "speak": {
+        "title": "Speak Module - Agent Communication",
+        "description": "Natural language-based semantic communication protocol between agents",
+        "features": {
+          "1": "Multi-candidate message generation with quality scoring",
+          "2": "Belief state management and trust updating",
+          "3": "Shared knowledge base and strategy preference learning"
+        }
+      },
+      "decide": {
+        "title": "Decide Module - Decision Fusion",
+        "description": "Adaptive intelligent decision-making through multi-source information fusion",
+        "features": {
+          "1": "Three-source data fusion (numerical, reasoning, belief)",
+          "2": "Weighted scoring and LLM-based decision making",
+          "3": "Fallback mechanism for system stability"
+        }
+      }
+    },
+    "capabilities": {
+      "title": "Core Capabilities",
+      "subtitle": "Eight innovative technical features for enterprise-grade multi-agent collaboration",
+      "routing": {
+        "title": "Intelligent Task Routing",
+        "description": "Automatically analyze task complexity and intelligently select single-agent or multi-agent execution strategy"
+      },
+      "reasoning": {
+        "title": "Hybrid Reasoning",
+        "description": "Parallel short-term and long-term reasoning focusing on both immediate situations and long-term trends"
+      },
+      "communication": {
+        "title": "Semantic Communication",
+        "description": "Natural language-based inter-agent communication with rich semantic information and reasoning evidence"
+      },
+      "fusion": {
+        "title": "Three-Source Decision Fusion",
+        "description": "Integrate numerical observations, reasoning analysis, and belief states to generate explainable intelligent decisions"
+      },
+      "experience": {
+        "title": "Vectorized Experience Pool",
+        "description": "Intelligent experience reuse through vector retrieval accelerates new task planning, reducing planning time by 40-60%"
+      },
+      "replanning": {
+        "title": "Dynamic Replanning",
+        "description": "Automatically trigger replanning when environmental changes detected, optimizing execution plans while preserving completed work"
+      }
+    },
+    "benefits": {
+      "title": "Performance Metrics & Benefits",
+      "subtitle": "Experimentally validated performance improvements",
+      "metrics": {
+        "successRate": {
+          "label": "Task Success Rate Improvement",
+          "description": "With reasoning module enabled"
+        },
+        "performance": {
+          "label": "Execution Efficiency Boost",
+          "description": "Concurrent vs sequential execution"
+        },
+        "planningTime": {
+          "label": "Planning Time Reduction",
+          "description": "Through experience reuse"
+        },
+        "concurrency": {
+          "label": "Concurrency Performance",
+          "description": "DAG scheduling optimization"
+        }
+      }
+    },
+    "architecture": {
+      "title": "Technical Architecture Flow",
+      "subtitle": "End-to-end processing from task receipt to execution completion",
+      "stages": {
+        "taskAnalysis": {
+          "title": "Intelligent Routing Decision",
+          "description": "Utilize LLM to analyze task complexity and automatically select optimal execution strategy"
+        },
+        "planning": {
+          "title": "Task Decomposition & Planning",
+          "description": "Retrieve similar historical experiences and generate execution plan with DAG dependencies"
+        },
+        "scheduling": {
+          "title": "DAG Concurrent Scheduling",
+          "description": "Hierarchical concurrent execution based on topological sorting, maximizing parallelism"
+        },
+        "execution": {
+          "title": "LAMP Reasoning & Decision",
+          "description": "Think-Speak-Decide three-stage continuous reasoning, communication, and decision fusion"
+        },
+        "experience": {
+          "title": "Experience Persistence",
+          "description": "Evaluate and store high-quality reasoning trajectories supporting vector retrieval and intelligent reuse"
+        }
+      }
+    },
+    "cta": {
+      "title": "Experience Multi-Agent Collaboration",
+      "description": "Discover how LAMP framework can enhance your enterprise intelligence",
+      "contact": "Contact Us",
+      "learnMore": "Learn More"
+    },
+    "seo": {
+      "title": "Multi-Agent Collaboration - TeGo-OS Agent Operating System",
+      "description": "Patented Technology: Language-enhanced multi-agent collaborative decision system (LAMP framework) with Think-Speak-Decide three-stage reasoning pipeline. Achieves 15-25% improvement in task success rate and 2-5x performance boost.",
+      "keywords": "Multi-Agent Collaboration, LAMP Framework, Think-Speak-Decide, Agent Communication, DAG Scheduling, Patent, TeGo-OS",
+      "openGraph": {
+        "title": "Multi-Agent Collaboration - TeGo-OS Agent Operating System",
+        "description": "LAMP Framework: Language-enhanced multi-agent collaborative decision system for deep agent collaboration and intelligent decision-making."
       }
     }
   },

@@ -31,7 +31,8 @@
       "title": "技术特性",
       "mcpPlatform": "MCP平台",
       "pluginSystem": "插件系统",
-      "technicalFeatures": "MCP框架"
+      "technicalFeatures": "MCP框架",
+      "multiAgent": "多智能体协同"
     }
   },
   "home": {
@@ -742,6 +743,10 @@
       "simplification": {
         "title": "几行代码定义智能服务",
         "description": "极简开发流程，几行代码即可定义一个可调用的智能服务，快速上线与迭代。"
+      },
+      "multiAgent": {
+        "title": "多智能体协同（LAMP 框架）",
+        "description": "发明专利技术：基于语言增强的多智能体协同决策系统，融合 Think-Speak-Decide 三阶段推理管道，实现智能体间的语义化通信、持续推理分析和多源信息融合决策，支持 DAG 并发调度与动态重规划，任务成功率提升 15-25%，执行效率提升 2-5 倍。"
       }
     },
     "codeExample": {
@@ -831,6 +836,138 @@
           "模型微调与持续优化",
           "企业专属知识库积累"
         ]
+      }
+    }
+  },
+  "multiAgent": {
+    "badge": "发明专利技术",
+    "title": "多智能体协同决策系统",
+    "subtitle": "基于语言增强的 LAMP 框架，融合 Think-Speak-Decide 三阶段推理管道，实现智能体间深度协作与智能决策",
+    "tags": {
+      "patent": "发明专利",
+      "lamp": "LAMP 框架",
+      "dag": "DAG 并发调度"
+    },
+    "lamp": {
+      "title": "LAMP 三阶段推理管道",
+      "subtitle": "Language-enhanced Multi-Agent Planning - 语言增强的智能体协同框架",
+      "think": {
+        "title": "Think 模块 - 持续推理",
+        "description": "混合推理机制，同时进行短期和长期推理分析",
+        "features": {
+          "1": "并行执行短期推理和长期推理",
+          "2": "环境冲击检测与严重性评估",
+          "3": "趋势追踪与战略分析"
+        }
+      },
+      "speak": {
+        "title": "Speak 模块 - 智能体通信",
+        "description": "基于自然语言的语义化智能体间通信协议",
+        "features": {
+          "1": "多候选消息生成与质量评分",
+          "2": "信念状态管理与信任度更新",
+          "3": "共享知识库与策略偏好学习"
+        }
+      },
+      "decide": {
+        "title": "Decide 模块 - 决策融合",
+        "description": "多源信息融合的自适应智能决策",
+        "features": {
+          "1": "三源数据融合（数值、推理、信念）",
+          "2": "加权评分与语言模型决策",
+          "3": "降级机制保障系统稳定性"
+        }
+      }
+    },
+    "capabilities": {
+      "title": "核心能力特性",
+      "subtitle": "八大创新技术特征，构建企业级多智能体协同平台",
+      "routing": {
+        "title": "智能任务路由",
+        "description": "自动分析任务复杂度，智能选择单智能体或多智能体执行策略"
+      },
+      "reasoning": {
+        "title": "混合推理机制",
+        "description": "并行执行短期和长期推理，同时关注即时情况和长期趋势"
+      },
+      "communication": {
+        "title": "语义化通信",
+        "description": "基于自然语言的智能体间通信，包含丰富的语义信息和推理依据"
+      },
+      "fusion": {
+        "title": "三源决策融合",
+        "description": "整合数值观测、推理分析和信念状态，生成可解释的智能决策"
+      },
+      "experience": {
+        "title": "向量化经验池",
+        "description": "智能经验复用，通过向量检索加速新任务规划，缩短规划时间 40-60%"
+      },
+      "replanning": {
+        "title": "动态重规划",
+        "description": "检测环境变化时自动触发重规划，在保留已完成工作基础上优化执行计划"
+      }
+    },
+    "benefits": {
+      "title": "性能指标与优势",
+      "subtitle": "实验验证的性能提升数据",
+      "metrics": {
+        "successRate": {
+          "label": "任务成功率提升",
+          "description": "启用推理模块后"
+        },
+        "performance": {
+          "label": "执行效率提升",
+          "description": "并发执行相比串行"
+        },
+        "planningTime": {
+          "label": "规划时间缩短",
+          "description": "经验复用加速"
+        },
+        "concurrency": {
+          "label": "并发性能提升",
+          "description": "DAG 调度优化"
+        }
+      }
+    },
+    "architecture": {
+      "title": "技术架构流程",
+      "subtitle": "从任务接收到执行完成的端到端处理过程",
+      "stages": {
+        "taskAnalysis": {
+          "title": "智能路由决策",
+          "description": "利用大语言模型分析任务复杂度，自动选择最优执行策略"
+        },
+        "planning": {
+          "title": "任务分解与计划生成",
+          "description": "检索相似历史经验，生成包含 DAG 依赖关系的执行计划"
+        },
+        "scheduling": {
+          "title": "DAG 并发调度",
+          "description": "基于拓扑排序的层级化并发执行，最大化并行度"
+        },
+        "execution": {
+          "title": "LAMP 推理与决策",
+          "description": "Think-Speak-Decide 三阶段持续推理、通信和决策融合"
+        },
+        "experience": {
+          "title": "经验持久化",
+          "description": "评估并存储高质量推理轨迹，支持向量检索和智能复用"
+        }
+      }
+    },
+    "cta": {
+      "title": "体验多智能体协同技术",
+      "description": "了解 LAMP 框架如何提升您的企业智能化水平",
+      "contact": "联系我们",
+      "learnMore": "了解更多"
+    },
+    "seo": {
+      "title": "多智能体协同 - TeGo-OS 智能体操作系统",
+      "description": "发明专利技术：基于语言增强的多智能体协同决策系统（LAMP框架），融合Think-Speak-Decide三阶段推理管道，实现智能体间深度协作，任务成功率提升15-25%，执行效率提升2-5倍。",
+      "keywords": "多智能体协同, LAMP框架, Think-Speak-Decide, 智能体通信, DAG调度, 发明专利, TeGo-OS",
+      "openGraph": {
+        "title": "多智能体协同 - TeGo-OS 智能体操作系统",
+        "description": "LAMP 框架：语言增强的多智能体协同决策系统，实现智能体间深度协作与智能决策。"
       }
     }
   },

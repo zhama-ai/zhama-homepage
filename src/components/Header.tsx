@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { Plug, Puzzle, Settings } from 'lucide-react';
+import { Plug, Puzzle, Settings, Network } from 'lucide-react';
 
 export default function Header() {
   const t = useTranslations();
@@ -85,6 +85,7 @@ export default function Header() {
     { href: `/${locale}/platform`, label: t('nav.platform.mcpPlatform'), icon: Plug },
     { href: `/${locale}/plugin-system`, label: t('nav.platform.pluginSystem'), icon: Puzzle },
     { href: `/${locale}/technical`, label: t('nav.platform.technicalFeatures'), icon: Settings },
+    { href: `/${locale}/multi-agent`, label: t('nav.platform.multiAgent'), icon: Network },
   ];
 
   // 处理鼠标进入菜单
