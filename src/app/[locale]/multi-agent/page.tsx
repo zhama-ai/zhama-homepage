@@ -303,7 +303,7 @@ export default async function MultiAgentPage({ params }: Props) {
       </Section>
       </main>
       
-      <FooterSection />
+      <FooterSection locale={locale} />
     </div>
   );
 }

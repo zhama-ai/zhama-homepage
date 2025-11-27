@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeGo-OS 企业智能体综合服务平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .presentation {
+            width: 1920px;
+            height: 1080px;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        .slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Navigation */
+        .nav-buttons {
+            position: fixed;
+            bottom: 60px;
+            right: 60px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: #1976d2;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+        }
+
+        .nav-btn:hover {
+            background: #1565c0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(25, 118, 210, 0.4);
+        }
+
+        .nav-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .page-indicator {
+            position: fixed;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 25px;
+            border-radius: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ccc;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .page-dot:hover {
+            background: #999;
+        }
+
+        .page-dot.active {
+            background: #1976d2;
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 40px;
+            right: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 24px;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #666;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        /* Fullscreen button */
+        .fullscreen-btn {
+            position: fixed;
+            top: 40px;
+            left: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1976d2;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .fullscreen-btn:hover {
+            background: #1976d2;
+            color: white;
+        }
+
+        /* Slide titles for accessibility */
+        .slide-title {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <!-- Slide 1: 基于TeGo-OS平台的应对策略 -->
+        <div class="slide slide-1 active">
+            <h2 class="slide-title">基于TeGo-OS平台的应对策略</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="基于TeGo-OS平台的应对策略" data-slide="1">
+        </div>
+
+        <!-- Slide 2: 公司概述 -->
+        <div class="slide slide-2">
+            <h2 class="slide-title">公司概述-企业级AI解决方案与智能服务提供商</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="公司概述" data-slide="2">
+        </div>
+
+        <!-- Slide 3: TeGo-企业智能体综合服务平台能力 -->
+        <div class="slide slide-3">
+            <h2 class="slide-title">TeGo-企业智能体综合服务平台能力</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="TeGo-企业智能体综合服务平台能力" data-slide="3">
+        </div>
+
+        <!-- Slide 4: 深圳市扎马爱展科技有限公司介绍 -->
+        <div class="slide slide-4">
+            <h2 class="slide-title">深圳市扎马爱展科技有限公司介绍</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="深圳市扎马爱展科技有限公司介绍" data-slide="4">
+        </div>
+
+        <!-- Slide 5: TeGo-AI智能体操作系统 -->
+        <div class="slide slide-5">
+            <h2 class="slide-title">TeGo-AI智能体操作系统</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="TeGo-AI智能体操作系统" data-slide="5">
+        </div>
+
+        <!-- Slide 6: 场景一、对话即操作智能助手 -->
+        <div class="slide slide-6">
+            <h2 class="slide-title">场景一、对话即操作智能助手</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="场景一、对话即操作智能助手" data-slide="6">
+        </div>
+
+        <!-- Slide 7: 场景二、智能诊疗助手 -->
+        <div class="slide slide-7">
+            <h2 class="slide-title">场景二、智能诊疗助手-解放医生双手</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="场景二、智能诊疗助手" data-slide="7">
+        </div>
+
+        <!-- Slide 8: 核心能力与性能优势 -->
+        <div class="slide slide-8">
+            <h2 class="slide-title">核心能力与性能优势</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="核心能力与性能优势" data-slide="8">
+        </div>
+
+        <!-- Slide 9: 多智能体协同决策 -->
+        <div class="slide slide-9">
+            <h2 class="slide-title">多智能体协同决策</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="多智能体协同决策" data-slide="9">
+        </div>
+
+        <!-- Slide 10: 企业智能体综合服务平台架构 -->
+        <div class="slide slide-10">
+            <h2 class="slide-title">企业智能体综合服务平台架构</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="企业智能体综合服务平台架构" data-slide="10">
+        </div>
+
+        <!-- Slide 11: TeGo-OS需求的核心故益 -->
+        <div class="slide slide-11">
+            <h2 class="slide-title">TeGo-OS需求的核心故益</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="TeGo-OS需求的核心故益" data-slide="11">
+        </div>
+
+        <!-- Slide 12: 核心能力：自研MCP框架 -->
+        <div class="slide slide-12">
+            <h2 class="slide-title">核心能力：自研MCP框架-几行代码即可实现个性化MCP服务</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="核心能力：自研MCP框架" data-slide="12">
+        </div>
+
+        <!-- Slide 13: 核心能力工具链生态智能构建 -->
+        <div class="slide slide-13">
+            <h2 class="slide-title">核心能力工具链生态智能构建</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="核心能力工具链生态智能构建" data-slide="13">
+        </div>
+
+        <!-- Slide 14: TeGo的核心优势 -->
+        <div class="slide slide-14">
+            <h2 class="slide-title">TeGo的核心优势</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="TeGo的核心优势" data-slide="14">
+        </div>
+
+        <!-- Slide 15: 场景三、自动研究报告生成 -->
+        <div class="slide slide-15">
+            <h2 class="slide-title">场景三、自动研究报告生成-解放分析师双手</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="场景三、自动研究报告生成" data-slide="15">
+        </div>
+
+        <!-- Slide 16: 核心能力：发明专利 -->
+        <div class="slide slide-16">
+            <h2 class="slide-title">核心能力：发明专利-一种基于增强上下文的知识库管理方法</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="核心能力：发明专利" data-slide="16">
+        </div>
+
+        <!-- Slide 17: 开发智能体只需要三步 -->
+        <div class="slide slide-17">
+            <h2 class="slide-title">开发智能体只需要三步-快速实现智能体开发及上线</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="开发智能体只需要三步" data-slide="17">
+        </div>
+
+        <!-- Slide 18: 核心能力：可视化自动化工具 -->
+        <div class="slide slide-18">
+            <h2 class="slide-title">核心能力：可视化自动化工具-无代码配置智能体服务</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="核心能力：可视化自动化工具" data-slide="18">
+        </div>
+
+        <!-- Slide 19: 企业智能化转型的主要痛点与需求 -->
+        <div class="slide slide-19">
+            <h2 class="slide-title">企业智能化转型的主要痛点与需求</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="企业智能化转型的主要痛点与需求" data-slide="19">
+        </div>
+
+        <!-- Slide 20: TeGo-OS平台原景与定位 -->
+        <div class="slide slide-20">
+            <h2 class="slide-title">TeGo-OS平台原景与定位</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="TeGo-OS平台原景与定位" data-slide="20">
+        </div>
+
+        <!-- Slide 21: 联系方式 -->
+        <div class="slide slide-21">
+            <h2 class="slide-title">联系我们</h2>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="联系我们" data-slide="21">
+        </div>
+    </div>
+
+    <!-- Slide Counter -->
+    <div class="slide-counter">
+        <span id="currentSlide">1</span> / <span id="totalSlides">21</span>
+    </div>
+
+    <!-- Fullscreen Button -->
+    <button class="fullscreen-btn" onclick="toggleFullscreen()">
+        <span id="fullscreenText">全屏</span>
+    </button>
+
+    <!-- Navigation Controls -->
+    <div class="nav-buttons">
+        <button class="nav-btn" id="prevBtn" onclick="prevSlide()">← 上一页</button>
+        <button class="nav-btn" id="nextBtn" onclick="nextSlide()">下一页 →</button>
+    </div>
+
+    <div class="page-indicator" id="pageIndicator">
+        <!-- Dots will be generated by JavaScript -->
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const pageIndicator = document.getElementById('pageIndicator');
+        const currentSlideSpan = document.getElementById('currentSlide');
+        const totalSlidesSpan = document.getElementById('totalSlides');
+
+        // Generate page dots
+        function generateDots() {
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'page-dot';
+                dot.dataset.slide = i;
+                dot.addEventListener('click', () => showSlide(i));
+                pageIndicator.appendChild(dot);
+            }
+        }
+
+        function showSlide(n) {
+            const dots = document.querySelectorAll('.page-dot');
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = n;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+            
+            // Update slide counter
+            currentSlideSpan.textContent = currentSlide + 1;
+            
+            // Update button states
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        function toggleFullscreen() {
+            const elem = document.documentElement;
+            const fullscreenText = document.getElementById('fullscreenText');
+            
+            if (!document.fullscreenElement) {
+                elem.requestFullscreen().then(() => {
+                    fullscreenText.textContent = '退出全屏';
+                }).catch(err => {
+                    console.log(`Error attempting to enable fullscreen: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen().then(() => {
+                    fullscreenText.textContent = '全屏';
+                });
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                e.preventDefault();
+                prevSlide();
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                showSlide(0);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                showSlide(totalSlides - 1);
+            } else if (e.key === 'f' || e.key === 'F11') {
+                e.preventDefault();
+                toggleFullscreen();
+            }
+        });
+
+        // Update fullscreen button text on fullscreen change
+        document.addEventListener('fullscreenchange', () => {
+            const fullscreenText = document.getElementById('fullscreenText');
+            if (document.fullscreenElement) {
+                fullscreenText.textContent = '退出全屏';
+            } else {
+                fullscreenText.textContent = '全屏';
+            }
+        });
+
+        // Initialize
+        totalSlidesSpan.textContent = totalSlides;
+        generateDots();
+        showSlide(0);
+
+        // Load actual images from the uploaded files
+        // Note: You'll need to replace the data URIs with actual image paths
+        // or embed the base64 encoded images here
+        console.log('演示文稿已加载，共 ' + totalSlides + ' 页');
+        console.log('快捷键：');
+        console.log('  ← / → / 空格 / PageUp / PageDown: 翻页');
+        console.log('  Home / End: 跳转到首页/尾页');
+        console.log('  F / F11: 全屏切换');
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
