@@ -970,6 +970,80 @@
       }
     }
   },
+  "multiAgentSection": {
+    "badge": "Patented Technology · Multi-Agent Collaboration",
+    "title": "Multi-Agent Collaborative Scheduling System",
+    "subtitle": "Enabling AI agents to collaborate like human teams, powered by the cutting-edge LAMP framework for autonomous multi-agent coordination",
+    "lamp": {
+      "title": "LAMP Three-Stage Reasoning Framework",
+      "subtitle": "Language-Augmented Multi-Agent Policy · Advanced Agent Collaboration",
+      "think": {
+        "title": "Think",
+        "description": "Continuously analyze task progress, detect anomalies, predict trends, perform short-term and long-term reasoning",
+        "analogy": "Like a project manager's insight"
+      },
+      "speak": {
+        "title": "Speak",
+        "description": "Information sharing and knowledge transfer between agents through natural language semantic communication",
+        "analogy": "Like efficient team collaboration"
+      },
+      "decide": {
+        "title": "Decide",
+        "description": "Synthesize multi-source information, fuse numerical, reasoning, and belief data for optimal decisions",
+        "analogy": "Like leadership's precise judgment"
+      }
+    },
+    "technologies": {
+      "title": "Core Technology Highlights",
+      "dag": {
+        "title": "DAG Concurrent Scheduling",
+        "description": "Auto-analyze task dependencies, execute parallel tasks simultaneously, 2-5x efficiency boost"
+      },
+      "experience": {
+        "title": "Experience Pool Learning",
+        "description": "Memorize successful strategies, intelligently retrieve and reuse historical experience"
+      },
+      "a2a": {
+        "title": "A2A Open Protocol",
+        "description": "Standardized inter-agent communication, supporting cross-system and cross-platform collaboration"
+      },
+      "scheduling": {
+        "title": "Smart Task Orchestration",
+        "description": "Auto-decompose complex tasks and assign to the most suitable specialized agents"
+      }
+    },
+    "metrics": {
+      "title": "Key Performance Metrics",
+      "efficiency": "Efficiency Improvement",
+      "successRate": "Task Success Rate",
+      "complexity": "Complex Task Handling",
+      "availability": "24/7 Service"
+    },
+    "advantages": {
+      "title": "Advantages Over Traditional Solutions",
+      "subtitle": "Complete upgrade from single AI assistant to multi-agent collaboration",
+      "autonomous": {
+        "title": "Autonomous Decisions",
+        "description": "Self-deciding and self-optimizing agents without fixed workflows"
+      },
+      "concurrent": {
+        "title": "Concurrent Execution",
+        "description": "Multi-task parallel processing, significantly reducing cycle time"
+      },
+      "learning": {
+        "title": "Continuous Learning",
+        "description": "Experience accumulation and reuse, increasingly efficient for similar tasks"
+      },
+      "secure": {
+        "title": "Secure & Controllable",
+        "description": "Enterprise-grade security, complete audit trails, flexible access control"
+      }
+    },
+    "cta": {
+      "primary": "Schedule Demo",
+      "secondary": "Learn More Details"
+    }
+  },
   "blog": {
     "meta": {
       "title": "Technical Blog - TeGo-OS AI Agent Platform",

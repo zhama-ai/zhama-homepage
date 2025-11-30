@@ -3,6 +3,7 @@ import HeroSection from '@/components/HeroSection';
 import FeaturesSection from '@/components/FeaturesSection';
 import TegoOSSection from '@/components/TegoOSSection';
 import AdvantagesSection from '@/components/AdvantagesSection';
+import MultiAgentSection from '@/components/MultiAgentSection';
 import DownloadSection from '@/components/DownloadSection';
 import PricingSection from '@/components/PricingSection';
 import AboutUsSection from '@/components/AboutUsSection';
@@ -23,6 +24,7 @@ export default async function Home({ params }: HomeProps) {
         <FeaturesSection locale={locale} />
         <TegoOSSection locale={locale} />
         <AdvantagesSection locale={locale} />
+        <MultiAgentSection locale={locale} />
         <PricingSection locale={locale} />
         <DownloadSection locale={locale} />
         <AboutUsSection locale={locale} />

@@ -43,34 +43,43 @@ export default async function MultiAgentPage({ params }: Props) {
     {
       icon: Brain,
       key: 'think',
-      color: 'from-blue-500 to-cyan-500'
+      bgColor: 'bg-teal-600',
+      borderColor: 'bg-teal-500',
+      iconBg: 'bg-teal-500/10',
+      textColor: 'text-teal-600 dark:text-teal-400'
     },
     {
       icon: MessageSquare,
       key: 'speak',
-      color: 'from-purple-500 to-pink-500'
+      bgColor: 'bg-amber-600',
+      borderColor: 'bg-amber-500',
+      iconBg: 'bg-amber-500/10',
+      textColor: 'text-amber-600 dark:text-amber-400'
     },
     {
       icon: GitMerge,
       key: 'decide',
-      color: 'from-orange-500 to-red-500'
+      bgColor: 'bg-emerald-600',
+      borderColor: 'bg-emerald-500',
+      iconBg: 'bg-emerald-500/10',
+      textColor: 'text-emerald-600 dark:text-emerald-400'
     }
   ];
 
   const coreCapabilities = [
-    { icon: Zap, key: 'routing' },
-    { icon: TrendingUp, key: 'reasoning' },
-    { icon: MessageSquare, key: 'communication' },
-    { icon: GitMerge, key: 'fusion' },
-    { icon: Database, key: 'experience' },
-    { icon: RefreshCw, key: 'replanning' }
+    { icon: Zap, key: 'routing', color: 'text-teal-600 dark:text-teal-400', bg: 'bg-teal-500/10' },
+    { icon: TrendingUp, key: 'reasoning', color: 'text-amber-600 dark:text-amber-400', bg: 'bg-amber-500/10' },
+    { icon: MessageSquare, key: 'communication', color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-500/10' },
+    { icon: GitMerge, key: 'fusion', color: 'text-rose-600 dark:text-rose-400', bg: 'bg-rose-500/10' },
+    { icon: Database, key: 'experience', color: 'text-teal-600 dark:text-teal-400', bg: 'bg-teal-500/10' },
+    { icon: RefreshCw, key: 'replanning', color: 'text-amber-600 dark:text-amber-400', bg: 'bg-amber-500/10' }
   ];
 
   const benefits = [
-    { key: 'successRate', value: '15-25%', icon: TrendingUp },
-    { key: 'performance', value: '2-5x', icon: Zap },
-    { key: 'planningTime', value: '40-60%', icon: Database },
-    { key: 'concurrency', value: '2-5x', icon: Network }
+    { key: 'successRate', value: '15-25%', icon: TrendingUp, color: 'text-teal-600 dark:text-teal-400' },
+    { key: 'performance', value: '2-5x', icon: Zap, color: 'text-amber-600 dark:text-amber-400' },
+    { key: 'planningTime', value: '40-60%', icon: Database, color: 'text-emerald-600 dark:text-emerald-400' },
+    { key: 'concurrency', value: '2-5x', icon: Network, color: 'text-rose-600 dark:text-rose-400' }
   ];
 
   return (
@@ -81,8 +90,8 @@ export default async function MultiAgentPage({ params }: Props) {
         {/* Hero Section */}
         <Section className="py-16 md:py-24 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900">
         <div className="max-w-7xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-2 text-sm font-medium text-primary-700 dark:bg-primary-900/30 dark:text-primary-400 mb-6">
-            <Network className="h-4 w-4" />
+          <div className="inline-flex items-center gap-2 rounded-full bg-zinc-100 dark:bg-zinc-800 px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-6 border border-zinc-200 dark:border-zinc-700">
+            <Network className="h-4 w-4 text-teal-600 dark:text-teal-400" />
             {t('badge')}
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-zinc-50 mb-6">
@@ -92,13 +101,13 @@ export default async function MultiAgentPage({ params }: Props) {
             {t('subtitle')}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <span className="px-4 py-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-sm font-medium text-zinc-900 dark:text-zinc-50">
+            <span className="px-4 py-2 rounded-lg bg-teal-50 dark:bg-teal-900/20 text-sm font-medium text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800">
               {t('tags.patent')}
             </span>
-            <span className="px-4 py-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-sm font-medium text-zinc-900 dark:text-zinc-50">
+            <span className="px-4 py-2 rounded-lg bg-amber-50 dark:bg-amber-900/20 text-sm font-medium text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
               {t('tags.lamp')}
             </span>
-            <span className="px-4 py-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-sm font-medium text-zinc-900 dark:text-zinc-50">
+            <span className="px-4 py-2 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 text-sm font-medium text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
               {t('tags.dag')}
             </span>
           </div>
@@ -118,33 +127,37 @@ export default async function MultiAgentPage({ params }: Props) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {lampFeatures.map((feature) => {
+            {lampFeatures.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <Card key={feature.key} hover className="relative overflow-hidden">
-                  <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${feature.color}`} />
-                  <CardContent className="pt-8">
-                    <div className="flex items-center justify-center mb-6">
-                      <div className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.color} shadow-lg`}>
-                        <Icon className="h-8 w-8 text-white" />
-                      </div>
+                <div key={feature.key} className="relative bg-white dark:bg-zinc-800/50 rounded-xl p-6 border border-zinc-200 dark:border-zinc-700 hover:shadow-md transition-all duration-300">
+                  {/* 步骤编号 */}
+                  <div className="absolute -top-3 -left-3 w-7 h-7 rounded-full bg-zinc-900 dark:bg-zinc-100 flex items-center justify-center text-white dark:text-zinc-900 text-xs font-bold">
+                    {index + 1}
+                  </div>
+                  
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`flex h-12 w-12 items-center justify-center rounded-lg ${feature.iconBg}`}>
+                      <Icon className={`h-6 w-6 ${feature.textColor}`} />
                     </div>
-                    <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-50 mb-3 text-center">
+                    <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-50">
                       {t(`lamp.${feature.key}.title`)}
                     </h3>
-                    <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-4 text-center">
-                      {t(`lamp.${feature.key}.description`)}
-                    </p>
-                    <ul className="space-y-2">
-                      {[1, 2, 3].map((i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-zinc-600 dark:text-zinc-400">
-                          <CheckCircle className="h-4 w-4 text-emerald-500 flex-shrink-0 mt-0.5" />
-                          <span>{t(`lamp.${feature.key}.features.${i}`)}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
+                  </div>
+                  
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-4">
+                    {t(`lamp.${feature.key}.description`)}
+                  </p>
+                  
+                  <ul className="space-y-2">
+                    {[1, 2, 3].map((i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-zinc-600 dark:text-zinc-400">
+                        <span className="w-1 h-1 rounded-full bg-zinc-400 dark:bg-zinc-500 flex-shrink-0 mt-2" />
+                        <span>{t(`lamp.${feature.key}.features.${i}`)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               );
             })}
           </div>
@@ -170,8 +183,8 @@ export default async function MultiAgentPage({ params }: Props) {
                 <Card key={capability.key} hover>
                   <CardContent>
                     <div className="flex items-start gap-4">
-                      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary-50 dark:bg-primary-900/20">
-                        <Icon className="h-6 w-6 text-primary-600 dark:text-primary-400" />
+                      <div className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg ${capability.bg}`}>
+                        <Icon className={`h-6 w-6 ${capability.color}`} />
                       </div>
                       <div className="flex-1">
                         <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
@@ -191,13 +204,13 @@ export default async function MultiAgentPage({ params }: Props) {
       </Section>
 
       {/* Benefits & Metrics */}
-      <Section className="py-16 bg-gradient-to-br from-primary-50 to-purple-50 dark:from-primary-900/20 dark:to-purple-900/20">
+      <Section className="py-16 bg-zinc-900 dark:bg-zinc-800">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-zinc-50 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               {t('benefits.title')}
             </h2>
-            <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto">
+            <p className="text-lg text-zinc-400 max-w-3xl mx-auto">
               {t('benefits.subtitle')}
             </p>
           </div>
@@ -206,20 +219,18 @@ export default async function MultiAgentPage({ params }: Props) {
             {benefits.map((benefit) => {
               const Icon = benefit.icon;
               return (
-                <Card key={benefit.key} className="text-center">
-                  <CardContent className="pt-8">
-                    <Icon className="h-12 w-12 text-primary-600 dark:text-primary-400 mx-auto mb-4" />
-                    <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
-                      {benefit.value}
-                    </div>
-                    <div className="text-sm font-medium text-zinc-900 dark:text-zinc-50 mb-1">
-                      {t(`benefits.metrics.${benefit.key}.label`)}
-                    </div>
-                    <div className="text-xs text-zinc-600 dark:text-zinc-400">
-                      {t(`benefits.metrics.${benefit.key}.description`)}
-                    </div>
-                  </CardContent>
-                </Card>
+                <div key={benefit.key} className="text-center bg-zinc-800/50 dark:bg-zinc-700/30 rounded-xl p-8 border border-zinc-700 dark:border-zinc-600">
+                  <Icon className={`h-12 w-12 ${benefit.color} mx-auto mb-4`} />
+                  <div className={`text-4xl font-bold ${benefit.color} mb-2`}>
+                    {benefit.value}
+                  </div>
+                  <div className="text-sm font-medium text-white mb-1">
+                    {t(`benefits.metrics.${benefit.key}.label`)}
+                  </div>
+                  <div className="text-xs text-zinc-400">
+                    {t(`benefits.metrics.${benefit.key}.description`)}
+                  </div>
+                </div>
               );
             })}
           </div>
@@ -241,24 +252,33 @@ export default async function MultiAgentPage({ params }: Props) {
           <Card>
             <CardContent className="p-8">
               <div className="space-y-6">
-                {['taskAnalysis', 'planning', 'scheduling', 'execution', 'experience'].map((stage, index) => (
-                  <div key={stage} className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 font-bold">
-                      {index + 1}
+                {['taskAnalysis', 'planning', 'scheduling', 'execution', 'experience'].map((stage, index) => {
+                  const stageColors = [
+                    'bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400',
+                    'bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400',
+                    'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400',
+                    'bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400',
+                    'bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400',
+                  ];
+                  return (
+                    <div key={stage} className="flex items-start gap-4">
+                      <div className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full ${stageColors[index]} font-bold`}>
+                        {index + 1}
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
+                          {t(`architecture.stages.${stage}.title`)}
+                        </h4>
+                        <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                          {t(`architecture.stages.${stage}.description`)}
+                        </p>
+                      </div>
+                      {index < 4 && (
+                        <ArrowRight className="h-6 w-6 text-zinc-400 flex-shrink-0 mt-2" />
+                      )}
                     </div>
-                    <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
-                        {t(`architecture.stages.${stage}.title`)}
-                      </h4>
-                      <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                        {t(`architecture.stages.${stage}.description`)}
-                      </p>
-                    </div>
-                    {index < 4 && (
-                      <ArrowRight className="h-6 w-6 text-zinc-400 flex-shrink-0 mt-2" />
-                    )}
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </CardContent>
           </Card>
@@ -266,13 +286,13 @@ export default async function MultiAgentPage({ params }: Props) {
       </Section>
 
       {/* CTA Section */}
-      <Section className="py-16 bg-gradient-to-br from-primary-50 to-purple-50 dark:from-primary-900/20 dark:to-purple-900/20">
+      <Section className="py-16 bg-zinc-50 dark:bg-zinc-950">
         <div className="max-w-4xl mx-auto text-center">
-          <Card className="border-2 border-primary-200 dark:border-primary-800 shadow-xl">
+          <Card className="border border-zinc-200 dark:border-zinc-700 shadow-xl">
             <CardContent className="py-12">
-              <div className="mb-6 inline-flex items-center justify-center rounded-full bg-primary-100 dark:bg-primary-900/50 px-4 py-2">
-                <Network className="h-5 w-5 text-primary-600 dark:text-primary-400 mr-2" />
-                <span className="text-sm font-semibold text-primary-700 dark:text-primary-300">
+              <div className="mb-6 inline-flex items-center justify-center rounded-full bg-zinc-100 dark:bg-zinc-800 px-4 py-2 border border-zinc-200 dark:border-zinc-700">
+                <Network className="h-5 w-5 text-teal-600 dark:text-teal-400 mr-2" />
+                <span className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">
                   {t('badge')}
                 </span>
               </div>
@@ -285,14 +305,14 @@ export default async function MultiAgentPage({ params }: Props) {
               <div className="flex flex-wrap justify-center gap-4">
                 <a
                   href={`/${locale}/contact`}
-                  className="inline-flex items-center gap-2 rounded-lg bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-lg transition-all hover:shadow-xl"
+                  className="inline-flex items-center gap-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-zinc-200 px-6 py-3 text-base font-semibold text-white dark:text-zinc-900 shadow-lg transition-all hover:shadow-xl"
                 >
                   {t('cta.contact')}
                   <ArrowRight className="h-5 w-5" />
                 </a>
                 <a
                   href={`/${locale}/technical`}
-                  className="inline-flex items-center gap-2 rounded-lg border-2 border-primary-600 dark:border-primary-500 px-6 py-3 text-base font-semibold text-primary-600 dark:text-primary-400 transition-all hover:bg-primary-50 dark:hover:bg-primary-900/30"
+                  className="inline-flex items-center gap-2 rounded-lg border-2 border-zinc-300 dark:border-zinc-600 px-6 py-3 text-base font-semibold text-zinc-700 dark:text-zinc-300 transition-all hover:bg-zinc-100 dark:hover:bg-zinc-800"
                 >
                   {t('cta.learnMore')}
                 </a>

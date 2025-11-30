@@ -971,6 +971,80 @@
       }
     }
   },
+  "multiAgentSection": {
+    "badge": "专利技术 · 多智能体协同",
+    "title": "多智能体协同调度系统",
+    "subtitle": "让 AI 智能体像人类团队一样协作，基于前沿 LAMP 框架，打造多个专业智能体自主协作的解决方案",
+    "lamp": {
+      "title": "LAMP 三阶段推理框架",
+      "subtitle": "Language-Augmented Multi-Agent Policy · 语言增强的多智能体策略",
+      "think": {
+        "title": "Think 思考",
+        "description": "持续分析任务进展，检测异常，预判趋势，进行短期和长期推理",
+        "analogy": "如同项目经理的洞察力"
+      },
+      "speak": {
+        "title": "Speak 沟通",
+        "description": "智能体之间信息共享、知识传递，基于自然语言的语义化通信",
+        "analogy": "如同团队成员的高效协作"
+      },
+      "decide": {
+        "title": "Decide 决策",
+        "description": "综合多方信息，融合数值、推理、信念三源数据，做出最优决策",
+        "analogy": "如同领导层的精准判断"
+      }
+    },
+    "technologies": {
+      "title": "核心技术亮点",
+      "dag": {
+        "title": "DAG 并发调度",
+        "description": "自动分析任务依赖，可并行任务同时执行，效率提升 2-5 倍"
+      },
+      "experience": {
+        "title": "经验池学习",
+        "description": "记忆成功策略，智能检索复用历史经验，越用越智能"
+      },
+      "a2a": {
+        "title": "A2A 开放协议",
+        "description": "标准化智能体间通信，支持跨系统、跨平台协作"
+      },
+      "scheduling": {
+        "title": "智能任务编排",
+        "description": "自动分解复杂任务，分配给最合适的专业智能体"
+      }
+    },
+    "metrics": {
+      "title": "关键性能指标",
+      "efficiency": "执行效率提升",
+      "successRate": "任务成功率",
+      "complexity": "复杂任务处理",
+      "availability": "全天候服务"
+    },
+    "advantages": {
+      "title": "相比传统方案的优势",
+      "subtitle": "从单一 AI 助手到多智能体协同的全面升级",
+      "autonomous": {
+        "title": "自主决策",
+        "description": "智能体自主决策、自我优化，无需固定流程"
+      },
+      "concurrent": {
+        "title": "并发执行",
+        "description": "多任务并行处理，串行变并发，大幅缩短周期"
+      },
+      "learning": {
+        "title": "持续学习",
+        "description": "经验积累与复用，处理相似任务越来越高效"
+      },
+      "secure": {
+        "title": "安全可控",
+        "description": "企业级安全架构，完整审计，灵活权限控制"
+      }
+    },
+    "cta": {
+      "primary": "预约演示",
+      "secondary": "了解更多技术细节"
+    }
+  },
   "blog": {
     "meta": {
       "title": "技术博客 - TeGo-OS智能体操作系统",
