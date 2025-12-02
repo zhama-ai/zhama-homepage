@@ -18,8 +18,8 @@
   },
   "nav": {
     "home": "首页",
-    "features": "核心价值",
-    "advantages": "场景案例",
+    "features": "核心能力",
+    "advantages": "应用场景",
     "pricing": "价格",
     "download": "联系我们",
     "about": "关于我们",
@@ -37,12 +37,12 @@
   },
   "home": {
     "hero": {
-      "title": "TeGo-OS 智能体操作系统",
-      "tagline": "AI·基建驱动 · 万物皆智能体 · 全链路智能协作平台",
-      "description": "面向企业的“AI 基建 + 智能体操作系统”，打通接入→编排→模型→集成全链路，以低门槛与高 ROI 将业务流程升级为可自动执行的智能体工作流。",
+      "title": "Tego OS 企业智能协作中台",
+      "tagline": "让 AI 智能体像高效团队一样协作，自主完成复杂业务任务",
+      "description": "基于前沿 AI 研究成果打造的企业级多智能体自主协作平台。理解业务意图、分解复杂任务、协调多方资源，端到端闭环交付业务结果，执行效率提升 300%+。",
       "cta": "预约演示",
       "secondaryCta": "在线体验",
-      "imgAlt": "TeGo-OS智能体操作系统平台展示"
+      "imgAlt": "Tego OS企业智能协作中台展示"
     }
   },
   "contactPage": {
@@ -80,41 +80,41 @@
       }
     },
     "seo": {
-      "title": "联系我们 - TeGo AI智能体操作系统",
-      "description": "联系TeGo AI智能体操作系统团队，获取企业级AI解决方案咨询服务。我们提供定制化智能体平台部署与技术支持。",
-      "keywords": "TeGo, 联系我们, 智能体平台, 企业AI, 技术支持, 深圳扎马",
+      "title": "联系我们 - Tego OS企业智能协作中台",
+      "description": "联系Tego OS企业智能协作中台团队，获取企业级AI多智能体协作解决方案咨询服务。我们提供定制化智能体平台部署与技术支持。",
+      "keywords": "Tego OS, 联系我们, 智能体平台, 企业AI, 多智能体协作, 技术支持, 深圳扎马",
       "openGraph": {
-        "title": "联系我们 - TeGo AI智能体操作系统",
-        "description": "联系TeGo AI智能体操作系统团队，获取专业的企业级AI解决方案咨询与技术支持服务。"
+        "title": "联系我们 - Tego OS企业智能协作中台",
+        "description": "联系Tego OS企业智能协作中台团队，获取专业的企业级AI多智能体协作解决方案咨询与技术支持服务。"
       }
     }
   },
   "appDownload": {
-    "title": "立即体验 TeGo-OS 智能体操作系统",
+    "title": "立即体验 Tego OS 企业智能协作中台",
     "appLogo": {
-      "title": "TeGo-OS",
-      "alt": "TeGo-OS智能体操作系统 Logo"
+      "title": "Tego OS",
+      "alt": "Tego OS企业智能协作中台 Logo"
     },
     "appIntro": {
-      "slogan": "AI·基建驱动 · 万物皆智能体 · 全链路智能协作平台",
+      "slogan": "让 AI 智能体像高效团队一样协作",
       "tagline": "深圳市扎马未来科技有限公司"
     },
-    "whyChoose": "为什么选择 TeGo？六大核心优势",
+    "whyChoose": "为什么选择 Tego OS？三大核心价值",
     "features": {
       "dataCollection": {
-        "title": "全链路一体化，减少多厂商拼接成本",
-        "description": "从接入到治理的完整闭环，降低集成风险"
+        "title": "统一管控，解决 Agent 孤岛问题",
+        "description": "降低管理成本，实现数据互通与协同"
       }
     },
     "targetUsers": {
-      "title": "服务客户类型",
-      "executive": "大型企业 · 全面智能化转型",
-      "researcher": "中小企业 · 快速试点上线", 
-      "student": "政府机构 · 合规安全部署",
-      "planner": "技术团队 · 灵活二次开发"
+      "title": "适用客户类型",
+      "executive": "大型企业 · 数字化转型项目",
+      "researcher": "中型企业 · 跨部门协作流程",
+      "student": "政府机构 · AI能力中台建设",
+      "planner": "技术团队 · 多AI工具统一管理"
     },
     "download": {
-      "heading": "多种方式快速对接 TeGo-OS 智能体平台",
+      "heading": "多种方式快速对接 Tego OS 智能协作中台",
       "webapp": {
         "title": "在线演示",
         "action": "预约产品演示"
@@ -128,19 +128,19 @@
       },
       "android": {
         "title": "技术文档",
-        "subtitle": "架构说明 · 接入指南", 
+        "subtitle": "架构说明 · 接入指南",
         "description": "查看完整技术架构与部署文档",
         "action": "查看文档"
       },
       "qrCode": {
         "notice": "扫描二维码联系我们",
-        "description": "扫描二维码，获取TeGo-OS专业服务",
-        "alt": "TeGo-OS 企业服务联系二维码"
+        "description": "扫描二维码，获取Tego OS专业服务",
+        "alt": "Tego OS 企业服务联系二维码"
       }
     },
     "wechatBrowser": {
       "topArrow": "点击右上角菜单",
-      "selectBrowser": "选择在浏览器中打开", 
+      "selectBrowser": "选择在浏览器中打开",
       "message": "请在浏览器中打开以获得最佳体验",
       "button": "我知道了",
       "notice": "微信内置浏览器提醒",
@@ -241,21 +241,22 @@
     }
   },
   "terms": {
-    "title": "服务协议", 
+    "title": "服务协议",
     "lastUpdated": "最后更新日期：2025年3月23日",
     "sections": {
       "acceptance": {
         "title": "接受条款",
-        "content": "欢迎使用TeGo平台。通过访问和使用我们的服务，您表示同意受本服务条款的约束。如果您不同意这些条款，请不要使用我们的服务。",
+        "content": "欢迎使用Tego OS平台。通过访问和使用我们的服务，您表示同意受本服务条款的约束。如果您不同意这些条款，请不要使用我们的服务。",
         "content2": "我们保留随时修改这些条款的权利。您继续使用服务将被视为接受修改后的条款。"
       },
       "service": {
         "title": "服务描述",
-        "content": "TeGo是一个企业级AI智能体平台，提供以下服务：",
+        "content": "Tego OS是一个企业级多智能体自主协作平台，提供以下服务：",
         "items": [
-          "智能体引擎和开发工具",
-          "MCP框架和应用市场",
-          "接入网关和集成服务",
+          "多智能体协同调度与管理",
+          "LAMP智能协作框架",
+          "DAG并发调度引擎",
+          "A2A开放协议支持",
           "私有化部署解决方案"
         ],
         "modification": "我们保留随时修改、暂停或终止任何服务的权利，恕不另行通知。"
@@ -322,97 +323,97 @@
     }
   },
   "aboutSection": {
-    "title": "TeGo 核心优势",
-    "subtitle": "用 AI 基建驱动企业智能化未来",
-    "description": "专注企业级 AI 基建与智能体平台，拥有发明专利与多行业落地经验，为客户提供可治理、可观测、可复制的智能化能力",
+    "title": "Tego OS 核心价值",
+    "subtitle": "让 AI 智能体像高效团队一样协作，自主完成复杂业务任务",
+    "description": "基于前沿 AI 研究成果打造的企业级多智能体自主协作平台，已在医疗、研究、办公/政务等多个场景验证，提供可治理、可观测、可复制的智能化能力",
     "vision": {
-      "title": "TeGo vs 其他平台的差异化优势",
+      "title": "Tego OS vs 其他平台的差异化优势",
       "paragraphs": [
-        "对话即操作：自然语言直达服务与流程，跨端零改造，入口重构、体验极简",
-        "企业级治理：权限/隐私/路由/流量/监控/热更新，全栈可运维，满足上云上线与持续运营",
-        "后端自动化 + 多系统集成：相较“LLM 应用搭建”，更擅长流程执行与生产可用性"
+        "统一管控：解决 Agent 孤岛问题，降低管理成本，实现数据互通",
+        "智能协同：多智能体自主协作，复杂任务自动完成，执行效率提升 300%+",
+        "持续进化：经验积累与学习，越用越智能，任务成功率 95%+"
       ]
     },
     "features": [
       {
-        "title": "发明专利：MCP动态服务器统一管理",
-        "description": "配置化创建与管理 MCP 服务器，动态工具生成与注册，健康监控与热重载，平台级可扩展与可运维——核心技术护城河"
+        "title": "LAMP 智能协作框架",
+        "description": "源自最新学术研究的 Think-Speak-Decide 三阶段推理管道，模拟人类团队协作模式，实现智能体间深度协作与智能决策"
       },
       {
-        "title": "多行业验证，可复制交付",
-        "description": "已覆盖医疗、研究、办公/政务/消费等场景，完成「验证—迭代—复制」闭环，具备工程化能力与方法论，降低推广边际成本"
+        "title": "DAG 并发调度引擎",
+        "description": "基于有向无环图的任务调度技术，自动识别任务依赖关系，最大化并行度，执行效率提升 2-5 倍"
       },
       {
-        "title": "3 步快速上线，低门槛高ROI",
-        "description": "可视化+零/低代码生成 MCP 工具，标准化接口与自动化流程，快于传统专项集成，极大缩短交付周期与运营成本"
+        "title": "经验池持续学习",
+        "description": "向量化存储历史成功经验，智能检索相似案例复用成功策略，新任务规划时间缩短 40-60%"
       },
       {
-        "title": "运行时 UI 动态生成，真人机协同",
-        "description": "任务执行中即时生成前端交互界面，用户补充信息或确认决策，实现流畅智能的闭环协作，相比同类平台更具差异化"
+        "title": "A2A 开放协议",
+        "description": "支持 Agent2Agent 开放协议，实现与第三方智能体无缝对接，构建开放的企业 AI 生态"
       }
     ],
     "footer": {
-      "prefix": "TeGo-OS智能体操作系统",
-      "suffix": "，用AI基建驱动企业智能化未来。"
+      "prefix": "Tego OS企业智能协作中台",
+      "suffix": "，让 AI 智能体像高效团队一样协作。"
     },
     "typingPhrases": [
-      "用AI基建驱动企业智能化未来",
-      "构建真正贯穿\"感知—理解—执行\"的企业智能基础设施",
-      "万物皆智能体，全链路智能协作"
+      "让 AI 智能体像高效团队一样协作",
+      "理解意图 · 分解任务 · 协调资源 · 闭环交付",
+      "统一管控 · 智能协同 · 持续进化"
     ]
   },
   "featuresSection": {
-    "title": "全链路四大核心组件",
-    "subtitle": "打通接入—编排—模型—治理的一体化平台，一站式构建企业级智能体能力",
+    "title": "四层中台架构",
+    "subtitle": "自上而下分层设计，打通应用层—编排层—协作层—基础层的一体化平台",
     "tabs": {
-      "collection": "TeGo-OS",
-      "analysis": "TeGo-Engine",
-      "organization": "TeGo-MCP",
-      "gateway": "TeGo-LLM"
+      "collection": "应用层",
+      "analysis": "编排层",
+      "organization": "协作层",
+      "gateway": "基础层"
     },
     "collection": {
-      "title": "TeGo-OS 企业智能操作系统",
-      "description": "全终端智能体接入，统一用户与权限、应用市场与令牌管理，即插即用、标准化治理，助力快速上线与规模化运营。",
-      "tags": ["智能体接入", "权限控制", "API集成", "插件管理"]
+      "title": "应用层 · 用户交互入口",
+      "description": "提供自然语言交互界面，用户可用日常语言描述任务需求。预置行业场景模板，快速启动常见任务。可视化工作台实时查看任务执行状态和智能体协作过程。",
+      "tags": ["自然语言交互", "场景模板库", "可视化工作台", "实时状态监控"]
     },
     "analysis": {
-      "title": "TeGo-Engine 智能体开发平台",
-      "description": "用可视化与低/零代码将“业务流程”编排为可执行的智能体工作流，内置调度、监控与权限，保障企业级稳定运行。",
-      "tags": ["可视化拖拽", "流程引擎", "数据追踪", "负载均衡"]
+      "title": "编排层 · 核心调度中心",
+      "description": "包含智能规划引擎（Tego-Planner）、并发调度引擎（Tego-Orchestrator）、质量评估引擎（Tego-Evaluator），实现任务分解、智能体匹配、DAG拓扑分析与并发执行优化。",
+      "tags": ["智能规划", "并发调度", "质量评估", "ReAct模式"]
     },
     "organization": {
-      "title": "TeGo-MCP 路由与注册中心",
-      "description": "MCP服务发现与注册，实现智能体服务的动态路由。Agent管理和对话服务，支持多智能体协同工作。向量索引和检索增强（RAG），提升智能问答能力。",
-      "tags": ["服务发现", "动态路由", "多智能体协同", "RAG增强"]
+      "title": "协作层 · LAMP 智能协作框架",
+      "description": "基于学术前沿的 LAMP 框架，包含 Think 持续推理模块、Speak 智能体通信模块、Decide 决策融合模块，实现智能体间深度协作与智能决策。",
+      "tags": ["Think 推理", "Speak 通信", "Decide 决策", "信任管理"]
     },
     "gateway": {
-      "title": "TeGo-LLM 模型网关",
-      "description": "统一接入 OpenAI、Gemini、Qwen、DeepSeek 等主流与本地模型，提供智能路由、负载均衡与成本优化，支持多模态智能交互能力。",
-      "tags": ["主流大模型", "负载均衡", "流速控制", "多模态交互"]
+      "title": "基础层 · 底层支撑服务",
+      "description": "提供经验池存储与检索、A2A 开放协议支持、三级缓存状态管理、多模型灵活接入（OpenAI、Gemini、Qwen、DeepSeek等），确保系统高性能稳定运行。",
+      "tags": ["经验池", "A2A协议", "状态管理", "多模型接入"]
     },
     "moreFeatures": {
-      "title": "TeGo 平台技术优势",
+      "title": "Tego OS 技术优势",
       "taskManagement": {
-        "title": "状态数据完整可控",
-        "description": "可视化追踪每个节点输入输出，支持历史重放与断点恢复；多触发与调度能力确保流程可观测、可追溯、易运维。"
+        "title": "全流程可视化追踪",
+        "description": "DAG 视图展示任务依赖关系，时间线视图追踪执行进度，推理视图呈现 Think 模块分析洞察，通信视图监控智能体间消息交互。"
       },
       "habitTracking": {
-        "title": "本地部署与插件扩展",
-        "description": "支持完全私有化部署与自定义插件/节点扩展，安全可控；高性能架构与错误隔离保障稳定性与合规性。"
+        "title": "企业级安全与部署",
+        "description": "支持私有化部署、混合云部署、SaaS服务三种模式，完整权限体系和审计机制，满足企业数据安全和合规要求。"
       },
       "financeManagement": {
-        "title": "发明专利：MCP动态服务器统一管理",
-        "description": "基于模型上下文协议的动态服务器统一管理平台：配置化生成与管理 MCP 服务，动态工具注册与热重载，平台级可扩展与可运维。"
+        "title": "动态重规划能力",
+        "description": "自动识别7种执行异常类型，分析4种趋势方向预判任务走势，检测到严重异常时自动触发计划调整，保障任务成功完成。"
       }
     }
   },
   "footer": {
     "companyName": "扎马未来",
-    "companyDescription": "TeGo-OS智能体操作系统 · 企业级AI解决方案与服务",
+    "companyDescription": "Tego OS企业智能协作中台 · 让 AI 智能体像高效团队一样协作",
     "products": "产品服务",
     "home": {
       "hero": {
-        "title": "TeGo-OS智能体操作系统"
+        "title": "Tego OS企业智能协作中台"
       }
     },
     "enterprise": "企业解决方案",
@@ -429,30 +430,30 @@
         "email": "business@zhama.com"
       },
       "support": {
-        "title": "技术支持", 
+        "title": "技术支持",
         "description": "产品使用和技术问题支持",
         "email": "support@zhama.com"
       }
     },
-    "copyright": "© 2025 深圳市扎马未来科技有限公司 版权所有 TeGo-OS智能体操作系统",
+    "copyright": "© 2025 深圳市扎马未来科技有限公司 版权所有 Tego OS企业智能协作中台",
     "icp": "粤ICP备2025426259号-1"
   },
   "advantagesSection": {
-    "title": "典型场景与可量化价值",
-    "subtitle": "已在多个行业场景验证并产生实际业务价值",
+    "title": "典型应用场景",
+    "subtitle": "已在多个行业场景验证并产生实际业务价值，从小时级人工协调到分钟级自动完成",
     "scenarios": {
-      "title": "适用场景",
+      "title": "核心场景",
       "professional": {
-        "title": "专业服务",
-        "description": "为专业团队提供高效的智能化解决方案"
+        "title": "企业差旅管理",
+        "description": "涉及出差申请、审批、机票酒店预订、日程安排、费用预估等多环节，原本 2-3 小时的协调工作 5 分钟自动完成"
       },
       "personal": {
-        "title": "个人用户",
-        "description": "个人开发者和创业者的智能化工具"
+        "title": "项目启动流程",
+        "description": "自动完成项目空间创建、资源分配、环境配置、通知发送、排期安排，项目启动从 1-2 天缩短到 30 分钟"
       },
       "enterprise": {
-        "title": "企业级应用",
-        "description": "大型企业的全面智能化转型方案"
+        "title": "智能客户服务",
+        "description": "工单创建、客户联系、问题诊断、智能决策（换货/维修/退款）、满意度回访，响应时间从小时级降到分钟级"
       }
     }
   },
@@ -462,14 +463,14 @@
     "community": {
       "badge": "永久免费",
       "name": "社区版",
-      "lead": "快速体验智能体生态的核心功能",
+      "lead": "快速体验多智能体协作的核心功能",
       "desc": "适合个人开发者与小团队试用，零成本上手，永久免费。",
       "featuresTitle": "功能包含",
       "features": [
-        "智能体上架、关联应用管理",
-        "成员管理",
-        "域名管理、证书绑定",
-        "智能体搜索"
+        "智能体协作基础能力",
+        "单一任务自动化",
+        "基础可视化工作台",
+        "社区技术支持"
       ],
       "price": "¥0",
       "period": "永久免费",
@@ -483,11 +484,11 @@
       "desc": "起步价 ¥50,000/年，高可用+合规+代维一站式服务",
       "featuresTitle": "包含「社区版全部特性」，并提供",
       "features": [
-        "高可用、并发支持",
+        "LAMP 智能协作框架完整功能",
+        "DAG 并发调度引擎",
+        "经验池持续学习",
         "私有化环境部署",
         "服务可用性监控",
-        "K8S / DevOps",
-        "Open API 支持",
         "一对一客户支持",
         "委托部署与代维服务"
       ],
@@ -498,13 +499,14 @@
     "enterprise": {
       "ribbon": "ON PREMISE",
       "badge": "企业旗舰",
-      "name": "TeGo-OS智能体操作系统",
-      "lead": "全链路智能体运行与治理平台，企业优先",
+      "name": "Tego OS企业智能协作中台",
+      "lead": "全链路智能体协作与治理平台，企业优先",
       "desc": "自主品牌 + 高安全 + 专属支持 + POC 验证，定制化报价",
       "featuresTitle": "包含「订阅版特性」，并提供",
       "features": [
-        "高自主保证、高安全保障",
-        "自主品牌形象",
+        "A2A 开放协议完整支持",
+        "跨企业智能体协作",
+        "自主品牌形象定制",
         "高品质售后服务",
         "配合审计、部署、POC 支持服务"
       ],
@@ -514,21 +516,21 @@
     }
   },
   "downloadSection": {
-    "title": "立即体验 TeGo 智能体平台",
+    "title": "立即体验 Tego OS 企业智能协作中台",
     "subtitle": "多种方式快速对接，开启您的企业智能化之旅",
     "enterprise": {
       "title": "企业服务",
-      "description": "获取企业级解决方案和定制服务",
+      "description": "获取企业级多智能体协作解决方案和定制服务",
       "button": "联系销售"
     },
     "ios": {
       "title": "iOS 应用",
-      "description": "在 App Store 下载 TeGo 移动版",
+      "description": "在 App Store 下载 Tego OS 移动版",
       "button": "App Store"
     },
     "android": {
       "title": "Android 应用",
-      "description": "获取 Android 版本的 TeGo 应用",
+      "description": "获取 Android 版本的 Tego OS 应用",
       "button": "立即下载"
     },
     "docs": {
@@ -573,26 +575,26 @@
   },
   "downloadPage": {
     "seo": {
-      "title": "下载体验 - TeGo AI智能体操作系统",
-      "description": "TeGo AI智能体操作系统下载与体验页面。支持企业咨询、产品演示、技术文档查看和私有化部署服务。",
-      "keywords": "TeGo下载, 智能体平台体验, 企业AI演示, 私有化部署, 技术文档",
+      "title": "下载体验 - Tego OS企业智能协作中台",
+      "description": "Tego OS企业智能协作中台下载与体验页面。支持企业咨询、产品演示、技术文档查看和私有化部署服务。",
+      "keywords": "Tego OS下载, 智能体平台体验, 企业AI演示, 多智能体协作, 私有化部署, 技术文档",
       "openGraph": {
-        "title": "下载体验 - TeGo AI智能体操作系统",
-        "description": "立即体验TeGo AI智能体操作系统，获取企业级AI解决方案演示与技术支持。"
+        "title": "下载体验 - Tego OS企业智能协作中台",
+        "description": "立即体验Tego OS企业智能协作中台，获取企业级AI多智能体协作解决方案演示与技术支持。"
       }
     }
   },
   "seo": {
-    "title": "TeGo-OS智能体操作系统 | 深圳市扎马未来科技有限公司",
-    "description": "官方平台：TeGo‑AI 智能体操作系统与企业级 AI 解决方案，覆盖接入网关、智能体引擎、MCP 框架、模型网关与应用市场，支持私有化与高可用部署，助力“对话即操作”的流程自动化。",
-    "keywords": "TeGo, 智能体, AI Agent, 企业智能, 私有化部署, MCP 框架, 智能体操作系统, 业务流程自动化, 模型网关, 智能体工作流, AI 基建, 深圳市扎马未来科技有限公司",
+    "title": "Tego OS企业智能协作中台 | 深圳市扎马未来科技有限公司",
+    "description": "Tego OS 是基于前沿 AI 研究成果打造的企业级多智能体自主协作平台。让 AI 智能体像高效团队一样协作，理解业务意图、分解复杂任务、协调多方资源，端到端闭环交付业务结果，执行效率提升 300%+。",
+    "keywords": "Tego OS, 企业智能协作中台, 多智能体协同, AI Agent, LAMP框架, DAG调度, A2A协议, 企业AI, 私有化部署, 深圳市扎马未来科技有限公司",
     "openGraph": {
-      "title": "TeGo-OS智能体操作系统 | 深圳市扎马未来科技有限公司",
-      "description": "一站式企业智能体平台：从接入到治理全链路打通，支持私有化与高可用落地，推动对话即操作与流程自动化。"
+      "title": "Tego OS企业智能协作中台 | 深圳市扎马未来科技有限公司",
+      "description": "让 AI 智能体像高效团队一样协作，自主完成复杂业务任务。基于 LAMP 框架、DAG 调度、经验池学习的企业级多智能体协作平台。"
     },
     "twitter": {
-      "title": "TeGo-OS智能体操作系统",
-      "description": "企业级AI智能体平台与解决方案"
+      "title": "Tego OS企业智能协作中台",
+      "description": "让 AI 智能体像高效团队一样协作，自主完成复杂业务任务"
     }
   },
   "mcpPlatform": {
@@ -643,17 +645,17 @@
       }
     },
     "seo": {
-      "title": "MCP 统一管理平台 - TeGo AI智能体操作系统",
+      "title": "MCP 统一管理平台 - Tego OS企业智能协作中台",
       "description": "发明专利技术 · 基于模型上下文协议的动态服务器统一管理平台，一键生成 MCP 服务，零代码快速上线，平台级可扩展与可运维。",
-      "keywords": "MCP平台, 模型上下文协议, 动态服务器管理, 工具生成, 发明专利, 零代码, TeGo",
+      "keywords": "MCP平台, 模型上下文协议, 动态服务器管理, 工具生成, 发明专利, 零代码, Tego OS",
       "openGraph": {
-        "title": "MCP 统一管理平台 - TeGo AI智能体操作系统",
+        "title": "MCP 统一管理平台 - Tego OS企业智能协作中台",
         "description": "企业级MCP动态服务器统一管理平台，支持无代码一键生成MCP服务。"
       }
     }
   },
   "pluginSystem": {
-    "title": "TeGo OS 企业级插件平台",
+    "title": "Tego OS 企业级插件平台",
     "subtitle": "像安装手机 App 一样为系统添加新功能 · 开发周期缩短 90%",
     "badge": "安全可靠 · 极速开发 · 技术先进 · 超高 ROI",
     "features": {
@@ -720,11 +722,11 @@
       "highlight": "唯一支持 React Hooks 的企业级插件系统"
     },
     "seo": {
-      "title": "企业级插件平台 - TeGo OS",
-      "description": "TeGo OS 企业级插件平台 · 唯一支持 React Hooks 的插件系统。开发周期缩短 90%，投资回报率超 500%，安全可靠、极速开发、即插即用。",
-      "keywords": "企业级插件, TeGo OS, React Hooks, 插件系统, 快速开发, 高ROI, 零侵入",
+      "title": "企业级插件平台 - Tego OS",
+      "description": "Tego OS 企业级插件平台 · 唯一支持 React Hooks 的插件系统。开发周期缩短 90%，投资回报率超 500%，安全可靠、极速开发、即插即用。",
+      "keywords": "企业级插件, Tego OS, React Hooks, 插件系统, 快速开发, 高ROI, 零侵入",
       "openGraph": {
-        "title": "企业级插件平台 - TeGo OS",
+        "title": "企业级插件平台 - Tego OS",
         "description": "唯一支持React Hooks的企业级插件系统，极速开发，安全可靠。"
       }
     }
@@ -768,21 +770,21 @@
       "content": "装饰器驱动开发模式让开发者专注业务逻辑，无需关心底层注册、验证等繁琐细节。声明式开发方式大幅提升开发效率与代码可维护性，降低技术门槛与交付成本。"
     },
     "seo": {
-      "title": "技术特点 - TeGo MCP 平台",
-      "description": "TeGo MCP 平台技术特点：自主研发MCP框架、装饰器驱动开发、标准化工具注册、简化开发流程，大幅提升开发效率。",
+      "title": "技术特点 - Tego OS MCP 平台",
+      "description": "Tego OS MCP 平台技术特点：自主研发MCP框架、装饰器驱动开发、标准化工具注册、简化开发流程，大幅提升开发效率。",
       "keywords": "MCP框架, 装饰器驱动, 工具注册, TypeScript, 智能体开发",
       "openGraph": {
-        "title": "技术特点 - TeGo MCP 平台",
+        "title": "技术特点 - Tego OS MCP 平台",
         "description": "装饰器驱动的开发模式，极大简化智能体工具开发流程。"
       }
     }
   },
   "tegoOS": {
-    "title": "TeGo-OS 智能体操作系统",
-    "subtitle": "打通企业各业务系统之间的信息孤岛，实现系统互联、数据互通、智能调度",
+    "title": "Tego OS 企业智能协作中台",
+    "subtitle": "让 AI 智能体像高效团队一样协作，自主完成复杂业务任务",
     "problem": {
-      "title": "企业信息孤岛现状",
-      "description": "在大多数企业内部，CRM、ERP、OA、财务、人事、客服、BI等系统彼此独立，数据分散、标准不一，员工需手动切换多个系统重复录入，信息流断裂导致决策滞后、效率低下。",
+      "title": "企业面临的核心挑战",
+      "description": "Agent 孤岛、能力碎片、管控缺失、效率瓶颈——不同 AI 工具之间数据割裂、无法协同，单一 Agent 难以应对跨领域多步骤的复杂任务，缺乏企业级权限体系和审计机制，任务串行执行需要人工协调。",
       "systems": {
         "crm": "CRM",
         "erp": "ERP",
@@ -795,46 +797,46 @@
       }
     },
     "mission": {
-      "title": "TeGo 的使命",
-      "description": "让企业所有系统通过智能体的形式自动协作，实现「系统互联、数据互通、智能调度」，让 AI 成为跨系统的信息中枢。不再需要人工在多个系统间切换，一句话即可完成跨系统的复杂业务流程。"
+      "title": "Tego OS 的解决之道",
+      "description": "统一的多智能体编排与管理平台：向上提供自然语言交互界面，让用户用日常语言描述任务；向下连接各类专业智能体，调度它们协同完成任务；核心基于前沿 AI 研究的智能协作框架，实现真正的「团队式」协作。"
     },
     "technologies": {
-      "title": "四大核心技术",
-      "subtitle": "创新技术栈，打造企业级AI智能体操作系统",
+      "title": "四大核心能力",
+      "subtitle": "从理解意图到闭环交付的端到端智能协作",
       "apiToMcp": {
-        "title": "API → MCP 自动转换算法",
-        "description": "智能解析与自动生成，让既有 API 秒变智能体工具",
+        "title": "智能任务分解",
+        "description": "理解用户高层级业务目标，自动分解为可执行的子任务",
         "features": [
-          "从 Swagger/OpenAPI/GraphQL Schema 自动推理",
-          "生成 MCP 服务定义与上下文映射",
-          "支持自动参数匹配与类型转换"
+          "意图理解与语义解析",
+          "任务分解与智能体匹配",
+          "依赖分析与执行计划生成"
         ]
       },
       "orchestration": {
-        "title": "跨智能体编排调度架构",
-        "description": "智能体可以调用智能体，形成多层协作调度树",
+        "title": "并发智能调度",
+        "description": "基于 DAG 分析，自动识别可并行任务，最大化执行效率",
         "features": [
-          "多层 Agent 调度树，支持复杂业务流程",
-          "通过上下文传递共享数据",
-          "动态路由与负载均衡"
+          "拓扑排序与层级划分",
+          "无依赖任务并行启动",
+          "动态并发数调整与异常隔离"
         ]
       },
       "decisionEngine": {
-        "title": "上下文驱动的动态决策引擎",
-        "description": "结合语义理解与规则判断，动态选择最优执行路径",
+        "title": "智能协作与决策",
+        "description": "通过 LAMP 框架实现智能体之间的深度协作",
         "features": [
-          "TeGo-LLM 的语义理解与意图识别",
-          "规则引擎与决策树融合",
-          "实时上下文感知与路径优化"
+          "信息共享与知识传递",
+          "信任度管理与信念更新",
+          "多源信息融合的协同决策"
         ]
       },
       "feedbackLoop": {
-        "title": "反馈学习与知识闭环",
-        "description": "每次调用都是学习机会，持续优化模型与决策",
+        "title": "持续学习与优化",
+        "description": "系统具备持续学习能力，越用越智能",
         "features": [
-          "QueryLog → Feedback → 知识回灌",
-          "模型微调与持续优化",
-          "企业专属知识库积累"
+          "成功轨迹自动存入经验池",
+          "失败案例作为反例避免重蹈覆辙",
+          "新任务检索相似经验复用成功策略"
         ]
       }
     }
@@ -962,11 +964,11 @@
       "learnMore": "了解更多"
     },
     "seo": {
-      "title": "多智能体协同 - TeGo-OS 智能体操作系统",
+      "title": "多智能体协同 - Tego OS企业智能协作中台",
       "description": "发明专利技术：基于语言增强的多智能体协同决策系统（LAMP框架），融合Think-Speak-Decide三阶段推理管道，实现智能体间深度协作，任务成功率提升15-25%，执行效率提升2-5倍。",
-      "keywords": "多智能体协同, LAMP框架, Think-Speak-Decide, 智能体通信, DAG调度, 发明专利, TeGo-OS",
+      "keywords": "多智能体协同, LAMP框架, Think-Speak-Decide, 智能体通信, DAG调度, 发明专利, Tego OS",
       "openGraph": {
-        "title": "多智能体协同 - TeGo-OS 智能体操作系统",
+        "title": "多智能体协同 - Tego OS企业智能协作中台",
         "description": "LAMP 框架：语言增强的多智能体协同决策系统，实现智能体间深度协作与智能决策。"
       }
     }
@@ -974,23 +976,23 @@
   "multiAgentSection": {
     "badge": "专利技术 · 多智能体协同",
     "title": "多智能体协同调度系统",
-    "subtitle": "让 AI 智能体像人类团队一样协作，基于前沿 LAMP 框架，打造多个专业智能体自主协作的解决方案",
+    "subtitle": "让 AI 智能体像高效团队一样协作，基于前沿 LAMP 框架，打造多个专业智能体自主协作的解决方案",
     "lamp": {
       "title": "LAMP 三阶段推理框架",
       "subtitle": "Language-Augmented Multi-Agent Policy · 语言增强的多智能体策略",
       "think": {
         "title": "Think 思考",
-        "description": "持续分析任务进展，检测异常，预判趋势，进行短期和长期推理",
+        "description": "持续分析任务进展，检测异常（冲击检测），预判趋势，进行短期和长期推理",
         "analogy": "如同项目经理的洞察力"
       },
       "speak": {
         "title": "Speak 沟通",
-        "description": "智能体之间信息共享、知识传递，基于自然语言的语义化通信",
+        "description": "智能体之间信息共享、知识传递、信任度管理，支持 A2A 协议通信",
         "analogy": "如同团队成员的高效协作"
       },
       "decide": {
         "title": "Decide 决策",
-        "description": "综合多方信息，融合数值、推理、信念三源数据，做出最优决策",
+        "description": "综合数值数据、推理结果、信念状态，做出最优决策，支持策略自适应",
         "analogy": "如同领导层的精准判断"
       }
     },
@@ -1002,15 +1004,15 @@
       },
       "experience": {
         "title": "经验池学习",
-        "description": "记忆成功策略，智能检索复用历史经验，越用越智能"
+        "description": "向量化存储成功经验，智能检索复用历史策略，越用越智能"
       },
       "a2a": {
         "title": "A2A 开放协议",
-        "description": "标准化智能体间通信，支持跨系统、跨平台协作"
+        "description": "支持 Agent2Agent 标准协议，与 Google A2A 标准兼容"
       },
       "scheduling": {
-        "title": "智能任务编排",
-        "description": "自动分解复杂任务，分配给最合适的专业智能体"
+        "title": "动态重规划",
+        "description": "检测到严重异常时自动触发计划调整，保障任务成功完成"
       }
     },
     "metrics": {
@@ -1022,7 +1024,7 @@
     },
     "advantages": {
       "title": "相比传统方案的优势",
-      "subtitle": "从单一 AI 助手到多智能体协同的全面升级",
+      "subtitle": "从单一 AI 助手到多智能体团队协作的全面升级",
       "autonomous": {
         "title": "自主决策",
         "description": "智能体自主决策、自我优化，无需固定流程"
@@ -1037,7 +1039,7 @@
       },
       "secure": {
         "title": "安全可控",
-        "description": "企业级安全架构，完整审计，灵活权限控制"
+        "description": "企业级权限体系，完整审计追溯，灵活权限控制"
       }
     },
     "cta": {
@@ -1047,8 +1049,8 @@
   },
   "blog": {
     "meta": {
-      "title": "技术博客 - TeGo-OS智能体操作系统",
-      "description": "TeGo-OS最新技术动态、产品更新、行业洞察和最佳实践分享"
+      "title": "技术博客 - Tego OS企业智能协作中台",
+      "description": "Tego OS最新技术动态、产品更新、行业洞察和最佳实践分享"
     },
     "nav": {
       "title": "技术博客",

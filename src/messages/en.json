@@ -18,15 +18,15 @@
   },
   "nav": {
     "home": "Home",
-    "features": "Features",
-    "advantages": "Cases",
+    "features": "Capabilities",
+    "advantages": "Use Cases",
     "pricing": "Pricing",
     "download": "Contact Us",
     "about": "About Us",
     "docs": "Documentation",
     "blog": "Blog",
     "contact": "Contact Us",
-    "tryNow": "Try Now",
+    "tryNow": "Book Demo",
     "platform": {
       "title": "Tech Platform",
       "mcpPlatform": "MCP Platform",
@@ -37,17 +37,17 @@
   },
   "home": {
     "hero": {
-      "title": "TeGo AI Agent Platform",
-      "tagline": "Building with AI Infrastructure, Driving Enterprise Intelligent Future",
-      "description": "TeGo Platform is a one-stop enterprise AI agent platform that empowers full automation, intelligence, and collaboration across business processes.",
-      "cta": "Try Now",
-      "secondaryCta": "Learn More",
-      "imgAlt": "TeGo AI Agent Platform Display"
+      "title": "Tego OS Enterprise Intelligent Collaboration Platform",
+      "tagline": "Enable AI Agents to Collaborate Like High-Performing Teams, Autonomously Completing Complex Business Tasks",
+      "description": "An enterprise-grade multi-agent autonomous collaboration platform built on cutting-edge AI research. Understand business intent, decompose complex tasks, coordinate resources, and deliver end-to-end results with 300%+ efficiency improvement.",
+      "cta": "Book Demo",
+      "secondaryCta": "Live Demo",
+      "imgAlt": "Tego OS Enterprise Intelligent Collaboration Platform Display"
     }
   },
   "contactPage": {
     "title": "Contact Us",
-    "subtitle": "Have questions or suggestions? We'd love to help. Fill out the form below and we'll get back to you as soon as possible.",
+    "subtitle": "Need enterprise solutions or technical support? Fill out the form to schedule a demo or get a customized solution. We'll respond within 24 hours.",
     "form": {
       "title": {
         "label": "Subject",
@@ -80,62 +80,62 @@
       }
     },
     "seo": {
-      "title": "Contact Us - TeGo AI Agent Platform",
-      "description": "Contact TeGo AI Agent Platform team for enterprise AI solution consultation. We provide customized agent platform deployment and technical support.",
-      "keywords": "TeGo, contact us, AI agent platform, enterprise AI, technical support, Zhama",
+      "title": "Contact Us - Tego OS Enterprise Intelligent Collaboration Platform",
+      "description": "Contact Tego OS team for enterprise-grade AI multi-agent collaboration solutions. We provide customized platform deployment and technical support.",
+      "keywords": "Tego OS, contact us, AI agent platform, enterprise AI, multi-agent collaboration, technical support, Zhama",
       "openGraph": {
-        "title": "Contact Us - TeGo AI Agent Platform",
-        "description": "Contact TeGo AI Agent Platform team for professional enterprise AI solution consultation and technical support."
+        "title": "Contact Us - Tego OS Enterprise Intelligent Collaboration Platform",
+        "description": "Contact Tego OS team for professional enterprise AI multi-agent collaboration solutions and technical support."
       }
     }
   },
   "appDownload": {
-    "title": "Join TeGo Now",
+    "title": "Experience Tego OS Enterprise Intelligent Collaboration Platform",
     "appLogo": {
-      "title": "TeGo",
-      "alt": "TeGo Logo"
+      "title": "Tego OS",
+      "alt": "Tego OS Enterprise Intelligent Collaboration Platform Logo"
     },
     "appIntro": {
-      "slogan": "Enterprise AI Agent Comprehensive Service Platform",
-      "tagline": "Building with AI Infrastructure, Driving Enterprise Intelligent Future"
+      "slogan": "Enable AI Agents to Collaborate Like High-Performing Teams",
+      "tagline": "Shenzhen Zhama Future Technology Co., Ltd."
     },
-    "whyChoose": "Why Choose TeGo?",
+    "whyChoose": "Why Choose Tego OS? Three Core Values",
     "features": {
       "dataCollection": {
-        "title": "Modular Architecture",
-        "description": "Componentized combination and on-demand deployment"
+        "title": "Unified Management, Solving Agent Silos",
+        "description": "Reduce management costs, enable data interoperability and collaboration"
       }
     },
     "targetUsers": {
-      "title": "Target Users",
-      "executive": "Enterprise Executives",
-      "researcher": "Technical Teams",
-      "student": "Product Managers",
-      "planner": "Business Personnel"
+      "title": "Target Customers",
+      "executive": "Large Enterprises · Digital Transformation",
+      "researcher": "Mid-sized Companies · Cross-department Workflows",
+      "student": "Government · AI Capability Platform",
+      "planner": "Tech Teams · Multi-AI Tool Management"
     },
     "download": {
-      "heading": "Join TeGo Now, Start Your Enterprise Intelligent Transformation Journey",
+      "heading": "Multiple Ways to Connect with Tego OS Intelligent Collaboration Platform",
       "webapp": {
-        "title": "Online Experience",
-        "action": "Try TeGo Now"
+        "title": "Online Demo",
+        "action": "Schedule Product Demo"
       },
-      "appSection": "Get More Information",
+      "appSection": "Enterprise Service Channel",
       "ios": {
         "title": "Enterprise Consultation",
-        "subtitle": "Custom Solutions",
-        "description": "Get exclusive solutions",
+        "subtitle": "Custom Solutions · POC Validation",
+        "description": "Get exclusive solutions and ROI assessment",
         "action": "Consult Now"
       },
       "android": {
         "title": "Technical Documentation",
-        "subtitle": "API Documentation",
-        "description": "View complete technical documentation",
+        "subtitle": "Architecture · Integration Guide",
+        "description": "View complete technical architecture and deployment docs",
         "action": "View Documentation"
       },
       "qrCode": {
-        "notice": "Scan QR Code for More Information",
-        "description": "Scan QR code to immediately start your enterprise intelligent transformation journey",
-        "alt": "TeGo Contact QR Code"
+        "notice": "Scan QR Code to Contact Us",
+        "description": "Scan QR code for Tego OS professional services",
+        "alt": "Tego OS Enterprise Service Contact QR Code"
       }
     },
     "wechatBrowser": {
@@ -153,7 +153,7 @@
     "sections": {
       "introduction": {
         "title": "Introduction",
-        "content": "Shenzhen Zhama Future Technology Co., Ltd. (hereinafter referred to as \\\"we\\\") is committed to protecting your personal privacy. This privacy policy explains how we collect, use, store, and protect your personal information.",
+        "content": "Shenzhen Zhama Future Technology Co., Ltd. (hereinafter referred to as \"we\") is committed to protecting your personal privacy. This privacy policy explains how we collect, use, store, and protect your personal information.",
         "content2": "By using our services, you agree to the terms of this privacy policy. If you do not agree, please do not use our services."
       },
       "collection": {
@@ -246,16 +246,17 @@
     "sections": {
       "acceptance": {
         "title": "Acceptance of Terms",
-        "content": "Welcome to the TeGo platform. By accessing and using our services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.",
+        "content": "Welcome to Tego OS platform. By accessing and using our services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.",
         "content2": "We reserve the right to modify these terms at any time. Your continued use of the service will be deemed acceptance of the modified terms."
       },
       "service": {
         "title": "Service Description",
-        "content": "TeGo is an enterprise-level AI agent platform that provides the following services:",
+        "content": "Tego OS is an enterprise-grade multi-agent autonomous collaboration platform that provides the following services:",
         "items": [
-          "Agent engines and development tools",
-          "MCP framework and application marketplace",
-          "Access gateways and integration services",
+          "Multi-agent collaborative scheduling and management",
+          "LAMP intelligent collaboration framework",
+          "DAG concurrent scheduling engine",
+          "A2A open protocol support",
           "Private deployment solutions"
         ],
         "modification": "We reserve the right to modify, suspend, or terminate any services at any time without prior notice."
@@ -294,7 +295,7 @@
       },
       "disclaimer": {
         "title": "Disclaimer",
-        "content": "Our services are provided \\\"as is\\\" without any express or implied warranties. We do not guarantee that the services will:",
+        "content": "Our services are provided \"as is\" without any express or implied warranties. We do not guarantee that the services will:",
         "reasons": [
           "Operate uninterrupted or error-free",
           "Meet your specific needs",
@@ -322,104 +323,105 @@
     }
   },
   "aboutSection": {
-    "title": "Technical Highlights",
-    "subtitle": "Using AI Technology to Redefine Enterprise Intelligence Infrastructure",
-    "description": "TeGo platform is based on advanced AI technology stack, providing standardized and scalable AI agent service capabilities for enterprises",
+    "title": "Tego OS Core Value",
+    "subtitle": "Enable AI Agents to Collaborate Like High-Performing Teams, Autonomously Completing Complex Business Tasks",
+    "description": "An enterprise-grade multi-agent autonomous collaboration platform built on cutting-edge AI research, validated in healthcare, research, and office/government scenarios, delivering governable, observable, and replicable intelligent capabilities",
     "vision": {
-      "title": "Why Choose TeGo?",
+      "title": "Tego OS vs Other Platforms - Differentiation",
       "paragraphs": [
-        "TeGo platform has successfully landed in multiple industries including healthcare, finance, and operations, supporting enterprises' complete closed-loop of \"Validation-Iteration-Replication\".",
-        "We provide high-performance, scalable, private deployment-supported full lifecycle AI solutions and technical services."
+        "Unified Management: Solve Agent silos, reduce management costs, enable data interoperability",
+        "Intelligent Collaboration: Multi-agent autonomous collaboration, automatic complex task completion, 300%+ efficiency improvement",
+        "Continuous Evolution: Experience accumulation and learning, getting smarter over time, 95%+ task success rate"
       ]
     },
     "features": [
       {
-        "title": "MCP AI Agent Protocol",
-        "description": "Standardized service interfaces supporting automatic registration and composition of AI service components"
+        "title": "LAMP Intelligent Collaboration Framework",
+        "description": "Think-Speak-Decide three-stage reasoning pipeline from latest academic research, simulating human team collaboration for deep agent cooperation and intelligent decision-making"
       },
       {
-        "title": "RAG Retrieval Enhancement Capability",
-        "description": "Realize intelligent Q&A combining context awareness with enterprise knowledge base"
+        "title": "DAG Concurrent Scheduling Engine",
+        "description": "Directed Acyclic Graph-based task scheduling technology, automatically identifying task dependencies, maximizing parallelism, achieving 2-5x efficiency improvement"
       },
       {
-        "title": "Multimodal AI Support",
-        "description": "Access voice, image, text and other multimodal inputs, realizing continuous execution of complex tasks"
+        "title": "Experience Pool Continuous Learning",
+        "description": "Vector storage of historical successful experiences, intelligent retrieval and reuse of successful strategies, reducing new task planning time by 40-60%"
       },
       {
-        "title": "Mainstream Large Model Support",
-        "description": "Support OpenAI, Baidu ERNIE, Tongyi Qianwen, Gemini and other mainstream large models as well as privately deployed models"
+        "title": "A2A Open Protocol",
+        "description": "Support Agent2Agent open protocol for seamless integration with third-party agents, building an open enterprise AI ecosystem"
       }
     ],
     "footer": {
-      "prefix": "TeGo Platform",
-      "suffix": ", making AI the core competitiveness of every enterprise."
+      "prefix": "Tego OS Enterprise Intelligent Collaboration Platform",
+      "suffix": ", enabling AI agents to collaborate like high-performing teams."
     },
     "typingPhrases": [
-      "Making AI the core competitiveness of every enterprise",
-      "Building truly comprehensive enterprise intelligence infrastructure spanning \"Perception-Understanding-Execution\"",
-      "Driving enterprise intelligent future"
+      "Enable AI Agents to Collaborate Like High-Performing Teams",
+      "Understand Intent · Decompose Tasks · Coordinate Resources · Deliver Results",
+      "Unified Management · Intelligent Collaboration · Continuous Evolution"
     ]
   },
   "featuresSection": {
-    "title": "Four Core Components",
-    "subtitle": "TeGo Enterprise Agent Service Platform Architecture, providing complete agent operation and governance capabilities for enterprises",
+    "title": "Four-Layer Platform Architecture",
+    "subtitle": "Top-down layered design, integrating Application Layer—Orchestration Layer—Collaboration Layer—Foundation Layer",
     "tabs": {
-      "collection": "TeGo-OS",
-      "analysis": "TeGo-Engine",
-      "organization": "TeGo-MCP",
-      "gateway": "TeGo-LLM"
+      "collection": "Application",
+      "analysis": "Orchestration",
+      "organization": "Collaboration",
+      "gateway": "Foundation"
     },
     "collection": {
-      "title": "TeGo-OS Enterprise Intelligent Operating System",
-      "description": "Multi-terminal agent access, covering recommendation, general, and industry-specific agent types. Unified user management, permission control, application market and token management. Provides core services like triggers, API integration, and plugin management.",
-      "tags": ["Agent Access", "Permission Control", "API Integration", "Plugin Management"]
+      "title": "Application Layer · User Interaction Interface",
+      "description": "Provides natural language interaction interface where users describe tasks in everyday language. Pre-built industry scenario templates for quick task initiation. Visual workspace for real-time task execution status and agent collaboration monitoring.",
+      "tags": ["Natural Language", "Scenario Templates", "Visual Workspace", "Real-time Monitoring"]
     },
     "analysis": {
-      "title": "TeGo-Engine Agent Development Platform",
-      "description": "Visual drag-and-drop interface supporting process engine and node management. Channel management and data tracking for business process automation. Permission control and load balancing ensure enterprise-grade stable operation.",
-      "tags": ["Visual Drag-and-drop", "Process Engine", "Data Tracking", "Load Balancing"]
+      "title": "Orchestration Layer · Core Scheduling Center",
+      "description": "Includes Intelligent Planning Engine (Tego-Planner), Concurrent Scheduling Engine (Tego-Orchestrator), and Quality Evaluation Engine (Tego-Evaluator) for task decomposition, agent matching, DAG topology analysis, and concurrent execution optimization.",
+      "tags": ["Smart Planning", "Concurrent Scheduling", "Quality Evaluation", "ReAct Pattern"]
     },
     "organization": {
-      "title": "TeGo-MCP Routing and Registry Center",
-      "description": "MCP service discovery and registration for dynamic routing of agent services. Agent management and conversation services supporting multi-agent collaboration. Vector indexing and retrieval augmentation (RAG) to enhance intelligent Q&A capabilities.",
-      "tags": ["Service Discovery", "Dynamic Routing", "Multi-agent Collaboration", "RAG Enhancement"]
+      "title": "Collaboration Layer · LAMP Framework",
+      "description": "Based on academic frontier LAMP framework, featuring Think continuous reasoning module, Speak agent communication module, and Decide decision fusion module for deep agent collaboration and intelligent decision-making.",
+      "tags": ["Think Reasoning", "Speak Communication", "Decide Decision", "Trust Management"]
     },
     "gateway": {
-      "title": "TeGo-LLM Model Gateway",
-      "description": "Integrate mainstream large models like OpenAI, Gemini, QWen, DeepSeek. Load balancing, route distribution, flow control, and access security. Support local LLM model deployment with multimodal intelligent interaction capabilities.",
-      "tags": ["Mainstream Models", "Load Balancing", "Flow Control", "Multimodal Interaction"]
+      "title": "Foundation Layer · Core Infrastructure",
+      "description": "Provides experience pool storage and retrieval, A2A open protocol support, three-tier cache state management, and multi-model integration (OpenAI, Gemini, Qwen, DeepSeek, etc.) for high-performance stable operation.",
+      "tags": ["Experience Pool", "A2A Protocol", "State Management", "Multi-Model Support"]
     },
     "moreFeatures": {
-      "title": "More Core Capabilities",
+      "title": "Tego OS Technical Advantages",
       "taskManagement": {
-        "title": "Plugin-based Workspace",
-        "description": "Support multi-role and multi-terminal access, unified management of plugins and applications, perfect support for tens of thousands of VSCode plugins, building efficient and customized development environment."
+        "title": "Full-Process Visual Tracking",
+        "description": "DAG view shows task dependencies, timeline view tracks execution progress, reasoning view presents Think module insights, communication view monitors inter-agent message interactions."
       },
       "habitTracking": {
-        "title": "Process Engine and Data Bus",
-        "description": "Realize business automation capabilities such as data tracking, task orchestration, and trigger logic, ensuring intelligent execution and monitoring of business processes."
+        "title": "Enterprise Security & Deployment",
+        "description": "Supports private deployment, hybrid cloud deployment, and SaaS service modes, with complete permission systems and audit mechanisms to meet enterprise data security and compliance requirements."
       },
       "financeManagement": {
-        "title": "TeGo-LLM Model Gateway",
-        "description": "Integrate mainstream large models and local models, support semantic understanding, text-to-image, RAG and other intelligent interactions, providing powerful AI capability support."
+        "title": "Dynamic Replanning Capability",
+        "description": "Automatically identifies 7 types of execution anomalies, analyzes 4 trend directions to predict task trajectory, auto-triggers plan adjustments when severe anomalies detected to ensure task completion."
       }
     }
   },
   "footer": {
     "companyName": "Zhama Future",
-    "companyDescription": "TeGo AI Agent Platform · Enterprise AI Solutions & Services",
+    "companyDescription": "Tego OS Enterprise Intelligent Collaboration Platform · Enable AI Agents to Collaborate Like High-Performing Teams",
     "products": "Products & Services",
     "home": {
       "hero": {
-        "title": "TeGo AI Agent Platform"
+        "title": "Tego OS Enterprise Intelligent Collaboration Platform"
       }
     },
     "enterprise": "Enterprise Solutions",
     "api": "API Integration",
     "support": "Support & Resources",
     "helpCenter": "Help Center",
-    "tutorials": "Tutorials",
-    "faq": "FAQ",
+    "tutorials": "Deployment Guide",
+    "faq": "Enterprise Services",
     "contact": {
       "title": "Contact Us",
       "business": {
@@ -433,42 +435,42 @@
         "email": "support@zhama.com"
       }
     },
-    "copyright": "© 2025 TeGo. All rights reserved. Shenzhen Zhama Future Technology Co., Ltd.",
+    "copyright": "© 2025 Tego OS. All rights reserved. Shenzhen Zhama Future Technology Co., Ltd.",
     "icp": ""
   },
   "advantagesSection": {
-    "title": "Use Cases",
-    "subtitle": "TeGo platform applications across multiple industry scenarios",
+    "title": "Typical Application Scenarios",
+    "subtitle": "Validated across multiple industry scenarios with proven business value—from hours of manual coordination to minutes of automated completion",
     "scenarios": {
-      "title": "Application Scenarios",
+      "title": "Core Scenarios",
       "professional": {
-        "title": "Professional Services",
-        "description": "Efficient AI solutions for professional teams"
+        "title": "Enterprise Travel Management",
+        "description": "Covers travel requests, approvals, flight/hotel booking, scheduling, and expense estimation—2-3 hours of coordination work completed automatically in 5 minutes"
       },
       "personal": {
-        "title": "Personal Users",
-        "description": "AI tools for individual developers and entrepreneurs"
+        "title": "Project Kickoff Process",
+        "description": "Automatically completes project space creation, resource allocation, environment setup, notifications, and scheduling—project kickoff reduced from 1-2 days to 30 minutes"
       },
       "enterprise": {
-        "title": "Enterprise Applications",
-        "description": "Comprehensive AI transformation solutions for large enterprises"
+        "title": "Intelligent Customer Service",
+        "description": "Ticket creation, customer contact, issue diagnosis, intelligent decision (exchange/repair/refund), satisfaction follow-up—response time reduced from hours to minutes"
       }
     }
   },
   "pricingSection": {
     "title": "Choose the Right Plan for You",
-    "subtitle": "Flexible pricing plans to meet the needs of businesses of all sizes",
+    "subtitle": "From free trial to enterprise flagship, flexibly matching your business scale and governance needs",
     "community": {
       "badge": "Forever Free",
       "name": "Community Edition",
-      "lead": "Experience all features of the agent ecosystem",
-      "desc": "All basics for lightweight usage, forever free.",
+      "lead": "Experience core multi-agent collaboration features",
+      "desc": "Perfect for individual developers and small teams, zero cost to start, forever free.",
       "featuresTitle": "Features Included",
       "features": [
-        "Agent publishing & app management",
-        "Member management",
-        "Domain management & certificate binding",
-        "Agent search"
+        "Basic agent collaboration capabilities",
+        "Single task automation",
+        "Basic visual workspace",
+        "Community technical support"
       ],
       "price": "$0",
       "period": "Forever free",
@@ -478,17 +480,17 @@
       "ribbon": "ON PREMISE",
       "badge": "Annual Subscription",
       "name": "Subscription Edition",
-      "lead": "Annual subscription private deployment version",
-      "desc": "Starting from $7,000/year",
+      "lead": "Enterprise private deployment, flexible annual subscription",
+      "desc": "Starting from $7,000/year, high availability + compliance + managed services",
       "featuresTitle": "Includes all Community features, plus:",
       "features": [
-        "High availability & concurrency support",
+        "Complete LAMP intelligent collaboration framework",
+        "DAG concurrent scheduling engine",
+        "Experience pool continuous learning",
         "Private environment deployment",
         "Service availability monitoring",
-        "K8S / DevOps",
-        "Open API support",
         "One-on-one customer support",
-        "Delegated deployment & maintenance services"
+        "Delegated deployment & maintenance"
       ],
       "price": "$7,000",
       "period": "per year",
@@ -497,12 +499,13 @@
     "enterprise": {
       "ribbon": "ON PREMISE",
       "badge": "Enterprise Flagship",
-      "name": "TeGo-OS Agent Operating System",
-      "lead": "Build enterprise-grade agent operation & governance platform",
-      "desc": "Support private deployment version, enterprise priority.",
+      "name": "Tego OS Enterprise Platform",
+      "lead": "Full-chain agent collaboration and governance platform, enterprise priority",
+      "desc": "Custom branding + high security + dedicated support + POC validation, custom pricing",
       "featuresTitle": "Includes all Subscription features, plus:",
       "features": [
-        "High autonomy guarantee & security",
+        "Complete A2A open protocol support",
+        "Cross-enterprise agent collaboration",
         "Custom brand identity",
         "Premium after-sales service",
         "Audit, deployment & POC support services"
@@ -513,21 +516,21 @@
     }
   },
   "downloadSection": {
-    "title": "Experience TeGo Now",
-    "subtitle": "Multiple ways to experience our AI agent platform",
+    "title": "Experience Tego OS Enterprise Intelligent Collaboration Platform",
+    "subtitle": "Multiple ways to get started, begin your enterprise intelligence journey",
     "enterprise": {
       "title": "Enterprise Services",
-      "description": "Get enterprise-grade solutions and custom services",
+      "description": "Get enterprise-grade multi-agent collaboration solutions and custom services",
       "button": "Contact Sales"
     },
     "ios": {
       "title": "iOS App",
-      "description": "Download TeGo mobile app from App Store",
+      "description": "Download Tego OS mobile app from App Store",
       "button": "App Store"
     },
     "android": {
       "title": "Android App",
-      "description": "Get TeGo app for Android devices",
+      "description": "Get Tego OS app for Android devices",
       "button": "Download Now"
     },
     "docs": {
@@ -560,7 +563,7 @@
   },
   "contactSection": {
     "title": "Contact Us",
-    "subtitle": "Have questions or need a custom solution? We're happy to help",
+    "subtitle": "Need a custom solution or POC validation? Our expert team is ready to provide professional consultation",
     "business": {
       "title": "Business Partnership",
       "description": "Enterprise solutions and custom service consultation"
@@ -572,64 +575,64 @@
   },
   "downloadPage": {
     "seo": {
-      "title": "Download & Experience - TeGo AI Agent Platform",
-      "description": "TeGo AI Agent Platform download and experience page. Support enterprise consultation, product demo, technical documentation and private deployment services.",
-      "keywords": "TeGo download, AI agent platform experience, enterprise AI demo, private deployment, technical documentation",
+      "title": "Download & Experience - Tego OS Enterprise Intelligent Collaboration Platform",
+      "description": "Tego OS Enterprise Intelligent Collaboration Platform download and experience page. Support enterprise consultation, product demo, technical documentation and private deployment services.",
+      "keywords": "Tego OS download, AI agent platform experience, enterprise AI demo, multi-agent collaboration, private deployment, technical documentation",
       "openGraph": {
-        "title": "Download & Experience - TeGo AI Agent Platform",
-        "description": "Experience TeGo AI Agent Platform now, get enterprise AI solution demo and technical support."
+        "title": "Download & Experience - Tego OS Enterprise Intelligent Collaboration Platform",
+        "description": "Experience Tego OS Enterprise Intelligent Collaboration Platform now, get enterprise AI multi-agent collaboration solution demo and technical support."
       }
     }
   },
   "seo": {
-    "title": "TeGo AI Agent Platform | Shenzhen Zhama Future Technology Co., Ltd.",
-    "description": "Shenzhen Zhama Future Technology Co., Ltd. official platform: TeGo AI Agent Platform and enterprise AI solutions, covering agent engines, MCP frameworks, application markets and access gateways, supporting enterprise privatization and high availability deployment.",
-    "keywords": "TeGo, AI Agent, Enterprise Intelligence, Private Deployment, MCP Framework, Agent Operating System, Enterprise AI, Shenzhen Zhama Future Technology",
+    "title": "Tego OS Enterprise Intelligent Collaboration Platform | Shenzhen Zhama Future Technology Co., Ltd.",
+    "description": "Tego OS is an enterprise-grade multi-agent autonomous collaboration platform built on cutting-edge AI research. Enable AI agents to collaborate like high-performing teams, understand business intent, decompose complex tasks, coordinate resources, and deliver end-to-end results with 300%+ efficiency improvement.",
+    "keywords": "Tego OS, Enterprise Intelligent Collaboration Platform, Multi-Agent Collaboration, AI Agent, LAMP Framework, DAG Scheduling, A2A Protocol, Enterprise AI, Private Deployment, Shenzhen Zhama Future Technology",
     "openGraph": {
-      "title": "TeGo AI Agent Platform | Shenzhen Zhama Future Technology Co., Ltd.",
-      "description": "TeGo provides a one-stop enterprise agent platform and privatization solutions, covering the full chain capabilities of perception-understanding-execution, supporting high availability and compliant deployment."
+      "title": "Tego OS Enterprise Intelligent Collaboration Platform | Shenzhen Zhama Future Technology Co., Ltd.",
+      "description": "Enable AI agents to collaborate like high-performing teams, autonomously completing complex business tasks. Enterprise multi-agent collaboration platform based on LAMP framework, DAG scheduling, and experience pool learning."
     },
     "twitter": {
-      "title": "TeGo AI Agent Platform",
-      "description": "Enterprise AI Agent Platform and Solutions"
+      "title": "Tego OS Enterprise Intelligent Collaboration Platform",
+      "description": "Enable AI agents to collaborate like high-performing teams, autonomously completing complex business tasks"
     }
   },
   "mcpPlatform": {
     "title": "MCP Unified Management Platform Architecture",
-    "subtitle": "Enterprise-grade Model Context Protocol Dynamic Server Unified Management Platform",
+    "subtitle": "Patented Technology · Enterprise Model Context Protocol Dynamic Server Unified Management Platform",
     "coreFeatures": {
       "title": "Core Features",
       "dynamicServer": {
         "title": "Dynamic MCP Server Management",
-        "description": "Create, start, and stop MCP servers through configuration"
+        "description": "Configuration-based MCP server creation/start/stop, platform-level scalability"
       },
       "dynamicTool": {
-        "title": "Dynamic Tool Generation",
-        "description": "Dynamically generate and register tools based on database configuration"
+        "title": "Dynamic Tool Generation & Registration",
+        "description": "Auto-generate and register tools based on configuration, zero-code rapid deployment"
       },
       "dynamicRoute": {
-        "title": "Dynamic Routing",
-        "description": "Automatically generate independent routing endpoints for each MCP server"
+        "title": "Dynamic Routing & Independent Endpoints",
+        "description": "Auto-generate independent routing for each MCP server, flexible invocation"
       },
       "monitoring": {
-        "title": "Real-time Monitoring",
-        "description": "Health checks and status monitoring"
+        "title": "Real-time Monitoring & Health Checks",
+        "description": "Full observability ensuring service stability and maintainability"
       },
       "hotReload": {
-        "title": "Hot Reload",
-        "description": "Support hot reload when configuration changes"
+        "title": "Hot Reload Zero Downtime",
+        "description": "Support hot reload on configuration changes, no restart needed, business uninterrupted"
       },
       "customImpl": {
-        "title": "Custom Implementation",
-        "description": "Support JavaScript custom tool implementation"
+        "title": "Custom JS Tool Implementation",
+        "description": "Support JavaScript for custom tool development, flexible extension"
       },
       "highPerf": {
-        "title": "High Performance Architecture",
-        "description": "Asynchronous processing and error isolation"
+        "title": "High-Performance Async Architecture",
+        "description": "Asynchronous processing and error isolation for enterprise-grade stability"
       },
       "noCode": {
-        "title": "No Code",
-        "description": "One-click MCP service generation, no development and deployment required"
+        "title": "One-Click MCP Service Generation",
+        "description": "No development or deployment needed, 3 steps to launch agent tools"
       }
     },
     "architecture": {
@@ -642,19 +645,19 @@
       }
     },
     "seo": {
-      "title": "MCP Unified Management Platform - TeGo AI Agent Platform",
-      "description": "Dynamic server unified management platform based on Model Context Protocol, providing core capabilities like dynamic MCP server management, tool generation, and route management.",
-      "keywords": "MCP Platform, Model Context Protocol, Dynamic Server Management, Tool Generation, TeGo",
+      "title": "MCP Unified Management Platform - Tego OS Enterprise Intelligent Collaboration Platform",
+      "description": "Patented Technology · Dynamic server unified management platform based on Model Context Protocol, one-click MCP service generation, zero-code rapid deployment, platform-level scalability and maintainability.",
+      "keywords": "MCP Platform, Model Context Protocol, Dynamic Server Management, Tool Generation, Patent, Zero Code, Tego OS",
       "openGraph": {
-        "title": "MCP Unified Management Platform - TeGo AI Agent Platform",
-        "description": "Enterprise-grade MCP dynamic server unified management platform, supporting no-code one-click MCP service generation."
+        "title": "MCP Unified Management Platform - Tego OS Enterprise Intelligent Collaboration Platform",
+        "description": "Enterprise MCP dynamic server unified management platform, supporting no-code one-click MCP service generation."
       }
     }
   },
   "pluginSystem": {
     "title": "Tego OS Enterprise Plugin Platform",
-    "subtitle": "Add new features to your system like installing mobile apps",
-    "badge": "Secure · Efficient · Flexible · Zero Intrusion",
+    "subtitle": "Add new features to your system like installing mobile apps · 90% reduction in development cycle",
+    "badge": "Secure · Efficient · Advanced · High ROI",
     "features": {
       "title": "Four Core Features",
       "secure": {
@@ -687,9 +690,9 @@
       "roi": {
         "title": "High ROI",
         "items": [
-          "3x development efficiency",
+          "3x+ development efficiency",
           "50% operation cost reduction",
-          "5x+ ROI",
+          "500%+ ROI",
           "Risk-free trial"
         ]
       }
@@ -719,29 +722,29 @@
       "highlight": "The only enterprise-grade plugin system supporting React Hooks"
     },
     "seo": {
-      "title": "Enterprise Plugin Platform - TeGo OS",
+      "title": "Enterprise Plugin Platform - Tego OS",
       "description": "Tego OS enterprise plugin platform, supporting React Hooks, providing secure and rapid plugin extension capabilities. 90% reduction in development cycle, 500%+ ROI.",
-      "keywords": "Enterprise Plugin, TeGo OS, React Hooks, Plugin System, Rapid Development",
+      "keywords": "Enterprise Plugin, Tego OS, React Hooks, Plugin System, Rapid Development",
       "openGraph": {
-        "title": "Enterprise Plugin Platform - TeGo OS",
+        "title": "Enterprise Plugin Platform - Tego OS",
         "description": "The only enterprise-grade plugin system supporting React Hooks, rapid development, secure and reliable."
       }
     }
   },
   "technicalFeatures": {
-    "title": "Technical Features",
+    "title": "Technical Features & Development Efficiency",
     "features": {
       "framework": {
         "title": "Self-developed MCP Framework",
-        "description": "The platform is based on a self-developed MCP framework, using @Tool decorators to quickly define agent tools."
+        "description": "Based on proprietary MCP framework, using @Tool decorators to quickly define agent tools, significantly improving development efficiency."
       },
       "standardization": {
-        "title": "Standardized Tool Registration",
-        "description": "Not only supports automatic metadata declaration, but also implements structured and standardized registration of tool capabilities."
+        "title": "Standardized Tool Registration & Auto Validation",
+        "description": "Support automatic metadata declaration and structured registration of tool capabilities, automatic parameter validation and type checking."
       },
       "simplification": {
-        "title": "Simplified Development Process",
-        "description": "Greatly simplifies the development process, achieving \"define an invocable intelligent service with just a few lines of code\"."
+        "title": "Define Intelligent Services in Few Lines",
+        "description": "Minimal development process, define an invocable intelligent service with just a few lines of code, rapid deployment and iteration."
       },
       "multiAgent": {
         "title": "Multi-Agent Collaboration (LAMP Framework)",
@@ -763,25 +766,25 @@
       }
     },
     "summary": {
-      "title": "Core Advantages",
-      "content": "Through the decorator-driven development model, developers can focus on business logic implementation without worrying about tedious details such as tool registration, parameter validation, and type checking. This declarative development approach greatly improves development efficiency and code maintainability."
+      "title": "Core Advantages Summary",
+      "content": "Decorator-driven development model allows developers to focus on business logic without worrying about tedious details like tool registration and validation. Declarative development approach greatly improves development efficiency and code maintainability, reducing technical barriers and delivery costs."
     },
     "seo": {
-      "title": "Technical Features - TeGo MCP Platform",
-      "description": "TeGo MCP Platform technical features: self-developed MCP framework, decorator-driven development, standardized tool registration, simplified development process, significantly improving development efficiency.",
+      "title": "Technical Features - Tego OS MCP Platform",
+      "description": "Tego OS MCP Platform technical features: self-developed MCP framework, decorator-driven development, standardized tool registration, simplified development process, significantly improving development efficiency.",
       "keywords": "MCP Framework, Decorator-Driven, Tool Registration, TypeScript, Agent Development",
       "openGraph": {
-        "title": "Technical Features - TeGo MCP Platform",
+        "title": "Technical Features - Tego OS MCP Platform",
         "description": "Decorator-driven development model that greatly simplifies agent tool development process."
       }
     }
   },
   "tegoOS": {
-    "title": "TeGo-OS Agent Operating System",
-    "subtitle": "Breaking down information silos between enterprise systems, achieving system interconnection, data interoperability, and intelligent scheduling",
+    "title": "Tego OS Enterprise Intelligent Collaboration Platform",
+    "subtitle": "Enable AI Agents to Collaborate Like High-Performing Teams, Autonomously Completing Complex Business Tasks",
     "problem": {
-      "title": "Enterprise Information Silos",
-      "description": "In most enterprises, CRM, ERP, OA, Finance, HR, Customer Service, BI and other systems operate independently. Data is scattered and non-standardized, employees need to manually switch between multiple systems for repetitive data entry, leading to information flow disruption, delayed decision-making, and reduced efficiency.",
+      "title": "Core Challenges Enterprises Face",
+      "description": "Agent silos, fragmented capabilities, lack of governance, efficiency bottlenecks—data isolated between different AI tools, single agents unable to handle cross-domain multi-step complex tasks, lacking enterprise-grade permission systems and audit mechanisms, sequential task execution requiring manual coordination.",
       "systems": {
         "crm": "CRM",
         "erp": "ERP",
@@ -794,46 +797,46 @@
       }
     },
     "mission": {
-      "title": "TeGo's Mission",
-      "description": "Enable all enterprise systems to collaborate automatically through intelligent agents, achieving 'system interconnection, data interoperability, and intelligent scheduling'. Let AI become the information hub across systems. No more manual switching between systems - complete complex cross-system business processes with a single command."
+      "title": "Tego OS Solution",
+      "description": "A unified multi-agent orchestration and management platform: providing natural language interaction interface for users to describe tasks in everyday language; connecting various specialized agents to coordinate their collaborative completion of tasks; built on cutting-edge AI research intelligent collaboration framework for true 'team-style' collaboration."
     },
     "technologies": {
-      "title": "Four Core Technologies",
-      "subtitle": "Innovative technology stack for enterprise-grade AI agent operating system",
+      "title": "Four Core Capabilities",
+      "subtitle": "End-to-end intelligent collaboration from understanding intent to closed-loop delivery",
       "apiToMcp": {
-        "title": "API → MCP Auto-Conversion",
-        "description": "Intelligent parsing and automatic generation, transforming existing APIs into agent tools instantly",
+        "title": "Intelligent Task Decomposition",
+        "description": "Understand user's high-level business objectives, automatically decompose into executable subtasks",
         "features": [
-          "Auto-inference from Swagger/OpenAPI/GraphQL Schema",
-          "Generate MCP service definitions and context mapping",
-          "Support automatic parameter matching and type conversion"
+          "Intent understanding and semantic parsing",
+          "Task decomposition and agent matching",
+          "Dependency analysis and execution plan generation"
         ]
       },
       "orchestration": {
-        "title": "Cross-Agent Orchestration Architecture",
-        "description": "Agents can invoke other agents, forming multi-layer collaboration scheduling trees",
+        "title": "Concurrent Intelligent Scheduling",
+        "description": "Based on DAG analysis, automatically identify parallelizable tasks, maximize execution efficiency",
         "features": [
-          "Multi-layer Agent scheduling tree for complex workflows",
-          "Share data through context passing",
-          "Dynamic routing and load balancing"
+          "Topological sorting and hierarchical partitioning",
+          "Parallel launch of independent tasks",
+          "Dynamic concurrency adjustment and anomaly isolation"
         ]
       },
       "decisionEngine": {
-        "title": "Context-Driven Dynamic Decision Engine",
-        "description": "Combining semantic understanding with rule-based judgment for optimal execution path selection",
+        "title": "Intelligent Collaboration & Decision",
+        "description": "Deep agent collaboration through LAMP framework",
         "features": [
-          "TeGo-LLM semantic understanding and intent recognition",
-          "Fusion of rule engine and decision tree",
-          "Real-time context awareness and path optimization"
+          "Information sharing and knowledge transfer",
+          "Trust management and belief updating",
+          "Multi-source information fusion for collaborative decision-making"
         ]
       },
       "feedbackLoop": {
-        "title": "Feedback Learning and Knowledge Loop",
-        "description": "Every invocation is a learning opportunity for continuous model and decision optimization",
+        "title": "Continuous Learning & Optimization",
+        "description": "System with continuous learning capability, getting smarter over time",
         "features": [
-          "QueryLog → Feedback → Knowledge infusion",
-          "Model fine-tuning and continuous optimization",
-          "Enterprise-specific knowledge base accumulation"
+          "Successful trajectories auto-stored in experience pool",
+          "Failed cases as counter-examples to avoid repeating mistakes",
+          "New tasks retrieve similar experiences to reuse successful strategies"
         ]
       }
     }
@@ -849,7 +852,7 @@
     },
     "lamp": {
       "title": "LAMP Three-Stage Reasoning Pipeline",
-      "subtitle": "Language-enhanced Multi-Agent Planning Framework",
+      "subtitle": "Language-enhanced Multi-Agent Planning - Advanced Agent Collaboration Framework",
       "think": {
         "title": "Think Module - Continuous Reasoning",
         "description": "Hybrid reasoning mechanism with parallel short-term and long-term analysis",
@@ -961,11 +964,11 @@
       "learnMore": "Learn More"
     },
     "seo": {
-      "title": "Multi-Agent Collaboration - TeGo-OS Agent Operating System",
+      "title": "Multi-Agent Collaboration - Tego OS Enterprise Intelligent Collaboration Platform",
       "description": "Patented Technology: Language-enhanced multi-agent collaborative decision system (LAMP framework) with Think-Speak-Decide three-stage reasoning pipeline. Achieves 15-25% improvement in task success rate and 2-5x performance boost.",
-      "keywords": "Multi-Agent Collaboration, LAMP Framework, Think-Speak-Decide, Agent Communication, DAG Scheduling, Patent, TeGo-OS",
+      "keywords": "Multi-Agent Collaboration, LAMP Framework, Think-Speak-Decide, Agent Communication, DAG Scheduling, Patent, Tego OS",
       "openGraph": {
-        "title": "Multi-Agent Collaboration - TeGo-OS Agent Operating System",
+        "title": "Multi-Agent Collaboration - Tego OS Enterprise Intelligent Collaboration Platform",
         "description": "LAMP Framework: Language-enhanced multi-agent collaborative decision system for deep agent collaboration and intelligent decision-making."
       }
     }
@@ -973,23 +976,23 @@
   "multiAgentSection": {
     "badge": "Patented Technology · Multi-Agent Collaboration",
     "title": "Multi-Agent Collaborative Scheduling System",
-    "subtitle": "Enabling AI agents to collaborate like human teams, powered by the cutting-edge LAMP framework for autonomous multi-agent coordination",
+    "subtitle": "Enable AI agents to collaborate like high-performing teams, powered by the cutting-edge LAMP framework for autonomous multi-agent coordination",
     "lamp": {
       "title": "LAMP Three-Stage Reasoning Framework",
       "subtitle": "Language-Augmented Multi-Agent Policy · Advanced Agent Collaboration",
       "think": {
         "title": "Think",
-        "description": "Continuously analyze task progress, detect anomalies, predict trends, perform short-term and long-term reasoning",
+        "description": "Continuously analyze task progress, detect anomalies (shock detection), predict trends, perform short-term and long-term reasoning",
         "analogy": "Like a project manager's insight"
       },
       "speak": {
         "title": "Speak",
-        "description": "Information sharing and knowledge transfer between agents through natural language semantic communication",
+        "description": "Information sharing, knowledge transfer, and trust management between agents, supporting A2A protocol communication",
         "analogy": "Like efficient team collaboration"
       },
       "decide": {
         "title": "Decide",
-        "description": "Synthesize multi-source information, fuse numerical, reasoning, and belief data for optimal decisions",
+        "description": "Synthesize numerical data, reasoning results, and belief states for optimal decisions with adaptive strategies",
         "analogy": "Like leadership's precise judgment"
       }
     },
@@ -1001,15 +1004,15 @@
       },
       "experience": {
         "title": "Experience Pool Learning",
-        "description": "Memorize successful strategies, intelligently retrieve and reuse historical experience"
+        "description": "Vector storage of successful experiences, intelligent retrieval and reuse of historical strategies"
       },
       "a2a": {
         "title": "A2A Open Protocol",
-        "description": "Standardized inter-agent communication, supporting cross-system and cross-platform collaboration"
+        "description": "Support Agent2Agent standard protocol, compatible with Google A2A standard"
       },
       "scheduling": {
-        "title": "Smart Task Orchestration",
-        "description": "Auto-decompose complex tasks and assign to the most suitable specialized agents"
+        "title": "Dynamic Replanning",
+        "description": "Auto-trigger plan adjustment when severe anomalies detected, ensuring task completion"
       }
     },
     "metrics": {
@@ -1021,7 +1024,7 @@
     },
     "advantages": {
       "title": "Advantages Over Traditional Solutions",
-      "subtitle": "Complete upgrade from single AI assistant to multi-agent collaboration",
+      "subtitle": "Complete upgrade from single AI assistant to multi-agent team collaboration",
       "autonomous": {
         "title": "Autonomous Decisions",
         "description": "Self-deciding and self-optimizing agents without fixed workflows"
@@ -1036,7 +1039,7 @@
       },
       "secure": {
         "title": "Secure & Controllable",
-        "description": "Enterprise-grade security, complete audit trails, flexible access control"
+        "description": "Enterprise-grade permission system, complete audit trails, flexible access control"
       }
     },
     "cta": {
@@ -1046,8 +1049,8 @@
   },
   "blog": {
     "meta": {
-      "title": "Technical Blog - TeGo-OS AI Agent Platform",
-      "description": "Latest technical updates, product news, industry insights and best practices from TeGo-OS"
+      "title": "Technical Blog - Tego OS Enterprise Intelligent Collaboration Platform",
+      "description": "Latest technical updates, product news, industry insights and best practices from Tego OS"
     },
     "nav": {
       "title": "Tech Blog",
