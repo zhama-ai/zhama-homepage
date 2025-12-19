@@ -38,8 +38,8 @@
   "home": {
     "hero": {
       "title": "Tego Business Graph",
-      "tagline": "Enable AI Agents to Collaborate Like High-Performing Teams, Autonomously Completing Complex Business Tasks",
-      "description": "An enterprise-grade multi-agent autonomous collaboration platform built on cutting-edge AI research. Understand business intent, decompose complex tasks, coordinate resources, and deliver end-to-end results with 300%+ efficiency improvement.",
+      "tagline": "Build unified business cognition for AI agents, enabling enterprise tasks to progress automatically like high-performing teams",
+      "description": "Building comprehensible, inferable, and executable business semantic networks as the unified cognitive foundation for AI agent collaboration and action. Based on unified business cognition, multi-agents work in coordination, understand each other, and jointly advance goals, delivering end-to-end business results with 300%+ efficiency improvement.",
       "cta": "Book Demo",
       "secondaryCta": "Live Demo",
       "imgAlt": "Tego Business Graph"
@@ -323,15 +323,15 @@
     }
   },
   "aboutSection": {
-    "title": "Tego OS Core Value",
-    "subtitle": "Enable AI Agents to Collaborate Like High-Performing Teams, Autonomously Completing Complex Business Tasks",
-    "description": "An enterprise-grade multi-agent autonomous collaboration platform built on cutting-edge AI research, validated in healthcare, research, and office/government scenarios, delivering governable, observable, and replicable intelligent capabilities",
+    "title": "Tego Core Value",
+    "subtitle": "Enable AI agents to collaborate like high-performing teams based on unified business cognition",
+    "description": "Abstract enterprise people, processes, rules, data and goals into comprehensible, inferable, and executable business semantic networks. Multi-agents are not running chaotically, but working in coordination under the same business cognitive graph, understanding each other and jointly advancing goals",
     "vision": {
-      "title": "Tego OS vs Other Platforms - Differentiation",
+      "title": "Tego vs Other Platforms - Differentiation",
       "paragraphs": [
-        "Unified Management: Solve Agent silos, reduce management costs, enable data interoperability",
-        "Intelligent Collaboration: Multi-agent autonomous collaboration, automatic complex task completion, 300%+ efficiency improvement",
-        "Continuous Evolution: Experience accumulation and learning, getting smarter over time, 95%+ task success rate"
+        "Unified Cognition: Build enterprise business semantic networks, AI agents collaborate based on unified cognition, not working in isolation",
+        "Cognition-Driven: Agents don't randomly invoke tools, but are constrained and guided by business cognition, ensuring controllable behavior",
+        "Continuous Evolution: Business memory and experience accumulation, system understands why decisions are made, providing enterprise-grade traceable intelligence"
       ]
     },
     "features": [
@@ -363,47 +363,47 @@
     ]
   },
   "featuresSection": {
-    "title": "Four-Layer Platform Architecture",
-    "subtitle": "Top-down layered design, integrating Application Layer—Orchestration Layer—Collaboration Layer—Foundation Layer",
+    "title": "Five-Layer Cognitive Architecture",
+    "subtitle": "From business entities to intelligent actions, building unified cognitive infrastructure for enterprise AI",
     "tabs": {
-      "collection": "Application",
-      "analysis": "Orchestration",
-      "organization": "Collaboration",
-      "gateway": "Foundation"
+      "collection": "Business Entities",
+      "analysis": "Business Relations",
+      "organization": "Rules & Policies",
+      "gateway": "Action Mapping"
     },
     "collection": {
-      "title": "Application Layer · User Interaction Interface",
-      "description": "Provides natural language interaction interface where users describe tasks in everyday language. Pre-built industry scenario templates for quick task initiation. Visual workspace for real-time task execution status and agent collaboration monitoring.",
-      "tags": ["Natural Language", "Scenario Templates", "Visual Workspace", "Real-time Monitoring"]
+      "title": "Business Entities · Cognitive Objects",
+      "description": "Abstract enterprise business world into AI-understandable entity objects: Organizations (departments, roles, positions), Business Objects (customers, contracts, orders, projects), Resources (budget, systems, inventory), Goals (KPIs, OKRs, milestones). AI no longer just 'reads fields', but truly understands business objects.",
+      "tags": ["Organization Structure", "Business Objects", "Resource Entities", "Goal System"]
     },
     "analysis": {
-      "title": "Orchestration Layer · Core Scheduling Center",
-      "description": "Includes Intelligent Planning Engine (Tego-Planner), Concurrent Scheduling Engine (Tego-Orchestrator), and Quality Evaluation Engine (Tego-Evaluator) for task decomposition, agent matching, DAG topology analysis, and concurrent execution optimization.",
-      "tags": ["Smart Planning", "Concurrent Scheduling", "Quality Evaluation", "ReAct Pattern"]
+      "title": "Business Relations · Cognitive Network",
+      "description": "Build semantic relationship networks between business entities: Responsibility relations (who is responsible for whom), Constraint relations (which rules restrict behavior), Flow relations (task/status/approval), Dependency relations (prerequisites/follow-ups). This is the cognitive foundation for AI to 'collaborate like humans'.",
+      "tags": ["Responsibility", "Constraints", "Flows", "Dependencies"]
     },
     "organization": {
-      "title": "Collaboration Layer · LAMP Framework",
-      "description": "Based on academic frontier LAMP framework, featuring Think continuous reasoning module, Speak agent communication module, and Decide decision fusion module for deep agent collaboration and intelligent decision-making.",
-      "tags": ["Think Reasoning", "Speak Communication", "Decide Decision", "Trust Management"]
+      "title": "Rules & Policies · Tacit Knowledge Explicit",
+      "description": "Transform enterprise tacit knowledge into executable business rules: Approval policies, risk control rules, compliance requirements, exception handling strategies. Not hardcoded workflows, but intelligent decision rules of 'under what conditions, what actions should be taken'.",
+      "tags": ["Approval Policies", "Risk Rules", "Compliance", "Exception Handling"]
     },
     "gateway": {
-      "title": "Foundation Layer · Core Infrastructure",
-      "description": "Provides experience pool storage and retrieval, A2A open protocol support, three-tier cache state management, and multi-model integration (OpenAI, Gemini, Qwen, DeepSeek, etc.) for high-performance stable operation.",
-      "tags": ["Experience Pool", "A2A Protocol", "State Management", "Multi-Model Support"]
+      "title": "Action Mapping · From Cognition to Action",
+      "description": "Map business concepts to Agent-executable actions. Each business entity (e.g., contract) is linked to specific operations (create, validate, risk analysis, approval advancement, archival). Agents don't randomly invoke tools, but are guided and constrained by business cognition.",
+      "tags": ["Concept Mapping", "Action Binding", "Tool Orchestration", "Execution Constraints"]
     },
     "moreFeatures": {
-      "title": "Tego OS Technical Advantages",
+      "title": "Tego Technical Advantages",
       "taskManagement": {
-        "title": "Full-Process Visual Tracking",
-        "description": "DAG view shows task dependencies, timeline view tracks execution progress, reasoning view presents Think module insights, communication view monitors inter-agent message interactions."
+        "title": "Business State & Memory Layer",
+        "description": "Record current progress, occurred exceptions, and decision rationales. Provides enterprise-grade traceable intelligence - the 'peace of mind' for enterprises."
       },
       "habitTracking": {
-        "title": "Enterprise Security & Deployment",
-        "description": "Supports private deployment, hybrid cloud deployment, and SaaS service modes, with complete permission systems and audit mechanisms to meet enterprise data security and compliance requirements."
+        "title": "Cognition-Driven Collaboration",
+        "description": "Multi-agents are not running chaotically, but working under the same business cognitive graph with clear division of labor. Every agent behavior has cognitive basis, making it explainable, auditable, and optimizable."
       },
       "financeManagement": {
-        "title": "Dynamic Replanning Capability",
-        "description": "Automatically identifies 7 types of execution anomalies, analyzes 4 trend directions to predict task trajectory, auto-triggers plan adjustments when severe anomalies detected to ensure task completion."
+        "title": "Closed Loop from Cognition to Action",
+        "description": "Business concepts map to executable actions, execution results update business state, state changes trigger new cognitive reasoning, forming a continuously optimizing intelligent loop."
       }
     }
   },
