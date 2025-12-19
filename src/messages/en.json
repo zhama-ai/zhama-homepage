@@ -37,12 +37,12 @@
   },
   "home": {
     "hero": {
-      "title": "Tego Business Graph",
-      "tagline": "Build unified business cognition for AI agents, enabling enterprise tasks to progress automatically like high-performing teams",
-      "description": "Building comprehensible, inferable, and executable business semantic networks as the unified cognitive foundation for AI agent collaboration and action. Based on unified business cognition, multi-agents work in coordination, understand each other, and jointly advance goals, delivering end-to-end business results with 300%+ efficiency improvement.",
+      "title": "TeGo AI Super Team",
+      "tagline": "Build an Untiring AI Super Team",
+      "description": "Enable multiple AI agents to think autonomously, collaborate intelligently, and execute concurrently like a real team. Based on LAMP collaboration framework and DAG concurrent scheduling engine, achieve 300%+ task execution efficiency improvement, 95%+ complex task success rate, and <100ms agent collaboration response. From agent silos to super teams, let AI truly create value for enterprises.",
       "cta": "Book Demo",
       "secondaryCta": "Live Demo",
-      "imgAlt": "Tego Business Graph"
+      "imgAlt": "TeGo AI Super Team"
     }
   },
   "contactPage": {
@@ -80,26 +80,26 @@
       }
     },
     "seo": {
-      "title": "Contact Us - Tego Business Graph",
-      "description": "Contact Tego Business Graph team for enterprise-grade AI multi-agent collaboration solutions. We provide customized platform deployment and technical support.",
-      "keywords": "Tego, Tego OS, Business Graph, contact us, AI agent platform, enterprise AI, multi-agent collaboration, technical support, Zhama",
+      "title": "Contact Us - TeGo AI Super Team",
+      "description": "Contact TeGo AI Super Team to build your untiring AI super team. Get enterprise-grade multi-agent collaboration solutions, customized platform deployment and technical support.",
+      "keywords": "TeGo, AI Super Team, contact us, AI agent collaboration, enterprise AI, multi-agent platform, technical support, Zhama",
       "openGraph": {
-        "title": "Contact Us - Tego Business Graph",
-        "description": "Contact Tego Business Graph team for professional enterprise AI multi-agent collaboration solutions and technical support."
+        "title": "Contact Us - TeGo AI Super Team",
+        "description": "Contact TeGo AI Super Team for professional enterprise AI multi-agent collaboration solutions and technical support."
       }
     }
   },
   "appDownload": {
-    "title": "Experience Tego Business Graph",
+    "title": "Experience TeGo AI Super Team",
     "appLogo": {
-      "title": "Tego",
-      "alt": "Tego Business Graph Logo"
+      "title": "TeGo",
+      "alt": "TeGo AI Super Team Logo"
     },
     "appIntro": {
-      "slogan": "Enable AI Agents to Collaborate Like High-Performing Teams",
+      "slogan": "Build an Untiring AI Super Team",
       "tagline": "Shenzhen Zhama Future Technology Co., Ltd."
     },
-    "whyChoose": "Why Choose Tego OS? Three Core Values",
+    "whyChoose": "Why Choose TeGo? From Agent Silos to AI Super Team",
     "features": {
       "dataCollection": {
         "title": "Unified Management, Solving Agent Silos",
@@ -114,7 +114,7 @@
       "planner": "Tech Teams · Multi-AI Tool Management"
     },
     "download": {
-      "heading": "Multiple Ways to Connect with Tego OS Intelligent Collaboration Platform",
+      "heading": "Multiple Ways to Connect with TeGo AI Super Team",
       "webapp": {
         "title": "Online Demo",
         "action": "Schedule Product Demo"
@@ -134,8 +134,8 @@
       },
       "qrCode": {
         "notice": "Scan QR Code to Contact Us",
-        "description": "Scan QR code for Tego professional services",
-        "alt": "Tego Enterprise Service Contact QR Code"
+        "description": "Scan QR code to build your AI Super Team",
+        "alt": "TeGo AI Super Team Service Contact QR Code"
       }
     },
     "wechatBrowser": {
@@ -246,12 +246,12 @@
     "sections": {
       "acceptance": {
         "title": "Acceptance of Terms",
-        "content": "Welcome to Tego OS platform. By accessing and using our services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.",
+        "content": "Welcome to TeGo platform. By accessing and using our services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.",
         "content2": "We reserve the right to modify these terms at any time. Your continued use of the service will be deemed acceptance of the modified terms."
       },
       "service": {
         "title": "Service Description",
-        "content": "Tego OS is an enterprise-grade multi-agent autonomous collaboration platform that provides the following services:",
+        "content": "TeGo is an enterprise-grade multi-agent autonomous collaboration platform that provides the following services:",
         "items": [
           "Multi-agent collaborative scheduling and management",
           "LAMP intelligent collaboration framework",
@@ -323,97 +323,97 @@
     }
   },
   "aboutSection": {
-    "title": "Tego Core Value",
-    "subtitle": "Enable AI agents to collaborate like high-performing teams based on unified business cognition",
-    "description": "Abstract enterprise people, processes, rules, data and goals into comprehensible, inferable, and executable business semantic networks. Multi-agents are not running chaotically, but working in coordination under the same business cognitive graph, understanding each other and jointly advancing goals",
+    "title": "From Agent Silos to AI Super Team",
+    "subtitle": "Enable AI agents to autonomously collaborate like high-performing teams and automatically complete complex business tasks",
+    "description": "We are not just integrating AI tools, but enabling multiple agents to think autonomously, collaborate intelligently, and execute concurrently like a real team. Break down barriers between AI tools with unified management, intelligent collaboration, and continuous evolution to truly achieve enterprise AI at scale",
     "vision": {
-      "title": "Tego vs Other Platforms - Differentiation",
+      "title": "TeGo vs Traditional AI Platforms - Differentiation",
       "paragraphs": [
-        "Unified Cognition: Build enterprise business semantic networks, AI agents collaborate based on unified cognition, not working in isolation",
-        "Cognition-Driven: Agents don't randomly invoke tools, but are constrained and guided by business cognition, ensuring controllable behavior",
-        "Continuous Evolution: Business memory and experience accumulation, system understands why decisions are made, providing enterprise-grade traceable intelligence"
+        "From Silos to Team: Solve agent silo problems, enable true AI collaboration instead of working in isolation",
+        "From Serial to Concurrent: DAG concurrent scheduling engine, parallel task execution, 2-5x efficiency improvement",
+        "From Tools to Intelligence: Based on LAMP collaboration framework, agents autonomously reason and decide like human teams"
       ]
     },
     "features": [
       {
         "title": "LAMP Intelligent Collaboration Framework",
-        "description": "Think-Speak-Decide three-stage reasoning pipeline from latest academic research, simulating human team collaboration for deep agent cooperation and intelligent decision-making"
+        "description": "Think-Speak-Decide three-stage reasoning pipeline, enabling agents to continuously reason, share information, and make collaborative decisions like human teams, improving task success rate by 15-25%"
       },
       {
         "title": "DAG Concurrent Scheduling Engine",
-        "description": "Directed Acyclic Graph-based task scheduling technology, automatically identifying task dependencies, maximizing parallelism, achieving 2-5x efficiency improvement"
+        "description": "Automatically analyze task dependencies, execute parallel tasks simultaneously, transform from serial to concurrent, achieve 2-5x efficiency improvement, response speed as low as <100ms"
       },
       {
         "title": "Experience Pool Continuous Learning",
-        "description": "Vector storage of historical successful experiences, intelligent retrieval and reuse of successful strategies, reducing new task planning time by 40-60%"
+        "description": "Vector storage of successful experiences, intelligent retrieval of historical cases, automatic reuse of best strategies for new tasks, reducing planning time by 40-60%, getting smarter over time"
       },
       {
         "title": "A2A Open Protocol",
-        "description": "Support Agent2Agent open protocol for seamless integration with third-party agents, building an open enterprise AI ecosystem"
+        "description": "Support Agent2Agent standard protocol for seamless integration with third-party agents, expand team capability boundaries, build open enterprise AI ecosystem"
       }
     ],
     "footer": {
-      "prefix": "Tego Business Graph",
-      "suffix": ", enabling AI agents to collaborate like high-performing teams."
+      "prefix": "TeGo AI Super Team",
+      "suffix": ", build an untiring AI team to automatically complete complex business tasks."
     },
     "typingPhrases": [
-      "Enable AI Agents to Collaborate Like High-Performing Teams",
-      "Understand Intent · Decompose Tasks · Coordinate Resources · Deliver Results",
-      "Unified Management · Intelligent Collaboration · Continuous Evolution"
+      "Build an Untiring AI Super Team",
+      "Think Autonomously · Collaborate Intelligently · Execute Concurrently",
+      "From Agent Silos to Super Teams"
     ]
   },
   "featuresSection": {
-    "title": "Five-Layer Cognitive Architecture",
-    "subtitle": "From business entities to intelligent actions, building unified cognitive infrastructure for enterprise AI",
+    "title": "Four Core Capabilities",
+    "subtitle": "From task understanding to autonomous execution, building a true AI Super Team",
     "tabs": {
-      "collection": "Business Entities",
-      "analysis": "Business Relations",
-      "organization": "Rules & Policies",
-      "gateway": "Action Mapping"
+      "collection": "Intelligent Task Decomposition",
+      "analysis": "Concurrent Intelligent Scheduling",
+      "organization": "Team Collaboration Framework",
+      "gateway": "Continuous Learning Evolution"
     },
     "collection": {
-      "title": "Business Entities · Cognitive Objects",
-      "description": "Abstract enterprise business world into AI-understandable entity objects: Organizations (departments, roles, positions), Business Objects (customers, contracts, orders, projects), Resources (budget, systems, inventory), Goals (KPIs, OKRs, milestones). AI no longer just 'reads fields', but truly understands business objects.",
-      "tags": ["Organization Structure", "Business Objects", "Resource Entities", "Goal System"]
+      "title": "Intelligent Task Decomposition · Understand Intent & Auto Plan",
+      "description": "Understand high-level business objectives, automatically decompose into executable subtasks, intelligently match suitable agent team members. Support intent understanding, task decomposition, dependency analysis, and execution plan generation, transforming complex tasks into clear execution steps.",
+      "tags": ["Intent Understanding", "Task Decomposition", "Smart Matching", "Plan Generation"]
     },
     "analysis": {
-      "title": "Business Relations · Cognitive Network",
-      "description": "Build semantic relationship networks between business entities: Responsibility relations (who is responsible for whom), Constraint relations (which rules restrict behavior), Flow relations (task/status/approval), Dependency relations (prerequisites/follow-ups). This is the cognitive foundation for AI to 'collaborate like humans'.",
-      "tags": ["Responsibility", "Constraints", "Flows", "Dependencies"]
+      "title": "Concurrent Intelligent Scheduling · 2-5x Efficiency Boost",
+      "description": "DAG (Directed Acyclic Graph) task scheduling engine automatically analyzes task dependencies, launches independent tasks in parallel, dynamically adjusts concurrency, and isolates exceptions for stability. Transform from serial execution to concurrent scheduling, dramatically reducing task completion time.",
+      "tags": ["DAG Scheduling", "Concurrent Execution", "Dynamic Optimization", "Exception Isolation"]
     },
     "organization": {
-      "title": "Rules & Policies · Tacit Knowledge Explicit",
-      "description": "Transform enterprise tacit knowledge into executable business rules: Approval policies, risk control rules, compliance requirements, exception handling strategies. Not hardcoded workflows, but intelligent decision rules of 'under what conditions, what actions should be taken'.",
-      "tags": ["Approval Policies", "Risk Rules", "Compliance", "Exception Handling"]
+      "title": "Team Collaboration Framework · LAMP Intelligence",
+      "description": "Based on cutting-edge academic research LAMP framework, implements Think (continuous reasoning analysis), Speak (agent communication sharing), Decide (collaborative decision fusion). Enable AI agents to share information, reason collaboratively, and make decisions together like human teams.",
+      "tags": ["Think Reasoning", "Speak Communication", "Decide Decision", "Trust Management"]
     },
     "gateway": {
-      "title": "Action Mapping · From Cognition to Action",
-      "description": "Map business concepts to Agent-executable actions. Each business entity (e.g., contract) is linked to specific operations (create, validate, risk analysis, approval advancement, archival). Agents don't randomly invoke tools, but are guided and constrained by business cognition.",
-      "tags": ["Concept Mapping", "Action Binding", "Tool Orchestration", "Execution Constraints"]
+      "title": "Continuous Learning Evolution · Getting Smarter Over Time",
+      "description": "Vector storage of historical successful experiences, intelligent retrieval of similar cases, automatic reuse of best strategies. Failed cases serve as counter-examples to avoid repeating mistakes. New task planning time reduced by 40-60%. Experience accumulation enables AI team continuous evolution, achieving 95%+ task success rate.",
+      "tags": ["Experience Reuse", "Intelligent Retrieval", "Strategy Optimization", "Continuous Evolution"]
     },
     "moreFeatures": {
-      "title": "Tego Technical Advantages",
+      "title": "TeGo Core Technical Advantages",
       "taskManagement": {
-        "title": "Business State & Memory Layer",
-        "description": "Record current progress, occurred exceptions, and decision rationales. Provides enterprise-grade traceable intelligence - the 'peace of mind' for enterprises."
+        "title": "Full-Process Visual Tracking",
+        "description": "DAG view displays task dependencies, timeline view tracks execution progress, reasoning view presents agent analysis process, communication view monitors team collaboration messages. Fully observable, traceable, and auditable."
       },
       "habitTracking": {
-        "title": "Cognition-Driven Collaboration",
-        "description": "Multi-agents are not running chaotically, but working under the same business cognitive graph with clear division of labor. Every agent behavior has cognitive basis, making it explainable, auditable, and optimizable."
+        "title": "Dynamic Replanning Capability",
+        "description": "Automatically identify 7 types of execution anomalies, analyze 4 trend directions to predict task trajectory. Auto-trigger plan adjustment when severe anomalies detected, ensuring task completion with 95%+ success rate."
       },
       "financeManagement": {
-        "title": "Closed Loop from Cognition to Action",
-        "description": "Business concepts map to executable actions, execution results update business state, state changes trigger new cognitive reasoning, forming a continuously optimizing intelligent loop."
+        "title": "Enterprise-Grade Secure Deployment",
+        "description": "Support private deployment, hybrid cloud deployment, and SaaS service modes. Complete permission system and audit mechanisms meet enterprise data security and compliance requirements, ensuring business data safety."
       }
     }
   },
   "footer": {
     "companyName": "Zhama Future",
-    "companyDescription": "Tego Business Graph · Enable AI Agents to Collaborate Like High-Performing Teams",
+    "companyDescription": "TeGo AI Super Team · Build an Untiring AI Super Team",
     "products": "Products & Services",
     "home": {
       "hero": {
-        "title": "Tego Business Graph"
+        "title": "TeGo AI Super Team"
       }
     },
     "enterprise": "Enterprise Solutions",
@@ -435,7 +435,7 @@
         "email": "support@zhama.com"
       }
     },
-    "copyright": "© 2025 Tego Business Graph. All rights reserved. Shenzhen Zhama Future Technology Co., Ltd.",
+    "copyright": "© 2025 TeGo AI Super Team. All rights reserved. Shenzhen Zhama Future Technology Co., Ltd.",
     "icp": ""
   },
   "advantagesSection": {
@@ -499,7 +499,7 @@
     "enterprise": {
       "ribbon": "ON PREMISE",
       "badge": "Enterprise Flagship",
-      "name": "Tego Business Graph",
+      "name": "TeGo AI Super Team · Enterprise",
       "lead": "Full-chain agent collaboration and governance platform, enterprise priority",
       "desc": "Custom branding + high security + dedicated support + POC validation, custom pricing",
       "featuresTitle": "Includes all Subscription features, plus:",
@@ -516,7 +516,7 @@
     }
   },
   "downloadSection": {
-    "title": "Experience Tego Business Graph",
+    "title": "Experience TeGo AI Super Team",
     "subtitle": "Multiple ways to get started, begin your enterprise intelligence journey",
     "enterprise": {
       "title": "Enterprise Services",
@@ -525,12 +525,12 @@
     },
     "ios": {
       "title": "iOS App",
-      "description": "Download Tego OS mobile app from App Store",
+      "description": "Download TeGo mobile app from App Store",
       "button": "App Store"
     },
     "android": {
       "title": "Android App",
-      "description": "Get Tego OS app for Android devices",
+      "description": "Get TeGo app for Android devices",
       "button": "Download Now"
     },
     "docs": {
@@ -575,26 +575,26 @@
   },
   "downloadPage": {
     "seo": {
-      "title": "Download & Experience - Tego Business Graph",
-      "description": "Tego Business Graph download and experience page. Support enterprise consultation, product demo, technical documentation and private deployment services.",
-      "keywords": "Tego download, Tego OS, Business Graph, AI agent platform experience, enterprise AI demo, multi-agent collaboration, private deployment, technical documentation",
+      "title": "Download & Experience - TeGo AI Super Team",
+      "description": "TeGo AI Super Team download and experience page. Support enterprise consultation, product demo, technical documentation and private deployment services. Build your untiring AI super team.",
+      "keywords": "TeGo download, AI Super Team, AI agent collaboration platform, enterprise AI demo, multi-agent collaboration, private deployment, technical documentation",
       "openGraph": {
-        "title": "Download & Experience - Tego Business Graph",
-        "description": "Experience Tego Business Graph now, get enterprise AI multi-agent collaboration solution demo and technical support."
+        "title": "Download & Experience - TeGo AI Super Team",
+        "description": "Experience TeGo AI Super Team now, get enterprise AI multi-agent collaboration solution demo and technical support."
       }
     }
   },
   "seo": {
-    "title": "Tego Business Graph | Shenzhen Zhama Future Technology Co., Ltd.",
-    "description": "Tego is an enterprise-grade multi-agent autonomous collaboration platform built on cutting-edge AI research. Enable AI agents to collaborate like high-performing teams, understand business intent, decompose complex tasks, coordinate resources, and deliver end-to-end results with 300%+ efficiency improvement.",
-    "keywords": "Tego, Tego OS, Business Graph, Enterprise Intelligent Collaboration Platform, Multi-Agent Collaboration, AI Agent, LAMP Framework, DAG Scheduling, A2A Protocol, Enterprise AI, Private Deployment, Shenzhen Zhama Future Technology",
+    "title": "TeGo AI Super Team | Shenzhen Zhama Future Technology Co., Ltd.",
+    "description": "TeGo - Build an untiring AI Super Team. Enable multiple agents to think autonomously, collaborate intelligently, and execute concurrently like a real team. Achieve 300%+ task execution efficiency improvement, 95%+ complex task success rate, and <100ms agent collaboration response. From agent silos to super teams, let AI truly create value for enterprises.",
+    "keywords": "TeGo, AI Super Team, Multi-Agent Collaboration, AI Agent, LAMP Framework, DAG Scheduling, Concurrent Execution, Enterprise AI, Private Deployment, Shenzhen Zhama Future Technology",
     "openGraph": {
-      "title": "Tego Business Graph | Shenzhen Zhama Future Technology Co., Ltd.",
-      "description": "Enable AI agents to collaborate like high-performing teams, autonomously completing complex business tasks. Enterprise multi-agent collaboration platform based on LAMP framework, DAG scheduling, and experience pool learning."
+      "title": "TeGo AI Super Team | Shenzhen Zhama Future Technology Co., Ltd.",
+      "description": "Build an untiring AI Super Team. Based on LAMP collaboration framework and DAG concurrent scheduling engine, enable AI agents to think autonomously, collaborate intelligently, and execute concurrently like a real team."
     },
     "twitter": {
-      "title": "Tego Business Graph",
-      "description": "Enable AI agents to collaborate like high-performing teams, autonomously completing complex business tasks"
+      "title": "TeGo AI Super Team",
+      "description": "Build an untiring AI Super Team, enable agents to collaborate autonomously like real teams"
     }
   },
   "mcpPlatform": {
@@ -645,17 +645,17 @@
       }
     },
     "seo": {
-      "title": "MCP Unified Management Platform - Tego Business Graph",
+      "title": "MCP Unified Management Platform - TeGo AI Super Team",
       "description": "Patented Technology · Dynamic server unified management platform based on Model Context Protocol, one-click MCP service generation, zero-code rapid deployment, platform-level scalability and maintainability.",
-      "keywords": "MCP Platform, Model Context Protocol, Dynamic Server Management, Tool Generation, Patent, Zero Code, Tego, Tego OS",
+      "keywords": "MCP Platform, Model Context Protocol, Dynamic Server Management, Tool Generation, Patent, Zero Code, TeGo, AI Super Team",
       "openGraph": {
-        "title": "MCP Unified Management Platform - Tego Business Graph",
+        "title": "MCP Unified Management Platform - TeGo AI Super Team",
         "description": "Enterprise MCP dynamic server unified management platform, supporting no-code one-click MCP service generation."
       }
     }
   },
   "pluginSystem": {
-    "title": "Tego OS Enterprise Plugin Platform",
+    "title": "TeGo Enterprise Plugin Platform",
     "subtitle": "Add new features to your system like installing mobile apps · 90% reduction in development cycle",
     "badge": "Secure · Efficient · Advanced · High ROI",
     "features": {
@@ -722,11 +722,11 @@
       "highlight": "The only enterprise-grade plugin system supporting React Hooks"
     },
     "seo": {
-      "title": "Enterprise Plugin Platform - Tego OS",
-      "description": "Tego OS enterprise plugin platform, supporting React Hooks, providing secure and rapid plugin extension capabilities. 90% reduction in development cycle, 500%+ ROI.",
-      "keywords": "Enterprise Plugin, Tego OS, React Hooks, Plugin System, Rapid Development",
+      "title": "Enterprise Plugin Platform - TeGo",
+      "description": "TeGo enterprise plugin platform, supporting React Hooks, providing secure and rapid plugin extension capabilities. 90% reduction in development cycle, 500%+ ROI.",
+      "keywords": "Enterprise Plugin, TeGo, React Hooks, Plugin System, Rapid Development",
       "openGraph": {
-        "title": "Enterprise Plugin Platform - Tego OS",
+        "title": "Enterprise Plugin Platform - TeGo",
         "description": "The only enterprise-grade plugin system supporting React Hooks, rapid development, secure and reliable."
       }
     }
@@ -770,21 +770,21 @@
       "content": "Decorator-driven development model allows developers to focus on business logic without worrying about tedious details like tool registration and validation. Declarative development approach greatly improves development efficiency and code maintainability, reducing technical barriers and delivery costs."
     },
     "seo": {
-      "title": "Technical Features - Tego OS MCP Platform",
-      "description": "Tego OS MCP Platform technical features: self-developed MCP framework, decorator-driven development, standardized tool registration, simplified development process, significantly improving development efficiency.",
+      "title": "Technical Features - TeGo MCP Platform",
+      "description": "TeGo MCP Platform technical features: self-developed MCP framework, decorator-driven development, standardized tool registration, simplified development process, significantly improving development efficiency.",
       "keywords": "MCP Framework, Decorator-Driven, Tool Registration, TypeScript, Agent Development",
       "openGraph": {
-        "title": "Technical Features - Tego OS MCP Platform",
+        "title": "Technical Features - TeGo MCP Platform",
         "description": "Decorator-driven development model that greatly simplifies agent tool development process."
       }
     }
   },
   "tegoOS": {
-    "title": "Tego Business Graph",
-    "subtitle": "Enable AI Agents to Collaborate Like High-Performing Teams, Autonomously Completing Complex Business Tasks",
+    "title": "TeGo AI Super Team",
+    "subtitle": "Build an Untiring AI Super Team to Autonomously Complete Complex Business Tasks",
     "problem": {
-      "title": "Core Challenges Enterprises Face",
-      "description": "Agent silos, fragmented capabilities, lack of governance, efficiency bottlenecks—data isolated between different AI tools, single agents unable to handle cross-domain multi-step complex tasks, lacking enterprise-grade permission systems and audit mechanisms, sequential task execution requiring manual coordination.",
+      "title": "Four Major Challenges in Enterprise AI Applications",
+      "description": "Agent silos, fragmented capabilities, lack of governance, efficiency bottlenecks—data isolated between different AI tools unable to collaborate, broken processes requiring manual assembly, lacking unified permissions and audits, serial execution with low efficiency. Enterprises urgently need a solution that enables true AI collaboration.",
       "systems": {
         "crm": "CRM",
         "erp": "ERP",
@@ -797,8 +797,8 @@
       }
     },
     "mission": {
-      "title": "Tego OS Solution",
-      "description": "A unified multi-agent orchestration and management platform: providing natural language interaction interface for users to describe tasks in everyday language; connecting various specialized agents to coordinate their collaborative completion of tasks; built on cutting-edge AI research intelligent collaboration framework for true 'team-style' collaboration."
+      "title": "TeGo's Solution",
+      "description": "Build AI Super Team: Enable multiple agents to think autonomously, collaborate intelligently, and execute concurrently like a real team. Based on LAMP collaboration framework and DAG concurrent scheduling engine, break down AI tool barriers, achieve unified management, intelligent collaboration, and continuous evolution. From agent silos to super teams."
     },
     "technologies": {
       "title": "Four Core Capabilities",
@@ -964,12 +964,12 @@
       "learnMore": "Learn More"
     },
     "seo": {
-      "title": "Multi-Agent Collaboration - Tego Business Graph",
+      "title": "Multi-Agent Collaboration - TeGo AI Super Team",
       "description": "Patented Technology: Language-enhanced multi-agent collaborative decision system (LAMP framework) with Think-Speak-Decide three-stage reasoning pipeline. Achieves 15-25% improvement in task success rate and 2-5x performance boost.",
-      "keywords": "Multi-Agent Collaboration, LAMP Framework, Think-Speak-Decide, Agent Communication, DAG Scheduling, Patent, Tego, Tego OS",
+      "keywords": "Multi-Agent Collaboration, LAMP Framework, Think-Speak-Decide, Agent Communication, DAG Scheduling, Patent, TeGo, AI Super Team",
       "openGraph": {
-        "title": "Multi-Agent Collaboration - Tego Business Graph",
-        "description": "LAMP Framework: Language-enhanced multi-agent collaborative decision system for deep agent collaboration and intelligent decision-making."
+        "title": "Multi-Agent Collaboration - TeGo AI Super Team",
+        "description": "LAMP Framework: Language-enhanced multi-agent collaborative decision system enabling AI agents to deeply collaborate like real teams."
       }
     }
   },
@@ -1049,8 +1049,8 @@
   },
   "blog": {
     "meta": {
-      "title": "Technical Blog - Tego Business Graph",
-      "description": "Latest technical updates, product news, industry insights and best practices from Tego"
+      "title": "Technical Blog - TeGo AI Super Team",
+      "description": "Latest technical updates, product news, industry insights and best practices from TeGo"
     },
     "nav": {
       "title": "Tech Blog",
