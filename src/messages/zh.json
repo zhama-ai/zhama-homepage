@@ -37,12 +37,12 @@
   },
   "home": {
     "hero": {
-      "title": "Tego OS 企业智能协作中台",
+      "title": "TeGo 企业业务认知图谱",
       "tagline": "让 AI 智能体像高效团队一样协作，自主完成复杂业务任务",
       "description": "基于前沿 AI 研究成果打造的企业级多智能体自主协作平台。理解业务意图、分解复杂任务、协调多方资源，端到端闭环交付业务结果，执行效率提升 300%+。",
       "cta": "预约演示",
       "secondaryCta": "在线体验",
-      "imgAlt": "Tego OS企业智能协作中台展示"
+      "imgAlt": "TeGo 企业业务认知图谱"
     }
   },
   "contactPage": {
@@ -80,20 +80,20 @@
       }
     },
     "seo": {
-      "title": "联系我们 - Tego OS企业智能协作中台",
-      "description": "联系Tego OS企业智能协作中台团队，获取企业级AI多智能体协作解决方案咨询服务。我们提供定制化智能体平台部署与技术支持。",
-      "keywords": "Tego OS, 联系我们, 智能体平台, 企业AI, 多智能体协作, 技术支持, 深圳扎马",
+      "title": "联系我们 - TeGo 企业业务认知图谱",
+      "description": "联系TeGo企业业务认知图谱团队，获取企业级AI多智能体协作解决方案咨询服务。我们提供定制化智能体平台部署与技术支持。",
+      "keywords": "TeGo, Tego OS, 联系我们, 业务认知图谱, 智能体平台, 企业AI, 多智能体协作, 技术支持, 深圳扎马",
       "openGraph": {
-        "title": "联系我们 - Tego OS企业智能协作中台",
-        "description": "联系Tego OS企业智能协作中台团队，获取专业的企业级AI多智能体协作解决方案咨询与技术支持服务。"
+        "title": "联系我们 - TeGo 企业业务认知图谱",
+        "description": "联系TeGo企业业务认知图谱团队，获取专业的企业级AI多智能体协作解决方案咨询与技术支持服务。"
       }
     }
   },
   "appDownload": {
-    "title": "立即体验 Tego OS 企业智能协作中台",
+    "title": "立即体验 TeGo 企业业务认知图谱",
     "appLogo": {
-      "title": "Tego OS",
-      "alt": "Tego OS企业智能协作中台 Logo"
+      "title": "TeGo",
+      "alt": "TeGo 企业业务认知图谱 Logo"
     },
     "appIntro": {
       "slogan": "让 AI 智能体像高效团队一样协作",
@@ -134,8 +134,8 @@
       },
       "qrCode": {
         "notice": "扫描二维码联系我们",
-        "description": "扫描二维码，获取Tego OS专业服务",
-        "alt": "Tego OS 企业服务联系二维码"
+        "description": "扫描二维码，获取TeGo专业服务",
+        "alt": "TeGo 企业服务联系二维码"
       }
     },
     "wechatBrowser": {
@@ -353,7 +353,7 @@
       }
     ],
     "footer": {
-      "prefix": "Tego OS企业智能协作中台",
+      "prefix": "TeGo 企业业务认知图谱",
       "suffix": "，让 AI 智能体像高效团队一样协作。"
     },
     "typingPhrases": [
@@ -409,11 +409,11 @@
   },
   "footer": {
     "companyName": "扎马未来",
-    "companyDescription": "Tego OS企业智能协作中台 · 让 AI 智能体像高效团队一样协作",
+    "companyDescription": "TeGo 企业业务认知图谱 · 让 AI 智能体像高效团队一样协作",
     "products": "产品服务",
     "home": {
       "hero": {
-        "title": "Tego OS企业智能协作中台"
+        "title": "TeGo 企业业务认知图谱"
       }
     },
     "enterprise": "企业解决方案",
@@ -435,7 +435,7 @@
         "email": "support@zhama.com"
       }
     },
-    "copyright": "© 2025 深圳市扎马未来科技有限公司 版权所有 Tego OS企业智能协作中台",
+    "copyright": "© 2025 深圳市扎马未来科技有限公司 版权所有 TeGo 企业业务认知图谱",
     "icp": "粤ICP备2025426259号-1"
   },
   "advantagesSection": {
@@ -499,7 +499,7 @@
     "enterprise": {
       "ribbon": "ON PREMISE",
       "badge": "企业旗舰",
-      "name": "Tego OS企业智能协作中台",
+      "name": "TeGo 企业业务认知图谱",
       "lead": "全链路智能体协作与治理平台，企业优先",
       "desc": "自主品牌 + 高安全 + 专属支持 + POC 验证，定制化报价",
       "featuresTitle": "包含「订阅版特性」，并提供",
@@ -516,7 +516,7 @@
     }
   },
   "downloadSection": {
-    "title": "立即体验 Tego OS 企业智能协作中台",
+    "title": "立即体验 TeGo 企业业务认知图谱",
     "subtitle": "多种方式快速对接，开启您的企业智能化之旅",
     "enterprise": {
       "title": "企业服务",
@@ -575,25 +575,25 @@
   },
   "downloadPage": {
     "seo": {
-      "title": "下载体验 - Tego OS企业智能协作中台",
-      "description": "Tego OS企业智能协作中台下载与体验页面。支持企业咨询、产品演示、技术文档查看和私有化部署服务。",
-      "keywords": "Tego OS下载, 智能体平台体验, 企业AI演示, 多智能体协作, 私有化部署, 技术文档",
+      "title": "下载体验 - TeGo 企业业务认知图谱",
+      "description": "TeGo企业业务认知图谱下载与体验页面。支持企业咨询、产品演示、技术文档查看和私有化部署服务。",
+      "keywords": "TeGo下载, Tego OS, 业务认知图谱, 智能体平台体验, 企业AI演示, 多智能体协作, 私有化部署, 技术文档",
       "openGraph": {
-        "title": "下载体验 - Tego OS企业智能协作中台",
-        "description": "立即体验Tego OS企业智能协作中台，获取企业级AI多智能体协作解决方案演示与技术支持。"
+        "title": "下载体验 - TeGo 企业业务认知图谱",
+        "description": "立即体验TeGo企业业务认知图谱，获取企业级AI多智能体协作解决方案演示与技术支持。"
       }
     }
   },
   "seo": {
-    "title": "Tego OS企业智能协作中台 | 深圳市扎马未来科技有限公司",
-    "description": "Tego OS 是基于前沿 AI 研究成果打造的企业级多智能体自主协作平台。让 AI 智能体像高效团队一样协作，理解业务意图、分解复杂任务、协调多方资源，端到端闭环交付业务结果，执行效率提升 300%+。",
-    "keywords": "Tego OS, 企业智能协作中台, 多智能体协同, AI Agent, LAMP框架, DAG调度, A2A协议, 企业AI, 私有化部署, 深圳市扎马未来科技有限公司",
+    "title": "TeGo 企业业务认知图谱 | 深圳市扎马未来科技有限公司",
+    "description": "TeGo 是基于前沿 AI 研究成果打造的企业级多智能体自主协作平台。让 AI 智能体像高效团队一样协作，理解业务意图、分解复杂任务、协调多方资源，端到端闭环交付业务结果，执行效率提升 300%+。",
+    "keywords": "TeGo, Tego OS, 企业业务认知图谱, 多智能体协同, AI Agent, LAMP框架, DAG调度, A2A协议, 企业AI, 私有化部署, 深圳市扎马未来科技有限公司",
     "openGraph": {
-      "title": "Tego OS企业智能协作中台 | 深圳市扎马未来科技有限公司",
+      "title": "TeGo 企业业务认知图谱 | 深圳市扎马未来科技有限公司",
       "description": "让 AI 智能体像高效团队一样协作，自主完成复杂业务任务。基于 LAMP 框架、DAG 调度、经验池学习的企业级多智能体协作平台。"
     },
     "twitter": {
-      "title": "Tego OS企业智能协作中台",
+      "title": "TeGo 企业业务认知图谱",
       "description": "让 AI 智能体像高效团队一样协作，自主完成复杂业务任务"
     }
   },
@@ -645,11 +645,11 @@
       }
     },
     "seo": {
-      "title": "MCP 统一管理平台 - Tego OS企业智能协作中台",
+      "title": "MCP 统一管理平台 - TeGo 企业业务认知图谱",
       "description": "发明专利技术 · 基于模型上下文协议的动态服务器统一管理平台，一键生成 MCP 服务，零代码快速上线，平台级可扩展与可运维。",
-      "keywords": "MCP平台, 模型上下文协议, 动态服务器管理, 工具生成, 发明专利, 零代码, Tego OS",
+      "keywords": "MCP平台, 模型上下文协议, 动态服务器管理, 工具生成, 发明专利, 零代码, TeGo, Tego OS",
       "openGraph": {
-        "title": "MCP 统一管理平台 - Tego OS企业智能协作中台",
+        "title": "MCP 统一管理平台 - TeGo 企业业务认知图谱",
         "description": "企业级MCP动态服务器统一管理平台，支持无代码一键生成MCP服务。"
       }
     }
@@ -780,7 +780,7 @@
     }
   },
   "tegoOS": {
-    "title": "Tego OS 企业智能协作中台",
+    "title": "TeGo 企业业务认知图谱",
     "subtitle": "让 AI 智能体像高效团队一样协作，自主完成复杂业务任务",
     "problem": {
       "title": "企业面临的核心挑战",
@@ -964,11 +964,11 @@
       "learnMore": "了解更多"
     },
     "seo": {
-      "title": "多智能体协同 - Tego OS企业智能协作中台",
+      "title": "多智能体协同 - TeGo 企业业务认知图谱",
       "description": "发明专利技术：基于语言增强的多智能体协同决策系统（LAMP框架），融合Think-Speak-Decide三阶段推理管道，实现智能体间深度协作，任务成功率提升15-25%，执行效率提升2-5倍。",
-      "keywords": "多智能体协同, LAMP框架, Think-Speak-Decide, 智能体通信, DAG调度, 发明专利, Tego OS",
+      "keywords": "多智能体协同, LAMP框架, Think-Speak-Decide, 智能体通信, DAG调度, 发明专利, TeGo, Tego OS",
       "openGraph": {
-        "title": "多智能体协同 - Tego OS企业智能协作中台",
+        "title": "多智能体协同 - TeGo 企业业务认知图谱",
         "description": "LAMP 框架：语言增强的多智能体协同决策系统，实现智能体间深度协作与智能决策。"
       }
     }
@@ -1049,8 +1049,8 @@
   },
   "blog": {
     "meta": {
-      "title": "技术博客 - Tego OS企业智能协作中台",
-      "description": "Tego OS最新技术动态、产品更新、行业洞察和最佳实践分享"
+      "title": "技术博客 - TeGo 企业业务认知图谱",
+      "description": "TeGo最新技术动态、产品更新、行业洞察和最佳实践分享"
     },
     "nav": {
       "title": "技术博客",

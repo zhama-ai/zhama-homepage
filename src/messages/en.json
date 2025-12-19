@@ -37,12 +37,12 @@
   },
   "home": {
     "hero": {
-      "title": "Tego OS Enterprise Intelligent Collaboration Platform",
+      "title": "Tego Business Graph",
       "tagline": "Enable AI Agents to Collaborate Like High-Performing Teams, Autonomously Completing Complex Business Tasks",
       "description": "An enterprise-grade multi-agent autonomous collaboration platform built on cutting-edge AI research. Understand business intent, decompose complex tasks, coordinate resources, and deliver end-to-end results with 300%+ efficiency improvement.",
       "cta": "Book Demo",
       "secondaryCta": "Live Demo",
-      "imgAlt": "Tego OS Enterprise Intelligent Collaboration Platform Display"
+      "imgAlt": "Tego Business Graph"
     }
   },
   "contactPage": {
@@ -80,20 +80,20 @@
       }
     },
     "seo": {
-      "title": "Contact Us - Tego OS Enterprise Intelligent Collaboration Platform",
-      "description": "Contact Tego OS team for enterprise-grade AI multi-agent collaboration solutions. We provide customized platform deployment and technical support.",
-      "keywords": "Tego OS, contact us, AI agent platform, enterprise AI, multi-agent collaboration, technical support, Zhama",
+      "title": "Contact Us - Tego Business Graph",
+      "description": "Contact Tego Business Graph team for enterprise-grade AI multi-agent collaboration solutions. We provide customized platform deployment and technical support.",
+      "keywords": "Tego, Tego OS, Business Graph, contact us, AI agent platform, enterprise AI, multi-agent collaboration, technical support, Zhama",
       "openGraph": {
-        "title": "Contact Us - Tego OS Enterprise Intelligent Collaboration Platform",
-        "description": "Contact Tego OS team for professional enterprise AI multi-agent collaboration solutions and technical support."
+        "title": "Contact Us - Tego Business Graph",
+        "description": "Contact Tego Business Graph team for professional enterprise AI multi-agent collaboration solutions and technical support."
       }
     }
   },
   "appDownload": {
-    "title": "Experience Tego OS Enterprise Intelligent Collaboration Platform",
+    "title": "Experience Tego Business Graph",
     "appLogo": {
-      "title": "Tego OS",
-      "alt": "Tego OS Enterprise Intelligent Collaboration Platform Logo"
+      "title": "Tego",
+      "alt": "Tego Business Graph Logo"
     },
     "appIntro": {
       "slogan": "Enable AI Agents to Collaborate Like High-Performing Teams",
@@ -134,8 +134,8 @@
       },
       "qrCode": {
         "notice": "Scan QR Code to Contact Us",
-        "description": "Scan QR code for Tego OS professional services",
-        "alt": "Tego OS Enterprise Service Contact QR Code"
+        "description": "Scan QR code for Tego professional services",
+        "alt": "Tego Enterprise Service Contact QR Code"
       }
     },
     "wechatBrowser": {
@@ -353,7 +353,7 @@
       }
     ],
     "footer": {
-      "prefix": "Tego OS Enterprise Intelligent Collaboration Platform",
+      "prefix": "Tego Business Graph",
       "suffix": ", enabling AI agents to collaborate like high-performing teams."
     },
     "typingPhrases": [
@@ -409,11 +409,11 @@
   },
   "footer": {
     "companyName": "Zhama Future",
-    "companyDescription": "Tego OS Enterprise Intelligent Collaboration Platform · Enable AI Agents to Collaborate Like High-Performing Teams",
+    "companyDescription": "Tego Business Graph · Enable AI Agents to Collaborate Like High-Performing Teams",
     "products": "Products & Services",
     "home": {
       "hero": {
-        "title": "Tego OS Enterprise Intelligent Collaboration Platform"
+        "title": "Tego Business Graph"
       }
     },
     "enterprise": "Enterprise Solutions",
@@ -435,7 +435,7 @@
         "email": "support@zhama.com"
       }
     },
-    "copyright": "© 2025 Tego OS. All rights reserved. Shenzhen Zhama Future Technology Co., Ltd.",
+    "copyright": "© 2025 Tego Business Graph. All rights reserved. Shenzhen Zhama Future Technology Co., Ltd.",
     "icp": ""
   },
   "advantagesSection": {
@@ -499,7 +499,7 @@
     "enterprise": {
       "ribbon": "ON PREMISE",
       "badge": "Enterprise Flagship",
-      "name": "Tego OS Enterprise Platform",
+      "name": "Tego Business Graph",
       "lead": "Full-chain agent collaboration and governance platform, enterprise priority",
       "desc": "Custom branding + high security + dedicated support + POC validation, custom pricing",
       "featuresTitle": "Includes all Subscription features, plus:",
@@ -516,7 +516,7 @@
     }
   },
   "downloadSection": {
-    "title": "Experience Tego OS Enterprise Intelligent Collaboration Platform",
+    "title": "Experience Tego Business Graph",
     "subtitle": "Multiple ways to get started, begin your enterprise intelligence journey",
     "enterprise": {
       "title": "Enterprise Services",
@@ -575,25 +575,25 @@
   },
   "downloadPage": {
     "seo": {
-      "title": "Download & Experience - Tego OS Enterprise Intelligent Collaboration Platform",
-      "description": "Tego OS Enterprise Intelligent Collaboration Platform download and experience page. Support enterprise consultation, product demo, technical documentation and private deployment services.",
-      "keywords": "Tego OS download, AI agent platform experience, enterprise AI demo, multi-agent collaboration, private deployment, technical documentation",
+      "title": "Download & Experience - Tego Business Graph",
+      "description": "Tego Business Graph download and experience page. Support enterprise consultation, product demo, technical documentation and private deployment services.",
+      "keywords": "Tego download, Tego OS, Business Graph, AI agent platform experience, enterprise AI demo, multi-agent collaboration, private deployment, technical documentation",
       "openGraph": {
-        "title": "Download & Experience - Tego OS Enterprise Intelligent Collaboration Platform",
-        "description": "Experience Tego OS Enterprise Intelligent Collaboration Platform now, get enterprise AI multi-agent collaboration solution demo and technical support."
+        "title": "Download & Experience - Tego Business Graph",
+        "description": "Experience Tego Business Graph now, get enterprise AI multi-agent collaboration solution demo and technical support."
       }
     }
   },
   "seo": {
-    "title": "Tego OS Enterprise Intelligent Collaboration Platform | Shenzhen Zhama Future Technology Co., Ltd.",
-    "description": "Tego OS is an enterprise-grade multi-agent autonomous collaboration platform built on cutting-edge AI research. Enable AI agents to collaborate like high-performing teams, understand business intent, decompose complex tasks, coordinate resources, and deliver end-to-end results with 300%+ efficiency improvement.",
-    "keywords": "Tego OS, Enterprise Intelligent Collaboration Platform, Multi-Agent Collaboration, AI Agent, LAMP Framework, DAG Scheduling, A2A Protocol, Enterprise AI, Private Deployment, Shenzhen Zhama Future Technology",
+    "title": "Tego Business Graph | Shenzhen Zhama Future Technology Co., Ltd.",
+    "description": "Tego is an enterprise-grade multi-agent autonomous collaboration platform built on cutting-edge AI research. Enable AI agents to collaborate like high-performing teams, understand business intent, decompose complex tasks, coordinate resources, and deliver end-to-end results with 300%+ efficiency improvement.",
+    "keywords": "Tego, Tego OS, Business Graph, Enterprise Intelligent Collaboration Platform, Multi-Agent Collaboration, AI Agent, LAMP Framework, DAG Scheduling, A2A Protocol, Enterprise AI, Private Deployment, Shenzhen Zhama Future Technology",
     "openGraph": {
-      "title": "Tego OS Enterprise Intelligent Collaboration Platform | Shenzhen Zhama Future Technology Co., Ltd.",
+      "title": "Tego Business Graph | Shenzhen Zhama Future Technology Co., Ltd.",
       "description": "Enable AI agents to collaborate like high-performing teams, autonomously completing complex business tasks. Enterprise multi-agent collaboration platform based on LAMP framework, DAG scheduling, and experience pool learning."
     },
     "twitter": {
-      "title": "Tego OS Enterprise Intelligent Collaboration Platform",
+      "title": "Tego Business Graph",
       "description": "Enable AI agents to collaborate like high-performing teams, autonomously completing complex business tasks"
     }
   },
@@ -645,11 +645,11 @@
       }
     },
     "seo": {
-      "title": "MCP Unified Management Platform - Tego OS Enterprise Intelligent Collaboration Platform",
+      "title": "MCP Unified Management Platform - Tego Business Graph",
       "description": "Patented Technology · Dynamic server unified management platform based on Model Context Protocol, one-click MCP service generation, zero-code rapid deployment, platform-level scalability and maintainability.",
-      "keywords": "MCP Platform, Model Context Protocol, Dynamic Server Management, Tool Generation, Patent, Zero Code, Tego OS",
+      "keywords": "MCP Platform, Model Context Protocol, Dynamic Server Management, Tool Generation, Patent, Zero Code, Tego, Tego OS",
       "openGraph": {
-        "title": "MCP Unified Management Platform - Tego OS Enterprise Intelligent Collaboration Platform",
+        "title": "MCP Unified Management Platform - Tego Business Graph",
         "description": "Enterprise MCP dynamic server unified management platform, supporting no-code one-click MCP service generation."
       }
     }
@@ -780,7 +780,7 @@
     }
   },
   "tegoOS": {
-    "title": "Tego OS Enterprise Intelligent Collaboration Platform",
+    "title": "Tego Business Graph",
     "subtitle": "Enable AI Agents to Collaborate Like High-Performing Teams, Autonomously Completing Complex Business Tasks",
     "problem": {
       "title": "Core Challenges Enterprises Face",
@@ -964,11 +964,11 @@
       "learnMore": "Learn More"
     },
     "seo": {
-      "title": "Multi-Agent Collaboration - Tego OS Enterprise Intelligent Collaboration Platform",
+      "title": "Multi-Agent Collaboration - Tego Business Graph",
       "description": "Patented Technology: Language-enhanced multi-agent collaborative decision system (LAMP framework) with Think-Speak-Decide three-stage reasoning pipeline. Achieves 15-25% improvement in task success rate and 2-5x performance boost.",
-      "keywords": "Multi-Agent Collaboration, LAMP Framework, Think-Speak-Decide, Agent Communication, DAG Scheduling, Patent, Tego OS",
+      "keywords": "Multi-Agent Collaboration, LAMP Framework, Think-Speak-Decide, Agent Communication, DAG Scheduling, Patent, Tego, Tego OS",
       "openGraph": {
-        "title": "Multi-Agent Collaboration - Tego OS Enterprise Intelligent Collaboration Platform",
+        "title": "Multi-Agent Collaboration - Tego Business Graph",
         "description": "LAMP Framework: Language-enhanced multi-agent collaborative decision system for deep agent collaboration and intelligent decision-making."
       }
     }
@@ -1049,8 +1049,8 @@
   },
   "blog": {
     "meta": {
-      "title": "Technical Blog - Tego OS Enterprise Intelligent Collaboration Platform",
-      "description": "Latest technical updates, product news, industry insights and best practices from Tego OS"
+      "title": "Technical Blog - Tego Business Graph",
+      "description": "Latest technical updates, product news, industry insights and best practices from Tego"
     },
     "nav": {
       "title": "Tech Blog",
