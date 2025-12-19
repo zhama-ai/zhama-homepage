@@ -15,9 +15,9 @@ export default async function FooterSection({ locale }: FooterSectionProps) {
     {
       title: t('products'),
       links: [
-        { label: t('home.hero.title'), href: '#' },
-        { label: t('enterprise'), href: '#' },
-        { label: t('api'), href: '#' },
+        { label: t('home.hero.title'), href: `/${locale}#features` },
+        { label: t('enterprise'), href: `/${locale}#advantages` },
+        { label: t('api'), href: 'https://docs.zhama.com.cn/', external: true },
       ],
     },
     {

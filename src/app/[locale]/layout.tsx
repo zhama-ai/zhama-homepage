@@ -120,7 +120,6 @@ export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
   // Ensure that the incoming `locale` is valid
 
-  console.log('LocaleLayout - locale:', locale, 'locales:', locales);
   if (!locales.includes(locale as any)) {
     notFound();
   }

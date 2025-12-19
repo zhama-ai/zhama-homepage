@@ -251,15 +251,13 @@ export default function Header() {
               </div>
             </div>
             
-            <a 
-              href="https://tego.zhama.com.cn" 
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href={`/${locale}/contact`}
               className="hidden sm:flex items-center justify-center px-5 rounded-xl bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium shadow-md hover:shadow-lg transition-all duration-300 active:scale-95 whitespace-nowrap"
               style={{ height: '40px' }}
             >
               {t('nav.tryNow')}
-            </a>
+            </Link>
             
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
