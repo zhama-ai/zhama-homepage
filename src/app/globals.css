@@ -136,80 +136,209 @@
     @apply bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent;
   }
 
-  /* 博客内容样式 - 仅针对博客文章内容区域 */
-  article .blog-content h1 {
-    @apply text-2xl md:text-3xl !important;
-    @apply mb-10 mt-16 !important;
-    line-height: 1.4 !important;
+  /* ============================================
+     博客内容样式 - 优化阅读体验
+     ============================================ */
+  
+  .blog-content {
+    @apply text-gray-800 dark:text-gray-200;
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
   }
 
-  article .blog-content h2 {
-    @apply text-xl md:text-2xl !important;
-    @apply mt-24 mb-10 !important;
-    @apply border-b border-gray-200 dark:border-gray-700 pb-5 !important;
-    line-height: 1.4 !important;
+  /* 标题样式 */
+  .blog-content h1 {
+    @apply text-2xl md:text-3xl font-bold text-gray-900 dark:text-white;
+    @apply mt-12 mb-6;
+    line-height: 1.3;
   }
 
-  article .blog-content h3 {
-    @apply text-lg md:text-xl !important;
-    @apply mt-16 mb-8 !important;
-    line-height: 1.5 !important;
+  .blog-content h2 {
+    @apply text-xl md:text-2xl font-bold text-gray-900 dark:text-white;
+    @apply mt-10 mb-5 pb-3;
+    @apply border-b-2 border-blue-500/30;
+    line-height: 1.4;
   }
 
-  article .blog-content h4 {
-    @apply text-base md:text-lg !important;
-    @apply mt-12 mb-6 !important;
-    @apply font-semibold !important;
-    line-height: 1.5 !important;
+  .blog-content h3 {
+    @apply text-lg md:text-xl font-semibold text-gray-900 dark:text-white;
+    @apply mt-8 mb-4;
+    line-height: 1.4;
   }
 
-  article .blog-content p {
-    @apply text-base md:text-lg !important;
-    @apply mb-10 !important;
-    line-height: 2 !important;
-    @apply text-gray-700 dark:text-gray-300 !important;
+  .blog-content h4 {
+    @apply text-base md:text-lg font-semibold text-gray-800 dark:text-gray-100;
+    @apply mt-6 mb-3;
+    line-height: 1.5;
   }
 
-  article .blog-content ul,
-  article .blog-content ol {
-    @apply my-10 pl-6 !important;
+  /* 段落样式 */
+  .blog-content p {
+    @apply mb-5 text-gray-700 dark:text-gray-300;
+    line-height: 1.9;
   }
 
-  article .blog-content li {
-    @apply text-base md:text-lg !important;
-    @apply mb-4 !important;
-    line-height: 2 !important;
-    @apply text-gray-700 dark:text-gray-300 !important;
+  /* 链接样式 */
+  .blog-content a {
+    @apply text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300;
+    @apply underline decoration-blue-300 dark:decoration-blue-600 underline-offset-2;
+    @apply transition-colors duration-200;
   }
 
-  article .blog-content pre {
-    @apply my-10 p-6 rounded-xl !important;
-    @apply bg-gray-900 dark:bg-gray-950 !important;
-    line-height: 1.6 !important;
+  /* 粗体和强调 */
+  .blog-content strong {
+    @apply font-semibold text-gray-900 dark:text-white;
   }
 
-  article .blog-content code {
-    @apply text-sm md:text-base !important;
-    @apply px-2 py-1 rounded !important;
-    @apply text-pink-600 dark:text-pink-400 !important;
-    @apply bg-gray-100 dark:bg-gray-800 !important;
+  .blog-content em {
+    @apply italic text-gray-800 dark:text-gray-200;
   }
 
-  article .blog-content blockquote {
-    @apply my-10 py-5 px-6 !important;
-    @apply border-l-4 border-blue-500 !important;
-    @apply bg-blue-50 dark:bg-blue-900/20 !important;
-    @apply italic !important;
-    line-height: 1.8 !important;
+  /* 列表样式 */
+  .blog-content ul {
+    @apply my-5 pl-6 space-y-2;
+    list-style-type: disc;
   }
 
-  article .blog-content img {
-    @apply my-12 rounded-lg shadow-lg !important;
+  .blog-content ol {
+    @apply my-5 pl-6 space-y-2;
+    list-style-type: decimal;
   }
 
-  article .blog-content hr {
-    @apply my-20 !important;
-    @apply border-gray-300 dark:border-gray-700 !important;
+  .blog-content li {
+    @apply text-gray-700 dark:text-gray-300;
+    line-height: 1.8;
+    padding-left: 0.25rem;
+  }
+
+  .blog-content li::marker {
+    @apply text-blue-500;
+  }
+
+  /* 嵌套列表 */
+  .blog-content ul ul,
+  .blog-content ol ol,
+  .blog-content ul ol,
+  .blog-content ol ul {
+    @apply mt-2 mb-0;
+  }
+
+  /* 代码块样式 */
+  .blog-content pre {
+    @apply my-6 p-5 rounded-lg overflow-x-auto;
+    @apply bg-gray-900 dark:bg-gray-950;
+    @apply border border-gray-800;
+    @apply shadow-lg;
+  }
+
+  .blog-content pre code {
+    @apply text-sm text-gray-100 bg-transparent p-0;
+    font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    line-height: 1.6;
+  }
+
+  /* 行内代码样式 */
+  .blog-content :not(pre) > code {
+    @apply text-sm px-1.5 py-0.5 rounded;
+    @apply bg-gray-100 dark:bg-gray-800;
+    @apply text-rose-600 dark:text-rose-400;
+    @apply border border-gray-200 dark:border-gray-700;
+    font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  /* 引用块样式 */
+  .blog-content blockquote {
+    @apply my-6 py-4 px-5 rounded-r-lg;
+    @apply border-l-4 border-blue-500;
+    @apply bg-blue-50 dark:bg-blue-900/20;
+    @apply text-gray-700 dark:text-gray-300;
+  }
+
+  .blog-content blockquote p {
+    @apply mb-0;
+    font-style: italic;
+  }
+
+  /* 分隔线样式 */
+  .blog-content hr {
+    @apply my-10 border-0 h-px;
+    @apply bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent;
+  }
+
+  /* 表格样式 */
+  .blog-content table {
+    @apply w-full my-6 text-sm;
+    @apply border-collapse rounded-lg overflow-hidden;
+    @apply shadow-sm;
+  }
+
+  .blog-content thead {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+
+  .blog-content th {
+    @apply px-4 py-3 text-left font-semibold text-gray-900 dark:text-white;
+    @apply border-b-2 border-gray-200 dark:border-gray-700;
+  }
+
+  .blog-content td {
+    @apply px-4 py-3 text-gray-700 dark:text-gray-300;
+    @apply border-b border-gray-200 dark:border-gray-700;
+  }
+
+  .blog-content tbody tr:hover {
+    @apply bg-gray-50 dark:bg-gray-800/50;
+  }
+
+  /* 图片样式 */
+  .blog-content img {
+    @apply my-8 rounded-lg shadow-md;
+    @apply max-w-full h-auto;
+  }
+
+  /* 特殊块：提示/警告等 */
+  .blog-content .tip,
+  .blog-content .note {
+    @apply my-6 p-4 rounded-lg;
+    @apply bg-green-50 dark:bg-green-900/20;
+    @apply border-l-4 border-green-500;
+  }
+
+  .blog-content .warning {
+    @apply my-6 p-4 rounded-lg;
+    @apply bg-yellow-50 dark:bg-yellow-900/20;
+    @apply border-l-4 border-yellow-500;
+  }
+
+  /* 第一段落不需要顶部边距 */
+  .blog-content > p:first-child {
+    @apply mt-0;
+  }
+
+  /* 标题后的段落减少间距 */
+  .blog-content h1 + p,
+  .blog-content h2 + p,
+  .blog-content h3 + p,
+  .blog-content h4 + p {
+    @apply mt-0;
+  }
+
+  /* Mermaid 图表样式 */
+  .mermaid-diagram {
+    @apply my-8 p-4 rounded-lg;
+    @apply bg-white dark:bg-gray-800;
+    @apply border border-gray-200 dark:border-gray-700;
+    @apply shadow-sm;
+  }
+
+  .mermaid-diagram svg {
+    @apply max-w-full h-auto;
+  }
+
+  /* 暗色模式下 Mermaid 图表反色 */
+  .dark .mermaid-diagram svg {
+    filter: invert(0.9) hue-rotate(180deg);
   }
 }
 

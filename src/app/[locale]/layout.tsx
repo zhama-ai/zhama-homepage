@@ -6,6 +6,7 @@ import { Providers } from "@/components/providers";
 import { locales } from '@/i18n';
 import StructuredData from '@/components/StructuredData';
 import BaiduSEO from '@/components/BaiduSEO';
+import Analytics from '@/components/Analytics';
 
 type Props = {
   children: React.ReactNode;
@@ -133,6 +134,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <Providers>
         <StructuredData />
         <BaiduSEO />
+        <Analytics />
         {children}
       </Providers>
     </NextIntlClientProvider>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
 interface FeatureData {
@@ -185,12 +186,13 @@ export default function FeaturesClient({ data }: FeaturesClientProps) {
                   if (activeFeature !== index) return null;
                   const featureData = data[feature.key as 'collection' | 'analysis' | 'organization' | 'gateway'];
                   return (
-                    <img
+                    <Image
                       key={feature.key}
                       src={feature.image}
                       alt={featureData.title}
+                      width={800}
+                      height={450}
                       className="w-full h-full object-cover transition-all duration-500"
-                      loading="lazy"
                     />
                   );
                 })}
@@ -247,11 +249,12 @@ export default function FeaturesClient({ data }: FeaturesClientProps) {
                     </div>
                     
                     <div className="overflow-hidden rounded-xl">
-                      <img
+                      <Image
                         src={feature.image}
                         alt={featureData.title}
+                        width={400}
+                        height={192}
                         className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                        loading="lazy"
                       />
                     </div>
                   </div>

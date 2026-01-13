@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 export default function DownloadClient() {
   const t = useTranslations('appDownload');
@@ -93,7 +94,7 @@ export default function DownloadClient() {
               {/* App Logo and Title */}
               <div className="text-center lg:text-left mb-8">
                 <div className="w-24 h-24 md:w-28 md:h-28 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl mx-auto lg:mx-0 mb-4 flex items-center justify-center shadow-lg">
-                  <img src="/images/logo_light.png" alt={t('appLogo.alt')} className="w-full h-full object-contain" />
+                  <Image src="/images/logo_light.png" alt={t('appLogo.alt')} width={112} height={112} className="w-full h-full object-contain" />
                 </div>
                 <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{t('appLogo.title')}</h1>
                 <p className="text-gray-600 text-lg md:text-xl">{t('appIntro.slogan')}</p>
@@ -170,7 +171,7 @@ export default function DownloadClient() {
                 <div className="mt-8 text-center">
                   <p className="text-sm text-gray-500 mb-2 md:text-base">{t('download.qrCode.notice')}</p>
                   <div className="w-48 h-48 md:w-56 md:h-56 bg-white p-2 mx-auto rounded-md shadow-md border border-gray-200 overflow-hidden">
-                    <img src="/images/link_qrcode.png" alt={t('download.qrCode.alt')} className="w-full h-full object-contain" />
+                    <Image src="/images/link_qrcode.png" alt={t('download.qrCode.alt')} width={224} height={224} className="w-full h-full object-contain" />
                   </div>
                   <p className="text-xs text-gray-500 mt-2 md:text-sm">{t('download.qrCode.description')}</p>
                 </div>

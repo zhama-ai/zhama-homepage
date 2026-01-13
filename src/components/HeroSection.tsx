@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Container } from './ui/Container';
 
 interface HeroSectionProps {
@@ -66,11 +67,13 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
           {/* 右侧图片 */}
           <div className="relative animate-scale-in animate-delay-200">
             <div className="relative rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-2xl">
-              <img
-                className="w-full h-auto object-cover"
+              <Image
                 src="/images/hero-01.png"
                 alt={t('hero.imgAlt')}
-                loading="eager"
+                width={1200}
+                height={800}
+                className="w-full h-auto object-cover"
+                priority
               />
             </div>
             {/* 装饰元素 */}

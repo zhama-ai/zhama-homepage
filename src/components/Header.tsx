@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { LanguageSwitcher } from './LanguageSwitcher';
@@ -110,8 +111,8 @@ export default function Header() {
         <div className="container-custom">
           <div className="flex justify-between items-center h-16 lg:h-20">
             <Link href={`/${locale}`} className="flex items-center flex-shrink-0">
-              <img src="/images/logo_light.png" alt="Logo" className="h-10 sm:h-12 w-auto dark:hidden" />
-              <img src="/images/logo_dark.png" alt="Logo" className="h-10 sm:h-12 w-auto hidden dark:block" />
+              <Image src="/images/logo_light.png" alt="Logo" width={120} height={48} className="h-10 sm:h-12 w-auto dark:hidden" priority />
+              <Image src="/images/logo_dark.png" alt="Logo" width={120} height={48} className="h-10 sm:h-12 w-auto hidden dark:block" priority />
             </Link>
             <div className="h-9 w-24 bg-zinc-200 dark:bg-zinc-800 rounded-lg animate-pulse" />
           </div>
@@ -132,8 +133,8 @@ export default function Header() {
           <div className="flex items-center min-w-0">
             {/* Logo */}
             <Link href={`/${locale}`} className="flex items-center flex-shrink-0 mr-6">
-              <img src="/images/logo_light.png" alt="Logo" className="h-10 sm:h-12 w-auto dark:hidden" />
-              <img src="/images/logo_dark.png" alt="Logo" className="h-10 sm:h-12 w-auto hidden dark:block" />
+              <Image src="/images/logo_light.png" alt="Logo" width={120} height={48} className="h-10 sm:h-12 w-auto dark:hidden" priority />
+              <Image src="/images/logo_dark.png" alt="Logo" width={120} height={48} className="h-10 sm:h-12 w-auto hidden dark:block" priority />
             </Link>
             
             {/* Desktop Navigation */}

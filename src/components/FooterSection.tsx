@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Container } from './ui/Container';
 
 interface FooterSectionProps {
@@ -45,8 +46,8 @@ export default async function FooterSection({ locale }: FooterSectionProps) {
           {/* 公司信息 */}
           <div className="md:w-1/4 space-y-4">
             <div className="flex items-center gap-3 justify-center md:justify-start">
-              <img src="/images/logo_light.png" alt="TeGo Logo" className="h-8 w-auto dark:hidden" />
-              <img src="/images/logo_dark.png" alt="TeGo Logo" className="h-8 w-auto hidden dark:block" />
+              <Image src="/images/logo_light.png" alt="TeGo Logo" width={80} height={32} className="h-8 w-auto dark:hidden" />
+              <Image src="/images/logo_dark.png" alt="TeGo Logo" width={80} height={32} className="h-8 w-auto hidden dark:block" />
               <h3 className="text-lg md:text-xl font-bold">{t('companyName')}</h3>
             </div>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed text-center md:text-left">
