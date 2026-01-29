@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { Plug, Puzzle, Settings, Network } from 'lucide-react';
+import { Plug, Puzzle, Settings, Network, Brain, GitBranch, Database, Palette, Wrench } from 'lucide-react';
 
 export default function Header() {
   const t = useTranslations();
@@ -44,7 +44,7 @@ export default function Header() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const sectionIds = ['features', 'advantages', 'pricing', 'download', 'about'];
+    const sectionIds = ['products', 'use-cases', 'why-tego', 'pricing', 'download', 'about'];
     const elements = sectionIds
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => Boolean(el));
@@ -73,19 +73,22 @@ export default function Header() {
 
   const navItems = [
     { href: `/${locale}`, label: t('nav.home'), section: 'home' },
-    { href: `/${locale}/#features`, label: t('nav.features'), section: 'features' },
-    { href: `/${locale}/#advantages`, label: t('nav.advantages'), section: 'advantages' },
+    { href: `/${locale}/#products`, label: t('nav.products'), section: 'products' },
+    { href: `/${locale}/#use-cases`, label: t('nav.useCases'), section: 'use-cases' },
     { href: `/${locale}/#pricing`, label: t('nav.pricing'), section: 'pricing' },
     { href: 'https://docs.zhama.com.cn', label: t('nav.docs'), external: true },
     { href: `/${locale}/blog`, label: t('nav.blog'), external: true },
-    { href: `/${locale}/contact`, label: t('nav.contact') },
+    { href: `/${locale}/#download`, label: t('nav.download'), section: 'download' },
     { href: `/${locale}/#about`, label: t('nav.about'), section: 'about' },
   ];
 
   const platformMenuItems = [
-    { href: `/${locale}/platform`, label: t('nav.platform.mcpPlatform'), icon: Plug },
-    { href: `/${locale}/plugin-system`, label: t('nav.platform.pluginSystem'), icon: Puzzle },
-    { href: `/${locale}/technical`, label: t('nav.platform.technicalFeatures'), icon: Settings },
+    { href: `/${locale}/technical#lamp`, label: t('nav.platform.lamp'), icon: Brain },
+    { href: `/${locale}/technical#dag`, label: t('nav.platform.dag'), icon: GitBranch },
+    { href: `/${locale}/technical#experience`, label: t('nav.platform.experience'), icon: Database },
+    { href: `/${locale}/technical#a2ui`, label: t('nav.platform.a2ui'), icon: Palette },
+    { href: `/${locale}/technical#skills`, label: t('nav.platform.skills'), icon: Wrench },
+    { href: `/${locale}/technical#mcp`, label: t('nav.platform.mcp'), icon: Plug },
     { href: `/${locale}/multi-agent`, label: t('nav.platform.multiAgent'), icon: Network },
   ];
 

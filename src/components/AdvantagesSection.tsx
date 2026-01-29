@@ -1,81 +1,66 @@
 import { getTranslations } from 'next-intl/server';
 import { Container } from './ui/Container';
 import { Section, SectionHeader } from './ui/Section';
-import { Plane, Rocket, Headphones, Clock, CheckCircle, TrendingUp } from 'lucide-react';
+import { 
+  Users, 
+  Building2, 
+  Landmark,
+  Factory,
+  Building
+} from 'lucide-react';
 
 interface AdvantagesSectionProps {
   locale: string;
 }
 
-const scenarios = [
+const industries = [
   {
-    key: 'professional',
-    icon: Plane,
+    key: 'enterprise',
+    icon: Users,
     bgColor: 'bg-teal-500/10',
     textColor: 'text-teal-600 dark:text-teal-400',
     borderColor: 'border-teal-200 dark:border-teal-800/50',
-    metric: '5分钟',
-    metricLabel: '完成',
-    metricEn: '5 min',
-    metricLabelEn: 'completion',
+    iconBg: 'bg-teal-500',
   },
   {
-    key: 'personal',
-    icon: Rocket,
+    key: 'government',
+    icon: Building2,
+    bgColor: 'bg-sky-500/10',
+    textColor: 'text-sky-600 dark:text-sky-400',
+    borderColor: 'border-sky-200 dark:border-sky-800/50',
+    iconBg: 'bg-sky-500',
+  },
+  {
+    key: 'finance',
+    icon: Landmark,
     bgColor: 'bg-amber-500/10',
     textColor: 'text-amber-600 dark:text-amber-400',
     borderColor: 'border-amber-200 dark:border-amber-800/50',
-    metric: '30分钟',
-    metricLabel: '启动',
-    metricEn: '30 min',
-    metricLabelEn: 'kickoff',
+    iconBg: 'bg-amber-500',
   },
   {
-    key: 'enterprise',
-    icon: Headphones,
+    key: 'manufacturing',
+    icon: Factory,
     bgColor: 'bg-emerald-500/10',
     textColor: 'text-emerald-600 dark:text-emerald-400',
     borderColor: 'border-emerald-200 dark:border-emerald-800/50',
-    metric: '分钟级',
-    metricLabel: '响应',
-    metricEn: 'Minutes',
-    metricLabelEn: 'response',
-  },
-];
-
-const valueMetrics = [
-  {
-    icon: TrendingUp,
-    value: '300%+',
-    label: '执行效率提升',
-    labelEn: 'Efficiency Boost',
-    bgColor: 'bg-teal-500/10',
-    textColor: 'text-teal-600 dark:text-teal-400',
+    iconBg: 'bg-emerald-500',
   },
   {
-    icon: CheckCircle,
-    value: '95%+',
-    label: '任务成功率',
-    labelEn: 'Success Rate',
-    bgColor: 'bg-amber-500/10',
-    textColor: 'text-amber-600 dark:text-amber-400',
-  },
-  {
-    icon: Clock,
-    value: '7×24',
-    label: '全天候服务',
-    labelEn: '24/7 Service',
-    bgColor: 'bg-emerald-500/10',
-    textColor: 'text-emerald-600 dark:text-emerald-400',
+    key: 'stateOwned',
+    icon: Building,
+    bgColor: 'bg-purple-500/10',
+    textColor: 'text-purple-600 dark:text-purple-400',
+    borderColor: 'border-purple-200 dark:border-purple-800/50',
+    iconBg: 'bg-purple-500',
   },
 ];
 
 export default async function AdvantagesSection({ locale }: AdvantagesSectionProps) {
-  const t = await getTranslations({ locale, namespace: 'advantagesSection' });
-  const isZh = locale === 'zh';
+  const t = await getTranslations({ locale, namespace: 'useCases' });
 
   return (
-    <Section id="advantages" className="bg-white dark:bg-zinc-900 relative overflow-hidden">
+    <Section id="use-cases" className="bg-zinc-50 dark:bg-zinc-950 relative overflow-hidden">
       {/* 背景装饰 */}
       <div className="absolute inset-0 bg-grid opacity-20" />
       <div className="absolute top-1/4 left-10 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl" />
@@ -87,82 +72,54 @@ export default async function AdvantagesSection({ locale }: AdvantagesSectionPro
           subtitle={t('subtitle')}
         />
 
-        {/* 关键价值指标 */}
-        <div className="grid grid-cols-3 gap-4 mb-16">
-          {valueMetrics.map((metric, index) => {
-            const IconComponent = metric.icon;
+        {/* 行业应用 - 前三个大卡片 */}
+        <div className="grid md:grid-cols-3 gap-6 mb-6">
+          {industries.slice(0, 3).map((industry) => {
+            const IconComponent = industry.icon;
             return (
-              <div
-                key={index}
-                className="bg-zinc-50 dark:bg-zinc-800/50 rounded-xl p-6 text-center border border-zinc-100 dark:border-zinc-700/50"
+              <div 
+                key={industry.key}
+                className={`group bg-white dark:bg-zinc-900 rounded-2xl p-6 border ${industry.borderColor} hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
               >
-                <div className={`w-12 h-12 rounded-xl ${metric.bgColor} flex items-center justify-center mx-auto mb-3`}>
-                  <IconComponent className={`w-6 h-6 ${metric.textColor}`} />
+                <div className="flex items-start gap-4 mb-4">
+                  <div className={`w-12 h-12 rounded-full ${industry.iconBg} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                    <IconComponent className="w-6 h-6 text-white" />
+                  </div>
+                  <h4 className="text-lg font-bold text-zinc-900 dark:text-zinc-50 pt-2">
+                    {t(`industries.${industry.key}.title`)}
+                  </h4>
                 </div>
-                <div className={`text-2xl md:text-3xl font-bold ${metric.textColor} mb-1`}>
-                  {metric.value}
-                </div>
-                <div className="text-sm text-zinc-600 dark:text-zinc-400">
-                  {isZh ? metric.label : metric.labelEn}
-                </div>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  {t(`industries.${industry.key}.description`)}
+                </p>
               </div>
             );
           })}
         </div>
 
-        {/* 适用场景 */}
-        <div className="space-y-10">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-              {t('scenarios.title')}
-            </h3>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            {scenarios.map((scenario) => {
-              const IconComponent = scenario.icon;
-              return (
-                <div 
-                  key={scenario.key}
-                  className={`group bg-white dark:bg-zinc-800/50 rounded-2xl p-6 border ${scenario.borderColor} hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
-                >
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className={`w-14 h-14 rounded-xl ${scenario.bgColor} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-                      <IconComponent className={`w-7 h-7 ${scenario.textColor}`} />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-1">
-                        {t(`scenarios.${scenario.key}.title`)}
-                      </h4>
-                      <div className="flex items-center gap-2">
-                        <span className={`text-xl font-bold ${scenario.textColor}`}>
-                          {isZh ? scenario.metric : scenario.metricEn}
-                        </span>
-                        <span className="text-sm text-zinc-500 dark:text-zinc-500">
-                          {isZh ? scenario.metricLabel : scenario.metricLabelEn}
-                        </span>
-                      </div>
-                    </div>
+        {/* 后两个卡片 */}
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {industries.slice(3).map((industry) => {
+            const IconComponent = industry.icon;
+            return (
+              <div 
+                key={industry.key}
+                className={`group bg-white dark:bg-zinc-900 rounded-2xl p-6 border ${industry.borderColor} hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
+              >
+                <div className="flex items-start gap-4 mb-4">
+                  <div className={`w-12 h-12 rounded-full ${industry.iconBg} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                    <IconComponent className="w-6 h-6 text-white" />
                   </div>
-                  <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                    {t(`scenarios.${scenario.key}.description`)}
-                  </p>
+                  <h4 className="text-lg font-bold text-zinc-900 dark:text-zinc-50 pt-2">
+                    {t(`industries.${industry.key}.title`)}
+                  </h4>
                 </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* 更多行业场景提示 */}
-        <div className="mt-12 text-center">
-          <div className="inline-flex flex-wrap justify-center gap-3 text-sm text-zinc-500 dark:text-zinc-500">
-            <span className="px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800">{isZh ? '制造业' : 'Manufacturing'}</span>
-            <span className="px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800">{isZh ? '金融' : 'Finance'}</span>
-            <span className="px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800">{isZh ? '零售' : 'Retail'}</span>
-            <span className="px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800">{isZh ? '医疗' : 'Healthcare'}</span>
-            <span className="px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800">{isZh ? '教育' : 'Education'}</span>
-            <span className="px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800">{isZh ? '更多场景...' : 'More...'}</span>
-          </div>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  {t(`industries.${industry.key}.description`)}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </Container>
     </Section>

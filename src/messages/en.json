@@ -18,10 +18,10 @@
   },
   "nav": {
     "home": "Home",
-    "features": "Capabilities",
-    "advantages": "Use Cases",
+    "products": "Products",
+    "useCases": "Use Cases",
     "pricing": "Pricing",
-    "download": "Contact Us",
+    "download": "Download",
     "about": "About Us",
     "docs": "Documentation",
     "blog": "Blog",
@@ -29,9 +29,12 @@
     "tryNow": "Book Demo",
     "platform": {
       "title": "Tech Platform",
-      "mcpPlatform": "MCP Platform",
-      "pluginSystem": "Plugin System",
-      "technicalFeatures": "Technical Features",
+      "lamp": "LAMP Framework",
+      "dag": "DAG Scheduler",
+      "experience": "Experience Pool",
+      "a2ui": "A2UI Interface",
+      "skills": "Agent Skills",
+      "mcp": "MCP Framework",
       "multiAgent": "Multi-Agent Collaboration"
     }
   },
@@ -43,6 +46,102 @@
       "cta": "Book Demo",
       "secondaryCta": "Live Demo",
       "imgAlt": "TeGo AI Super Team"
+    }
+  },
+  "productSuite": {
+    "title": "TeGo Product Suite",
+    "subtitle": "One-stop AI collaboration solution covering desktop, browser, and Office for all scenarios",
+    "desktop": {
+      "title": "TeGo Desktop",
+      "description": "Native desktop client with instant startup and offline capability. Local-first privacy protection with file operations and shell command support.",
+      "features": ["Instant Launch", "Offline Ready", "Local First", "Privacy Safe"],
+      "cta": "Download Now"
+    },
+    "web": {
+      "title": "TeGo Web",
+      "description": "No installation required, use directly in browser. Access your AI Super Team anytime, anywhere with seamless cross-device collaboration.",
+      "features": ["No Install", "Cross-device Sync", "Always Available", "Cloud Collab"],
+      "cta": "Try Now"
+    },
+    "office": {
+      "title": "TeGo Office",
+      "description": "AI works directly in Excel and Word. No app switching needed - intelligent data analysis, report generation, and contract review.",
+      "features": ["Excel Integration", "Word Integration", "WPS Support", "Seamless Fusion"],
+      "cta": "Get Plugin"
+    },
+    "capabilities": {
+      "title": "Core Capabilities",
+      "subtitle": "Empower AI with enhanced interaction and extensibility",
+      "a2ui": {
+        "title": "A2UI Dynamic Interface",
+        "description": "AI no longer just outputs text, but generates interactive interfaces directly. Charts, forms, buttons - what you see is what you get.",
+        "tags": ["Dynamic Render", "Interactive", "Visualization"]
+      },
+      "skills": {
+        "title": "Agent Skills Extension",
+        "description": "Extend AI capabilities like installing apps. Standardized skill format, cross-platform compatible, unlimited extensibility.",
+        "tags": ["Skill Market", "Standardized", "Extensible"]
+      }
+    },
+    "footer": {
+      "text": "Need enterprise customization?",
+      "link": "Contact Us"
+    }
+  },
+  "whyTego": {
+    "title": "Why Choose TeGo",
+    "subtitle": "From agent silos to AI Super Team, enabling agents to collaborate like real teams",
+    "metrics": {
+      "efficiency": "Efficiency Boost",
+      "successRate": "Success Rate",
+      "response": "Response Speed"
+    },
+    "advantages": {
+      "collaboration": {
+        "title": "Multi-Agent Collaboration",
+        "description": "Break down AI tool barriers, enabling multiple agents to think autonomously, share information, and make decisions together like a real team."
+      },
+      "efficiency": {
+        "title": "Concurrent Execution",
+        "description": "Based on DAG scheduling engine, automatically analyze task dependencies, execute parallel tasks simultaneously, 2-5x efficiency improvement."
+      },
+      "intelligence": {
+        "title": "Getting Smarter",
+        "description": "Experience pool continuous learning, successful cases automatically accumulated and reused, new task planning time reduced by 40-60%."
+      },
+      "security": {
+        "title": "Secure & Controllable",
+        "description": "Enterprise-grade permission system, complete audit trails, private deployment support, local processing of sensitive data."
+      }
+    },
+    "footer": {
+      "text": "Serving multiple enterprise clients across finance, manufacturing, retail and more"
+    }
+  },
+  "useCases": {
+    "title": "TeGo Use Cases",
+    "subtitle": "Empowering Intelligent Collaboration Across Industries",
+    "industries": {
+      "enterprise": {
+        "title": "Enterprise Internal Collaboration",
+        "description": "Through intelligent planning engine, complex office tasks (travel management, project kickoff, meeting scheduling, administrative approvals, knowledge Q&A) are autonomously decomposed into executable subtasks, orchestrating different business agents (admin agent, calendar agent, HR agent) for concurrent execution, achieving end-to-end business closed loop."
+      },
+      "government": {
+        "title": "Government Service System Collaboration",
+        "description": "Meeting government requirements for local deployment, data sovereignty, and full-chain control through highly secure and compliant architecture, unifying scattered government service processes across different departments and systems."
+      },
+      "finance": {
+        "title": "Financial Industry System Collaboration",
+        "description": "Financial applications focus on intelligent investment research assistance, full-process credit risk control, and compliance & AML in three core scenarios, aggregating and processing massive unstructured data to precisely capture market and customer risks."
+      },
+      "manufacturing": {
+        "title": "Manufacturing System Collaboration",
+        "description": "The collaboration platform connects demand side (sales orders), planning & scheduling (APS, MRP), and execution side (procurement, production), enabling cross-system information alignment and dynamic adjustment through planning, supplier, and predictive maintenance agent clusters."
+      },
+      "stateOwned": {
+        "title": "State-Owned Enterprise Collaboration",
+        "description": "The platform architecture design fits state-owned enterprise needs perfectly, abstracting AI capabilities into unified services, avoiding redundant investments across business lines, and solving core demands of 'breaking system silos' and 'avoiding duplicate investments'."
+      }
     }
   },
   "contactPage": {
@@ -732,7 +831,11 @@
     }
   },
   "technicalFeatures": {
-    "title": "Technical Features & Development Efficiency",
+    "title": "Technical Features",
+    "badge": "Core Technology Architecture",
+    "heroDescription": "Deep dive into TeGo's technical implementation details, including LAMP collaboration framework, DAG scheduling engine, experience pool learning, A2UI dynamic interface, and Agent Skills system",
+    "mcpTitle": "MCP Development Framework",
+    "mcpSubtitle": "Decorator-driven development model that greatly simplifies agent tool development",
     "features": {
       "framework": {
         "title": "Self-developed MCP Framework",
@@ -1082,6 +1185,132 @@
     },
     "related": {
       "title": "Related Articles"
+    }
+  },
+  "techDetails": {
+    "lamp": {
+      "badge": "Patented Technology",
+      "title": "LAMP Three-Stage Reasoning Framework",
+      "subtitle": "Language-enhanced Multi-Agent Planning · Advanced collaborative decision system for AI agents",
+      "think": {
+        "title": "Think - Continuous Reasoning",
+        "description": "Hybrid reasoning mechanism with parallel short-term and long-term analysis, detecting environmental shocks and assessing severity",
+        "features": [
+          "Parallel short-term and long-term reasoning",
+          "Environmental shock detection and severity assessment",
+          "Trend tracking and strategic analysis",
+          "Anomaly identification and early warning"
+        ]
+      },
+      "speak": {
+        "title": "Speak - Intelligent Communication",
+        "description": "Natural language-based semantic communication protocol between agents, enabling information sharing and knowledge transfer",
+        "features": [
+          "Multi-candidate message generation with quality scoring",
+          "Belief state management and trust updating",
+          "Shared knowledge base construction",
+          "Strategy preference learning and adaptation"
+        ]
+      },
+      "decide": {
+        "title": "Decide - Decision Fusion",
+        "description": "Adaptive intelligent decision-making through multi-source information fusion, combining numerical data, reasoning results, and belief states",
+        "features": [
+          "Three-source data fusion (numerical, reasoning, belief)",
+          "Weighted scoring and LLM-based decision making",
+          "Fallback mechanism for system stability",
+          "Explainable decision output"
+        ]
+      }
+    },
+    "dag": {
+      "badge": "Concurrent Scheduling Engine",
+      "title": "DAG Concurrent Scheduling Engine",
+      "subtitle": "Intelligent task scheduling based on directed acyclic graphs, automatically analyzing dependencies to maximize parallel execution efficiency",
+      "features": {
+        "topology": {
+          "title": "Topological Sorting",
+          "description": "Automatically analyze task dependencies, build execution topology, determine optimal execution order"
+        },
+        "parallel": {
+          "title": "Parallel Execution",
+          "description": "Launch independent tasks simultaneously, transform serial to concurrent, dramatically reduce completion time"
+        },
+        "dynamic": {
+          "title": "Dynamic Adjustment",
+          "description": "Runtime dynamic concurrency adjustment, intelligent optimization based on resource status and task characteristics"
+        },
+        "isolation": {
+          "title": "Exception Isolation",
+          "description": "Single task exceptions don't affect other tasks, ensuring overall process stability"
+        }
+      },
+      "metrics": {
+        "efficiency": "Execution Efficiency",
+        "response": "Response Speed",
+        "success": "Success Rate",
+        "availability": "24/7 Service"
+      }
+    },
+    "experience": {
+      "badge": "Continuous Learning System",
+      "title": "Experience Pool Continuous Learning",
+      "subtitle": "Vector storage of historical successful experiences, intelligent retrieval and reuse of best strategies, getting smarter over time",
+      "features": {
+        "vector": {
+          "title": "Vector Storage",
+          "description": "Convert successful execution trajectories into vector representations, efficiently stored in experience pool"
+        },
+        "retrieval": {
+          "title": "Intelligent Retrieval",
+          "description": "New tasks automatically retrieve similar historical experiences, quickly match best strategies"
+        },
+        "reuse": {
+          "title": "Strategy Reuse",
+          "description": "Reuse historical successful strategies, reducing planning time by 40-60%"
+        },
+        "evolution": {
+          "title": "Continuous Evolution",
+          "description": "Failed cases serve as counter-examples to avoid mistakes, system continuously optimizes"
+        }
+      }
+    },
+    "a2ui": {
+      "badge": "Dynamic Interface Technology",
+      "title": "A2UI Dynamic Interface Engine",
+      "description": "Dynamic interface rendering engine based on Google A2UI protocol. AI no longer just outputs text, but directly generates interactive interface components - charts, forms, buttons, what you see is what you get. We led Google's official release by implementing the first complete React renderer.",
+      "features": [
+        "Full implementation of A2UI protocol specification",
+        "15+ standard components (Text, Card, Chart, Form, etc.)",
+        "Independent style system, zero Tailwind dependency",
+        "Declarative data format, no code injection risk",
+        "Support for streaming rendering and real-time updates"
+      ],
+      "demo": {
+        "title": "Interactive Output Example",
+        "input": "User: Analyze sales data and find the best performing regions",
+        "output": {
+          "title": "Sales Analysis Report",
+          "export": "Export Excel",
+          "edit": "Edit Data"
+        }
+      }
+    },
+    "skills": {
+      "badge": "Skills Extension System",
+      "title": "Agent Skills Ecosystem",
+      "description": "Extend AI capabilities like installing apps. Standardized skill definition specification, compatible with Claude Agent Skills open standard, cross-platform usable. Supports Cowork collaboration mode for dynamic multi-skill combination without predefined workflows.",
+      "features": [
+        "Standardized SKILL.md format definition",
+        "Cross-platform compatible (TeGo, Claude, Cursor)",
+        "Cowork collaboration mode, intelligent multi-skill orchestration",
+        "Secure sandbox isolated execution",
+        "Progressive loading, optimized Token consumption"
+      ],
+      "example": {
+        "title": "Skill Definition Example",
+        "desc": "Professional legal contract review and risk analysis"
+      }
     }
   }
 }

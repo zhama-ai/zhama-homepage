@@ -18,10 +18,10 @@
   },
   "nav": {
     "home": "首页",
-    "features": "核心能力",
-    "advantages": "应用场景",
+    "products": "产品套件",
+    "useCases": "应用场景",
     "pricing": "价格",
-    "download": "联系我们",
+    "download": "下载",
     "about": "关于我们",
     "docs": "文档中心",
     "blog": "技术博客",
@@ -29,9 +29,12 @@
     "tryNow": "预约演示",
     "platform": {
       "title": "技术特性",
-      "mcpPlatform": "MCP平台",
-      "pluginSystem": "插件系统",
-      "technicalFeatures": "MCP框架",
+      "lamp": "LAMP 框架",
+      "dag": "DAG 调度引擎",
+      "experience": "经验池学习",
+      "a2ui": "A2UI 动态界面",
+      "skills": "Agent Skills",
+      "mcp": "MCP 框架",
       "multiAgent": "多智能体协同"
     }
   },
@@ -43,6 +46,102 @@
       "cta": "预约演示",
       "secondaryCta": "在线体验",
       "imgAlt": "TeGo AI 超级团队"
+    }
+  },
+  "productSuite": {
+    "title": "TeGo 产品套件",
+    "subtitle": "一站式 AI 协作解决方案，覆盖桌面、浏览器、Office，满足全场景需求",
+    "desktop": {
+      "title": "TeGo Desktop",
+      "description": "原生桌面客户端，秒级启动，离线可用。本地优先的隐私保护，支持文件操作和 Shell 命令执行。",
+      "features": ["秒级启动", "离线可用", "本地优先", "隐私安全"],
+      "cta": "立即下载"
+    },
+    "web": {
+      "title": "TeGo Web",
+      "description": "无需安装，浏览器即用。随时随地访问您的 AI 超级团队，支持跨设备无缝协作。",
+      "features": ["无需安装", "跨设备同步", "随时访问", "云端协作"],
+      "cta": "立即使用"
+    },
+    "office": {
+      "title": "TeGo Office",
+      "description": "AI 直接在 Excel 和 Word 里工作。无需切换应用，智能分析数据、生成报告、审查合同。",
+      "features": ["Excel 集成", "Word 集成", "WPS 支持", "无缝融合"],
+      "cta": "获取插件"
+    },
+    "capabilities": {
+      "title": "核心能力",
+      "subtitle": "赋予 AI 更强大的交互和扩展能力",
+      "a2ui": {
+        "title": "A2UI 动态界面",
+        "description": "AI 不再只是输出文字，而是直接生成可交互的界面。图表、表单、按钮，所见即所得。",
+        "tags": ["动态渲染", "交互式", "可视化"]
+      },
+      "skills": {
+        "title": "Agent Skills 技能扩展",
+        "description": "像安装 App 一样扩展 AI 能力。标准化技能格式，跨平台兼容，能力无限扩展。",
+        "tags": ["技能市场", "标准化", "可扩展"]
+      }
+    },
+    "footer": {
+      "text": "需要企业定制方案？",
+      "link": "联系我们"
+    }
+  },
+  "whyTego": {
+    "title": "为什么选择 TeGo",
+    "subtitle": "从 Agent 孤岛到 AI 超级团队，让智能体像真正的团队一样协作",
+    "metrics": {
+      "efficiency": "执行效率提升",
+      "successRate": "任务成功率",
+      "response": "协作响应速度"
+    },
+    "advantages": {
+      "collaboration": {
+        "title": "多智能体协作",
+        "description": "打破 AI 工具壁垒，让多个智能体自主思考、信息共享、协同决策，像真正的团队一样工作。"
+      },
+      "efficiency": {
+        "title": "并发高效执行",
+        "description": "基于 DAG 调度引擎，自动分析任务依赖，可并行任务同时执行，效率提升 2-5 倍。"
+      },
+      "intelligence": {
+        "title": "越用越智能",
+        "description": "经验池持续学习，成功案例自动积累复用，新任务规划时间缩短 40-60%，持续进化。"
+      },
+      "security": {
+        "title": "安全可控",
+        "description": "企业级权限体系，完整审计追溯，支持私有化部署，敏感数据本地处理，合规无忧。"
+      }
+    },
+    "footer": {
+      "text": "已服务多家企业客户，覆盖金融、制造、零售等行业"
+    }
+  },
+  "useCases": {
+    "title": "TeGo 应用场景",
+    "subtitle": "赋能千行百业的智能协作",
+    "industries": {
+      "enterprise": {
+        "title": "企业内部协同办公",
+        "description": "通过智能规划引擎，将复杂的办公任务（如差旅管理、项目启动、会议安排、行政审批、知识问答）自主拆解为可执行的子任务，并调度不同的业务智能体（如行政智能体、日历智能体、HR智能体）进行并发执行，实现端到端业务闭环。"
+      },
+      "government": {
+        "title": "政府政务服务系统协同",
+        "description": "政府对本地化部署、数据不出域、全链路可控的需求，通过高度安全和合规的架构，将分散在不同部门和系统中的政务服务流程进行统一编排和管理。"
+      },
+      "finance": {
+        "title": "金融行业系统协同应用",
+        "description": "在金融行业的应用主要围绕智能投研辅助、全流程信贷风控和合规与反洗钱（AML）三大核心场景，通过聚合处理海量非结构化数据，实现对市场和客户风险的精准捕捉。"
+      },
+      "manufacturing": {
+        "title": "制造行业系统协同应用",
+        "description": "协同中台连接了需求端（销售订单）、计划与排程（APS、MRP）和执行端（采购、生产），通过计划协同智能体、供应商协同智能体和设备预测性维护智能体等集群，实现跨系统的信息拉通和动态调整。"
+      },
+      "stateOwned": {
+        "title": "国央企系统协同应用",
+        "description": "中台化架构设计非常契合国央企的需求，它将AI能力抽象为统一服务，避免各业务线重复建设和投资，解决了国央企\"打通系统孤岛\"和\"规避重复投资\"的核心诉求。"
+      }
     }
   },
   "contactPage": {
@@ -114,7 +213,7 @@
       "planner": "技术团队 · 多AI工具统一管理"
     },
     "download": {
-      "heading": "多种方式快速对接 Tego OS 智能协作中台",
+      "heading": "多种方式快速对接 TeGo OS 智能协作中台",
       "webapp": {
         "title": "在线演示",
         "action": "预约产品演示"
@@ -246,12 +345,12 @@
     "sections": {
       "acceptance": {
         "title": "接受条款",
-        "content": "欢迎使用Tego OS平台。通过访问和使用我们的服务，您表示同意受本服务条款的约束。如果您不同意这些条款，请不要使用我们的服务。",
+        "content": "欢迎使用TeGo OS平台。通过访问和使用我们的服务，您表示同意受本服务条款的约束。如果您不同意这些条款，请不要使用我们的服务。",
         "content2": "我们保留随时修改这些条款的权利。您继续使用服务将被视为接受修改后的条款。"
       },
       "service": {
         "title": "服务描述",
-        "content": "Tego OS是一个企业级多智能体自主协作平台，提供以下服务：",
+        "content": "TeGo OS是一个企业级多智能体自主协作平台，提供以下服务：",
         "items": [
           "多智能体协同调度与管理",
           "LAMP智能协作框架",
@@ -525,12 +624,12 @@
     },
     "ios": {
       "title": "iOS 应用",
-      "description": "在 App Store 下载 Tego OS 移动版",
+      "description": "在 App Store 下载 TeGo OS 移动版",
       "button": "App Store"
     },
     "android": {
       "title": "Android 应用",
-      "description": "获取 Android 版本的 Tego OS 应用",
+      "description": "获取 Android 版本的 TeGo OS 应用",
       "button": "立即下载"
     },
     "docs": {
@@ -655,7 +754,7 @@
     }
   },
   "pluginSystem": {
-    "title": "Tego OS 企业级插件平台",
+    "title": "TeGo OS 企业级插件平台",
     "subtitle": "像安装手机 App 一样为系统添加新功能 · 开发周期缩短 90%",
     "badge": "安全可靠 · 极速开发 · 技术先进 · 超高 ROI",
     "features": {
@@ -722,17 +821,21 @@
       "highlight": "唯一支持 React Hooks 的企业级插件系统"
     },
     "seo": {
-      "title": "企业级插件平台 - Tego OS",
-      "description": "Tego OS 企业级插件平台 · 唯一支持 React Hooks 的插件系统。开发周期缩短 90%，投资回报率超 500%，安全可靠、极速开发、即插即用。",
-      "keywords": "企业级插件, Tego OS, React Hooks, 插件系统, 快速开发, 高ROI, 零侵入",
+      "title": "企业级插件平台 - TeGo OS",
+      "description": "TeGo OS 企业级插件平台 · 唯一支持 React Hooks 的插件系统。开发周期缩短 90%，投资回报率超 500%，安全可靠、极速开发、即插即用。",
+      "keywords": "企业级插件, TeGo OS, React Hooks, 插件系统, 快速开发, 高ROI, 零侵入",
       "openGraph": {
-        "title": "企业级插件平台 - Tego OS",
+        "title": "企业级插件平台 - TeGo OS",
         "description": "唯一支持React Hooks的企业级插件系统，极速开发，安全可靠。"
       }
     }
   },
   "technicalFeatures": {
-    "title": "技术特点与开发效率",
+    "title": "技术特性",
+    "badge": "核心技术架构",
+    "heroDescription": "深入了解 TeGo 的技术实现细节，包括 LAMP 协作框架、DAG 调度引擎、经验池学习、A2UI 动态界面和 Agent Skills 技能系统",
+    "mcpTitle": "MCP 开发框架",
+    "mcpSubtitle": "装饰器驱动的开发模式，极大简化智能体工具开发流程",
     "features": {
       "framework": {
         "title": "自主研发的 MCP 框架",
@@ -770,11 +873,11 @@
       "content": "装饰器驱动开发模式让开发者专注业务逻辑，无需关心底层注册、验证等繁琐细节。声明式开发方式大幅提升开发效率与代码可维护性，降低技术门槛与交付成本。"
     },
     "seo": {
-      "title": "技术特点 - Tego OS MCP 平台",
-      "description": "Tego OS MCP 平台技术特点：自主研发MCP框架、装饰器驱动开发、标准化工具注册、简化开发流程，大幅提升开发效率。",
+      "title": "技术特点 - TeGo OS MCP 平台",
+      "description": "TeGo OS MCP 平台技术特点：自主研发MCP框架、装饰器驱动开发、标准化工具注册、简化开发流程，大幅提升开发效率。",
       "keywords": "MCP框架, 装饰器驱动, 工具注册, TypeScript, 智能体开发",
       "openGraph": {
-        "title": "技术特点 - Tego OS MCP 平台",
+        "title": "技术特点 - TeGo OS MCP 平台",
         "description": "装饰器驱动的开发模式，极大简化智能体工具开发流程。"
       }
     }
@@ -1082,6 +1185,132 @@
     },
     "related": {
       "title": "相关文章"
+    }
+  },
+  "techDetails": {
+    "lamp": {
+      "badge": "发明专利技术",
+      "title": "LAMP 三阶段推理框架",
+      "subtitle": "Language-enhanced Multi-Agent Planning · 语言增强的多智能体协同决策系统",
+      "think": {
+        "title": "Think 持续推理",
+        "description": "混合推理机制，同时进行短期和长期推理分析，检测环境冲击并评估严重性",
+        "features": [
+          "并行执行短期推理和长期推理",
+          "环境冲击检测与严重性评估",
+          "趋势追踪与战略分析",
+          "异常识别与预警机制"
+        ]
+      },
+      "speak": {
+        "title": "Speak 智能通信",
+        "description": "基于自然语言的语义化智能体间通信协议，实现信息共享与知识传递",
+        "features": [
+          "多候选消息生成与质量评分",
+          "信念状态管理与信任度更新",
+          "共享知识库构建",
+          "策略偏好学习与适应"
+        ]
+      },
+      "decide": {
+        "title": "Decide 决策融合",
+        "description": "多源信息融合的自适应智能决策，综合数值数据、推理结果和信念状态",
+        "features": [
+          "三源数据融合（数值、推理、信念）",
+          "加权评分与语言模型决策",
+          "降级机制保障系统稳定性",
+          "决策可解释性输出"
+        ]
+      }
+    },
+    "dag": {
+      "badge": "并发调度引擎",
+      "title": "DAG 并发调度引擎",
+      "subtitle": "基于有向无环图的智能任务调度，自动分析依赖关系，最大化并行执行效率",
+      "features": {
+        "topology": {
+          "title": "拓扑排序",
+          "description": "自动分析任务依赖关系，构建执行拓扑图，确定最优执行顺序"
+        },
+        "parallel": {
+          "title": "并行执行",
+          "description": "无依赖任务同时启动，从串行变并发，大幅缩短任务完成时间"
+        },
+        "dynamic": {
+          "title": "动态调整",
+          "description": "运行时动态调整并发数，根据资源状况和任务特性智能优化"
+        },
+        "isolation": {
+          "title": "异常隔离",
+          "description": "单任务异常不影响其他任务执行，保障整体流程稳定性"
+        }
+      },
+      "metrics": {
+        "efficiency": "执行效率提升",
+        "response": "协作响应速度",
+        "success": "任务成功率",
+        "availability": "全天候服务"
+      }
+    },
+    "experience": {
+      "badge": "持续学习系统",
+      "title": "经验池持续学习",
+      "subtitle": "向量化存储历史成功经验，智能检索复用最佳策略，越用越智能",
+      "features": {
+        "vector": {
+          "title": "向量化存储",
+          "description": "将成功执行轨迹转换为向量表示，高效存储于经验池中"
+        },
+        "retrieval": {
+          "title": "智能检索",
+          "description": "新任务自动检索相似历史经验，快速匹配最佳策略"
+        },
+        "reuse": {
+          "title": "策略复用",
+          "description": "复用历史成功策略，规划时间缩短 40-60%"
+        },
+        "evolution": {
+          "title": "持续进化",
+          "description": "失败案例作为反例避免重蹈覆辙，系统持续优化"
+        }
+      }
+    },
+    "a2ui": {
+      "badge": "动态界面技术",
+      "title": "A2UI 动态界面引擎",
+      "description": "基于 Google A2UI 协议的动态界面渲染引擎。AI 不再只是输出文字，而是直接生成可交互的界面组件 —— 图表、表单、按钮，所见即所得。我们领先 Google 官方发布，率先开源了首个完整的 React 实现。",
+      "features": [
+        "完整实现 A2UI 协议规范",
+        "15+ 标准组件（Text、Card、Chart、Form 等）",
+        "独立样式系统，零依赖 Tailwind",
+        "声明式数据格式，无代码注入风险",
+        "支持流式渲染和实时更新"
+      ],
+      "demo": {
+        "title": "交互式输出示例",
+        "input": "用户：分析销售数据，找出业绩最好的区域",
+        "output": {
+          "title": "销售分析报告",
+          "export": "导出 Excel",
+          "edit": "编辑数据"
+        }
+      }
+    },
+    "skills": {
+      "badge": "技能扩展系统",
+      "title": "Agent Skills 技能生态",
+      "description": "像安装 App 一样扩展 AI 能力。标准化的技能定义规范，兼容 Claude Agent Skills 开放标准，跨平台可用。支持 Cowork 协作模式，多技能动态组合，无需预定义工作流。",
+      "features": [
+        "标准化 SKILL.md 格式定义",
+        "跨平台兼容（TeGo、Claude、Cursor）",
+        "Cowork 协作模式，多技能智能编排",
+        "安全沙箱隔离执行",
+        "渐进式加载，优化 Token 消耗"
+      ],
+      "example": {
+        "title": "技能定义示例",
+        "desc": "专业法律合同审查与风险分析"
+      }
     }
   }
 }
