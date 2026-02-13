@@ -44,7 +44,7 @@ export default function Header() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const sectionIds = ['products', 'use-cases', 'why-tego', 'pricing', 'download', 'about'];
+    const sectionIds = ['pain-points', 'engines', 'channels', 'memory', 'security', 'scenarios', 'pricing', 'cta'];
     const elements = sectionIds
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => Boolean(el));
@@ -73,23 +73,30 @@ export default function Header() {
 
   const navItems = [
     { href: `/${locale}`, label: t('nav.home'), section: 'home' },
-    { href: `/${locale}/#products`, label: t('nav.products'), section: 'products' },
-    { href: `/${locale}/#use-cases`, label: t('nav.useCases'), section: 'use-cases' },
+    { href: `/${locale}/#scenarios`, label: t('nav.scenarios'), section: 'scenarios' },
     { href: `/${locale}/#pricing`, label: t('nav.pricing'), section: 'pricing' },
     { href: 'https://docs.zhama.com.cn', label: t('nav.docs'), external: true },
     { href: `/${locale}/blog`, label: t('nav.blog'), external: true },
-    { href: `/${locale}/#download`, label: t('nav.download'), section: 'download' },
     { href: `/${locale}/#about`, label: t('nav.about'), section: 'about' },
   ];
 
   const platformMenuItems = [
-    { href: `/${locale}/technical#lamp`, label: t('nav.platform.lamp'), icon: Brain },
-    { href: `/${locale}/technical#dag`, label: t('nav.platform.dag'), icon: GitBranch },
-    { href: `/${locale}/technical#experience`, label: t('nav.platform.experience'), icon: Database },
-    { href: `/${locale}/technical#a2ui`, label: t('nav.platform.a2ui'), icon: Palette },
-    { href: `/${locale}/technical#skills`, label: t('nav.platform.skills'), icon: Wrench },
-    { href: `/${locale}/technical#mcp`, label: t('nav.platform.mcp'), icon: Plug },
-    { href: `/${locale}/multi-agent`, label: t('nav.platform.multiAgent'), icon: Network },
+    { id: 'digitalAvatar', href: `/${locale}/#engines`, label: t('nav.capabilities.digitalAvatar'), icon: Network },
+    { id: 'lampEngine', href: `/${locale}/#engines`, label: t('nav.capabilities.lampEngine'), icon: Brain },
+    { id: 'mcpEngine', href: `/${locale}/#engines`, label: t('nav.capabilities.mcpEngine'), icon: Plug },
+    { id: 'governance', href: `/${locale}/#engines`, label: t('nav.capabilities.governance'), icon: Settings },
+    { id: 'omniChannel', href: `/${locale}/#channels`, label: t('nav.capabilities.omniChannel'), icon: Puzzle },
+    { id: 'memory', href: `/${locale}/#memory`, label: t('nav.capabilities.memory'), icon: Database },
+  ];
+
+  const techMenuItems = [
+    { id: 'lamp', href: `/${locale}/technical#lamp`, label: t('nav.platform.lamp'), icon: Brain },
+    { id: 'dag', href: `/${locale}/technical#dag`, label: t('nav.platform.dag'), icon: GitBranch },
+    { id: 'experience', href: `/${locale}/technical#experience`, label: t('nav.platform.experience'), icon: Database },
+    { id: 'a2ui', href: `/${locale}/technical#a2ui`, label: t('nav.platform.a2ui'), icon: Palette },
+    { id: 'skills', href: `/${locale}/technical#skills`, label: t('nav.platform.skills'), icon: Wrench },
+    { id: 'mcp', href: `/${locale}/technical#mcp`, label: t('nav.platform.mcp'), icon: Plug },
+    { id: 'multiAgent', href: `/${locale}/multi-agent`, label: t('nav.platform.multiAgent'), icon: Network },
   ];
 
   // 处理鼠标进入菜单
@@ -142,7 +149,7 @@ export default function Header() {
             
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex lg:items-center lg:gap-1">
-              {navItems.slice(0, 4).map((item) => {
+              {navItems.slice(0, 1).map((item) => {
                 const linkClass = cn(
                   'px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 whitespace-nowrap',
                   'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
@@ -184,7 +191,7 @@ export default function Header() {
                     'hover:bg-zinc-100 dark:hover:bg-zinc-800'
                   )}
                 >
-                  {t('nav.platform.title')}
+                  {t('nav.capabilities.title')}
                   <svg 
                     className={cn('w-4 h-4 transition-transform duration-200', platformMenuOpen && 'rotate-180')} 
                     fill="none" 
@@ -197,13 +204,29 @@ export default function Header() {
                 
                 {platformMenuOpen && (
                   <div className="absolute top-full left-0 mt-2 min-w-[240px] py-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-xl">
+                    <div className="px-4 py-1.5 text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider">{t('nav.capabilities.title')}</div>
                     {platformMenuItems.map((item) => {
                       const IconComponent = item.icon;
                       return (
                         <Link
-                          key={item.href}
+                          key={item.id}
                           href={item.href}
-                          className="flex items-center gap-3 px-4 py-3 text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-primary-600 dark:hover:text-primary-400 transition-colors whitespace-nowrap"
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-primary-600 dark:hover:text-primary-400 transition-colors whitespace-nowrap"
+                        >
+                          <IconComponent className="w-4 h-4 flex-shrink-0" />
+                          <span>{item.label}</span>
+                        </Link>
+                      );
+                    })}
+                    <div className="my-1.5 border-t border-zinc-100 dark:border-zinc-800" />
+                    <div className="px-4 py-1.5 text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider">{t('nav.platform.title')}</div>
+                    {techMenuItems.map((item) => {
+                      const IconComponent = item.icon;
+                      return (
+                        <Link
+                          key={item.id}
+                          href={item.href}
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-primary-600 dark:hover:text-primary-400 transition-colors whitespace-nowrap"
                         >
                           <IconComponent className="w-4 h-4 flex-shrink-0" />
                           <span>{item.label}</span>
@@ -214,7 +237,7 @@ export default function Header() {
                 )}
               </div>
               
-              {navItems.slice(4).map((item) => {
+              {navItems.slice(1).map((item) => {
                 const linkClass = cn(
                   'px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 whitespace-nowrap',
                   'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
@@ -291,7 +314,7 @@ export default function Header() {
         <div className="lg:hidden">
           <div className="glass border-t border-zinc-200 dark:border-zinc-800 shadow-lg">
             <div className="container-custom py-6 space-y-4">
-              {navItems.slice(0, 4).map((item) => {
+              {navItems.slice(0, 1).map((item) => {
                 const linkClass = cn(
                   'block px-4 py-3 text-base font-medium rounded-lg transition-colors',
                   'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
@@ -331,7 +354,7 @@ export default function Header() {
                     'hover:bg-zinc-100 dark:hover:bg-zinc-800'
                   )}
                 >
-                  <span>{t('nav.platform.title')}</span>
+                  <span>{t('nav.capabilities.title')}</span>
                   <svg 
                     className={cn('w-5 h-5 transition-transform duration-200', platformMenuOpen && 'rotate-180')} 
                     fill="none" 
@@ -343,12 +366,29 @@ export default function Header() {
                 </button>
                 
                 {platformMenuOpen && (
-                  <div className="mt-2 ml-4 space-y-2">
+                  <div className="mt-2 ml-4 space-y-1">
+                    <div className="px-4 py-1 text-xs font-semibold text-zinc-400 dark:text-zinc-500">{t('nav.capabilities.title')}</div>
                     {platformMenuItems.map((item) => {
                       const IconComponent = item.icon;
                       return (
                         <Link
-                          key={item.href}
+                          key={item.id}
+                          href={item.href}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center gap-3 px-4 py-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-primary-600 dark:hover:text-primary-400 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+                        >
+                          <IconComponent className="w-4 h-4" />
+                          <span>{item.label}</span>
+                        </Link>
+                      );
+                    })}
+                    <div className="my-1 mx-4 border-t border-zinc-200 dark:border-zinc-700" />
+                    <div className="px-4 py-1 text-xs font-semibold text-zinc-400 dark:text-zinc-500">{t('nav.platform.title')}</div>
+                    {techMenuItems.map((item) => {
+                      const IconComponent = item.icon;
+                      return (
+                        <Link
+                          key={item.id}
                           href={item.href}
                           onClick={() => setMobileMenuOpen(false)}
                           className="flex items-center gap-3 px-4 py-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-primary-600 dark:hover:text-primary-400 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
@@ -362,7 +402,7 @@ export default function Header() {
                 )}
               </div>
               
-              {navItems.slice(4).map((item) => {
+              {navItems.slice(1).map((item) => {
                 const linkClass = cn(
                   'block px-4 py-3 text-base font-medium rounded-lg transition-colors',
                   'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',

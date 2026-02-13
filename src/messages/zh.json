@@ -18,15 +18,26 @@
   },
   "nav": {
     "home": "首页",
+    "coreCapabilities": "核心能力",
+    "scenarios": "应用场景",
+    "pricing": "价格方案",
+    "docs": "文档中心",
+    "blog": "博客",
+    "about": "关于我们",
+    "contact": "联系我们",
+    "tryNow": "申请企业版演示",
+    "capabilities": {
+      "title": "核心能力",
+      "digitalAvatar": "数字分身体系",
+      "lampEngine": "智能编排引擎",
+      "mcpEngine": "MCP 能力引擎",
+      "governance": "企业治理引擎",
+      "omniChannel": "全渠道 AI 触达",
+      "memory": "记忆与进化系统"
+    },
     "products": "产品套件",
     "useCases": "应用场景",
-    "pricing": "价格",
     "download": "下载",
-    "about": "关于我们",
-    "docs": "文档中心",
-    "blog": "技术博客",
-    "contact": "联系我们",
-    "tryNow": "预约演示",
     "platform": {
       "title": "技术特性",
       "lamp": "LAMP 框架",
@@ -40,12 +51,19 @@
   },
   "home": {
     "hero": {
-      "title": "TeGo AI 超级团队",
-      "tagline": "组建一支永不疲惫的 AI 超级团队",
-      "description": "让多个智能体像真正的团队一样自主思考、相互协作、并发执行。基于 LAMP 协作框架和 DAG 并发调度引擎，任务执行效率提升 300%+，复杂任务成功率达 95%+，智能体协作响应低至 <100ms。从 Agent 孤岛到超级团队，让 AI 真正为企业创造价值。",
-      "cta": "预约演示",
-      "secondaryCta": "在线体验",
-      "imgAlt": "TeGo AI 超级团队"
+      "title": "AI，终于能像团队一样工作了",
+      "tagline": "数字分身 × 智能协作 × 企业治理",
+      "description": "TeGo-OS 以企业数字分身为核心载体，融合智能编排引擎、任务权限治理与 MCP 统一管理，帮助企业在安全可控前提下，将组织知识升级为 24×7 在线、持续进化的数字员工体系。",
+      "bullets": {
+        "dualAvatar": "数字分身双形态：个人分身服务个人效率，组织分身服务企业级共享协作",
+        "orchestration": "编排即生产力：支持 A2A / 对话 / 表单 / Webhook 多触发方式",
+        "governance": "企业级治理：可见性、授权、审计、护栏、审批全链路管控",
+        "mcp": "MCP 零侵入接入：零入侵、免部署，一键转换原系统接口"
+      },
+      "cta": "申请企业版演示",
+      "secondaryCta": "体验在线 Demo",
+      "deployLink": "查看部署方案（私有化 / 混合云）",
+      "imgAlt": "TeGo-OS 企业数字分身与 AI 超级团队平台"
     }
   },
   "productSuite": {
@@ -508,19 +526,28 @@
   },
   "footer": {
     "companyName": "扎马未来",
-    "companyDescription": "TeGo AI 超级团队 · 组建一支永不疲惫的 AI 超级团队",
-    "products": "产品服务",
+    "companyDescription": "TeGo-OS — 企业数字分身与 AI 超级团队平台",
+    "about": "深圳市扎马未来科技有限公司，致力于为企业提供以数字分身为核心的 AI 操作系统，让 AI 真正为企业创造价值。",
+    "products": "产品与能力",
     "home": {
       "hero": {
-        "title": "TeGo AI 超级团队"
+        "title": "TeGo-OS 企业 AI 平台"
       }
     },
+    "digitalAvatar": "数字分身体系",
+    "lampEngine": "智能编排引擎",
+    "mcpEngine": "MCP 能力引擎",
+    "governanceEngine": "企业治理引擎",
     "enterprise": "企业解决方案",
-    "api": "API与开发",
+    "api": "API 与开发",
     "support": "支持与资源",
     "helpCenter": "技术文档",
     "tutorials": "部署指南",
     "faq": "企业服务",
+    "resources": "资源",
+    "blog": "技术博客",
+    "docs": "开发文档",
+    "community": "社区版下载",
     "contact": {
       "title": "联系我们",
       "business": {
@@ -534,7 +561,7 @@
         "email": "support@zhama.com"
       }
     },
-    "copyright": "© 2025 深圳市扎马未来科技有限公司 版权所有 TeGo AI 超级团队",
+    "copyright": "© 2025 深圳市扎马未来科技有限公司 版权所有",
     "icp": "粤ICP备2025426259号-1"
   },
   "advantagesSection": {
@@ -558,16 +585,17 @@
   },
   "pricingSection": {
     "title": "选择适合您的方案",
-    "subtitle": "从免费试用到企业旗舰，灵活匹配您的业务规模与治理需求",
+    "subtitle": "从免费社区版到企业私有化部署，灵活匹配您的业务规模与治理需求",
     "community": {
       "badge": "永久免费",
       "name": "社区版",
-      "lead": "快速体验多智能体协作的核心功能",
+      "lead": "快速体验数字分身与 AI 协作核心能力",
       "desc": "适合个人开发者与小团队试用，零成本上手，永久免费。",
       "featuresTitle": "功能包含",
       "features": [
-        "智能体协作基础能力",
-        "单一任务自动化",
+        "个人数字分身",
+        "基础智能编排",
+        "社区 MCP 能力包",
         "基础可视化工作台",
         "社区技术支持"
       ],
@@ -583,13 +611,13 @@
       "desc": "起步价 ¥50,000/年，高可用+合规+代维一站式服务",
       "featuresTitle": "包含「社区版全部特性」，并提供",
       "features": [
+        "组织分身 + 副本弹性扩展",
         "LAMP 智能协作框架完整功能",
         "DAG 并发调度引擎",
         "经验池持续学习",
+        "企业级权限治理（RBAC）",
         "私有化环境部署",
-        "服务可用性监控",
-        "一对一客户支持",
-        "委托部署与代维服务"
+        "一对一客户支持与代维服务"
       ],
       "price": "¥50,000",
       "period": "年起",
@@ -598,20 +626,35 @@
     "enterprise": {
       "ribbon": "ON PREMISE",
       "badge": "企业旗舰",
-      "name": "TeGo AI 超级团队 · 企业版",
-      "lead": "全链路智能体协作与治理平台，企业优先",
+      "name": "TeGo-OS · 企业版",
+      "lead": "全链路数字分身协作与治理平台",
       "desc": "自主品牌 + 高安全 + 专属支持 + POC 验证，定制化报价",
       "featuresTitle": "包含「订阅版特性」，并提供",
       "features": [
-        "A2A 开放协议完整支持",
-        "跨企业智能体协作",
+        "全渠道 AI 触达（12+ 通道）",
+        "多认证源集成（LDAP/OIDC）",
+        "OpenTelemetry 全栈可观测",
         "自主品牌形象定制",
-        "高品质售后服务",
         "配合审计、部署、POC 支持服务"
       ],
       "price": "定制报价",
       "period": "联系咨询",
       "cta": "联系销售"
+    },
+    "deployment": {
+      "title": "灵活部署方式",
+      "saas": {
+        "title": "SaaS 云服务",
+        "description": "开箱即用，免运维"
+      },
+      "private": {
+        "title": "私有化部署",
+        "description": "Docker / Kubernetes 弹性编排"
+      },
+      "hybrid": {
+        "title": "混合云部署",
+        "description": "数据本地 + 能力云端"
+      }
     }
   },
   "downloadSection": {
@@ -684,16 +727,16 @@
     }
   },
   "seo": {
-    "title": "TeGo AI 超级团队 | 深圳市扎马未来科技有限公司",
-    "description": "TeGo - 组建一支永不疲惫的 AI 超级团队。让多个智能体像真正的团队一样自主思考、相互协作、并发执行。任务执行效率提升 300%+，复杂任务成功率达 95%+，智能体协作响应低至 <100ms。从 Agent 孤岛到超级团队，让 AI 真正为企业创造价值。",
-    "keywords": "TeGo, AI 超级团队, 多智能体协作, AI Agent, LAMP框架, DAG调度, 并发执行, 企业AI, 私有化部署, 深圳市扎马未来科技有限公司",
+    "title": "TeGo-OS｜企业数字分身与 AI 超级团队平台（智能编排 + MCP 管理）",
+    "description": "TeGo-OS 是面向企业的 AI 操作系统，以数字分身为核心，融合智能编排、企业级权限治理与 MCP 管理能力，帮助企业构建可管可控、可规模落地的 AI 超级团队。",
+    "keywords": "TeGo-OS, 企业数字分身, AI 数字员工, AI 超级团队, 企业智能编排平台, MCP 管理平台, 企业级 AI 任务权限治理, 多智能体协作, LAMP框架, DAG调度, 私有化部署, 深圳市扎马未来科技有限公司",
     "openGraph": {
-      "title": "TeGo AI 超级团队 | 深圳市扎马未来科技有限公司",
-      "description": "组建一支永不疲惫的 AI 超级团队。基于 LAMP 协作框架和 DAG 并发调度引擎，让 AI 智能体像真正的团队一样自主思考、相互协作、并发执行。"
+      "title": "TeGo-OS｜企业数字分身与 AI 超级团队平台",
+      "description": "以数字分身为核心，融合智能编排、企业级权限治理与 MCP 管理，帮助企业构建 24×7 在线的 AI 超级团队。"
     },
     "twitter": {
-      "title": "TeGo AI 超级团队",
-      "description": "组建一支永不疲惫的 AI 超级团队，让智能体像真正的团队一样自主协作"
+      "title": "TeGo-OS｜企业数字分身与 AI 超级团队平台",
+      "description": "以数字分身为核心，融合智能编排、企业级权限治理与 MCP 管理，构建企业级 AI 超级团队。"
     }
   },
   "mcpPlatform": {
@@ -1312,5 +1355,292 @@
         "desc": "专业法律合同审查与风险分析"
       }
     }
+  },
+  "painPoints": {
+    "title": "你的 AI 是不是也这样？",
+    "subtitle": "企业 AI 应用的三大困境",
+    "items": {
+      "island": {
+        "icon": "unplug",
+        "title": "Agent 孤岛",
+        "description": "不同 AI 工具各自为政，数据割裂、流程断裂，需要人工在工具之间搬运信息和拼接流程。"
+      },
+      "unmanaged": {
+        "icon": "shield-off",
+        "title": "能力失控",
+        "description": "AI 在做什么、做得对不对、谁能用、谁负责——没有统一的管控、审计和权限治理。"
+      },
+      "inefficient": {
+        "icon": "timer-off",
+        "title": "效率天花板",
+        "description": "串行执行、单点智能，无法协作、无法并发、无法学习，复杂任务依然高度依赖人工。"
+      }
+    }
+  },
+  "productOverview": {
+    "title": "从「单点 AI 工具」到「企业级 AI 生产力平台」",
+    "description": "传统 AI 工具解决的是局部效率，而企业需要的是可长期演进的智能基础设施。",
+    "highlight": "TeGo-OS 以数字分身为核心对象，把智能编排、工具、知识、权限、审计统一在同一平台：让 AI 不只是回答问题，而是能够代表组织执行任务、协同决策、沉淀经验的「数字员工」。",
+    "capabilities": [
+      "可持续学习",
+      "可团队协作",
+      "可企业治理",
+      "可规模扩展"
+    ]
+  },
+  "coreEngines": {
+    "title": "四大核心引擎",
+    "subtitle": "每一个引擎，都是企业 AI 从可用到好用的关键跃迁",
+    "digitalAvatar": {
+      "title": "数字分身引擎",
+      "tagline": "不只是 Chatbot，是有「身体」的 AI",
+      "highlight": "一个分身，覆盖你所有的数字触点",
+      "features": {
+        "dualForm": {
+          "title": "个人分身 + 组织分身",
+          "description": "个人分身服务个人效率，组织分身服务企业级共享协作"
+        },
+        "multiChannel": {
+          "title": "12+ 通道触达",
+          "description": "WhatsApp、Slack、Teams、微信等全渠道同时在线"
+        },
+        "voiceBrowser": {
+          "title": "语音 + 浏览器自动化",
+          "description": "语音对话解放双手，浏览器自动化让 AI 真正能「操作电脑」"
+        },
+        "crossDevice": {
+          "title": "跨设备节点网络",
+          "description": "macOS / iOS / Android 设备作为远程节点，AI 触达无处不在"
+        }
+      }
+    },
+    "lampEngine": {
+      "title": "LAMP 智能协作引擎",
+      "tagline": "AI 不再各干各的",
+      "highlight": "让 AI 像人类团队一样思考、沟通、决策",
+      "features": {
+        "thinkSpeakDecide": {
+          "title": "Think-Speak-Decide 三阶段推理",
+          "description": "学术级原创协作框架，实现智能体间深度协作与智能决策"
+        },
+        "dagScheduling": {
+          "title": "DAG 并发调度",
+          "description": "自动分析任务依赖，无关任务并行执行，效率提升 2-5 倍"
+        },
+        "experiencePool": {
+          "title": "经验池持续学习",
+          "description": "成功经验向量化存储，智能检索复用，越用越聪明"
+        },
+        "dynamicReplanning": {
+          "title": "动态重规划",
+          "description": "检测异常自动调整计划，保障任务成功完成"
+        }
+      }
+    },
+    "mcpEngine": {
+      "title": "MCP 能力引擎",
+      "tagline": "零侵入激活既有系统",
+      "highlight": "不改一行旧代码，让老系统秒变 AI 能力",
+      "features": {
+        "zeroInvasion": {
+          "title": "零侵入接入",
+          "description": "不改原系统架构与业务逻辑，快速纳入 AI 能力体系"
+        },
+        "pluginEcosystem": {
+          "title": "插件系统 + SDK",
+          "description": "开放生态，像安装 App 一样扩展 AI 能力"
+        },
+        "skillHotPlug": {
+          "title": "技能包热插拔",
+          "description": "ZIP 上传即用，支持 Agent Skills 标准格式"
+        },
+        "oneClickPublish": {
+          "title": "一键发布复用",
+          "description": "标准化能力沉淀后可快速复用与统一治理"
+        }
+      }
+    },
+    "governance": {
+      "title": "企业治理引擎",
+      "tagline": "不只可用，更要可控",
+      "highlight": "每个 AI 动作，都在企业治理框架内",
+      "features": {
+        "rbac": {
+          "title": "RBAC + 多认证源",
+          "description": "支持 LDAP / OIDC 企业级身份集成，精细化权限管控"
+        },
+        "fullChain": {
+          "title": "审核-审批-护栏-审计",
+          "description": "全链路管控，谁可见、谁可用、谁可改、谁负责清晰可追溯"
+        },
+        "observability": {
+          "title": "OpenTelemetry 全栈可观测",
+          "description": "Traces / Metrics / Logs 全量采集，企业运维必备"
+        },
+        "isolation": {
+          "title": "多用户会话级隔离",
+          "description": "工作区隔离 + 身份透传，组织分身的安全基石"
+        }
+      }
+    }
+  },
+  "omniChannel": {
+    "title": "全渠道 AI 触达",
+    "subtitle": "一个数字分身，12+ 通道同时在线",
+    "description": "无论你的客户、同事、合作伙伴在哪里，你的数字分身都在那里。",
+    "channels": ["WhatsApp", "Telegram", "Slack", "Discord", "Microsoft Teams", "微信", "Signal", "iMessage", "Matrix", "Google Chat", "WebChat", "语音对话"],
+    "products": {
+      "title": "多端产品覆盖",
+      "desktop": {
+        "title": "TeGo Desktop",
+        "description": "原生桌面客户端，秒级启动，离线可用"
+      },
+      "web": {
+        "title": "TeGo Web",
+        "description": "无需安装，浏览器即用，随时访问"
+      },
+      "office": {
+        "title": "TeGo Office",
+        "description": "AI 在 Excel 和 Word 里直接工作"
+      }
+    }
+  },
+  "memoryEvolution": {
+    "title": "记忆与进化",
+    "subtitle": "AI 第一次有了长期记忆",
+    "description": "经验池 + 向量化检索 + Few-shot 注入 = 越用越聪明",
+    "dimensions": {
+      "context": {
+        "title": "上下文记忆",
+        "description": "理解当前对话的完整语境"
+      },
+      "preference": {
+        "title": "偏好记忆",
+        "description": "记住每个用户的习惯与风格"
+      },
+      "identity": {
+        "title": "身份记忆",
+        "description": "认识每一个与它交互的人"
+      },
+      "experience": {
+        "title": "经验记忆",
+        "description": "成功经验自动沉淀，失败教训自动规避"
+      }
+    }
+  },
+  "securityCompliance": {
+    "title": "安全与合规",
+    "subtitle": "面向企业生产环境打造",
+    "description": "权限、隔离、管控、审计、扩展与合规——企业级 AI 落地的关键基座。",
+    "features": {
+      "multiAuth": {
+        "title": "多认证源集成",
+        "description": "Local / LDAP / OIDC 多种企业级身份认证方式"
+      },
+      "sessionIsolation": {
+        "title": "会话级隔离",
+        "description": "多用户会话隔离、工作区隔离、身份透传"
+      },
+      "auditTrail": {
+        "title": "全链路审计",
+        "description": "查看、执行、发布、授权、回收等动作全量记录"
+      },
+      "aiGuardrail": {
+        "title": "AI 护栏系统",
+        "description": "输入输出双重过滤，防范幻觉、违规和提示词攻击"
+      },
+      "observability": {
+        "title": "全栈可观测",
+        "description": "OpenTelemetry 集成，Traces / Metrics / Logs 全量采集"
+      },
+      "deployment": {
+        "title": "弹性部署架构",
+        "description": "Docker Compose 一键启动 / Kubernetes 弹性编排 / Traefik 动态路由"
+      }
+    },
+    "upgrades": {
+      "title": "企业级能力跃迁",
+      "items": [
+        "从单用户到多用户组织协作",
+        "从轻量权限到企业级 RBAC 与任务授权",
+        "从工具使用到全链路审计与护栏治理",
+        "从单实例到组织分身副本弹性扩容",
+        "从个人助手到企业数字员工体系"
+      ]
+    }
+  },
+  "scenarios": {
+    "title": "让数字分身进入真实业务流程",
+    "subtitle": "已在多个行业场景验证并产生实际业务价值",
+    "items": {
+      "enterprise": {
+        "title": "企业运营与协同",
+        "role": "运营 / 行政 / HR",
+        "description": "组织分身承接跨部门流程任务，打通知识问答、流程执行与系统操作，减少重复沟通与人工协调成本。",
+        "effect": "跨系统流程执行效率显著提升"
+      },
+      "finance": {
+        "title": "金融与高合规行业",
+        "role": "风控 / 投研 / 客服",
+        "description": "在权限、审计、审批、护栏框架下，构建可监管的 AI 执行闭环，支持风控、投研、客服、运营等关键业务流程。",
+        "effect": "关键操作全链路可追溯"
+      },
+      "manufacturing": {
+        "title": "制造与供应链",
+        "role": "采购 / 计划 / 仓储",
+        "description": "通过智能编排与系统接口联动，实现采购、计划、库存、异常处理的自动化协同，提升响应速度与跨系统执行效率。",
+        "effect": "响应速度与执行效率大幅提升"
+      },
+      "government": {
+        "title": "政企与私有化部署",
+        "role": "IT / 政务 / 安全",
+        "description": "支持私有化或混合部署，满足数据边界、访问控制和流程留痕要求，推进 AI 在组织内可控落地。",
+        "effect": "数据主权完全自主可控"
+      }
+    },
+    "customers": {
+      "title": "客户实践",
+      "yuekaiSecurities": {
+        "name": "粤开证券",
+        "description": "多场景数字员工协同实践"
+      },
+      "taikangPension": {
+        "name": "泰康养老",
+        "description": "保险与养老业务的 AI 服务升级"
+      }
+    }
+  },
+  "socialProof": {
+    "title": "用数据说话",
+    "subtitle": "企业级 AI 平台的可量化价值",
+    "metrics": {
+      "efficiency": {
+        "value": "2-5x",
+        "label": "执行效率提升",
+        "description": "DAG 并发调度引擎优化"
+      },
+      "availability": {
+        "value": "24×7",
+        "label": "服务连续性",
+        "description": "组织分身全天候在线服务"
+      },
+      "auditability": {
+        "value": "100%",
+        "label": "操作可追溯",
+        "description": "关键操作全链路审计留痕"
+      },
+      "onboarding": {
+        "value": "< 1天",
+        "label": "能力上线周期",
+        "description": "MCP 零侵入接入 + 智能编排"
+      }
+    }
+  },
+  "bottomCTA": {
+    "title": "让你的企业，拥有第一支 24×7 在线的 AI 数字员工团队",
+    "description": "用 TeGo-OS 把业务编排、系统能力和组织知识，转化为真正可执行的业务生产力。",
+    "primaryCTA": "申请企业版演示",
+    "secondaryCTA": "获取行业解决方案",
+    "hint": "从一个试点场景开始，在 30 天内验证 AI 超级团队的业务价值。"
   }
 }

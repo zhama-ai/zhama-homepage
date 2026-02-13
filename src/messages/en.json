@@ -18,15 +18,26 @@
   },
   "nav": {
     "home": "Home",
-    "products": "Products",
-    "useCases": "Use Cases",
+    "coreCapabilities": "Capabilities",
+    "scenarios": "Use Cases",
     "pricing": "Pricing",
-    "download": "Download",
-    "about": "About Us",
     "docs": "Documentation",
     "blog": "Blog",
+    "about": "About Us",
     "contact": "Contact Us",
-    "tryNow": "Book Demo",
+    "tryNow": "Request Enterprise Demo",
+    "capabilities": {
+      "title": "Core Capabilities",
+      "digitalAvatar": "Digital Avatar System",
+      "lampEngine": "Smart Orchestration Engine",
+      "mcpEngine": "MCP Capability Engine",
+      "governance": "Enterprise Governance Engine",
+      "omniChannel": "Omni-Channel AI Access",
+      "memory": "Memory & Evolution System"
+    },
+    "products": "Products",
+    "useCases": "Use Cases",
+    "download": "Download",
     "platform": {
       "title": "Tech Platform",
       "lamp": "LAMP Framework",
@@ -40,12 +51,19 @@
   },
   "home": {
     "hero": {
-      "title": "TeGo AI Super Team",
-      "tagline": "Build an Untiring AI Super Team",
-      "description": "Enable multiple AI agents to think autonomously, collaborate intelligently, and execute concurrently like a real team. Based on LAMP collaboration framework and DAG concurrent scheduling engine, achieve 300%+ task execution efficiency improvement, 95%+ complex task success rate, and <100ms agent collaboration response. From agent silos to super teams, let AI truly create value for enterprises.",
-      "cta": "Book Demo",
-      "secondaryCta": "Live Demo",
-      "imgAlt": "TeGo AI Super Team"
+      "title": "AI That Finally Works Like a Team",
+      "tagline": "Digital Avatar × Smart Orchestration × Enterprise Governance",
+      "description": "TeGo-OS uses enterprise digital avatars as the core carrier, integrating smart orchestration engines, task permission governance, and unified MCP management to help enterprises upgrade organizational knowledge into a 24×7 online, continuously evolving digital workforce — all under secure, controlled governance.",
+      "bullets": {
+        "dualAvatar": "Dual Avatar System: Personal avatars for individual productivity, organizational avatars for enterprise-wide collaboration",
+        "orchestration": "Orchestration as Productivity: A2A / Chat / Form / Webhook multi-trigger support",
+        "governance": "Enterprise Governance: Visibility, authorization, audit, guardrails, approval — full-chain control",
+        "mcp": "Zero-Invasion MCP Access: No modification, no deployment — one-click API conversion"
+      },
+      "cta": "Request Enterprise Demo",
+      "secondaryCta": "Try Online Demo",
+      "deployLink": "View Deployment Options (Private / Hybrid Cloud)",
+      "imgAlt": "TeGo-OS Enterprise Digital Avatar & AI Super Team Platform"
     }
   },
   "productSuite": {
@@ -508,19 +526,28 @@
   },
   "footer": {
     "companyName": "Zhama Future",
-    "companyDescription": "TeGo AI Super Team · Build an Untiring AI Super Team",
-    "products": "Products & Services",
+    "companyDescription": "TeGo-OS — Enterprise Digital Avatar & AI Super Team Platform",
+    "about": "Shenzhen Zhama Future Technology Co., Ltd. is dedicated to providing enterprises with an AI operating system centered on digital avatars, enabling AI to truly create value for businesses.",
+    "products": "Products & Capabilities",
     "home": {
       "hero": {
-        "title": "TeGo AI Super Team"
+        "title": "TeGo-OS Enterprise AI Platform"
       }
     },
+    "digitalAvatar": "Digital Avatar System",
+    "lampEngine": "Smart Orchestration Engine",
+    "mcpEngine": "MCP Capability Engine",
+    "governanceEngine": "Enterprise Governance Engine",
     "enterprise": "Enterprise Solutions",
-    "api": "API Integration",
+    "api": "API & Development",
     "support": "Support & Resources",
-    "helpCenter": "Help Center",
+    "helpCenter": "Documentation",
     "tutorials": "Deployment Guide",
     "faq": "Enterprise Services",
+    "resources": "Resources",
+    "blog": "Tech Blog",
+    "docs": "Developer Docs",
+    "community": "Community Edition",
     "contact": {
       "title": "Contact Us",
       "business": {
@@ -534,7 +561,7 @@
         "email": "support@zhama.com"
       }
     },
-    "copyright": "© 2025 TeGo AI Super Team. All rights reserved. Shenzhen Zhama Future Technology Co., Ltd.",
+    "copyright": "© 2025 Shenzhen Zhama Future Technology Co., Ltd. All rights reserved.",
     "icp": ""
   },
   "advantagesSection": {
@@ -557,17 +584,18 @@
     }
   },
   "pricingSection": {
-    "title": "Choose the Right Plan for You",
-    "subtitle": "From free trial to enterprise flagship, flexibly matching your business scale and governance needs",
+    "title": "Choose the Right Plan",
+    "subtitle": "From free community edition to enterprise private deployment, flexibly matching your business scale and governance needs",
     "community": {
       "badge": "Forever Free",
       "name": "Community Edition",
-      "lead": "Experience core multi-agent collaboration features",
+      "lead": "Experience digital avatar and AI collaboration core capabilities",
       "desc": "Perfect for individual developers and small teams, zero cost to start, forever free.",
       "featuresTitle": "Features Included",
       "features": [
-        "Basic agent collaboration capabilities",
-        "Single task automation",
+        "Personal digital avatar",
+        "Basic smart orchestration",
+        "Community MCP capability packs",
         "Basic visual workspace",
         "Community technical support"
       ],
@@ -583,13 +611,13 @@
       "desc": "Starting from $7,000/year, high availability + compliance + managed services",
       "featuresTitle": "Includes all Community features, plus:",
       "features": [
-        "Complete LAMP intelligent collaboration framework",
+        "Organizational avatars + elastic replica scaling",
+        "Complete LAMP smart orchestration framework",
         "DAG concurrent scheduling engine",
         "Experience pool continuous learning",
+        "Enterprise permission governance (RBAC)",
         "Private environment deployment",
-        "Service availability monitoring",
-        "One-on-one customer support",
-        "Delegated deployment & maintenance"
+        "One-on-one support & managed services"
       ],
       "price": "$7,000",
       "period": "per year",
@@ -598,20 +626,35 @@
     "enterprise": {
       "ribbon": "ON PREMISE",
       "badge": "Enterprise Flagship",
-      "name": "TeGo AI Super Team · Enterprise",
-      "lead": "Full-chain agent collaboration and governance platform, enterprise priority",
+      "name": "TeGo-OS · Enterprise",
+      "lead": "Full-chain digital avatar collaboration & governance platform",
       "desc": "Custom branding + high security + dedicated support + POC validation, custom pricing",
       "featuresTitle": "Includes all Subscription features, plus:",
       "features": [
-        "Complete A2A open protocol support",
-        "Cross-enterprise agent collaboration",
+        "Omni-channel AI access (12+ channels)",
+        "Multi-auth source integration (LDAP/OIDC)",
+        "OpenTelemetry full-stack observability",
         "Custom brand identity",
-        "Premium after-sales service",
         "Audit, deployment & POC support services"
       ],
       "price": "Custom Quote",
       "period": "Contact for consultation",
       "cta": "Contact Sales"
+    },
+    "deployment": {
+      "title": "Flexible Deployment Options",
+      "saas": {
+        "title": "SaaS Cloud",
+        "description": "Ready to use, zero maintenance"
+      },
+      "private": {
+        "title": "Private Deployment",
+        "description": "Docker / Kubernetes elastic orchestration"
+      },
+      "hybrid": {
+        "title": "Hybrid Cloud",
+        "description": "Data on-premise + capabilities in cloud"
+      }
     }
   },
   "downloadSection": {
@@ -684,16 +727,16 @@
     }
   },
   "seo": {
-    "title": "TeGo AI Super Team | Shenzhen Zhama Future Technology Co., Ltd.",
-    "description": "TeGo - Build an untiring AI Super Team. Enable multiple agents to think autonomously, collaborate intelligently, and execute concurrently like a real team. Achieve 300%+ task execution efficiency improvement, 95%+ complex task success rate, and <100ms agent collaboration response. From agent silos to super teams, let AI truly create value for enterprises.",
-    "keywords": "TeGo, AI Super Team, Multi-Agent Collaboration, AI Agent, LAMP Framework, DAG Scheduling, Concurrent Execution, Enterprise AI, Private Deployment, Shenzhen Zhama Future Technology",
+    "title": "TeGo-OS | Enterprise Digital Avatar & AI Super Team Platform (Smart Orchestration + MCP Management)",
+    "description": "TeGo-OS is an enterprise AI operating system centered on digital avatars, integrating smart orchestration, enterprise-grade permission governance, and MCP management to help enterprises build manageable, controllable, and scalable AI super teams.",
+    "keywords": "TeGo-OS, Enterprise Digital Avatar, AI Digital Worker, AI Super Team, Enterprise Smart Orchestration Platform, MCP Management Platform, Enterprise AI Permission Governance, Multi-Agent Collaboration, LAMP Framework, DAG Scheduling, Private Deployment",
     "openGraph": {
-      "title": "TeGo AI Super Team | Shenzhen Zhama Future Technology Co., Ltd.",
-      "description": "Build an untiring AI Super Team. Based on LAMP collaboration framework and DAG concurrent scheduling engine, enable AI agents to think autonomously, collaborate intelligently, and execute concurrently like a real team."
+      "title": "TeGo-OS | Enterprise Digital Avatar & AI Super Team Platform",
+      "description": "Centered on digital avatars, integrating smart orchestration, enterprise governance, and MCP management to help enterprises build 24×7 online AI super teams."
     },
     "twitter": {
-      "title": "TeGo AI Super Team",
-      "description": "Build an untiring AI Super Team, enable agents to collaborate autonomously like real teams"
+      "title": "TeGo-OS | Enterprise Digital Avatar & AI Super Team Platform",
+      "description": "Centered on digital avatars, integrating smart orchestration, enterprise governance, and MCP management to build enterprise AI super teams."
     }
   },
   "mcpPlatform": {
@@ -1312,5 +1355,292 @@
         "desc": "Professional legal contract review and risk analysis"
       }
     }
+  },
+  "painPoints": {
+    "title": "Does Your AI Struggle with These Too?",
+    "subtitle": "Three Critical Challenges in Enterprise AI",
+    "items": {
+      "island": {
+        "icon": "unplug",
+        "title": "Agent Silos",
+        "description": "Different AI tools work in isolation — data fragmented, workflows broken, requiring manual effort to bridge gaps between tools."
+      },
+      "unmanaged": {
+        "icon": "shield-off",
+        "title": "Uncontrolled Capabilities",
+        "description": "What is AI doing? Is it correct? Who can use it? Who's responsible? — No unified governance, audit, or permission control."
+      },
+      "inefficient": {
+        "icon": "timer-off",
+        "title": "Efficiency Ceiling",
+        "description": "Sequential execution, single-point intelligence, no collaboration, no concurrency, no learning — complex tasks still heavily depend on manual work."
+      }
+    }
+  },
+  "productOverview": {
+    "title": "From \"Single-Point AI Tools\" to \"Enterprise AI Productivity Platform\"",
+    "description": "Traditional AI tools address local efficiency, but enterprises need intelligent infrastructure that evolves long-term.",
+    "highlight": "TeGo-OS puts digital avatars at its core, unifying smart orchestration, tools, knowledge, permissions, and audit on a single platform — enabling AI to not just answer questions, but to execute tasks, collaborate on decisions, and accumulate experience as \"digital employees\" on behalf of the organization.",
+    "capabilities": [
+      "Continuous Learning",
+      "Team Collaboration",
+      "Enterprise Governance",
+      "Scalable Expansion"
+    ]
+  },
+  "coreEngines": {
+    "title": "Four Core Engines",
+    "subtitle": "Each engine represents a critical leap from usable AI to truly effective enterprise AI",
+    "digitalAvatar": {
+      "title": "Digital Avatar Engine",
+      "tagline": "Not just a chatbot — AI with a \"body\"",
+      "highlight": "One avatar, covering all your digital touchpoints",
+      "features": {
+        "dualForm": {
+          "title": "Personal + Organizational Avatars",
+          "description": "Personal avatars for individual productivity, organizational avatars for enterprise-wide shared collaboration"
+        },
+        "multiChannel": {
+          "title": "12+ Channel Access",
+          "description": "WhatsApp, Slack, Teams, WeChat and more — simultaneously online across all channels"
+        },
+        "voiceBrowser": {
+          "title": "Voice + Browser Automation",
+          "description": "Voice conversation frees your hands; browser automation lets AI truly \"operate computers\""
+        },
+        "crossDevice": {
+          "title": "Cross-Device Node Network",
+          "description": "macOS / iOS / Android devices as remote nodes — AI reach everywhere"
+        }
+      }
+    },
+    "lampEngine": {
+      "title": "LAMP Smart Orchestration Engine",
+      "tagline": "AI no longer works in isolation",
+      "highlight": "Enabling AI to think, communicate, and decide like a human team",
+      "features": {
+        "thinkSpeakDecide": {
+          "title": "Think-Speak-Decide Three-Stage Reasoning",
+          "description": "Academic-grade original collaboration framework for deep inter-agent cooperation and intelligent decision-making"
+        },
+        "dagScheduling": {
+          "title": "DAG Concurrent Scheduling",
+          "description": "Automatic dependency analysis, parallel execution of independent tasks, 2-5x efficiency improvement"
+        },
+        "experiencePool": {
+          "title": "Experience Pool Continuous Learning",
+          "description": "Successful experiences vectorized and stored, intelligently retrieved and reused — gets smarter over time"
+        },
+        "dynamicReplanning": {
+          "title": "Dynamic Replanning",
+          "description": "Automatically adjusts plans when anomalies are detected, ensuring task completion"
+        }
+      }
+    },
+    "mcpEngine": {
+      "title": "MCP Capability Engine",
+      "tagline": "Zero-invasion activation of existing systems",
+      "highlight": "Turn legacy systems into AI capabilities without changing a single line of code",
+      "features": {
+        "zeroInvasion": {
+          "title": "Zero-Invasion Access",
+          "description": "No changes to existing system architecture or business logic — rapid AI capability integration"
+        },
+        "pluginEcosystem": {
+          "title": "Plugin System + SDK",
+          "description": "Open ecosystem — extend AI capabilities like installing apps"
+        },
+        "skillHotPlug": {
+          "title": "Hot-Pluggable Skill Packs",
+          "description": "Upload ZIP and use instantly, supporting Agent Skills standard format"
+        },
+        "oneClickPublish": {
+          "title": "One-Click Publish & Reuse",
+          "description": "Standardized capabilities can be quickly reused and centrally governed"
+        }
+      }
+    },
+    "governance": {
+      "title": "Enterprise Governance Engine",
+      "tagline": "Not just usable — controllable",
+      "highlight": "Every AI action, within the enterprise governance framework",
+      "features": {
+        "rbac": {
+          "title": "RBAC + Multi-Auth Sources",
+          "description": "LDAP / OIDC enterprise identity integration with fine-grained permission control"
+        },
+        "fullChain": {
+          "title": "Review-Approval-Guardrail-Audit",
+          "description": "Full-chain governance — who can see, use, edit, and who's responsible — all traceable"
+        },
+        "observability": {
+          "title": "OpenTelemetry Full-Stack Observability",
+          "description": "Traces / Metrics / Logs full collection — essential for enterprise operations"
+        },
+        "isolation": {
+          "title": "Multi-User Session Isolation",
+          "description": "Workspace isolation + identity passthrough — the security foundation for organizational avatars"
+        }
+      }
+    }
+  },
+  "omniChannel": {
+    "title": "Omni-Channel AI Access",
+    "subtitle": "One digital avatar, 12+ channels simultaneously online",
+    "description": "Wherever your customers, colleagues, or partners are — your digital avatar is there.",
+    "channels": ["WhatsApp", "Telegram", "Slack", "Discord", "Microsoft Teams", "WeChat", "Signal", "iMessage", "Matrix", "Google Chat", "WebChat", "Voice"],
+    "products": {
+      "title": "Multi-Platform Product Coverage",
+      "desktop": {
+        "title": "TeGo Desktop",
+        "description": "Native desktop client, instant startup, works offline"
+      },
+      "web": {
+        "title": "TeGo Web",
+        "description": "No installation, browser-ready, access anytime"
+      },
+      "office": {
+        "title": "TeGo Office",
+        "description": "AI works directly inside Excel and Word"
+      }
+    }
+  },
+  "memoryEvolution": {
+    "title": "Memory & Evolution",
+    "subtitle": "AI with long-term memory — for the first time",
+    "description": "Experience Pool + Vector Retrieval + Few-shot Injection = Gets Smarter Over Time",
+    "dimensions": {
+      "context": {
+        "title": "Context Memory",
+        "description": "Understands the full context of the current conversation"
+      },
+      "preference": {
+        "title": "Preference Memory",
+        "description": "Remembers each user's habits and style"
+      },
+      "identity": {
+        "title": "Identity Memory",
+        "description": "Recognizes every person it interacts with"
+      },
+      "experience": {
+        "title": "Experience Memory",
+        "description": "Successful experiences automatically accumulated, failed lessons automatically avoided"
+      }
+    }
+  },
+  "securityCompliance": {
+    "title": "Security & Compliance",
+    "subtitle": "Built for Enterprise Production Environments",
+    "description": "Permissions, isolation, governance, audit, scalability, and compliance — the critical foundation for enterprise AI deployment.",
+    "features": {
+      "multiAuth": {
+        "title": "Multi-Auth Integration",
+        "description": "Local / LDAP / OIDC multiple enterprise authentication methods"
+      },
+      "sessionIsolation": {
+        "title": "Session-Level Isolation",
+        "description": "Multi-user session isolation, workspace isolation, identity passthrough"
+      },
+      "auditTrail": {
+        "title": "Full-Chain Audit Trail",
+        "description": "View, execute, publish, authorize, revoke — all actions fully recorded"
+      },
+      "aiGuardrail": {
+        "title": "AI Guardrail System",
+        "description": "Dual input/output filtering to prevent hallucinations, violations, and prompt attacks"
+      },
+      "observability": {
+        "title": "Full-Stack Observability",
+        "description": "OpenTelemetry integration, Traces / Metrics / Logs full collection"
+      },
+      "deployment": {
+        "title": "Elastic Deployment Architecture",
+        "description": "Docker Compose one-click start / Kubernetes elastic orchestration / Traefik dynamic routing"
+      }
+    },
+    "upgrades": {
+      "title": "Enterprise-Grade Capability Leap",
+      "items": [
+        "From single-user to multi-user organizational collaboration",
+        "From basic permissions to enterprise RBAC and task authorization",
+        "From tool usage to full-chain audit and guardrail governance",
+        "From single instance to organizational avatar elastic replica scaling",
+        "From personal assistant to enterprise digital workforce system"
+      ]
+    }
+  },
+  "scenarios": {
+    "title": "Digital Avatars in Real Business Workflows",
+    "subtitle": "Validated across multiple industries with proven business value",
+    "items": {
+      "enterprise": {
+        "title": "Enterprise Operations & Collaboration",
+        "role": "Operations / Admin / HR",
+        "description": "Organizational avatars handle cross-department workflow tasks, bridging knowledge Q&A, process execution, and system operations to reduce repetitive communication and manual coordination costs.",
+        "effect": "Significant improvement in cross-system process execution efficiency"
+      },
+      "finance": {
+        "title": "Finance & High-Compliance Industries",
+        "role": "Risk Control / Research / Service",
+        "description": "Build auditable AI execution loops within permission, audit, approval, and guardrail frameworks, supporting risk control, investment research, customer service, and other critical business processes.",
+        "effect": "Full traceability for all critical operations"
+      },
+      "manufacturing": {
+        "title": "Manufacturing & Supply Chain",
+        "role": "Procurement / Planning / Warehouse",
+        "description": "Through smart orchestration and system API integration, automate procurement, planning, inventory, and exception handling for improved response speed and cross-system execution efficiency.",
+        "effect": "Significant improvement in response speed and execution efficiency"
+      },
+      "government": {
+        "title": "Government & Private Deployment",
+        "role": "IT / Government Affairs / Security",
+        "description": "Support private or hybrid deployment to meet data boundary, access control, and process audit requirements, advancing controlled AI deployment within organizations.",
+        "effect": "Complete data sovereignty and autonomous control"
+      }
+    },
+    "customers": {
+      "title": "Customer Stories",
+      "yuekaiSecurities": {
+        "name": "Yuekai Securities",
+        "description": "Multi-scenario digital employee collaboration practice"
+      },
+      "taikangPension": {
+        "name": "Taikang Pension",
+        "description": "AI service upgrade for insurance and pension business"
+      }
+    }
+  },
+  "socialProof": {
+    "title": "Numbers Speak",
+    "subtitle": "Quantifiable value from an enterprise AI platform",
+    "metrics": {
+      "efficiency": {
+        "value": "2-5x",
+        "label": "Execution Efficiency Boost",
+        "description": "DAG concurrent scheduling engine optimization"
+      },
+      "availability": {
+        "value": "24×7",
+        "label": "Service Continuity",
+        "description": "Organizational avatars always online"
+      },
+      "auditability": {
+        "value": "100%",
+        "label": "Full Traceability",
+        "description": "Full-chain audit trail for critical operations"
+      },
+      "onboarding": {
+        "value": "< 1 Day",
+        "label": "Capability Launch Time",
+        "description": "MCP zero-invasion access + smart orchestration"
+      }
+    }
+  },
+  "bottomCTA": {
+    "title": "Give Your Enterprise Its First 24×7 AI Digital Workforce",
+    "description": "Use TeGo-OS to transform business orchestration, system capabilities, and organizational knowledge into truly executable business productivity.",
+    "primaryCTA": "Request Enterprise Demo",
+    "secondaryCTA": "Get Industry Solutions",
+    "hint": "Start with one pilot scenario and validate AI Super Team business value within 30 days."
   }
 }

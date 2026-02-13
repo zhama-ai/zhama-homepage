@@ -10,29 +10,33 @@ interface FooterSectionProps {
 export default async function FooterSection({ locale }: FooterSectionProps) {
   const t = await getTranslations({ locale, namespace: 'footer' });
   const tc = await getTranslations({ locale, namespace: 'common' });
-  const tn = await getTranslations({ locale, namespace: 'nav' });
 
   const footerSections = [
     {
       title: t('products'),
       links: [
-        { label: t('home.hero.title'), href: `/${locale}#features` },
-        { label: t('enterprise'), href: `/${locale}#advantages` },
-        { label: t('api'), href: 'https://docs.zhama.com.cn/', external: true },
+        { label: t('digitalAvatar'), href: `/${locale}/#engines` },
+        { label: t('lampEngine'), href: `/${locale}/#engines` },
+        { label: t('mcpEngine'), href: `/${locale}/#engines` },
+        { label: t('governanceEngine'), href: `/${locale}/#engines` },
+        { label: t('enterprise'), href: `/${locale}/contact` },
       ],
     },
     {
       title: t('support'),
       links: [
-        { label: t('helpCenter'), href: 'https://docs.zhama.com.cn/architecture/', external: true },
+        { label: t('helpCenter'), href: 'https://docs.zhama.com.cn/', external: true },
         { label: t('tutorials'), href: 'https://docs.zhama.com.cn/requirements/', external: true },
         { label: t('faq'), href: 'https://docs.zhama.com.cn/faq/', external: true },
         { label: tc('contactUs'), href: `/${locale}/contact` },
       ],
     },
     {
-      title: tn('about'),
+      title: t('resources'),
       links: [
+        { label: t('blog'), href: `/${locale}/blog` },
+        { label: t('docs'), href: 'https://docs.zhama.com.cn/', external: true },
+        { label: t('community'), href: `/${locale}/#pricing` },
         { label: tc('privacyPolicy'), href: `/${locale}/privacy` },
         { label: tc('termsOfService'), href: `/${locale}/terms` },
       ],
@@ -40,18 +44,21 @@ export default async function FooterSection({ locale }: FooterSectionProps) {
   ];
 
   return (
-    <footer className="bg-zinc-100 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-50">
+    <footer id="about" className="bg-zinc-100 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-50">
       <Container className="py-12 md:py-16">
         <div className="flex flex-col md:flex-row md:justify-between gap-8 md:gap-12">
-          {/* 公司信息 */}
-          <div className="md:w-1/4 space-y-4">
+          {/* Company Info */}
+          <div className="md:w-1/3 space-y-4">
             <div className="flex items-center gap-3 justify-center md:justify-start">
               <Image src="/images/logo_light.png" alt="TeGo Logo" width={80} height={32} className="h-8 w-auto dark:hidden" />
               <Image src="/images/logo_dark.png" alt="TeGo Logo" width={80} height={32} className="h-8 w-auto hidden dark:block" />
               <h3 className="text-lg md:text-xl font-bold">{t('companyName')}</h3>
             </div>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed text-center md:text-left">
+            <p className="text-sm text-primary-600 dark:text-primary-400 font-medium text-center md:text-left">
               {t('companyDescription')}
+            </p>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed text-center md:text-left">
+              {t('about')}
             </p>
             <div className="flex space-x-4 justify-center md:justify-start">
               <a 
@@ -68,7 +75,7 @@ export default async function FooterSection({ locale }: FooterSectionProps) {
             </div>
           </div>
 
-          {/* Footer 链接 - 移动端两列，桌面端三列 */}
+          {/* Footer Links */}
           <div className="md:flex-1 grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {footerSections.map((section) => (
               <div key={section.title}>
@@ -78,7 +85,7 @@ export default async function FooterSection({ locale }: FooterSectionProps) {
                 <ul className="space-y-2 md:space-y-3">
                   {section.links.map((link, index) => (
                     <li key={`${section.title}-${link.label}-${index}`}>
-                      {link.external ? (
+                      {'external' in link && link.external ? (
                         <a
                           href={link.href}
                           target="_blank"
