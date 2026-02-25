@@ -103,13 +103,6 @@ export default function DownloadClient() {
     if (os === 'windows') {
       return { url: release.downloads.windows_x64_exe, label: 'Windows (x64)', ext: '.exe' };
     }
-    if (os === 'linux') {
-      return {
-        url: arch === 'arm64' ? release.downloads.linux_arm64_appimage : release.downloads.linux_x64_appimage,
-        label: `Linux (${arch === 'arm64' ? 'ARM64' : 'x64'})`,
-        ext: '.AppImage',
-      };
-    }
     return null;
   }, [release, userPlatform]);
 
@@ -123,12 +116,6 @@ export default function DownloadClient() {
       { os: 'windows' as const, label: 'Windows', variants: [
         { label: 'Windows (.exe)', url: release.downloads.windows_x64_exe },
         { label: 'Windows (.msi)', url: release.downloads.windows_x64_msi },
-      ]},
-      { os: 'linux' as const, label: 'Linux', variants: [
-        { label: 'x64 (.AppImage)', url: release.downloads.linux_x64_appimage },
-        { label: 'x64 (.deb)', url: release.downloads.linux_x64_deb },
-        { label: 'ARM64 (.AppImage)', url: release.downloads.linux_arm64_appimage },
-        { label: 'ARM64 (.deb)', url: release.downloads.linux_arm64_deb },
       ]},
     ];
   }, [release]);
@@ -187,7 +174,7 @@ export default function DownloadClient() {
           <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-50 mb-6 text-center">
             {t('desktop.title')}
           </h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
             {desktopDownloads.map((platform) => (
               <div
                 key={platform.os}
