@@ -30,15 +30,39 @@ type Platform = 'macos' | 'windows' | 'linux' | 'unknown';
 function detectPlatform(): { os: Platform; arch: 'arm64' | 'x64' } {
   if (typeof navigator === 'undefined') return { os: 'unknown', arch: 'x64' };
   const ua = navigator.userAgent.toLowerCase();
-  const platform = (navigator as any).userAgentData?.platform?.toLowerCase() || navigator.platform?.toLowerCase() || '';
+  const uaData = (navigator as any).userAgentData;
+  const platform = uaData?.platform?.toLowerCase() || navigator.platform?.toLowerCase() || '';
 
   let os: Platform = 'unknown';
   if (platform.includes('mac') || ua.includes('macintosh')) os = 'macos';
   else if (platform.includes('win') || ua.includes('windows')) os = 'windows';
   else if (platform.includes('linux') || ua.includes('linux')) os = 'linux';
 
-  const isArm = ua.includes('arm') || ua.includes('aarch64') || (platform.includes('mac') && !ua.includes('intel'));
-  return { os, arch: isArm ? 'arm64' : 'x64' };
+  let arch: 'arm64' | 'x64' = 'x64';
+  if (ua.includes('arm') || ua.includes('aarch64')) {
+    arch = 'arm64';
+  } else if (os === 'macos') {
+    // Apple Silicon Macs report "MacIntel" in platform and UA,
+    // but WebGL renderer reveals the actual GPU.
+    try {
+      const canvas = document.createElement('canvas');
+      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      if (gl) {
+        const dbg = (gl as WebGLRenderingContext).getExtension('WEBGL_debug_renderer_info');
+        if (dbg) {
+          const renderer = (gl as WebGLRenderingContext).getParameter(dbg.UNMASKED_RENDERER_WEBGL) as string;
+          if (renderer && /apple m\d|apple gpu/i.test(renderer)) {
+            arch = 'arm64';
+          }
+        }
+      }
+    } catch {
+      // fallback: default to arm64 for modern macOS
+      arch = 'arm64';
+    }
+  }
+
+  return { os, arch };
 }
 
 const CDN_URL = 'https://cdn.zhama.com.cn/tego-ai-studio/latest.json';
