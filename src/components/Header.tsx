@@ -75,6 +75,7 @@ export default function Header() {
     { href: `/${locale}`, label: t('nav.home'), section: 'home' },
     { href: `/${locale}/#scenarios`, label: t('nav.scenarios'), section: 'scenarios' },
     { href: `/${locale}/#pricing`, label: t('nav.pricing'), section: 'pricing' },
+    { href: `/${locale}/download`, label: t('nav.download') },
     { href: 'https://docs.zhama.com.cn', label: t('nav.docs'), external: true },
     { href: `/${locale}/blog`, label: t('nav.blog'), external: true },
     { href: `/${locale}/#about`, label: t('nav.about'), section: 'about' },

@@ -9,7 +9,7 @@ const engineConfig = [
   {
     key: 'digitalAvatar',
     num: '01',
-    features: ['dualForm', 'multiChannel', 'voiceBrowser', 'crossDevice'],
+    features: ['dualForm', 'containerRuntime', 'resourceQuota', 'lifecycleManagement'],
   },
   {
     key: 'lampEngine',
@@ -24,7 +24,7 @@ const engineConfig = [
   {
     key: 'governance',
     num: '04',
-    features: ['rbac', 'fullChain', 'observability', 'isolation'],
+    features: ['rbac', 'fullChain', 'multiTenantIsolation', 'configManagement'],
   },
 ] as const;
 

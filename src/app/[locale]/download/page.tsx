@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { getMessages } from 'next-intl/server';
+import Header from '@/components/Header';
+import FooterSection from '@/components/FooterSection';
 import DownloadClient from '@/components/DownloadClient';
 
 type Props = {
@@ -9,10 +11,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
 
-  // Get messages for SEO metadata
   const messages = await getMessages({ locale }) as any;
-  
-  // Extract download page SEO-specific translations
   const downloadSeo = messages?.downloadPage?.seo || {};
 
   return {
@@ -41,5 +40,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function DownloadPage({ params }: Props) {
   const { locale } = await params;
-  return <DownloadClient />;
+  return (
+    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950">
+      <Header />
+      <main>
+        <DownloadClient />
+      </main>
+      <FooterSection locale={locale} />
+    </div>
+  );
 } 

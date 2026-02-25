@@ -1,261 +1,291 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
+import Link from 'next/link';
+import { useLocale } from 'next-intl';
+
+interface LatestRelease {
+  version: string;
+  releaseDate: string;
+  platforms: {
+    macos: { arm64: string; x64: string };
+    linux: { arm64: string; x64: string };
+    windows: { x64: string };
+  };
+  downloads: {
+    macos_arm64: string;
+    macos_x64: string;
+    linux_arm64_appimage: string;
+    linux_arm64_deb: string;
+    linux_x64_appimage: string;
+    linux_x64_deb: string;
+    windows_x64_msi: string;
+    windows_x64_exe: string;
+  };
+}
+
+type Platform = 'macos' | 'windows' | 'linux' | 'unknown';
+
+function detectPlatform(): { os: Platform; arch: 'arm64' | 'x64' } {
+  if (typeof navigator === 'undefined') return { os: 'unknown', arch: 'x64' };
+  const ua = navigator.userAgent.toLowerCase();
+  const platform = (navigator as any).userAgentData?.platform?.toLowerCase() || navigator.platform?.toLowerCase() || '';
+
+  let os: Platform = 'unknown';
+  if (platform.includes('mac') || ua.includes('macintosh')) os = 'macos';
+  else if (platform.includes('win') || ua.includes('windows')) os = 'windows';
+  else if (platform.includes('linux') || ua.includes('linux')) os = 'linux';
+
+  const isArm = ua.includes('arm') || ua.includes('aarch64') || (platform.includes('mac') && !ua.includes('intel'));
+  return { os, arch: isArm ? 'arm64' : 'x64' };
+}
+
+const CDN_URL = 'https://cdn.zhama.com.cn/tego-ai-studio/latest.json';
+
+const platformIcons: Record<string, React.ReactNode> = {
+  macos: (
+    <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+    </svg>
+  ),
+  windows: (
+    <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M3 12V6.75l6-1.32v6.48L3 12zm17-9v8.75l-10 .15V5.21L20 3zM3 13l6 .09v6.81l-6-1.15V13zm7 .25l10 .15V21l-10-1.91V13.25z"/>
+    </svg>
+  ),
+  linux: (
+    <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.368 1.884 1.43.777.07 1.663-.632 1.882-1.783.003-.07.007-.139.009-.207a2.01 2.01 0 00.045-.095c.399-.698.46-1.559.26-2.327-.2-.77-.627-1.445-1.143-1.903-.253-.247-.542-.455-.856-.607-.088-.86-.417-1.606-.867-2.218a6.07 6.07 0 00-.327-.437c.08-.305.143-.622.191-.95.067-.46.083-.936.033-1.418a6.53 6.53 0 00-.469-1.717 5.7 5.7 0 00-.726-1.178c-.323-.36-.655-.618-.869-.762-.066-.087-.247-.328-.465-.622-.44-.583-.928-1.407-1.152-2.157-.336-1.106-1.07-2.025-2.067-2.6-.99-.575-2.183-.81-3.42-.58z"/>
+    </svg>
+  ),
+  ios: (
+    <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+    </svg>
+  ),
+  android: (
+    <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.523 15.341a.996.996 0 0 0 0-1.992.996.996 0 0 0 0 1.992m-11.046 0a.996.996 0 0 0 0-1.992.996.996 0 0 0 0 1.992m11.405-6.02 1.997-3.46a.416.416 0 0 0-.152-.567.416.416 0 0 0-.568.152L17.14 8.95c-1.547-.706-3.283-1.1-5.14-1.1s-3.593.394-5.14 1.1L4.838 5.446a.416.416 0 0 0-.568-.152c-.193.112-.26.36-.152.567l1.997 3.46C2.688 11.186.343 14.658 0 18.761h24c-.344-4.103-2.688-7.575-6.118-9.44"/>
+    </svg>
+  ),
+};
 
 export default function DownloadClient() {
   const t = useTranslations('appDownload');
-  const [isWechat, setIsWechat] = useState(false);
-  const [maskClosed, setMaskClosed] = useState(false);
-  const [appLinksUrl, setAppLinksUrl] = useState('https://www.zhama.com/app/home');
+  const locale = useLocale();
+  const [release, setRelease] = useState<LatestRelease | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [userPlatform, setUserPlatform] = useState<{ os: Platform; arch: 'arm64' | 'x64' }>({ os: 'unknown', arch: 'x64' });
 
   useEffect(() => {
-    // Detect WeChat browser
-    setIsWechat(/MicroMessenger/i.test(navigator.userAgent));
+    setUserPlatform(detectPlatform());
 
-    // Get code from URL parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get('code');
-    console.log(code);
-    const deepLinkUrl = `zhamaapp://app/home?route=invite&code=${code}`;
-    setAppLinksUrl(deepLinkUrl);
+    fetch(CDN_URL)
+      .then(res => res.json())
+      .then((data: LatestRelease) => {
+        setRelease(data);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
   }, []);
 
-  const closeWeChatMask = () => {
-    setMaskClosed(true);
-  };
+  const recommendedDownload = useMemo(() => {
+    if (!release) return null;
+    const { os, arch } = userPlatform;
+    if (os === 'macos') {
+      return {
+        url: arch === 'arm64' ? release.downloads.macos_arm64 : release.downloads.macos_x64,
+        label: `macOS (${arch === 'arm64' ? 'Apple Silicon' : 'Intel'})`,
+        ext: '.dmg',
+      };
+    }
+    if (os === 'windows') {
+      return { url: release.downloads.windows_x64_exe, label: 'Windows (x64)', ext: '.exe' };
+    }
+    if (os === 'linux') {
+      return {
+        url: arch === 'arm64' ? release.downloads.linux_arm64_appimage : release.downloads.linux_x64_appimage,
+        label: `Linux (${arch === 'arm64' ? 'ARM64' : 'x64'})`,
+        ext: '.AppImage',
+      };
+    }
+    return null;
+  }, [release, userPlatform]);
+
+  const desktopDownloads = useMemo(() => {
+    if (!release) return [];
+    return [
+      { os: 'macos' as const, label: 'macOS', variants: [
+        { label: 'Apple Silicon (.dmg)', url: release.downloads.macos_arm64 },
+        { label: 'Intel (.dmg)', url: release.downloads.macos_x64 },
+      ]},
+      { os: 'windows' as const, label: 'Windows', variants: [
+        { label: 'Windows (.exe)', url: release.downloads.windows_x64_exe },
+        { label: 'Windows (.msi)', url: release.downloads.windows_x64_msi },
+      ]},
+      { os: 'linux' as const, label: 'Linux', variants: [
+        { label: 'x64 (.AppImage)', url: release.downloads.linux_x64_appimage },
+        { label: 'x64 (.deb)', url: release.downloads.linux_x64_deb },
+        { label: 'ARM64 (.AppImage)', url: release.downloads.linux_arm64_appimage },
+        { label: 'ARM64 (.deb)', url: release.downloads.linux_arm64_deb },
+      ]},
+    ];
+  }, [release]);
 
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
-      {/* WeChat Open-in-Browser Overlay */}
-      {isWechat && !maskClosed && (
-        <div className="wechat-browser-mask fixed inset-0 z-50 bg-black bg-opacity-70 flex flex-col items-stretch">
-          <div className="relative flex-1">
-            {/* Top-right arrow pointing to menu */}
-            <div className="absolute top-3 right-10">
-              <div className="relative">
-                {/* Arrow with glow effect */}
-                <div className="arrow-glow absolute inset-0"></div>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24 text-white transform rotate-20 animate-bounce-slow" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clipRule="evenodd" />
-                </svg>
-                <div className="absolute top-28 right-0 w-48 text-white text-lg font-bold text-center">
-                  <p className="text-shadow">{t('wechatBrowser.topArrow')}</p>
-                  <div className="flex items-center justify-center mt-1 mb-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
-                    </svg>
-                  </div>
-                  <p className="text-shadow">{t('wechatBrowser.selectBrowser')}</p>
-                </div>
+    <div className="pt-24 pb-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-zinc-50 mb-3">
+            {t('download.heading')}
+          </h1>
+          {release && (
+            <p className="text-lg text-primary-600 dark:text-primary-400 font-medium">
+              {t('version', { version: release.version })} · {new Date(release.releaseDate).toLocaleDateString(locale === 'zh' ? 'zh-CN' : 'en-US')}
+            </p>
+          )}
+        </div>
+
+        {/* Recommended Download */}
+        {!loading && recommendedDownload && (
+          <div className="max-w-xl mx-auto mb-16">
+            <a
+              href={recommendedDownload.url}
+              className="group flex items-center gap-5 p-6 rounded-2xl bg-primary-600 hover:bg-primary-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 active:scale-[0.98]"
+            >
+              <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center">
+                {platformIcons[userPlatform.os] || platformIcons.macos}
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-sm opacity-80">{t('recommended')}</div>
+                <div className="text-xl font-bold">{t('downloadFor', { platform: recommendedDownload.label })}</div>
+                <div className="text-sm opacity-70 mt-0.5">{recommendedDownload.ext}</div>
+              </div>
+              <svg className="w-6 h-6 flex-shrink-0 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+              </svg>
+            </a>
+          </div>
+        )}
+
+        {loading && (
+          <div className="max-w-xl mx-auto mb-16">
+            <div className="flex items-center gap-5 p-6 rounded-2xl bg-zinc-200 dark:bg-zinc-800 animate-pulse">
+              <div className="w-14 h-14 rounded-xl bg-zinc-300 dark:bg-zinc-700" />
+              <div className="flex-1 space-y-2">
+                <div className="h-4 bg-zinc-300 dark:bg-zinc-700 rounded w-24" />
+                <div className="h-6 bg-zinc-300 dark:bg-zinc-700 rounded w-48" />
               </div>
             </div>
           </div>
-          {/* Bottom instructions */}
-          <div className="text-center text-white p-6 bg-black bg-opacity-60">
-            <p className="text-lg mb-2">{t('wechatBrowser.message')}</p>
-            <button onClick={closeWeChatMask} className="mt-2 px-6 py-2 bg-yellow-500 text-black rounded-full font-bold hover:bg-yellow-400 transition-colors">{t('wechatBrowser.button')}</button>
+        )}
+
+        {/* Desktop Downloads Grid */}
+        <div className="mb-16">
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-50 mb-6 text-center">
+            {t('desktop.title')}
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {desktopDownloads.map((platform) => (
+              <div
+                key={platform.os}
+                className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:shadow-md transition-shadow"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-700 dark:text-zinc-300">
+                    {platformIcons[platform.os]}
+                  </div>
+                  <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">{platform.label}</h3>
+                </div>
+                <div className="space-y-2">
+                  {platform.variants.map((v) => (
+                    <a
+                      key={v.url}
+                      href={v.url}
+                      className="flex items-center justify-between gap-2 px-3 py-2 rounded-lg bg-zinc-50 dark:bg-zinc-800 hover:bg-primary-50 dark:hover:bg-primary-900/20 text-sm text-zinc-700 dark:text-zinc-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors group"
+                    >
+                      <span>{v.label}</span>
+                      <svg className="w-4 h-4 flex-shrink-0 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                      </svg>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      )}
 
-      <main className="animate-fadeIn py-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto">
-          {/* Page Title */}
-          <h1 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-6 md:mb-8">{t('title')}</h1>
-          
-          {/* WeChat Open-in-Browser Notice (smaller notice that remains after dismissing overlay) */}
-          {isWechat && maskClosed && (
-            <div className="wechat-notice bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6 rounded-md shadow-sm max-w-md mx-auto">
-              <div className="flex">
-                <div className="flex-shrink-0 text-yellow-500 mr-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+        {/* Mobile + Web */}
+        <div className="mb-16">
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-50 mb-6 text-center">
+            {t('mobile.title')}
+          </h2>
+          <div className="grid sm:grid-cols-3 gap-6">
+            {/* iOS */}
+            <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 relative overflow-hidden">
+              <span className="absolute top-3 right-3 text-xs font-medium px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400">
+                {t('comingSoon')}
+              </span>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-400 dark:text-zinc-500">
+                  {platformIcons.ios}
+                </div>
+                <h3 className="text-lg font-bold text-zinc-400 dark:text-zinc-500">iOS</h3>
+              </div>
+              <p className="text-sm text-zinc-400 dark:text-zinc-500">{t('ios.description')}</p>
+            </div>
+
+            {/* Android */}
+            <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 relative overflow-hidden">
+              <span className="absolute top-3 right-3 text-xs font-medium px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400">
+                {t('comingSoon')}
+              </span>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-400 dark:text-zinc-500">
+                  {platformIcons.android}
+                </div>
+                <h3 className="text-lg font-bold text-zinc-400 dark:text-zinc-500">Android</h3>
+              </div>
+              <p className="text-sm text-zinc-400 dark:text-zinc-500">{t('android.description')}</p>
+            </div>
+
+            {/* Web */}
+            <a
+              href="https://tego.zhama.com.cn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:shadow-md hover:border-primary-300 dark:hover:border-primary-700 transition-all group"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
                   </svg>
                 </div>
-                <div>
-                  <h3 className="text-md font-semibold text-yellow-800 mb-1">{t('wechatBrowser.notice')}</h3>
-                  <p className="text-sm text-yellow-700 mb-2">
-                    {t('wechatBrowser.instruction')}
-                    <svg xmlns="http://www.w3.org/2000/svg" className="inline-block h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
-                    </svg>
-                  </p>
-                </div>
+                <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  {t('web.title')}
+                </h3>
               </div>
-            </div>
-          )}
-
-          {/* Desktop/Mobile Layout */}
-          <div className="flex flex-col lg:flex-row lg:items-start lg:gap-12">
-            {/* Left Column for Desktop (App Logo, Features) */}
-            <div className="lg:w-1/2">
-              {/* App Logo and Title */}
-              <div className="text-center lg:text-left mb-8">
-                <div className="w-24 h-24 md:w-28 md:h-28 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl mx-auto lg:mx-0 mb-4 flex items-center justify-center shadow-lg">
-                  <Image src="/images/logo_light.png" alt={t('appLogo.alt')} width={112} height={112} className="w-full h-full object-contain" />
-                </div>
-                <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{t('appLogo.title')}</h1>
-                <p className="text-gray-600 text-lg md:text-xl">{t('appIntro.slogan')}</p>
-                <p className="text-primary-600 font-medium mt-2 text-sm md:text-base">{t('appIntro.tagline')}</p>
-              </div>
-
-              {/* App Features */}
-              <div className="mb-8">
-                <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4 text-center lg:text-left">{t('whyChoose')}</h2>
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 text-primary-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-7 md:w-7" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div className="ml-3">
-                      <p className="text-gray-800 font-medium md:text-lg">{t('features.dataCollection.title')}</p>
-                      <p className="text-gray-600 text-sm md:text-base">{t('features.dataCollection.description')}</p>
-                    </div>
-                  </div>
-                  {/* ... more features ... */}
-                </div>
-                
-                {/* Ideal for sections */}
-                <div className="mt-6 bg-gradient-to-r from-primary-50 to-blue-50 p-4 rounded-lg border border-primary-200">
-                  <h3 className="font-medium text-primary-700 mb-2 text-center lg:text-left">{t('targetUsers.title')}</h3>
-                  <div className="grid grid-cols-2 gap-2 text-sm md:text-base">
-                    <div className="flex items-center">
-                      <span className="w-2 h-2 bg-primary-600 rounded-full mr-2"></span>
-                      <span className="text-gray-700">{t('targetUsers.executive')}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <span className="w-2 h-2 bg-primary-600 rounded-full mr-2"></span>
-                      <span className="text-gray-700">{t('targetUsers.researcher')}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <span className="w-2 h-2 bg-primary-600 rounded-full mr-2"></span>
-                      <span className="text-gray-700">{t('targetUsers.student')}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <span className="w-2 h-2 bg-primary-600 rounded-full mr-2"></span>
-                      <span className="text-gray-700">{t('targetUsers.planner')}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column for Desktop (Download Options) */}
-            <div className="lg:w-1/2">
-              {/* Download Buttons - Redesigned Layout */}
-              <div className="space-y-6">
-                <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3 text-center lg:text-left">{t('download.heading')}</h2>
-                
-                {/* Web App Button */}
-                <a href={appLinksUrl} target="_blank" 
-                  className="group block w-full bg-gradient-to-r from-blue-500 to-primary-600 hover:from-blue-600 hover:to-primary-700 text-white font-medium py-3 px-5 rounded-xl shadow-md transition-all duration-300">
-                  <div className="flex items-center">
-                    <div className="flex-shrink-0 bg-white bg-opacity-20 p-2.5 rounded-lg mr-4">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-7 md:w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9" />
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <span className="block text-sm font-normal md:text-base">{t('download.webapp.title')}</span>
-                      <span className="block text-base font-bold group-hover:translate-x-1 transition-transform md:text-lg">{t('download.webapp.action')}</span>
-                    </div>
-                  </div>
-                </a>
-                
-                
-                {/* QR Code Section */}
-                <div className="mt-8 text-center">
-                  <p className="text-sm text-gray-500 mb-2 md:text-base">{t('download.qrCode.notice')}</p>
-                  <div className="w-48 h-48 md:w-56 md:h-56 bg-white p-2 mx-auto rounded-md shadow-md border border-gray-200 overflow-hidden">
-                    <Image src="/images/link_qrcode.png" alt={t('download.qrCode.alt')} width={224} height={224} className="w-full h-full object-contain" />
-                  </div>
-                  <p className="text-xs text-gray-500 mt-2 md:text-sm">{t('download.qrCode.description')}</p>
-                </div>
-              </div>
-            </div>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">{t('web.description')}</p>
+            </a>
           </div>
         </div>
-       </main>
 
-      <style jsx>{`
-        /* WeChat notice animation */
-        .wechat-notice {
-          animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-          0% {
-            box-shadow: 0 0 0 0 rgba(253, 224, 71, 0.4);
-          }
-          70% {
-            box-shadow: 0 0 0 10px rgba(253, 224, 71, 0);
-          }
-          100% {
-            box-shadow: 0 0 0 0 rgba(253, 224, 71, 0);
-          }
-        }
-
-        /* WeChat browser mask styles */
-        .wechat-browser-mask {
-          backdrop-filter: blur(2px);
-        }
-
-        /* Custom slow bounce animation for the arrow */
-        .animate-bounce-slow {
-          animation: bounce-slow 2s infinite;
-        }
-
-        @keyframes bounce-slow {
-          0%, 100% {
-            transform: translateY(0) rotate(20deg);
-            animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-          }
-          50% {
-            transform: translateY(-15px) rotate(20deg);
-            animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-          }
-        }
-
-        /* Arrow glow effect */
-        .arrow-glow {
-          animation: glow 1.5s ease-in-out infinite alternate;
-          border-radius: 50%;
-        }
-
-        @keyframes glow {
-          from {
-            box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
-          }
-          to {
-            box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.8);
-          }
-        }
-
-        /* Text shadow for better readability */
-        .text-shadow {
-          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-        }
-
-        /* Fade in animation */
-        .animate-fadeIn {
-          animation: fadeIn 0.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
+        {/* Enterprise CTA */}
+        <div className="text-center rounded-2xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-8">
+          <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-50 mb-2">{t('enterprise.title')}</h3>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-4">{t('enterprise.description')}</p>
+          <Link
+            href={`/${locale}/contact`}
+            className="inline-flex items-center px-6 py-2.5 rounded-xl bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium shadow-md hover:shadow-lg transition-all"
+          >
+            {t('enterprise.cta')}
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

@@ -53,12 +53,12 @@
     "hero": {
       "title": "AI，终于能像团队一样工作了",
       "tagline": "数字分身 × 智能协作 × 企业治理",
-      "description": "TeGo-OS 以企业数字分身为核心载体，融合智能编排引擎、任务权限治理与 MCP 统一管理，帮助企业在安全可控前提下，将组织知识升级为 24×7 在线、持续进化的数字员工体系。",
+      "description": "TeGo-OS v2.8.0 正式推出「数字分身」系统 — 为每位员工配备独立的 AI 分身，拥有独立容器运行时、数据隔离、技能配置和安全边界。融合多租户四层隔离架构、智能编排引擎与企业级治理，让 AI 从「对话工具」升级为真正的「数字员工操作系统」。",
       "bullets": {
-        "dualAvatar": "数字分身双形态：个人分身服务个人效率，组织分身服务企业级共享协作",
-        "orchestration": "编排即生产力：支持 A2A / 对话 / 表单 / Webhook 多触发方式",
-        "governance": "企业级治理：可见性、授权、审计、护栏、审批全链路管控",
-        "mcp": "MCP 零侵入接入：零入侵、免部署，一键转换原系统接口"
+        "dualAvatar": "数字分身双形态：个人分身独立容器运行，组织分身多副本高可用，每个分身都是完整的 AI 运行时",
+        "orchestration": "编排即生产力：LAMP 协作框架 + DAG 并发调度，效率提升 2-5 倍",
+        "governance": "企业级治理：多租户四层隔离、RBAC 权限、审计日志、全生命周期管理，合规可追溯",
+        "mcp": "技能热装卸 + MCP 零侵入：像装 App 一样给分身安装技能，一键转换原系统接口"
       },
       "cta": "申请企业版演示",
       "secondaryCta": "体验在线 Demo",
@@ -207,61 +207,36 @@
     }
   },
   "appDownload": {
-    "title": "立即体验 TeGo AI 超级团队",
-    "appLogo": {
-      "title": "TeGo",
-      "alt": "TeGo AI 超级团队 Logo"
-    },
-    "appIntro": {
-      "slogan": "组建一支永不疲惫的 AI 超级团队",
-      "tagline": "深圳市扎马未来科技有限公司"
-    },
-    "whyChoose": "为什么选择 TeGo？从 Agent 孤岛到 AI 超级团队",
-    "features": {
-      "dataCollection": {
-        "title": "统一管控，解决 Agent 孤岛问题",
-        "description": "降低管理成本，实现数据互通与协同"
-      }
-    },
-    "targetUsers": {
-      "title": "适用客户类型",
-      "executive": "大型企业 · 数字化转型项目",
-      "researcher": "中型企业 · 跨部门协作流程",
-      "student": "政府机构 · AI能力中台建设",
-      "planner": "技术团队 · 多AI工具统一管理"
-    },
+    "title": "下载 TeGo AI Studio",
     "download": {
-      "heading": "多种方式快速对接 TeGo OS 智能协作中台",
-      "webapp": {
-        "title": "在线演示",
-        "action": "预约产品演示"
-      },
-      "appSection": "企业服务通道",
-      "ios": {
-        "title": "企业咨询",
-        "subtitle": "定制解决方案 · POC 验证",
-        "description": "获取专属智能化方案与 ROI 评估",
-        "action": "立即咨询"
-      },
-      "android": {
-        "title": "技术文档",
-        "subtitle": "架构说明 · 接入指南",
-        "description": "查看完整技术架构与部署文档",
-        "action": "查看文档"
-      },
-      "qrCode": {
-        "notice": "扫描二维码联系我们",
-        "description": "扫描二维码，组建您的 AI 超级团队",
-        "alt": "TeGo AI 超级团队服务联系二维码"
-      }
+      "heading": "下载 TeGo AI Studio"
     },
-    "wechatBrowser": {
-      "topArrow": "点击右上角菜单",
-      "selectBrowser": "选择在浏览器中打开",
-      "message": "请在浏览器中打开以获得最佳体验",
-      "button": "我知道了",
-      "notice": "微信内置浏览器提醒",
-      "instruction": "请点击右上角菜单 选择在浏览器中打开"
+    "version": "版本 {version}",
+    "recommended": "检测到您的系统，推荐下载",
+    "downloadFor": "下载 {platform} 版本",
+    "desktop": {
+      "title": "桌面客户端"
+    },
+    "mobile": {
+      "title": "移动端与 Web"
+    },
+    "comingSoon": "即将推出",
+    "ios": {
+      "title": "iOS",
+      "description": "iPhone 与 iPad 版本正在开发中，敬请期待"
+    },
+    "android": {
+      "title": "Android",
+      "description": "Android 版本正在开发中，敬请期待"
+    },
+    "web": {
+      "title": "Web 在线版",
+      "description": "无需安装，浏览器即用，随时随地访问您的数字分身"
+    },
+    "enterprise": {
+      "title": "需要企业级私有化部署？",
+      "description": "支持 Docker Compose / Kubernetes / 混合云部署，30 天免费 POC 验证",
+      "cta": "联系销售"
     }
   },
   "privacy": {
@@ -561,7 +536,7 @@
         "email": "support@zhama.com"
       }
     },
-    "copyright": "© 2025 深圳市扎马未来科技有限公司 版权所有",
+    "copyright": "© 2026 深圳市扎马未来科技有限公司 版权所有",
     "icp": "粤ICP备2025426259号-1"
   },
   "advantagesSection": {
@@ -717,12 +692,12 @@
   },
   "downloadPage": {
     "seo": {
-      "title": "下载体验 - TeGo AI 超级团队",
-      "description": "TeGo AI 超级团队下载与体验页面。支持企业咨询、产品演示、技术文档查看和私有化部署服务。组建永不疲惫的 AI 超级团队。",
-      "keywords": "TeGo下载, AI 超级团队, 智能体协作平台, 企业AI演示, 多智能体协作, 私有化部署, 技术文档",
+      "title": "下载 TeGo AI Studio - 企业数字分身桌面客户端",
+      "description": "下载 TeGo AI Studio 桌面客户端，支持 macOS、Windows、Linux 多平台。每位员工拥有自己的 AI 数字分身，7×24 小时协助工作。",
+      "keywords": "TeGo下载, TeGo AI Studio, 数字分身客户端, macOS, Windows, Linux, 企业AI, 桌面客户端",
       "openGraph": {
-        "title": "下载体验 - TeGo AI 超级团队",
-        "description": "立即体验 TeGo AI 超级团队，获取企业级多智能体协作解决方案演示与技术支持。"
+        "title": "下载 TeGo AI Studio - 企业数字分身桌面客户端",
+        "description": "下载 TeGo AI Studio，让每位员工拥有自己的 AI 数字分身。支持 macOS、Windows、Linux。"
       }
     }
   },
@@ -1393,24 +1368,24 @@
     "subtitle": "每一个引擎，都是企业 AI 从可用到好用的关键跃迁",
     "digitalAvatar": {
       "title": "数字分身引擎",
-      "tagline": "不只是 Chatbot，是有「身体」的 AI",
-      "highlight": "一个分身，覆盖你所有的数字触点",
+      "tagline": "每位员工的专属 AI 运行时",
+      "highlight": "不只是 AI 助手，是拥有独立容器、数据、技能和安全边界的数字员工",
       "features": {
         "dualForm": {
           "title": "个人分身 + 组织分身",
-          "description": "个人分身服务个人效率，组织分身服务企业级共享协作"
+          "description": "个人分身绑定员工独立运行，组织分身多副本高可用（每副本支持 100 用户），覆盖全场景"
         },
-        "multiChannel": {
-          "title": "12+ 通道触达",
-          "description": "WhatsApp、Slack、Teams、微信等全渠道同时在线"
+        "containerRuntime": {
+          "title": "独立容器运行时",
+          "description": "每个分身独立 Docker 容器运行，CPU / 内存 / 存储完全隔离，互不干扰"
         },
-        "voiceBrowser": {
-          "title": "语音 + 浏览器自动化",
-          "description": "语音对话解放双手，浏览器自动化让 AI 真正能「操作电脑」"
+        "resourceQuota": {
+          "title": "精细化资源管控",
+          "description": "CPU 0.25-4 核、内存 512MB-8GB 可配，按用户/部门/租户灵活分配，成本透明"
         },
-        "crossDevice": {
-          "title": "跨设备节点网络",
-          "description": "macOS / iOS / Android 设备作为远程节点，AI 触达无处不在"
+        "lifecycleManagement": {
+          "title": "全生命周期管理",
+          "description": "创建 → 审批 → 部署 → 运行 → 停止 → 卸载，完整状态机管理，零人工干预"
         }
       }
     },
@@ -1473,13 +1448,13 @@
           "title": "审核-审批-护栏-审计",
           "description": "全链路管控，谁可见、谁可用、谁可改、谁负责清晰可追溯"
         },
-        "observability": {
-          "title": "OpenTelemetry 全栈可观测",
-          "description": "Traces / Metrics / Logs 全量采集，企业运维必备"
+        "multiTenantIsolation": {
+          "title": "多租户四层隔离",
+          "description": "数据库 + 缓存 + 文件 + 容器四层完全隔离，跨租户互不可见，满足等保 / 金融 / 政务合规"
         },
-        "isolation": {
-          "title": "多用户会话级隔离",
-          "description": "工作区隔离 + 身份透传，组织分身的安全基石"
+        "configManagement": {
+          "title": "配置集中管控",
+          "description": "LLM 提供商、模型策略、Agent 列表统一配置，自动同步所有分身实例，一处修改全局生效"
         }
       }
     }
@@ -1531,19 +1506,19 @@
   "securityCompliance": {
     "title": "安全与合规",
     "subtitle": "面向企业生产环境打造",
-    "description": "权限、隔离、管控、审计、扩展与合规——企业级 AI 落地的关键基座。",
+    "description": "多租户隔离、容器安全、权限管控、审计追溯——企业级 AI 落地的关键基座。",
     "features": {
-      "multiAuth": {
-        "title": "多认证源集成",
-        "description": "Local / LDAP / OIDC 多种企业级身份认证方式"
+      "multiTenantIsolation": {
+        "title": "多租户四层隔离",
+        "description": "数据库、缓存、文件、容器四层完全隔离，跨租户互不可见"
       },
-      "sessionIsolation": {
-        "title": "会话级隔离",
-        "description": "多用户会话隔离、工作区隔离、身份透传"
+      "containerSecurity": {
+        "title": "容器级安全边界",
+        "description": "每个分身独立容器运行，JWT Token 认证 + 30 秒心跳监控 + 异常自动恢复"
       },
       "auditTrail": {
         "title": "全链路审计",
-        "description": "查看、执行、发布、授权、回收等动作全量记录"
+        "description": "工具调用前后自动记录审计日志，敏感操作自动拦截校验，全链路可追溯"
       },
       "aiGuardrail": {
         "title": "AI 护栏系统",
@@ -1555,7 +1530,7 @@
       },
       "deployment": {
         "title": "弹性部署架构",
-        "description": "Docker Compose 一键启动 / Kubernetes 弹性编排 / Traefik 动态路由"
+        "description": "Docker Compose / Kubernetes / Traefik 动态路由，支持完全私有化部署"
       }
     },
     "upgrades": {
@@ -1634,6 +1609,59 @@
         "label": "能力上线周期",
         "description": "MCP 零侵入接入 + 智能编排"
       }
+    }
+  },
+  "competitiveComparison": {
+    "title": "为什么选择 TeGo-OS",
+    "subtitle": "对比 Dify、Coze、ChatGPT Teams 等主流产品",
+    "description": "TeGo-OS v2.8.0 在数字分身、多租户隔离、资源管控、技能生态等维度全面领先",
+    "categories": {
+      "avatar": {
+        "title": "数字分身体系",
+        "items": {
+          "digitalAvatar": "数字分身 / 数字员工",
+          "personalAvatar": "个人专属 AI（独立容器）",
+          "orgAvatar": "组织共享 AI（多副本高可用）"
+        }
+      },
+      "enterprise": {
+        "title": "企业级能力",
+        "items": {
+          "multiTenant": "多租户隔离（四层）",
+          "resourceQuota": "资源配额管控",
+          "lifecycle": "全生命周期管理",
+          "configManagement": "配置集中管控"
+        }
+      },
+      "ecosystem": {
+        "title": "技能与生态",
+        "items": {
+          "skillHotReload": "技能热装卸",
+          "agentSkills": "Agent Skills 标准化生态",
+          "a2ui": "A2UI 动态界面",
+          "channels": "15+ 渠道接入"
+        }
+      },
+      "deployment": {
+        "title": "部署与合规",
+        "items": {
+          "privateDeploy": "完全私有化部署",
+          "rbac": "RBAC 权限体系",
+          "audit": "全链路审计日志"
+        }
+      }
+    },
+    "competitors": {
+      "tego": "TeGo-OS",
+      "dify": "Dify",
+      "coze": "Coze",
+      "chatgptTeams": "ChatGPT Teams"
+    },
+    "support": {
+      "full": "✓ 完整支持",
+      "partial": "部分支持",
+      "none": "✗ 不支持",
+      "basic": "基础"
     }
   },
   "bottomCTA": {

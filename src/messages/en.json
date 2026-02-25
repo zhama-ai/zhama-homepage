@@ -53,12 +53,12 @@
     "hero": {
       "title": "AI That Finally Works Like a Team",
       "tagline": "Digital Avatar × Smart Orchestration × Enterprise Governance",
-      "description": "TeGo-OS uses enterprise digital avatars as the core carrier, integrating smart orchestration engines, task permission governance, and unified MCP management to help enterprises upgrade organizational knowledge into a 24×7 online, continuously evolving digital workforce — all under secure, controlled governance.",
+      "description": "TeGo-OS v2.8.0 introduces the Digital Avatar system — giving every employee a dedicated AI avatar with its own container runtime, data isolation, skill configuration, and security boundary. With multi-tenant 4-layer isolation, smart orchestration, and enterprise governance, AI evolves from a \"chat tool\" into a true \"Digital Employee Operating System.\"",
       "bullets": {
-        "dualAvatar": "Dual Avatar System: Personal avatars for individual productivity, organizational avatars for enterprise-wide collaboration",
-        "orchestration": "Orchestration as Productivity: A2A / Chat / Form / Webhook multi-trigger support",
-        "governance": "Enterprise Governance: Visibility, authorization, audit, guardrails, approval — full-chain control",
-        "mcp": "Zero-Invasion MCP Access: No modification, no deployment — one-click API conversion"
+        "dualAvatar": "Dual Avatar System: Personal avatars in isolated containers, organizational avatars with multi-replica HA — each a full AI runtime",
+        "orchestration": "Orchestration as Productivity: LAMP framework + DAG concurrent scheduling, 2-5x efficiency boost",
+        "governance": "Enterprise Governance: Multi-tenant 4-layer isolation, RBAC, audit logs, full lifecycle management — fully traceable",
+        "mcp": "Hot-Pluggable Skills + Zero-Invasion MCP: Install skills like apps, one-click legacy API conversion"
       },
       "cta": "Request Enterprise Demo",
       "secondaryCta": "Try Online Demo",
@@ -207,61 +207,36 @@
     }
   },
   "appDownload": {
-    "title": "Experience TeGo AI Super Team",
-    "appLogo": {
-      "title": "TeGo",
-      "alt": "TeGo AI Super Team Logo"
-    },
-    "appIntro": {
-      "slogan": "Build an Untiring AI Super Team",
-      "tagline": "Shenzhen Zhama Future Technology Co., Ltd."
-    },
-    "whyChoose": "Why Choose TeGo? From Agent Silos to AI Super Team",
-    "features": {
-      "dataCollection": {
-        "title": "Unified Management, Solving Agent Silos",
-        "description": "Reduce management costs, enable data interoperability and collaboration"
-      }
-    },
-    "targetUsers": {
-      "title": "Target Customers",
-      "executive": "Large Enterprises · Digital Transformation",
-      "researcher": "Mid-sized Companies · Cross-department Workflows",
-      "student": "Government · AI Capability Platform",
-      "planner": "Tech Teams · Multi-AI Tool Management"
-    },
+    "title": "Download TeGo AI Studio",
     "download": {
-      "heading": "Multiple Ways to Connect with TeGo AI Super Team",
-      "webapp": {
-        "title": "Online Demo",
-        "action": "Schedule Product Demo"
-      },
-      "appSection": "Enterprise Service Channel",
-      "ios": {
-        "title": "Enterprise Consultation",
-        "subtitle": "Custom Solutions · POC Validation",
-        "description": "Get exclusive solutions and ROI assessment",
-        "action": "Consult Now"
-      },
-      "android": {
-        "title": "Technical Documentation",
-        "subtitle": "Architecture · Integration Guide",
-        "description": "View complete technical architecture and deployment docs",
-        "action": "View Documentation"
-      },
-      "qrCode": {
-        "notice": "Scan QR Code to Contact Us",
-        "description": "Scan QR code to build your AI Super Team",
-        "alt": "TeGo AI Super Team Service Contact QR Code"
-      }
+      "heading": "Download TeGo AI Studio"
     },
-    "wechatBrowser": {
-      "topArrow": "Click top-right menu",
-      "selectBrowser": "Select open in browser",
-      "message": "Please open in browser for best experience",
-      "button": "Got it",
-      "notice": "WeChat built-in browser reminder",
-      "instruction": "Please click top-right menu and select open in browser"
+    "version": "Version {version}",
+    "recommended": "Detected your system, recommended download",
+    "downloadFor": "Download for {platform}",
+    "desktop": {
+      "title": "Desktop Client"
+    },
+    "mobile": {
+      "title": "Mobile & Web"
+    },
+    "comingSoon": "Coming Soon",
+    "ios": {
+      "title": "iOS",
+      "description": "iPhone and iPad version is under development, stay tuned"
+    },
+    "android": {
+      "title": "Android",
+      "description": "Android version is under development, stay tuned"
+    },
+    "web": {
+      "title": "Web Online",
+      "description": "No installation needed, access your digital avatar anytime from your browser"
+    },
+    "enterprise": {
+      "title": "Need Enterprise Private Deployment?",
+      "description": "Docker Compose / Kubernetes / Hybrid Cloud deployment, 30-day free POC",
+      "cta": "Contact Sales"
     }
   },
   "privacy": {
@@ -561,7 +536,7 @@
         "email": "support@zhama.com"
       }
     },
-    "copyright": "© 2025 Shenzhen Zhama Future Technology Co., Ltd. All rights reserved.",
+    "copyright": "© 2026 Shenzhen Zhama Future Technology Co., Ltd. All rights reserved.",
     "icp": ""
   },
   "advantagesSection": {
@@ -717,12 +692,12 @@
   },
   "downloadPage": {
     "seo": {
-      "title": "Download & Experience - TeGo AI Super Team",
-      "description": "TeGo AI Super Team download and experience page. Support enterprise consultation, product demo, technical documentation and private deployment services. Build your untiring AI super team.",
-      "keywords": "TeGo download, AI Super Team, AI agent collaboration platform, enterprise AI demo, multi-agent collaboration, private deployment, technical documentation",
+      "title": "Download TeGo AI Studio - Enterprise Digital Avatar Desktop Client",
+      "description": "Download TeGo AI Studio desktop client for macOS, Windows, and Linux. Give every employee their own AI digital avatar, working 24/7.",
+      "keywords": "TeGo download, TeGo AI Studio, digital avatar client, macOS, Windows, Linux, enterprise AI, desktop client",
       "openGraph": {
-        "title": "Download & Experience - TeGo AI Super Team",
-        "description": "Experience TeGo AI Super Team now, get enterprise AI multi-agent collaboration solution demo and technical support."
+        "title": "Download TeGo AI Studio - Enterprise Digital Avatar Desktop Client",
+        "description": "Download TeGo AI Studio — give every employee their own AI digital avatar. Available for macOS, Windows, and Linux."
       }
     }
   },
@@ -1393,24 +1368,24 @@
     "subtitle": "Each engine represents a critical leap from usable AI to truly effective enterprise AI",
     "digitalAvatar": {
       "title": "Digital Avatar Engine",
-      "tagline": "Not just a chatbot — AI with a \"body\"",
-      "highlight": "One avatar, covering all your digital touchpoints",
+      "tagline": "A dedicated AI runtime for every employee",
+      "highlight": "Not just an AI assistant — a digital employee with its own container, data, skills, and security boundary",
       "features": {
         "dualForm": {
           "title": "Personal + Organizational Avatars",
-          "description": "Personal avatars for individual productivity, organizational avatars for enterprise-wide shared collaboration"
+          "description": "Personal avatars run in isolated containers; organizational avatars scale with multi-replica HA (100 users per replica)"
         },
-        "multiChannel": {
-          "title": "12+ Channel Access",
-          "description": "WhatsApp, Slack, Teams, WeChat and more — simultaneously online across all channels"
+        "containerRuntime": {
+          "title": "Independent Container Runtime",
+          "description": "Each avatar runs in its own Docker container with fully isolated CPU, memory, and storage"
         },
-        "voiceBrowser": {
-          "title": "Voice + Browser Automation",
-          "description": "Voice conversation frees your hands; browser automation lets AI truly \"operate computers\""
+        "resourceQuota": {
+          "title": "Fine-Grained Resource Management",
+          "description": "CPU 0.25-4 cores, memory 512MB-8GB configurable, allocated by user/department/tenant with transparent costs"
         },
-        "crossDevice": {
-          "title": "Cross-Device Node Network",
-          "description": "macOS / iOS / Android devices as remote nodes — AI reach everywhere"
+        "lifecycleManagement": {
+          "title": "Full Lifecycle Management",
+          "description": "Create → Approve → Deploy → Run → Stop → Uninstall — complete state machine management, zero manual intervention"
         }
       }
     },
@@ -1473,13 +1448,13 @@
           "title": "Review-Approval-Guardrail-Audit",
           "description": "Full-chain governance — who can see, use, edit, and who's responsible — all traceable"
         },
-        "observability": {
-          "title": "OpenTelemetry Full-Stack Observability",
-          "description": "Traces / Metrics / Logs full collection — essential for enterprise operations"
+        "multiTenantIsolation": {
+          "title": "Multi-Tenant 4-Layer Isolation",
+          "description": "Database + cache + file + container — four layers of complete isolation, cross-tenant invisible, meeting compliance requirements"
         },
-        "isolation": {
-          "title": "Multi-User Session Isolation",
-          "description": "Workspace isolation + identity passthrough — the security foundation for organizational avatars"
+        "configManagement": {
+          "title": "Centralized Configuration Management",
+          "description": "LLM providers, model strategies, agent lists — unified configuration auto-synced to all avatar instances"
         }
       }
     }
@@ -1531,19 +1506,19 @@
   "securityCompliance": {
     "title": "Security & Compliance",
     "subtitle": "Built for Enterprise Production Environments",
-    "description": "Permissions, isolation, governance, audit, scalability, and compliance — the critical foundation for enterprise AI deployment.",
+    "description": "Multi-tenant isolation, container security, permission governance, audit trails — the critical foundation for enterprise AI deployment.",
     "features": {
-      "multiAuth": {
-        "title": "Multi-Auth Integration",
-        "description": "Local / LDAP / OIDC multiple enterprise authentication methods"
+      "multiTenantIsolation": {
+        "title": "Multi-Tenant 4-Layer Isolation",
+        "description": "Database, cache, file, and container — four layers of complete isolation, cross-tenant invisible"
       },
-      "sessionIsolation": {
-        "title": "Session-Level Isolation",
-        "description": "Multi-user session isolation, workspace isolation, identity passthrough"
+      "containerSecurity": {
+        "title": "Container-Level Security Boundary",
+        "description": "Each avatar in its own container with JWT Token auth + 30s heartbeat monitoring + auto-recovery"
       },
       "auditTrail": {
         "title": "Full-Chain Audit Trail",
-        "description": "View, execute, publish, authorize, revoke — all actions fully recorded"
+        "description": "Auto-logged audit trail before and after every tool call, sensitive operations auto-intercepted"
       },
       "aiGuardrail": {
         "title": "AI Guardrail System",
@@ -1555,7 +1530,7 @@
       },
       "deployment": {
         "title": "Elastic Deployment Architecture",
-        "description": "Docker Compose one-click start / Kubernetes elastic orchestration / Traefik dynamic routing"
+        "description": "Docker Compose / Kubernetes / Traefik dynamic routing, fully private deployment supported"
       }
     },
     "upgrades": {
@@ -1634,6 +1609,59 @@
         "label": "Capability Launch Time",
         "description": "MCP zero-invasion access + smart orchestration"
       }
+    }
+  },
+  "competitiveComparison": {
+    "title": "Why Choose TeGo-OS",
+    "subtitle": "Compared to Dify, Coze, ChatGPT Teams and more",
+    "description": "TeGo-OS v2.8.0 leads comprehensively in digital avatars, multi-tenant isolation, resource management, and skill ecosystem",
+    "categories": {
+      "avatar": {
+        "title": "Digital Avatar System",
+        "items": {
+          "digitalAvatar": "Digital Avatar / Digital Employee",
+          "personalAvatar": "Personal AI (Independent Container)",
+          "orgAvatar": "Organizational AI (Multi-Replica HA)"
+        }
+      },
+      "enterprise": {
+        "title": "Enterprise Capabilities",
+        "items": {
+          "multiTenant": "Multi-Tenant Isolation (4-Layer)",
+          "resourceQuota": "Resource Quota Management",
+          "lifecycle": "Full Lifecycle Management",
+          "configManagement": "Centralized Config Management"
+        }
+      },
+      "ecosystem": {
+        "title": "Skills & Ecosystem",
+        "items": {
+          "skillHotReload": "Hot-Pluggable Skills",
+          "agentSkills": "Agent Skills Standard Ecosystem",
+          "a2ui": "A2UI Dynamic Interface",
+          "channels": "15+ Channel Access"
+        }
+      },
+      "deployment": {
+        "title": "Deployment & Compliance",
+        "items": {
+          "privateDeploy": "Fully Private Deployment",
+          "rbac": "RBAC Permission System",
+          "audit": "Full-Chain Audit Logs"
+        }
+      }
+    },
+    "competitors": {
+      "tego": "TeGo-OS",
+      "dify": "Dify",
+      "coze": "Coze",
+      "chatgptTeams": "ChatGPT Teams"
+    },
+    "support": {
+      "full": "✓ Full Support",
+      "partial": "Partial",
+      "none": "✗ Not Supported",
+      "basic": "Basic"
     }
   },
   "bottomCTA": {

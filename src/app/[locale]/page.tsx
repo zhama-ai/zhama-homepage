@@ -6,6 +6,7 @@ import CoreEnginesSection from '@/components/CoreEnginesSection';
 import OmniChannelSection from '@/components/OmniChannelSection';
 import MemoryEvolutionSection from '@/components/MemoryEvolutionSection';
 import SecurityComplianceSection from '@/components/SecurityComplianceSection';
+import CompetitiveComparisonSection from '@/components/CompetitiveComparisonSection';
 import ScenariosSection from '@/components/ScenariosSection';
 import SocialProofSection from '@/components/SocialProofSection';
 import PricingSection from '@/components/PricingSection';
@@ -43,6 +44,9 @@ export default async function Home({ params }: HomeProps) {
         
         {/* 安全与合规 - 企业级能力升级 */}
         <SecurityComplianceSection locale={locale} />
+        
+        {/* 竞品对比 - TeGo-OS vs Dify / Coze / ChatGPT Teams */}
+        <CompetitiveComparisonSection locale={locale} />
         
         {/* 场景案例 - 行业 + 客户背书 */}
         <ScenariosSection locale={locale} />
