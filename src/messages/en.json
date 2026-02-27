@@ -223,11 +223,11 @@
     "comingSoon": "Coming Soon",
     "ios": {
       "title": "iOS",
-      "description": "iPhone and iPad version is under development, stay tuned"
+      "description": "Install via TestFlight for iPhone and iPad"
     },
     "android": {
       "title": "Android",
-      "description": "Android version is under development, stay tuned"
+      "description": "Download APK installer, supports Android 8.0+"
     },
     "web": {
       "title": "Web Online",

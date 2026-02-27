@@ -25,6 +25,15 @@ interface LatestRelease {
   };
 }
 
+interface MobileRelease {
+  version: string;
+  releaseDate: string;
+  platforms: {
+    ios: { downloads: { testflight: string } };
+    android: { downloads: { apk: string } };
+  };
+}
+
 type Platform = 'macos' | 'windows' | 'linux' | 'unknown';
 
 function detectPlatform(): { os: Platform; arch: 'arm64' | 'x64' } {
@@ -65,7 +74,8 @@ function detectPlatform(): { os: Platform; arch: 'arm64' | 'x64' } {
   return { os, arch };
 }
 
-const CDN_URL = 'https://cdn.zhama.com.cn/tego-ai-studio/latest.json';
+const CDN_DESKTOP_URL = 'https://cdn.zhama.com.cn/tego-ai-studio/latest.json';
+const CDN_MOBILE_URL = 'https://cdn.zhama.com.cn/tego-mobile/latest.json';
 
 const platformIcons: Record<string, React.ReactNode> = {
   macos: (
@@ -99,19 +109,21 @@ export default function DownloadClient() {
   const t = useTranslations('appDownload');
   const locale = useLocale();
   const [release, setRelease] = useState<LatestRelease | null>(null);
+  const [mobileRelease, setMobileRelease] = useState<MobileRelease | null>(null);
   const [loading, setLoading] = useState(true);
   const [userPlatform, setUserPlatform] = useState<{ os: Platform; arch: 'arm64' | 'x64' }>({ os: 'unknown', arch: 'x64' });
 
   useEffect(() => {
     setUserPlatform(detectPlatform());
 
-    fetch(CDN_URL)
-      .then(res => res.json())
-      .then((data: LatestRelease) => {
-        setRelease(data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
+    Promise.all([
+      fetch(CDN_DESKTOP_URL).then(res => res.json()).catch(() => null),
+      fetch(CDN_MOBILE_URL).then(res => res.json()).catch(() => null),
+    ]).then(([desktop, mobile]) => {
+      if (desktop) setRelease(desktop);
+      if (mobile) setMobileRelease(mobile);
+      setLoading(false);
+    });
   }, []);
 
   const recommendedDownload = useMemo(() => {
@@ -236,32 +248,40 @@ export default function DownloadClient() {
           </h2>
           <div className="grid sm:grid-cols-3 gap-6">
             {/* iOS */}
-            <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 relative overflow-hidden">
-              <span className="absolute top-3 right-3 text-xs font-medium px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400">
-                {t('comingSoon')}
-              </span>
+            <a
+              href={mobileRelease?.platforms.ios.downloads.testflight || '#'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:shadow-md hover:border-primary-300 dark:hover:border-primary-700 transition-all group"
+            >
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-400 dark:text-zinc-500">
+                <div className="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-700 dark:text-zinc-300 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                   {platformIcons.ios}
                 </div>
-                <h3 className="text-lg font-bold text-zinc-400 dark:text-zinc-500">iOS</h3>
+                <div>
+                  <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">iOS</h3>
+                  <span className="text-xs font-medium text-blue-600 dark:text-blue-400">TestFlight</span>
+                </div>
               </div>
-              <p className="text-sm text-zinc-400 dark:text-zinc-500">{t('ios.description')}</p>
-            </div>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">{t('ios.description')}</p>
+            </a>
 
             {/* Android */}
-            <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 relative overflow-hidden">
-              <span className="absolute top-3 right-3 text-xs font-medium px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400">
-                {t('comingSoon')}
-              </span>
+            <a
+              href={mobileRelease?.platforms.android.downloads.apk || '#'}
+              className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:shadow-md hover:border-primary-300 dark:hover:border-primary-700 transition-all group"
+            >
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-400 dark:text-zinc-500">
+                <div className="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-700 dark:text-zinc-300 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                   {platformIcons.android}
                 </div>
-                <h3 className="text-lg font-bold text-zinc-400 dark:text-zinc-500">Android</h3>
+                <div>
+                  <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">Android</h3>
+                  <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400">APK</span>
+                </div>
               </div>
-              <p className="text-sm text-zinc-400 dark:text-zinc-500">{t('android.description')}</p>
-            </div>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">{t('android.description')}</p>
+            </a>
 
             {/* Web */}
             <a

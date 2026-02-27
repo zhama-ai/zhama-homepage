@@ -223,11 +223,11 @@
     "comingSoon": "即将推出",
     "ios": {
       "title": "iOS",
-      "description": "iPhone 与 iPad 版本正在开发中，敬请期待"
+      "description": "通过 TestFlight 安装 iPhone 与 iPad 版本"
     },
     "android": {
       "title": "Android",
-      "description": "Android 版本正在开发中，敬请期待"
+      "description": "下载 APK 安装包，支持 Android 8.0+"
     },
     "web": {
       "title": "Web 在线版",
