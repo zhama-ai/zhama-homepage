@@ -14,6 +14,7 @@ export interface DownloadInfo {
     };
     windows: {
       x64: string;
+      x86: string;
     };
   };
   downloads: {
@@ -25,6 +26,8 @@ export interface DownloadInfo {
     linux_x64_deb: string;
     windows_x64_msi: string;
     windows_x64_exe: string;
+    windows_x86_msi: string;
+    windows_x86_exe: string;
   };
 }
 

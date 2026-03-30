@@ -11,7 +11,7 @@ interface LatestRelease {
   platforms: {
     macos: { arm64: string; x64: string };
     linux: { arm64: string; x64: string };
-    windows: { x64: string };
+    windows: { x64: string; x86: string };
   };
   downloads: {
     macos_arm64: string;
@@ -22,6 +22,8 @@ interface LatestRelease {
     linux_x64_deb: string;
     windows_x64_msi: string;
     windows_x64_exe: string;
+    windows_x86_msi: string;
+    windows_x86_exe: string;
   };
 }
 
@@ -150,8 +152,10 @@ export default function DownloadClient() {
         { label: 'Intel (.dmg)', url: release.downloads.macos_x64 },
       ]},
       { os: 'windows' as const, label: 'Windows', variants: [
-        { label: 'Windows (.exe)', url: release.downloads.windows_x64_exe },
-        { label: 'Windows (.msi)', url: release.downloads.windows_x64_msi },
+        { label: 'Windows x64 (.exe)', url: release.downloads.windows_x64_exe },
+        { label: 'Windows x64 (.msi)', url: release.downloads.windows_x64_msi },
+        { label: 'Windows x86 (.exe)', url: release.downloads.windows_x86_exe },
+        { label: 'Windows x86 (.msi)', url: release.downloads.windows_x86_msi },
       ]},
     ];
   }, [release]);
