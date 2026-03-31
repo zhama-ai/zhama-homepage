@@ -11,7 +11,7 @@ interface LatestRelease {
   platforms: {
     macos: { arm64: string; x64: string };
     linux: { arm64: string; x64: string };
-    windows: { x64: string; x86: string };
+    windows: { x64: string; x86?: string };
   };
   downloads: {
     macos_arm64: string;
@@ -22,8 +22,8 @@ interface LatestRelease {
     linux_x64_deb: string;
     windows_x64_msi: string;
     windows_x64_exe: string;
-    windows_x86_msi: string;
-    windows_x86_exe: string;
+    windows_x86_msi?: string;
+    windows_x86_exe?: string;
   };
 }
 
@@ -129,7 +129,7 @@ export default function DownloadClient() {
   }, []);
 
   const recommendedDownload = useMemo(() => {
-    if (!release) return null;
+    if (!release?.downloads) return null;
     const { os, arch } = userPlatform;
     if (os === 'macos') {
       return {
@@ -145,18 +145,20 @@ export default function DownloadClient() {
   }, [release, userPlatform]);
 
   const desktopDownloads = useMemo(() => {
-    if (!release) return [];
+    if (!release?.downloads) return [];
+    const d = release.downloads;
+    const windowsVariants = [
+      { label: 'Windows x64 (.exe)', url: d.windows_x64_exe },
+    ];
+    if (d.windows_x86_exe) {
+      windowsVariants.push({ label: 'Windows x86 (.exe)', url: d.windows_x86_exe });
+    }
     return [
       { os: 'macos' as const, label: 'macOS', variants: [
-        { label: 'Apple Silicon (.dmg)', url: release.downloads.macos_arm64 },
-        { label: 'Intel (.dmg)', url: release.downloads.macos_x64 },
+        { label: 'Apple Silicon (.dmg)', url: d.macos_arm64 },
+        { label: 'Intel (.dmg)', url: d.macos_x64 },
       ]},
-      { os: 'windows' as const, label: 'Windows', variants: [
-        { label: 'Windows x64 (.exe)', url: release.downloads.windows_x64_exe },
-        { label: 'Windows x64 (.msi)', url: release.downloads.windows_x64_msi },
-        { label: 'Windows x86 (.exe)', url: release.downloads.windows_x86_exe },
-        { label: 'Windows x86 (.msi)', url: release.downloads.windows_x86_msi },
-      ]},
+      { os: 'windows' as const, label: 'Windows', variants: windowsVariants },
     ];
   }, [release]);
 

@@ -62,24 +62,12 @@ export default async function DownloadSection({ locale }: DownloadSectionProps) 
           format: '.exe',
           recommended: true,
         },
-        {
-          label: 'MSI',
-          sublabel: 'x64',
-          url: downloadInfo.downloads.windows_x64_msi,
-          format: '.msi',
-        },
-        {
+        ...(downloadInfo.downloads.windows_x86_exe ? [{
           label: isZh ? '安装程序' : 'Installer',
           sublabel: 'x86',
           url: downloadInfo.downloads.windows_x86_exe,
           format: '.exe',
-        },
-        {
-          label: 'MSI',
-          sublabel: 'x86',
-          url: downloadInfo.downloads.windows_x86_msi,
-          format: '.msi',
-        },
+        }] : []),
       ],
     },
     {
