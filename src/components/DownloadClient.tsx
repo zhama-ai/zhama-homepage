@@ -118,9 +118,10 @@ export default function DownloadClient() {
   useEffect(() => {
     setUserPlatform(detectPlatform());
 
+    const bustCache = `?t=${Date.now()}`;
     Promise.all([
-      fetch(CDN_DESKTOP_URL).then(res => res.json()).catch(() => null),
-      fetch(CDN_MOBILE_URL).then(res => res.json()).catch(() => null),
+      fetch(CDN_DESKTOP_URL + bustCache, { cache: 'no-cache' }).then(res => res.json()).catch(() => null),
+      fetch(CDN_MOBILE_URL + bustCache, { cache: 'no-cache' }).then(res => res.json()).catch(() => null),
     ]).then(([desktop, mobile]) => {
       if (desktop) setRelease(desktop);
       if (mobile) setMobileRelease(mobile);
