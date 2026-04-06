@@ -29,78 +29,31 @@ export default async function DownloadSection({ locale }: DownloadSectionProps) 
   
   const isZh = locale === 'zh';
 
-  // 下载选项配置
-  const platformDownloads = downloadInfo ? [
-    {
+  const p = downloadInfo?.platforms;
+
+  const platformDownloads = p ? [
+    ...(p.macos ? [{
       platform: 'macos',
       icon: Apple,
-      name: isZh ? 'macOS' : 'macOS',
+      name: 'macOS',
       options: [
-        {
-          label: 'Apple Silicon',
-          sublabel: 'M1/M2/M3',
-          url: downloadInfo.downloads.macos_arm64,
-          format: '.dmg',
-        },
-        {
-          label: 'Intel',
-          sublabel: 'x64',
-          url: downloadInfo.downloads.macos_x64,
-          format: '.dmg',
-        },
+        ...(p.macos.arm64?.dmg ? [{ label: 'Apple Silicon', sublabel: 'M1/M2/M3/M4', url: p.macos.arm64.dmg, format: '.dmg' }] : []),
+        ...(p.macos.arm64?.zip ? [{ label: 'Apple Silicon', sublabel: isZh ? '便携版' : 'Portable', url: p.macos.arm64.zip, format: '.zip' }] : []),
+        ...(p.macos.x64?.dmg ? [{ label: 'Intel', sublabel: 'x64', url: p.macos.x64.dmg, format: '.dmg' }] : []),
+        ...(p.macos.x64?.zip ? [{ label: 'Intel', sublabel: isZh ? '便携版' : 'Portable', url: p.macos.x64.zip, format: '.zip' }] : []),
       ],
-    },
-    {
+    }] : []),
+    ...(p.windows ? [{
       platform: 'windows',
       icon: Monitor,
       name: 'Windows',
       options: [
-        {
-          label: isZh ? '安装程序' : 'Installer',
-          sublabel: 'x64',
-          url: downloadInfo.downloads.windows_x64_exe,
-          format: '.exe',
-          recommended: true,
-        },
-        ...(downloadInfo.downloads.windows_x86_exe ? [{
-          label: isZh ? '安装程序' : 'Installer',
-          sublabel: 'x86',
-          url: downloadInfo.downloads.windows_x86_exe,
-          format: '.exe',
-        }] : []),
+        ...(p.windows.x64?.exe ? [{ label: isZh ? '安装程序' : 'Installer', sublabel: 'x64', url: p.windows.x64.exe, format: '.exe' }] : []),
+        ...(p.windows.x64?.zip ? [{ label: isZh ? '便携版' : 'Portable', sublabel: 'x64', url: p.windows.x64.zip, format: '.zip' }] : []),
+        ...(p.windows.x86?.exe ? [{ label: isZh ? '安装程序' : 'Installer', sublabel: 'x86', url: p.windows.x86.exe, format: '.exe' }] : []),
+        ...(p.windows.x86?.zip ? [{ label: isZh ? '便携版' : 'Portable', sublabel: 'x86', url: p.windows.x86.zip, format: '.zip' }] : []),
       ],
-    },
-    {
-      platform: 'linux',
-      icon: LinuxIcon,
-      name: 'Linux',
-      options: [
-        {
-          label: 'AppImage',
-          sublabel: 'x64',
-          url: downloadInfo.downloads.linux_x64_appimage,
-          format: '.AppImage',
-        },
-        {
-          label: 'AppImage',
-          sublabel: 'ARM64',
-          url: downloadInfo.downloads.linux_arm64_appimage,
-          format: '.AppImage',
-        },
-        {
-          label: 'Deb',
-          sublabel: 'x64',
-          url: downloadInfo.downloads.linux_x64_deb,
-          format: '.deb',
-        },
-        {
-          label: 'Deb',
-          sublabel: 'ARM64',
-          url: downloadInfo.downloads.linux_arm64_deb,
-          format: '.deb',
-        },
-      ],
-    },
+    }] : []),
   ] : [];
 
   return (

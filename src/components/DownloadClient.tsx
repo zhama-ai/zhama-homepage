@@ -5,25 +5,22 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
 
+interface PlatformFormats {
+  [format: string]: string;
+}
+
 interface LatestRelease {
   version: string;
   releaseDate: string;
   platforms: {
-    macos: { arm64: string; x64: string };
-    linux: { arm64: string; x64: string };
-    windows: { x64: string; x86?: string };
-  };
-  downloads: {
-    macos_arm64: string;
-    macos_x64: string;
-    linux_arm64_appimage: string;
-    linux_arm64_deb: string;
-    linux_x64_appimage: string;
-    linux_x64_deb: string;
-    windows_x64_msi: string;
-    windows_x64_exe: string;
-    windows_x86_msi?: string;
-    windows_x86_exe?: string;
+    macos?: {
+      arm64?: PlatformFormats;
+      x64?: PlatformFormats;
+    };
+    windows?: {
+      x64?: PlatformFormats;
+      x86?: PlatformFormats;
+    };
   };
 }
 
@@ -31,8 +28,8 @@ interface MobileRelease {
   version: string;
   releaseDate: string;
   platforms: {
-    ios: { downloads: { testflight: string } };
-    android: { downloads: { apk: string } };
+    ios?: { downloads?: { testflight?: string } };
+    android?: { downloads?: { apk?: string } };
   };
 }
 
@@ -130,37 +127,52 @@ export default function DownloadClient() {
   }, []);
 
   const recommendedDownload = useMemo(() => {
-    if (!release?.downloads) return null;
+    if (!release?.platforms) return null;
     const { os, arch } = userPlatform;
+    const p = release.platforms;
     if (os === 'macos') {
+      const archFormats = arch === 'arm64' ? p.macos?.arm64 : p.macos?.x64;
+      const url = archFormats?.dmg;
+      if (!url) return null;
       return {
-        url: arch === 'arm64' ? release.downloads.macos_arm64 : release.downloads.macos_x64,
+        url,
         label: `macOS (${arch === 'arm64' ? 'Apple Silicon' : 'Intel'})`,
         ext: '.dmg',
       };
     }
     if (os === 'windows') {
-      return { url: release.downloads.windows_x64_exe, label: 'Windows (x64)', ext: '.exe' };
+      const url = p.windows?.x64?.exe;
+      if (!url) return null;
+      return { url, label: 'Windows (x64)', ext: '.exe' };
     }
     return null;
   }, [release, userPlatform]);
 
   const desktopDownloads = useMemo(() => {
-    if (!release?.downloads) return [];
-    const d = release.downloads;
-    const windowsVariants = [
-      { label: 'Windows x64 (.exe)', url: d.windows_x64_exe },
-    ];
-    if (d.windows_x86_exe) {
-      windowsVariants.push({ label: 'Windows x86 (.exe)', url: d.windows_x86_exe });
+    if (!release?.platforms) return [];
+    const p = release.platforms;
+
+    const result: { os: 'macos' | 'windows'; label: string; variants: { label: string; url: string }[] }[] = [];
+
+    if (p.macos) {
+      const variants: { label: string; url: string }[] = [];
+      if (p.macos.arm64?.dmg) variants.push({ label: 'Apple Silicon (.dmg)', url: p.macos.arm64.dmg });
+      if (p.macos.arm64?.zip) variants.push({ label: 'Apple Silicon (.zip)', url: p.macos.arm64.zip });
+      if (p.macos.x64?.dmg) variants.push({ label: 'Intel (.dmg)', url: p.macos.x64.dmg });
+      if (p.macos.x64?.zip) variants.push({ label: 'Intel (.zip)', url: p.macos.x64.zip });
+      if (variants.length) result.push({ os: 'macos', label: 'macOS', variants });
     }
-    return [
-      { os: 'macos' as const, label: 'macOS', variants: [
-        { label: 'Apple Silicon (.dmg)', url: d.macos_arm64 },
-        { label: 'Intel (.dmg)', url: d.macos_x64 },
-      ]},
-      { os: 'windows' as const, label: 'Windows', variants: windowsVariants },
-    ];
+
+    if (p.windows) {
+      const variants: { label: string; url: string }[] = [];
+      if (p.windows.x64?.exe) variants.push({ label: 'x64 (.exe)', url: p.windows.x64.exe });
+      if (p.windows.x64?.zip) variants.push({ label: 'x64 (.zip)', url: p.windows.x64.zip });
+      if (p.windows.x86?.exe) variants.push({ label: 'x86 (.exe)', url: p.windows.x86.exe });
+      if (p.windows.x86?.zip) variants.push({ label: 'x86 (.zip)', url: p.windows.x86.zip });
+      if (variants.length) result.push({ os: 'windows', label: 'Windows', variants });
+    }
+
+    return result;
   }, [release]);
 
   return (
@@ -256,7 +268,7 @@ export default function DownloadClient() {
           <div className="grid sm:grid-cols-3 gap-6">
             {/* iOS */}
             <a
-              href={mobileRelease?.platforms.ios.downloads.testflight || '#'}
+              href={mobileRelease?.platforms?.ios?.downloads?.testflight || '#'}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:shadow-md hover:border-primary-300 dark:hover:border-primary-700 transition-all group"
@@ -275,7 +287,7 @@ export default function DownloadClient() {
 
             {/* Android */}
             <a
-              href={mobileRelease?.platforms.android.downloads.apk || '#'}
+              href={mobileRelease?.platforms?.android?.downloads?.apk || '#'}
               className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:shadow-md hover:border-primary-300 dark:hover:border-primary-700 transition-all group"
             >
               <div className="flex items-center gap-3 mb-3">

@@ -1,33 +1,21 @@
 // TeGo Desktop 下载信息类型定义和获取函数
 
+interface PlatformFormats {
+  [format: string]: string;
+}
+
 export interface DownloadInfo {
   version: string;
   releaseDate: string;
   platforms: {
-    macos: {
-      arm64: string;
-      x64: string;
+    macos?: {
+      arm64?: PlatformFormats;
+      x64?: PlatformFormats;
     };
-    linux: {
-      arm64: string;
-      x64: string;
+    windows?: {
+      x64?: PlatformFormats;
+      x86?: PlatformFormats;
     };
-    windows: {
-      x64: string;
-      x86?: string;
-    };
-  };
-  downloads: {
-    macos_arm64: string;
-    macos_x64: string;
-    linux_arm64_appimage: string;
-    linux_arm64_deb: string;
-    linux_x64_appimage: string;
-    linux_x64_deb: string;
-    windows_x64_msi: string;
-    windows_x64_exe: string;
-    windows_x86_msi?: string;
-    windows_x86_exe?: string;
   };
 }
 
@@ -80,10 +68,9 @@ export async function fetchDownloadInfo(): Promise<DownloadInfo | null> {
 export function detectPlatform(): {
   os: 'macos' | 'windows' | 'linux' | 'unknown';
   arch: 'arm64' | 'x64' | 'unknown';
-  recommended: keyof DownloadInfo['downloads'] | null;
 } {
   if (typeof window === 'undefined') {
-    return { os: 'unknown', arch: 'unknown', recommended: null };
+    return { os: 'unknown', arch: 'unknown' };
   }
 
   const ua = navigator.userAgent.toLowerCase();
@@ -92,7 +79,6 @@ export function detectPlatform(): {
   let os: 'macos' | 'windows' | 'linux' | 'unknown' = 'unknown';
   let arch: 'arm64' | 'x64' | 'unknown' = 'unknown';
   
-  // 检测操作系统
   if (ua.includes('mac') || platform.includes('mac')) {
     os = 'macos';
   } else if (ua.includes('win') || platform.includes('win')) {
@@ -101,12 +87,8 @@ export function detectPlatform(): {
     os = 'linux';
   }
   
-  // 检测架构
-  // Apple Silicon 检测
   if (os === 'macos') {
-    // 现代检测方式
     if ((navigator as any).userAgentData?.platform === 'macOS') {
-      // 使用 GPU 渲染器信息辅助判断
       try {
         const canvas = document.createElement('canvas');
         const gl = canvas.getContext('webgl');
@@ -118,18 +100,14 @@ export function detectPlatform(): {
           arch = 'x64';
         }
       } catch {
-        // 默认新 Mac 使用 ARM
         arch = 'arm64';
       }
     } else {
-      // 回退：假设新设备是 ARM
       arch = 'arm64';
     }
   } else if (os === 'windows') {
-    // Windows 目前只提供 x64
     arch = 'x64';
   } else if (os === 'linux') {
-    // Linux 架构检测
     if (ua.includes('aarch64') || ua.includes('arm64')) {
       arch = 'arm64';
     } else {
@@ -137,17 +115,7 @@ export function detectPlatform(): {
     }
   }
   
-  // 推荐下载
-  let recommended: keyof DownloadInfo['downloads'] | null = null;
-  if (os === 'macos') {
-    recommended = arch === 'arm64' ? 'macos_arm64' : 'macos_x64';
-  } else if (os === 'windows') {
-    recommended = 'windows_x64_exe';
-  } else if (os === 'linux') {
-    recommended = arch === 'arm64' ? 'linux_arm64_appimage' : 'linux_x64_appimage';
-  }
-  
-  return { os, arch, recommended };
+  return { os, arch };
 }
 
 /**
