@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="BusinessMonitor 大屏 6 大面板">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient>
+    <linearGradient id="indigo" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#818cf8"/><stop offset="100%" stop-color="#6366f1"/></linearGradient>
+    <linearGradient id="purple" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c084fc"/><stop offset="100%" stop-color="#a855f7"/></linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#34d399"/><stop offset="100%" stop-color="#10b981"/></linearGradient>
+    <linearGradient id="amber" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient>
+    <linearGradient id="rose" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fb7185"/><stop offset="100%" stop-color="#f43f5e"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="600" y="56" text-anchor="middle" fill="#e2e8f0" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="26" font-weight="700">BusinessMonitor · 业务运营监测大屏</text>
+  <text x="600" y="86" text-anchor="middle" fill="#64748b" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="16">BusinessMonitorSnapshot v1 · 进程内 LRU · 5s TTL</text>
+
+  <g font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" fill="#0f172a">
+    <g transform="translate(60,130)">
+      <rect width="340" height="140" rx="14" fill="url(#cyan)"/>
+      <text x="24" y="40" fill="#fff" font-size="18" font-weight="700">基础健康 · Health</text>
+      <text x="24" y="80" fill="#ecfeff" font-size="14">审计 · 渠道 · 健康 · 数据源</text>
+      <text x="24" y="118" fill="#fff" font-size="32" font-weight="800">99.97%</text>
+    </g>
+    <g transform="translate(430,130)">
+      <rect width="340" height="140" rx="14" fill="url(#indigo)"/>
+      <text x="24" y="40" fill="#fff" font-size="18" font-weight="700">覆盖率 · Coverage</text>
+      <text x="24" y="80" fill="#e0e7ff" font-size="14">真实活跃用户分母</text>
+      <text x="24" y="118" fill="#fff" font-size="32" font-weight="800">82.4%</text>
+    </g>
+    <g transform="translate(800,130)">
+      <rect width="340" height="140" rx="14" fill="url(#purple)"/>
+      <text x="24" y="40" fill="#fff" font-size="18" font-weight="700">增长 / 参与 · Growth</text>
+      <text x="24" y="80" fill="#f3e8ff" font-size="14">DAU / WAU / MAU</text>
+      <text x="24" y="118" fill="#fff" font-size="32" font-weight="800">+18.6%</text>
+    </g>
+
+    <g transform="translate(60,300)">
+      <rect width="340" height="140" rx="14" fill="url(#green)"/>
+      <text x="24" y="40" fill="#fff" font-size="18" font-weight="700">任务 / 实时 · Tasks</text>
+      <text x="24" y="80" fill="#d1fae5" font-size="14">当前队列 · 实时负载</text>
+      <text x="24" y="118" fill="#fff" font-size="32" font-weight="800">147 active</text>
+    </g>
+    <g transform="translate(430,300)">
+      <rect width="340" height="140" rx="14" fill="url(#amber)"/>
+      <text x="24" y="40" fill="#fff" font-size="18" font-weight="700">工作流 · Workflow</text>
+      <text x="24" y="80" fill="#fef3c7" font-size="14">FCR · 自动流转 · 关闭率</text>
+      <text x="24" y="118" fill="#fff" font-size="32" font-weight="800">FCR 71%</text>
+    </g>
+    <g transform="translate(800,300)">
+      <rect width="340" height="140" rx="14" fill="url(#rose)"/>
+      <text x="24" y="40" fill="#fff" font-size="18" font-weight="700">技能效能 · Skill Effectiveness</text>
+      <text x="24" y="80" fill="#ffe4e6" font-size="14">技能矩阵 · 工具调用</text>
+      <text x="24" y="118" fill="#fff" font-size="32" font-weight="800">16 skills</text>
+    </g>
+  </g>
+
+  <text x="600" y="500" text-anchor="middle" fill="#94a3b8" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14">ai-studio · dashboard 双端独立路由：_authenticated/admin_.business-monitor</text>
+
+  <g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="13" fill="#475569">
+    <rect x="60" y="540" width="1080" height="60" rx="10" fill="#0b1220" stroke="#1e293b"/>
+    <text x="80" y="580" fill="#94a3b8">{ "version": "v1", "tenant": "tnt_xxx", "health": {...}, "coverage": {...}, "growth": {...}, "tasks": {...}, "workflow": {...}, "skills": {...} }</text>
+  </g>
+</svg>

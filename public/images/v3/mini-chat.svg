@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Mini Chat 浮窗 + 主窗口">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <g transform="translate(80,90)" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+    <rect width="720" height="460" rx="16" fill="#fff"/>
+    <rect width="720" height="44" rx="16" fill="#f1f5f9"/>
+    <circle cx="22" cy="22" r="6" fill="#ef4444"/>
+    <circle cx="44" cy="22" r="6" fill="#f59e0b"/>
+    <circle cx="66" cy="22" r="6" fill="#10b981"/>
+    <text x="100" y="28" fill="#475569" font-size="14">Tego OS · Main Window</text>
+
+    <text x="32" y="100" fill="#0f172a" font-size="20" font-weight="700">数字分身 · Digital Avatar</text>
+    <rect x="32" y="120" width="240" height="40" rx="20" fill="#0ea5e9" fill-opacity="0.12" stroke="#0ea5e9"/>
+    <text x="48" y="146" fill="#0369a1" font-size="14">IT 助理 (per_user)</text>
+
+    <g font-size="14" fill="#334155">
+      <rect x="32" y="190" width="500" height="36" rx="8" fill="#f8fafc"/>
+      <text x="48" y="214">User: 工单 #4521 怎么处理？</text>
+      <rect x="32" y="240" width="640" height="60" rx="8" fill="#eff6ff"/>
+      <text x="48" y="264">Avatar: 已经识别为「邮件服务异常」，匹配 Runbook</text>
+      <text x="48" y="284" fill="#1d4ed8">RB-mail-restart-001（dry-run 已完成，等待你确认）</text>
+      <rect x="32" y="320" width="540" height="60" rx="8" fill="#f8fafc"/>
+      <text x="48" y="344">User: 确认执行</text>
+      <text x="48" y="364" fill="#10b981">Avatar: ✓ 自愈成功，SLA 已记入 BusinessMonitor</text>
+    </g>
+  </g>
+
+  <g transform="translate(820,290)" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+    <rect width="320" height="260" rx="16" fill="#0b1220" stroke="#22d3ee"/>
+    <rect width="320" height="40" rx="16" fill="#0f172a"/>
+    <text x="20" y="26" fill="url(#brand)" font-size="14" font-weight="700">Mini Chat</text>
+    <text x="290" y="26" fill="#64748b" font-size="14" text-anchor="middle">×</text>
+
+    <g font-size="13" fill="#cbd5e1">
+      <rect x="16" y="56" width="280" height="34" rx="8" fill="#1e293b"/>
+      <text x="28" y="78">同步主窗口同一会话</text>
+      <rect x="16" y="100" width="240" height="60" rx="8" fill="#0c4a6e"/>
+      <text x="28" y="122" fill="#bae6fd">Avatar: 你好，我是 IT 助理</text>
+      <text x="28" y="142" fill="#bae6fd">需要帮你查 SLA 吗？</text>
+      <rect x="56" y="170" width="240" height="34" rx="8" fill="#312e81"/>
+      <text x="68" y="192" fill="#c7d2fe">User: 帮我看下今天的 FCR</text>
+
+      <rect x="16" y="216" width="288" height="32" rx="16" fill="#0b1220" stroke="#334155"/>
+      <text x="28" y="237" fill="#64748b">输入消息… (⌘K 唤出)</text>
+    </g>
+  </g>
+
+  <text x="600" y="60" text-anchor="middle" fill="#e2e8f0" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="22" font-weight="700">Mini Chat · 常驻置顶的「随手分身」 · Always-on-top pocket avatar</text>
+</svg>

@@ -1,23 +1,20 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { Plug, Puzzle, Settings, Network, Brain, GitBranch, Database, Palette, Wrench } from 'lucide-react';
 
 export default function Header() {
   const t = useTranslations();
   const locale = useLocale();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [platformMenuOpen, setPlatformMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('home');
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const menuCloseTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -25,26 +22,27 @@ export default function Header() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const onScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 10);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // 清理定时器
-  useEffect(() => {
-    return () => {
-      if (menuCloseTimerRef.current) {
-        clearTimeout(menuCloseTimerRef.current);
-      }
-    };
-  }, []);
-
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const sectionIds = ['pain-points', 'engines', 'channels', 'memory', 'security', 'scenarios', 'pricing', 'cta'];
+    const sectionIds = [
+      'home',
+      'pain-points',
+      'value-pillars',
+      'scenarios',
+      'outcomes',
+      'readiness',
+      'delivery',
+      'pricing',
+      'customers',
+      'resources',
+      'cta',
+    ];
     const elements = sectionIds
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => Boolean(el));
@@ -63,7 +61,7 @@ export default function Header() {
       {
         root: null,
         rootMargin: '0px 0px -40% 0px',
-        threshold: [0.25, 0.5, 0.75]
+        threshold: [0.25, 0.5, 0.75],
       }
     );
 
@@ -72,49 +70,14 @@ export default function Header() {
   }, []);
 
   const navItems = [
-    { href: `/${locale}`, label: t('nav.home'), section: 'home' },
-    { href: `/${locale}/#scenarios`, label: t('nav.scenarios'), section: 'scenarios' },
+    { href: `/${locale}/#value-pillars`, label: t('nav.biz.value'), section: 'value-pillars' },
+    { href: `/${locale}/#scenarios`, label: t('nav.biz.solutions'), section: 'scenarios' },
+    { href: `/${locale}/#customers`, label: t('nav.biz.customers'), section: 'customers' },
+    { href: `/${locale}/#delivery`, label: t('nav.biz.delivery'), section: 'delivery' },
     { href: `/${locale}/#pricing`, label: t('nav.pricing'), section: 'pricing' },
-    { href: `/${locale}/download`, label: t('nav.download') },
-    { href: 'https://docs.zhama.com.cn', label: t('nav.docs'), external: true },
-    { href: `/${locale}/blog`, label: t('nav.blog'), external: true },
-    { href: `/${locale}/#about`, label: t('nav.about'), section: 'about' },
+    { href: `/${locale}/blog`, label: t('nav.blog') },
+    { href: `/${locale}/#resources`, label: t('nav.biz.resources'), section: 'resources' },
   ];
-
-  const platformMenuItems = [
-    { id: 'digitalAvatar', href: `/${locale}/#engines`, label: t('nav.capabilities.digitalAvatar'), icon: Network },
-    { id: 'lampEngine', href: `/${locale}/#engines`, label: t('nav.capabilities.lampEngine'), icon: Brain },
-    { id: 'mcpEngine', href: `/${locale}/#engines`, label: t('nav.capabilities.mcpEngine'), icon: Plug },
-    { id: 'governance', href: `/${locale}/#engines`, label: t('nav.capabilities.governance'), icon: Settings },
-    { id: 'omniChannel', href: `/${locale}/#channels`, label: t('nav.capabilities.omniChannel'), icon: Puzzle },
-    { id: 'memory', href: `/${locale}/#memory`, label: t('nav.capabilities.memory'), icon: Database },
-  ];
-
-  const techMenuItems = [
-    { id: 'lamp', href: `/${locale}/technical#lamp`, label: t('nav.platform.lamp'), icon: Brain },
-    { id: 'dag', href: `/${locale}/technical#dag`, label: t('nav.platform.dag'), icon: GitBranch },
-    { id: 'experience', href: `/${locale}/technical#experience`, label: t('nav.platform.experience'), icon: Database },
-    { id: 'a2ui', href: `/${locale}/technical#a2ui`, label: t('nav.platform.a2ui'), icon: Palette },
-    { id: 'skills', href: `/${locale}/technical#skills`, label: t('nav.platform.skills'), icon: Wrench },
-    { id: 'mcp', href: `/${locale}/technical#mcp`, label: t('nav.platform.mcp'), icon: Plug },
-    { id: 'multiAgent', href: `/${locale}/multi-agent`, label: t('nav.platform.multiAgent'), icon: Network },
-  ];
-
-  // 处理鼠标进入菜单
-  const handleMouseEnter = () => {
-    if (menuCloseTimerRef.current) {
-      clearTimeout(menuCloseTimerRef.current);
-      menuCloseTimerRef.current = null;
-    }
-    setPlatformMenuOpen(true);
-  };
-
-  // 处理鼠标离开菜单，添加延迟
-  const handleMouseLeave = () => {
-    menuCloseTimerRef.current = setTimeout(() => {
-      setPlatformMenuOpen(false);
-    }, 200);
-  };
 
   if (!mounted) {
     return (
@@ -133,7 +96,7 @@ export default function Header() {
   }
 
   return (
-    <header 
+    <header
       className={cn(
         'glass border-b border-zinc-200 dark:border-zinc-800 fixed top-0 left-0 right-0 z-50 transition-shadow',
         scrolled ? 'shadow-lg' : 'shadow-md'
@@ -142,133 +105,29 @@ export default function Header() {
       <div className="container-custom">
         <div className="flex justify-between items-center h-16 lg:h-20">
           <div className="flex items-center min-w-0">
-            {/* Logo */}
-            <Link href={`/${locale}`} className="flex items-center flex-shrink-0 mr-6">
+            <Link href={`/${locale}`} className="flex items-center flex-shrink-0 mr-8">
               <Image src="/images/logo_light.png" alt="Logo" width={120} height={48} className="h-10 sm:h-12 w-auto dark:hidden" priority />
               <Image src="/images/logo_dark.png" alt="Logo" width={120} height={48} className="h-10 sm:h-12 w-auto hidden dark:block" priority />
             </Link>
-            
-            {/* Desktop Navigation */}
+
             <nav className="hidden lg:flex lg:items-center lg:gap-1">
-              {navItems.slice(0, 1).map((item) => {
+              {navItems.map((item) => {
                 const linkClass = cn(
                   'px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 whitespace-nowrap',
                   'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
                   'hover:bg-zinc-100 dark:hover:bg-zinc-800',
-                  activeSection === item.section && 'text-primary-600 dark:text-primary-400'
+                  item.section && activeSection === item.section && 'text-primary-600 dark:text-primary-400'
                 );
-                
-                return item.external ? (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={linkClass}
-                  >
-                    {item.label}
-                  </a>
-                ) : (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={linkClass}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
-              
-              {/* 技术平台下拉菜单 */}
-              <div 
-                className="relative"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
-                <button
-                  className={cn(
-                    'px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 flex items-center gap-1 whitespace-nowrap',
-                    'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
-                    'hover:bg-zinc-100 dark:hover:bg-zinc-800'
-                  )}
-                >
-                  {t('nav.capabilities.title')}
-                  <svg 
-                    className={cn('w-4 h-4 transition-transform duration-200', platformMenuOpen && 'rotate-180')} 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                
-                {platformMenuOpen && (
-                  <div className="absolute top-full left-0 mt-2 min-w-[240px] py-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-xl">
-                    <div className="px-4 py-1.5 text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider">{t('nav.capabilities.title')}</div>
-                    {platformMenuItems.map((item) => {
-                      const IconComponent = item.icon;
-                      return (
-                        <Link
-                          key={item.id}
-                          href={item.href}
-                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-primary-600 dark:hover:text-primary-400 transition-colors whitespace-nowrap"
-                        >
-                          <IconComponent className="w-4 h-4 flex-shrink-0" />
-                          <span>{item.label}</span>
-                        </Link>
-                      );
-                    })}
-                    <div className="my-1.5 border-t border-zinc-100 dark:border-zinc-800" />
-                    <div className="px-4 py-1.5 text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider">{t('nav.platform.title')}</div>
-                    {techMenuItems.map((item) => {
-                      const IconComponent = item.icon;
-                      return (
-                        <Link
-                          key={item.id}
-                          href={item.href}
-                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-primary-600 dark:hover:text-primary-400 transition-colors whitespace-nowrap"
-                        >
-                          <IconComponent className="w-4 h-4 flex-shrink-0" />
-                          <span>{item.label}</span>
-                        </Link>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-              
-              {navItems.slice(1).map((item) => {
-                const linkClass = cn(
-                  'px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 whitespace-nowrap',
-                  'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
-                  'hover:bg-zinc-100 dark:hover:bg-zinc-800',
-                  activeSection === item.section && 'text-primary-600 dark:text-primary-400'
-                );
-                
-                return item.external ? (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={linkClass}
-                  >
-                    {item.label}
-                  </a>
-                ) : (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={linkClass}
-                  >
+
+                return (
+                  <Link key={item.href} href={item.href} className={linkClass}>
                     {item.label}
                   </Link>
                 );
               })}
             </nav>
           </div>
-          
+
           <div className="flex items-center gap-3 flex-shrink-0">
             <div className="hidden lg:flex items-center gap-3">
               <div className="flex items-center" style={{ height: '40px' }}>
@@ -278,7 +137,7 @@ export default function Header() {
                 <LanguageSwitcher />
               </div>
             </div>
-            
+
             <Link
               href={`/${locale}/contact`}
               className="hidden sm:flex items-center justify-center px-5 rounded-xl bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium shadow-md hover:shadow-lg transition-all duration-300 active:scale-95 whitespace-nowrap"
@@ -286,17 +145,17 @@ export default function Header() {
             >
               {t('nav.tryNow')}
             </Link>
-            
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden p-2 rounded-lg text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50 hover:bg-zinc-100 dark:hover:bg-zinc-800 flex items-center justify-center"
               aria-label="Toggle mobile menu"
             >
-              <svg 
-                className="w-6 h-6 transition-transform duration-200" 
-                xmlns="http://www.w3.org/2000/svg" 
-                fill="none" 
-                viewBox="0 0 24 24" 
+              <svg
+                className="w-6 h-6 transition-transform duration-200"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
                 stroke="currentColor"
               >
                 {!mobileMenuOpen ? (
@@ -309,31 +168,20 @@ export default function Header() {
           </div>
         </div>
       </div>
-      
-      {/* Mobile Menu */}
+
       {mobileMenuOpen && (
         <div className="lg:hidden">
           <div className="glass border-t border-zinc-200 dark:border-zinc-800 shadow-lg">
-            <div className="container-custom py-6 space-y-4">
-              {navItems.slice(0, 1).map((item) => {
+            <div className="container-custom py-6 space-y-2">
+              {navItems.map((item) => {
                 const linkClass = cn(
                   'block px-4 py-3 text-base font-medium rounded-lg transition-colors',
                   'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
                   'hover:bg-zinc-100 dark:hover:bg-zinc-800',
-                  activeSection === item.section && 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-950'
+                  item.section && activeSection === item.section && 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-950'
                 );
-                
-                return item.external ? (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={linkClass}
-                  >
-                    {item.label}
-                  </a>
-                ) : (
+
+                return (
                   <Link
                     key={item.href}
                     href={item.href}
@@ -344,96 +192,16 @@ export default function Header() {
                   </Link>
                 );
               })}
-              
-              {/* 技术平台下拉菜单 - 移动端 */}
-              <div>
-                <button
-                  onClick={() => setPlatformMenuOpen(!platformMenuOpen)}
-                  className={cn(
-                    'w-full flex items-center justify-between px-4 py-3 text-base font-medium rounded-lg transition-colors',
-                    'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
-                    'hover:bg-zinc-100 dark:hover:bg-zinc-800'
-                  )}
-                >
-                  <span>{t('nav.capabilities.title')}</span>
-                  <svg 
-                    className={cn('w-5 h-5 transition-transform duration-200', platformMenuOpen && 'rotate-180')} 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                
-                {platformMenuOpen && (
-                  <div className="mt-2 ml-4 space-y-1">
-                    <div className="px-4 py-1 text-xs font-semibold text-zinc-400 dark:text-zinc-500">{t('nav.capabilities.title')}</div>
-                    {platformMenuItems.map((item) => {
-                      const IconComponent = item.icon;
-                      return (
-                        <Link
-                          key={item.id}
-                          href={item.href}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="flex items-center gap-3 px-4 py-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-primary-600 dark:hover:text-primary-400 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
-                        >
-                          <IconComponent className="w-4 h-4" />
-                          <span>{item.label}</span>
-                        </Link>
-                      );
-                    })}
-                    <div className="my-1 mx-4 border-t border-zinc-200 dark:border-zinc-700" />
-                    <div className="px-4 py-1 text-xs font-semibold text-zinc-400 dark:text-zinc-500">{t('nav.platform.title')}</div>
-                    {techMenuItems.map((item) => {
-                      const IconComponent = item.icon;
-                      return (
-                        <Link
-                          key={item.id}
-                          href={item.href}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="flex items-center gap-3 px-4 py-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-primary-600 dark:hover:text-primary-400 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
-                        >
-                          <IconComponent className="w-4 h-4" />
-                          <span>{item.label}</span>
-                        </Link>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-              
-              {navItems.slice(1).map((item) => {
-                const linkClass = cn(
-                  'block px-4 py-3 text-base font-medium rounded-lg transition-colors',
-                  'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50',
-                  'hover:bg-zinc-100 dark:hover:bg-zinc-800',
-                  activeSection === item.section && 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-950'
-                );
-                
-                return item.external ? (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={linkClass}
-                  >
-                    {item.label}
-                  </a>
-                ) : (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={linkClass}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
-              
-              <div className="pt-6 border-t border-zinc-200 dark:border-zinc-800">
+
+              <Link
+                href={`/${locale}/contact`}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block mt-4 px-5 py-3 rounded-xl bg-primary-600 hover:bg-primary-700 text-white text-center text-sm font-medium shadow-md transition-all"
+              >
+                {t('nav.tryNow')}
+              </Link>
+
+              <div className="pt-6 mt-2 border-t border-zinc-200 dark:border-zinc-800">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400">

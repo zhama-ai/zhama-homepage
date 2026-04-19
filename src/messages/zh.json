@@ -26,8 +26,22 @@
     "about": "关于我们",
     "contact": "联系我们",
     "tryNow": "申请企业版演示",
+    "biz": {
+      "value": "核心价值",
+      "solutions": "行业方案",
+      "customers": "客户",
+      "delivery": "交付方式",
+      "resources": "资源中心"
+    },
     "capabilities": {
       "title": "核心能力",
+      "v3GroupTitle": "v3.0.0 新能力",
+      "perUser": "独享实例 per_user",
+      "s3Isolation": "S3 数据隔离",
+      "templateGovernance": "模板治理",
+      "businessMonitor": "业务运营大屏",
+      "skillLibrary": "16 个开箱模板技能",
+      "desktop": "桌面端 Mini Chat",
       "digitalAvatar": "数字分身体系",
       "lampEngine": "智能编排引擎",
       "mcpEngine": "MCP 能力引擎",
@@ -53,7 +67,7 @@
     "hero": {
       "title": "AI，终于能像团队一样工作了",
       "tagline": "数字分身 × 智能协作 × 企业治理",
-      "description": "TeGo-OS v2.8.0 正式推出「数字分身」系统 — 为每位员工配备独立的 AI 分身，拥有独立容器运行时、数据隔离、技能配置和安全边界。融合多租户四层隔离架构、智能编排引擎与企业级治理，让 AI 从「对话工具」升级为真正的「数字员工操作系统」。",
+      "description": "Tego OS v3.0.0 正式发布——让一个数字分身真正能被一群人放心地、互不打扰地一起用。独享实例、数据隔离、模板治理、运营观测一次重写，把「能跑的产品」升级为「可对企业、对组织、对生产业务真正交付的系统」。",
       "bullets": {
         "dualAvatar": "数字分身双形态：个人分身独立容器运行，组织分身多副本高可用，每个分身都是完整的 AI 运行时",
         "orchestration": "编排即生产力：LAMP 协作框架 + DAG 并发调度，效率提升 2-5 倍",
@@ -702,16 +716,16 @@
     }
   },
   "seo": {
-    "title": "TeGo-OS｜企业数字分身与 AI 超级团队平台（智能编排 + MCP 管理）",
-    "description": "TeGo-OS 是面向企业的 AI 操作系统，以数字分身为核心，融合智能编排、企业级权限治理与 MCP 管理能力，帮助企业构建可管可控、可规模落地的 AI 超级团队。",
-    "keywords": "TeGo-OS, 企业数字分身, AI 数字员工, AI 超级团队, 企业智能编排平台, MCP 管理平台, 企业级 AI 任务权限治理, 多智能体协作, LAMP框架, DAG调度, 私有化部署, 深圳市扎马未来科技有限公司",
+    "title": "Tego OS｜企业级 AI 数字员工平台，让每个岗位都有专属同事",
+    "description": "Tego OS 是面向企业的 AI 数字员工平台，覆盖 IT 内部支持、跨境电商与政企金融等业务场景，提供数据归属、用户级隔离、企业治理与开箱即用的行业能力。支持纯私有化、混合云与 SaaS 三种交付，30 天内让 AI 真正进入您的业务。",
+    "keywords": "AI 数字员工, 企业 AI 平台, 企业级 AI 解决方案, AI 数字分身, IT 内部支持 AI, 跨境电商 AI, 政企 AI, 金融 AI, 私有化 AI 部署, 数据合规, 企业 SSO, Tego OS, 深圳市扎马未来科技有限公司",
     "openGraph": {
-      "title": "TeGo-OS｜企业数字分身与 AI 超级团队平台",
-      "description": "以数字分身为核心，融合智能编排、企业级权限治理与 MCP 管理，帮助企业构建 24×7 在线的 AI 超级团队。"
+      "title": "Tego OS｜企业级 AI 数字员工平台",
+      "description": "让每个岗位都有专属的 AI 同事——把 AI 从概念落到产线，从模型用到生产，让数字员工真正成为您企业的稳定生产力。"
     },
     "twitter": {
-      "title": "TeGo-OS｜企业数字分身与 AI 超级团队平台",
-      "description": "以数字分身为核心，融合智能编排、企业级权限治理与 MCP 管理，构建企业级 AI 超级团队。"
+      "title": "Tego OS｜企业级 AI 数字员工平台",
+      "description": "让每个岗位都有专属的 AI 同事。覆盖 IT、跨境电商、政企金融场景，支持私有化 / 混合云 / SaaS。"
     }
   },
   "mcpPlatform": {
@@ -1614,7 +1628,7 @@
   "competitiveComparison": {
     "title": "为什么选择 TeGo-OS",
     "subtitle": "对比 Dify、Coze、ChatGPT Teams 等主流产品",
-    "description": "TeGo-OS v2.8.0 在数字分身、多租户隔离、资源管控、技能生态等维度全面领先",
+    "description": "Tego OS v3.0.0 在独享实例、S3 三层隔离、模板治理、业务大屏、开箱技能等维度全面领先",
     "categories": {
       "avatar": {
         "title": "数字分身体系",
@@ -1670,5 +1684,800 @@
     "primaryCTA": "申请企业版演示",
     "secondaryCTA": "获取行业解决方案",
     "hint": "从一个试点场景开始，在 30 天内验证 AI 超级团队的业务价值。"
+  },
+  "v3": {
+    "version": "v3.0.0",
+    "releaseDate": "2026-04-19",
+    "newBadge": "v3.0.0 NEW",
+    "hero": {
+      "version": "Tego OS v3.0.0 · 正式发布",
+      "title": "同一个数字分身，可被一群人放心、互不打扰地共同使用",
+      "tagline": "独享实例 × 数据隔离 × 模板治理 × 运营观测",
+      "description": "v3.0.0 对底层的实例编排、数据隔离、模板治理与运营观测进行了系统性重构，并完善了客户端的开箱体验。本次发布并非常规迭代，旨在将平台从可用产品演进为面向企业级生产业务的可交付系统。",
+      "bullets": {
+        "perUser": "独享实例 per_user：同一分身按用户维度拉起独立容器，会话、记忆与文件均彼此隔离",
+        "isolation": "S3 三层数据隔离：模板与运行时按前缀分层，支持按用户进行独立备份、恢复与销毁",
+        "governance": "模板单一权威：模板仅限管理员维护，对普通用户写入模板路径的请求统一返回 403",
+        "monitor": "BusinessMonitor 业务大屏：覆盖率、增长、参与度、工作流与技能效能集中呈现"
+      },
+      "primaryCta": "申请企业版演示",
+      "primaryCtaHint": "30 分钟覆盖 4 个核心场景",
+      "secondaryCta": "下载产品手册与白皮书",
+      "secondaryCtaHint": "包含 53 张界面截图的完整操作指南",
+      "tertiaryCta": "私有化部署咨询",
+      "tertiaryCtaHint": "支持纯私有化、混合云与 SaaS 三种交付形态"
+    },
+    "watershed": {
+      "title": "v3.0.0 的四项关键演进",
+      "subtitle": "由可用产品演进为面向企业级生产业务的可交付系统",
+      "vBefore": "v2.x",
+      "vAfter": "v3.0.0",
+      "items": {
+        "concurrency": {
+          "dimension": "多用户并发",
+          "before": "多用户共享同一运行时，会话与记忆易发生交叉",
+          "after": "独享实例 per_user，每位用户拥有独立运行环境"
+        },
+        "isolation": {
+          "dimension": "数据隔离",
+          "before": "S3 未做用户级隔离，难以按用户进行备份与销毁",
+          "after": "模板与运行时按前缀分层，支持按用户独立备份、恢复与销毁"
+        },
+        "governance": {
+          "dimension": "配置治理",
+          "before": "权限边界模糊，写入冲突频发",
+          "after": "模板单一权威，对普通用户写入模板路径的请求统一返回 403"
+        },
+        "observability": {
+          "dimension": "运营观测",
+          "before": "指标分散于多个分析数据仓",
+          "after": "BusinessMonitor 大屏集中呈现覆盖率、增长、参与度、工作流与技能效能"
+        }
+      }
+    },
+    "capabilityCards": {
+      "title": "八项核心能力总览",
+      "subtitle": "围绕企业级可交付目标，本次升级覆盖架构、治理、观测、体验与生态五个维度",
+      "branches": {
+        "architecture": "架构",
+        "governance": "治理",
+        "observability": "观测",
+        "experience": "体验",
+        "ecosystem": "生态"
+      },
+      "cards": {
+        "perUser": {
+          "name": "独享实例（per_user）",
+          "upgrade": "同一分身按用户拉起独立容器，空闲自动回收，配套全链路配额护栏",
+          "value": "多用户并发使用同一分身时，会话、记忆与文件均彼此隔离"
+        },
+        "s3": {
+          "name": "S3 运行时数据隔离",
+          "upgrade": "模板与运行时按前缀分层，shared 与 per_user 各自独立备份",
+          "value": "避免多用户数据交叉，灾备可按用户单独恢复"
+        },
+        "template": {
+          "name": "模板与运行时单一权威",
+          "upgrade": "模板仅可在控制台维护，对普通用户写入模板路径的请求统一返回 403",
+          "value": "配置不再被误改或覆盖，治理边界明确"
+        },
+        "monitor": {
+          "name": "业务运营监测大屏",
+          "upgrade": "全新 BusinessMonitor 服务，统一汇总覆盖率、增长、参与度、工作流与技能效能",
+          "value": "为管理者提供平台健康度与业务表现的统一视图"
+        },
+        "miniChat": {
+          "name": "桌面端 Mini Chat 浮窗",
+          "upgrade": "始终置顶的轻量对话窗口，与主窗口共享同一会话",
+          "value": "在工作流中按需调用分身，避免打断主任务"
+        },
+        "skills": {
+          "name": "16 项 Tego 模板技能",
+          "upgrade": "覆盖 IT 运维（11 项）与跨境电商（5+ 项），均附可执行脚本",
+          "value": "新建分身即可投入使用，无需自行搭建完整技能体系"
+        },
+        "build": {
+          "name": "构建管线重构",
+          "upgrade": "tego-claw 镜像构建拆分为编译与打包两个阶段，并对基础镜像进行了瘦身",
+          "value": "CI 构建更快、镜像更小、运行更稳定"
+        },
+        "test": {
+          "name": "测试体系扩展",
+          "upgrade": "新增契约、网关、文件上传与通知推送等多组集成测试",
+          "value": "关键路径回归更可靠，重构更稳健"
+        }
+      },
+      "tableHeaders": {
+        "capability": "核心能力",
+        "upgrade": "本次升级",
+        "value": "客户价值"
+      }
+    },
+    "perUserIsolation": {
+      "title": "独享实例（per_user）",
+      "subtitle": "面向多用户并发的独享运行时",
+      "painPoint": "在 v2 版本中，一个分身对应一个容器，所有用户共享同一份运行时状态。在客服、IT 工单等需要数十名用户并发使用同一分身的场景下，会话、记忆与工作区会相互覆盖，难以真正部署至一线生产环境。",
+      "solution": "v3.0.0 的解决方案",
+      "diagram": {
+        "userA": "用户 A",
+        "userB": "用户 B",
+        "userC": "用户 C",
+        "scheduler": "per_user 调度器",
+        "containerA": "A 的独立容器与独立 S3 命名空间",
+        "containerB": "B 的独立容器与独立 S3 命名空间",
+        "containerC": "C 的独立容器与独立 S3 命名空间",
+        "recycle": "空闲 5 分钟优雅回收，状态持久化至 S3",
+        "wakeup": "下次访问可在秒级唤醒"
+      },
+      "highlights": {
+        "container": {
+          "title": "每用户独立容器",
+          "description": "用户首次连接时拉起专属实例，并绑定专属 S3 命名空间"
+        },
+        "recycle": {
+          "title": "空闲自动回收",
+          "description": "默认 5 分钟无活跃即触发优雅停机，预留 45 秒供容器将状态持久化至 S3，下次访问可在秒级唤醒"
+        },
+        "quota": {
+          "title": "三维配额护栏",
+          "description": "按分身、用户与租户三个维度独立设置上限，避免资源越权占用"
+        },
+        "capacity": {
+          "title": "资源容量护栏",
+          "description": "宿主 CPU 或内存使用率超过 80% 时返回 503 并进入排队，避免节点过载"
+        },
+        "heartbeat": {
+          "title": "心跳超时兜底",
+          "description": "3 分钟无心跳触发自动停机，避免容器僵死导致配额长期占用"
+        },
+        "stale": {
+          "title": "Stale 锁自动清理",
+          "description": "由进程崩溃造成的 PROVISIONING / PENDING 长时间卡滞状态将由定时任务扫描并置为 FAILED，下次调度时自动重试"
+        }
+      },
+      "roadmap": "Warm Pool 方案已纳入下一阶段路线图，目标是将首次启动延迟由 5–15 秒的冷启动降低至 1 秒以内。"
+    },
+    "s3Isolation": {
+      "title": "S3 三层数据隔离",
+      "subtitle": "模板与运行时按职责分层",
+      "description": "per_user 模式的可靠运行，需要底层备份与恢复路径具备用户级隔离能力。v3.0.0 对 S3 命名空间进行了重新设计。",
+      "layout": {
+        "title": "新版 S3 命名空间布局",
+        "rows": {
+          "template": {
+            "path": "{avatarId}/{key}",
+            "comment": "分身级模板（管理员可写，所有用户只读）"
+          },
+          "shared": {
+            "path": "{avatarId}/shared/{key}",
+            "comment": "shared 模式下的运行时备份"
+          },
+          "perUser": {
+            "path": "{avatarId}/per-user/{userId}/{key}",
+            "comment": "per_user 模式下各用户的独立备份"
+          }
+        }
+      },
+      "highlights": {
+        "jwt": {
+          "title": "JWT 携带 instanceUserId",
+          "description": "在全链路中透明传递，用以识别每个请求所归属的用户实例"
+        },
+        "rewrite": {
+          "title": "网关自动改写读写路径",
+          "description": "按 instanceUserId 改写 S3 路径，对业务代码透明"
+        },
+        "fallback": {
+          "title": "三层 fallback 读取",
+          "description": "runtime/<key> → template/<key> → 历史 seed 路径，确保新老用户平滑过渡"
+        },
+        "reset": {
+          "title": "一键重置全部用户实例",
+          "description": "停止容器、删除编排资源、清理 volume 与 deployment 记录，过程完整可追溯"
+        }
+      },
+      "value": "对企业用户的实际价值：同一分身被多名用户共同使用时，每位用户的会话、记忆、工作区与媒体文件均归属本人，支持独立备份、独立恢复与独立销毁。"
+    },
+    "templateGovernance": {
+      "title": "模板与运行时单一权威",
+      "subtitle": "治理边界明确，权限职责清晰",
+      "diagram": {
+        "admin": "管理员 / Owner",
+        "template": "模板 template/*",
+        "runtime": "各用户运行时 runtime/*",
+        "user": "普通用户",
+        "forbidden": "403 Forbidden",
+        "writeTemplate": "写入",
+        "readTemplate": "只读",
+        "writeRuntime": "写入",
+        "tryWriteTemplate": "尝试写入模板"
+      },
+      "highlights": {
+        "adminOnly": {
+          "title": "模板路径仅可由 admin / owner 通过控制台修改",
+          "description": "写入将自动递增对应版本号（configVersion / workspaceVersion / skillsVersion）"
+        },
+        "interception": {
+          "title": "网关写入侧强制拦截",
+          "description": "普通用户 token 写入模板路径的请求将统一返回 403"
+        },
+        "consistency": {
+          "title": "双写一致性",
+          "description": "先经 RPC 更新本地副本，再通过 admin REST 写入 S3 模板；操作者所见无感知延迟，其他副本通过心跳达成最终一致"
+        },
+        "backfill": {
+          "title": "回填脚本",
+          "description": "pnpm db:backfill-template 以幂等方式将历史分身的 seed 数据迁移至新版模板路径"
+        }
+      }
+    },
+    "businessMonitor": {
+      "title": "业务运营监测大屏",
+      "subtitle": "为管理者提供平台健康度与业务表现的统一视图",
+      "description": "新版 BusinessMonitorService 将原本分散于审计与分析数据仓中的指标，统一聚合为可直接展示的 BusinessMonitorSnapshot v1 契约。",
+      "panels": {
+        "health": {
+          "name": "基础健康",
+          "metrics": "审计 / 渠道 / 健康 / 数据源"
+        },
+        "coverage": {
+          "name": "覆盖率（Coverage）",
+          "metrics": "基于真实活跃用户口径，不再依赖估算"
+        },
+        "growth": {
+          "name": "增长与参与（Growth / Engagement）",
+          "metrics": "DAU / WAU / MAU、留存与活跃趋势"
+        },
+        "tasks": {
+          "name": "任务与实时（Tasks / Realtime）",
+          "metrics": "当前任务量与实时负载"
+        },
+        "workflow": {
+          "name": "工作流（Workflow）",
+          "metrics": "Handoff、FCR（一次解决率）、自动流转率与关闭率"
+        },
+        "skills": {
+          "name": "技能效能（Skill Effectiveness）",
+          "metrics": "技能矩阵与工具调用统计"
+        }
+      },
+      "tech": {
+        "lru": "进程内 LRU（5 秒 TTL）缓存，支持多面板高频轮询而不增加数据库负载",
+        "dual": "ai-studio 与 dashboard 双端均已上线独立路由 _authenticated/admin_.business-monitor"
+      }
+    },
+    "skillLibrary": {
+      "title": "16 项开箱即用的 Tego 模板技能",
+      "subtitle": "数字分身在企业内快速形成生产力，最大的门槛并非模型本身，而是缺少可直接使用的技能库。",
+      "executable": "可执行脚本",
+      "tabs": {
+        "itOps": "IT 运维（11 项）",
+        "crossBorder": "跨境电商（5+ 项）"
+      },
+      "noticeText": "每项技能均附带可执行脚本（bash），并非提示词模板，可在生产环境中直接调用。",
+      "itOps": {
+        "ticket-handler": {
+          "name": "ticket-handler",
+          "ability": "工单全生命周期：受理、分类、优先级、路由、SLA 跟踪"
+        },
+        "incident-triage": {
+          "name": "incident-triage",
+          "ability": "故障快速诊断：日志分析、指标关联、Runbook 匹配"
+        },
+        "auto-remediation": {
+          "name": "auto-remediation",
+          "ability": "自动修复：服务重启、磁盘清理、缓存刷新（带 dry-run）"
+        },
+        "system-monitor": {
+          "name": "system-monitor",
+          "ability": "主动健康监测：连通性、资源、异常告警分级"
+        },
+        "infra-documenter": {
+          "name": "infra-documenter",
+          "ability": "自动化基础设施文档：发现、清单、拓扑、变更跟踪"
+        },
+        "patch-manager": {
+          "name": "patch-manager",
+          "ability": "漏洞扫描与补丁生命周期：CVE 比对、风险评估、回滚预案"
+        },
+        "sla-reporter": {
+          "name": "sla-reporter",
+          "ability": "SLA 合规报告：可用率、MTTR、趋势分析"
+        }
+      },
+      "crossBorder": {
+        "market-scout": {
+          "name": "market-scout",
+          "ability": "市场研究：Amazon Best Sellers / Google Trends / TikTok 交叉验证"
+        },
+        "competitor-intel": {
+          "name": "competitor-intel",
+          "ability": "竞品分析：抓取/分析评论、识别弱点、生成攻击策略"
+        },
+        "listing-forge": {
+          "name": "listing-forge",
+          "ability": "Listing 撰写：自动从记忆中读取竞品弱点，SEO 优化"
+        },
+        "image-studio": {
+          "name": "image-studio",
+          "ability": "主图/场景图：白底图、合规化、AI 生成"
+        },
+        "video-maker": {
+          "name": "video-maker",
+          "ability": "15 秒 UGC 短视频，适配 TikTok / Reels"
+        },
+        "voice-miner": {
+          "name": "voice-miner",
+          "ability": "Reddit / 论坛真实用户痛点挖掘"
+        },
+        "review-shield": {
+          "name": "review-shield",
+          "ability": "差评分类与合规回复"
+        },
+        "site-cloner": {
+          "name": "site-cloner",
+          "ability": "竞品落地页结构克隆"
+        },
+        "locale-adapt": {
+          "name": "locale-adapt",
+          "ability": "多市场本地化：文化适配、本地关键词、市场化 SEO"
+        }
+      }
+    },
+    "desktopExperience": {
+      "title": "桌面端体验全面升级",
+      "subtitle": "Mini Chat 浮窗、下载中心与 Windows 安装器重写",
+      "miniChat": {
+        "title": "Mini Chat",
+        "tagline": "始终置顶的随时调用窗口",
+        "features": {
+          "1": "独立的 Tauri 窗口，紧凑、无边框、可置顶",
+          "2": "复用同一连接：与主窗口共享同一会话，对话上下文不分裂",
+          "3": "全局快捷键：参考 Spotlight / Raycast 实现唤出与隐藏",
+          "4": "跨窗口同步：两个窗口始终展示同一会话",
+          "5": "懒创建与复用：首次唤出时才创建 webview，避免重复加载"
+        }
+      },
+      "downloads": {
+        "title": "Downloads",
+        "tagline": "统一的下载中心",
+        "description": "为桌面端、移动端与命令行安装包提供统一入口，便于企业用户在初次部署后快速分发至不同终端"
+      },
+      "windows": {
+        "title": "Windows 安装器重写",
+        "tagline": "更稳定的安装、升级与卸载体验",
+        "features": {
+          "1": "NSIS 安装器累计重写 584 行，安装、升级与卸载更稳定",
+          "2": "新增离线打包脚本 create-windows-installer.sh，更适配私有化交付场景"
+        }
+      }
+    },
+    "scenarios": {
+      "title": "典型应用场景",
+      "subtitle": "基于 16 项开箱模板技能，新场景接入仅需完成技能安装与流程编排",
+      "items": {
+        "itSupport": {
+          "title": "场景 A · IT 内部支持",
+          "input": "员工在企业内部群中提出「我电脑连不上 VPN」",
+          "path": "分身识别意图 → incident-triage 拉取日志 → auto-remediation 输出修复脚本（dry-run）→ 修复失败时由 ticket-handler 自动建单并跟踪 SLA",
+          "result": "常见问题实现自助闭环，复杂问题以结构化工单转交人工",
+          "tags": ["incident-triage", "auto-remediation", "ticket-handler"]
+        },
+        "crossBorder": {
+          "title": "场景 B · 跨境电商选品与 Listing",
+          "input": "运营人员需在新类目下快速完成摸底",
+          "path": "market-scout 跨平台采集 Best Sellers → competitor-intel 抓取评论并识别竞品弱点 → listing-forge 生成 SEO 化 Listing → image-studio / video-maker 产出图文与视频素材 → locale-adapt 完成多市场本地化",
+          "result": "原本约一周的选品与上架流程，可压缩至一个工作日内完成演练",
+          "tags": ["market-scout", "competitor-intel", "listing-forge", "image-studio", "locale-adapt"]
+        },
+        "regulated": {
+          "title": "场景 C · 政务与金融高敏场景",
+          "input": "监管要求各用户的对话与文件相互不可见，并可独立销毁",
+          "path": "分身配置为 per_user 模式 → 每位用户对应独立容器与独立 S3 命名空间 → 撤销账号时一键清理对应前缀",
+          "result": "满足数据可分离审计与可定向销毁的合规诉求",
+          "tags": ["per_user", "S3 隔离", "一键销毁"]
+        }
+      }
+    },
+    "performanceMetrics": {
+      "title": "性能与资源体量",
+      "subtitle": "v3.0.0 在构建、镜像与运行时三个维度同步进行了体量收敛",
+      "items": {
+        "build": {
+          "dimension": "tego-claw 镜像构建",
+          "improvement": "构建拆分为两个阶段，JS 编译仅在单台 X64 机器执行一次"
+        },
+        "baseImage": {
+          "dimension": "基础镜像瘦身",
+          "improvement": "移除 Bun（~96MB）、Go / Rust / build-essential（~750MB）以及全局 CLI"
+        },
+        "ci": {
+          "dimension": "CI 速度",
+          "improvement": "切换至 npm 官方源，在 GitHub Runner 环境下相较国内镜像更快"
+        },
+        "monitor": {
+          "dimension": "业务大屏",
+          "improvement": "进程内 LRU 缓存（5 秒 TTL），支持多面板高频轮询而不直接访问数据库"
+        },
+        "memory": {
+          "dimension": "per_user 内存",
+          "improvement": "默认 768m（原 1024m），单台 16GB 机器可多承载约 30% 的实例"
+        },
+        "chat": {
+          "dimension": "长会话渲染",
+          "improvement": "采用虚拟化日志列表，长会话与长日志的渲染保持流畅"
+        },
+        "pnpm": {
+          "dimension": "包管理",
+          "improvement": "pnpm 升级至 10.32.1"
+        }
+      },
+      "tableHeaders": {
+        "dimension": "维度",
+        "improvement": "提升"
+      }
+    },
+    "architecture": {
+      "title": "v3.0.0 架构总览",
+      "subtitle": "Server、网关、S3 与业务大屏四个组件边界清晰、职责明确",
+      "nodes": {
+        "web": "Web 浏览器",
+        "desktop": "Tauri 桌面端 / Mini Chat",
+        "mini": "嵌入式 Mini Chat SDK",
+        "server": "Tego Server",
+        "gateway": "Tego 分身网关",
+        "shared": "shared 共享实例池",
+        "perUser": "per-user 独占实例",
+        "channels": "通道适配（飞书 / Slack / Web API）",
+        "pg": "PostgreSQL（元数据）",
+        "redis": "Redis（会话 / 限流）",
+        "s3": "S3（数据隔离）",
+        "monitor": "BusinessMonitor 大屏"
+      },
+      "legend": {
+        "server": "Server：承担权限、配额、审计、监控以及模板与运行时治理的中枢职能",
+        "gateway": "网关：负责实例的创建、调度、心跳与停机；shared 与 per_user 两条路径共用同一调度器",
+        "s3": "S3：按 template / shared / per-user/{userId} 三层前缀进行数据隔离",
+        "monitor": "业务大屏：聚合层独立部署并独立缓存，不影响事务路径"
+      }
+    },
+    "upgradeMigration": {
+      "title": "升级与迁移指南",
+      "subtitle": "推荐升级流程与破坏性变更说明",
+      "stepsTitle": "升级流程（推荐执行顺序）",
+      "steps": {
+        "1": "执行数据库迁移至 0015：pnpm db:migrate",
+        "2": "针对历史分身，建议执行一次 pnpm db:backfill-template，将模板路径显式迁移至新版布局",
+        "3": "per_user 模式建议先在测试租户中验证空闲回收、心跳兜底与容量护栏，验证通过后再灰度发布至生产环境",
+        "4": "Windows 用户请切换至新版 NSIS 安装器",
+        "5": "私有化客户的构建流程请对齐「build 与 bundle 在外部完成、镜像仅承担打包」的模式"
+      },
+      "breakingTitle": "重要破坏性变更（请知会研发团队）",
+      "breaking": {
+        "1": "已移除遗留 avatar_agents 表与对应 API 路由；请外部直连接入方迁移至新的 template API",
+        "2": "JWT Payload 新增 instanceUserId；建议升级后由客户端重新换发 token",
+        "3": "S3 路径布局已调整；历史路径仍提供 fallback，建议显式迁移至新版布局",
+        "4": "网关模板写入权限已收紧；普通用户携 token 写入模板路径将返回 403",
+        "5": "tego-claw Docker 镜像不再在内部编译 JS；私有化客户的构建流程需相应调整",
+        "6": "基础镜像已移除 Bun / Go / Rust；依赖容器内编译的私有插件请在自有 Dockerfile 中补回"
+      }
+    },
+    "privateDelivery": {
+      "title": "私有化交付能力",
+      "subtitle": "纯私有化 / 混合云 / SaaS 三种交付，覆盖政企、金融、跨境全场景",
+      "items": {
+        "deployment": {
+          "dimension": "部署形态",
+          "ability": "纯私有化（K8s / Docker） · 混合云 · SaaS"
+        },
+        "residency": {
+          "dimension": "数据驻留",
+          "ability": "全数据可留客户内网；S3 可替换为兼容对象存储"
+        },
+        "auth": {
+          "dimension": "认证",
+          "ability": "内置账密 + LDAP，支持企业 SSO（OIDC / SAML）"
+        },
+        "audit": {
+          "dimension": "审计",
+          "ability": "操作审计、调用审计、数据导出"
+        },
+        "localization": {
+          "dimension": "国产化",
+          "ability": "适配主流国产 CPU / OS / 数据库 / 国产对象存储"
+        },
+        "offline": {
+          "dimension": "离线",
+          "ability": "支持完全离线安装包，含模型权重打包方案"
+        }
+      },
+      "tableHeaders": {
+        "dimension": "维度",
+        "ability": "能力"
+      }
+    },
+    "competitiveUpgrade": {
+      "title": "v2.x → v3.0.0 升级前后",
+      "subtitle": "把「能跑的产品」升级为「可对企业真正交付的系统」",
+      "before": "v2.x",
+      "after": "v3.0.0",
+      "items": {
+        "concurrency": {
+          "dimension": "多人并发",
+          "before": "✗ 共享运行时，会话/记忆易串扰",
+          "after": "✓ per_user 独享实例，互不干扰"
+        },
+        "isolation": {
+          "dimension": "数据隔离",
+          "before": "✗ S3 大锅饭，难以按用户切片",
+          "after": "✓ 三层路径分离，可独立备份 / 销毁"
+        },
+        "governance": {
+          "dimension": "配置治理",
+          "before": "✗ 谁都能改、易冲突",
+          "after": "✓ 模板单一权威 + 403 拦截"
+        },
+        "monitor": {
+          "dimension": "运营观测",
+          "before": "✗ 指标散落多处",
+          "after": "✓ BusinessMonitor 大屏一屏看清"
+        },
+        "skills": {
+          "dimension": "开箱技能",
+          "before": "需要自建技能体系",
+          "after": "✓ 16 个开箱模板，含可执行脚本"
+        },
+        "desktop": {
+          "dimension": "桌面端",
+          "before": "单一主窗口",
+          "after": "✓ Mini Chat 浮窗 + 下载中心 + 新 Windows 安装器"
+        }
+      }
+    }
+  },
+  "biz": {
+    "hero": {
+      "badge": "企业级 AI 数字员工平台",
+      "title": "让每个岗位，都有一位专属的 AI 同事",
+      "subtitle": "Tego OS 是面向企业的 AI 数字员工平台。把 AI 从概念落到产线，从模型用到生产，让数字员工真正成为您企业的稳定生产力。",
+      "primaryCta": "申请企业版演示",
+      "primaryCtaHint": "由解决方案专家 1 对 1 介绍",
+      "secondaryCta": "下载产品手册",
+      "secondaryCtaHint": "包含部署方式与价格说明",
+      "tertiaryCta": "私有化部署咨询",
+      "tertiaryCtaHint": "支持纯私有化、混合云与 SaaS 三种交付",
+      "trustLine": "适用于互联网、跨境电商、IT 服务商、政企与金融客户",
+      "highlights": {
+        "scale": {
+          "value": "数百位",
+          "label": "员工同时在线"
+        },
+        "speed": {
+          "value": "30 天",
+          "label": "完成首个业务场景上线"
+        },
+        "delivery": {
+          "value": "3 种",
+          "label": "交付模式（私有化 / 混合云 / SaaS）"
+        }
+      }
+    },
+    "painPoints": {
+      "title": "为什么大多数企业的 AI 试点，最终都没能进入生产？",
+      "subtitle": "不是模型不够强，而是企业级落地的关键能力没补齐。",
+      "items": {
+        "shared": {
+          "title": "员工共用一个对话",
+          "description": "几十名员工同时使用同一个 AI 助手时，会话相互覆盖、记忆错乱，无法承载真实业务负载。"
+        },
+        "data": {
+          "title": "数据出不去，也回不来",
+          "description": "看不清企业数据流向哪里、AI 的回答从何而来，合规与审计的不确定让 AI 始终停在 PoC。"
+        },
+        "control": {
+          "title": "权限模糊，配置失控",
+          "description": "AI 的行为谁都能改、被反复覆盖，运营团队无法对企业级 AI 形成稳定治理。"
+        },
+        "blackbox": {
+          "title": "效果说不清，价值算不明",
+          "description": "AI 上线后没有统一的运营视图，无法回答「覆盖了多少员工、解决了多少问题、节省了多少人力」。"
+        }
+      }
+    },
+    "valuePillars": {
+      "title": "把 AI 真正部署进企业，需要这四项基本能力",
+      "subtitle": "Tego OS 不止提供一个 AI 助手，而是让 AI 成为您企业的数字员工。",
+      "pillars": {
+        "dedicated": {
+          "title": "每位员工的专属 AI 同事",
+          "description": "每位员工拥有独立的 AI 工作空间，会话、记忆与文件互不干扰，可承载企业级并发使用。",
+          "tag": "并发就绪"
+        },
+        "ownership": {
+          "title": "数据严格归属企业",
+          "description": "对话、知识与文件全部沉淀在企业自有空间，可独立备份、迁移与销毁，满足合规要求。",
+          "tag": "数据主权"
+        },
+        "governance": {
+          "title": "全程可治理、可审计",
+          "description": "权限、审计、运营视图、SLA、版本管理在同一平台内闭环，AI 的每一次行为都可见、可控、可追责。",
+          "tag": "企业治理"
+        },
+        "ready": {
+          "title": "开箱即用的行业能力",
+          "description": "内置 16 项面向 IT 运维与跨境电商的成熟技能，新建数字员工即可投入业务，无需自建技能体系。",
+          "tag": "开箱即用"
+        }
+      }
+    },
+    "scenarios": {
+      "title": "已经在这些业务场景中创造价值",
+      "subtitle": "覆盖企业内部支持、增长业务与高合规场景的完整工作流。",
+      "items": {
+        "itSupport": {
+          "industry": "IT 内部支持",
+          "title": "员工技术问题的 24×7 一线响应",
+          "description": "从员工提问到自动诊断、自动修复、SLA 跟踪一站完成，常见问题在分钟级闭环，复杂问题以结构化工单转交人工。",
+          "metrics": [
+            { "label": "一次性解决率", "value": "≥ 60%" },
+            { "label": "平均响应时长", "value": "下降 40%+" },
+            { "label": "人均承载工单量", "value": "提升 3×" }
+          ]
+        },
+        "crossBorder": {
+          "industry": "跨境电商",
+          "title": "选品、上架与多市场本地化的数字增长团队",
+          "description": "市场调研、竞品分析、Listing 撰写、图文素材与多语本地化串成一条数字员工流水线，让中小卖家具备上市公司级的运营能力。",
+          "metrics": [
+            { "label": "新品上架周期", "value": "1 周 → 1 天" },
+            { "label": "Listing 产能", "value": "提升 5×" },
+            { "label": "运营人力投入", "value": "下降 50%+" }
+          ]
+        },
+        "regulated": {
+          "industry": "政务与金融",
+          "title": "高敏行业里的可独立销毁的数字员工",
+          "description": "每位用户的对话与数据完全隔离，账号撤销时可定向销毁，满足合规与审计的硬性要求，让 AI 走进对数据最严格的行业。",
+          "metrics": [
+            { "label": "数据隔离粒度", "value": "用户级" },
+            { "label": "销毁可追溯", "value": "100%" },
+            { "label": "操作 / 调用审计", "value": "全留痕" }
+          ]
+        }
+      }
+    },
+    "outcomes": {
+      "title": "客户业务侧的成果",
+      "subtitle": "上线 Tego OS 数字员工后，企业普遍可以达到的业务表现。",
+      "metrics": {
+        "resolution": {
+          "value": "60%+",
+          "label": "常见问题一次性解决率",
+          "description": "员工技术支持类问题在分钟级完成自动诊断与修复"
+        },
+        "ttm": {
+          "value": "1 天",
+          "label": "新品上架周期",
+          "description": "原本一周以上的跨境电商上架流程被压缩至一个工作日"
+        },
+        "cost": {
+          "value": "50%+",
+          "label": "运营人力节省",
+          "description": "重复性、规则化的运营工作由数字员工承担"
+        },
+        "response": {
+          "value": "7×24",
+          "label": "全天候响应",
+          "description": "数字员工不下班，企业内外部请求得到稳定响应"
+        }
+      },
+      "footnote": "实际指标因行业、规模与上线深度不同存在差异，欢迎在演示中获取面向您业务的评估报告。"
+    },
+    "readiness": {
+      "title": "面向生产环境设计的企业级就绪",
+      "subtitle": "Tego OS 自上线第一天起，就按企业生产业务的标准构建。",
+      "items": {
+        "private": {
+          "title": "纯私有化部署",
+          "description": "支持 Kubernetes 与 Docker，全栈可在客户内网运行，数据不出边界。"
+        },
+        "compliance": {
+          "title": "合规与审计",
+          "description": "完整的操作审计、调用审计与数据导出，匹配合规审查与等保要求。"
+        },
+        "sso": {
+          "title": "企业 SSO 与权限",
+          "description": "原生支持账号密码、LDAP 与企业 SSO（OIDC / SAML），与现有身份体系无缝接入。"
+        },
+        "domestic": {
+          "title": "国产化适配",
+          "description": "适配主流国产 CPU、操作系统、数据库与对象存储，支持信创交付。"
+        },
+        "isolation": {
+          "title": "用户级数据隔离",
+          "description": "每位员工的对话、记忆与文件互不可见，可独立备份、恢复与销毁。"
+        },
+        "sla": {
+          "title": "稳定性与 SLA",
+          "description": "面向生产环境设计的容量护栏、故障兜底与可观测体系，提供企业级 SLA 承诺。"
+        }
+      }
+    },
+    "delivery": {
+      "title": "灵活的交付与商务模式",
+      "subtitle": "无论您是要在本地保留全部数据，还是希望按用量灵活开通，都能找到合适的方式。",
+      "modes": {
+        "private": {
+          "title": "纯私有化",
+          "tagline": "面向数据与合规要求最严格的客户",
+          "features": [
+            "全栈部署在客户内网，数据不出边界",
+            "支持国产 CPU、OS、数据库与对象存储",
+            "支持完全离线安装，提供模型权重打包方案"
+          ],
+          "cta": "联系私有化方案专家"
+        },
+        "hybrid": {
+          "title": "混合云",
+          "tagline": "数据本地、控制面云端",
+          "features": [
+            "敏感数据保留在客户内网",
+            "控制面与升级由 Tego 托管",
+            "兼顾合规要求与运维成本"
+          ],
+          "cta": "了解混合云方案"
+        },
+        "saas": {
+          "title": "SaaS",
+          "tagline": "无需部署、按需开通",
+          "features": [
+            "按账号或用量灵活计费",
+            "新版本自动升级，永远在最新版",
+            "适合快速验证与中小团队起步"
+          ],
+          "cta": "免费开始体验"
+        }
+      },
+      "popularLabel": "推荐"
+    },
+    "logos": {
+      "title": "已经服务于这些行业",
+      "subtitle": "互联网、跨境电商、IT 服务商、政企与金融客户，正在使用 Tego OS 构建自己的 AI 数字员工。",
+      "industries": [
+        { "key": "internet", "label": "互联网与 SaaS" },
+        { "key": "ecommerce", "label": "跨境电商" },
+        { "key": "itServices", "label": "IT 服务与运维" },
+        { "key": "government", "label": "政务与公共服务" },
+        { "key": "finance", "label": "金融与保险" },
+        { "key": "manufacturing", "label": "制造与供应链" }
+      ],
+      "footnote": "为保护客户隐私，部分企业未在公开页面展示。如需了解同行业落地案例，欢迎在演示中获取参考。"
+    },
+    "resources": {
+      "title": "深入了解 Tego OS",
+      "subtitle": "面向不同角色的资料与文档入口。",
+      "items": {
+        "manual": {
+          "title": "产品手册",
+          "description": "53 张界面截图覆盖核心操作路径，适合产品负责人与运营团队。",
+          "cta": "在线阅读"
+        },
+        "whitepaper": {
+          "title": "技术白皮书",
+          "description": "面向架构师与安全团队，介绍底层架构、数据隔离与合规模型。",
+          "cta": "下载白皮书"
+        },
+        "blog": {
+          "title": "技术博客",
+          "description": "持续更新的产品演进、技术深度与行业实践文章。",
+          "cta": "查看 Blog"
+        },
+        "deploy": {
+          "title": "部署文档",
+          "description": "面向运维团队的部署、升级与运维手册，含私有化交付指南。",
+          "cta": "查看文档"
+        }
+      }
+    }
   }
 }

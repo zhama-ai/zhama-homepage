@@ -60,15 +60,67 @@ const supportStyles: Record<SupportLevel, { bg: string; text: string }> = {
   none: { bg: 'bg-zinc-100 dark:bg-zinc-800', text: 'text-zinc-400 dark:text-zinc-500' },
 };
 
+const upgradeKeys = ['concurrency', 'isolation', 'governance', 'monitor', 'skills', 'desktop'] as const;
+
 export default async function CompetitiveComparisonSection({ locale }: CompetitiveComparisonSectionProps) {
   const t = await getTranslations({ locale, namespace: 'competitiveComparison' });
+  const tUpgrade = await getTranslations({ locale, namespace: 'v3.competitiveUpgrade' });
 
   const competitors = ['tego', 'dify', 'coze', 'chatgptTeams'] as const;
 
   return (
     <section id="comparison" className="py-20 md:py-28 bg-white dark:bg-zinc-900">
       <Container>
+        {/* v2.x → v3.0.0 upgrade comparison (primary) */}
+        <div className="mb-20">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <span className="inline-block text-xs font-bold tracking-wider uppercase text-primary-600 dark:text-primary-400 mb-3">
+              v2.x → v3.0.0
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-zinc-50">
+              {tUpgrade('title')}
+            </h2>
+            <p className="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
+              {tUpgrade('subtitle')}
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm">
+            <div className="hidden md:grid grid-cols-12 gap-0 bg-zinc-100 dark:bg-zinc-800/60 border-b border-zinc-200 dark:border-zinc-800">
+              <div className="col-span-3 px-6 py-4 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400" />
+              <div className="col-span-4 px-6 py-4 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+                {tUpgrade('before')}
+              </div>
+              <div className="col-span-5 px-6 py-4 text-xs font-bold uppercase tracking-wider text-primary-700 dark:text-primary-300 bg-primary-50/50 dark:bg-primary-950/20">
+                {tUpgrade('after')}
+              </div>
+            </div>
+            {upgradeKeys.map((key, idx) => (
+              <div
+                key={key}
+                className={`grid grid-cols-1 md:grid-cols-12 gap-0 ${
+                  idx !== upgradeKeys.length - 1 ? 'border-b border-zinc-100 dark:border-zinc-800/80' : ''
+                }`}
+              >
+                <div className="col-span-3 px-6 py-4 text-sm font-semibold text-zinc-900 dark:text-zinc-100 bg-zinc-50 dark:bg-zinc-900/40 md:bg-transparent md:dark:bg-transparent">
+                  {tUpgrade(`items.${key}.dimension`)}
+                </div>
+                <div className="col-span-4 px-6 py-4 text-sm text-zinc-500 dark:text-zinc-400">
+                  {tUpgrade(`items.${key}.before`)}
+                </div>
+                <div className="col-span-5 px-6 py-4 text-sm font-medium text-zinc-800 dark:text-zinc-200 bg-primary-50/30 dark:bg-primary-950/10">
+                  {tUpgrade(`items.${key}.after`)}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Existing horizontal comparison (secondary) */}
         <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="inline-block text-xs font-bold tracking-wider uppercase text-zinc-500 dark:text-zinc-400 mb-3">
+            vs. competitors
+          </span>
           <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-zinc-50">
             {t('title')}
           </h2>

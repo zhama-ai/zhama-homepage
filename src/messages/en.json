@@ -26,8 +26,22 @@
     "about": "About Us",
     "contact": "Contact Us",
     "tryNow": "Request Enterprise Demo",
+    "biz": {
+      "value": "Why Tego",
+      "solutions": "Solutions",
+      "customers": "Customers",
+      "delivery": "Delivery",
+      "resources": "Resources"
+    },
     "capabilities": {
       "title": "Core Capabilities",
+      "v3GroupTitle": "v3.0.0 New",
+      "perUser": "per_user Isolated Instances",
+      "s3Isolation": "S3 Data Isolation",
+      "templateGovernance": "Template Governance",
+      "businessMonitor": "Business Dashboard",
+      "skillLibrary": "16 Built-in Skills",
+      "desktop": "Desktop Mini Chat",
       "digitalAvatar": "Digital Avatar System",
       "lampEngine": "Smart Orchestration Engine",
       "mcpEngine": "MCP Capability Engine",
@@ -53,7 +67,7 @@
     "hero": {
       "title": "AI That Finally Works Like a Team",
       "tagline": "Digital Avatar × Smart Orchestration × Enterprise Governance",
-      "description": "TeGo-OS v2.8.0 introduces the Digital Avatar system — giving every employee a dedicated AI avatar with its own container runtime, data isolation, skill configuration, and security boundary. With multi-tenant 4-layer isolation, smart orchestration, and enterprise governance, AI evolves from a \"chat tool\" into a true \"Digital Employee Operating System.\"",
+      "description": "Tego OS v3.0.0 is here — making one digital avatar truly usable by an entire team, safely and without cross-contamination. Isolated instances, data isolation, template governance, and operational observability are rewritten end-to-end, upgrading a \"working product\" into a \"system that can truly be delivered to enterprises, organizations, and production businesses.\"",
       "bullets": {
         "dualAvatar": "Dual Avatar System: Personal avatars in isolated containers, organizational avatars with multi-replica HA — each a full AI runtime",
         "orchestration": "Orchestration as Productivity: LAMP framework + DAG concurrent scheduling, 2-5x efficiency boost",
@@ -702,16 +716,16 @@
     }
   },
   "seo": {
-    "title": "TeGo-OS | Enterprise Digital Avatar & AI Super Team Platform (Smart Orchestration + MCP Management)",
-    "description": "TeGo-OS is an enterprise AI operating system centered on digital avatars, integrating smart orchestration, enterprise-grade permission governance, and MCP management to help enterprises build manageable, controllable, and scalable AI super teams.",
-    "keywords": "TeGo-OS, Enterprise Digital Avatar, AI Digital Worker, AI Super Team, Enterprise Smart Orchestration Platform, MCP Management Platform, Enterprise AI Permission Governance, Multi-Agent Collaboration, LAMP Framework, DAG Scheduling, Private Deployment",
+    "title": "Tego OS | Enterprise AI Digital Workforce Platform — A Dedicated AI Coworker for Every Role",
+    "description": "Tego OS is the enterprise platform that turns AI from a concept into a production-grade workforce. Built for IT internal support, cross-border e-commerce, government and financial scenarios with data ownership, per-user isolation, enterprise governance and out-of-the-box capabilities. Pure private / Hybrid cloud / SaaS delivery — go live in 30 days.",
+    "keywords": "AI Digital Workforce, Enterprise AI Platform, Enterprise AI Solution, AI Digital Worker, IT Support AI, Cross-Border E-commerce AI, Government AI, Financial AI, Private AI Deployment, Data Compliance, Enterprise SSO, Tego OS",
     "openGraph": {
-      "title": "TeGo-OS | Enterprise Digital Avatar & AI Super Team Platform",
-      "description": "Centered on digital avatars, integrating smart orchestration, enterprise governance, and MCP management to help enterprises build 24×7 online AI super teams."
+      "title": "Tego OS | Enterprise AI Digital Workforce Platform",
+      "description": "A dedicated AI coworker for every role — turning AI from a concept into a production-grade workforce that powers your enterprise."
     },
     "twitter": {
-      "title": "TeGo-OS | Enterprise Digital Avatar & AI Super Team Platform",
-      "description": "Centered on digital avatars, integrating smart orchestration, enterprise governance, and MCP management to build enterprise AI super teams."
+      "title": "Tego OS | Enterprise AI Digital Workforce Platform",
+      "description": "A dedicated AI coworker for every role in your company. Built for IT, cross-border, government and financial scenarios with private / hybrid / SaaS delivery."
     }
   },
   "mcpPlatform": {
@@ -1614,7 +1628,7 @@
   "competitiveComparison": {
     "title": "Why Choose TeGo-OS",
     "subtitle": "Compared to Dify, Coze, ChatGPT Teams and more",
-    "description": "TeGo-OS v2.8.0 leads comprehensively in digital avatars, multi-tenant isolation, resource management, and skill ecosystem",
+    "description": "Tego OS v3.0.0 leads comprehensively in isolated instances, S3 three-layer isolation, template governance, business dashboard, and out-of-the-box skills",
     "categories": {
       "avatar": {
         "title": "Digital Avatar System",
@@ -1670,5 +1684,800 @@
     "primaryCTA": "Request Enterprise Demo",
     "secondaryCTA": "Get Industry Solutions",
     "hint": "Start with one pilot scenario and validate AI Super Team business value within 30 days."
+  },
+  "v3": {
+    "version": "v3.0.0",
+    "releaseDate": "2026-04-19",
+    "newBadge": "v3.0.0 NEW",
+    "hero": {
+      "version": "Tego OS v3.0.0 · Now Available",
+      "title": "One Digital Avatar — Now Truly Usable by an Entire Team",
+      "tagline": "Isolated Instances × Data Isolation × Template Governance × Operational Observability",
+      "description": "v3.0.0 rewrites the underlying instance orchestration, data isolation, template governance, and operational observability, while completing the out-of-box client experience. This is not a routine feature iteration — it upgrades a \"working product\" into a \"system that can truly be delivered to enterprises, organizations, and production businesses.\"",
+      "bullets": {
+        "perUser": "per_user Isolated Instances: One avatar spins up an independent container per user — sessions, memory, and files never cross-contaminate",
+        "isolation": "S3 Three-Layer Data Isolation: Templates and runtime split by prefix; each user can be backed up / restored / destroyed independently",
+        "governance": "Template Single Source of Truth: Templates are admin-only; ordinary users writing template paths are forced to 403",
+        "monitor": "BusinessMonitor Dashboard: One screen for coverage, growth, engagement, workflow, and skill effectiveness"
+      },
+      "primaryCta": "Request Enterprise Demo",
+      "primaryCtaHint": "30 minutes through 4 core scenarios",
+      "secondaryCta": "Download Manual & Whitepaper",
+      "secondaryCtaHint": "Full operational guide with 53 UI screenshots",
+      "tertiaryCta": "Private Deployment Consultation",
+      "tertiaryCtaHint": "Pure Private / Hybrid Cloud / SaaS — three delivery modes"
+    },
+    "watershed": {
+      "title": "Why v3.0.0: Four Watershed Moments",
+      "subtitle": "From a \"working product\" to a \"system that can truly be delivered to enterprises\"",
+      "vBefore": "v2.x (Before)",
+      "vAfter": "v3.0.0 (Now)",
+      "items": {
+        "concurrency": {
+          "dimension": "Multi-User Concurrency",
+          "before": "Multi-user shared runtime — sessions and memory easily cross-contaminate",
+          "after": "per_user isolated instances — each user gets a dedicated runtime"
+        },
+        "isolation": {
+          "dimension": "Data Isolation",
+          "before": "S3 \"shared pot\" — impossible to slice recovery / destruction by user",
+          "after": "Templates and runtime split by prefix — independent backup / restore / destroy per user"
+        },
+        "governance": {
+          "dimension": "Configuration Governance",
+          "before": "Anyone can edit — conflicts after edits",
+          "after": "Template is single source of truth — ordinary users writing template paths are forced 403"
+        },
+        "observability": {
+          "dimension": "Operational Observability",
+          "before": "Metrics scattered across multiple analytics warehouses",
+          "after": "BusinessMonitor dashboard shows coverage, growth, engagement, workflow, skill effectiveness on one screen"
+        }
+      }
+    },
+    "capabilityCards": {
+      "title": "Eight Core Capabilities — Each Card Plays",
+      "subtitle": "Anchored on \"deliverable to enterprise\", this release covers five dimensions: architecture, governance, observability, experience, ecosystem",
+      "branches": {
+        "architecture": "Architecture",
+        "governance": "Governance",
+        "observability": "Observability",
+        "experience": "Experience",
+        "ecosystem": "Ecosystem"
+      },
+      "cards": {
+        "perUser": {
+          "name": "Isolated Instances (per_user)",
+          "upgrade": "One avatar spins up dedicated containers per user, idle auto-recycle, end-to-end quota guardrails",
+          "value": "Multiple users can use one avatar concurrently — sessions, memory, files never collide"
+        },
+        "s3": {
+          "name": "S3 Runtime Data Isolation",
+          "upgrade": "Templates and runtime split by prefix; shared and per_user backed up independently",
+          "value": "No more cross-user data — DR can recover per user"
+        },
+        "template": {
+          "name": "Template / Runtime Single Authority",
+          "upgrade": "Templates only editable in console; ordinary users writing template paths are forced 403",
+          "value": "Configurations no longer accidentally overwritten — clear governance boundary"
+        },
+        "monitor": {
+          "name": "Business Operations Dashboard",
+          "upgrade": "Brand-new BusinessMonitor service — unified coverage, growth, engagement, workflow, skill effectiveness",
+          "value": "Management sees platform health and business performance on one screen"
+        },
+        "miniChat": {
+          "name": "Desktop Mini Chat Floating Window",
+          "upgrade": "Always-on-top mini chat window sharing one session with the main window",
+          "value": "Summon the avatar mid-workflow without breaking the main task"
+        },
+        "skills": {
+          "name": "16 Tego Template Skills",
+          "upgrade": "11 IT Ops + 5+ Cross-Border E-commerce, with executable scripts",
+          "value": "New avatars instantly productive — no need to build a skill library from scratch"
+        },
+        "build": {
+          "name": "Build Pipeline Rewrite",
+          "upgrade": "tego-claw image build split into compile/package stages, base image slimmed down",
+          "value": "Faster CI builds, smaller images, more stable runtime"
+        },
+        "test": {
+          "name": "Test Suite Massively Expanded",
+          "upgrade": "New contract, gateway, file upload, notification push integration tests",
+          "value": "More reliable regression on critical paths — refactor with confidence"
+        }
+      },
+      "tableHeaders": {
+        "capability": "Core Capability",
+        "upgrade": "This Release",
+        "value": "Customer Value"
+      }
+    },
+    "perUserIsolation": {
+      "title": "Isolated Instances (per_user)",
+      "subtitle": "One avatar, many people, no interference",
+      "painPoint": "In the v2 era, one avatar mapped to one container, with all users sharing the same runtime state. For scenarios like customer support and IT tickets where dozens of users hit the same avatar, sessions, memory, and workspaces overwrote each other — making true frontline production deployment difficult.",
+      "solution": "How v3.0.0 solves it",
+      "diagram": {
+        "userA": "User A",
+        "userB": "User B",
+        "userC": "User C",
+        "scheduler": "per_user Scheduler",
+        "containerA": "A's dedicated container + S3 namespace",
+        "containerB": "B's dedicated container + S3 namespace",
+        "containerC": "C's dedicated container + S3 namespace",
+        "recycle": "Idle 5min → graceful recycle / state flush to S3",
+        "wakeup": "Sub-second wake on next use"
+      },
+      "highlights": {
+        "container": {
+          "title": "Per-user dedicated container",
+          "description": "First connection spins up a dedicated instance bound to a dedicated S3 namespace"
+        },
+        "recycle": {
+          "title": "Idle auto-recycle",
+          "description": "Default 5 minutes idle triggers graceful shutdown — container has 45 seconds to flush state to S3, sub-second wake on next use"
+        },
+        "quota": {
+          "title": "Three-dimensional quota guardrails",
+          "description": "Per-avatar, per-user, per-tenant — independent caps prevent any over-allocation"
+        },
+        "capacity": {
+          "title": "Resource capacity guardrails",
+          "description": "Host CPU / memory > 80% returns 503 + queues — prevents node overload"
+        },
+        "heartbeat": {
+          "title": "Heartbeat timeout fallback",
+          "description": "3 minutes no heartbeat triggers auto-shutdown — eliminates \"zombie containers + permanently consumed quota\""
+        },
+        "stale": {
+          "title": "Stale lock auto-cleanup",
+          "description": "PROVISIONING / PENDING stuck from process crash is swept by a timer to FAILED — auto-retry next round"
+        }
+      },
+      "roadmap": "Warm Pool design is on the next-stage roadmap, targeting first-start latency from \"5–15s cold-start\" down to \"<1s\"."
+    },
+    "s3Isolation": {
+      "title": "S3 Three-Layer Data Isolation",
+      "subtitle": "Templates belong to templates, runtime belongs to users",
+      "description": "For per_user to actually work, the underlying backup/restore paths can no longer be a \"shared pot\". v3.0.0 redesigned the S3 namespace.",
+      "layout": {
+        "title": "New S3 Namespace Layout",
+        "rows": {
+          "template": {
+            "path": "{avatarId}/{key}",
+            "comment": "Avatar-level template (admin writable, all users read-only)"
+          },
+          "shared": {
+            "path": "{avatarId}/shared/{key}",
+            "comment": "Runtime backup for shared mode"
+          },
+          "perUser": {
+            "path": "{avatarId}/per-user/{userId}/{key}",
+            "comment": "Per-user dedicated backup under per_user mode"
+          }
+        }
+      },
+      "highlights": {
+        "jwt": {
+          "title": "JWT carries instanceUserId",
+          "description": "End-to-end transparent propagation — identifies which user instance each request belongs to"
+        },
+        "rewrite": {
+          "title": "Gateway auto-rewrites read/write paths",
+          "description": "S3 paths rewritten by instanceUserId — business code is unaware"
+        },
+        "fallback": {
+          "title": "Three-layer fallback read",
+          "description": "runtime/<key> → template/<key> → legacy seed path — smooth transition for new and old users"
+        },
+        "reset": {
+          "title": "One-click reset of all user instances",
+          "description": "Stop containers, delete orchestration resources, clear volumes, clear deployment records — clean and complete"
+        }
+      },
+      "value": "What this means for customers: when one avatar is used by many users, each person's sessions, memory, workspace, and media files are truly \"mine\" — independently backed up, restored, and destroyed."
+    },
+    "templateGovernance": {
+      "title": "Template / Runtime Single Authority",
+      "subtitle": "Governance boundaries finally crystal clear",
+      "diagram": {
+        "admin": "Admin / Owner",
+        "template": "Template template/*",
+        "runtime": "Per-user runtime/*",
+        "user": "Ordinary User",
+        "forbidden": "403 Forbidden",
+        "writeTemplate": "write",
+        "readTemplate": "read-only",
+        "writeRuntime": "write",
+        "tryWriteTemplate": "tries to write template"
+      },
+      "highlights": {
+        "adminOnly": {
+          "title": "Templates editable only by admin / owner via console",
+          "description": "Writes auto-bump the corresponding version (configVersion / workspaceVersion / skillsVersion)"
+        },
+        "interception": {
+          "title": "Gateway-side write interception",
+          "description": "Ordinary user tokens trying to write template paths get an immediate 403"
+        },
+        "consistency": {
+          "title": "Dual-write consistency",
+          "description": "RPC updates the local replica first, then admin REST writes the S3 template — operator sees no delay, other replicas converge via heartbeat"
+        },
+        "backfill": {
+          "title": "Backfill script",
+          "description": "pnpm db:backfill-template idempotently migrates legacy avatar seed data to the new template path"
+        }
+      }
+    },
+    "businessMonitor": {
+      "title": "Business Operations Dashboard",
+      "subtitle": "One screen for management to see platform health and business performance",
+      "description": "The new BusinessMonitorService aggregates metrics that were scattered across audit and analytics warehouses into a directly-displayable BusinessMonitorSnapshot v1 contract.",
+      "panels": {
+        "health": {
+          "name": "Baseline Health",
+          "metrics": "Audit / Channels / Health / Data Sources"
+        },
+        "coverage": {
+          "name": "Coverage",
+          "metrics": "Real active-user denominator — no more estimation"
+        },
+        "growth": {
+          "name": "Growth / Engagement",
+          "metrics": "DAU / WAU / MAU, retention and activity trends"
+        },
+        "tasks": {
+          "name": "Tasks / Realtime",
+          "metrics": "Current task volume and real-time load"
+        },
+        "workflow": {
+          "name": "Workflow",
+          "metrics": "Handoff, FCR (first-contact resolution), auto-flow rate, closure rate"
+        },
+        "skills": {
+          "name": "Skill Effectiveness",
+          "metrics": "Skill matrix + tool-call statistics"
+        }
+      },
+      "tech": {
+        "lru": "In-process LRU (5s TTL) cache — high-frequency multi-panel polling won't hammer the database",
+        "dual": "Both ai-studio and dashboard ship a dedicated route _authenticated/admin_.business-monitor"
+      }
+    },
+    "skillLibrary": {
+      "title": "16 Out-of-the-Box Tego Template Skills",
+      "subtitle": "For digital avatars to \"work immediately\", the biggest barrier has never been the model — it's the lack of a ready skill library.",
+      "executable": "executable script",
+      "tabs": {
+        "itOps": "IT Operations (11)",
+        "crossBorder": "Cross-Border E-commerce (5+)"
+      },
+      "noticeText": "Each skill ships with an executable script (bash) — not a \"prompt template\", but actually runnable.",
+      "itOps": {
+        "ticket-handler": {
+          "name": "ticket-handler",
+          "ability": "Full ticket lifecycle: intake, classification, priority, routing, SLA tracking"
+        },
+        "incident-triage": {
+          "name": "incident-triage",
+          "ability": "Rapid incident diagnosis: log analysis, metric correlation, runbook matching"
+        },
+        "auto-remediation": {
+          "name": "auto-remediation",
+          "ability": "Auto-remediation: service restart, disk cleanup, cache flush (with dry-run)"
+        },
+        "system-monitor": {
+          "name": "system-monitor",
+          "ability": "Proactive health monitoring: connectivity, resources, tiered anomaly alerts"
+        },
+        "infra-documenter": {
+          "name": "infra-documenter",
+          "ability": "Auto infrastructure docs: discovery, inventory, topology, change tracking"
+        },
+        "patch-manager": {
+          "name": "patch-manager",
+          "ability": "Vulnerability scanning and patch lifecycle: CVE matching, risk assessment, rollback plan"
+        },
+        "sla-reporter": {
+          "name": "sla-reporter",
+          "ability": "SLA compliance reports: availability, MTTR, trend analysis"
+        }
+      },
+      "crossBorder": {
+        "market-scout": {
+          "name": "market-scout",
+          "ability": "Market research: cross-validate Amazon Best Sellers / Google Trends / TikTok"
+        },
+        "competitor-intel": {
+          "name": "competitor-intel",
+          "ability": "Competitor analysis: scrape/analyze reviews, identify weaknesses, generate attack strategies"
+        },
+        "listing-forge": {
+          "name": "listing-forge",
+          "ability": "Listing copywriting: auto-pull competitor weaknesses from memory, SEO optimized"
+        },
+        "image-studio": {
+          "name": "image-studio",
+          "ability": "Hero / scene images: white background, compliance, AI generation"
+        },
+        "video-maker": {
+          "name": "video-maker",
+          "ability": "15-second UGC short videos for TikTok / Reels"
+        },
+        "voice-miner": {
+          "name": "voice-miner",
+          "ability": "Mining real user pain points from Reddit / forums"
+        },
+        "review-shield": {
+          "name": "review-shield",
+          "ability": "Negative review classification and compliant responses"
+        },
+        "site-cloner": {
+          "name": "site-cloner",
+          "ability": "Competitor landing page structure clone"
+        },
+        "locale-adapt": {
+          "name": "locale-adapt",
+          "ability": "Multi-market localization: cultural adaptation, local keywords, market SEO"
+        }
+      }
+    },
+    "desktopExperience": {
+      "title": "Desktop Experience Triple Hit",
+      "subtitle": "Mini Chat floating window / Downloads center / Windows installer rewrite",
+      "miniChat": {
+        "title": "Mini Chat",
+        "tagline": "An always-on-top \"on-demand avatar\"",
+        "features": {
+          "1": "Independent Tauri window — compact, frameless, always-on-top",
+          "2": "Reuses the same connection: shares one session with the main window — no split conversations",
+          "3": "Global hotkey: Spotlight / Raycast-style summon and dismiss",
+          "4": "Cross-window sync: both windows always show the same session",
+          "5": "Lazy create + reuse: webview only created on first summon to avoid double-loading"
+        }
+      },
+      "downloads": {
+        "title": "Downloads",
+        "tagline": "Unified \"Downloads Center\"",
+        "description": "Single entry for desktop, mobile, and CLI installers — enterprise users can quickly distribute to different endpoints after first onboarding"
+      },
+      "windows": {
+        "title": "Windows Installer Rewrite",
+        "tagline": "More stable install / upgrade / uninstall",
+        "features": {
+          "1": "584-line NSIS installer rewrite — more stable install / upgrade / uninstall",
+          "2": "New offline packaging script create-windows-installer.sh — friendly to private-deployment customers"
+        }
+      }
+    },
+    "scenarios": {
+      "title": "Real-World Scenarios",
+      "subtitle": "With 16 out-of-the-box template skills, new scenarios are just \"install skills + chain the flow\"",
+      "items": {
+        "itSupport": {
+          "title": "Scenario A · IT Internal Support",
+          "input": "An employee asks in chat: \"My laptop can't connect to VPN\"",
+          "path": "Avatar identifies → incident-triage pulls logs → auto-remediation outputs a fix script (dry-run) → if it fails, ticket-handler auto-creates a ticket and tracks SLA",
+          "result": "Common issues self-resolve, complex issues escalate as structured tickets",
+          "tags": ["incident-triage", "auto-remediation", "ticket-handler"]
+        },
+        "crossBorder": {
+          "title": "Scenario B · Cross-Border Selection / Listing",
+          "input": "Operator wants to quickly scope a new category",
+          "path": "market-scout pulls best sellers across platforms → competitor-intel scrapes reviews and identifies weaknesses → listing-forge writes SEO-optimized listings → image-studio / video-maker produce visuals → locale-adapt localizes for multiple markets",
+          "result": "What used to take 1 week from selection to listing is now drilled down to a 1-day rehearsal",
+          "tags": ["market-scout", "competitor-intel", "listing-forge", "image-studio", "locale-adapt"]
+        },
+        "regulated": {
+          "title": "Scenario C · Government / Finance High-Sensitivity",
+          "input": "Regulator requires that each user's conversations and files be mutually invisible and independently destroyable",
+          "path": "Avatar set to per_user → per-user dedicated containers + dedicated S3 namespaces → revoking an account triggers one-click cleanup of the corresponding prefix",
+          "result": "Meets compliance requirements for \"separable audit / targeted destruction of data\"",
+          "tags": ["per_user", "S3 Isolation", "One-Click Destroy"]
+        }
+      }
+    },
+    "performanceMetrics": {
+      "title": "Performance & Footprint",
+      "subtitle": "v3.0.0 also tightens build, image, and runtime footprint",
+      "items": {
+        "build": {
+          "dimension": "tego-claw image build",
+          "improvement": "Two-stage split — JS compilation runs once on a single x64 machine"
+        },
+        "baseImage": {
+          "dimension": "Base image slimming",
+          "improvement": "Removed Bun (~96MB), Go / Rust / build-essential (~750MB), and global CLIs"
+        },
+        "ci": {
+          "dimension": "CI speed",
+          "improvement": "Using npm official source — faster than Chinese mirrors on GitHub runners"
+        },
+        "monitor": {
+          "dimension": "Business dashboard",
+          "improvement": "In-process LRU cache 5s TTL — multi-panel high-frequency polling doesn't hit DB"
+        },
+        "memory": {
+          "dimension": "per_user memory",
+          "improvement": "Default 768m (was 1024m) — a 16GB host can hold ~30% more instances"
+        },
+        "chat": {
+          "dimension": "Long chat sessions",
+          "improvement": "Virtualized log lists — long sessions and long logs render smoothly"
+        },
+        "pnpm": {
+          "dimension": "Package manager",
+          "improvement": "pnpm upgraded to 10.32.1"
+        }
+      },
+      "tableHeaders": {
+        "dimension": "Dimension",
+        "improvement": "Improvement"
+      }
+    },
+    "architecture": {
+      "title": "v3.0.0 Architecture Overview",
+      "subtitle": "Server + Gateway + S3 + Dashboard — four components with clear boundaries at last",
+      "nodes": {
+        "web": "Web Browser",
+        "desktop": "Tauri Desktop / Mini Chat",
+        "mini": "Embedded Mini Chat SDK",
+        "server": "Tego Server",
+        "gateway": "Tego Avatar Gateway",
+        "shared": "shared instance pool",
+        "perUser": "per-user dedicated instances",
+        "channels": "Channel adapters (Feishu / Slack / Web API)",
+        "pg": "PostgreSQL (metadata)",
+        "redis": "Redis (sessions / rate limit)",
+        "s3": "S3 (data isolation)",
+        "monitor": "BusinessMonitor dashboard"
+      },
+      "legend": {
+        "server": "Server: hub for permission, quota, audit, monitoring, template/runtime governance",
+        "gateway": "Gateway: instance creation, scheduling, heartbeat, shutdown — shared and per_user share one scheduler",
+        "s3": "S3: three-layer prefix isolation by template / shared / per-user/{userId}",
+        "monitor": "Dashboard: aggregation layer deployed independently, cached independently, doesn't impact transactional path"
+      }
+    },
+    "upgradeMigration": {
+      "title": "Upgrade & Migration",
+      "subtitle": "Recommended order + breaking changes checklist",
+      "stepsTitle": "Upgrade actions (recommended order)",
+      "steps": {
+        "1": "Run database migration to 0015: pnpm db:migrate",
+        "2": "For legacy avatars, run pnpm db:backfill-template once to explicitly relocate template paths",
+        "3": "For per_user mode, validate idle recycle / heartbeat fallback / capacity guardrails on a test tenant before canary in production",
+        "4": "Windows users should switch to the new NSIS installer",
+        "5": "Private-deployment customers align build process with \"build / bundle done externally → only packaged into image\""
+      },
+      "breakingTitle": "Important breaking changes (please notify engineering)",
+      "breaking": {
+        "1": "Removed legacy avatar_agents table and corresponding API routes — external direct-callers must switch to the new template API",
+        "2": "JWT payload adds instanceUserId — clients should re-issue tokens after upgrade",
+        "3": "S3 path layout has changed — fallback exists for legacy paths, but explicit relocation is recommended",
+        "4": "Gateway template write permission tightened — ordinary user tokens writing template paths return 403",
+        "5": "tego-claw Docker image no longer compiles JS internally — private-deployment build flows must adapt",
+        "6": "Base image removed Bun / Go / Rust — private plugins relying on in-container compilation must add them back in their own Dockerfile"
+      }
+    },
+    "privateDelivery": {
+      "title": "Private Deployment Capabilities",
+      "subtitle": "Pure private / Hybrid cloud / SaaS — three delivery modes covering government, enterprise, finance, and cross-border",
+      "items": {
+        "deployment": {
+          "dimension": "Deployment forms",
+          "ability": "Pure private (K8s / Docker) · Hybrid cloud · SaaS"
+        },
+        "residency": {
+          "dimension": "Data residency",
+          "ability": "All data can stay in the customer's intranet; S3 can be replaced with compatible object storage"
+        },
+        "auth": {
+          "dimension": "Authentication",
+          "ability": "Built-in account/password + LDAP, supports enterprise SSO (OIDC / SAML)"
+        },
+        "audit": {
+          "dimension": "Audit",
+          "ability": "Operation audit, call audit, data export"
+        },
+        "localization": {
+          "dimension": "Domestic adaptation",
+          "ability": "Adapted to mainstream domestic CPU / OS / database / object storage"
+        },
+        "offline": {
+          "dimension": "Offline",
+          "ability": "Full offline installer supported, including model weights packaging"
+        }
+      },
+      "tableHeaders": {
+        "dimension": "Dimension",
+        "ability": "Capability"
+      }
+    },
+    "competitiveUpgrade": {
+      "title": "v2.x → v3.0.0: Before / After",
+      "subtitle": "From a \"working product\" to a \"system that can truly be delivered to enterprises\"",
+      "before": "v2.x",
+      "after": "v3.0.0",
+      "items": {
+        "concurrency": {
+          "dimension": "Multi-user concurrency",
+          "before": "✗ Shared runtime — sessions/memory cross-contaminate",
+          "after": "✓ per_user isolated instances — no interference"
+        },
+        "isolation": {
+          "dimension": "Data isolation",
+          "before": "✗ S3 shared pot — hard to slice by user",
+          "after": "✓ Three-layer path split — independent backup / destroy"
+        },
+        "governance": {
+          "dimension": "Configuration governance",
+          "before": "✗ Anyone can edit — easy conflicts",
+          "after": "✓ Template single authority + 403 interception"
+        },
+        "monitor": {
+          "dimension": "Operational observability",
+          "before": "✗ Metrics scattered everywhere",
+          "after": "✓ BusinessMonitor dashboard on one screen"
+        },
+        "skills": {
+          "dimension": "Out-of-the-box skills",
+          "before": "Build skill library yourself",
+          "after": "✓ 16 ready templates with executable scripts"
+        },
+        "desktop": {
+          "dimension": "Desktop client",
+          "before": "Single main window",
+          "after": "✓ Mini Chat floater + Downloads center + new Windows installer"
+        }
+      }
+    }
+  },
+  "biz": {
+    "hero": {
+      "badge": "Enterprise AI Digital Workforce Platform",
+      "title": "An AI Coworker for Every Role",
+      "subtitle": "Tego OS is the enterprise platform that turns AI from a concept into a production-grade workforce — built for the realities of regulated, multi-team, multi-region businesses.",
+      "primaryCta": "Request Enterprise Demo",
+      "primaryCtaHint": "1:1 walkthrough by a solution expert",
+      "secondaryCta": "Download Product Brochure",
+      "secondaryCtaHint": "Includes deployment options and pricing",
+      "tertiaryCta": "Private Deployment Consultation",
+      "tertiaryCtaHint": "Pure Private / Hybrid Cloud / SaaS — three delivery modes",
+      "trustLine": "Trusted across SaaS, cross-border commerce, IT services, government and financial enterprises",
+      "highlights": {
+        "scale": {
+          "value": "Hundreds",
+          "label": "of employees concurrent"
+        },
+        "speed": {
+          "value": "30 days",
+          "label": "to your first business scenario in production"
+        },
+        "delivery": {
+          "value": "3",
+          "label": "delivery models (Private / Hybrid / SaaS)"
+        }
+      }
+    },
+    "painPoints": {
+      "title": "Why most enterprise AI pilots never make it to production",
+      "subtitle": "It is rarely the model. It is the enterprise-grade capabilities that are missing.",
+      "items": {
+        "shared": {
+          "title": "Everyone shares one conversation",
+          "description": "When dozens of employees use the same AI assistant, sessions overwrite each other and memory becomes unreliable — not built for real workloads."
+        },
+        "data": {
+          "title": "Data leaves, and never really comes back",
+          "description": "Without clear visibility into where data goes and where answers come from, compliance and audit anxiety keep AI stuck in PoC."
+        },
+        "control": {
+          "title": "Permissions are blurry, configuration is out of control",
+          "description": "Anyone can change AI behavior, configurations get overwritten, and operations teams cannot govern AI at enterprise scale."
+        },
+        "blackbox": {
+          "title": "Outcomes are unclear, value is hard to prove",
+          "description": "Once AI is live, there is no unified operations view to answer how many employees were covered, how many issues were resolved, how much labor was saved."
+        }
+      }
+    },
+    "valuePillars": {
+      "title": "Four foundations every enterprise AI platform should have",
+      "subtitle": "Tego OS delivers more than an AI assistant — it gives every role a dedicated digital workforce.",
+      "pillars": {
+        "dedicated": {
+          "title": "A dedicated AI coworker per employee",
+          "description": "Each employee gets an isolated AI workspace with independent sessions, memory and files — built for true enterprise concurrency.",
+          "tag": "Concurrency-Ready"
+        },
+        "ownership": {
+          "title": "Data stays with the enterprise",
+          "description": "Conversations, knowledge and files all live in your own space, with independent backup, migration and destruction to satisfy compliance.",
+          "tag": "Data Sovereignty"
+        },
+        "governance": {
+          "title": "Governable and auditable end-to-end",
+          "description": "Permissions, audit, operations dashboards, SLA and version control are unified — every AI action is visible, controllable and accountable.",
+          "tag": "Enterprise Governance"
+        },
+        "ready": {
+          "title": "Out-of-the-box industry capabilities",
+          "description": "16 production-grade skills for IT operations and cross-border e-commerce ship with the platform — new digital workers go live without building a skill library from scratch.",
+          "tag": "Ready to Run"
+        }
+      }
+    },
+    "scenarios": {
+      "title": "Already creating value across these business scenarios",
+      "subtitle": "Covering internal support, growth-driving operations, and high-compliance workflows.",
+      "items": {
+        "itSupport": {
+          "industry": "IT Internal Support",
+          "title": "24×7 frontline response for employee tech requests",
+          "description": "From the moment an employee asks for help to auto-diagnosis, automated remediation and SLA tracking — common issues close in minutes, complex ones escalate as structured tickets.",
+          "metrics": [
+            { "label": "First-contact resolution", "value": "≥ 60%" },
+            { "label": "Average response time", "value": "−40%" },
+            { "label": "Tickets handled per agent", "value": "3× more" }
+          ]
+        },
+        "crossBorder": {
+          "industry": "Cross-Border E-commerce",
+          "title": "A digital growth team for selection, listing and localization",
+          "description": "Market research, competitor analysis, listing copywriting, creative assets and multi-market localization run as one digital workforce pipeline — giving small teams enterprise-grade operating power.",
+          "metrics": [
+            { "label": "Time to launch", "value": "1 week → 1 day" },
+            { "label": "Listing throughput", "value": "5× higher" },
+            { "label": "Operations headcount", "value": "−50%" }
+          ]
+        },
+        "regulated": {
+          "industry": "Government & Finance",
+          "title": "Digital workers built for the most regulated industries",
+          "description": "Each user's data is fully isolated and can be deterministically destroyed when an account is revoked — meeting the strictest compliance and audit requirements.",
+          "metrics": [
+            { "label": "Isolation granularity", "value": "Per user" },
+            { "label": "Destruction traceability", "value": "100%" },
+            { "label": "Operation / call audit", "value": "Fully logged" }
+          ]
+        }
+      }
+    },
+    "outcomes": {
+      "title": "Outcomes our customers achieve",
+      "subtitle": "What a Tego OS digital workforce typically delivers in production.",
+      "metrics": {
+        "resolution": {
+          "value": "60%+",
+          "label": "First-contact resolution",
+          "description": "Common employee tech requests are diagnosed and remediated in minutes"
+        },
+        "ttm": {
+          "value": "1 day",
+          "label": "Time to market",
+          "description": "Cross-border listing flows that took over a week now wrap inside a single business day"
+        },
+        "cost": {
+          "value": "50%+",
+          "label": "Operations headcount saved",
+          "description": "Repetitive, rules-based work is handed off to digital coworkers"
+        },
+        "response": {
+          "value": "7×24",
+          "label": "Always-on response",
+          "description": "Digital workers do not clock out — internal and external requests get steady response coverage"
+        }
+      },
+      "footnote": "Actual numbers vary by industry, scale and rollout depth. Ask for a tailored business assessment during your demo."
+    },
+    "readiness": {
+      "title": "Built for production from day one",
+      "subtitle": "Tego OS has been engineered against enterprise production requirements since its first release.",
+      "items": {
+        "private": {
+          "title": "Pure private deployment",
+          "description": "Runs on Kubernetes and Docker, fully inside your own network — data never crosses the boundary."
+        },
+        "compliance": {
+          "title": "Compliance & audit",
+          "description": "Full operation audit, call audit and data export aligned with regulated review requirements."
+        },
+        "sso": {
+          "title": "Enterprise SSO & access control",
+          "description": "Native account/password, LDAP and enterprise SSO (OIDC / SAML) integrate cleanly with your identity stack."
+        },
+        "domestic": {
+          "title": "Domestic stack support",
+          "description": "Adapted to mainstream domestic CPU, OS, database and object storage — ready for sovereign-cloud delivery."
+        },
+        "isolation": {
+          "title": "Per-user data isolation",
+          "description": "Each employee's conversations, memory and files stay invisible to others — independently backed up, restored and destroyed."
+        },
+        "sla": {
+          "title": "Stability & SLA",
+          "description": "Production-grade capacity guardrails, fault-tolerance and observability backed by enterprise SLA commitments."
+        }
+      }
+    },
+    "delivery": {
+      "title": "Flexible delivery and commercial models",
+      "subtitle": "Whether you need to keep all data on-premise or want to spin up by usage, there is a fit.",
+      "modes": {
+        "private": {
+          "title": "Pure Private",
+          "tagline": "For the strictest data and compliance requirements",
+          "features": [
+            "Full stack runs inside your network — data stays inside",
+            "Domestic CPU, OS, database and object storage supported",
+            "Full offline installer with model weight packaging"
+          ],
+          "cta": "Talk to a private deployment expert"
+        },
+        "hybrid": {
+          "title": "Hybrid Cloud",
+          "tagline": "Data on-premise, control plane in the cloud",
+          "features": [
+            "Sensitive data stays in your network",
+            "Control plane and upgrades managed by Tego",
+            "Balances compliance with operational cost"
+          ],
+          "cta": "Explore hybrid options"
+        },
+        "saas": {
+          "title": "SaaS",
+          "tagline": "No deployment required — turn on by demand",
+          "features": [
+            "Per-seat or usage-based billing",
+            "Always on the latest version with auto upgrades",
+            "Ideal for fast validation and small teams"
+          ],
+          "cta": "Get started for free"
+        }
+      },
+      "popularLabel": "Recommended"
+    },
+    "logos": {
+      "title": "Already serving these industries",
+      "subtitle": "SaaS, cross-border e-commerce, IT services, government and financial customers are using Tego OS to build their own AI digital workforce.",
+      "industries": [
+        { "key": "internet", "label": "Internet & SaaS" },
+        { "key": "ecommerce", "label": "Cross-Border E-commerce" },
+        { "key": "itServices", "label": "IT Services & Operations" },
+        { "key": "government", "label": "Government & Public Sector" },
+        { "key": "finance", "label": "Financial Services" },
+        { "key": "manufacturing", "label": "Manufacturing & Supply Chain" }
+      ],
+      "footnote": "Some customer names are not shown publicly. Reference cases for your industry are available during your demo."
+    },
+    "resources": {
+      "title": "Go deeper with Tego OS",
+      "subtitle": "Resources for every role on your team.",
+      "items": {
+        "manual": {
+          "title": "Product manual",
+          "description": "53 UI screenshots covering the core operation paths — built for product owners and operations teams.",
+          "cta": "Read online"
+        },
+        "whitepaper": {
+          "title": "Technical whitepaper",
+          "description": "Architecture, data isolation and compliance models for architects and security teams.",
+          "cta": "Download whitepaper"
+        },
+        "blog": {
+          "title": "Engineering blog",
+          "description": "Product evolution, technical deep dives and industry practice — updated continuously.",
+          "cta": "Visit the blog"
+        },
+        "deploy": {
+          "title": "Deployment docs",
+          "description": "Deployment, upgrade and operations guide for SRE teams, including private delivery playbooks.",
+          "cta": "Open the docs"
+        }
+      }
+    }
   }
 }
