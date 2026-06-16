@@ -8,6 +8,7 @@ import {
   Banknote,
   Factory,
 } from 'lucide-react';
+import { SectionHead } from './ui/Section';
 
 interface CustomerLogosSectionProps {
   locale: string;
@@ -34,28 +35,21 @@ export default async function CustomerLogosSection({ locale }: CustomerLogosSect
   return (
     <section
       id="customers"
-      className="py-20 md:py-24 bg-zinc-50 dark:bg-zinc-900 border-y border-zinc-200 dark:border-zinc-800"
+      className="border-y border-zinc-200 bg-zinc-50 py-16 dark:border-white/10 dark:bg-zinc-950 md:py-24"
     >
       <Container>
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-zinc-50 leading-tight">
-            {t('title')}
-          </h2>
-          <p className="mt-3 text-base text-zinc-600 dark:text-zinc-400">
-            {t('subtitle')}
-          </p>
-        </div>
+        <SectionHead title={t('title')} lead={t('subtitle')} center />
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-zinc-200 bg-zinc-200 dark:border-white/10 dark:bg-white/10 sm:grid-cols-3 lg:grid-cols-6">
           {industries.map((ind) => {
             const Icon = ICON_MAP[ind.key] || Globe;
             return (
               <div
                 key={ind.key}
-                className="flex flex-col items-center justify-center gap-2.5 p-5 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 hover:border-primary-300 dark:hover:border-primary-700 hover:shadow-sm transition-all duration-300"
+                className="flex flex-col items-center justify-center gap-2.5 bg-white p-5 transition-colors hover:bg-zinc-50 dark:bg-[#07131f] dark:hover:bg-white/5"
               >
-                <Icon className="w-6 h-6 text-zinc-500 dark:text-zinc-400" strokeWidth={1.5} />
-                <span className="text-xs md:text-sm font-medium text-zinc-700 dark:text-zinc-300 text-center leading-tight">
+                <Icon className="h-6 w-6 text-primary-700 dark:text-primary-200" strokeWidth={1.5} />
+                <span className="text-center text-xs font-medium leading-tight text-zinc-700 dark:text-zinc-300 md:text-sm">
                   {ind.label}
                 </span>
               </div>
@@ -63,7 +57,7 @@ export default async function CustomerLogosSection({ locale }: CustomerLogosSect
           })}
         </div>
 
-        <p className="text-center text-xs text-zinc-500 dark:text-zinc-500 mt-10 max-w-2xl mx-auto leading-relaxed">
+        <p className="mx-auto mt-10 max-w-2xl text-center text-xs leading-relaxed text-zinc-500 dark:text-zinc-500">
           {t('footnote')}
         </p>
       </Container>

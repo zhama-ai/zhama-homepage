@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { Container } from './ui/Container';
-import { Section, SectionHeader } from './ui/Section';
+import { SectionHead } from './ui/Section';
 import { Card, CardContent, CardFooter, CardHeader } from './ui/Card';
 
 interface PricingSectionProps {
@@ -37,54 +37,46 @@ export default async function PricingSection({ locale }: PricingSectionProps) {
   };
 
   return (
-    <Section id="pricing" className="bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-900 dark:to-zinc-950 relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid opacity-20" />
-      
-      <Container className="relative z-10">
-        <SectionHeader
-          title={t('title')}
-          subtitle={t('subtitle')}
-        />
+    <section id="pricing" className="bg-white py-16 dark:bg-zinc-900 md:py-24">
+      <Container>
+        <SectionHead title={t('title')} lead={t('subtitle')} center />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {pricingPlans.map((plan) => (
-            <Card key={plan.key} className="relative flex flex-col overflow-hidden">
-              {/* Ribbon */}
+            <Card key={plan.key} hover className="relative flex flex-col overflow-hidden p-0">
               {plan.ribbon && (
                 <div className="absolute -right-8 top-7 rotate-45 z-10">
-                  <div className="px-10 py-1 bg-gradient-to-r from-orange-500 to-red-600 text-white text-xs font-semibold uppercase tracking-wider shadow-md">
+                  <div className="bg-accent-500 px-10 py-1 text-xs font-semibold uppercase tracking-wider text-white shadow-md">
                     {t(`${plan.key}.ribbon`)}
                   </div>
                 </div>
               )}
-              
-              {/* Header */}
+
               <CardHeader>
-                <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-lg text-xs font-bold ${plan.badgeColor}`}>
-                  <span className="w-2 h-2 rounded-full bg-current" />
+                <span className="inline-flex items-center gap-2 rounded-md border border-primary-200 bg-primary-50 px-3.5 py-1.5 text-xs font-semibold text-primary-800 dark:border-primary-800 dark:bg-primary-950/40 dark:text-primary-200">
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent-500" />
                   {t(`${plan.key}.${plan.badge}`)}
                 </span>
-                <h3 className="text-xl font-bold mt-4 text-zinc-900 dark:text-zinc-50">
+                <h3 className="mt-4 text-xl font-bold text-zinc-950 dark:text-white">
                   {t(`${plan.key}.name`)}
                 </h3>
-                <p className="text-sm font-semibold text-zinc-700 dark:text-zinc-300 mt-2">
+                <p className="mt-2 text-sm font-semibold text-zinc-700 dark:text-zinc-300">
                   {t(`${plan.key}.lead`)}
                 </p>
-                <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1">
+                <p className="mt-1 text-xs leading-5 text-zinc-600 dark:text-zinc-400">
                   {t(`${plan.key}.desc`)}
                 </p>
               </CardHeader>
-              
-              {/* Content */}
+
               <CardContent className="flex-grow">
-                <h4 className="text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-4">
+                <h4 className="mb-4 text-sm font-semibold text-zinc-700 dark:text-zinc-300">
                   {t(`${plan.key}.featuresTitle`)}
                 </h4>
                 <ul className="space-y-3">
                   {getPlanFeatures(plan.key).map((feature, idx) => (
                     <li key={idx} className="flex gap-3 text-sm">
-                      <span className="flex-shrink-0 flex items-center justify-center w-5 h-5 rounded-full bg-emerald-50 dark:bg-emerald-950">
-                        <svg viewBox="0 0 24 24" className="w-3 h-3 text-emerald-600" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-50 dark:bg-primary-950/60">
+                        <svg viewBox="0 0 24 24" className="h-3 w-3 text-primary-700 dark:text-primary-200" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M20 6L9 17l-5-5" />
                         </svg>
                       </span>
@@ -93,11 +85,10 @@ export default async function PricingSection({ locale }: PricingSectionProps) {
                   ))}
                 </ul>
               </CardContent>
-              
-              {/* Footer */}
+
               <CardFooter className="flex items-center justify-between">
                 <div>
-                  <div className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
+                  <div className="text-2xl font-bold text-zinc-950 dark:text-white">
                     {t(`${plan.key}.price`)}
                   </div>
                   <div className="text-sm text-zinc-600 dark:text-zinc-400">
@@ -106,10 +97,10 @@ export default async function PricingSection({ locale }: PricingSectionProps) {
                 </div>
                 <Link 
                   href={`/${locale}/contact`}
-                  className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 active:scale-95 ${
+                  className={`rounded-lg px-5 py-2.5 text-sm font-semibold transition-all duration-300 active:scale-95 ${
                     plan.key === 'community'
-                      ? 'border-2 border-primary-600 text-primary-600 hover:bg-primary-50 dark:hover:bg-primary-950'
-                      : 'bg-primary-600 hover:bg-primary-700 text-white shadow-md hover:shadow-lg'
+                      ? 'border border-zinc-300 bg-white text-zinc-900 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:hover:bg-zinc-800'
+                      : 'bg-primary-700 text-white shadow-md shadow-primary-950/10 hover:bg-primary-800 hover:shadow-lg'
                   }`}
                 >
                   {t(`${plan.key}.cta`)}
@@ -119,6 +110,6 @@ export default async function PricingSection({ locale }: PricingSectionProps) {
           ))}
         </div>
       </Container>
-    </Section>
+    </section>
   );
 }
