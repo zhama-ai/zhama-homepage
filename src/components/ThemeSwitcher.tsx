@@ -7,12 +7,12 @@ import { cn } from '@/lib/utils';
 export function ThemeSwitcher() {
   const t = useTranslations('ui');
   const [mounted, setMounted] = useState(false);
-  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>('dark');
+  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
     setMounted(true);
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark';
-    const initialTheme = savedTheme === 'light' ? 'light' : 'dark';
+    const initialTheme = savedTheme === 'dark' ? 'dark' : 'light';
     setCurrentTheme(initialTheme);
     applyTheme(initialTheme);
   }, []);
