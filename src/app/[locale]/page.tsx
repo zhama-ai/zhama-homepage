@@ -6,6 +6,7 @@ import ScenariosSection from '@/components/ScenariosSection';
 import CustomerOutcomesSection from '@/components/CustomerOutcomesSection';
 import EnterpriseReadinessSection from '@/components/EnterpriseReadinessSection';
 import PrivateDeliverySection from '@/components/PrivateDeliverySection';
+import StationTeaserSection from '@/components/StationTeaserSection';
 import PricingSection from '@/components/PricingSection';
 import CustomerLogosSection from '@/components/CustomerLogosSection';
 import ResourceCenterSection from '@/components/ResourceCenterSection';
@@ -30,6 +31,7 @@ export default async function Home({ params }: HomeProps) {
         <CustomerOutcomesSection locale={locale} />
         <EnterpriseReadinessSection locale={locale} />
         <PrivateDeliverySection locale={locale} />
+        <StationTeaserSection locale={locale} />
         <PricingSection locale={locale} />
         <CustomerLogosSection locale={locale} />
         <ResourceCenterSection locale={locale} />

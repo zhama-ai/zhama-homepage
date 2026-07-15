@@ -33,6 +33,7 @@
       "delivery": "Deployment",
       "resources": "Resources"
     },
+    "station": "Station",
     "capabilities": {
       "title": "Core Capabilities",
       "v3GroupTitle": "v3.0.0 New",
@@ -567,6 +568,7 @@
       }
     },
     "digitalAvatar": "AI coworker runtime",
+    "station": "TeGo Station Appliance",
     "lampEngine": "Orchestration engine",
     "mcpEngine": "MCP integration engine",
     "governanceEngine": "Governance engine",
@@ -2314,6 +2316,8 @@
       "primaryCtaHint": "A one-on-one walkthrough with a solution expert",
       "secondaryCta": "Download the Product Brief",
       "secondaryCtaHint": "Deployment options, architecture, and pricing overview",
+      "watchDemo": "Watch product demo",
+      "watchDemoAria": "Open the product demo video",
       "tertiaryCta": "Discuss On-Prem Deployment",
       "tertiaryCtaHint": "On-prem, hybrid cloud, and SaaS delivery options",
       "trustLine": "Built for SaaS companies, cross-border commerce teams, IT service providers, government, and financial institutions",
@@ -2593,6 +2597,267 @@
           "cta": "Open docs"
         }
       }
+    }
+  },
+  "station": {
+    "seo": {
+      "title": "TeGo Station | Enterprise AI Digital Employee Appliance | Zhama",
+      "description": "TeGo Station preloads TeGo OS onto a compact low-power host. Hardware + software, ready out of the box. Run locally so sensitive data stays on-premises.",
+      "keywords": "TeGo Station,AI appliance,digital employee,private deployment,enterprise AI,on-premises,out of the box",
+      "openGraph": {
+        "title": "TeGo Station · One box to start your enterprise AI era",
+        "description": "Enterprise AI digital employee appliance: ready out of the box, private & secure, data stays local."
+      }
+    },
+    "badge": "Enterprise AI Digital Employee Appliance",
+    "title": "Put AI digital employees in a box",
+    "subtitle": "TeGo Station preloads the full TeGo OS enterprise digital avatar platform onto a compact low-power host. Power on, connect, sign in — and create your first on-prem digital employee.",
+    "tagline": "From “buy an AI tool” to “hire AI employees” — one box delivers a manageable digital team.",
+    "heroImageAlt": "TeGo Station enterprise AI digital employee appliance",
+    "cta": {
+      "primary": "Book a demo / Get a quote",
+      "secondary": "See pricing & specs"
+    },
+    "promises": {
+      "ready": "Ready out of the box",
+      "private": "Private & secure",
+      "local": "Data stays local"
+    },
+    "teaser": {
+      "eyebrow": "TeGo Station Appliance",
+      "title": "One box. Deliver a manageable team of digital employees",
+      "description": "An enterprise AI digital employee appliance with hardware and software bundled. Run TeGo OS locally, keep sensitive data inside your network, and go live with your first digital employee in 1–3 days.",
+      "highlights": [
+        "TeGo OS preloaded — power on, connect, and use",
+        "Local private compute with intranet / offline options",
+        "Standard user seats, expandable as you grow"
+      ],
+      "primaryCta": "Explore Station",
+      "secondaryCta": "Talk to sales",
+      "imageAlt": "TeGo Station appliance highlights"
+    },
+    "sellingPoints": {
+      "title": "Four selling points",
+      "subtitle": "You are not buying another AI tool — you are getting a manageable, scalable, reusable digital workforce.",
+      "items": {
+        "avatar": {
+          "title": "Personalized digital employees",
+          "description": "Customize digital avatars by role and workflow, carrying your own knowledge and processes."
+        },
+        "automation": {
+          "title": "Automated business workflows",
+          "description": "Hand repetitive, rule-based work to digital employees for automatic execution."
+        },
+        "privacy": {
+          "title": "Sensitive data stays inside",
+          "description": "Platform and data run locally in the appliance to meet data-sovereignty requirements."
+        },
+        "scale": {
+          "title": "Fast replication & integration",
+          "description": "Capture once, reuse everywhere; connect existing systems and scale quickly."
+        }
+      }
+    },
+    "painPoints": {
+      "title": "Where enterprise AI usually stalls",
+      "subtitle": "TeGo Station unifies identity, data, capabilities, and expertise in one controllable local device.",
+      "items": {
+        "identity": {
+          "title": "No enterprise identity",
+          "problem": "AI has no permission boundary or audit trail — compliance is impossible.",
+          "answer": "→ Give AI an identity: RBAC, approvals, and full-path audit."
+        },
+        "data": {
+          "title": "Data security risk",
+          "problem": "Business data must leave for the public cloud before AI can help.",
+          "answer": "→ Keep data local: platform and business data run on-premises."
+        },
+        "scale": {
+          "title": "Hard to scale",
+          "problem": "AI skills live on personal laptops — hard to share or operate centrally.",
+          "answer": "→ Share capabilities: one governed platform across endpoints."
+        },
+        "asset": {
+          "title": "Expertise walks out the door",
+          "problem": "Expert know-how stays in a few people’s heads.",
+          "answer": "→ Turn experience into assets via Skill Workshop and templates."
+        }
+      }
+    },
+    "layers": {
+      "title": "One box, four capability layers",
+      "subtitle": "From hardware to business workflows — one purchase delivers the full stack.",
+      "flow": "Ready-out-of-the-box path: Power on → Connect → Sign in → Create your first digital employee",
+      "items": {
+        "business": {
+          "title": "Business layer",
+          "description": "Finance, legal, support, IT, HR, operations, and more.",
+          "value": "Digital employees enter real workflows"
+        },
+        "capability": {
+          "title": "Capability layer",
+          "description": "Digital avatars, Skill Workshop, template market, multi-endpoint access.",
+          "value": "Assemble the digital employee you need"
+        },
+        "system": {
+          "title": "System layer",
+          "description": "TeGo OS: permissions, approvals, audit, governance, operations.",
+          "value": "Governable AI with identity and traceability"
+        },
+        "hardware": {
+          "title": "Hardware layer",
+          "description": "Local compute, high-speed networking, low-power host.",
+          "value": "Data stays local, simple to deploy"
+        }
+      }
+    },
+    "scenarios": {
+      "title": "Typical business scenarios",
+      "subtitle": "Start with one pilot, prove value, then replicate across the company.",
+      "columns": {
+        "role": "Function",
+        "before": "Traditional way",
+        "after": "TeGo Station"
+      },
+      "items": {
+        "finance": {
+          "role": "Finance",
+          "example": "Invoice checks, report rollups, reconciliation",
+          "before": "Manual line-by-line comparison — slow and error-prone",
+          "after": "Digital employees reconcile automatically and flag exceptions"
+        },
+        "legal": {
+          "role": "Legal",
+          "example": "Contract review, risk clause detection",
+          "before": "Document-by-document manual review",
+          "after": "Extract clauses, compare standards, output review reports"
+        },
+        "support": {
+          "role": "Customer support",
+          "example": "Q&A, knowledge retrieval",
+          "before": "Staff dig through docs with inconsistent answers",
+          "after": "Unified answers from a local knowledge base; escalate complex cases"
+        },
+        "it": {
+          "role": "IT",
+          "example": "Ticket handling, common troubleshooting",
+          "before": "Manual triage and investigation",
+          "after": "Rule-based auto-handling for common tickets"
+        },
+        "hr": {
+          "role": "HR",
+          "example": "Resume screening, interview scheduling, policy Q&A",
+          "before": "Manual screening and coordination",
+          "after": "Auto screening and scheduling, plus employee self-service Q&A"
+        },
+        "ops": {
+          "role": "Operations",
+          "example": "Stats, weekly/monthly reports, process handoffs",
+          "before": "Manual collection and summarization",
+          "after": "Auto collection and template-based report generation"
+        }
+      }
+    },
+    "security": {
+      "title": "Security & compliance",
+      "subtitle": "Local runtime plus full-path governance — built for government, finance, energy, manufacturing, and other regulated industries.",
+      "items": {
+        "local": {
+          "title": "Data stays on-premises",
+          "description": "Platform and business data run locally, with intranet / offline options."
+        },
+        "rbac": {
+          "title": "Identity & permissions",
+          "description": "Role-based access control — who can view, use, and change is clear."
+        },
+        "approval": {
+          "title": "Approval loops",
+          "description": "Configurable approvals for publishing and using critical capabilities."
+        },
+        "audit": {
+          "title": "Full-path audit",
+          "description": "View, execute, publish, and authorize actions are logged and exportable."
+        },
+        "guardrail": {
+          "title": "AI guardrails",
+          "description": "Input/output safety checks, sensitive-data protection, content filters."
+        },
+        "isolation": {
+          "title": "Multi-user isolation",
+          "description": "Sessions, workspaces, and private data stay isolated per user."
+        }
+      }
+    },
+    "specs": {
+      "title": "Hardware specs",
+      "subtitle": "Compact appliance form factor for desktop or rack deployment, designed for always-on use.",
+      "note": "Public specification summary. Exact model and options follow the final delivery checklist.",
+      "items": {
+        "form": {
+          "label": "Form factor",
+          "value": "Compact appliance (Mini host); desktop / rack"
+        },
+        "cpu": {
+          "label": "Processor",
+          "value": "12-core processor for local compute needs"
+        },
+        "network": {
+          "label": "Network",
+          "value": "10G high-speed network interface"
+        },
+        "power": {
+          "label": "Power",
+          "value": "Low-power design for continuous online operation"
+        }
+      }
+    },
+    "delivery": {
+      "title": "Ready-out-of-the-box delivery",
+      "subtitle": "One purchase, hardware + software. First digital employee can go live in 1–3 days.",
+      "steps": {
+        "power": {
+          "title": "Arrive & power on",
+          "description": "Power the appliance and join your enterprise network — same day."
+        },
+        "network": {
+          "title": "Connect & initialize",
+          "description": "Admin sign-in, configure organization and accounts."
+        },
+        "login": {
+          "title": "Sign in",
+          "description": "Enter preloaded TeGo OS and start local use."
+        },
+        "pilot": {
+          "title": "Pilot build",
+          "description": "Pick one scenario and stand up the first digital employee (1–3 days)."
+        },
+        "scale": {
+          "title": "Prove & replicate",
+          "description": "After value is proven, replicate to more roles and teams."
+        }
+      }
+    },
+    "pricing": {
+      "title": "Pricing",
+      "subtitle": "Hardware + software delivery with user seats and ready-out-of-the-box support.",
+      "sku": "TeGo Station appliance (Standard)",
+      "price": "¥19,800",
+      "period": "/ includes 3 user seats",
+      "extra": "Additional seats available on request — confirm with sales.",
+      "includesTitle": "Included",
+      "includes": [
+        "TeGo Station appliance hardware (local compute device)",
+        "TeGo OS enterprise digital avatar platform preloaded",
+        "3 user seats",
+        "Ready-out-of-the-box delivery: power on, connect, sign in, and use"
+      ],
+      "cta": "Talk to sales",
+      "note": "Delivery checklist, model access options, and add-on services can be confirmed commercially."
+    },
+    "bottomCta": {
+      "title": "One box to start your enterprise AI era",
+      "description": "Put AI digital employees in a box — ready out of the box, private & secure, data stays local. Book a demo or request a quote.",
+      "cta": "Contact us"
     }
   }
 }

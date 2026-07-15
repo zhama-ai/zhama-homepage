@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2, Database, LockKeyhole, Network } from 'lucide-react';
 import { Container } from './ui/Container';
+import HeroVideoButton from './HeroVideoButton';
 
 interface HeroSectionProps {
   locale: string;
@@ -82,6 +83,11 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
             >
               {t('secondaryCta')}
             </Link>
+            <HeroVideoButton
+              label={t('watchDemo')}
+              ariaLabel={t('watchDemoAria')}
+              title={t('watchDemo')}
+            />
           </div>
 
           <div className="mt-7 grid max-w-2xl grid-cols-3 gap-2 sm:gap-3 lg:max-w-xl">

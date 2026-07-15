@@ -18,6 +18,7 @@ export default async function sitemap({ params }: Props): Promise<MetadataRoute.
     '',
     '/contact',
     '/download',
+    '/station',
     '/guide',
     '/blog',
     '/privacy',

@@ -68,6 +68,7 @@ export default function Header() {
   const navItems = [
     { href: `/${locale}/#value-pillars`, label: t('nav.biz.value'), section: 'value-pillars' },
     { href: `/${locale}/#scenarios`, label: t('nav.biz.solutions'), section: 'scenarios' },
+    { href: `/${locale}/station`, label: t('nav.station') },
     { href: `/${locale}/#customers`, label: t('nav.biz.customers'), section: 'customers' },
     { href: `/${locale}/#delivery`, label: t('nav.biz.delivery'), section: 'delivery' },
     { href: `/${locale}/#pricing`, label: t('nav.pricing'), section: 'pricing' },

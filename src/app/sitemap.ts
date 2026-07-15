@@ -25,6 +25,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9, // High priority for download page
       lastMod: new Date('2024-11-20')
     },
+    {
+      path: '/station',
+      changeFreq: 'weekly' as const,
+      priority: 0.9,
+      lastMod: new Date('2026-07-15')
+    },
     { 
       path: '/guide', 
       changeFreq: 'monthly' as const, 
