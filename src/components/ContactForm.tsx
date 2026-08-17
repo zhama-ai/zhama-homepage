@@ -189,14 +189,28 @@ export default function ContactForm() {
         </form>
 
         <div className="mt-8 pt-8 border-t border-zinc-200 dark:border-zinc-800">
-          <div className="grid md:grid-cols-2 gap-6 text-sm">
+          <div className="grid md:grid-cols-3 gap-6 text-sm">
             <div>
               <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
                 {t('info.email.title')}
               </h3>
-              <p className="text-zinc-600 dark:text-zinc-400">
+              <a
+                href="mailto:contact@zhama.com"
+                className="text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400"
+              >
                 contact@zhama.com
-              </p>
+              </a>
+            </div>
+            <div>
+              <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
+                {t('info.phone.title')}
+              </h3>
+              <a
+                href={`tel:${t('info.phone.value')}`}
+                className="text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400"
+              >
+                {t('info.phone.value')}
+              </a>
             </div>
             <div>
               <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">

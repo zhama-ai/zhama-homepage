@@ -229,6 +229,10 @@
       "email": {
         "title": "Email"
       },
+      "phone": {
+        "title": "Phone",
+        "value": "13823536165"
+      },
       "response": {
         "title": "Response time",
         "time": "We typically respond within 24 hours"
@@ -363,7 +367,7 @@
         "content": "If you have any questions or concerns about this privacy policy, please contact us through:",
         "items": [
           "Email: privacy@zhama.com.cn",
-          "Phone: +86-0755-8888-8888",
+          "Phone: 13823536165",
           "Address: Shenzhen Science and Technology Park, Nanshan District"
         ],
         "response": "We will endeavor to respond to your inquiry within 30 days."
@@ -446,7 +450,7 @@
         "content": "If you have questions about these terms, please contact us at:",
         "methods": [
           "Email: contact@zhama.com.cn",
-          "Phone: +86-0755-8888-8888",
+          "Phone: 13823536165",
           "Address: Shenzhen Science and Technology Park, Nanshan District"
         ]
       }
