@@ -64,7 +64,7 @@ export default async function StationTeaserSection({ locale }: StationTeaserSect
 
           <div className="relative overflow-hidden rounded-lg border border-zinc-200 bg-zinc-100 shadow-lg dark:border-zinc-700 dark:bg-zinc-800">
             <Image
-              src="/images/ztc-01.png"
+              src={locale === 'en' ? '/images/station-teaser-en.png' : '/images/ztc-01.png'}
               alt={t('imageAlt')}
               width={1024}
               height={1024}

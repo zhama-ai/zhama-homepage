@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Container } from './ui/Container';
 import { SectionHead } from './ui/Section';
 import { Card, CardContent, CardFooter, CardHeader } from './ui/Card';
+import CloudLink from './CloudLink';
 
 interface PricingSectionProps {
   locale: string;
@@ -108,6 +109,22 @@ export default async function PricingSection({ locale }: PricingSectionProps) {
               </CardFooter>
             </Card>
           ))}
+        </div>
+
+        <div className="mt-6 flex flex-col gap-5 rounded-xl border border-primary-200 bg-primary-50/70 p-6 dark:border-primary-800/70 dark:bg-primary-950/30 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h3 className="text-lg font-bold text-zinc-950 dark:text-white">{t('cloudBanner.title')}</h3>
+            <p className="mt-1 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+              {t('cloudBanner.description')}
+            </p>
+          </div>
+          <CloudLink
+            medium="pricing"
+            locale={locale}
+            className="inline-flex shrink-0 items-center justify-center rounded-lg bg-zinc-950 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
+          >
+            {t('cloudBanner.cta')}
+          </CloudLink>
         </div>
       </Container>
     </section>

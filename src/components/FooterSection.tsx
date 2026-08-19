@@ -16,11 +16,12 @@ export default async function FooterSection({ locale }: FooterSectionProps) {
     {
       title: t('products'),
       links: [
+        { label: t('cloud'), href: `/${locale}/cloud` },
         { label: t('station'), href: `/${locale}/station` },
-        { label: t('digitalAvatar'), href: `/${locale}/#engines` },
-        { label: t('lampEngine'), href: `/${locale}/#engines` },
-        { label: t('mcpEngine'), href: `/${locale}/#engines` },
-        { label: t('governanceEngine'), href: `/${locale}/#engines` },
+        { label: t('digitalAvatar'), href: `/${locale}/#value-pillars` },
+        { label: t('lampEngine'), href: `/${locale}/technical` },
+        { label: t('mcpEngine'), href: `/${locale}/platform` },
+        { label: t('governanceEngine'), href: `/${locale}/#readiness` },
         { label: t('enterprise'), href: `/${locale}/contact` },
       ],
     },

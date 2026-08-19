@@ -26,6 +26,11 @@
     "about": "About Us",
     "contact": "Contact Us",
     "tryNow": "Book an Enterprise Demo",
+    "product": "Product",
+    "enterpriseProduct": "TeGo Enterprise",
+    "cloud": "TeGo Cloud",
+    "cloudLive": "Live",
+    "startFree": "Start free",
     "biz": {
       "value": "Value",
       "solutions": "Solutions",
@@ -564,7 +569,7 @@
   "footer": {
     "companyName": "Zhama Future",
     "companyDescription": "Tego OS — Enterprise AI Workforce Platform",
-    "about": "Zhama Future builds Tego OS, an enterprise AI workforce platform that helps organizations deploy governed AI coworkers into real business workflows.",
+    "about": "Zhama Future builds TeGo as one digital workforce platform: private deployment, customization, and FDE support for enterprises, plus a ready-to-use global SaaS at zhama.ai for individuals and teams.",
     "products": "Product",
     "home": {
       "hero": {
@@ -573,6 +578,7 @@
     },
     "digitalAvatar": "AI coworker runtime",
     "station": "TeGo Station Appliance",
+    "cloud": "TeGo Cloud",
     "lampEngine": "Orchestration engine",
     "mcpEngine": "MCP integration engine",
     "governanceEngine": "Governance engine",
@@ -678,6 +684,11 @@
       "price": "Custom",
       "period": "Talk to us",
       "cta": "Contact sales"
+    },
+    "cloudBanner": {
+      "title": "Just you or a small team?",
+      "description": "TeGo Cloud starts at $0. Sign up and work immediately — no deployment or maintenance.",
+      "cta": "Start free"
     },
     "deployment": {
       "title": "Deployment Options",
@@ -2340,6 +2351,24 @@
         }
       }
     },
+    "audienceSplit": {
+      "title": "One digital workforce, two ways to start",
+      "subtitle": "Choose the TeGo path that fits your team size, data boundaries, and delivery requirements.",
+      "private": {
+        "eyebrow": "For enterprises",
+        "title": "TeGo Enterprise",
+        "description": "Deploy in your environment, customize around real workflows, and launch with hands-on engineering support.",
+        "features": ["Keep data and models inside your network", "Deep workflow and industry customization", "Forward Deployed Engineer support", "SSO, permissions, audit, and high availability"],
+        "cta": "Book an enterprise demo"
+      },
+      "cloud": {
+        "eyebrow": "For individuals and teams",
+        "title": "TeGo Cloud",
+        "description": "No deployment required. Create dedicated AI coworkers and move real work forward from day one.",
+        "features": ["Start at $0 and upgrade as needed", "200+ ready-to-work experts", "Automatic updates with zero maintenance", "Available globally"],
+        "cta": "Start free"
+      }
+    },
     "painPoints": {
       "title": "Why Most Enterprise AI Pilots Never Reach Production",
       "subtitle": "The model is rarely the bottleneck. Production AI needs isolation, governance, auditability, and operating visibility.",
@@ -2601,6 +2630,102 @@
           "cta": "Open docs"
         }
       }
+    }
+  },
+  "cloud": {
+    "seo": {
+      "title": "TeGo Cloud | Ready-to-work AI Digital Employees",
+      "description": "Pick from over 200 experts at zhama.ai and turn them into dedicated AI digital employees. Start at $0 with no deployment, across engineering, marketing growth, e-commerce, creative, and data analysis roles.",
+      "keywords": "AI digital employees,AI coworkers,SaaS,slide deck builder,contract review,growth experiments,market intelligence,TeGo",
+      "openGraph": {
+        "title": "TeGo Cloud · Build your digital workforce today",
+        "description": "Over 200 ready-to-work experts. Start at $0 and work immediately."
+      }
+    },
+    "hero": {
+      "badge": "Commercially available · Built for global teams",
+      "title": "Build your digital workforce. Keep work moving.",
+      "subtitle": "Create dedicated AI digital employees for every role, each with their own skills, memory, and work context. They understand your business, execute tasks, and deliver editable work.",
+      "primaryCta": "Create a digital employee",
+      "secondaryCta": "Compare Enterprise",
+      "trust": "No credit card required · Start at $0 · Ready in minutes"
+    },
+    "experts": {
+      "badge": "200+ experts",
+      "title": "Hire one that already knows the job",
+      "subtitle": "Every expert ships with its own working style, skills, and memory. Pick one, give it a name, and it becomes your digital employee — or start blank and build your own.",
+      "statValue": "200+",
+      "statLabel": "experts ready to work",
+      "statFamilies": "16 job families",
+      "statUpdate": "New experts every week",
+      "families": [
+        { "name": "Engineering", "count": "58", "roles": ["AI Systems Engineer", "API Testing Expert", "Accessibility Auditor"] },
+        { "name": "Marketing growth", "count": "28", "roles": ["Viral Video Analyst", "App Store Expert", "Bidding Strategist"] },
+        { "name": "Digital Employees", "count": "19", "roles": ["Founder Advisor", "Smart Video Editor", "Community Manager"] },
+        { "name": "E-commerce", "count": "19", "roles": ["Amazon PPC Optimizer", "Cross-Border Ops Expert", "Product Sourcing Analyst"] },
+        { "name": "Industry consultant", "count": "17", "roles": ["Account Strategy Designer", "Behavioral Nudge Expert", "Due Diligence Advisor"] },
+        { "name": "Creative", "count": "16", "roles": ["AI Image Prompt Designer", "Book Co-Author", "Visual Consultant"] },
+        { "name": "Product", "count": "14", "roles": ["Data Analytics Reporter", "Experiment Officer", "Developer Evangelist"] },
+        { "name": "Productivity", "count": "14", "roles": ["Knowledge Base Admin", "Video Production Expert", "Workflow Optimizer"] },
+        { "name": "Data Analysis", "count": "10", "roles": ["Anomaly Detection Expert", "Report Distribution Agent", "Business Insight Analyst"] },
+        { "name": "Content Operations", "count": "9", "roles": ["Social Operations Expert", "Content Summary Expert", "Content Planner"] }
+      ],
+      "more": "More job families are in the directory, with new experts added regularly.",
+      "cta": "Browse all experts free"
+    },
+    "employees": {
+      "title": "See what they deliver",
+      "subtitle": "Every digital employee returns editable work, not just an answer.",
+      "outputLabel": "You get back",
+      "items": [
+        {"title": "Slide Deck Builder", "description": "Turn data, narrative, and templates into a board-ready presentation.", "output": "10–15 slides · PPTX + PDF"},
+        {"title": "Legal Assistant", "description": "Find contract risks, rank clauses, and draft redlines you can use.", "output": "Risk register + redlines"},
+        {"title": "User Manual Generator", "description": "Build step-by-step, maintainable guides from your real product and workflow.", "output": "Editable user manual"},
+        {"title": "Growth Experiment Planner", "description": "Rank hypotheses with ICE scoring and turn them into a weekly plan.", "output": "Experiment backlog + plan"},
+        {"title": "Market Intelligence Brief", "description": "Track competitors, market moves, and the changes worth acting on.", "output": "Daily market brief"}
+      ]
+    },
+    "pricing": {
+      "title": "Start free. Scale when the work does.",
+      "subtitle": "Monthly plans with no long-term lock-in. Move to Enterprise whenever you need private deployment or customization.",
+      "recommended": "Recommended",
+      "plans": [
+        {"key": "free", "name": "Free", "tagline": "Kick the tires", "price": "$0", "period": "", "description": "Try AI coworkers on a real task before committing.", "features": ["2 avatars", "1 active instance", "Starter workflow credits", "Web access"], "cta": "Start free"},
+        {"key": "pro", "name": "Pro", "tagline": "One person, full team output", "price": "$20", "period": "/mo", "description": "For people who ship every day and want coworkers always ready.", "features": ["5 avatars", "Web + Desktop + Mini Chat", "Editable Office deliverables", "Persistent memory + scheduled tasks"], "cta": "Start Pro"},
+        {"key": "team", "name": "Team", "tagline": "One shared coworker. Zero crosstalk.", "price": "Contact sales", "period": "", "description": "For teams that need shared avatars without sharing data.", "features": ["Per-user data isolation", "SSO + admin controls", "Audit log", "Priority support"], "cta": "Talk to sales"}
+      ],
+      "note": "Final pricing and availability are shown on zhama.ai."
+    },
+    "comparison": {
+      "title": "Cloud or Enterprise?",
+      "subtitle": "Validate value in the cloud, or deploy TeGo directly where your business operates.",
+      "cloudLabel": "TeGo Cloud",
+      "enterpriseLabel": "TeGo Enterprise",
+      "rows": [
+        {"label": "Best for", "cloud": "Individuals and small teams", "enterprise": "Mid-market, enterprise, and regulated organizations"},
+        {"label": "Deployment", "cloud": "Hosted SaaS at zhama.ai", "enterprise": "On-prem, hybrid cloud, or appliance"},
+        {"label": "Time to start", "cloud": "Sign up and work", "enterprise": "Planned delivery around your workflow"},
+        {"label": "Customization", "cloud": "Standard roles and skills", "enterprise": "Custom workflows, skills, UI, and branding"},
+        {"label": "Data and governance", "cloud": "Cloud with per-user isolation", "enterprise": "Your network, SSO, RBAC, and full audit"},
+        {"label": "Delivery support", "cloud": "Product support", "enterprise": "Solution team + Forward Deployed Engineers"}
+      ],
+      "cloudCta": "Start free",
+      "enterpriseCta": "Talk to Enterprise"
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "subtitle": "About TeGo Cloud, your data, and moving to Enterprise.",
+      "items": [
+        {"question": "Are Cloud and Enterprise different products?", "answer": "No. Both are part of the TeGo digital workforce platform. Cloud is designed for self-serve use and fast validation; Enterprise adds private deployment, deep customization, governance, and FDE support."},
+        {"question": "How does TeGo Cloud protect my data?", "answer": "Each user gets a dedicated workspace and data boundary. Organizations with data residency, private networking, or stricter audit requirements should choose Enterprise."},
+        {"question": "Can I move from Cloud to Enterprise later?", "answer": "Yes. When your team, workflow complexity, or compliance requirements grow, we can assess a migration and enterprise delivery plan with you."}
+      ]
+    },
+    "bottomCta": {
+      "title": "Put your first digital employee to work today",
+      "description": "Start at $0 with no deployment. Give it a real task and see what it delivers.",
+      "primaryCta": "Create a digital employee",
+      "secondaryCta": "Explore Enterprise"
     }
   },
   "station": {

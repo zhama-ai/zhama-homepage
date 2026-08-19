@@ -141,7 +141,7 @@ export default async function StationPage({ params }: Props) {
 
               <div className="relative overflow-hidden rounded-lg border border-zinc-200 bg-zinc-100 shadow-lg dark:border-zinc-700 dark:bg-zinc-800">
                 <Image
-                  src="/images/station/hero.png"
+                  src={locale === 'en' ? '/images/station/hero-en.png' : '/images/station/hero.png'}
                   alt={t('heroImageAlt')}
                   width={1200}
                   height={900}

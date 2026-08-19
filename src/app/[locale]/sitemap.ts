@@ -18,6 +18,7 @@ export default async function sitemap({ params }: Props): Promise<MetadataRoute.
     '',
     '/contact',
     '/download',
+    '/cloud',
     '/station',
     '/guide',
     '/blog',
@@ -39,6 +40,7 @@ export default async function sitemap({ params }: Props): Promise<MetadataRoute.
         page === '/blog' ? 'weekly' : 'yearly',
       priority:
         page === '' ? 1.0 :
+        page === '/cloud' ? 0.9 :
         page === '/blog' ? 0.9 :
         page === '/contact' ? 0.8 : 0.7,
       alternates: {

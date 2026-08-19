@@ -38,6 +38,10 @@ const nextConfig: NextConfig = {
           key: 'X-DNS-Prefetch-Control',
           value: 'on',
         },
+        {
+          key: 'Link',
+          value: '<https://zhama.ai>; rel="preconnect", <https://zhama.ai>; rel="dns-prefetch"',
+        },
       ],
     },
   ],

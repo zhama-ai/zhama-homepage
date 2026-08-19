@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
+import AudienceSplitSection from '@/components/AudienceSplitSection';
 import PainPointsSection from '@/components/PainPointsSection';
 import ValuePillarsSection from '@/components/ValuePillarsSection';
 import ScenariosSection from '@/components/ScenariosSection';
@@ -25,6 +26,7 @@ export default async function Home({ params }: HomeProps) {
       <Header />
       <main>
         <HeroSection locale={locale} />
+        <AudienceSplitSection locale={locale} />
         <PainPointsSection locale={locale} />
         <ValuePillarsSection locale={locale} />
         <ScenariosSection locale={locale} />

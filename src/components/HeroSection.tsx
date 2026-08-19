@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { ArrowRight, CheckCircle2, Database, LockKeyhole, Network } from 'lucide-react';
 import { Container } from './ui/Container';
 import HeroVideoButton from './HeroVideoButton';
+import CloudLink from './CloudLink';
+import { cloudFirst } from '@/lib/audience';
 
 interface HeroSectionProps {
   locale: string;
@@ -10,6 +12,8 @@ interface HeroSectionProps {
 
 export default async function HeroSection({ locale }: HeroSectionProps) {
   const t = await getTranslations({ locale, namespace: 'biz.hero' });
+  const cloudT = await getTranslations({ locale, namespace: 'cloud.hero' });
+  const isCloudFirst = cloudFirst(locale);
 
   const highlightKeys = ['scale', 'speed', 'delivery'] as const;
   const consoleCopy =
@@ -70,16 +74,37 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
           </p>
 
           <div className="mt-7 flex flex-wrap items-center gap-3">
-            <Link
-              href={`/${locale}/contact`}
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-primary-700 px-6 py-3 text-base font-semibold text-white shadow-md shadow-primary-950/10 transition-all duration-300 hover:bg-primary-800 hover:shadow-lg active:scale-95"
-            >
-              {t('primaryCta')}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+            {isCloudFirst ? (
+              <CloudLink
+                medium="hero"
+                locale={locale}
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-primary-700 px-6 py-3 text-base font-semibold text-white shadow-md shadow-primary-950/10 transition-all duration-300 hover:bg-primary-800 hover:shadow-lg active:scale-95"
+              >
+                {cloudT('primaryCta')}
+                <ArrowRight className="h-4 w-4" />
+              </CloudLink>
+            ) : (
+              <Link
+                href={`/${locale}/contact`}
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-primary-700 px-6 py-3 text-base font-semibold text-white shadow-md shadow-primary-950/10 transition-all duration-300 hover:bg-primary-800 hover:shadow-lg active:scale-95"
+              >
+                {t('primaryCta')}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            )}
+            {isCloudFirst && (
+              <Link
+                href={`/${locale}/contact`}
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-zinc-300 bg-white px-6 py-3 text-base font-semibold text-zinc-900 transition-all duration-300 hover:bg-zinc-50 active:scale-95 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:hover:bg-zinc-800"
+              >
+                {t('primaryCta')}
+              </Link>
+            )}
             <Link
               href={`/${locale}/download`}
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-zinc-300 bg-white px-6 py-3 text-base font-semibold text-zinc-900 transition-all duration-300 hover:bg-zinc-50 active:scale-95 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:hover:bg-zinc-800"
+              className={isCloudFirst
+                ? 'inline-flex items-center justify-center whitespace-nowrap rounded-lg px-3 py-3 text-sm font-semibold text-zinc-600 transition-colors hover:text-primary-700 dark:text-zinc-300 dark:hover:text-primary-200'
+                : 'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-zinc-300 bg-white px-6 py-3 text-base font-semibold text-zinc-900 transition-all duration-300 hover:bg-zinc-50 active:scale-95 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:hover:bg-zinc-800'}
             >
               {t('secondaryCta')}
             </Link>
@@ -106,15 +131,27 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
             ))}
           </div>
 
-          <Link
-            href={`/${locale}/contact`}
-            className="mt-6 flex max-w-2xl items-start gap-2 text-sm leading-6 text-zinc-600 transition-colors hover:text-primary-700 dark:text-zinc-400 dark:hover:text-primary-200"
-          >
-            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent-600 dark:text-accent-300" />
-            <span>
-              {t('tertiaryCta')} · {t('tertiaryCtaHint')}
-            </span>
-          </Link>
+          <div className="mt-6 flex max-w-2xl flex-wrap items-start gap-x-5 gap-y-2">
+            <Link
+              href={`/${locale}/contact`}
+              className="flex items-start gap-2 text-sm leading-6 text-zinc-600 transition-colors hover:text-primary-700 dark:text-zinc-400 dark:hover:text-primary-200"
+            >
+              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent-600 dark:text-accent-300" />
+              <span>
+                {t('tertiaryCta')} · {t('tertiaryCtaHint')}
+              </span>
+            </Link>
+            {!isCloudFirst && (
+              <CloudLink
+                medium="hero"
+                locale={locale}
+                className="flex items-center gap-1 text-sm font-semibold leading-6 text-primary-700 transition-colors hover:text-primary-800 dark:text-primary-200"
+              >
+                {cloudT('primaryCta')}
+                <ArrowRight className="h-3.5 w-3.5" />
+              </CloudLink>
+            )}
+          </div>
         </div>
 
         <div className="relative hidden animate-scale-in lg:block">

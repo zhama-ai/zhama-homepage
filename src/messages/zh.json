@@ -26,6 +26,11 @@
     "about": "关于我们",
     "contact": "联系我们",
     "tryNow": "申请企业版演示",
+    "product": "产品",
+    "enterpriseProduct": "TeGo 企业版",
+    "cloud": "TeGo 云端版",
+    "cloudLive": "已上线",
+    "startFree": "免费试用",
     "biz": {
       "value": "核心价值",
       "solutions": "行业方案",
@@ -521,7 +526,7 @@
   "footer": {
     "companyName": "扎马未来",
     "companyDescription": "TeGo-OS — 企业数字分身与 AI 超级团队平台",
-    "about": "深圳市扎马未来科技有限公司，致力于为企业提供以数字分身为核心的 AI 操作系统，让 AI 真正为企业创造价值。",
+    "about": "扎马未来以 TeGo 为统一品牌，为企业提供私有化数字员工、深度定制与 FDE 驻场支持，同时通过 zhama.ai 向全球个人与团队提供开箱即用的数字员工 SaaS 服务。",
     "products": "产品与能力",
     "home": {
       "hero": {
@@ -530,6 +535,7 @@
     },
     "digitalAvatar": "数字分身体系",
     "station": "TeGo Station 一体机",
+    "cloud": "TeGo 云端版",
     "lampEngine": "智能编排引擎",
     "mcpEngine": "MCP 能力引擎",
     "governanceEngine": "企业治理引擎",
@@ -635,6 +641,11 @@
       "price": "定制报价",
       "period": "联系咨询",
       "cta": "联系销售"
+    },
+    "cloudBanner": {
+      "title": "只需要个人或小团队使用？",
+      "description": "TeGo 云端版 $0 起，注册即用，无需部署和运维。",
+      "cta": "免费开始使用"
     },
     "deployment": {
       "title": "灵活部署方式",
@@ -2270,6 +2281,24 @@
         }
       }
     },
+    "audienceSplit": {
+      "title": "一种数字员工，两种开始方式",
+      "subtitle": "根据团队规模、数据边界与交付要求，选择最适合您的 TeGo。",
+      "private": {
+        "eyebrow": "面向企业",
+        "title": "TeGo 企业版",
+        "description": "部署到您的环境，围绕真实业务流程深度定制，并由工程团队陪伴落地。",
+        "features": ["数据与模型留在企业网络", "业务流程与行业能力深度定制", "FDE 驻场工程师支持", "SSO、权限、审计与高可用"],
+        "cta": "申请企业版演示"
+      },
+      "cloud": {
+        "eyebrow": "面向个人与团队",
+        "title": "TeGo 云端版",
+        "description": "无需部署，注册即可创建专属数字员工，让日常工作马上开始流动。",
+        "features": ["$0 起步，按需升级", "200+ 位专家，选中即用", "自动升级，免运维", "面向全球随时访问"],
+        "cta": "免费试用云端版"
+      }
+    },
     "painPoints": {
       "title": "为什么大多数企业的 AI 试点，最终都没能进入生产？",
       "subtitle": "不是模型不够强，而是企业级落地的关键能力没补齐。",
@@ -2486,6 +2515,102 @@
           "cta": "查看文档"
         }
       }
+    }
+  },
+  "cloud": {
+    "seo": {
+      "title": "TeGo 云端版 | 开箱即用的 AI 数字员工",
+      "description": "在 zhama.ai 从 200+ 位专家中挑选并创建专属 AI 数字员工。$0 起步，无需部署，覆盖工程研发、市场增长、跨境电商、创意设计、数据分析等岗位方向。",
+      "keywords": "AI数字员工,AI同事,SaaS,演示文稿生成,合同审阅,增长实验,市场情报,TeGo",
+      "openGraph": {
+        "title": "TeGo 云端版 · 今天就组建您的数字团队",
+        "description": "200+ 位开箱即用的专家，$0 起步，注册即用。"
+      }
+    },
+    "hero": {
+      "badge": "已商业化上线 · 面向全球",
+      "title": "组建您的数字团队，让工作持续向前",
+      "subtitle": "为每个角色创建专属 AI 数字员工。每位员工都有自己的技能、记忆与工作上下文，理解业务、执行任务，并交付可编辑成果。",
+      "primaryCta": "免费创建数字员工",
+      "secondaryCta": "比较企业版",
+      "trust": "无需信用卡 · $0 起步 · 注册即用"
+    },
+    "experts": {
+      "badge": "200+ 位专家",
+      "title": "挑一个已经懂这份工作的专家",
+      "subtitle": "每位专家自带工作方式、技能与记忆。选中、命名，它就成为您的数字员工——也可以从空白开始，培养一个属于自己的。",
+      "statValue": "200+",
+      "statLabel": "位专家已就位",
+      "statFamilies": "16 个岗位方向",
+      "statUpdate": "每周持续上新",
+      "families": [
+        { "name": "工程研发", "count": "58", "roles": ["AI 系统工程师", "API 测试专家", "无障碍审计师"] },
+        { "name": "市场增长", "count": "28", "roles": ["爆款视频分析师", "应用商店专家", "投放策略师"] },
+        { "name": "数字员工", "count": "19", "roles": ["创始人顾问", "智能视频剪辑师", "社群运营官"] },
+        { "name": "跨境电商", "count": "19", "roles": ["亚马逊广告优化师", "跨境运营专家", "选品分析师"] },
+        { "name": "行业顾问", "count": "17", "roles": ["客户策略设计师", "行为助推专家", "企业尽调顾问"] },
+        { "name": "创意设计", "count": "16", "roles": ["AI 图像提示词设计师", "图书共创作者", "视觉顾问"] },
+        { "name": "产品", "count": "14", "roles": ["数据分析报告员", "实验管理官", "开发者布道师"] },
+        { "name": "效率办公", "count": "14", "roles": ["知识库管理员", "视频生产专家", "流程优化引擎"] },
+        { "name": "数据分析", "count": "10", "roles": ["异常检测专家", "报表分发助手", "业务洞察分析师"] },
+        { "name": "内容运营", "count": "9", "roles": ["微信运营专家", "内容摘要专家", "社媒内容策划"] }
+      ],
+      "more": "目录中还有更多岗位方向，并持续上新。",
+      "cta": "免费浏览全部专家"
+    },
+    "employees": {
+      "title": "看看它们交付什么",
+      "subtitle": "每位数字员工都产出可以直接编辑的成果，而不只是一段回答。",
+      "outputLabel": "交付成果",
+      "items": [
+        {"title": "演示文稿制作员", "description": "把数据、叙事与模板变成董事会级演示文稿。", "output": "10–15 页 PPTX + PDF"},
+        {"title": "法务助手", "description": "识别合同风险、排列优先级，并给出可直接采用的修订建议。", "output": "风险清单 + 修订稿"},
+        {"title": "用户手册生成员", "description": "根据真实产品与流程生成分步骤、可维护的用户手册。", "output": "可编辑用户手册"},
+        {"title": "增长实验规划师", "description": "用 ICE 框架整理增长假设、实验优先级与每周计划。", "output": "实验积压 + 周计划"},
+        {"title": "市场情报分析员", "description": "持续跟踪竞争对手、市场动作与值得关注的变化。", "output": "每日市场简报"}
+      ]
+    },
+    "pricing": {
+      "title": "从免费开始，按您的节奏扩展",
+      "subtitle": "月付，无长期绑定。需要私有化与定制能力时，可随时升级企业版。",
+      "recommended": "推荐",
+      "plans": [
+        {"key": "free", "name": "Free", "tagline": "先用起来", "price": "$0", "period": "", "description": "在真实任务中体验 AI 数字员工。", "features": ["2 位数字员工", "1 个活跃实例", "入门工作流额度", "Web 访问"], "cta": "免费开始"},
+        {"key": "pro", "name": "Pro", "tagline": "一个人，拥有团队产能", "price": "$20", "period": "/月", "description": "适合每天交付成果的个人与专业用户。", "features": ["5 位数字员工", "Web + Desktop + Mini Chat", "可编辑 Office 成果", "持久记忆与定时任务"], "cta": "开始 Pro"},
+        {"key": "team", "name": "Team", "tagline": "共享同事，数据不混用", "price": "联系销售", "period": "", "description": "适合需要共享数字员工与用户隔离的团队。", "features": ["用户级数据隔离", "SSO + 管理控制", "审计日志", "优先支持"], "cta": "咨询团队版"}
+      ],
+      "note": "价格以 zhama.ai 实际展示为准。"
+    },
+    "comparison": {
+      "title": "云端版还是企业版？",
+      "subtitle": "先从云端验证价值，也可以直接将 TeGo 部署到您的业务现场。",
+      "cloudLabel": "TeGo 云端版",
+      "enterpriseLabel": "TeGo 企业版",
+      "rows": [
+        {"label": "适合对象", "cloud": "个人与中小团队", "enterprise": "中大型企业与高合规组织"},
+        {"label": "部署形态", "cloud": "zhama.ai 托管 SaaS", "enterprise": "私有化 / 混合云 / 一体机"},
+        {"label": "上线速度", "cloud": "注册即用", "enterprise": "按业务场景规划交付"},
+        {"label": "业务定制", "cloud": "标准角色与技能", "enterprise": "流程、技能、界面与品牌深度定制"},
+        {"label": "数据与治理", "cloud": "云端用户级隔离", "enterprise": "企业网络、SSO、RBAC、完整审计"},
+        {"label": "交付支持", "cloud": "产品支持", "enterprise": "解决方案团队 + FDE 驻场工程师"}
+      ],
+      "cloudCta": "免费试用云端版",
+      "enterpriseCta": "咨询企业方案"
+    },
+    "faq": {
+      "title": "常见问题",
+      "subtitle": "关于云端版、数据与企业升级。",
+      "items": [
+        {"question": "云端版和企业版是两个不同产品吗？", "answer": "不是。它们同属 TeGo 数字员工平台。云端版面向自助使用与快速验证，企业版提供私有化部署、深度定制、治理能力与 FDE 支持。"},
+        {"question": "云端版如何保护我的数据？", "answer": "每位用户拥有独立的工作空间与数据边界。对数据驻留、专属网络或更严格审计有要求的组织，建议选择企业版。"},
+        {"question": "使用云端版后可以升级到企业版吗？", "answer": "可以。团队规模、流程复杂度或合规要求增长后，我们会协助评估迁移与企业交付方案。"}
+      ]
+    },
+    "bottomCta": {
+      "title": "今天就让第一位数字员工开始工作",
+      "description": "$0 起步，无需部署。给它一项真实工作，看看今天能交付什么。",
+      "primaryCta": "免费创建数字员工",
+      "secondaryCta": "了解企业版"
     }
   },
   "station": {

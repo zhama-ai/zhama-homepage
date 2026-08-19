@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Container } from './ui/Container';
 import { Building2, Cloud, Sparkles, Check } from 'lucide-react';
 import { SectionHead } from './ui/Section';
+import CloudLink from './CloudLink';
 
 interface PrivateDeliverySectionProps {
   locale: string;
@@ -80,12 +81,22 @@ export default async function PrivateDeliverySection({ locale }: PrivateDelivery
                   ))}
                 </ul>
 
-                <Link
-                  href={`/${locale}/contact`}
-                  className="mt-8 inline-flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-primary-950/10 transition-all duration-300 hover:bg-primary-800 hover:shadow-lg active:scale-95"
-                >
-                  {t(`modes.${mode.key}.cta`)}
-                </Link>
+                {mode.key === 'saas' ? (
+                  <CloudLink
+                    medium="delivery"
+                    locale={locale}
+                    className="mt-8 inline-flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-primary-950/10 transition-all duration-300 hover:bg-primary-800 hover:shadow-lg active:scale-95"
+                  >
+                    {t(`modes.${mode.key}.cta`)}
+                  </CloudLink>
+                ) : (
+                  <Link
+                    href={`/${locale}/contact`}
+                    className="mt-8 inline-flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-primary-950/10 transition-all duration-300 hover:bg-primary-800 hover:shadow-lg active:scale-95"
+                  >
+                    {t(`modes.${mode.key}.cta`)}
+                  </Link>
+                )}
               </div>
             );
           })}
