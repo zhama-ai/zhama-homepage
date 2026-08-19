@@ -20,6 +20,7 @@ import FooterSection from '@/components/FooterSection';
 import CloudLink from '@/components/CloudLink';
 import { Container } from '@/components/ui/Container';
 import { SectionHead } from '@/components/ui/Section';
+import { localizedAlternates, localizedOpenGraph } from '@/lib/seo';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -67,18 +68,12 @@ export async function generateMetadata({ params }: Props) {
     title: t('title'),
     description: t('description'),
     keywords: t('keywords'),
+    alternates: localizedAlternates(locale, '/cloud'),
     openGraph: {
       title: t('openGraph.title'),
       description: t('openGraph.description'),
-      url: `https://zhama.com/${locale}/cloud`,
       type: 'website',
-    },
-    alternates: {
-      canonical: `https://zhama.com/${locale}/cloud`,
-      languages: {
-        'zh-CN': 'https://zhama.com/zh/cloud',
-        'en-US': 'https://zhama.com/en/cloud',
-      },
+      ...localizedOpenGraph(locale, '/cloud'),
     },
   };
 }

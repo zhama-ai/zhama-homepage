@@ -1,6 +1,32 @@
+import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
+import { localizedAlternates, localizedOpenGraph } from '@/lib/seo';
 
-export default async function PrivacyPolicy({ params }: { params: Promise<{ locale: string }> }) {
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'privacy' });
+  const description = locale === 'zh'
+    ? 'Zhama 隐私政策：了解我们如何收集、使用、存储和保护您的个人信息。'
+    : 'Zhama Privacy Policy: learn how we collect, use, store, and protect your personal information.';
+
+  return {
+    title: t('title'),
+    description,
+    alternates: localizedAlternates(locale, '/privacy'),
+    openGraph: {
+      title: t('title'),
+      description,
+      type: 'website',
+      ...localizedOpenGraph(locale, '/privacy'),
+    },
+  };
+}
+
+export default async function PrivacyPolicy({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'privacy' });
 

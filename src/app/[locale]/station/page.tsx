@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import FooterSection from '@/components/FooterSection';
 import { Container } from '@/components/ui/Container';
 import { SectionHead } from '@/components/ui/Section';
+import { localizedAlternates, localizedOpenGraph } from '@/lib/seo';
 import {
   ArrowRight,
   Bot,
@@ -34,9 +35,12 @@ export async function generateMetadata({ params }: Props) {
     title: t('title'),
     description: t('description'),
     keywords: t('keywords'),
+    alternates: localizedAlternates(locale, '/station'),
     openGraph: {
       title: t('openGraph.title'),
       description: t('openGraph.description'),
+      type: 'website',
+      ...localizedOpenGraph(locale, '/station'),
     },
   };
 }

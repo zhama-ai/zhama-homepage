@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import FooterSection from '@/components/FooterSection';
 import MCPPlatformSection from '@/components/MCPPlatformSection';
 import { Container } from '@/components/ui/Container';
+import { localizedAlternates, localizedOpenGraph } from '@/lib/seo';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -16,9 +17,12 @@ export async function generateMetadata({ params }: Props) {
     title: t('title'),
     description: t('description'),
     keywords: t('keywords'),
+    alternates: localizedAlternates(locale, '/platform'),
     openGraph: {
       title: t('openGraph.title'),
       description: t('openGraph.description'),
+      type: 'website',
+      ...localizedOpenGraph(locale, '/platform'),
     },
   };
 }

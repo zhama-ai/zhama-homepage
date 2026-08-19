@@ -1,104 +1,67 @@
-import { MetadataRoute } from 'next'
-import { locales } from '@/i18n'
-import { getAllBlogPostsMetadata } from '@/lib/blog/blog-utils'
+import type { MetadataRoute } from 'next';
+import { locales } from '@/i18n';
+import { getAllBlogPostsMetadata } from '@/lib/blog/blog-utils';
+import { localizedUrl, SITE_URL } from '@/lib/seo';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://zhama.com'
-  
-  // Base pages with detailed configuration
   const pages = [
-    { 
-      path: '', 
-      changeFreq: 'daily' as const, 
-      priority: 1.0,
-      lastMod: new Date('2024-12-01') // Update this when homepage content changes
-    },
-    { 
-      path: '/contact', 
-      changeFreq: 'monthly' as const, 
-      priority: 0.8,
-      lastMod: new Date('2024-11-15')
-    },
-    { 
-      path: '/download', 
-      changeFreq: 'weekly' as const, 
-      priority: 0.9, // High priority for download page
-      lastMod: new Date('2024-11-20')
-    },
-    {
-      path: '/station',
-      changeFreq: 'weekly' as const,
-      priority: 0.9,
-      lastMod: new Date('2026-07-15')
-    },
-    { 
-      path: '/guide', 
-      changeFreq: 'monthly' as const, 
-      priority: 0.8,
-      lastMod: new Date('2024-11-10')
-    },
-    { 
-      path: '/privacy', 
-      changeFreq: 'yearly' as const, 
-      priority: 0.5,
-      lastMod: new Date('2024-10-01')
-    },
-    { 
-      path: '/terms', 
-      changeFreq: 'yearly' as const, 
-      priority: 0.5,
-      lastMod: new Date('2024-10-01')
-    },
-    { 
-      path: '/blog', 
-      changeFreq: 'weekly' as const, 
-      priority: 0.9, // High priority for blog index
-      lastMod: new Date('2024-11-19')
-    }
-  ]
-  
-  // Generate sitemap entries for all locales and pages
-  const sitemapEntries: MetadataRoute.Sitemap = []
-  
-  // Add all pages for each locale
-  pages.forEach(page => {
-    locales.forEach(locale => {
-      const url = page.path === '' ? `${baseUrl}/${locale}` : `${baseUrl}/${locale}${page.path}`
-      
+    { path: '', changeFrequency: 'weekly' as const, priority: 1 },
+    { path: '/cloud', changeFrequency: 'weekly' as const, priority: 0.95 },
+    { path: '/station', changeFrequency: 'monthly' as const, priority: 0.9 },
+    { path: '/download', changeFrequency: 'weekly' as const, priority: 0.9 },
+    { path: '/blog', changeFrequency: 'weekly' as const, priority: 0.85 },
+    { path: '/contact', changeFrequency: 'monthly' as const, priority: 0.8 },
+    { path: '/platform', changeFrequency: 'monthly' as const, priority: 0.75 },
+    { path: '/technical', changeFrequency: 'monthly' as const, priority: 0.75 },
+    { path: '/plugin-system', changeFrequency: 'monthly' as const, priority: 0.7 },
+    { path: '/multi-agent', changeFrequency: 'monthly' as const, priority: 0.7 },
+    { path: '/privacy', changeFrequency: 'yearly' as const, priority: 0.3 },
+    { path: '/terms', changeFrequency: 'yearly' as const, priority: 0.3 },
+  ];
+  const siteUpdatedAt = new Date('2026-08-20');
+  const sitemapEntries: MetadataRoute.Sitemap = [];
+
+  for (const page of pages) {
+    for (const locale of locales) {
       sitemapEntries.push({
-        url,
-        lastModified: page.lastMod,
-        changeFrequency: page.changeFreq,
-        priority: locale === 'zh' ? page.priority : page.priority * 0.9, // Slightly lower priority for English
-      })
-    })
-  })
-  
-  // Add root redirect (optional)
-  sitemapEntries.push({
-    url: baseUrl,
-    lastModified: new Date(),
-    changeFrequency: 'daily',
-    priority: 0.8,
-  })
-  
-  // Add blog posts for each locale
-  for (const locale of locales) {
-    try {
-      const posts = await getAllBlogPostsMetadata(locale)
-      posts.forEach(post => {
-        sitemapEntries.push({
-          url: `${baseUrl}/${locale}/blog/${post.slug}`,
-          lastModified: new Date(post.date),
-          changeFrequency: 'monthly',
-          priority: post.featured ? 0.85 : 0.7, // Higher priority for featured posts
-        })
-      })
-    } catch (error) {
-      // If blog posts don't exist yet, continue
-      console.warn(`No blog posts found for locale: ${locale}`)
+        url: localizedUrl(locale, page.path),
+        lastModified: siteUpdatedAt,
+        changeFrequency: page.changeFrequency,
+        priority: page.priority,
+        alternates: {
+          languages: {
+            'zh-CN': localizedUrl('zh', page.path),
+            'en-US': localizedUrl('en', page.path),
+            'x-default': `${SITE_URL}${page.path || '/'}`,
+          },
+        },
+      });
     }
   }
-  
-  return sitemapEntries.sort((a, b) => (b.priority || 0) - (a.priority || 0)) // Sort by priority
+
+  for (const locale of locales) {
+    try {
+      const posts = await getAllBlogPostsMetadata(locale);
+      for (const post of posts) {
+        const path = `/blog/${post.slug}`;
+        sitemapEntries.push({
+          url: localizedUrl(locale, path),
+          lastModified: new Date(post.date),
+          changeFrequency: 'monthly',
+          priority: post.featured ? 0.8 : 0.65,
+          alternates: {
+            languages: {
+              'zh-CN': localizedUrl('zh', path),
+              'en-US': localizedUrl('en', path),
+              'x-default': `${SITE_URL}${path}`,
+            },
+          },
+        });
+      }
+    } catch {
+      console.warn(`No blog posts found for locale: ${locale}`);
+    }
+  }
+
+  return sitemapEntries.sort((a, b) => (b.priority || 0) - (a.priority || 0));
 }

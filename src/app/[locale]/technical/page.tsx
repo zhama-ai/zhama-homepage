@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import FooterSection from '@/components/FooterSection';
 import TechnicalFeaturesSection from '@/components/TechnicalFeaturesSection';
 import { Container } from '@/components/ui/Container';
+import { localizedAlternates, localizedOpenGraph } from '@/lib/seo';
 import { 
   Brain, 
   MessageSquare, 
@@ -36,9 +37,12 @@ export async function generateMetadata({ params }: Props) {
     title: t('title'),
     description: t('description'),
     keywords: t('keywords'),
+    alternates: localizedAlternates(locale, '/technical'),
     openGraph: {
       title: t('openGraph.title'),
       description: t('openGraph.description'),
+      type: 'website',
+      ...localizedOpenGraph(locale, '/technical'),
     },
   };
 }

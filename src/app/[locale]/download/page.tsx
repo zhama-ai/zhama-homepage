@@ -3,6 +3,7 @@ import { getMessages } from 'next-intl/server';
 import Header from '@/components/Header';
 import FooterSection from '@/components/FooterSection';
 import DownloadClient from '@/components/DownloadClient';
+import { localizedAlternates, localizedOpenGraph } from '@/lib/seo';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -24,11 +25,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: downloadSeo.keywords || (locale === 'zh'
       ? 'TeGo下载, 智能体平台体验, 企业AI演示'
       : 'TeGo download, AI agent platform experience, enterprise AI demo'),
+    alternates: localizedAlternates(locale, '/download'),
     openGraph: {
       title: downloadSeo.openGraph?.title || downloadSeo.title,
       description: downloadSeo.openGraph?.description || downloadSeo.description,
       type: 'website',
-      locale: locale === 'zh' ? 'zh_CN' : 'en_US'
+      ...localizedOpenGraph(locale, '/download'),
     },
     twitter: {
       card: 'summary_large_image',

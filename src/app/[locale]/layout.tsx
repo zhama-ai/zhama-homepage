@@ -7,6 +7,7 @@ import { locales } from '@/i18n';
 import StructuredData from '@/components/StructuredData';
 import BaiduSEO from '@/components/BaiduSEO';
 import Analytics from '@/components/Analytics';
+import { SITE_URL } from '@/lib/seo';
 
 type Props = {
   children: React.ReactNode;
@@ -29,9 +30,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   // Extract SEO-specific translations from the seo section
   const seo = messages?.seo || {};
-
-  const baseUrl = 'https://zhama.com';
-  const currentPath = locale === 'zh' ? '/zh' : '/en';
 
   return {
     title: {
@@ -70,10 +68,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: messages?.home?.hero?.title || (locale === 'zh' ? 'TeGo-OS 智能体操作系统' : 'TeGo AI Agent Platform'),
       type: 'website',
       locale: locale === 'zh' ? 'zh_CN' : 'en_US',
-      url: `${baseUrl}${currentPath}`,
       images: [
         {
-          url: `${baseUrl}/images/home.png`,
+          url: `${SITE_URL}/images/home.png`,
           width: 1200,
           height: 630,
           alt: locale === 'zh' ? 'TeGo-OS智能体操作系统平台展示' : 'TeGo AI Agent Platform Display',
@@ -84,7 +81,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: seo.twitter?.title || seo.title,
       description: seo.twitter?.description || seo.description,
-      images: [`${baseUrl}/images/home.png`],
+      images: [`${SITE_URL}/images/home.png`],
       creator: '@ZhamaFuture',
     },
     icons: {
@@ -95,23 +92,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       apple: '/favicon.svg',
     },
     manifest: '/manifest.json',
-    alternates: {
-      canonical: `${baseUrl}${currentPath}`,
-      languages: {
-        'zh-CN': `${baseUrl}/zh`,
-        'en-US': `${baseUrl}/en`
-      }
-    },
     verification: {
-      // Add verification codes for search engines when available
-      // To get these codes:
-      // Google: https://search.google.com/search-console -> Add property -> HTML tag method
-      // Bing: https://www.bing.com/webmasters -> Add site -> HTML tag method
-      // 
-      // Uncomment and replace with actual verification codes:
-      // google: 'your-google-verification-code',
-      // bing: 'your-bing-verification-code',
-      // yandex: 'your-yandex-verification-code',
+      google: process.env.GOOGLE_SITE_VERIFICATION,
+      ...(process.env.BING_SITE_VERIFICATION
+        ? { other: { 'msvalidate.01': process.env.BING_SITE_VERIFICATION } }
+        : {}),
     },
     category: 'technology',
   };
@@ -132,7 +117,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
       <Providers>
-        <StructuredData />
+        <StructuredData locale={locale} />
         <BaiduSEO />
         <Analytics />
         {children}

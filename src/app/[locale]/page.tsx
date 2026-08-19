@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import AudienceSplitSection from '@/components/AudienceSplitSection';
@@ -13,9 +15,33 @@ import CustomerLogosSection from '@/components/CustomerLogosSection';
 import ResourceCenterSection from '@/components/ResourceCenterSection';
 import BottomCTASection from '@/components/BottomCTASection';
 import FooterSection from '@/components/FooterSection';
+import { localizedAlternates, localizedOpenGraph } from '@/lib/seo';
 
 interface HomeProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: HomeProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'seo' });
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    keywords: t('keywords'),
+    alternates: localizedAlternates(locale),
+    openGraph: {
+      title: t('openGraph.title'),
+      description: t('openGraph.description'),
+      type: 'website',
+      ...localizedOpenGraph(locale),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('twitter.title'),
+      description: t('twitter.description'),
+    },
+  };
 }
 
 export default async function Home({ params }: HomeProps) {

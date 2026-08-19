@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import FooterSection from '@/components/FooterSection';
 import ContactForm from '@/components/ContactForm';
 import { Container } from '@/components/ui/Container';
+import { localizedAlternates, localizedOpenGraph } from '@/lib/seo';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -24,11 +25,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: contactSeo.keywords || (locale === 'zh'
       ? 'TeGo, 联系我们, 智能体平台, 企业AI, 技术支持'
       : 'TeGo, contact us, AI agent platform, enterprise AI, technical support'),
+    alternates: localizedAlternates(locale, '/contact'),
     openGraph: {
       title: contactSeo.openGraph?.title || contactSeo.title,
       description: contactSeo.openGraph?.description || contactSeo.description,
       type: 'website',
-      locale: locale === 'zh' ? 'zh_CN' : 'en_US'
+      ...localizedOpenGraph(locale, '/contact'),
     },
     twitter: {
       card: 'summary_large_image',

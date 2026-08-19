@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import HtmlLangSetter from "@/components/HtmlLangSetter";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://zhama.com"),
   title: "TeGo AI Agent Platform",
   description: "Enterprise AI Agent Platform and Solutions",
 };

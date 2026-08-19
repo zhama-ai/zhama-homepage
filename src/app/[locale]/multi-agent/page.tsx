@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/Card';
 import { Section } from '@/components/ui/Section';
+import { localizedAlternates, localizedOpenGraph } from '@/lib/seo';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -28,9 +29,12 @@ export async function generateMetadata({ params }: Props) {
     title: t('title'),
     description: t('description'),
     keywords: t('keywords'),
+    alternates: localizedAlternates(locale, '/multi-agent'),
     openGraph: {
       title: t('openGraph.title'),
       description: t('openGraph.description'),
+      type: 'website',
+      ...localizedOpenGraph(locale, '/multi-agent'),
     },
   };
 }

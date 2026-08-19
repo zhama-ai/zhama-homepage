@@ -14,6 +14,7 @@ import ShareButton from '@/components/blog/ShareButton';
 import { getBlogPostBySlug, getAllBlogPostSlugs, getAllBlogPostsMetadata } from '@/lib/blog/blog-utils';
 import { getRelatedPosts } from '@/lib/blog/markdown';
 import { locales } from '@/i18n';
+import { localizedAlternates, localizedOpenGraph, SITE_URL } from '@/lib/seo';
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -42,13 +43,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const baseUrl = 'https://zhama.com';
-  const url = `${baseUrl}/${locale}/blog/${slug}`;
-
   return {
     title: post.title,
     description: post.description,
     authors: [{ name: post.author }],
+    alternates: localizedAlternates(locale, `/blog/${slug}`),
     openGraph: {
       title: post.title,
       description: post.description,
@@ -56,10 +55,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: post.date,
       authors: [post.author],
       tags: post.tags,
-      url,
+      ...localizedOpenGraph(locale, `/blog/${slug}`),
       images: post.image ? [
         {
-          url: `${baseUrl}${post.image}`,
+          url: `${SITE_URL}${post.image}`,
           width: 1200,
           height: 630,
           alt: post.title,
@@ -70,7 +69,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
-      images: post.image ? [`${baseUrl}${post.image}`] : [],
+      images: post.image ? [`${SITE_URL}${post.image}`] : [],
     },
   };
 }

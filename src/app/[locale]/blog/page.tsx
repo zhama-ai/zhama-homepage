@@ -9,6 +9,7 @@ import BlogNav from '@/components/blog/BlogNav';
 import { getAllBlogPostsMetadata } from '@/lib/blog/blog-utils';
 import { getAllCategories, getAllTags, getFeaturedPosts } from '@/lib/blog/markdown';
 import { locales } from '@/i18n';
+import { localizedAlternates, localizedOpenGraph } from '@/lib/seo';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -38,10 +39,13 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
   return {
     title,
     description,
+    alternates: localizedAlternates(locale, '/blog'),
+    robots: category || tag ? { index: false, follow: true } : undefined,
     openGraph: {
       title,
       description,
       type: 'website',
+      ...localizedOpenGraph(locale, '/blog'),
     },
   };
 }

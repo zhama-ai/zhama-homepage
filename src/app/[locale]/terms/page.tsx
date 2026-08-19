@@ -1,6 +1,32 @@
+import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
+import { localizedAlternates, localizedOpenGraph } from '@/lib/seo';
 
-export default async function TermsOfService({ params }: { params: Promise<{ locale: string }> }) {
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'terms' });
+  const description = locale === 'zh'
+    ? 'Zhama 服务条款：使用 TeGo 产品和服务时适用的权利、义务与使用规则。'
+    : 'Zhama Terms of Service: the rights, responsibilities, and rules that apply when using TeGo products and services.';
+
+  return {
+    title: t('title'),
+    description,
+    alternates: localizedAlternates(locale, '/terms'),
+    openGraph: {
+      title: t('title'),
+      description,
+      type: 'website',
+      ...localizedOpenGraph(locale, '/terms'),
+    },
+  };
+}
+
+export default async function TermsOfService({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'terms' });
 
