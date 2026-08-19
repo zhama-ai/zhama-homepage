@@ -2,7 +2,7 @@ import { getTranslations } from 'next-intl/server';
 
 export default async function TermsOfService({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations('terms');
+  const t = await getTranslations({ locale, namespace: 'terms' });
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 overflow-x-hidden">
