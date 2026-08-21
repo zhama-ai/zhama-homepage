@@ -50,6 +50,7 @@ export default function Header() {
     if (typeof window === 'undefined') return;
     const sectionIds = [
       'home',
+      'team-packs',
       'choose',
       'pain-points',
       'value-pillars',
@@ -89,7 +90,7 @@ export default function Header() {
   }, []);
 
   const navItems = [
-    { href: `/${locale}/#scenarios`, label: t('nav.biz.solutions'), section: 'scenarios' },
+    { href: `/${locale}/#team-packs`, label: t('nav.biz.solutions'), section: 'team-packs' },
     { href: `/${locale}/#customers`, label: t('nav.biz.customers'), section: 'customers' },
     { href: `/${locale}/#delivery`, label: t('nav.biz.delivery'), section: 'delivery' },
     { href: `/${locale}/#pricing`, label: t('nav.pricing'), section: 'pricing' },

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
+import DigitalTeamsSection from '@/components/DigitalTeamsSection';
 import AudienceSplitSection from '@/components/AudienceSplitSection';
 import PainPointsSection from '@/components/PainPointsSection';
 import ValuePillarsSection from '@/components/ValuePillarsSection';
@@ -52,6 +53,7 @@ export default async function Home({ params }: HomeProps) {
       <Header />
       <main>
         <HeroSection locale={locale} />
+        <DigitalTeamsSection locale={locale} />
         <AudienceSplitSection locale={locale} />
         <PainPointsSection locale={locale} />
         <ValuePillarsSection locale={locale} />

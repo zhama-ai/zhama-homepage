@@ -21,10 +21,15 @@ export default function CloudLink({
   const handleClick: AnchorHTMLAttributes<HTMLAnchorElement>['onClick'] = (event) => {
     onClick?.(event);
     if (!event.defaultPrevented && typeof window !== 'undefined') {
+      const team = new URL(path, 'https://zhama.ai').searchParams.get('team');
       const analyticsWindow = window as typeof window & {
         gtag?: (command: string, eventName: string, parameters: Record<string, string>) => void;
       };
-      analyticsWindow.gtag?.('event', 'cloud_outbound', { medium, locale });
+      analyticsWindow.gtag?.('event', 'cloud_outbound', {
+        medium,
+        locale,
+        ...(team ? { team } : {}),
+      });
     }
   };
 

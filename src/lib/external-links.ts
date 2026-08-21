@@ -3,6 +3,7 @@ const ZHAMA_AI = 'https://zhama.ai';
 export type CloudLinkMedium =
   | 'header'
   | 'hero'
+  | 'team_pack'
   | 'audience_split'
   | 'delivery'
   | 'pricing'

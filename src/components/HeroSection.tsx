@@ -163,7 +163,7 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
                 <span className="h-2.5 w-2.5 rounded-full bg-amber-300/80" />
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
               </div>
-              <span className="text-xs font-semibold tracking-[0.24em] text-white/45">TEGO OS v3.0.0</span>
+              <span className="text-xs font-semibold tracking-[0.24em] text-white/45">ZHAMA AI</span>
               <span className="h-2 w-14 rounded-full bg-white/10" />
             </div>
 

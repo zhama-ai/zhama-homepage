@@ -776,16 +776,16 @@
     }
   },
   "seo": {
-    "title": "Tego OS | Enterprise AI Workforce Platform",
-    "description": "Tego OS gives every team member a dedicated AI coworker for production workflows. Built for IT support, cross-border commerce, government, finance, and other regulated teams, with data ownership, per-user isolation, governance, auditability, and private, hybrid, or SaaS deployment.",
-    "keywords": "enterprise AI workforce, AI coworker, AI worker platform, AI operations platform, IT support AI, cross-border commerce AI, private AI deployment, enterprise governance, audit trail, data isolation, Tego OS",
+    "title": "Zhama | AI Digital Employees for Global Teams",
+    "description": "Build a global AI workforce with dedicated digital employees for research, client delivery, operations, and market expansion. Start free and add employees as your workload grows.",
+    "keywords": "AI digital employees, digital workforce, AI workforce platform, AI coworkers, AI research team, AI client delivery, market expansion AI, global teams, Zhama",
     "openGraph": {
-      "title": "Tego OS | Enterprise AI Workforce Platform",
-      "description": "Give every team member a dedicated AI coworker that can work inside real business processes, not just chat."
+      "title": "Zhama | Build Your AI Digital Workforce",
+      "description": "Create dedicated digital employees that research, execute tasks, and deliver editable work."
     },
     "twitter": {
-      "title": "Tego OS | Enterprise AI Workforce Platform",
-      "description": "AI coworkers for production workflows, with governance, auditability, and private, hybrid, or SaaS deployment."
+      "title": "Zhama | AI Digital Employees for Global Teams",
+      "description": "Start with a focused digital team, then add employees as your workload grows."
     }
   },
   "mcpPlatform": {
@@ -2324,9 +2324,9 @@
   },
   "biz": {
     "hero": {
-      "badge": "Enterprise AI Workforce Platform",
-      "title": "AI Coworkers for Every Employee",
-      "subtitle": "Tego OS turns AI into a production-ready workforce. Each AI coworker has its own workspace, data boundary, skills, and governance controls, so it can support real operations, not just answer questions.",
+      "badge": "Digital Employees for Global Teams",
+      "title": "Build Your AI Workforce, One Digital Employee at a Time",
+      "subtitle": "Create dedicated digital employees for research, client delivery, and market expansion. Each one has its own skills, memory, and workspace—and delivers editable work, not just answers.",
       "primaryCta": "Book an Enterprise Demo",
       "primaryCtaHint": "A one-on-one walkthrough with a solution expert",
       "secondaryCta": "Download the Product Brief",
@@ -2338,16 +2338,16 @@
       "trustLine": "Built for SaaS companies, cross-border commerce teams, IT service providers, government, and financial institutions",
       "highlights": {
         "scale": {
-          "value": "Hundreds",
-          "label": "employees online"
+          "value": "200+",
+          "label": "ready-to-work roles"
         },
         "speed": {
-          "value": "30 days",
-          "label": "first workflow launch"
+          "value": "Minutes",
+          "label": "to the first task"
         },
         "delivery": {
-          "value": "3 modes",
-          "label": "on-prem, hybrid, SaaS"
+          "value": "$0",
+          "label": "to start globally"
         }
       }
     },
@@ -2367,6 +2367,38 @@
         "description": "No deployment required. Create dedicated AI coworkers and move real work forward from day one.",
         "features": ["Start at $0 and upgrade as needed", "200+ ready-to-work experts", "Automatic updates with zero maintenance", "Available globally"],
         "cta": "Start free"
+      }
+    },
+    "teamPacks": {
+      "eyebrow": "Start with a digital team",
+      "title": "Choose the work you need done—not another blank chat",
+      "subtitle": "Start with a focused three-person digital team. Your first task is prepared automatically in Zhama, and you can add more employees whenever the workload grows.",
+      "recommended": "Start here",
+      "employeesLabel": "Your first 3 digital employees",
+      "outcomeLabel": "First outcome",
+      "reassurance": "No credit card required. The task opens pre-filled in Zhama so you can review it before creating your free workspace.",
+      "items": {
+        "research": {
+          "title": "Research & Strategy Team",
+          "description": "For founders, consultants, product teams, and anyone who needs faster evidence-backed decisions.",
+          "employees": ["Market Researcher", "Competitive Intelligence Analyst", "Strategy Writer"],
+          "outcome": "A decision-ready market and competitor brief",
+          "cta": "Start a research brief"
+        },
+        "delivery": {
+          "title": "Client Delivery Team",
+          "description": "For agencies and professional services teams that turn rough inputs into client-ready work every week.",
+          "employees": ["Research Analyst", "Proposal & Deck Writer", "QA Reviewer"],
+          "outcome": "A structured, client-ready strategy deck",
+          "cta": "Prepare a client deliverable"
+        },
+        "expansion": {
+          "title": "Market Expansion Team",
+          "description": "For companies entering a new country, language, or sales channel—including cross-border commerce.",
+          "employees": ["Market Entry Researcher", "Localization Specialist", "Growth Operator"],
+          "outcome": "A prioritized market-entry opportunity brief",
+          "cta": "Evaluate a new market"
+        }
       }
     },
     "painPoints": {

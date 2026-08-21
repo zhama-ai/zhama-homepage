@@ -4,8 +4,8 @@ import HtmlLangSetter from "@/components/HtmlLangSetter";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://zhama.com"),
-  title: "TeGo AI Agent Platform",
-  description: "Enterprise AI Agent Platform and Solutions",
+  title: "Zhama AI Digital Employees",
+  description: "Build a global AI workforce with dedicated digital employees.",
 };
 
 export default function RootLayout({
