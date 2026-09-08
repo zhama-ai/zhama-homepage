@@ -57,16 +57,16 @@ export default async function FooterSection({ locale }: FooterSectionProps) {
             <div className="flex items-center gap-2">
               <span className="flex h-12 items-center">
                 <Image
-                  src="/images/logo_light.png"
-                  alt="TeGo Logo"
-                  width={120}
+                  src="/zhama-logo/zhama-horizontal-master.svg"
+                  alt={locale === 'zh' ? '扎马科技 Logo' : 'Zhama Technology Logo'}
+                  width={144}
                   height={48}
                   className="h-9 w-auto dark:hidden"
                 />
                 <Image
-                  src="/images/logo_dark.png"
-                  alt="TeGo Logo"
-                  width={120}
+                  src="/images/zhama-horizontal-dark-transparent.svg"
+                  alt={locale === 'zh' ? '扎马科技 Logo' : 'Zhama Technology Logo'}
+                  width={144}
                   height={48}
                   className="hidden h-9 w-auto dark:block"
                 />

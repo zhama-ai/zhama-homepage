@@ -21,7 +21,7 @@ export default function StructuredData({ locale }: Props) {
         url: SITE_URL,
         logo: {
           '@type': 'ImageObject',
-          url: `${SITE_URL}/images/logo_light.png`,
+          url: `${SITE_URL}/zhama-logo/zhama-horizontal-master.svg`,
         },
         description: isZh
           ? 'TeGo 为企业提供数字员工私有化部署、定制与 FDE 支持，并通过 TeGo Cloud 为全球个人和团队提供 SaaS 服务。'

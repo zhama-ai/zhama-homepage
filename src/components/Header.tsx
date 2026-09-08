@@ -133,18 +133,18 @@ export default function Header() {
             <Link href={`/${locale}`} className="flex shrink-0 items-center">
               <span className="flex h-12 items-center">
                 <Image
-                  src="/images/logo_light.png"
-                  alt="TeGo Logo"
-                  width={160}
-                  height={64}
+                  src="/zhama-logo/zhama-horizontal-master.svg"
+                  alt={locale === 'zh' ? '扎马科技 Logo' : 'Zhama Technology Logo'}
+                  width={180}
+                  height={60}
                   className="h-10 w-auto dark:hidden sm:h-11 lg:h-12"
                   priority
                 />
                 <Image
-                  src="/images/logo_dark.png"
-                  alt="TeGo Logo"
-                  width={160}
-                  height={64}
+                  src="/images/zhama-horizontal-dark-transparent.svg"
+                  alt={locale === 'zh' ? '扎马科技 Logo' : 'Zhama Technology Logo'}
+                  width={180}
+                  height={60}
                   className="hidden h-10 w-auto dark:block sm:h-11 lg:h-12"
                   priority
                 />

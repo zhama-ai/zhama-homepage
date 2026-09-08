@@ -197,7 +197,7 @@ export default async function BlogPostPage({ params }: Props) {
               name: 'Shenzhen Zhama Future Technology Co., Ltd.',
               logo: {
                 '@type': 'ImageObject',
-                url: 'https://zhama.com/images/logo.png',
+                url: 'https://zhama.com/zhama-logo/zhama-horizontal-master.svg',
               },
             },
             mainEntityOfPage: {
@@ -210,4 +210,3 @@ export default async function BlogPostPage({ params }: Props) {
     </main>
   );
 }
-
