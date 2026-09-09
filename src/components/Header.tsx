@@ -133,7 +133,7 @@ export default function Header() {
             <Link href={`/${locale}`} className="flex shrink-0 items-center">
               <span className="flex h-12 items-center">
                 <Image
-                  src="/zhama-logo/zhama-horizontal-master.svg"
+                  src="/zhama-logo/zhama-horizontal-transparent-light-v5.svg"
                   alt={locale === 'zh' ? '扎马科技 Logo' : 'Zhama Technology Logo'}
                   width={180}
                   height={60}
@@ -141,7 +141,7 @@ export default function Header() {
                   priority
                 />
                 <Image
-                  src="/images/zhama-horizontal-dark-transparent.svg"
+                  src="/zhama-logo/zhama-horizontal-transparent-dark-v5.svg"
                   alt={locale === 'zh' ? '扎马科技 Logo' : 'Zhama Technology Logo'}
                   width={180}
                   height={60}
