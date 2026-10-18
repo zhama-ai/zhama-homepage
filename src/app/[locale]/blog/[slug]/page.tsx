@@ -140,7 +140,7 @@ export default async function BlogPostPage({ params }: Props) {
             </header>
 
             {post.image && (
-              <div className="relative w-full h-96 mb-16 rounded-xl overflow-hidden shadow-2xl">
+              <div className={`relative w-full mb-16 rounded-xl overflow-hidden shadow-2xl ${post.image.startsWith('/images/cloud-agent/') ? 'aspect-[16/9]' : 'h-96'}`}>
                 <Image
                   src={post.image}
                   alt={post.title}

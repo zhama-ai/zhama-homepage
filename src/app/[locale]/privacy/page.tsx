@@ -10,8 +10,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'privacy' });
   const description = locale === 'zh'
-    ? 'Zhama 隐私政策：了解我们如何收集、使用、存储和保护您的个人信息。'
-    : 'Zhama Privacy Policy: learn how we collect, use, store, and protect your personal information.';
+    ? 'Zhama、TeGo 与 ZhaMa（扎马AI）隐私政策：账号、聊天、附件、会议录音、推送、第三方服务与账号删除。'
+    : 'Privacy for Zhama, TeGo and ZhaMa: accounts, chats, attachments, meeting recordings, notifications, service providers and account deletion.';
 
   return {
     title: t('title'),
@@ -37,6 +37,14 @@ export default async function PrivacyPolicy({ params }: Props) {
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">{t('title')}</h1>
             <p className="text-gray-500 dark:text-gray-400">{t('lastUpdated')}</p>
+            <nav aria-label={t('quickLinksLabel')} className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-3">
+              <a href="#account-deletion" className="inline-flex min-h-11 items-center py-2 text-blue-700 dark:text-blue-300 underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+                {t('deletionLink')}
+              </a>
+              <a href="#privacy-contact" className="inline-flex min-h-11 items-center py-2 text-blue-700 dark:text-blue-300 underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+                {t('contactLink')}
+              </a>
+            </nav>
           </div>
           
           <div className="bg-white dark:bg-gray-800 rounded-xl p-6 md:p-8 shadow-sm border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -66,6 +74,15 @@ export default async function PrivacyPolicy({ params }: Props) {
             </section>
 
             <section className="mb-8">
+              <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4">{t('sections.permissions.title')}</h2>
+              <ul className="list-disc pl-6 space-y-2">
+                {(t.raw('sections.permissions.items') as string[]).map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="mb-8">
               <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4">{t('sections.sharing.title')}</h2>
               <p className="mb-4">{t('sections.sharing.content')}</p>
               <ul className="list-disc pl-6 space-y-2">
@@ -73,6 +90,16 @@ export default async function PrivacyPolicy({ params }: Props) {
                   <li key={index}>
                     <strong>{item.title}</strong>
                     {item.content}
+                  </li>
+                ))}
+              </ul>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-6 mb-3">{t('sections.sharing.linksLabel')}</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                {(t.raw('sections.sharing.links') as Array<{ title: string; url: string }>).map((item) => (
+                  <li key={item.url}>
+                    <a href={item.url} className="text-blue-700 dark:text-blue-300 underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+                      {item.title}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -89,7 +116,27 @@ export default async function PrivacyPolicy({ params }: Props) {
               <p>{t('sections.retention.content2')}</p>
             </section>
 
-            <section className="mb-8">
+            <section id="account-deletion" className="mb-8 scroll-mt-8">
+              <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4">{t('sections.deletion.title')}</h2>
+              <p className="mb-4">{t('sections.deletion.intro')}</p>
+              <p className="mb-4">
+                <a href={t('sections.deletion.emailHref')} className="inline-flex min-h-11 items-center py-2 text-blue-700 dark:text-blue-300 underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+                  {t('sections.deletion.emailAction')}
+                </a>
+                <br />
+                {t('sections.deletion.emailLabel')}
+                <a href="mailto:contact@zhama.com" className="break-words text-blue-700 dark:text-blue-300 underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">contact@zhama.com</a>
+              </p>
+              <ol className="list-decimal pl-6 mb-4 space-y-3">
+                {(t.raw('sections.deletion.steps') as string[]).map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ol>
+              <p className="mb-4">{t('sections.deletion.data')}</p>
+              <p>{t('sections.deletion.timing')}</p>
+            </section>
+
+            <section id="data-rights" className="mb-8 scroll-mt-8">
               <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4">{t('sections.rights.title')}</h2>
               <p className="mb-4">{t('sections.rights.content')}</p>
               <ul className="list-disc pl-6 space-y-2">
@@ -109,7 +156,7 @@ export default async function PrivacyPolicy({ params }: Props) {
               <p>{t('sections.changes.content')}</p>
             </section>
 
-            <section className="mb-8">
+            <section id="privacy-contact" className="mb-8 scroll-mt-8">
               <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4">{t('sections.contact.title')}</h2>
               <p className="mb-4">{t('sections.contact.content')}</p>
               <ul className="list-disc pl-6 space-y-2">

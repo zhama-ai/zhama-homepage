@@ -17,6 +17,7 @@ export default async function FooterSection({ locale }: FooterSectionProps) {
       title: t('products'),
       links: [
         { label: t('cloud'), href: `/${locale}/cloud` },
+        { label: locale === 'zh' ? '云端 Agent' : 'Cloud Agents', href: `/${locale}/cloud-agent` },
         { label: t('station'), href: `/${locale}/station` },
         { label: t('digitalAvatar'), href: `/${locale}/#value-pillars` },
         { label: t('lampEngine'), href: `/${locale}/technical` },

@@ -29,6 +29,7 @@
     "product": "Product",
     "enterpriseProduct": "TeGo Enterprise",
     "cloud": "TeGo Cloud",
+    "cloudAgent": "Cloud AI Agents",
     "cloudLive": "Live",
     "startFree": "Start free",
     "biz": {
@@ -288,94 +289,161 @@
   },
   "privacy": {
     "title": "Privacy Policy",
-    "lastUpdated": "Last Updated: March 23, 2025",
+    "lastUpdated": "Last updated: October 18, 2026",
+    "quickLinksLabel": "Privacy and data controls",
+    "deletionLink": "Delete your account and data",
+    "contactLink": "Contact privacy support",
     "sections": {
       "introduction": {
-        "title": "Introduction",
-        "content": "Shenzhen Zhama Future Technology Co., Ltd. (hereinafter referred to as \"we\") is committed to protecting your personal privacy. This privacy policy explains how we collect, use, store, and protect your personal information.",
-        "content2": "By using our services, you agree to the terms of this privacy policy. If you do not agree, please do not use our services."
+        "title": "Scope and service provider",
+        "content": "Shenzhen Zhama Future Technology Co., Ltd. (\"we\") provides the Zhama website, the TeGo digital avatar workspace, and the public ZhaMa mobile app (also named 扎马AI). This policy explains how these services access, collect, use, store, disclose and delete personal information.",
+        "content2": "The processor and processing location can vary with the server, digital avatar, model or extension you choose. Enterprise private deployments and third-party self-hosted servers are managed by their operators; please also review their privacy notices. We process data as needed to provide the features you use, secure the service or meet legal obligations."
       },
       "collection": {
-        "title": "Information Collection",
-        "content": "We may collect the following types of information:",
+        "title": "Information we process and why",
+        "content": "The data processed depends on the features you use. A device permission does not mean that we read or upload all content on the device:",
         "items": [
           {
-            "title": "Personal Identity Information: ",
-            "content": "name, email address, phone number, etc."
+            "title": "Account and authentication: ",
+            "content": "Usernames, user IDs, display names, email addresses, phone numbers and login verification information support registration, sign-in, account management and security. Google sign-in processes the account identifier, email and basic profile you authorize."
           },
           {
-            "title": "Technical Information: ",
-            "content": "IP address, browser type, device information, access time, etc."
+            "title": "Chats and digital avatar content: ",
+            "content": "Messages, prompts, AI responses, conversation history, memories and knowledge-base content support answers, tasks you initiate, history and access across devices. Content is transmitted to the connected server and processed by the models or tools configured for the digital avatar."
           },
           {
-            "title": "Usage Data: ",
-            "content": "how you use our services, including pages and features accessed"
+            "title": "Attachments and audio/video: ",
+            "content": "Photos, videos and files you select or capture, and voice or meeting audio you actively record, support attachment analysis, speech recognition, transcription and meeting summaries. Cloud processing requires uploading the relevant content. Failed or incomplete recordings may remain on your device so you can retry or remove them."
+          },
+          {
+            "title": "Device data authorized for a feature: ",
+            "content": "After you authorize the relevant feature, location, contacts and calendar events involved in a tool request are processed for that assistant feature. Results may be returned to the connected digital avatar server. The public app does not use background location permission or request broad access to your photo or video library."
+          },
+          {
+            "title": "Subscriptions and transactions: ",
+            "content": "Products purchased, subscription status, order or transaction identifiers and purchase receipts support purchase validation, entitlement restoration and billing support. Apple App Store or Google Play handles payment details; we do not collect full payment card details through in-app purchases."
+          },
+          {
+            "title": "Notifications and operational data: ",
+            "content": "Firebase installation IDs, FCM registration tokens, device and operating-system details, app version, IP addresses and necessary request or error logs support delivery, device binding, troubleshooting and account or service security. Notifications may contain task or message summaries; manage lock-screen previews as needed."
+          },
+          {
+            "title": "Website inquiries and visits: ",
+            "content": "Contact details and messages submitted by form or email, together with necessary request information, support replies to inquiries. Depending on its deployment, the website may use cookies, local storage and web traffic statistics. Website statistics are managed separately from the public mobile app."
           }
         ],
-        "usageIntro": "We use the collected information for:",
+        "usageIntro": "Purposes and limits for the public mobile app:",
         "usageItems": [
-          "Providing and improving our services",
-          "Processing your requests and inquiries",
-          "Sending important notices and updates",
-          "Analyzing usage patterns to improve user experience",
-          "Complying with legal obligations"
+          "Data supports the account, chat, attachment, meeting, digital avatar tool, subscription and notification features you use, and their secure operation.",
+          "We do not use this data for advertising tracking, targeted marketing or additional user-behavior analytics. Firebase Analytics is not enabled in the public mobile app.",
+          "You may choose not to use recording, location, contacts, calendar, camera or attachment features and revoke device permissions in system settings. The corresponding features will be affected.",
+          "Do not upload recordings, contacts or other personal information about others without a lawful basis or necessary authorization."
+        ]
+      },
+      "permissions": {
+        "title": "Device permissions and controls",
+        "items": [
+          "Microphone: Voice input and meetings you actively start recording. Android displays an ongoing notification during meeting recording. An active recording can continue when you switch apps; return to the meeting page to stop it. Recording does not start automatically at boot.",
+          "Camera and file selection: Scanning, capture and attachments you select. The Google Play public app uses system pickers for photos, videos or files and does not request broad media-library access.",
+          "Location, contacts and calendar: Used after authorization when needed for the relevant feature. The public app does not provide SMS or call-log reading, accessibility-driven cross-app automation or in-app APK installation updates.",
+          "Notifications: Messages, task updates and service status. Manage them in the app or system settings. Turning off notifications does not delete an account."
         ]
       },
       "sharing": {
-        "title": "Information Sharing",
-        "content": "We do not sell, trade, or rent your personal information to third parties. We may share your information in the following circumstances:",
+        "title": "Service providers and disclosures",
+        "content": "We do not sell or rent personal information. The following providers may receive the information needed to deliver the features you use:",
         "items": [
           {
-            "title": "Service Providers: ",
-            "content": "with trusted third parties who help us operate our business"
+            "title": "Google Firebase Cloud Messaging (FCM): ",
+            "content": "The public mobile app uses FCM for push notifications, involving installation IDs, registration tokens and delivery information. iOS notifications also use Apple Push Notification service (APNs). FCM does not mean that Google Analytics is enabled."
           },
           {
-            "title": "Legal Requirements: ",
-            "content": "when required by law or to protect our rights"
+            "title": "Sign-in and app stores: ",
+            "content": "Google provides authentication when Google sign-in is enabled. Apple App Store and Google Play provide distribution, purchases, subscriptions and payment verification. We process the corresponding authorization information, transaction identifiers and validation results."
           },
           {
-            "title": "Business Transfers: ",
-            "content": "in the event of a merger, acquisition, or asset sale"
+            "title": "AI, speech and tool providers: ",
+            "content": "Depending on the connected server and digital avatar configuration, chats, attachments or audio may be sent to the configured AI model, speech-recognition or tool provider. For example, a configuration using Tencent Cloud speech recognition sends audio and necessary request information to Tencent Cloud. Providers vary by configuration; review the selected service and its policy before use."
+          },
+          {
+            "title": "Cloud infrastructure and storage: ",
+            "content": "Hosting, database and object-storage providers process accounts, content, attachments and necessary operational data under the relevant service arrangements for storage, transmission and maintenance."
+          },
+          {
+            "title": "Legal requirements: ",
+            "content": "We may disclose necessary information to meet regulatory, judicial or security obligations. We will provide required notice of a merger or business change involving a transfer of personal information."
+          }
+        ],
+        "linksLabel": "Related provider privacy notices",
+        "links": [
+          {
+            "title": "Firebase privacy and data processing",
+            "url": "https://firebase.google.com/support/privacy"
+          },
+          {
+            "title": "Google Privacy Policy",
+            "url": "https://policies.google.com/privacy"
+          },
+          {
+            "title": "Apple Privacy Policy",
+            "url": "https://www.apple.com/legal/privacy/"
+          },
+          {
+            "title": "Tencent Cloud Privacy Policy",
+            "url": "https://www.tencentcloud.com/document/product/301/17345"
           }
         ]
       },
       "security": {
-        "title": "Data Security",
-        "content": "We implement appropriate technical and organizational measures to protect your personal information from unauthorized access, use, disclosure, modification, or destruction. However, please note that no system is 100% secure."
+        "title": "Security and processing locations",
+        "content": "We use access controls, authentication and necessary technical measures to protect personal information. Default public services use encrypted transport such as HTTPS. Transport for servers and extensions you connect yourself depends on their deployment; use trusted services with encrypted connections. Storage and processing locations depend on the connected server, cloud service and model provider and may involve international processing. Review these arrangements before selecting a service or uploading information. Separate notice or consent must be provided where applicable requirements call for it. No system can guarantee absolute security."
       },
       "retention": {
-        "title": "Data Retention",
-        "content": "We will only retain your personal information for as long as necessary to fulfill the purposes for which it was collected.",
-        "content2": "When your information is no longer needed, we will securely delete or anonymize it."
+        "title": "Retention and deletion scope",
+        "content": "Accounts and personal cloud data such as conversations, attachments, memories and knowledge bases are retained as needed for the features and content you choose to keep. You may delete supported individual content or request account deletion to remove associated personal data and push bindings. Deactivation or sign-out is not account deletion.",
+        "content2": "Ownership of shared organizational resources or other users’ data must be checked, and administrative responsibility transferred where necessary, to avoid deleting others’ data. Transaction or installation records held independently by providers follow their retention rules; Firebase installation-ID removal, for example, follows its official data-processing notice. If a legal requirement requires particular data to be retained, we will explain the categories, purpose, basis and necessary period, limit its use accordingly, and delete or anonymize it when that period ends."
+      },
+      "deletion": {
+        "title": "Delete your ZhaMa / TeGo account and data",
+        "intro": "You can request account and associated personal-data deletion by email even after uninstalling the app. You do not need to reinstall it.",
+        "steps": [
+          "Automatic in-app deletion: Sign in to the relevant server, open Settings → Delete account, and verify the account and confirm as prompted. When the deletion conditions are met, the server automatically deletes the account and associated personal data and signs you out.",
+          "Request by email: Write to contact@zhama.com with the subject “ZhaMa / TeGo account deletion”. Include your registered email or username, the connected server address, and a request to delete the account and associated data. Do not send passwords, verification codes or full payment details.",
+          "We will perform necessary identity checks and respond with progress and the outcome. If shared resources, organizational administration or other matters require attention, we will explain the reason and next steps. The same email provides support.",
+          "Deletion affects this account’s sign-in and data access in other clients on the same server. Export personal content you need first, and review or cancel unwanted auto-renewing subscriptions in Apple or Google subscription settings. Account deletion does not replace app-store subscription management."
+        ],
+        "data": "Deletion covers associated personal information including profile, credentials and sessions, personal chats and attachments, memories and knowledge bases, personal workspaces and push bindings. Shared resources follow ownership rules; provider-held or legally retained data follows the section above.",
+        "timing": "Successful in-app deletion signs you out of that account. For email requests, we will respond within 30 days with the verification status, processing details and expected completion time, including any further information needed or legally required retention.",
+        "emailAction": "Email an account deletion request",
+        "emailHref": "mailto:contact@zhama.com?subject=ZhaMa%20%2F%20TeGo%20account%20deletion",
+        "emailLabel": "Privacy and deletion email: "
       },
       "rights": {
-        "title": "Your Rights",
-        "content": "Under applicable data protection laws, you may have the following rights:",
+        "title": "Other data rights",
+        "content": "Where applicable requirements allow, use the app’s controls or contact@zhama.com to request access, correction, export, deletion of specific personal information or withdrawal of authorization without deleting the whole account for every request. We will verify identity and handle the request based on the data involved and applicable requirements.",
         "items": [
-          "Access information we hold about you",
-          "Request correction of inaccurate information",
-          "Request deletion of your personal information",
-          "Object to processing of your information",
-          "Data portability rights"
+          "View and correct profile and account information.",
+          "Delete conversations, attachments or other content with available controls, or describe the data to be deleted to support.",
+          "Revoke device permissions and notification authorization in system settings.",
+          "Ask about processing, service providers or copies of personal information."
         ]
       },
       "children": {
-        "title": "Children's Privacy",
-        "content": "Our services are not directed to children under 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and know that your child has provided us with personal information, please contact us."
+        "title": "Children and teens",
+        "content": "The public service is intended for users aged 13 and above, not children under 13. Teens should use it with guardian guidance where required. If you learn that a child under 13 has provided personal information to us, contact contact@zhama.com so we can address it."
       },
       "changes": {
-        "title": "Policy Changes",
-        "content": "We may update this privacy policy from time to time. Any changes will be posted on this page, and significant changes will be notified to you via email or service notifications."
+        "title": "Policy updates",
+        "content": "We will update this policy and its date when features, providers or processing practices change. Material changes affecting personal rights will receive notice or separate consent where required."
       },
       "contact": {
-        "title": "Contact Us",
-        "content": "If you have any questions or concerns about this privacy policy, please contact us through:",
+        "title": "Contact privacy support",
+        "content": "For privacy questions, data-rights requests or account deletion, contact:",
         "items": [
-          "Email: privacy@zhama.com.cn",
-          "Phone: 13823536165",
-          "Address: Shenzhen Science and Technology Park, Nanshan District"
+          "Email: contact@zhama.com",
+          "Service provider: Shenzhen Zhama Future Technology Co., Ltd."
         ],
-        "response": "We will endeavor to respond to your inquiry within 30 days."
+        "response": "We will respond within 30 days and explain processing after verifying identity. Do not email passwords or verification codes."
       }
     }
   },

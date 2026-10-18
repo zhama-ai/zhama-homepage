@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, ChevronDown, Cloud, Menu, Server, X, Zap } from 'lucide-react';
+import { ArrowRight, ChevronDown, Cloud, Menu, Server, Sparkles, X, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { cloudFirst } from '@/lib/audience';
 import { ThemeSwitcher } from './ThemeSwitcher';
@@ -117,6 +117,12 @@ export default function Header() {
       description: locale === 'zh' ? '注册即用，$0 起步' : 'Self-serve SaaS from $0',
       icon: Cloud,
       live: true,
+    },
+    {
+      href: `/${locale}/cloud-agent`,
+      label: t('nav.cloudAgent'),
+      description: locale === 'zh' ? '接任务、用工具、交结果' : 'Agents that deliver real work',
+      icon: Sparkles,
     },
   ];
 
