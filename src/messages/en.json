@@ -289,7 +289,7 @@
   },
   "privacy": {
     "title": "Privacy Policy",
-    "lastUpdated": "Last updated: October 18, 2026",
+    "lastUpdated": "Last updated: October 20, 2026",
     "quickLinksLabel": "Privacy and data controls",
     "deletionLink": "Delete your account and data",
     "contactLink": "Contact privacy support",
@@ -305,7 +305,7 @@
         "items": [
           {
             "title": "Account and authentication: ",
-            "content": "Usernames, user IDs, display names, email addresses, phone numbers and login verification information support registration, sign-in, account management and security. Google sign-in processes the account identifier, email and basic profile you authorize."
+            "content": "Usernames, user IDs, display names, email addresses, phone numbers and login verification information support registration, sign-in, account management and security. Google or Apple sign-in processes the provider account identifier, the name and email you authorize the provider to supply (which may be an Apple private relay address), and sign-in verification information. Linking Apple associates that identity with your current account. Credentials needed to revoke Apple authorization upon account deletion are stored encrypted on your connected server. We do not receive your Google or Apple account password."
           },
           {
             "title": "Chats and digital avatar content: ",
@@ -320,12 +320,16 @@
             "content": "After you authorize the relevant feature, location, contacts and calendar events involved in a tool request are processed for that assistant feature. Results may be returned to the connected digital avatar server. The public app does not use background location permission or request broad access to your photo or video library."
           },
           {
+            "title": "Apple Health (HealthKit): ",
+            "content": "Off by default. Your avatar can read steps, heart rate, sleep and workout records at your request only after you enable avatar queries in Settings → System permissions and allow the corresponding read permissions in Apple Health. Results can include the relevant times and data sources, and workout distance and energy burned. Query results are returned to your connected server and may be processed by the AI model configured for that avatar to answer your personal health and fitness organization request. Results may be retained in chat and tool records under the deletion rules below. They are not used for medical diagnosis or treatment, advertising, marketing, profiling or data mining unrelated to this health feature. The app does not write to Apple Health. Review the connected server and model provider before enabling this feature."
+          },
+          {
             "title": "Subscriptions and transactions: ",
             "content": "Products purchased, subscription status, order or transaction identifiers and purchase receipts support purchase validation, entitlement restoration and billing support. Apple App Store or Google Play handles payment details; we do not collect full payment card details through in-app purchases."
           },
           {
             "title": "Notifications and operational data: ",
-            "content": "Firebase installation IDs, FCM registration tokens, device and operating-system details, app version, IP addresses and necessary request or error logs support delivery, device binding, troubleshooting and account or service security. Notifications may contain task or message summaries; manage lock-screen previews as needed."
+            "content": "Firebase installation IDs, FCM registration tokens or JPush registration IDs (depending on the distribution channel), device and operating-system details, app version, IP addresses and necessary request or error logs support delivery, device binding, troubleshooting and account or service security. Notifications may contain task or message summaries; manage lock-screen previews as needed."
           },
           {
             "title": "Website inquiries and visits: ",
@@ -345,7 +349,8 @@
         "items": [
           "Microphone: Voice input and meetings you actively start recording. Android displays an ongoing notification during meeting recording. An active recording can continue when you switch apps; return to the meeting page to stop it. Recording does not start automatically at boot.",
           "Camera and file selection: Scanning, capture and attachments you select. The Google Play public app uses system pickers for photos, videos or files and does not request broad media-library access.",
-          "Location, contacts and calendar: Used after authorization when needed for the relevant feature. The public app does not provide SMS or call-log reading, accessibility-driven cross-app automation or in-app APK installation updates.",
+          "Location, contacts and calendar: Used after authorization when needed for the relevant feature. The Google Play build excludes SMS/call-log reading, accessibility-driven cross-app automation and in-app APK installation updates. Official Android website/OSS downloads and private brands can offer photo-library access, SMS/call features and device automation after you actively authorize them; availability depends on the device and deployment.",
+          "Apple Health: Turn avatar queries off at any time in Settings → System permissions, and manage or revoke individual read permissions in Apple Health. Turning the feature off prevents further reads through it but does not automatically delete results already returned to the server or saved in chats. Delete the relevant chats or request deletion at contact@zhama.com.",
           "Notifications: Messages, task updates and service status. Manage them in the app or system settings. Turning off notifications does not delete an account."
         ]
       },
@@ -355,15 +360,19 @@
         "items": [
           {
             "title": "Google Firebase Cloud Messaging (FCM): ",
-            "content": "The public mobile app uses FCM for push notifications, involving installation IDs, registration tokens and delivery information. iOS notifications also use Apple Push Notification service (APNs). FCM does not mean that Google Analytics is enabled."
+            "content": "Official iOS and Google Play builds use FCM for notifications, involving installation IDs, registration tokens and delivery information. iOS also uses Apple Push Notification service (APNs). FCM does not mean that Google Analytics is enabled."
+          },
+          {
+            "title": "JPush (Aurora): ",
+            "content": "Official Android website/OSS downloads and private brands use JPush, provided by Shenzhen Hexun Huagu Information Technology Co., Ltd. For device registration, delivery and notification taps, the SDK processes device/app identifiers, JPush registration IDs, device model, operating system, app version, network/IP information and notification data. Push starts after sign-in and requests notification permission from the system. You can manage alerts through system notification permissions. We do not enable its advertising, marketing or additional user-behavior analytics features. Provider notice: https://www.jiguang.cn/license/privacy."
           },
           {
             "title": "Sign-in and app stores: ",
-            "content": "Google provides authentication when Google sign-in is enabled. Apple App Store and Google Play provide distribution, purchases, subscriptions and payment verification. We process the corresponding authorization information, transaction identifiers and validation results."
+            "content": "Google or Apple provides authentication when its sign-in option is enabled. Apple linking and account deletion also require verification or revocation of the corresponding authorization. Apple App Store and Google Play provide distribution, purchases, subscriptions and payment verification. We process the corresponding authorization information, transaction identifiers and validation results."
           },
           {
             "title": "AI, speech and tool providers: ",
-            "content": "Depending on the connected server and digital avatar configuration, chats, attachments or audio may be sent to the configured AI model, speech-recognition or tool provider. For example, a configuration using Tencent Cloud speech recognition sends audio and necessary request information to Tencent Cloud. Providers vary by configuration; review the selected service and its policy before use."
+            "content": "Depending on the connected server and digital avatar configuration, chats, attachments or audio may be sent to the configured AI model, speech-recognition or tool provider. HealthKit query results that you actively enable and authorize may also be processed by the connected server and configured AI model, solely for the health and fitness query you initiate. For example, a configuration using Tencent Cloud speech recognition sends audio and necessary request information to Tencent Cloud. Providers vary by configuration; review the selected service and its policy before use."
           },
           {
             "title": "Cloud infrastructure and storage: ",
