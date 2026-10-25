@@ -255,6 +255,8 @@
     }
   },
   "appDownload": {
+    "unavailable": "Download unavailable",
+    "loadFailed": "Download information is temporarily unavailable. Please refresh and try again.",
     "title": "Download Tego AI Studio",
     "download": {
       "heading": "Download Tego AI Studio"

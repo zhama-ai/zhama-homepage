@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import { Container } from './ui/Container';
 import { Section, SectionHeader } from './ui/Section';
-import { getDownloadInfo, formatReleaseDate } from '@/lib/download';
+import { getDownloadInfo, getDesktopDownloads, formatReleaseDate } from '@/lib/download';
 import { 
   Monitor, 
   Apple, 
@@ -27,34 +27,14 @@ export default async function DownloadSection({ locale }: DownloadSectionProps) 
   const t = await getTranslations({ locale, namespace: 'downloadSection' });
   const downloadInfo = await getDownloadInfo();
   
-  const isZh = locale === 'zh';
-
-  const p = downloadInfo?.platforms;
-
-  const platformDownloads = p ? [
-    ...(p.macos ? [{
-      platform: 'macos',
-      icon: Apple,
-      name: 'macOS',
-      options: [
-        ...(p.macos.arm64?.dmg ? [{ label: 'Apple Silicon', sublabel: 'M1/M2/M3/M4', url: p.macos.arm64.dmg, format: '.dmg' }] : []),
-        ...(p.macos.arm64?.zip ? [{ label: 'Apple Silicon', sublabel: isZh ? '便携版' : 'Portable', url: p.macos.arm64.zip, format: '.zip' }] : []),
-        ...(p.macos.x64?.dmg ? [{ label: 'Intel', sublabel: 'x64', url: p.macos.x64.dmg, format: '.dmg' }] : []),
-        ...(p.macos.x64?.zip ? [{ label: 'Intel', sublabel: isZh ? '便携版' : 'Portable', url: p.macos.x64.zip, format: '.zip' }] : []),
-      ],
-    }] : []),
-    ...(p.windows ? [{
-      platform: 'windows',
-      icon: Monitor,
-      name: 'Windows',
-      options: [
-        ...(p.windows.x64?.exe ? [{ label: isZh ? '安装程序' : 'Installer', sublabel: 'x64', url: p.windows.x64.exe, format: '.exe' }] : []),
-        ...(p.windows.x64?.zip ? [{ label: isZh ? '便携版' : 'Portable', sublabel: 'x64', url: p.windows.x64.zip, format: '.zip' }] : []),
-        ...(p.windows.x86?.exe ? [{ label: isZh ? '安装程序' : 'Installer', sublabel: 'x86', url: p.windows.x86.exe, format: '.exe' }] : []),
-        ...(p.windows.x86?.zip ? [{ label: isZh ? '便携版' : 'Portable', sublabel: 'x86', url: p.windows.x86.zip, format: '.zip' }] : []),
-      ],
-    }] : []),
-  ] : [];
+  const platformDownloads = getDesktopDownloads(downloadInfo).map(platform => ({
+    platform: platform.os,
+    icon: platform.os === 'macos' ? Apple : platform.os === 'windows' ? Monitor : LinuxIcon,
+    name: platform.label,
+    options: platform.variants.map(variant => ({
+      label: variant.label, sublabel: variant.version, url: variant.url,
+    })),
+  }));
 
   return (
     <Section id="download" className="bg-zinc-50 dark:bg-zinc-950 relative overflow-hidden">
@@ -122,9 +102,6 @@ export default async function DownloadSection({ locale }: DownloadSectionProps) 
                               </span>
                             </div>
                           </div>
-                          <span className="text-xs font-mono text-zinc-400 dark:text-zinc-500">
-                            {option.format}
-                          </span>
                         </a>
                       ))}
                     </div>

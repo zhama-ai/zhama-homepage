@@ -1,121 +1,132 @@
-// TeGo Desktop 下载信息类型定义和获取函数
-
-interface PlatformFormats {
-  [format: string]: string;
-}
+// The homepage and download page consume the same CI-generated catalogs.
+export type DesktopPlatform = 'macos' | 'windows' | 'linux' | 'kylin';
+export type Architecture = 'arm64' | 'x64' | 'x86';
+export type PlatformFormats = Record<string, string>;
 
 export interface DownloadInfo {
+  brand: string;
   version: string;
   releaseDate: string;
-  platforms: {
-    macos?: {
-      arm64?: PlatformFormats;
-      x64?: PlatformFormats;
-    };
-    windows?: {
-      x64?: PlatformFormats;
-      x86?: PlatformFormats;
-    };
-  };
+  targetVersions?: Record<string, string>;
+  platforms: Partial<Record<DesktopPlatform, Partial<Record<Architecture, PlatformFormats>>>>;
 }
 
-const DOWNLOAD_INFO_URL = 'https://zhama-public.oss-cn-heyuan.aliyuncs.com/tego-desktop/latest.json';
+export interface MobileRelease {
+  brand: string;
+  version: string;
+  releaseDate: string;
+  targetVersions?: Record<string, string>;
+  platforms: Partial<Record<'ios' | 'android', { downloads: { apk?: string; testflight?: string; appstore?: string } }>>;
+}
 
-/**
- * 获取 TeGo Desktop 最新版本下载信息
- * 服务端使用，支持缓存
- */
-export async function getDownloadInfo(): Promise<DownloadInfo | null> {
-  try {
-    const res = await fetch(DOWNLOAD_INFO_URL, {
-      next: { revalidate: 3600 }, // 1小时缓存
+export interface DownloadCatalog {
+  desktop: DownloadInfo | null;
+  mobile: MobileRelease | null;
+}
+
+export const RELEASE_CATALOG_URLS = {
+  desktop: 'https://cdn.zhama.com.cn/releases/tego/desktop/latest.json',
+  mobile: 'https://cdn.zhama.com.cn/releases/tego/mobile/latest.json',
+} as const;
+
+export function validCatalog(value: unknown, kind: 'desktop' | 'mobile'): boolean {
+  if (!value || typeof value !== 'object') return false;
+  const data = value as Record<string, unknown>;
+  if (data.brand !== 'tego' || data.kind !== kind || typeof data.version !== 'string' ||
+      typeof data.releaseDate !== 'string' || !Number.isFinite(Date.parse(data.releaseDate)) ||
+      !data.platforms || typeof data.platforms !== 'object') return false;
+  const isRecord = (node: unknown): node is Record<string, unknown> =>
+    !!node && typeof node === 'object' && !Array.isArray(node);
+  const validFormats = (node: unknown, formats: string[]) => isRecord(node) &&
+    Object.keys(node).length > 0 && Object.entries(node).every(([format, value]) => {
+      if (!formats.includes(format) || typeof value !== 'string') return false;
+      try { return new URL(value).protocol === 'https:'; } catch { return false; }
     });
-    
-    if (!res.ok) {
-      console.error('Failed to fetch download info:', res.status);
-      return null;
-    }
-    
-    return await res.json();
-  } catch (error) {
-    console.error('Error fetching download info:', error);
-    return null;
-  }
-}
-
-/**
- * 客户端获取下载信息（无缓存）
- */
-export async function fetchDownloadInfo(): Promise<DownloadInfo | null> {
-  try {
-    const res = await fetch(DOWNLOAD_INFO_URL);
-    
-    if (!res.ok) {
-      console.error('Failed to fetch download info:', res.status);
-      return null;
-    }
-    
-    return await res.json();
-  } catch (error) {
-    console.error('Error fetching download info:', error);
-    return null;
-  }
-}
-
-/**
- * 检测用户操作系统和架构
- */
-export function detectPlatform(): {
-  os: 'macos' | 'windows' | 'linux' | 'unknown';
-  arch: 'arm64' | 'x64' | 'unknown';
-} {
-  if (typeof window === 'undefined') {
-    return { os: 'unknown', arch: 'unknown' };
-  }
-
-  const ua = navigator.userAgent.toLowerCase();
-  const platform = navigator.platform?.toLowerCase() || '';
-  
-  let os: 'macos' | 'windows' | 'linux' | 'unknown' = 'unknown';
-  let arch: 'arm64' | 'x64' | 'unknown' = 'unknown';
-  
-  if (ua.includes('mac') || platform.includes('mac')) {
-    os = 'macos';
-  } else if (ua.includes('win') || platform.includes('win')) {
-    os = 'windows';
-  } else if (ua.includes('linux') || platform.includes('linux')) {
-    os = 'linux';
-  }
-  
-  if (os === 'macos') {
-    if ((navigator as any).userAgentData?.platform === 'macOS') {
-      try {
-        const canvas = document.createElement('canvas');
-        const gl = canvas.getContext('webgl');
-        const debugInfo = gl?.getExtension('WEBGL_debug_renderer_info');
-        const renderer = gl?.getParameter(debugInfo?.UNMASKED_RENDERER_WEBGL || 0) || '';
-        if (renderer.includes('Apple M') || renderer.includes('Apple GPU')) {
-          arch = 'arm64';
-        } else {
-          arch = 'x64';
-        }
-      } catch {
-        arch = 'arm64';
+  return isRecord(data.platforms) && Object.keys(data.platforms).length > 0 &&
+    Object.entries(data.platforms).every(([platform, targets]) => {
+      if (!isRecord(targets)) return false;
+      if (kind === 'mobile') {
+        return ['ios', 'android'].includes(platform) &&
+          validFormats(targets.downloads, platform === 'ios' ? ['testflight', 'appstore'] : ['apk']);
       }
-    } else {
-      arch = 'arm64';
-    }
-  } else if (os === 'windows') {
-    arch = 'x64';
-  } else if (os === 'linux') {
-    if (ua.includes('aarch64') || ua.includes('arm64')) {
-      arch = 'arm64';
-    } else {
-      arch = 'x64';
-    }
+      return ['macos', 'windows', 'linux', 'kylin'].includes(platform) &&
+        Object.keys(targets).length > 0 && Object.entries(targets).every(([arch, formats]) =>
+          ['arm64', 'x64', 'x86'].includes(arch) &&
+          validFormats(formats, ['dmg', 'zip', 'exe', 'msi', 'AppImage', 'deb', 'rpm', 'tar', 'flatpak']));
+    });
+}
+
+async function readCatalog<T>(kind: 'desktop' | 'mobile'): Promise<T | null> {
+  try {
+    const response = await fetch(RELEASE_CATALOG_URLS[kind], {
+      next: { revalidate: 60 }, signal: AbortSignal.timeout(15000),
+    });
+    if (!response.ok) return null;
+    const data: unknown = await response.json();
+    return validCatalog(data, kind) ? data as T : null;
+  } catch (error) {
+    console.error(`Failed to read ${kind} download catalog`, error);
+    return null;
   }
-  
-  return { os, arch };
+}
+
+export function getDownloadInfo(): Promise<DownloadInfo | null> {
+  return readCatalog<DownloadInfo>('desktop');
+}
+
+export async function getDownloadCatalog(): Promise<DownloadCatalog> {
+  const [desktop, mobile] = await Promise.all([
+    getDownloadInfo(), readCatalog<MobileRelease>('mobile'),
+  ]);
+  return { desktop, mobile };
+}
+
+export async function fetchDownloadCatalog(): Promise<DownloadCatalog> {
+  // Same-origin fetch avoids depending on OSS/CDN CORS configuration.
+  const response = await fetch('/api/downloads', { cache: 'no-store', signal: AbortSignal.timeout(20000) });
+  if (!response.ok) throw new Error('Download catalog unavailable');
+  return response.json();
+}
+
+export function getDesktopDownloads(release: DownloadInfo | null) {
+  if (!release) return [];
+  const labels: Record<DesktopPlatform, string> = { macos: 'macOS', windows: 'Windows', linux: 'Linux', kylin: 'Kylin' };
+  return (Object.keys(labels) as DesktopPlatform[]).flatMap(os => {
+    const variants: { label: string; url: string; version: string }[] = [];
+    for (const arch of ['arm64', 'x64', 'x86'] as const) {
+      const formats = release.platforms[os]?.[arch];
+      if (!formats) continue;
+      for (const format of ['dmg', 'exe', 'msi', 'AppImage', 'deb', 'rpm', 'tar', 'flatpak', 'zip']) {
+        const url = formats[format];
+        if (!url) continue;
+        const label = os === 'macos' ? (arch === 'arm64' ? 'Apple Silicon' : 'Intel') : arch.toUpperCase();
+        variants.push({ label: `${label} (.${format})`, url,
+          version: release.targetVersions?.[`${os}/${arch}`] ?? release.version });
+      }
+    }
+    return variants.length ? [{ os, label: labels[os], variants }] : [];
+  });
+}
+
+export function detectPlatform(): { os: DesktopPlatform | 'ios' | 'android' | 'unknown'; arch: Architecture | 'unknown' } {
+  if (typeof navigator === 'undefined') return { os: 'unknown', arch: 'unknown' };
+  const ua = navigator.userAgent.toLowerCase();
+  const platform = navigator.platform.toLowerCase();
+  if (/android/.test(ua)) return { os: 'android', arch: 'unknown' };
+  if (/iphone|ipad|ipod/.test(ua) || (platform === 'macintel' && navigator.maxTouchPoints > 1)) return { os: 'ios', arch: 'unknown' };
+  if (/mac/.test(platform) || /macintosh/.test(ua)) {
+    try {
+      const gl = document.createElement('canvas').getContext('webgl');
+      const extension = gl?.getExtension('WEBGL_debug_renderer_info');
+      const renderer = extension ? String(gl?.getParameter(extension.UNMASKED_RENDERER_WEBGL)) : '';
+      if (/apple m[0-9]|apple gpu/i.test(renderer)) return { os: 'macos', arch: 'arm64' };
+      if (/intel|amd|radeon|nvidia/i.test(renderer)) return { os: 'macos', arch: 'x64' };
+    } catch { /* Show both architectures when detection is unavailable. */ }
+    return { os: 'macos', arch: 'unknown' };
+  }
+  if (/win/.test(platform) || /windows/.test(ua)) return { os: 'windows', arch: 'x64' };
+  if (/linux/.test(platform) || /linux/.test(ua)) return { os: 'linux', arch: /arm|aarch64/.test(ua) ? 'arm64' : 'x64' };
+  return { os: 'unknown', arch: 'unknown' };
 }
 
 /**

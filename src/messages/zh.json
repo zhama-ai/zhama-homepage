@@ -232,6 +232,8 @@
     }
   },
   "appDownload": {
+    "unavailable": "暂未提供下载",
+    "loadFailed": "下载信息暂时无法获取，请稍后刷新重试。",
     "title": "下载 TeGo AI Studio",
     "download": {
       "heading": "下载 TeGo AI Studio"

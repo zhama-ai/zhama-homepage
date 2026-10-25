@@ -5,76 +5,7 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
 
-interface PlatformFormats {
-  [format: string]: string;
-}
-
-interface LatestRelease {
-  version: string;
-  releaseDate: string;
-  platforms: {
-    macos?: {
-      arm64?: PlatformFormats;
-      x64?: PlatformFormats;
-    };
-    windows?: {
-      x64?: PlatformFormats;
-      x86?: PlatformFormats;
-    };
-  };
-}
-
-interface MobileRelease {
-  version: string;
-  releaseDate: string;
-  platforms: {
-    ios?: { downloads?: { testflight?: string } };
-    android?: { downloads?: { apk?: string } };
-  };
-}
-
-type Platform = 'macos' | 'windows' | 'linux' | 'unknown';
-
-function detectPlatform(): { os: Platform; arch: 'arm64' | 'x64' } {
-  if (typeof navigator === 'undefined') return { os: 'unknown', arch: 'x64' };
-  const ua = navigator.userAgent.toLowerCase();
-  const uaData = (navigator as any).userAgentData;
-  const platform = uaData?.platform?.toLowerCase() || navigator.platform?.toLowerCase() || '';
-
-  let os: Platform = 'unknown';
-  if (platform.includes('mac') || ua.includes('macintosh')) os = 'macos';
-  else if (platform.includes('win') || ua.includes('windows')) os = 'windows';
-  else if (platform.includes('linux') || ua.includes('linux')) os = 'linux';
-
-  let arch: 'arm64' | 'x64' = 'x64';
-  if (ua.includes('arm') || ua.includes('aarch64')) {
-    arch = 'arm64';
-  } else if (os === 'macos') {
-    // Apple Silicon Macs report "MacIntel" in platform and UA,
-    // but WebGL renderer reveals the actual GPU.
-    try {
-      const canvas = document.createElement('canvas');
-      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-      if (gl) {
-        const dbg = (gl as WebGLRenderingContext).getExtension('WEBGL_debug_renderer_info');
-        if (dbg) {
-          const renderer = (gl as WebGLRenderingContext).getParameter(dbg.UNMASKED_RENDERER_WEBGL) as string;
-          if (renderer && /apple m\d|apple gpu/i.test(renderer)) {
-            arch = 'arm64';
-          }
-        }
-      }
-    } catch {
-      // fallback: default to arm64 for modern macOS
-      arch = 'arm64';
-    }
-  }
-
-  return { os, arch };
-}
-
-const CDN_DESKTOP_URL = 'https://cdn.zhama.com.cn/tego-ai-studio/latest.json';
-const CDN_MOBILE_URL = 'https://cdn.zhama.com.cn/tego-mobile/latest.json';
+import { detectPlatform, fetchDownloadCatalog, getDesktopDownloads, type DownloadInfo, type MobileRelease } from '@/lib/download';
 
 const platformIcons: Record<string, React.ReactNode> = {
   macos: (
@@ -107,30 +38,28 @@ const platformIcons: Record<string, React.ReactNode> = {
 export default function DownloadClient() {
   const t = useTranslations('appDownload');
   const locale = useLocale();
-  const [release, setRelease] = useState<LatestRelease | null>(null);
+  const [release, setRelease] = useState<DownloadInfo | null>(null);
   const [mobileRelease, setMobileRelease] = useState<MobileRelease | null>(null);
   const [loading, setLoading] = useState(true);
-  const [userPlatform, setUserPlatform] = useState<{ os: Platform; arch: 'arm64' | 'x64' }>({ os: 'unknown', arch: 'x64' });
+  const [userPlatform, setUserPlatform] = useState<ReturnType<typeof detectPlatform>>({ os: 'unknown', arch: 'unknown' });
 
   useEffect(() => {
     setUserPlatform(detectPlatform());
 
-    const bustCache = `?t=${Date.now()}`;
-    Promise.all([
-      fetch(CDN_DESKTOP_URL + bustCache, { cache: 'no-cache' }).then(res => res.json()).catch(() => null),
-      fetch(CDN_MOBILE_URL + bustCache, { cache: 'no-cache' }).then(res => res.json()).catch(() => null),
-    ]).then(([desktop, mobile]) => {
-      if (desktop) setRelease(desktop);
-      if (mobile) setMobileRelease(mobile);
-      setLoading(false);
-    });
+    let active = true;
+    fetchDownloadCatalog().then(({ desktop, mobile }) => {
+      if (!active) return;
+      setRelease(desktop);
+      setMobileRelease(mobile);
+    }).catch(() => {}).finally(() => { if (active) setLoading(false); });
+    return () => { active = false; };
   }, []);
 
   const recommendedDownload = useMemo(() => {
     if (!release?.platforms) return null;
     const { os, arch } = userPlatform;
     const p = release.platforms;
-    if (os === 'macos') {
+    if (os === 'macos' && arch !== 'unknown') {
       const archFormats = arch === 'arm64' ? p.macos?.arm64 : p.macos?.x64;
       const url = archFormats?.dmg;
       if (!url) return null;
@@ -145,35 +74,16 @@ export default function DownloadClient() {
       if (!url) return null;
       return { url, label: 'Windows (x64)', ext: '.exe' };
     }
+    if (os === 'linux' && arch !== 'unknown') {
+      const url = p.linux?.[arch]?.AppImage ?? p.linux?.[arch]?.deb;
+      if (url) return { url, label: `Linux (${arch})`, ext: url.endsWith('.deb') ? '.deb' : '.AppImage' };
+    }
     return null;
   }, [release, userPlatform]);
 
-  const desktopDownloads = useMemo(() => {
-    if (!release?.platforms) return [];
-    const p = release.platforms;
-
-    const result: { os: 'macos' | 'windows'; label: string; variants: { label: string; url: string }[] }[] = [];
-
-    if (p.macos) {
-      const variants: { label: string; url: string }[] = [];
-      if (p.macos.arm64?.dmg) variants.push({ label: 'Apple Silicon (.dmg)', url: p.macos.arm64.dmg });
-      if (p.macos.arm64?.zip) variants.push({ label: 'Apple Silicon (.zip)', url: p.macos.arm64.zip });
-      if (p.macos.x64?.dmg) variants.push({ label: 'Intel (.dmg)', url: p.macos.x64.dmg });
-      if (p.macos.x64?.zip) variants.push({ label: 'Intel (.zip)', url: p.macos.x64.zip });
-      if (variants.length) result.push({ os: 'macos', label: 'macOS', variants });
-    }
-
-    if (p.windows) {
-      const variants: { label: string; url: string }[] = [];
-      if (p.windows.x64?.exe) variants.push({ label: 'x64 (.exe)', url: p.windows.x64.exe });
-      if (p.windows.x64?.zip) variants.push({ label: 'x64 (.zip)', url: p.windows.x64.zip });
-      if (p.windows.x86?.exe) variants.push({ label: 'x86 (.exe)', url: p.windows.x86.exe });
-      if (p.windows.x86?.zip) variants.push({ label: 'x86 (.zip)', url: p.windows.x86.zip });
-      if (variants.length) result.push({ os: 'windows', label: 'Windows', variants });
-    }
-
-    return result;
-  }, [release]);
+  const desktopDownloads = useMemo(() => getDesktopDownloads(release), [release]);
+  const iosUrl = mobileRelease?.platforms.ios?.downloads.appstore ?? mobileRelease?.platforms.ios?.downloads.testflight;
+  const androidUrl = mobileRelease?.platforms.android?.downloads.apk;
 
   return (
     <div className="pt-24 pb-16">
@@ -224,6 +134,10 @@ export default function DownloadClient() {
           </div>
         )}
 
+        {!loading && !release && (
+          <p role="status" className="mb-8 text-center text-zinc-600 dark:text-zinc-400">{t('loadFailed')}</p>
+        )}
+
         {/* Desktop Downloads Grid */}
         <div className="mb-16">
           <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-50 mb-6 text-center">
@@ -237,7 +151,7 @@ export default function DownloadClient() {
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-700 dark:text-zinc-300">
-                    {platformIcons[platform.os]}
+                    {platformIcons[platform.os] || platformIcons.linux}
                   </div>
                   <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">{platform.label}</h3>
                 </div>
@@ -248,7 +162,7 @@ export default function DownloadClient() {
                       href={v.url}
                       className="flex items-center justify-between gap-2 px-3 py-2 rounded-lg bg-zinc-50 dark:bg-zinc-800 hover:bg-primary-50 dark:hover:bg-primary-900/20 text-sm text-zinc-700 dark:text-zinc-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors group"
                     >
-                      <span>{v.label}</span>
+                      <span>{v.label} <span className="ml-2 text-xs text-zinc-500">{v.version}</span></span>
                       <svg className="w-4 h-4 flex-shrink-0 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
                       </svg>
@@ -268,10 +182,12 @@ export default function DownloadClient() {
           <div className="grid sm:grid-cols-3 gap-6">
             {/* iOS */}
             <a
-              href={mobileRelease?.platforms?.ios?.downloads?.testflight || '#'}
+              href={iosUrl}
+              aria-disabled={!iosUrl}
+              tabIndex={iosUrl ? undefined : -1}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:shadow-md hover:border-primary-300 dark:hover:border-primary-700 transition-all group"
+              className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:shadow-md hover:border-primary-300 dark:hover:border-primary-700 transition-all group aria-disabled:opacity-50 aria-disabled:cursor-not-allowed"
             >
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-700 dark:text-zinc-300 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
@@ -279,7 +195,7 @@ export default function DownloadClient() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">iOS</h3>
-                  <span className="text-xs font-medium text-blue-600 dark:text-blue-400">TestFlight</span>
+                  <span className="text-xs font-medium text-blue-600 dark:text-blue-400">{iosUrl ? (mobileRelease?.platforms.ios?.downloads.appstore ? 'App Store' : 'TestFlight') : loading ? '…' : t('unavailable')}</span>
                 </div>
               </div>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">{t('ios.description')}</p>
@@ -287,8 +203,10 @@ export default function DownloadClient() {
 
             {/* Android */}
             <a
-              href={mobileRelease?.platforms?.android?.downloads?.apk || '#'}
-              className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:shadow-md hover:border-primary-300 dark:hover:border-primary-700 transition-all group"
+              href={androidUrl}
+              aria-disabled={!androidUrl}
+              tabIndex={androidUrl ? undefined : -1}
+              className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:shadow-md hover:border-primary-300 dark:hover:border-primary-700 transition-all group aria-disabled:opacity-50 aria-disabled:cursor-not-allowed"
             >
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-700 dark:text-zinc-300 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
@@ -296,7 +214,7 @@ export default function DownloadClient() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">Android</h3>
-                  <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400">APK</span>
+                  <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400">{androidUrl ? mobileRelease?.targetVersions?.android ?? 'APK' : loading ? '…' : t('unavailable')}</span>
                 </div>
               </div>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">{t('android.description')}</p>
@@ -307,7 +225,7 @@ export default function DownloadClient() {
               href="https://tego.zhama.com.cn"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:shadow-md hover:border-primary-300 dark:hover:border-primary-700 transition-all group"
+              className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:shadow-md hover:border-primary-300 dark:hover:border-primary-700 transition-all group aria-disabled:opacity-50 aria-disabled:cursor-not-allowed"
             >
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400">
