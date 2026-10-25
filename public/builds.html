@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="color-scheme" content="light dark">
+  <title>最新构建清单 · TeGo</title>
+  <style>
+    :root { --bg: #f6f8fb; --surface: #fff; --text: #172033; --muted: #586579; --border: #dce3ec; --link: #1755ba; --accent: #2662d9; --warning: #8a4100; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.6 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    main { max-width: 1680px; margin: 0 auto; padding: 48px 32px; }
+    header { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+    .eyebrow { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .12em; margin: 0 0 8px; }
+    h1 { font-size: clamp(26px, 3vw, 36px); line-height: 1.25; letter-spacing: -.03em; margin: 0 0 12px; }
+    .description, #status, footer { color: var(--muted); }
+    .description { margin: 0; }
+    form { display: flex; align-items: flex-end; gap: 10px; flex-wrap: wrap; }
+    label { display: flex; flex-direction: column; gap: 5px; color: var(--muted); font-size: 13px; }
+    input { width: 170px; min-height: 44px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; color: var(--text); background: var(--surface); font: inherit; }
+    button { min-height: 44px; flex-shrink: 0; padding: 10px 18px; border: 1px solid var(--border); border-radius: 8px; color: var(--text); background: var(--surface); font: inherit; cursor: pointer; }
+    button:hover { border-color: var(--accent); color: var(--accent); }
+    button:disabled { cursor: wait; opacity: .65; }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    #status { min-height: 24px; margin: 0 0 16px; font-size: 14px; }
+    #status[data-error="true"] { color: var(--warning); }
+    .table-wrap { overflow: auto; max-height: 76vh; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+    table { width: 100%; min-width: 1120px; table-layout: fixed; border-collapse: separate; border-spacing: 0; }
+    th, td { border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); padding: 20px; text-align: left; vertical-align: top; }
+    th:last-child, td:last-child { border-right: 0; }
+    tbody tr:last-child > * { border-bottom: 0; }
+    thead th { position: sticky; top: 0; z-index: 2; background: var(--surface); box-shadow: 0 1px 0 var(--border); }
+    thead th:first-child { width: 180px; z-index: 3; }
+    tr > :first-child { position: sticky; left: 0; background: var(--surface); }
+    tbody th { z-index: 1; font-size: 14px; font-weight: 600; }
+    .versions { display: block; color: var(--muted); font-size: 12px; font-weight: 400; margin-top: 8px; }
+    .artifact + .artifact { margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--border); }
+    .artifact-info { display: flex; flex-wrap: wrap; gap: 8px; color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+    .version { font-weight: 600; color: var(--text); }
+    a { display: block; color: var(--link); overflow-wrap: anywhere; text-decoration-thickness: 1px; text-underline-offset: 3px; font: 13px/1.7 ui-monospace, SFMono-Regular, Consolas, monospace; }
+    a:hover { text-decoration-thickness: 2px; }
+    .empty { color: var(--muted); }
+    .error { color: var(--warning); font-size: 13px; }
+    footer { margin-top: 18px; font-size: 13px; }
+    @media (max-width: 640px) { main { padding: 28px 16px; } header { align-items: flex-start; flex-direction: column; gap: 16px; } th, td { padding: 16px; } thead th:first-child { width: 150px; } }
+    @media (prefers-color-scheme: dark) { :root { --bg: #101722; --surface: #172131; --text: #edf2fa; --muted: #aab8cd; --border: #35445a; --link: #8bbaff; --accent: #8bbaff; --warning: #ffbd8a; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">TEGO · RELEASE BUILDS</p>
+        <h1>最新构建清单</h1>
+        <p class="description">仅展示新 releases/ 目录中所选版本的构建和完整链接。该版本未发布的平台显示 <strong>-</strong>。</p>
+      </div>
+      <form id="version-form">
+        <label for="version">版本号<input id="version" name="version" placeholder="例如 v4.34.0" autocomplete="off" spellcheck="false"></label>
+        <button type="submit" id="query">查询</button>
+        <button type="button" id="refresh">最新版本</button>
+      </form>
+    </header>
+    <p id="status" role="status" aria-live="polite">正在读取最新发布记录…</p>
+    <div class="table-wrap" role="region" aria-label="各品牌最新构建下载链接，可横向滚动" tabindex="0" aria-busy="true">
+      <table aria-label="各品牌最新构建与完整下载地址">
+        <thead id="table-head"></thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+    <noscript><p>请启用 JavaScript 以读取最新构建清单。</p></noscript>
+    <footer>只读取 releases/ 下的发布记录，不回退到旧目录。iOS 使用该版本已登记的 TestFlight / App Store 入口。</footer>
+  </main>
+  <script>
+    const refresh = document.getElementById('refresh');
+    const query = document.getElementById('query');
+    const form = document.getElementById('version-form');
+    const versionInput = document.getElementById('version');
+    let selectedVersion = new URLSearchParams(location.search).get('version') || '';
+    versionInput.value = selectedVersion;
+    const status = document.getElementById('status');
+    const region = document.querySelector('.table-wrap');
+    const head = document.getElementById('table-head');
+    const body = document.getElementById('table-body');
+    const element = (tag, text, className) => {
+      const node = document.createElement(tag);
+      if (text) node.textContent = text;
+      if (className) node.className = className;
+      return node;
+    };
+    function render(data) {
+      document.querySelector('h1').textContent = data.version ? `构建清单 · ${data.version}` : '最新构建清单';
+      if (data.version) versionInput.value = data.version;
+      const headings = element('tr');
+      const platform = element('th', '平台 / 架构');
+      platform.scope = 'col';
+      headings.append(platform);
+      for (const brand of data.brands) {
+        const heading = element('th', brand.name);
+        heading.scope = 'col';
+        heading.append(element('span', `桌面 ${brand.desktopVersion || '-'} · 移动 ${brand.mobileVersion || '-'}`, 'versions'));
+        headings.append(heading);
+      }
+      head.replaceChildren(headings);
+      const rows = data.rows.map(row => {
+        const tr = element('tr');
+        const heading = element('th', row.label);
+        heading.scope = 'row';
+        tr.append(heading);
+        for (const cell of row.cells) {
+          const td = element('td');
+          if (cell.error) td.append(element('span', cell.error, 'error'));
+          else if (!cell.links.length) td.append(element('span', '-', 'empty'));
+          for (const item of cell.links) {
+            const artifact = element('div', '', 'artifact');
+            const info = element('div', '', 'artifact-info');
+            info.append(element('span', item.version, 'version'));
+            info.append(element('span', [item.arch.toUpperCase(), item.format].filter(Boolean).join(' · ')));
+            const link = element('a', item.url);
+            link.href = item.url;
+            artifact.append(info, link);
+            td.append(artifact);
+          }
+          tr.append(td);
+        }
+        return tr;
+      });
+      body.replaceChildren(...rows);
+    }
+    async function load() {
+      refresh.disabled = true;
+      query.disabled = true;
+      region.setAttribute('aria-busy', 'true');
+      status.textContent = '正在读取最新发布记录…';
+      status.dataset.error = 'false';
+      try {
+        const params = new URLSearchParams();
+        if (selectedVersion) params.set('version', selectedVersion);
+        const response = await fetch(`/api/builds?${params}`, { cache: 'no-store', signal: AbortSignal.timeout(20000) });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || '无法读取构建清单');
+        render(data);
+        const pageUrl = new URL(location.href);
+        if (selectedVersion) pageUrl.searchParams.set('version', data.version);
+        else pageUrl.searchParams.delete('version');
+        history.replaceState(null, '', pageUrl);
+        const failed = data.brands.filter(brand => Object.keys(brand.errors).length).map(brand => brand.name);
+        const time = new Date(data.checkedAt).toLocaleString('zh-CN', { hour12: false });
+        status.textContent = `读取时间：${time}。` + (failed.length ? ` 部分索引读取失败：${failed.join('、')}，请稍后刷新。` : data.version ? ' 索引缓存最长 60 秒。' : ' 当前没有已发布的新构建。');
+        status.dataset.error = String(failed.length > 0);
+      } catch (error) {
+        status.textContent = `${error.message || '构建清单读取失败，请稍后重试。'}` + (body.children.length ? ' 当前表格保留上次查询结果。' : '');
+        status.dataset.error = 'true';
+      } finally {
+        refresh.disabled = false;
+        query.disabled = false;
+        region.setAttribute('aria-busy', 'false');
+      }
+    }
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      selectedVersion = versionInput.value.trim();
+      load();
+    });
+    refresh.addEventListener('click', () => {
+      selectedVersion = '';
+      load();
+    });
+    load();
+  </script>
+</body>
+</html>

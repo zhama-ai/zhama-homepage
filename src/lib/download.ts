@@ -29,10 +29,10 @@ export const RELEASE_CATALOG_URLS = {
   mobile: 'https://cdn.zhama.com.cn/releases/tego/mobile/latest.json',
 } as const;
 
-export function validCatalog(value: unknown, kind: 'desktop' | 'mobile'): boolean {
+export function validCatalog(value: unknown, kind: 'desktop' | 'mobile', brand = 'tego'): boolean {
   if (!value || typeof value !== 'object') return false;
   const data = value as Record<string, unknown>;
-  if (data.brand !== 'tego' || data.kind !== kind || typeof data.version !== 'string' ||
+  if (data.brand !== brand || data.kind !== kind || typeof data.version !== 'string' ||
       typeof data.releaseDate !== 'string' || !Number.isFinite(Date.parse(data.releaseDate)) ||
       !data.platforms || typeof data.platforms !== 'object') return false;
   const isRecord = (node: unknown): node is Record<string, unknown> =>
