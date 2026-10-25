@@ -1,5 +1,5 @@
 import { validCatalog, type DownloadInfo, type MobileRelease } from '@/lib/download';
-import { BUILD_BRANDS, buildCatalogUrl, buildReleaseMatrix, normalizeBuildVersion, type BrandBuilds } from '@/lib/release-builds';
+import { BUILD_BRANDS, buildCatalogUrl, buildReleaseMatrix, normalizeBuildVersion, readServerBuilds, type BrandBuilds } from '@/lib/release-builds';
 
 export const dynamic = 'force-dynamic';
 
@@ -36,7 +36,9 @@ export async function GET(request: Request) {
       mobile: mobile as MobileRelease | null, errors,
     };
   }));
-  return Response.json({ checkedAt: new Date().toISOString(), ...buildReleaseMatrix(brands, version) }, {
+  const matrix = buildReleaseMatrix(brands, version);
+  const server = await readServerBuilds(matrix.version);
+  return Response.json({ checkedAt: new Date().toISOString(), ...matrix, server }, {
     headers: { 'Cache-Control': 'no-store' },
   });
 }

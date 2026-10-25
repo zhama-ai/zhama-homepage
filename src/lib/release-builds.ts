@@ -100,3 +100,57 @@ export function buildReleaseMatrix(brands: BrandBuilds[], requestedVersion?: str
     })),
   };
 }
+
+const SERVER_PRODUCTS = [
+  { id: 'avatar', name: 'Avatar' },
+  { id: 'workflow', name: 'Workflow' },
+] as const;
+const SERVER_PACKAGES = [
+  { id: 'compose', name: 'Compose 全量离线包' },
+  { id: 'service-images', name: '增量业务镜像包' },
+  { id: 'k8s', name: 'K8s 全量离线包' },
+] as const;
+const SERVER_ARCHES = ['amd64', 'arm64'] as const;
+
+// These are the current build-compose-package/build-k8s-package upload paths.
+// Probe the exact version; never substitute another version or legacy archive.
+export function serverBuildCandidates(version: string | null) {
+  const normalized = version ? normalizeBuildVersion(version) : null;
+  return SERVER_PRODUCTS.flatMap(product => SERVER_PACKAGES.map(pack => ({
+    label: `${product.name} · ${pack.name}`,
+    cells: SERVER_ARCHES.map(arch => ({
+      arch,
+      url: normalized ? `https://cdn.zhama.com.cn/tego-os/${normalized}/tego-${product.id}-${pack.id}-${normalized}-${arch}.tar` : null,
+    })),
+  })));
+}
+
+export async function readServerBuilds(version: string | null, fetcher: typeof fetch = fetch) {
+  const probe = async (url: string): Promise<'available' | 'missing' | 'failed'> => {
+    try {
+      const response = await fetcher(url, {
+        method: 'HEAD', next: { revalidate: 60 }, signal: AbortSignal.timeout(7000),
+      });
+      if (response.status === 404) return 'missing';
+      return response.ok ? 'available' : 'failed';
+    } catch {
+      return 'failed';
+    }
+  };
+  const rows = await Promise.all(serverBuildCandidates(version).map(async row => ({
+    label: row.label,
+    cells: await Promise.all(row.cells.map(async cell => {
+      if (!cell.url) return { arch: cell.arch, url: null, checksumUrl: null, error: null };
+      const checksumUrl = `${cell.url}.sha256`;
+      const [artifact, checksum] = await Promise.all([probe(cell.url), probe(checksumUrl)]);
+      return {
+        arch: cell.arch,
+        url: artifact === 'available' ? cell.url : null,
+        checksumUrl: artifact === 'available' && checksum === 'available' ? checksumUrl : null,
+        error: artifact === 'failed' ? '下载状态读取失败'
+          : artifact === 'available' && checksum === 'failed' ? '校验文件读取失败' : null,
+      };
+    })),
+  })));
+  return { version: version ? normalizeBuildVersion(version) : null, rows };
+}

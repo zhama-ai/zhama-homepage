@@ -14,6 +14,7 @@
     header { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
     .eyebrow { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .12em; margin: 0 0 8px; }
     h1 { font-size: clamp(26px, 3vw, 36px); line-height: 1.25; letter-spacing: -.03em; margin: 0 0 12px; }
+    h2 { font-size: 22px; margin: 28px 0 14px; }
     .description, #status, footer { color: var(--muted); }
     .description { margin: 0; }
     form { display: flex; align-items: flex-end; gap: 10px; flex-wrap: wrap; }
@@ -27,6 +28,8 @@
     #status[data-error="true"] { color: var(--warning); }
     .table-wrap { overflow: auto; max-height: 76vh; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
     table { width: 100%; min-width: 1120px; table-layout: fixed; border-collapse: separate; border-spacing: 0; }
+    .server-table { min-width: 800px; }
+    .server-table thead th:first-child { width: 240px; }
     th, td { border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); padding: 20px; text-align: left; vertical-align: top; }
     th:last-child, td:last-child { border-right: 0; }
     tbody tr:last-child > * { border-bottom: 0; }
@@ -53,7 +56,7 @@
       <div>
         <p class="eyebrow">TEGO · RELEASE BUILDS</p>
         <h1>最新构建清单</h1>
-        <p class="description">仅展示新 releases/ 目录中所选版本的构建和完整链接。该版本未发布的平台显示 <strong>-</strong>。</p>
+        <p class="description">展示所选版本的客户端安装包与服务端镜像离线包，链接完整显示。该版本未发布的构建显示 <strong>-</strong>。</p>
       </div>
       <form id="version-form">
         <label for="version">版本号<input id="version" name="version" placeholder="例如 v4.34.0" autocomplete="off" spellcheck="false"></label>
@@ -62,14 +65,24 @@
       </form>
     </header>
     <p id="status" role="status" aria-live="polite">正在读取最新发布记录…</p>
+    <h2>客户端</h2>
     <div class="table-wrap" role="region" aria-label="各品牌最新构建下载链接，可横向滚动" tabindex="0" aria-busy="true">
       <table aria-label="各品牌最新构建与完整下载地址">
         <thead id="table-head"></thead>
         <tbody id="table-body"></tbody>
       </table>
     </div>
+    <section aria-labelledby="server-title">
+      <h2 id="server-title">服务端 Docker 镜像与离线部署包</h2>
+      <div class="table-wrap" role="region" aria-label="服务端镜像包完整下载链接，可横向滚动" tabindex="0" aria-busy="true">
+        <table class="server-table" aria-label="服务端各架构离线包与 SHA256 地址">
+          <thead><tr><th scope="col">产品 / 包类型</th><th scope="col">Linux AMD64 / x86_64</th><th scope="col">Linux ARM64 / aarch64</th></tr></thead>
+          <tbody id="server-body"></tbody>
+        </table>
+      </div>
+    </section>
     <noscript><p>请启用 JavaScript 以读取最新构建清单。</p></noscript>
-    <footer>只读取 releases/ 下的发布记录，不回退到旧目录。iOS 使用该版本已登记的 TestFlight / App Store 入口。</footer>
+    <footer>客户端只读取新 releases/ 发布记录；服务端按现用 CI 的 tego-os/v版本/ 路径核实文件是否存在。仅展示所选版本，缺失显示 -。iOS 使用已登记的 TestFlight / App Store 入口。</footer>
   </main>
   <script>
     const refresh = document.getElementById('refresh');
@@ -79,9 +92,10 @@
     let selectedVersion = new URLSearchParams(location.search).get('version') || '';
     versionInput.value = selectedVersion;
     const status = document.getElementById('status');
-    const region = document.querySelector('.table-wrap');
+    const regions = document.querySelectorAll('.table-wrap');
     const head = document.getElementById('table-head');
     const body = document.getElementById('table-body');
+    const serverBody = document.getElementById('server-body');
     const element = (tag, text, className) => {
       const node = document.createElement(tag);
       if (text) node.textContent = text;
@@ -126,17 +140,40 @@
         return tr;
       });
       body.replaceChildren(...rows);
+      serverBody.replaceChildren(...data.server.rows.map(row => {
+        const tr = element('tr');
+        const heading = element('th', row.label);
+        heading.scope = 'row';
+        tr.append(heading);
+        for (const cell of row.cells) {
+          const td = element('td');
+          if (!cell.url && !cell.error) td.append(element('span', '-', 'empty'));
+          for (const [label, url] of [['镜像离线包', cell.url], ['SHA256', cell.checksumUrl]]) {
+            if (!url) continue;
+            const artifact = element('div', '', 'artifact');
+            const info = element('div', '', 'artifact-info');
+            info.append(element('span', data.server.version, 'version'), element('span', label));
+            const link = element('a', url);
+            link.href = url;
+            artifact.append(info, link);
+            td.append(artifact);
+          }
+          if (cell.error) td.append(element('span', cell.error, 'error'));
+          tr.append(td);
+        }
+        return tr;
+      }));
     }
     async function load() {
       refresh.disabled = true;
       query.disabled = true;
-      region.setAttribute('aria-busy', 'true');
+      regions.forEach(region => region.setAttribute('aria-busy', 'true'));
       status.textContent = '正在读取最新发布记录…';
       status.dataset.error = 'false';
       try {
         const params = new URLSearchParams();
         if (selectedVersion) params.set('version', selectedVersion);
-        const response = await fetch(`/api/builds?${params}`, { cache: 'no-store', signal: AbortSignal.timeout(20000) });
+        const response = await fetch(`/api/builds?${params}`, { cache: 'no-store', signal: AbortSignal.timeout(30000) });
         const data = await response.json();
         if (!response.ok) throw new Error(data.error || '无法读取构建清单');
         render(data);
@@ -145,8 +182,9 @@
         else pageUrl.searchParams.delete('version');
         history.replaceState(null, '', pageUrl);
         const failed = data.brands.filter(brand => Object.keys(brand.errors).length).map(brand => brand.name);
+        if (data.server.rows.some(row => row.cells.some(cell => cell.error))) failed.push('服务端');
         const time = new Date(data.checkedAt).toLocaleString('zh-CN', { hour12: false });
-        status.textContent = `读取时间：${time}。` + (failed.length ? ` 部分索引读取失败：${failed.join('、')}，请稍后刷新。` : data.version ? ' 索引缓存最长 60 秒。' : ' 当前没有已发布的新构建。');
+        status.textContent = `读取时间：${time}。` + (failed.length ? ` 部分发布记录读取失败：${failed.join('、')}，请稍后刷新。` : data.version ? ' 发布记录缓存最长 60 秒。' : ' 当前没有已发布的新构建。');
         status.dataset.error = String(failed.length > 0);
       } catch (error) {
         status.textContent = `${error.message || '构建清单读取失败，请稍后重试。'}` + (body.children.length ? ' 当前表格保留上次查询结果。' : '');
@@ -154,7 +192,7 @@
       } finally {
         refresh.disabled = false;
         query.disabled = false;
-        region.setAttribute('aria-busy', 'false');
+        regions.forEach(region => region.setAttribute('aria-busy', 'false'));
       }
     }
     form.addEventListener('submit', event => {
