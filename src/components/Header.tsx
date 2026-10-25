@@ -95,6 +95,7 @@ export default function Header() {
     { href: `/${locale}/#delivery`, label: t('nav.biz.delivery'), section: 'delivery' },
     { href: `/${locale}/#pricing`, label: t('nav.pricing'), section: 'pricing' },
     { href: `/${locale}/#resources`, label: t('nav.biz.resources'), section: 'resources' },
+    { href: `/${locale}/download`, label: t('nav.download') },
     { href: `/${locale}/blog`, label: t('nav.blog') },
   ];
 
