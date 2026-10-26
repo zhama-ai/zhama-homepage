@@ -133,16 +133,11 @@ export interface ServerBuilds {
 }
 
 export async function readServerBuilds(
-  version: string | null, fetcher: typeof fetch = fetch, previous?: ServerBuilds,
+  version: string | null, probeArtifact: (url: string) => Promise<boolean>,
 ): Promise<ServerBuilds> {
-  const normalized = version ? normalizeBuildVersion(version) : null;
   const probe = async (url: string): Promise<'available' | 'missing' | 'failed'> => {
     try {
-      const response = await fetcher(url, {
-        method: 'HEAD', cache: 'no-store', signal: AbortSignal.timeout(7000),
-      });
-      if (response.status === 404) return 'missing';
-      return response.ok ? 'available' : 'failed';
+      return await probeArtifact(url) ? 'available' : 'missing';
     } catch {
       return 'failed';
     }
@@ -153,15 +148,11 @@ export async function readServerBuilds(
       if (!cell.url) return { arch: cell.arch, url: null, checksumUrl: null, error: null };
       const checksumUrl = `${cell.url}.sha256`;
       const [artifact, checksum] = await Promise.all([probe(cell.url), probe(checksumUrl)]);
-      const cached = previous?.version === normalized
-        ? previous.rows.find(old => old.label === row.label)?.cells.find(old => old.arch === cell.arch)
-        : undefined;
-      const url = artifact === 'available' ? cell.url : artifact === 'failed' ? cached?.url ?? null : null;
+      const url = artifact === 'available' ? cell.url : null;
       return {
         arch: cell.arch,
         url,
-        checksumUrl: url && checksum === 'available' ? checksumUrl
-          : url && checksum === 'failed' ? cached?.checksumUrl ?? null : null,
+        checksumUrl: url && checksum === 'available' ? checksumUrl : null,
         error: artifact === 'failed' ? '下载状态读取失败'
           : artifact === 'available' && checksum === 'failed' ? '校验文件读取失败' : null,
       };

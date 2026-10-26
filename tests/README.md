@@ -1,33 +1,33 @@
 # Release metadata cache
 
-Run `pnpm test` with Node 22.6+, then `pnpm typecheck` and `pnpm build`.
+The existing Next.js 15 `unstable_cache` Data Cache stores each validated
+brand/product/version catalog and each artifact HEAD result for 1800 seconds.
+`/api/downloads`, `/api/builds`, and `DownloadSection` share those keys. Browser
+code only reads same-origin APIs; installer links retain their published CDN URL.
 
-Production keeps the homepage on Vercel. Set `RELEASE_CACHE_BASE_URL` to the
-resident shared service (see `.env.example`). Vercel instrumentation never starts
-an OSS refresh or a timer. Its API routes and server components only read the
-shared service. Missing configuration or service failure produces an explicit
-503 from the APIs, without an OSS fallback. Homepage rendering can omit download
-cards if the service is unavailable.
+There is no additional service, environment variable, startup prewarm, or timer.
+After 30 minutes the next visit receives cached data while Next revalidates in
+the background. With no visits there is no refresh. Network/HTTP/validation
+failures reject the cached loader, so Next retains its last successful entry.
+Only a real 404 becomes a cached absence. Cold failures return per-feed errors
+(or API 503 if none are available), and can be retried on the next request.
 
-The separate Node service starts with the last validated snapshot from its
-Docker volume, refreshes in the background on startup and every 30 minutes,
-and atomically saves the latest snapshot. It refreshes all four brands' desktop
-and mobile catalogs plus exact server package/checksum HEAD results, even with
-no visitors. Warm reads use the previous snapshot while refresh is running.
-Each failed feed retains its last valid data; a 404 authoritatively removes it.
-Corrupt snapshots are rejected. Historical versions fill once on first lookup,
-share concurrent jobs, and refresh on the same timer; at most 16 are kept in
-memory. The latest snapshot is persisted across restarts.
+Server metadata reads use the release publisher's existing OSS acceleration
+endpoint: bucket `zhama-public` from `tego-os/configs/release-storage.json` and
+endpoint `oss-accelerate.aliyuncs.com` from its release scripts. The CDN and
+origin catalogs were compared byte-for-byte before switching server reads.
+No private keys or new configuration are required. Vercel-origin connectivity
+still needs online verification; a successful local probe does not prove it.
 
-`/api/downloads`, `/api/builds`, and `DownloadSection` use the same service.
-Browsers only read same-origin APIs. Installer downloads still use the published
-artifact URLs. `checkedAt` is the actual refresh time. API responses use
-`Cache-Control: no-store` to expose the service's current snapshot.
+Historical versions have separate cache keys and exact-version validation.
+Catalogs and artifact states are cached independently: downloads read only the
+two official catalogs, and build queries additionally read other brands and
+probe exact server package/checksum paths. `checkedAt` is the oldest successful
+catalog check among the entries shown, rather than the current request time.
 
-For local development or a resident Next Docker deployment without
-`RELEASE_CACHE_BASE_URL`, instrumentation prewarms an in-process cache. This mode
-is explicitly disabled on Vercel.
-
-Tests use controlled upstream responses, including scheduling without traffic,
-concurrent fills, slow refreshes, stale recovery, snapshot restoration, negative
-caching, exact versions, bounded history, and shared-service failures.
+Run `pnpm test`, `pnpm typecheck`, and `pnpm build` with Node 22.6+.
+Verify native caching using a production server: warm both APIs, block upstream
+reads, and repeat the requests. Restart the process and verify the Data Cache
+still serves them. Age a local cache file past 1800 seconds and verify stale
+responses remain fast during failed background revalidation, followed by
+recovery when upstream reads are restored. Do not emulate the cache in tests.
