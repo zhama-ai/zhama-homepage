@@ -4,10 +4,17 @@ export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 
 export async function GET() {
-  const catalog = await getDownloadCatalog();
-  const unavailable = !catalog.desktop && !catalog.mobile && Object.keys(catalog.errors).length > 0;
-  return Response.json(catalog, {
-    status: unavailable ? 503 : 200,
-    headers: { 'Cache-Control': 'no-store' },
-  });
+  try {
+    const catalog = await getDownloadCatalog();
+    const unavailable = !catalog.desktop && !catalog.mobile && Object.keys(catalog.errors).length > 0;
+    return Response.json(catalog, {
+      status: unavailable ? 503 : 200,
+      headers: { 'Cache-Control': 'no-store' },
+    });
+  } catch (error) {
+    console.error('Download cache unavailable', error);
+    return Response.json({ error: '下载清单暂不可用，请稍后重试。' }, {
+      status: 503, headers: { 'Cache-Control': 'no-store' },
+    });
+  }
 }

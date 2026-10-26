@@ -1,7 +1,11 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
+import { mkdtemp, writeFile, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { readSnapshot, writeSnapshot } from '../scripts/release-cache-server.mjs';
 import {
-  ReleaseCache, RELEASE_REFRESH_INTERVAL_MS, MAX_CACHED_BUILD_VERSIONS,
+  ReleaseCache, RELEASE_REFRESH_INTERVAL_MS, MAX_CACHED_BUILD_VERSIONS, validReleaseSnapshot,
 } from '../src/lib/release-cache.ts';
 
 function fixture() {
@@ -207,4 +211,46 @@ test('historical cache is bounded and evicts the least recently used version, ke
   assert.equal(source.requests.length, count);
   await cache.getBuilds('v3.0.1');
   assert.equal(source.requests.length, count + 32);
+});
+
+test('persisted snapshots survive restart and are served immediately during a blocked startup refresh', async t => {
+  t.mock.method(console, 'info', () => {});
+  const directory = await mkdtemp(join(tmpdir(), 'release-snapshot-'));
+  t.after(() => rm(directory, { recursive: true, force: true }));
+  const file = join(directory, 'latest.json');
+  const source = fixture();
+  const cache = new ReleaseCache({ fetcher: source.fetcher, onLatestSnapshot: snapshot => writeSnapshot(file, snapshot) });
+  t.after(() => cache.stop());
+  await cache.start();
+  const before = await cache.getBuilds();
+  const snapshot = await readSnapshot(file);
+  assert.ok(validReleaseSnapshot(snapshot));
+  let release;
+  const gate = new Promise(resolve => { release = resolve; });
+  const restarted = new ReleaseCache({ initialSnapshot: snapshot, fetcher: async (...args) => {
+    await gate; return source.fetcher(...args);
+  } });
+  t.after(() => restarted.stop());
+  const startup = restarted.start();
+  assert.deepEqual(await restarted.getBuilds(), before);
+  assert.equal((await restarted.getDownloads()).desktop.version, 'v4.34.0');
+  release();
+  await startup;
+  for (const broken of [{ ...snapshot, brands: [] }, { ...snapshot, server: {} },
+    { ...snapshot, checkedAt: 'invalid' }, null]) {
+    assert.equal(validReleaseSnapshot(broken), false);
+  }
+  t.mock.method(console, 'error', () => {});
+  await writeFile(file, '{partial');
+  assert.equal(await readSnapshot(file), undefined);
+});
+
+test('a disk failure is reported without discarding a successfully refreshed in-memory snapshot', async t => {
+  const errors = t.mock.method(console, 'error', () => {});
+  const source = fixture();
+  const cache = new ReleaseCache({ fetcher: source.fetcher, onLatestSnapshot: async () => { throw new Error('disk full'); } });
+  t.after(() => cache.stop());
+  await cache.start();
+  assert.equal((await cache.getDownloads()).desktop.version, 'v4.34.0');
+  assert.equal(errors.mock.callCount(), 1);
 });

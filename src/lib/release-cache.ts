@@ -1,16 +1,49 @@
 import { validCatalog, type DownloadInfo, type MobileRelease } from './download.ts';
 import {
   BUILD_BRANDS, buildCatalogUrl, buildReleaseMatrix, normalizeBuildVersion,
-  readServerBuilds, type BrandBuilds, type ServerBuilds,
+  readServerBuilds, serverBuildCandidates, type BrandBuilds, type ServerBuilds,
 } from './release-builds.ts';
 
 export const RELEASE_REFRESH_INTERVAL_MS = 30 * 60 * 1000;
 export const MAX_CACHED_BUILD_VERSIONS = 16;
 
-interface ReleaseSnapshot {
+export interface ReleaseSnapshot {
   checkedAt: string;
   brands: BrandBuilds[];
   server: ServerBuilds;
+}
+
+// Reject incomplete or corrupt persisted snapshots before restoring them.
+export function validReleaseSnapshot(value: unknown): value is ReleaseSnapshot {
+  if (!value || typeof value !== 'object') return false;
+  const data = value as ReleaseSnapshot;
+  if (typeof data.checkedAt !== 'string' || !Number.isFinite(Date.parse(data.checkedAt)) ||
+      !Array.isArray(data.brands) || data.brands.length !== BUILD_BRANDS.length) return false;
+  if (!BUILD_BRANDS.every(brand => {
+    const entry = data.brands.find(item => item?.id === brand.id);
+    if (!entry || entry.name !== brand.name || !entry.errors || typeof entry.errors !== 'object') return false;
+    return (['desktop', 'mobile'] as const).every(kind => {
+      if (entry.errors[kind] !== undefined && typeof entry.errors[kind] !== 'string') return false;
+      if (entry[kind] === null) return true;
+      if (!validCatalog(entry[kind], kind, brand.id)) return false;
+      try { normalizeBuildVersion(entry[kind]!.version); return true; } catch { return false; }
+    });
+  })) return false;
+  const server = data.server;
+  if (!server || !Array.isArray(server.rows)) return false;
+  let candidates;
+  try { candidates = serverBuildCandidates(server.version); } catch { return false; }
+  return server.version === buildReleaseMatrix(data.brands).version &&
+    server.rows.length === candidates.length && candidates.every((row, i) => {
+      const saved = server.rows[i];
+      return saved?.label === row.label && Array.isArray(saved.cells) && saved.cells.length === row.cells.length &&
+        row.cells.every((cell, j) => {
+          const savedCell = saved.cells[j];
+          return savedCell?.arch === cell.arch && (savedCell.url === null || savedCell.url === cell.url) &&
+            (savedCell.checksumUrl === null || (savedCell.url && savedCell.checksumUrl === `${cell.url}.sha256`)) &&
+            (savedCell.error === null || typeof savedCell.error === 'string');
+        });
+    });
 }
 
 interface CacheEntry {
@@ -30,12 +63,17 @@ export class ReleaseCache {
   private timer?: ReturnType<typeof setInterval>;
   private readonly fetcher: typeof fetch;
   private readonly now: () => Date;
+  private readonly onLatestSnapshot?: (snapshot: ReleaseSnapshot) => Promise<void>;
 
-  constructor({ fetcher = fetch, now = () => new Date() }: {
+  constructor({ fetcher = fetch, now = () => new Date(), initialSnapshot, onLatestSnapshot }: {
     fetcher?: typeof fetch; now?: () => Date;
+    initialSnapshot?: ReleaseSnapshot;
+    onLatestSnapshot?: (snapshot: ReleaseSnapshot) => Promise<void>;
   } = {}) {
     this.fetcher = fetcher;
     this.now = now;
+    this.onLatestSnapshot = onLatestSnapshot;
+    if (initialSnapshot && validReleaseSnapshot(initialSnapshot)) this.latest.snapshot = initialSnapshot;
   }
 
   start(): Promise<void> {
@@ -85,8 +123,12 @@ export class ReleaseCache {
   private populate(entry: CacheEntry): Promise<ReleaseSnapshot> {
     if (!entry.pending) {
       entry.pending = this.load(entry.version, entry.snapshot)
-        .then(snapshot => {
+        .then(async snapshot => {
           entry.snapshot = snapshot;
+          if (entry === this.latest && this.onLatestSnapshot) {
+            try { await this.onLatestSnapshot(snapshot); }
+            catch (error) { console.error('Failed to persist release cache snapshot', error); }
+          }
           return snapshot;
         }).finally(() => { entry.pending = undefined; });
     }
@@ -95,8 +137,10 @@ export class ReleaseCache {
 
   private async snapshot(version?: string): Promise<ReleaseSnapshot> {
     const normalized = version ? normalizeBuildVersion(version) : undefined;
-    await this.start();
+    const startup = this.start();
     const entry = normalized ? this.historyEntry(normalized) : this.latest;
+    if (entry.snapshot) return entry.snapshot;
+    await startup;
     return entry.snapshot ?? this.populate(entry);
   }
 

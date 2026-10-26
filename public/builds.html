@@ -184,7 +184,7 @@
         const failed = data.brands.filter(brand => Object.keys(brand.errors).length).map(brand => brand.name);
         if (data.server.rows.some(row => row.cells.some(cell => cell.error))) failed.push('服务端');
         const time = new Date(data.checkedAt).toLocaleString('zh-CN', { hour12: false });
-        status.textContent = `缓存检查时间：${time}。` + (failed.length ? ` 部分发布记录更新失败：${failed.join('、')}；已有有效记录继续展示，服务端将在下次定时更新时重试。` : data.version ? ' 发布记录由服务端每 30 分钟更新。' : ' 当前没有已发布的新构建。');
+        status.textContent = `缓存检查时间：${time}。` + (failed.length ? ` 部分发布记录更新失败：${failed.join('、')}；服务端将在下次定时更新时重试。` : data.version ? ' 发布记录由服务端每 30 分钟更新。' : ' 当前没有已发布的新构建。');
         status.dataset.error = String(failed.length > 0);
       } catch (error) {
         status.textContent = `${error.message || '构建清单读取失败，请稍后重试。'}` + (body.children.length ? ' 当前表格保留上次查询结果。' : '');
