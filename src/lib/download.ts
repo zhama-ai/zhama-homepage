@@ -24,11 +24,6 @@ export interface DownloadCatalog {
   mobile: MobileRelease | null;
 }
 
-export const RELEASE_CATALOG_URLS = {
-  desktop: 'https://cdn.zhama.com.cn/releases/tego/desktop/latest.json',
-  mobile: 'https://cdn.zhama.com.cn/releases/tego/mobile/latest.json',
-} as const;
-
 export function validCatalog(value: unknown, kind: 'desktop' | 'mobile', brand = 'tego'): boolean {
   if (!value || typeof value !== 'object') return false;
   const data = value as Record<string, unknown>;
@@ -56,33 +51,8 @@ export function validCatalog(value: unknown, kind: 'desktop' | 'mobile', brand =
     });
 }
 
-async function readCatalog<T>(kind: 'desktop' | 'mobile'): Promise<T | null> {
-  try {
-    const response = await fetch(RELEASE_CATALOG_URLS[kind], {
-      next: { revalidate: 60 }, signal: AbortSignal.timeout(15000),
-    });
-    if (!response.ok) return null;
-    const data: unknown = await response.json();
-    return validCatalog(data, kind) ? data as T : null;
-  } catch (error) {
-    console.error(`Failed to read ${kind} download catalog`, error);
-    return null;
-  }
-}
-
-export function getDownloadInfo(): Promise<DownloadInfo | null> {
-  return readCatalog<DownloadInfo>('desktop');
-}
-
-export async function getDownloadCatalog(): Promise<DownloadCatalog> {
-  const [desktop, mobile] = await Promise.all([
-    getDownloadInfo(), readCatalog<MobileRelease>('mobile'),
-  ]);
-  return { desktop, mobile };
-}
-
 export async function fetchDownloadCatalog(): Promise<DownloadCatalog> {
-  // Same-origin fetch avoids depending on OSS/CDN CORS configuration.
+  // Release metadata is served exclusively by the server's shared cache.
   const response = await fetch('/api/downloads', { cache: 'no-store', signal: AbortSignal.timeout(20000) });
   if (!response.ok) throw new Error('Download catalog unavailable');
   return response.json();

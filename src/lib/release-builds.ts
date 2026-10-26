@@ -125,11 +125,21 @@ export function serverBuildCandidates(version: string | null) {
   })));
 }
 
-export async function readServerBuilds(version: string | null, fetcher: typeof fetch = fetch) {
+export interface ServerBuilds {
+  version: string | null;
+  rows: { label: string; cells: {
+    arch: string; url: string | null; checksumUrl: string | null; error: string | null;
+  }[] }[];
+}
+
+export async function readServerBuilds(
+  version: string | null, fetcher: typeof fetch = fetch, previous?: ServerBuilds,
+): Promise<ServerBuilds> {
+  const normalized = version ? normalizeBuildVersion(version) : null;
   const probe = async (url: string): Promise<'available' | 'missing' | 'failed'> => {
     try {
       const response = await fetcher(url, {
-        method: 'HEAD', next: { revalidate: 60 }, signal: AbortSignal.timeout(7000),
+        method: 'HEAD', cache: 'no-store', signal: AbortSignal.timeout(7000),
       });
       if (response.status === 404) return 'missing';
       return response.ok ? 'available' : 'failed';
@@ -143,10 +153,15 @@ export async function readServerBuilds(version: string | null, fetcher: typeof f
       if (!cell.url) return { arch: cell.arch, url: null, checksumUrl: null, error: null };
       const checksumUrl = `${cell.url}.sha256`;
       const [artifact, checksum] = await Promise.all([probe(cell.url), probe(checksumUrl)]);
+      const cached = previous?.version === normalized
+        ? previous.rows.find(old => old.label === row.label)?.cells.find(old => old.arch === cell.arch)
+        : undefined;
+      const url = artifact === 'available' ? cell.url : artifact === 'failed' ? cached?.url ?? null : null;
       return {
         arch: cell.arch,
-        url: artifact === 'available' ? cell.url : null,
-        checksumUrl: artifact === 'available' && checksum === 'available' ? checksumUrl : null,
+        url,
+        checksumUrl: url && checksum === 'available' ? checksumUrl
+          : url && checksum === 'failed' ? cached?.checksumUrl ?? null : null,
         error: artifact === 'failed' ? '下载状态读取失败'
           : artifact === 'available' && checksum === 'failed' ? '校验文件读取失败' : null,
       };

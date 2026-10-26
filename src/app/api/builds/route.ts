@@ -1,7 +1,8 @@
-import { validCatalog, type DownloadInfo, type MobileRelease } from '@/lib/download';
-import { BUILD_BRANDS, buildCatalogUrl, buildReleaseMatrix, normalizeBuildVersion, readServerBuilds, type BrandBuilds } from '@/lib/release-builds';
+import { normalizeBuildVersion } from '@/lib/release-builds';
+import { releaseCache } from '@/lib/releases.server';
 
 export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
 
 export async function GET(request: Request) {
   const input = new URL(request.url).searchParams.get('version')?.trim();
@@ -11,34 +12,14 @@ export async function GET(request: Request) {
   } catch {
     return Response.json({ error: '请输入有效版本号，例如 v4.34.0。' }, { status: 400 });
   }
-  const brands = await Promise.all(BUILD_BRANDS.map(async brand => {
-    const errors: BrandBuilds['errors'] = {};
-    const read = async (kind: 'desktop' | 'mobile') => {
-      const url = buildCatalogUrl(brand.id, kind, version);
-      try {
-        const response = await fetch(url, {
-          next: { revalidate: 60 }, signal: AbortSignal.timeout(15000),
-        });
-        if (response.status === 404) return null;
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const data: unknown = await response.json();
-        if (!validCatalog(data, kind, brand.id)) throw new Error('Invalid release catalog');
-        return data;
-      } catch (error) {
-        console.error(`Failed to read build catalog ${url}`, error);
-        errors[kind] = '索引读取失败';
-        return null;
-      }
-    };
-    const [desktop, mobile] = await Promise.all([read('desktop'), read('mobile')]);
-    return {
-      ...brand, desktop: desktop as DownloadInfo | null,
-      mobile: mobile as MobileRelease | null, errors,
-    };
-  }));
-  const matrix = buildReleaseMatrix(brands, version);
-  const server = await readServerBuilds(matrix.version);
-  return Response.json({ checkedAt: new Date().toISOString(), ...matrix, server }, {
-    headers: { 'Cache-Control': 'no-store' },
-  });
+  try {
+    return Response.json(await releaseCache.getBuilds(version), {
+      headers: { 'Cache-Control': 'no-store' },
+    });
+  } catch (error) {
+    console.error('Build cache unavailable', error);
+    return Response.json({ error: '构建清单暂不可用，请稍后重试。' }, {
+      status: 503, headers: { 'Cache-Control': 'no-store' },
+    });
+  }
 }

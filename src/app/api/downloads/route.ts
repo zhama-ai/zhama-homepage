@@ -1,9 +1,13 @@
-import { getDownloadCatalog } from '@/lib/download';
+import { getDownloadCatalog } from '@/lib/releases.server';
 
 export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
 
 export async function GET() {
-  return Response.json(await getDownloadCatalog(), {
+  const catalog = await getDownloadCatalog();
+  const unavailable = !catalog.desktop && !catalog.mobile && Object.keys(catalog.errors).length > 0;
+  return Response.json(catalog, {
+    status: unavailable ? 503 : 200,
     headers: { 'Cache-Control': 'no-store' },
   });
 }

@@ -1,7 +1,8 @@
 import { getTranslations } from 'next-intl/server';
 import { Container } from './ui/Container';
 import { Section, SectionHeader } from './ui/Section';
-import { getDownloadInfo, getDesktopDownloads, formatReleaseDate } from '@/lib/download';
+import { getDesktopDownloads, formatReleaseDate } from '@/lib/download';
+import { getDownloadInfo } from '@/lib/releases.server';
 import { 
   Monitor, 
   Apple, 

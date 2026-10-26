@@ -9,6 +9,7 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs",
     "docker:build": "docker build -t zhama-homepage .",
     "docker:run": "docker run -p 3000:3000 zhama-homepage"
   },

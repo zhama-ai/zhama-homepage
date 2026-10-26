@@ -1,10 +1,14 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { validCatalog, getDesktopDownloads, RELEASE_CATALOG_URLS } from '../src/lib/download.ts';
+import { validCatalog, getDesktopDownloads, fetchDownloadCatalog } from '../src/lib/download.ts';
 
-test('all entry points use the unified release catalogs', () => {
-  assert.equal(RELEASE_CATALOG_URLS.desktop, 'https://cdn.zhama.com.cn/releases/tego/desktop/latest.json');
-  assert.equal(RELEASE_CATALOG_URLS.mobile, 'https://cdn.zhama.com.cn/releases/tego/mobile/latest.json');
+test('the browser reads only the same-origin download cache API', async t => {
+  const catalog = { desktop: null, mobile: null };
+  t.mock.method(globalThis, 'fetch', async url => {
+    assert.equal(url, '/api/downloads');
+    return Response.json(catalog);
+  });
+  assert.deepEqual(await fetchDownloadCatalog(), catalog);
 });
 
 test('rejects error responses, other brands and unsafe download URLs', () => {
