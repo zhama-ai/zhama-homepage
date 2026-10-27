@@ -32,8 +32,21 @@ A latest target with no historical snapshot does not create a synthetic one.
 The synchronization stages and validates a complete snapshot before replacing
 the local directory. Failures leave the previous snapshot intact. Identical
 source data preserves `updatedAt` and produces no changes. Commit the resulting
-files normally; the existing Git integration handles deployment. The one-time
-synchronization does not yet wire automatic synchronization into release CI.
+files normally; the existing Git integration handles deployment.
+
+The reusable `.github/workflows/sync-releases.yml` is called after Compose,
+K8s, desktop, mobile and Kylin publication. It runs on a GitHub-hosted runner
+using the publisher's existing `GH_PAT` and OSS secrets; `GH_PAT` needs contents
+write access to `zhama-ai/zhama-homepage`. No homepage runtime credentials or
+additional cache service are needed. Only `data/releases/` is committed.
+Concurrent pushes cause a fresh synchronization on the new main, with at most
+five attempts; unchanged sources produce no commit. Validation and push errors
+fail the synchronization job instead of hiding an outdated homepage.
+
+For recovery without rebuilding packages, run **Sync homepage release metadata**
+(`sync-homepage-releases.yml`) in `zhama-ai/deploy`. It calls the same workflow
+and records the resulting homepage commit and inventory counts in its summary.
+It reads canonical OSS metadata and checksum files, never package bodies.
 
 Production verification: block outbound CDN/OSS access and confirm both APIs
 and `/builds.html` and `/zh/download` still work, including historical and

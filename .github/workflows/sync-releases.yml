@@ -1,0 +1,64 @@
+name: Sync homepage release metadata
+
+on:
+  workflow_call:
+    secrets:
+      GH_PAT:
+        required: true
+      ALIYUN_OSS_ACCESS_KEY_ID:
+        required: true
+      ALIYUN_OSS_ACCESS_KEY_SECRET:
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Check required credentials
+        shell: bash
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+          OSS_ACCESS_KEY_ID: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
+        run: |
+          : "${GH_PAT:?GH_PAT must have contents write access to zhama-ai/zhama-homepage}"
+          : "${OSS_ACCESS_KEY_ID:?OSS credentials are required}"
+          : "${OSS_ACCESS_KEY_SECRET:?OSS credentials are required}"
+
+      - name: Checkout homepage
+        uses: actions/checkout@v4
+        with:
+          repository: zhama-ai/zhama-homepage
+          ref: main
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install ossutil
+        shell: bash
+        run: |
+          set -euo pipefail
+          package=ossutil-2.2.2-linux-amd64
+          curl --fail --silent --show-error --location --retry 3 \
+            "https://gosspublic.alicdn.com/ossutil/v2/2.2.2/${package}.zip" -o "$RUNNER_TEMP/ossutil.zip"
+          unzip -q "$RUNNER_TEMP/ossutil.zip" -d "$RUNNER_TEMP"
+          chmod +x "$RUNNER_TEMP/$package/ossutil"
+          echo "$RUNNER_TEMP/$package" >> "$GITHUB_PATH"
+
+      - name: Synchronize, validate and commit homepage metadata
+        shell: bash
+        env:
+          OSS_ACCESS_KEY_ID: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
+        run: |
+          set -euo pipefail
+          git config user.name zhama
+          git config user.email zhama@zhama.com
+          node --experimental-strip-types scripts/publish-releases.mjs
