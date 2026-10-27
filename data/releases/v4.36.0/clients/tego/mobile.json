@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "brand": "tego",
+  "kind": "mobile",
+  "version": "v4.36.0",
+  "releaseDate": "2026-10-27T10:08:14Z",
+  "platforms": {
+    "android": {
+      "downloads": {
+        "apk": "https://cdn.zhama.com.cn/releases/tego/mobile/v4.36.0/android/tego-4.36.0-release.apk"
+      }
+    },
+    "ios": {
+      "downloads": {
+        "testflight": "https://testflight.apple.com/join/JF7CaFqa"
+      }
+    }
+  },
+  "targetVersions": {
+    "android": "v4.36.0",
+    "ios": "v4.36.0"
+  },
+  "targetDates": {
+    "android": "2026-10-27T10:06:41Z",
+    "ios": "2026-10-27T10:08:14Z"
+  }
+}

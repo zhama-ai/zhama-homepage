@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "brand": "qhtig",
+  "kind": "mobile",
+  "version": "v4.36.0",
+  "releaseDate": "2026-10-27T10:07:55Z",
+  "platforms": {
+    "android": {
+      "downloads": {
+        "apk": "https://cdn.zhama.com.cn/releases/qhtig/mobile/v4.36.0/android/qhtig-4.36.0-release.apk"
+      }
+    },
+    "ios": {
+      "downloads": {
+        "testflight": "https://testflight.apple.com/join/wBeMcrey"
+      }
+    }
+  },
+  "targetVersions": {
+    "android": "v4.36.0",
+    "ios": "v4.36.0"
+  },
+  "targetDates": {
+    "android": "2026-10-27T10:02:18Z",
+    "ios": "2026-10-27T10:07:55Z"
+  }
+}

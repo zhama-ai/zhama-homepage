@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "brand": "tego",
+  "kind": "desktop",
+  "version": "v4.36.0",
+  "releaseDate": "2026-10-27T09:19:38Z",
+  "platforms": {
+    "linux": {
+      "arm64": {
+        "AppImage": "https://cdn.zhama.com.cn/releases/tego/desktop/v4.36.0/linux/arm64/TeGo_4.36.0_aarch64.AppImage",
+        "deb": "https://cdn.zhama.com.cn/releases/tego/desktop/v4.36.0/linux/arm64/TeGo_4.36.0_arm64.deb"
+      },
+      "x64": {
+        "AppImage": "https://cdn.zhama.com.cn/releases/tego/desktop/v4.36.0/linux/x64/TeGo_4.36.0_amd64.AppImage",
+        "deb": "https://cdn.zhama.com.cn/releases/tego/desktop/v4.36.0/linux/x64/TeGo_4.36.0_amd64.deb"
+      }
+    },
+    "macos": {
+      "arm64": {
+        "dmg": "https://cdn.zhama.com.cn/releases/tego/desktop/v4.36.0/macos/arm64/TeGo_4.36.0_aarch64.dmg"
+      },
+      "x64": {
+        "dmg": "https://cdn.zhama.com.cn/releases/tego/desktop/v4.36.0/macos/x64/TeGo_4.36.0_x64.dmg"
+      }
+    },
+    "windows": {
+      "x64": {
+        "exe": "https://cdn.zhama.com.cn/releases/tego/desktop/v4.36.0/windows/x64/TeGo-4.36.0-windows-x64-setup.exe"
+      }
+    }
+  },
+  "targetVersions": {
+    "linux/arm64": "v4.36.0",
+    "linux/x64": "v4.36.0",
+    "macos/arm64": "v4.36.0",
+    "macos/x64": "v4.36.0",
+    "windows/x64": "v4.36.0"
+  },
+  "targetDates": {
+    "linux/arm64": "2026-10-27T09:17:28Z",
+    "linux/x64": "2026-10-27T09:15:51Z",
+    "macos/arm64": "2026-10-27T09:09:51Z",
+    "macos/x64": "2026-10-27T09:19:38Z",
+    "windows/x64": "2026-10-27T09:18:42Z"
+  }
+}
