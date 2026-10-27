@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "product": "workflow",
+  "kind": "compose",
+  "arch": "amd64",
+  "version": "v2.14.0",
+  "releaseDate": "2026-10-24T06:30:05.000Z",
+  "url": "https://cdn.zhama.com.cn/tego-os/v2.14.0/tego-workflow-compose-v2.14.0-amd64.tar",
+  "checksumUrl": "https://cdn.zhama.com.cn/tego-os/v2.14.0/tego-workflow-compose-v2.14.0-amd64.tar.sha256",
+  "sha256": "73ec7d93aea9d4bac9a9ffc41e67f2197071932743aea3bc79b8bf58847df3a4",
+  "size": 1628446720
+}

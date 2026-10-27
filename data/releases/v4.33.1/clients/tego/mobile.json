@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "brand": "tego",
+  "kind": "mobile",
+  "version": "v4.33.1",
+  "releaseDate": "2026-10-24T04:56:59Z",
+  "platforms": {
+    "android": {
+      "downloads": {
+        "apk": "https://cdn.zhama.com.cn/releases/tego/mobile/v4.33.1/android/tego-4.33.1-release.apk"
+      }
+    }
+  },
+  "targetVersions": {
+    "android": "v4.33.1"
+  },
+  "targetDates": {
+    "android": "2026-10-24T04:56:59Z"
+  }
+}

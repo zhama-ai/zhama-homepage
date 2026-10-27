@@ -39,11 +39,6 @@ export function normalizeBuildVersion(value: string): string {
   return `v${match[1]}`;
 }
 
-export function buildCatalogUrl(brand: string, kind: 'desktop' | 'mobile', version?: string): string {
-  const file = version ? `${normalizeBuildVersion(version)}/index.json` : 'latest.json';
-  return `https://cdn.zhama.com.cn/releases/${brand}/${kind}/${file}`;
-}
-
 // Each product has its own latest version. Merged catalogs may retain older
 // targets: those are intentionally absent from this current-build matrix.
 export function currentBuildLinks(brand: BrandBuilds, row: typeof BUILD_ROWS[number], version?: string): BuildLink[] {
@@ -112,15 +107,14 @@ const SERVER_PACKAGES = [
 ] as const;
 const SERVER_ARCHES = ['amd64', 'arm64'] as const;
 
-// These are the current build-compose-package/build-k8s-package upload paths.
-// Probe the exact version; never substitute another version or legacy archive.
+// Match local publication records against the current CI package names.
 export function serverBuildCandidates(version: string | null) {
   const normalized = version ? normalizeBuildVersion(version) : null;
   return SERVER_PRODUCTS.flatMap(product => SERVER_PACKAGES.map(pack => ({
     label: `${product.name} · ${pack.name}`,
     cells: SERVER_ARCHES.map(arch => ({
       arch,
-      url: normalized ? `https://cdn.zhama.com.cn/tego-os/${normalized}/tego-${product.id}-${pack.id}-${normalized}-${arch}.tar` : null,
+      url: normalized ? `https://cdn.zhama.com.cn/tego-os/${encodeURIComponent(normalized)}/${encodeURIComponent(`tego-${product.id}-${pack.id}-${normalized}-${arch}.tar`)}` : null,
     })),
   })));
 }
@@ -130,33 +124,4 @@ export interface ServerBuilds {
   rows: { label: string; cells: {
     arch: string; url: string | null; checksumUrl: string | null; error: string | null;
   }[] }[];
-}
-
-export async function readServerBuilds(
-  version: string | null, probeArtifact: (url: string) => Promise<boolean>,
-): Promise<ServerBuilds> {
-  const probe = async (url: string): Promise<'available' | 'missing' | 'failed'> => {
-    try {
-      return await probeArtifact(url) ? 'available' : 'missing';
-    } catch {
-      return 'failed';
-    }
-  };
-  const rows = await Promise.all(serverBuildCandidates(version).map(async row => ({
-    label: row.label,
-    cells: await Promise.all(row.cells.map(async cell => {
-      if (!cell.url) return { arch: cell.arch, url: null, checksumUrl: null, error: null };
-      const checksumUrl = `${cell.url}.sha256`;
-      const [artifact, checksum] = await Promise.all([probe(cell.url), probe(checksumUrl)]);
-      const url = artifact === 'available' ? cell.url : null;
-      return {
-        arch: cell.arch,
-        url,
-        checksumUrl: url && checksum === 'available' ? checksumUrl : null,
-        error: artifact === 'failed' ? '下载状态读取失败'
-          : artifact === 'available' && checksum === 'failed' ? '校验文件读取失败' : null,
-      };
-    })),
-  })));
-  return { version: version ? normalizeBuildVersion(version) : null, rows };
 }

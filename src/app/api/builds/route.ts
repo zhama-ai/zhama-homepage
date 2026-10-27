@@ -17,7 +17,7 @@ export async function GET(request: Request) {
       headers: { 'Cache-Control': 'no-store' },
     });
   } catch (error) {
-    console.error('Build cache unavailable', error);
+    console.error('Local build catalog unavailable', error);
     return Response.json({ error: '构建清单暂不可用，请稍后重试。' }, {
       status: 503, headers: { 'Cache-Control': 'no-store' },
     });

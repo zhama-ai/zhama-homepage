@@ -12,7 +12,7 @@ export async function GET() {
       headers: { 'Cache-Control': 'no-store' },
     });
   } catch (error) {
-    console.error('Download cache unavailable', error);
+    console.error('Local download catalog unavailable', error);
     return Response.json({ error: '下载清单暂不可用，请稍后重试。' }, {
       status: 503, headers: { 'Cache-Control': 'no-store' },
     });

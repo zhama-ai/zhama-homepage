@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "brand": "qhtig-data",
+  "kind": "desktop",
+  "version": "v4.22.0",
+  "releaseDate": "2026-09-28T02:13:25Z",
+  "platforms": {
+    "macos": {
+      "arm64": {
+        "dmg": "https://cdn.zhama.com.cn/releases/qhtig-data/desktop/v4.22.0/macos/arm64/%E5%89%8D%E6%B5%B7%E6%95%B0%E5%AD%97%E5%91%98%E5%B7%A5_4.22.0_aarch64.dmg"
+      },
+      "x64": {
+        "dmg": "https://cdn.zhama.com.cn/releases/qhtig-data/desktop/v4.22.0/macos/x64/%E5%89%8D%E6%B5%B7%E6%95%B0%E5%AD%97%E5%91%98%E5%B7%A5_4.22.0_x64.dmg"
+      }
+    },
+    "windows": {
+      "x64": {
+        "exe": "https://cdn.zhama.com.cn/releases/qhtig-data/desktop/v4.22.0/windows/x64/%E5%89%8D%E6%B5%B7%E6%95%B0%E5%AD%97%E5%91%98%E5%B7%A5-4.22.0-windows-x64-setup.exe"
+      }
+    }
+  },
+  "targetVersions": {
+    "macos/arm64": "v4.22.0",
+    "macos/x64": "v4.22.0",
+    "windows/x64": "v4.22.0"
+  },
+  "targetDates": {
+    "macos/arm64": "2026-09-28T02:06:03Z",
+    "macos/x64": "2026-09-28T02:13:25Z",
+    "windows/x64": "2026-09-28T01:31:02Z"
+  }
+}

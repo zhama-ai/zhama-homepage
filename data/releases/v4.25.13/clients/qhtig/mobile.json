@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "brand": "qhtig",
+  "kind": "mobile",
+  "version": "v4.25.13",
+  "releaseDate": "2026-10-07T20:04:23Z",
+  "platforms": {
+    "android": {
+      "downloads": {
+        "apk": "https://cdn.zhama.com.cn/releases/qhtig/mobile/v4.25.13/android/qhtig-4.25.13-release.apk"
+      }
+    }
+  },
+  "targetVersions": {
+    "android": "v4.25.13"
+  },
+  "targetDates": {
+    "android": "2026-10-07T20:04:23Z"
+  }
+}

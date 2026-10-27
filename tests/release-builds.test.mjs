@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { BUILD_ROWS, buildCatalogUrl, buildReleaseMatrix, currentBuildLinks, normalizeBuildVersion } from '../src/lib/release-builds.ts';
+import { BUILD_ROWS, buildReleaseMatrix, currentBuildLinks, normalizeBuildVersion } from '../src/lib/release-builds.ts';
 import { validCatalog } from '../src/lib/download.ts';
 
 const url = (brand, target, file, version = 'v4.34.0') =>
@@ -61,10 +61,6 @@ test('brands without the selected release show empty cells rather than migrated 
 
 test('version queries use only new version snapshots and reject invalid paths', () => {
   assert.equal(normalizeBuildVersion(' 4.34.0 '), 'v4.34.0');
-  assert.equal(buildCatalogUrl('qhtig', 'mobile', '4.34.0'),
-    'https://cdn.zhama.com.cn/releases/qhtig/mobile/v4.34.0/index.json');
-  assert.equal(buildCatalogUrl('tego', 'desktop'),
-    'https://cdn.zhama.com.cn/releases/tego/desktop/latest.json');
   for (const invalid of ['../latest', 'v4.34.0/../', 'latest', '4.34']) {
     assert.throws(() => normalizeBuildVersion(invalid), /有效版本号/);
   }

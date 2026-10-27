@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "product": "avatar",
+  "kind": "service-images",
+  "arch": "arm64",
+  "version": "v4.5.0-rc.2",
+  "releaseDate": "2026-09-14T11:14:10.000Z",
+  "url": "https://cdn.zhama.com.cn/tego-os/v4.5.0-rc.2/tego-avatar-service-images-v4.5.0-rc.2-arm64.tar",
+  "checksumUrl": "https://cdn.zhama.com.cn/tego-os/v4.5.0-rc.2/tego-avatar-service-images-v4.5.0-rc.2-arm64.tar.sha256",
+  "sha256": "08942f64ef00c45b5754331b1541d665a0a71793d3c05829020b81e787ff7360",
+  "size": 4252071467
+}

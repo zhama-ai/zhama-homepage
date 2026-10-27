@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "product": "avatar",
+  "kind": "compose",
+  "arch": "arm64",
+  "version": "v4.6.0",
+  "releaseDate": "2026-09-16T19:06:29.000Z",
+  "url": "https://cdn.zhama.com.cn/tego-os/v4.6.0/tego-avatar-compose-v4.6.0-arm64.tar",
+  "checksumUrl": "https://cdn.zhama.com.cn/tego-os/v4.6.0/tego-avatar-compose-v4.6.0-arm64.tar.sha256",
+  "sha256": "34525441854e170e27d1e3d945ef06cd7723f86f1379957fb0b23f0f134ca9eb",
+  "size": 4778752000
+}

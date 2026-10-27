@@ -52,7 +52,7 @@ export function validCatalog(value: unknown, kind: 'desktop' | 'mobile', brand =
 }
 
 export async function fetchDownloadCatalog(): Promise<DownloadCatalog> {
-  // Release metadata is served exclusively by the server's Next.js Data Cache.
+  // Release metadata is bundled with the server; the browser uses this API.
   const response = await fetch('/api/downloads', { cache: 'no-store', signal: AbortSignal.timeout(20000) });
   if (!response.ok) throw new Error('Download catalog unavailable');
   return response.json();

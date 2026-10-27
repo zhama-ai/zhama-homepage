@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack --port 3700",
-    "build": "next build",
+    "build": "node --experimental-strip-types scripts/validate-releases.mjs && next build",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "typecheck": "tsc --noEmit",
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
+    "sync:releases": "node --experimental-strip-types scripts/sync-releases.mjs",
     "docker:build": "docker build -t zhama-homepage .",
     "docker:run": "docker run -p 3000:3000 zhama-homepage"
   },

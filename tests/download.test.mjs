@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { validCatalog, getDesktopDownloads, fetchDownloadCatalog } from '../src/lib/download.ts';
 
-test('the browser reads only the same-origin download cache API', async t => {
+test('the browser reads only the same-origin download API', async t => {
   const catalog = { desktop: null, mobile: null };
   t.mock.method(globalThis, 'fetch', async url => {
     assert.equal(url, '/api/downloads');

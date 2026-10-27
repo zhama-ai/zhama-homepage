@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "brand": "tego",
+  "kind": "desktop",
+  "version": "v3.9.8",
+  "releaseDate": "2026-05-21T21:34:46Z",
+  "platforms": {
+    "windows": {
+      "x86": {
+        "exe": "https://cdn.zhama.com.cn/releases/tego/desktop/v3.9.8/windows/x86/TeGo-3.9.8-windows-x86-setup.exe"
+      }
+    }
+  },
+  "targetVersions": {
+    "windows/x86": "v3.9.8"
+  },
+  "targetDates": {
+    "windows/x86": "2026-05-21T21:34:46Z"
+  }
+}

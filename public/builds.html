@@ -82,7 +82,7 @@
       </div>
     </section>
     <noscript><p>请启用 JavaScript 以读取最新构建清单。</p></noscript>
-    <footer>客户端只读取新 releases/ 发布记录；服务端按现用 CI 的 tego-os/v版本/ 路径核实文件是否存在。仅展示所选版本，缺失显示 -。iOS 使用已登记的 TestFlight / App Store 入口。</footer>
+    <footer>客户端与服务端均读取随网站发布的本地清单。仅展示所选版本，未发布的构建显示 -。iOS 使用已登记的 TestFlight / App Store 入口。</footer>
   </main>
   <script>
     const refresh = document.getElementById('refresh');
@@ -184,7 +184,7 @@
         const failed = data.brands.filter(brand => Object.keys(brand.errors).length).map(brand => brand.name);
         if (data.server.rows.some(row => row.cells.some(cell => cell.error))) failed.push('服务端');
         const time = new Date(data.checkedAt).toLocaleString('zh-CN', { hour12: false });
-        status.textContent = `缓存检查时间：${time}。` + (failed.length ? ` 部分发布记录更新失败：${failed.join('、')}；服务端将在后续访问时重试。` : data.version ? ' 发布记录在服务端缓存 30 分钟，过期后随访问后台更新。' : ' 当前没有已发布的新构建。');
+        status.textContent = `发布数据更新时间：${time}。` + (failed.length ? ` 部分发布记录读取失败：${failed.join('、')}。` : data.version ? '' : ' 当前没有已发布的新构建。');
         status.dataset.error = String(failed.length > 0);
       } catch (error) {
         status.textContent = `${error.message || '构建清单读取失败，请稍后重试。'}` + (body.children.length ? ' 当前表格保留上次查询结果。' : '');
