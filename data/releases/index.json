@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-27T11:11:27.888Z",
-  "defaultVersion": "v4.36.0",
+  "updatedAt": "2026-10-29T04:04:49.396Z",
+  "defaultVersion": "v4.37.0",
   "versions": [
     "v2.14.0",
     "v3.9.8",
@@ -54,7 +54,8 @@
     "v4.34.0",
     "v4.34.1",
     "v4.35.0",
-    "v4.36.0"
+    "v4.36.0",
+    "v4.37.0"
   ],
   "files": [
     "latest/qhtig-data/desktop.json",
@@ -159,6 +160,8 @@
     "v4.36.0/clients/tego/mobile.json",
     "v4.36.0/server/avatar/compose/amd64.json",
     "v4.36.0/server/avatar/compose/arm64.json",
+    "v4.37.0/server/avatar/compose/amd64.json",
+    "v4.37.0/server/avatar/compose/arm64.json",
     "v4.5.0-rc.2/server/avatar/compose/amd64.json",
     "v4.5.0-rc.2/server/avatar/compose/arm64.json",
     "v4.5.0-rc.2/server/avatar/service-images/amd64.json",
