@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-30T04:36:04.699Z",
+  "updatedAt": "2026-10-30T07:25:11.096Z",
   "defaultVersion": "v4.37.1",
   "versions": [
     "v2.14.0",
@@ -163,6 +163,7 @@
     "v4.36.0/server/avatar/compose/arm64.json",
     "v4.37.0/server/avatar/compose/amd64.json",
     "v4.37.0/server/avatar/compose/arm64.json",
+    "v4.37.1/clients/tego/desktop.json",
     "v4.37.1/clients/tego/mobile.json",
     "v4.37.1/server/avatar/compose/amd64.json",
     "v4.37.1/server/avatar/compose/arm64.json",

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "brand": "tego",
+  "kind": "desktop",
+  "version": "v4.37.1",
+  "releaseDate": "2026-10-30T07:23:00Z",
+  "platforms": {
+    "macos": {
+      "arm64": {
+        "dmg": "https://cdn.zhama.com.cn/releases/tego/desktop/v4.37.1/macos/arm64/TeGo_4.37.1_aarch64.dmg"
+      },
+      "x64": {
+        "dmg": "https://cdn.zhama.com.cn/releases/tego/desktop/v4.37.1/macos/x64/TeGo_4.37.1_x64.dmg"
+      }
+    },
+    "windows": {
+      "x64": {
+        "exe": "https://cdn.zhama.com.cn/releases/tego/desktop/v4.37.1/windows/x64/TeGo-4.37.1-windows-x64-setup.exe"
+      }
+    }
+  },
+  "targetVersions": {
+    "macos/arm64": "v4.37.1",
+    "macos/x64": "v4.37.1",
+    "windows/x64": "v4.37.1"
+  },
+  "targetDates": {
+    "macos/arm64": "2026-10-30T07:12:06Z",
+    "macos/x64": "2026-10-30T07:23:00Z",
+    "windows/x64": "2026-10-30T07:16:09Z"
+  }
+}
