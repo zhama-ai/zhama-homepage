@@ -3,7 +3,7 @@
   "brand": "tego",
   "kind": "mobile",
   "version": "v4.38.0",
-  "releaseDate": "2026-11-01T14:38:09Z",
+  "releaseDate": "2026-11-01T16:03:07Z",
   "platforms": {
     "android": {
       "downloads": {
@@ -18,10 +18,10 @@
   },
   "targetVersions": {
     "android": "v4.38.0",
-    "ios": "v4.37.1"
+    "ios": "v4.38.0"
   },
   "targetDates": {
     "android": "2026-11-01T14:38:09Z",
-    "ios": "2026-10-30T03:47:35Z"
+    "ios": "2026-11-01T16:03:07Z"
   }
 }

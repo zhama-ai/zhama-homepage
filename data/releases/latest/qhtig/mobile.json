@@ -3,7 +3,7 @@
   "brand": "qhtig",
   "kind": "mobile",
   "version": "v4.38.0",
-  "releaseDate": "2026-11-01T14:33:59Z",
+  "releaseDate": "2026-11-01T16:03:06Z",
   "platforms": {
     "android": {
       "downloads": {
@@ -18,10 +18,10 @@
   },
   "targetVersions": {
     "android": "v4.38.0",
-    "ios": "v4.36.0"
+    "ios": "v4.38.0"
   },
   "targetDates": {
     "android": "2026-11-01T14:33:59Z",
-    "ios": "2026-10-27T10:07:55Z"
+    "ios": "2026-11-01T16:03:06Z"
   }
 }
