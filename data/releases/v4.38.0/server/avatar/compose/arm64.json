@@ -4,9 +4,9 @@
   "kind": "compose",
   "arch": "arm64",
   "version": "v4.38.0",
-  "releaseDate": "2026-11-01T16:56:43.000Z",
+  "releaseDate": "2026-11-01T18:49:12.000Z",
   "url": "https://cdn.zhama.com.cn/tego-os/v4.38.0/tego-avatar-compose-v4.38.0-arm64.tar",
   "checksumUrl": "https://cdn.zhama.com.cn/tego-os/v4.38.0/tego-avatar-compose-v4.38.0-arm64.tar.sha256",
-  "sha256": "dcd6d8ff80b8864d05ab1edf4ef0ecc5d4c870e118602382631fcf21d9d86578",
+  "sha256": "fab8ff7c2d19c485d99cfbfd227ab99c2ad00d24c5863721b28b0fe512edfb93",
   "size": 4944711680
 }
