@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "brand": "qhtig",
+  "kind": "mobile",
+  "version": "v4.38.0",
+  "releaseDate": "2026-11-01T14:33:59Z",
+  "platforms": {
+    "android": {
+      "downloads": {
+        "apk": "https://cdn.zhama.com.cn/releases/qhtig/mobile/v4.38.0/android/qhtig-4.38.0-release.apk"
+      }
+    }
+  },
+  "targetVersions": {
+    "android": "v4.38.0"
+  },
+  "targetDates": {
+    "android": "2026-11-01T14:33:59Z"
+  }
+}
