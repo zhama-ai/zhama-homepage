@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "brand": "qhtig",
+  "kind": "desktop",
+  "version": "v4.38.0",
+  "releaseDate": "2026-11-01T13:26:44Z",
+  "platforms": {
+    "kylin": {
+      "arm64": {
+        "flatpak": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v4.38.0/kylin/arm64/qhtig-4.38.0-arm64.flatpak",
+        "tar": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v4.38.0/kylin/arm64/qhtig-4.38.0-arm64.tar"
+      }
+    }
+  },
+  "targetVersions": {
+    "kylin/arm64": "v4.38.0"
+  },
+  "targetDates": {
+    "kylin/arm64": "2026-11-01T13:26:44Z"
+  }
+}
