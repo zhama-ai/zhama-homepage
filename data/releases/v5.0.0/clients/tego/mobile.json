@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "brand": "tego",
+  "kind": "mobile",
+  "version": "v5.0.0",
+  "releaseDate": "2026-11-02T06:48:51Z",
+  "platforms": {
+    "ios": {
+      "downloads": {
+        "testflight": "https://testflight.apple.com/join/JF7CaFqa"
+      }
+    }
+  },
+  "targetVersions": {
+    "ios": "v5.0.0"
+  },
+  "targetDates": {
+    "ios": "2026-11-02T06:48:51Z"
+  }
+}
