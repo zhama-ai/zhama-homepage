@@ -244,6 +244,11 @@
     "desktop": {
       "title": "桌面客户端"
     },
+    "studio": {
+      "title": "Tego Studio · 插件与 SKILL 开发工作室",
+      "description": "通过对话开发、校验和打包 Tego 插件与 SKILL，支持 macOS、Windows 和 Linux。",
+      "loading": "正在读取 Tego Studio 下载信息…"
+    },
     "mobile": {
       "title": "移动端与 Web"
     },

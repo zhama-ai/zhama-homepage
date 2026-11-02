@@ -40,6 +40,7 @@ export default function DownloadClient() {
   const locale = useLocale();
   const [release, setRelease] = useState<DownloadInfo | null>(null);
   const [mobileRelease, setMobileRelease] = useState<MobileRelease | null>(null);
+  const [studioRelease, setStudioRelease] = useState<DownloadInfo | null>(null);
   const [loading, setLoading] = useState(true);
   const [userPlatform, setUserPlatform] = useState<ReturnType<typeof detectPlatform>>({ os: 'unknown', arch: 'unknown' });
 
@@ -47,10 +48,11 @@ export default function DownloadClient() {
     setUserPlatform(detectPlatform());
 
     let active = true;
-    fetchDownloadCatalog().then(({ desktop, mobile }) => {
+    fetchDownloadCatalog().then(({ desktop, mobile, studio }) => {
       if (!active) return;
       setRelease(desktop);
       setMobileRelease(mobile);
+      setStudioRelease(studio);
     }).catch(() => {}).finally(() => { if (active) setLoading(false); });
     return () => { active = false; };
   }, []);
@@ -82,6 +84,7 @@ export default function DownloadClient() {
   }, [release, userPlatform]);
 
   const desktopDownloads = useMemo(() => getDesktopDownloads(release), [release]);
+  const studioDownloads = useMemo(() => getDesktopDownloads(studioRelease), [studioRelease]);
   const iosUrl = mobileRelease?.platforms.ios?.downloads.appstore ?? mobileRelease?.platforms.ios?.downloads.testflight;
   const androidUrl = mobileRelease?.platforms.android?.downloads.apk;
 
@@ -241,6 +244,43 @@ export default function DownloadClient() {
             </a>
           </div>
         </div>
+
+        <section id="tego-studio" aria-labelledby="studio-title" aria-busy={loading} className="mb-16">
+          <div className="text-center mb-6">
+            <h2 id="studio-title" className="text-xl font-bold text-zinc-900 dark:text-zinc-50 mb-2">{t('studio.title')}</h2>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400">{t('studio.description')}</p>
+            {studioRelease && (
+              <p className="text-sm text-primary-600 dark:text-primary-400 mt-2">
+                {t('version', { version: studioRelease.version })} · {new Date(studioRelease.releaseDate).toLocaleDateString(locale === 'zh' ? 'zh-CN' : 'en-US')}
+              </p>
+            )}
+          </div>
+          {studioDownloads.length > 0 ? (
+            <div className="grid md:grid-cols-3 gap-6">
+              {studioDownloads.map(platform => (
+                <div key={platform.os} className="min-w-0 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span aria-hidden="true" className="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-700 dark:text-zinc-300">
+                      {platformIcons[platform.os]}
+                    </span>
+                    <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">{platform.label}</h3>
+                  </div>
+                  <div className="space-y-2">
+                    {platform.variants.map(variant => (
+                      <a key={variant.url} href={variant.url}
+                        className="flex min-h-11 flex-wrap items-center gap-x-2 px-3 py-2 rounded-lg bg-zinc-50 dark:bg-zinc-800 hover:bg-primary-50 dark:hover:bg-primary-900/20 text-sm text-zinc-700 dark:text-zinc-300 hover:text-primary-600 dark:hover:text-primary-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 transition-colors">
+                        <span>{variant.label}</span>
+                        <span className="text-xs text-zinc-500 dark:text-zinc-400">{variant.version}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p role="status" className="text-center text-sm text-zinc-600 dark:text-zinc-400">{loading ? t('studio.loading') : t('unavailable')}</p>
+          )}
+        </section>
 
         {/* Enterprise CTA */}
         <div className="text-center rounded-2xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-8">

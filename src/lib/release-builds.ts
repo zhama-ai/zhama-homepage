@@ -96,6 +96,26 @@ export function buildReleaseMatrix(brands: BrandBuilds[], requestedVersion?: str
   };
 }
 
+export function buildStudioMatrix(catalog: DownloadInfo | null, requestedVersion?: string) {
+  const version = requestedVersion ? normalizeBuildVersion(requestedVersion) : catalog?.version ?? null;
+  const targets = [
+    { platform: 'macos', arch: 'arm64', label: 'macOS Apple Silicon' },
+    { platform: 'macos', arch: 'x64', label: 'macOS Intel' },
+    { platform: 'windows', arch: 'x64', label: 'Windows x64' },
+    { platform: 'linux', arch: 'x64', label: 'Linux x64' },
+    { platform: 'linux', arch: 'arm64', label: 'Linux ARM64' },
+  ] as const;
+  return { version, rows: targets.map(({ platform, arch, label }) => {
+    const target = `${platform}/${arch}`;
+    const formats = catalog?.brand === 'tego' && catalog.version === version && catalog.targetVersions?.[target] === version
+      ? catalog.platforms[platform]?.[arch] ?? {} : {};
+    const prefix = `https://cdn.zhama.com.cn/releases/tego/studio/${version}/${target}/`;
+    const links: BuildLink[] = Object.entries(formats).flatMap(([format, url]) =>
+      url.startsWith(prefix) && version ? [{ url, format, arch, version }] : []);
+    return { label, links };
+  }) };
+}
+
 const SERVER_PRODUCTS = [
   { id: 'avatar', name: 'Avatar' },
   { id: 'workflow', name: 'Workflow' },

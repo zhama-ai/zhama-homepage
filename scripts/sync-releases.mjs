@@ -11,7 +11,7 @@ import { compareVersions, loadLocalReleaseData, validateClientCatalog, validateS
 
 const exec = promisify(execFile);
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const CLIENT_KEY = /^releases\/(tego|qhtig|qhtig-data|ykzq)\/(desktop|mobile)\/(latest\.json|(v\d+\.\d+\.\d+(?:-[A-Za-z0-9.-]+)?(?:\+[A-Za-z0-9.-]+)?)\/index\.json)$/;
+const CLIENT_KEY = /^releases\/(tego|qhtig|qhtig-data|ykzq)\/(desktop|mobile|studio)\/(latest\.json|(v\d+\.\d+\.\d+(?:-[A-Za-z0-9.-]+)?(?:\+[A-Za-z0-9.-]+)?)\/index\.json)$/;
 const SERVER_KEY = /^tego-os\/(?<version>v\d+\.\d+\.\d+(?:-[A-Za-z0-9.-]+)?(?:\+[A-Za-z0-9.-]+)?)\/tego-(?<product>avatar|workflow)-(?<kind>compose|service-images|k8s)-\k<version>-(?<arch>amd64|arm64)\.tar$/;
 
 export function parseListing(text) {
@@ -102,7 +102,7 @@ export async function synchronize({ write = false, destination = path.join(ROOT,
       validateServerRelease(record, server.file);
       files.set(server.file, Buffer.from(JSON.stringify(record, null, 2) + '\n'));
     });
-    const versions = [...new Set([...files.keys()].filter(file => !file.startsWith('latest/')).map(file => file.split('/')[0]))].sort(compareVersions);
+    const versions = [...new Set([...files.keys()].filter(file => !file.startsWith('latest/') && !file.endsWith('/studio.json')).map(file => file.split('/')[0]))].sort(compareVersions);
     const index = { schemaVersion: 1, updatedAt: new Date().toISOString(), defaultVersion: versions.at(-1), versions, files: [...files.keys()].sort() };
     let previous;
     try { previous = JSON.parse(await readFile(path.join(destination, 'index.json'), 'utf8')); }

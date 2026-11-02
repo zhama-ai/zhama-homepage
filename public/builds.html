@@ -30,6 +30,7 @@
     table { width: 100%; min-width: 1120px; table-layout: fixed; border-collapse: separate; border-spacing: 0; }
     .server-table { min-width: 800px; }
     .server-table thead th:first-child { width: 240px; }
+    .studio-table { min-width: 640px; }
     th, td { border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); padding: 20px; text-align: left; vertical-align: top; }
     th:last-child, td:last-child { border-right: 0; }
     tbody tr:last-child > * { border-bottom: 0; }
@@ -56,10 +57,11 @@
       <div>
         <p class="eyebrow">TEGO · RELEASE BUILDS</p>
         <h1>最新构建清单</h1>
-        <p class="description">展示所选版本的客户端安装包与服务端镜像离线包，链接完整显示。该版本未发布的构建显示 <strong>-</strong>。</p>
+        <p class="description">展示客户端、Tego Studio 与服务端离线包的完整下载链接。TeGo 与 Studio 独立查询版本，未发布的构建显示 <strong>-</strong>。</p>
       </div>
       <form id="version-form">
-        <label for="version">版本号<input id="version" name="version" placeholder="例如 v4.34.0" autocomplete="off" spellcheck="false"></label>
+        <label for="version">TeGo 版本号<input id="version" name="version" placeholder="例如 v5.1.0" autocomplete="off" spellcheck="false"></label>
+        <label for="studio-version">Studio 版本号<input id="studio-version" name="studioVersion" placeholder="留空查询最新版本" autocomplete="off" spellcheck="false"></label>
         <button type="submit" id="query">查询</button>
         <button type="button" id="refresh">最新版本</button>
       </form>
@@ -72,6 +74,15 @@
         <tbody id="table-body"></tbody>
       </table>
     </div>
+    <section aria-labelledby="studio-title">
+      <h2 id="studio-title">Tego Studio · 插件与 SKILL 开发工作室 <span id="studio-release" class="versions"></span></h2>
+      <div class="table-wrap" role="region" aria-label="Tego Studio 完整下载链接，可横向滚动" tabindex="0" aria-busy="true">
+        <table class="studio-table" aria-label="Tego Studio 各平台安装包与完整下载地址">
+          <thead><tr><th scope="col">平台 / 架构</th><th scope="col">安装包下载</th></tr></thead>
+          <tbody id="studio-body"></tbody>
+        </table>
+      </div>
+    </section>
     <section aria-labelledby="server-title">
       <h2 id="server-title">服务端 Docker 镜像与离线部署包</h2>
       <div class="table-wrap" role="region" aria-label="服务端镜像包完整下载链接，可横向滚动" tabindex="0" aria-busy="true">
@@ -82,20 +93,24 @@
       </div>
     </section>
     <noscript><p>请启用 JavaScript 以读取最新构建清单。</p></noscript>
-    <footer>客户端与服务端均读取随网站发布的本地清单。仅展示所选版本，未发布的构建显示 -。iOS 使用已登记的 TestFlight / App Store 入口。</footer>
+    <footer>所有下载均读取随网站发布的本地清单。TeGo 与 Studio 使用各自的版本，未发布的构建显示 -。iOS 使用已登记的 TestFlight / App Store 入口。</footer>
   </main>
   <script>
     const refresh = document.getElementById('refresh');
     const query = document.getElementById('query');
     const form = document.getElementById('version-form');
     const versionInput = document.getElementById('version');
+    const studioVersionInput = document.getElementById('studio-version');
     let selectedVersion = new URLSearchParams(location.search).get('version') || '';
+    let selectedStudioVersion = new URLSearchParams(location.search).get('studioVersion') || '';
     versionInput.value = selectedVersion;
+    studioVersionInput.value = selectedStudioVersion;
     const status = document.getElementById('status');
     const regions = document.querySelectorAll('.table-wrap');
     const head = document.getElementById('table-head');
     const body = document.getElementById('table-body');
     const serverBody = document.getElementById('server-body');
+    const studioBody = document.getElementById('studio-body');
     const element = (tag, text, className) => {
       const node = document.createElement(tag);
       if (text) node.textContent = text;
@@ -140,6 +155,26 @@
         return tr;
       });
       body.replaceChildren(...rows);
+      document.getElementById('studio-release').textContent = data.studio.version || '暂未发布';
+      if (data.studio.version) studioVersionInput.value = data.studio.version;
+      studioBody.replaceChildren(...data.studio.rows.map(row => {
+        const tr = element('tr');
+        const heading = element('th', row.label);
+        heading.scope = 'row';
+        const td = element('td');
+        if (!row.links.length) td.append(element('span', '-', 'empty'));
+        for (const item of row.links) {
+          const artifact = element('div', '', 'artifact');
+          const info = element('div', '', 'artifact-info');
+          info.append(element('span', item.version, 'version'), element('span', item.format));
+          const link = element('a', item.url);
+          link.href = item.url;
+          artifact.append(info, link);
+          td.append(artifact);
+        }
+        tr.append(heading, td);
+        return tr;
+      }));
       serverBody.replaceChildren(...data.server.rows.map(row => {
         const tr = element('tr');
         const heading = element('th', row.label);
@@ -173,6 +208,7 @@
       try {
         const params = new URLSearchParams();
         if (selectedVersion) params.set('version', selectedVersion);
+        if (selectedStudioVersion) params.set('studioVersion', selectedStudioVersion);
         const response = await fetch(`/api/builds?${params}`, { cache: 'no-store', signal: AbortSignal.timeout(30000) });
         const data = await response.json();
         if (!response.ok) throw new Error(data.error || '无法读取构建清单');
@@ -180,6 +216,8 @@
         const pageUrl = new URL(location.href);
         if (selectedVersion) pageUrl.searchParams.set('version', data.version);
         else pageUrl.searchParams.delete('version');
+        if (selectedStudioVersion) pageUrl.searchParams.set('studioVersion', data.studio.version);
+        else pageUrl.searchParams.delete('studioVersion');
         history.replaceState(null, '', pageUrl);
         const failed = data.brands.filter(brand => Object.keys(brand.errors).length).map(brand => brand.name);
         if (data.server.rows.some(row => row.cells.some(cell => cell.error))) failed.push('服务端');
@@ -198,10 +236,13 @@
     form.addEventListener('submit', event => {
       event.preventDefault();
       selectedVersion = versionInput.value.trim();
+      selectedStudioVersion = studioVersionInput.value.trim();
       load();
     });
     refresh.addEventListener('click', () => {
       selectedVersion = '';
+      selectedStudioVersion = '';
+      studioVersionInput.value = '';
       load();
     });
     load();

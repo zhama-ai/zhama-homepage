@@ -9,8 +9,8 @@ function releases() {
   return localData;
 }
 
-export async function getBuilds(version?: string) {
-  return localBuilds(await releases(), version);
+export async function getBuilds(version?: string, studioVersion?: string) {
+  return localBuilds(await releases(), version, studioVersion);
 }
 
 export async function getDownloadCatalog() {

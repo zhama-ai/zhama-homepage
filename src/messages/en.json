@@ -267,6 +267,11 @@
     "desktop": {
       "title": "Desktop client"
     },
+    "studio": {
+      "title": "Tego Studio · Plugin & SKILL Development",
+      "description": "Develop, validate and package Tego plugins and SKILLs through conversation. Available for macOS, Windows and Linux.",
+      "loading": "Loading Tego Studio downloads…"
+    },
     "mobile": {
       "title": "Mobile and web"
     },

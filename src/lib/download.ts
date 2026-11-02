@@ -22,9 +22,10 @@ export interface MobileRelease {
 export interface DownloadCatalog {
   desktop: DownloadInfo | null;
   mobile: MobileRelease | null;
+  studio: DownloadInfo | null;
 }
 
-export function validCatalog(value: unknown, kind: 'desktop' | 'mobile', brand = 'tego'): boolean {
+export function validCatalog(value: unknown, kind: 'desktop' | 'mobile' | 'studio', brand = 'tego'): boolean {
   if (!value || typeof value !== 'object') return false;
   const data = value as Record<string, unknown>;
   if (data.brand !== brand || data.kind !== kind || typeof data.version !== 'string' ||
@@ -44,10 +45,14 @@ export function validCatalog(value: unknown, kind: 'desktop' | 'mobile', brand =
         return ['ios', 'android'].includes(platform) &&
           validFormats(targets.downloads, platform === 'ios' ? ['testflight', 'appstore'] : ['apk']);
       }
-      return ['macos', 'windows', 'linux', 'kylin'].includes(platform) &&
-        Object.keys(targets).length > 0 && Object.entries(targets).every(([arch, formats]) =>
+      const platforms = kind === 'studio' ? ['macos', 'windows', 'linux'] : ['macos', 'windows', 'linux', 'kylin'];
+      const formats = kind === 'studio'
+        ? { macos: ['dmg', 'zip'], windows: ['exe'], linux: ['AppImage', 'tar.gz'] }[platform]
+        : ['dmg', 'zip', 'exe', 'msi', 'AppImage', 'deb', 'rpm', 'tar', 'flatpak'];
+      return platforms.includes(platform) && !!formats &&
+        Object.keys(targets).length > 0 && Object.entries(targets).every(([arch, downloads]) =>
           ['arm64', 'x64', 'x86'].includes(arch) &&
-          validFormats(formats, ['dmg', 'zip', 'exe', 'msi', 'AppImage', 'deb', 'rpm', 'tar', 'flatpak']));
+          validFormats(downloads, formats));
     });
 }
 
@@ -66,7 +71,7 @@ export function getDesktopDownloads(release: DownloadInfo | null) {
     for (const arch of ['arm64', 'x64', 'x86'] as const) {
       const formats = release.platforms[os]?.[arch];
       if (!formats) continue;
-      for (const format of ['dmg', 'exe', 'msi', 'AppImage', 'deb', 'rpm', 'tar', 'flatpak', 'zip']) {
+      for (const format of ['dmg', 'exe', 'msi', 'AppImage', 'deb', 'rpm', 'tar', 'tar.gz', 'flatpak', 'zip']) {
         const url = formats[format];
         if (!url) continue;
         const label = os === 'macos' ? (arch === 'arm64' ? 'Apple Silicon' : 'Intel') : arch.toUpperCase();

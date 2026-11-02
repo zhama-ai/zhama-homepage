@@ -29,13 +29,19 @@ snapshots and never borrow links from latest or another version. Downloads
 retain the original official latest catalogs, including older platform targets.
 A latest target with no historical snapshot does not create a synthetic one.
 
+Tego Studio uses the independent `releases/tego/studio/` catalogs, including
+Electron's Linux `tar.gz` format. `/api/downloads` returns it as `studio`.
+`/api/builds` returns a separate Studio matrix, using its latest catalog by
+default or an exact historical snapshot with `studioVersion=v1.0.0`.
+Studio versions never affect the default TeGo version or its version list.
+
 The synchronization stages and validates a complete snapshot before replacing
 the local directory. Failures leave the previous snapshot intact. Identical
 source data preserves `updatedAt` and produces no changes. Commit the resulting
 files normally; the existing Git integration handles deployment.
 
 The reusable `.github/workflows/sync-releases.yml` is called after Compose,
-K8s, desktop, mobile and Kylin publication. It runs on a GitHub-hosted runner
+K8s, desktop, mobile, Kylin and Studio publication. It runs on a GitHub-hosted runner
 using the publisher's existing `GH_PAT` and OSS secrets; `GH_PAT` needs contents
 write access to `zhama-ai/zhama-homepage`. No homepage runtime credentials or
 additional cache service are needed. Only `data/releases/` is committed.

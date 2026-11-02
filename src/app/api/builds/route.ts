@@ -6,14 +6,17 @@ export const runtime = 'nodejs';
 
 export async function GET(request: Request) {
   const input = new URL(request.url).searchParams.get('version')?.trim();
+  const studioInput = new URL(request.url).searchParams.get('studioVersion')?.trim();
   let version: string | undefined;
+  let studioVersion: string | undefined;
   try {
     version = input ? normalizeBuildVersion(input) : undefined;
+    studioVersion = studioInput ? normalizeBuildVersion(studioInput) : undefined;
   } catch {
     return Response.json({ error: '请输入有效版本号，例如 v4.34.0。' }, { status: 400 });
   }
   try {
-    return Response.json(await getBuilds(version), {
+    return Response.json(await getBuilds(version, studioVersion), {
       headers: { 'Cache-Control': 'no-store' },
     });
   } catch (error) {

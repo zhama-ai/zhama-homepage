@@ -111,6 +111,39 @@ test('retained latest platforms do not fabricate missing historical snapshots', 
   assert.equal(data.clients.has('v3.9.8/clients/tego/desktop.json'), false);
 });
 
+test('Studio synchronizes independently and never changes the default TeGo version', async t => {
+  const source = fixture(), target = await destination(t);
+  const studio = { ...catalog, kind: 'studio', version: 'v99.0.0',
+    targetVersions: { 'linux/arm64': 'v99.0.0' },
+    platforms: { linux: { arm64: { 'tar.gz': 'https://cdn.zhama.com.cn/releases/tego/studio/v99.0.0/linux/arm64/Tego-Studio.tar.gz' } } } };
+  source.add('releases/tego/studio/latest.json', JSON.stringify(studio));
+  source.add('releases/tego/studio/v99.0.0/index.json', JSON.stringify(studio));
+  const result = await synchronize({ ...source.options, destination: target, write: true });
+  assert.equal(result.clientCatalogs, 4);
+  assert.equal(result.defaultVersion, 'v4.35.0');
+  assert.deepEqual(result.versions, ['v4.34.0', 'v4.35.0']);
+  const data = await loadLocalReleaseData(target);
+  assert.equal(localDownloads(data).studio.version, 'v99.0.0');
+  assert.equal(localBuilds(data).studio.version, 'v99.0.0');
+  assert.equal(localBuilds(data, 'v4.34.0').studio.rows[4].links[0].format, 'tar.gz');
+  assert.equal(localBuilds(data, undefined, '99.0.0').studio.rows[4].links.length, 1);
+  const absent = localBuilds(data, undefined, 'v98.0.0').studio;
+  assert.equal(absent.version, 'v98.0.0');
+  assert.ok(absent.rows.every(row => row.links.length === 0));
+  assert.throws(() => validateClientCatalog({ ...studio, kind: 'desktop' }, 'latest/tego/studio.json'));
+  const wrongPath = { ...studio, platforms: { linux: { arm64: { 'tar.gz': studio.platforms.linux.arm64['tar.gz'].replace('/studio/', '/desktop/') } } } };
+  assert.throws(() => validateClientCatalog(wrongPath, 'latest/tego/studio.json'));
+});
+
+test('missing Studio releases leave existing downloads and build queries available', async t => {
+  const source = fixture(), target = await destination(t);
+  await synchronize({ ...source.options, destination: target, write: true });
+  const data = await loadLocalReleaseData(target);
+  assert.equal(localDownloads(data).studio, null);
+  assert.equal(localBuilds(data).studio.version, null);
+  assert.ok(localBuilds(data).studio.rows.every(row => row.links.length === 0));
+});
+
 test('catalog validation rejects unsafe paths, wrong target versions and legacy download URLs', () => {
   const file = 'v4.34.0/clients/tego/desktop.json';
   validateClientCatalog(catalog, file);

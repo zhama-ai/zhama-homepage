@@ -1,9 +1,9 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { validCatalog, type DownloadInfo, type MobileRelease } from './download.ts';
-import { BUILD_BRANDS, buildReleaseMatrix, normalizeBuildVersion, serverBuildCandidates, type BrandBuilds, type ServerBuilds } from './release-builds.ts';
+import { BUILD_BRANDS, buildReleaseMatrix, buildStudioMatrix, normalizeBuildVersion, serverBuildCandidates, type BrandBuilds, type ServerBuilds } from './release-builds.ts';
 
-export const CLIENT_FILE = /^(?:latest|(v\d+\.\d+\.\d+(?:-[A-Za-z0-9.-]+)?(?:\+[A-Za-z0-9.-]+)?)\/clients)\/(tego|qhtig|qhtig-data|ykzq)\/(desktop|mobile)\.json$/;
+export const CLIENT_FILE = /^(?:latest|(v\d+\.\d+\.\d+(?:-[A-Za-z0-9.-]+)?(?:\+[A-Za-z0-9.-]+)?)\/clients)\/(tego|qhtig|qhtig-data|ykzq)\/(desktop|mobile|studio)\.json$/;
 export const SERVER_FILE = /^(v\d+\.\d+\.\d+(?:-[A-Za-z0-9.-]+)?(?:\+[A-Za-z0-9.-]+)?)\/server\/(avatar|workflow)\/(compose|service-images|k8s)\/(amd64|arm64)\.json$/;
 
 export interface ReleaseIndex {
@@ -56,7 +56,7 @@ export function validateClientCatalog(value: unknown, file: string): asserts val
   const match = CLIENT_FILE.exec(file);
   if (!match) throw new Error(`Invalid client path: ${file}`);
   const [, version, brand, kind] = match;
-  if (!validCatalog(value, kind as 'desktop' | 'mobile', brand)) throw new Error(`Invalid catalog: ${file}`);
+  if (!validCatalog(value, kind as 'desktop' | 'mobile' | 'studio', brand)) throw new Error(`Invalid catalog: ${file}`);
   const catalog = value as DownloadInfo | MobileRelease;
   if (normalizeBuildVersion(catalog.version) !== catalog.version || (version && catalog.version !== version)) {
     throw new Error(`Catalog version mismatch: ${file}`);
@@ -65,7 +65,7 @@ export function validateClientCatalog(value: unknown, file: string): asserts val
   if (!targets || !Object.keys(targets).length) throw new Error(`Missing target versions: ${file}`);
   const seen = new Set<string>();
   for (const [platform, payload] of Object.entries(catalog.platforms)) {
-    const variants = kind === 'desktop' ? Object.entries(payload ?? {}) : [['', (payload as { downloads: Record<string, string> }).downloads]] as const;
+    const variants = kind !== 'mobile' ? Object.entries(payload ?? {}) : [['', (payload as { downloads: Record<string, string> }).downloads]] as const;
     for (const [arch, formats] of variants) {
       const target = arch ? `${platform}/${arch}` : platform;
       const targetVersion = targets[target];
@@ -122,13 +122,13 @@ export async function loadLocalReleaseData(directory = path.join(process.cwd(), 
   }));
   // latest can retain targets whose historical snapshot was never published.
   // Preserve that catalog, but never invent a version snapshot from it.
-  const actualVersions = [...new Set(index.files.filter(file => !file.startsWith('latest/')).map(file => file.split('/')[0]))].sort(compareVersions);
+  const actualVersions = [...new Set(index.files.filter(file => !file.startsWith('latest/') && !file.endsWith('/studio.json')).map(file => file.split('/')[0]))].sort(compareVersions);
   if (JSON.stringify(actualVersions) !== JSON.stringify(index.versions)) throw new Error('Release versions do not match the local files');
   if (!clients.has('latest/tego/desktop.json')) throw new Error('Missing official desktop release');
   return { index, clients, servers };
 }
 
-export function localBuilds(data: LocalReleaseData, requestedVersion?: string) {
+export function localBuilds(data: LocalReleaseData, requestedVersion?: string, requestedStudioVersion?: string) {
   const version = requestedVersion ? normalizeBuildVersion(requestedVersion) : data.index.defaultVersion;
   const brands: BrandBuilds[] = BUILD_BRANDS.map(brand => ({ ...brand,
     desktop: data.clients.get(`${version}/clients/${brand.id}/desktop.json`) as DownloadInfo ?? null,
@@ -142,11 +142,16 @@ export function localBuilds(data: LocalReleaseData, requestedVersion?: string) {
       return { arch: cell.arch, url: record?.url ?? null, checksumUrl: record?.checksumUrl ?? null, error: null };
     }),
   })) };
-  return { ...buildReleaseMatrix(brands, version), checkedAt: data.index.updatedAt, server };
+  // Studio has an independent version stream; never use the TeGo OS version.
+  const studioVersion = requestedStudioVersion ? normalizeBuildVersion(requestedStudioVersion) : undefined;
+  const studio = data.clients.get(studioVersion ? `${studioVersion}/clients/tego/studio.json` : 'latest/tego/studio.json') as DownloadInfo ?? null;
+  return { ...buildReleaseMatrix(brands, version), checkedAt: data.index.updatedAt, server,
+    studio: buildStudioMatrix(studio, studioVersion) };
 }
 
 export function localDownloads(data: LocalReleaseData) {
   return { desktop: data.clients.get('latest/tego/desktop.json') as DownloadInfo ?? null,
     mobile: data.clients.get('latest/tego/mobile.json') as MobileRelease ?? null,
+    studio: data.clients.get('latest/tego/studio.json') as DownloadInfo ?? null,
     checkedAt: data.index.updatedAt, errors: {} };
 }

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { BUILD_ROWS, buildReleaseMatrix, currentBuildLinks, normalizeBuildVersion } from '../src/lib/release-builds.ts';
+import { BUILD_ROWS, buildReleaseMatrix, buildStudioMatrix, currentBuildLinks, normalizeBuildVersion } from '../src/lib/release-builds.ts';
 import { validCatalog } from '../src/lib/download.ts';
 
 const url = (brand, target, file, version = 'v4.34.0') =>
@@ -78,4 +78,15 @@ test('brand validation is explicit and failed feeds are distinct from absent rel
   const matrix = buildReleaseMatrix([{ ...brand, desktop: null, errors: { desktop: '索引读取失败' } }]);
   assert.equal(matrix.rows[0].cells[0].error, '索引读取失败');
   assert.equal(matrix.rows[6].cells[0].error, null);
+});
+
+test('Studio builds use their own paths and hide retained targets and unknown versions', () => {
+  const studio = { ...desktop, kind: 'studio', platforms: {
+    macos: { arm64: { dmg: desktop.platforms.macos.arm64.dmg.replace('/desktop/', '/studio/') } },
+    linux: desktop.platforms.linux,
+  } };
+  assert.equal(buildStudioMatrix(studio).rows[0].links.length, 1);
+  assert.equal(buildStudioMatrix(studio).rows[3].links.length, 0);
+  assert.ok(buildStudioMatrix(studio, 'v99.0.0').rows.every(row => row.links.length === 0));
+  assert.ok(buildStudioMatrix(desktop).rows.every(row => row.links.length === 0));
 });

@@ -34,3 +34,13 @@ test('preserves platform versions and includes Linux installers', () => {
   assert.equal(downloads[1].variants[0].version, 'v4.30.0');
   assert.deepEqual(getDesktopDownloads(null), []);
 });
+
+test('Studio catalogs accept published Electron formats and include Linux tar.gz downloads', () => {
+  const studio = { brand: 'tego', kind: 'studio', version: 'v1.0.0', releaseDate: '2026-11-03T00:00:00Z',
+    platforms: { linux: { arm64: { AppImage: 'https://cdn.example/Studio.AppImage', 'tar.gz': 'https://cdn.example/Studio.tar.gz' } } } };
+  assert.equal(validCatalog(studio, 'studio'), true);
+  assert.equal(validCatalog(studio, 'desktop'), false);
+  assert.equal(validCatalog({ ...studio, kind: 'desktop' }, 'desktop'), false);
+  assert.equal(validCatalog({ ...studio, platforms: { kylin: studio.platforms.linux } }, 'studio'), false);
+  assert.deepEqual(getDesktopDownloads(studio)[0].variants.map(item => item.label), ['ARM64 (.AppImage)', 'ARM64 (.tar.gz)']);
+});
