@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-02T19:21:57.373Z",
+  "updatedAt": "2026-11-02T23:23:50.385Z",
   "defaultVersion": "v5.1.0",
   "versions": [
     "v2.14.0",
@@ -67,6 +67,7 @@
     "latest/qhtig/mobile.json",
     "latest/tego/desktop.json",
     "latest/tego/mobile.json",
+    "latest/tego/studio.json",
     "latest/ykzq/desktop.json",
     "v2.14.0/server/workflow/compose/amd64.json",
     "v2.14.0/server/workflow/compose/arm64.json",
@@ -204,6 +205,7 @@
     "v5.0.0/clients/tego/mobile.json",
     "v5.0.0/server/avatar/compose/amd64.json",
     "v5.0.0/server/avatar/compose/arm64.json",
+    "v5.1.0/clients/tego/studio.json",
     "v5.1.0/server/avatar/compose/amd64.json",
     "v5.1.0/server/avatar/compose/arm64.json"
   ]
