@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "brand": "tego",
   "kind": "desktop",
-  "version": "v4.38.0",
-  "releaseDate": "2026-11-01T13:28:22Z",
+  "version": "v5.0.0",
+  "releaseDate": "2026-11-02T06:36:43Z",
   "platforms": {
     "linux": {
       "arm64": {
@@ -17,15 +17,15 @@
     },
     "macos": {
       "arm64": {
-        "dmg": "https://cdn.zhama.com.cn/releases/tego/desktop/v4.38.0/macos/arm64/TeGo_4.38.0_aarch64.dmg"
+        "dmg": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.0.0/macos/arm64/TeGo_5.0.0_aarch64.dmg"
       },
       "x64": {
-        "dmg": "https://cdn.zhama.com.cn/releases/tego/desktop/v4.38.0/macos/x64/TeGo_4.38.0_x64.dmg"
+        "dmg": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.0.0/macos/x64/TeGo_5.0.0_x64.dmg"
       }
     },
     "windows": {
       "x64": {
-        "exe": "https://cdn.zhama.com.cn/releases/tego/desktop/v4.38.0/windows/x64/TeGo-4.38.0-windows-x64-setup.exe"
+        "exe": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.0.0/windows/x64/TeGo-5.0.0-windows-x64-setup.exe"
       },
       "x86": {
         "exe": "https://cdn.zhama.com.cn/releases/tego/desktop/v3.9.8/windows/x86/TeGo-3.9.8-windows-x86-setup.exe"
@@ -35,17 +35,17 @@
   "targetVersions": {
     "linux/arm64": "v4.38.0",
     "linux/x64": "v4.38.0",
-    "macos/arm64": "v4.38.0",
-    "macos/x64": "v4.38.0",
-    "windows/x64": "v4.38.0",
+    "macos/arm64": "v5.0.0",
+    "macos/x64": "v5.0.0",
+    "windows/x64": "v5.0.0",
     "windows/x86": "v3.9.8"
   },
   "targetDates": {
     "linux/arm64": "2026-11-01T13:21:31Z",
     "linux/x64": "2026-11-01T13:17:56Z",
-    "macos/arm64": "2026-11-01T13:13:02Z",
-    "macos/x64": "2026-11-01T13:28:22Z",
-    "windows/x64": "2026-11-01T13:21:49Z",
+    "macos/arm64": "2026-11-02T06:27:19Z",
+    "macos/x64": "2026-11-02T06:36:43Z",
+    "windows/x64": "2026-11-02T06:28:28Z",
     "windows/x86": "2026-05-21T21:34:46Z"
   }
 }
