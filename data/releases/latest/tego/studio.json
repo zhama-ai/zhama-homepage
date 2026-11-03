@@ -3,7 +3,7 @@
   "brand": "tego",
   "kind": "studio",
   "version": "v5.1.0",
-  "releaseDate": "2026-11-02T23:21:19Z",
+  "releaseDate": "2026-11-03T08:23:21Z",
   "platforms": {
     "macos": {
       "arm64": {
@@ -14,14 +14,21 @@
         "dmg": "https://cdn.zhama.com.cn/releases/tego/studio/v5.1.0/macos/x64/Tego-Studio-5.1.0-mac-x64.dmg",
         "zip": "https://cdn.zhama.com.cn/releases/tego/studio/v5.1.0/macos/x64/Tego-Studio-5.1.0-mac-x64.zip"
       }
+    },
+    "windows": {
+      "x64": {
+        "exe": "https://cdn.zhama.com.cn/releases/tego/studio/v5.1.0/windows/x64/Tego-Studio-5.1.0-win-x64.exe"
+      }
     }
   },
   "targetVersions": {
     "macos/arm64": "v5.1.0",
-    "macos/x64": "v5.1.0"
+    "macos/x64": "v5.1.0",
+    "windows/x64": "v5.1.0"
   },
   "targetDates": {
-    "macos/arm64": "2026-11-02T23:21:07Z",
-    "macos/x64": "2026-11-02T23:21:19Z"
+    "macos/arm64": "2026-11-03T08:23:09Z",
+    "macos/x64": "2026-11-03T08:23:15Z",
+    "windows/x64": "2026-11-03T08:23:21Z"
   }
 }
