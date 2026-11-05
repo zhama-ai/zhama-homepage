@@ -3,7 +3,7 @@
   "brand": "tego",
   "kind": "studio",
   "version": "v5.5.0",
-  "releaseDate": "2026-11-05T03:27:33Z",
+  "releaseDate": "2026-11-05T08:15:03Z",
   "platforms": {
     "macos": {
       "arm64": {
@@ -39,10 +39,10 @@
     "linux/arm64": "v5.5.0"
   },
   "targetDates": {
-    "macos/arm64": "2026-11-05T03:26:56Z",
-    "macos/x64": "2026-11-05T03:27:07Z",
-    "windows/x64": "2026-11-05T03:27:17Z",
-    "linux/x64": "2026-11-05T03:27:22Z",
-    "linux/arm64": "2026-11-05T03:27:33Z"
+    "macos/arm64": "2026-11-05T08:14:46Z",
+    "macos/x64": "2026-11-05T08:14:51Z",
+    "windows/x64": "2026-11-05T08:14:55Z",
+    "linux/x64": "2026-11-05T08:14:58Z",
+    "linux/arm64": "2026-11-05T08:15:03Z"
   }
 }
