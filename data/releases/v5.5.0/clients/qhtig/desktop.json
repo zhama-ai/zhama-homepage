@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "brand": "qhtig",
+  "kind": "desktop",
+  "version": "v5.5.0",
+  "releaseDate": "2026-11-05T06:02:02Z",
+  "platforms": {
+    "kylin": {
+      "arm64": {
+        "flatpak": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v5.5.0/kylin/arm64/qhtig-5.5.0-arm64.flatpak",
+        "tar": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v5.5.0/kylin/arm64/qhtig-5.5.0-arm64.tar"
+      }
+    }
+  },
+  "targetVersions": {
+    "kylin/arm64": "v5.5.0"
+  },
+  "targetDates": {
+    "kylin/arm64": "2026-11-05T06:02:02Z"
+  }
+}
