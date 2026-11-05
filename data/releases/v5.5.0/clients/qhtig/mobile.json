@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "brand": "qhtig",
+  "kind": "mobile",
+  "version": "v5.5.0",
+  "releaseDate": "2026-11-05T03:48:46Z",
+  "platforms": {
+    "android": {
+      "downloads": {
+        "apk": "https://cdn.zhama.com.cn/releases/qhtig/mobile/v5.5.0/android/qhtig-5.5.0-release.apk"
+      }
+    },
+    "ios": {
+      "downloads": {
+        "testflight": "https://testflight.apple.com/join/wBeMcrey"
+      }
+    }
+  },
+  "targetVersions": {
+    "android": "v5.5.0",
+    "ios": "v5.5.0"
+  },
+  "targetDates": {
+    "android": "2026-11-05T03:42:09Z",
+    "ios": "2026-11-05T03:48:46Z"
+  }
+}
