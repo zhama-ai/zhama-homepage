@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "brand": "qhtig",
+  "kind": "mobile",
+  "version": "v5.6.0",
+  "releaseDate": "2026-11-06T14:51:04Z",
+  "platforms": {
+    "android": {
+      "downloads": {
+        "apk": "https://cdn.zhama.com.cn/releases/qhtig/mobile/v5.6.0/android/qhtig-5.6.0-release.apk"
+      }
+    }
+  },
+  "targetVersions": {
+    "android": "v5.6.0"
+  },
+  "targetDates": {
+    "android": "2026-11-06T14:51:04Z"
+  }
+}
