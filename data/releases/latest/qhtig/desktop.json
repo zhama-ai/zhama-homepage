@@ -3,7 +3,7 @@
   "brand": "qhtig",
   "kind": "desktop",
   "version": "v5.6.0",
-  "releaseDate": "2026-11-06T15:14:44Z",
+  "releaseDate": "2026-11-06T17:56:37Z",
   "platforms": {
     "kylin": {
       "arm64": {
@@ -23,15 +23,15 @@
     },
     "macos": {
       "arm64": {
-        "dmg": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v5.5.0/macos/arm64/%E7%A7%91%E5%88%9BAI%E5%8A%A9%E6%89%8B_5.5.0_aarch64.dmg"
+        "dmg": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v5.6.0/macos/arm64/%E7%A7%91%E5%88%9BAI%E5%8A%A9%E6%89%8B_5.6.0_aarch64.dmg"
       },
       "x64": {
-        "dmg": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v5.5.0/macos/x64/%E7%A7%91%E5%88%9BAI%E5%8A%A9%E6%89%8B_5.5.0_x64.dmg"
+        "dmg": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v5.6.0/macos/x64/%E7%A7%91%E5%88%9BAI%E5%8A%A9%E6%89%8B_5.6.0_x64.dmg"
       }
     },
     "windows": {
       "x64": {
-        "exe": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v5.5.0/windows/x64/%E7%A7%91%E5%88%9BAI%E5%8A%A9%E6%89%8B-5.5.0-windows-x64-setup.exe"
+        "exe": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v5.6.0/windows/x64/%E7%A7%91%E5%88%9BAI%E5%8A%A9%E6%89%8B-5.6.0-windows-x64-setup.exe"
       }
     }
   },
@@ -39,16 +39,16 @@
     "kylin/arm64": "v5.6.0",
     "linux/arm64": "v5.5.0",
     "linux/x64": "v5.5.0",
-    "macos/arm64": "v5.5.0",
-    "macos/x64": "v5.5.0",
-    "windows/x64": "v5.5.0"
+    "macos/arm64": "v5.6.0",
+    "macos/x64": "v5.6.0",
+    "windows/x64": "v5.6.0"
   },
   "targetDates": {
     "kylin/arm64": "2026-11-06T15:14:44Z",
     "linux/arm64": "2026-11-05T05:50:48Z",
     "linux/x64": "2026-11-05T05:45:05Z",
-    "macos/arm64": "2026-11-05T06:06:52Z",
-    "macos/x64": "2026-11-05T06:19:23Z",
-    "windows/x64": "2026-11-05T05:48:51Z"
+    "macos/arm64": "2026-11-06T17:39:39Z",
+    "macos/x64": "2026-11-06T17:56:37Z",
+    "windows/x64": "2026-11-06T17:11:19Z"
   }
 }
