@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "brand": "qhtig",
   "kind": "desktop",
-  "version": "v5.5.0",
-  "releaseDate": "2026-11-05T06:19:23Z",
+  "version": "v5.6.0",
+  "releaseDate": "2026-11-06T15:14:44Z",
   "platforms": {
     "kylin": {
       "arm64": {
-        "flatpak": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v5.5.0/kylin/arm64/qhtig-5.5.0-arm64.flatpak",
-        "tar": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v5.5.0/kylin/arm64/qhtig-5.5.0-arm64.tar"
+        "flatpak": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v5.6.0/kylin/arm64/qhtig-5.6.0-arm64.flatpak",
+        "tar": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v5.6.0/kylin/arm64/qhtig-5.6.0-arm64.tar"
       }
     },
     "linux": {
@@ -36,7 +36,7 @@
     }
   },
   "targetVersions": {
-    "kylin/arm64": "v5.5.0",
+    "kylin/arm64": "v5.6.0",
     "linux/arm64": "v5.5.0",
     "linux/x64": "v5.5.0",
     "macos/arm64": "v5.5.0",
@@ -44,7 +44,7 @@
     "windows/x64": "v5.5.0"
   },
   "targetDates": {
-    "kylin/arm64": "2026-11-05T06:02:02Z",
+    "kylin/arm64": "2026-11-06T15:14:44Z",
     "linux/arm64": "2026-11-05T05:50:48Z",
     "linux/x64": "2026-11-05T05:45:05Z",
     "macos/arm64": "2026-11-05T06:06:52Z",
