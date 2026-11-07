@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "brand": "tego",
+  "kind": "desktop",
+  "version": "v5.8.0",
+  "releaseDate": "2026-11-07T15:09:06Z",
+  "platforms": {
+    "kylin": {
+      "arm64": {
+        "flatpak": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.8.0/kylin/arm64/tego-ai-studio-5.8.0-arm64.flatpak",
+        "tar": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.8.0/kylin/arm64/tego-ai-studio-5.8.0-arm64.tar"
+      }
+    }
+  },
+  "targetVersions": {
+    "kylin/arm64": "v5.8.0"
+  },
+  "targetDates": {
+    "kylin/arm64": "2026-11-07T15:09:06Z"
+  }
+}
