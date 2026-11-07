@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "brand": "tego",
+  "kind": "studio",
+  "version": "v5.6.0",
+  "releaseDate": "2026-11-07T04:47:11Z",
+  "platforms": {
+    "macos": {
+      "arm64": {
+        "dmg": "https://cdn.zhama.com.cn/releases/tego/studio/v5.6.0/macos/arm64/Tego-Studio-5.6.0-mac-arm64.dmg",
+        "zip": "https://cdn.zhama.com.cn/releases/tego/studio/v5.6.0/macos/arm64/Tego-Studio-5.6.0-mac-arm64.zip"
+      },
+      "x64": {
+        "dmg": "https://cdn.zhama.com.cn/releases/tego/studio/v5.6.0/macos/x64/Tego-Studio-5.6.0-mac-x64.dmg",
+        "zip": "https://cdn.zhama.com.cn/releases/tego/studio/v5.6.0/macos/x64/Tego-Studio-5.6.0-mac-x64.zip"
+      }
+    },
+    "windows": {
+      "x64": {
+        "exe": "https://cdn.zhama.com.cn/releases/tego/studio/v5.6.0/windows/x64/Tego-Studio-5.6.0-win-x64.exe"
+      }
+    }
+  },
+  "targetVersions": {
+    "macos/arm64": "v5.6.0",
+    "macos/x64": "v5.6.0",
+    "windows/x64": "v5.6.0"
+  },
+  "targetDates": {
+    "macos/arm64": "2026-11-07T04:47:05Z",
+    "macos/x64": "2026-11-07T04:47:08Z",
+    "windows/x64": "2026-11-07T04:47:11Z"
+  }
+}

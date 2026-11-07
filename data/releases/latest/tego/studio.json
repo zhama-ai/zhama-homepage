@@ -2,22 +2,22 @@
   "schemaVersion": 1,
   "brand": "tego",
   "kind": "studio",
-  "version": "v5.5.0",
-  "releaseDate": "2026-11-05T08:15:03Z",
+  "version": "v5.6.0",
+  "releaseDate": "2026-11-07T04:47:11Z",
   "platforms": {
     "macos": {
       "arm64": {
-        "dmg": "https://cdn.zhama.com.cn/releases/tego/studio/v5.5.0/macos/arm64/Tego-Studio-5.5.0-mac-arm64.dmg",
-        "zip": "https://cdn.zhama.com.cn/releases/tego/studio/v5.5.0/macos/arm64/Tego-Studio-5.5.0-mac-arm64.zip"
+        "dmg": "https://cdn.zhama.com.cn/releases/tego/studio/v5.6.0/macos/arm64/Tego-Studio-5.6.0-mac-arm64.dmg",
+        "zip": "https://cdn.zhama.com.cn/releases/tego/studio/v5.6.0/macos/arm64/Tego-Studio-5.6.0-mac-arm64.zip"
       },
       "x64": {
-        "dmg": "https://cdn.zhama.com.cn/releases/tego/studio/v5.5.0/macos/x64/Tego-Studio-5.5.0-mac-x64.dmg",
-        "zip": "https://cdn.zhama.com.cn/releases/tego/studio/v5.5.0/macos/x64/Tego-Studio-5.5.0-mac-x64.zip"
+        "dmg": "https://cdn.zhama.com.cn/releases/tego/studio/v5.6.0/macos/x64/Tego-Studio-5.6.0-mac-x64.dmg",
+        "zip": "https://cdn.zhama.com.cn/releases/tego/studio/v5.6.0/macos/x64/Tego-Studio-5.6.0-mac-x64.zip"
       }
     },
     "windows": {
       "x64": {
-        "exe": "https://cdn.zhama.com.cn/releases/tego/studio/v5.5.0/windows/x64/Tego-Studio-5.5.0-win-x64.exe"
+        "exe": "https://cdn.zhama.com.cn/releases/tego/studio/v5.6.0/windows/x64/Tego-Studio-5.6.0-win-x64.exe"
       }
     },
     "linux": {
@@ -32,16 +32,16 @@
     }
   },
   "targetVersions": {
-    "macos/arm64": "v5.5.0",
-    "macos/x64": "v5.5.0",
-    "windows/x64": "v5.5.0",
+    "macos/arm64": "v5.6.0",
+    "macos/x64": "v5.6.0",
+    "windows/x64": "v5.6.0",
     "linux/x64": "v5.5.0",
     "linux/arm64": "v5.5.0"
   },
   "targetDates": {
-    "macos/arm64": "2026-11-05T08:14:46Z",
-    "macos/x64": "2026-11-05T08:14:51Z",
-    "windows/x64": "2026-11-05T08:14:55Z",
+    "macos/arm64": "2026-11-07T04:47:05Z",
+    "macos/x64": "2026-11-07T04:47:08Z",
+    "windows/x64": "2026-11-07T04:47:11Z",
     "linux/x64": "2026-11-05T08:14:58Z",
     "linux/arm64": "2026-11-05T08:15:03Z"
   }
