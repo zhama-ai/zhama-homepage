@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-08T19:01:48.017Z",
-  "defaultVersion": "v5.9.1",
+  "updatedAt": "2026-11-09T19:44:27.517Z",
+  "defaultVersion": "v5.10.0",
   "versions": [
     "v2.14.0",
     "v3.9.8",
@@ -69,7 +69,8 @@
     "v5.8.0",
     "v5.8.1",
     "v5.9.0",
-    "v5.9.1"
+    "v5.9.1",
+    "v5.10.0"
   ],
   "files": [
     "latest/qhtig-data/desktop.json",
@@ -218,6 +219,11 @@
     "v5.1.0/clients/tego/studio.json",
     "v5.1.0/server/avatar/compose/amd64.json",
     "v5.1.0/server/avatar/compose/arm64.json",
+    "v5.10.0/clients/tego/desktop.json",
+    "v5.10.0/clients/tego/mobile.json",
+    "v5.10.0/clients/tego/studio.json",
+    "v5.10.0/server/avatar/compose/amd64.json",
+    "v5.10.0/server/avatar/compose/arm64.json",
     "v5.2.0/server/avatar/compose/amd64.json",
     "v5.2.0/server/avatar/compose/arm64.json",
     "v5.3.0/server/avatar/compose/amd64.json",

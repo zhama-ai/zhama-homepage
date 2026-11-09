@@ -2,12 +2,12 @@
   "schemaVersion": 1,
   "brand": "tego",
   "kind": "mobile",
-  "version": "v5.9.1",
-  "releaseDate": "2026-11-08T18:14:28Z",
+  "version": "v5.10.0",
+  "releaseDate": "2026-11-09T14:24:03Z",
   "platforms": {
     "android": {
       "downloads": {
-        "apk": "https://cdn.zhama.com.cn/releases/tego/mobile/v5.9.1/android/tego-5.9.1-release.apk"
+        "apk": "https://cdn.zhama.com.cn/releases/tego/mobile/v5.10.0/android/tego-5.10.0-release.apk"
       }
     },
     "ios": {
@@ -17,11 +17,11 @@
     }
   },
   "targetVersions": {
-    "android": "v5.9.1",
-    "ios": "v5.9.1"
+    "android": "v5.10.0",
+    "ios": "v5.10.0"
   },
   "targetDates": {
-    "android": "2026-11-08T18:12:18Z",
-    "ios": "2026-11-08T18:14:28Z"
+    "android": "2026-11-09T14:22:09Z",
+    "ios": "2026-11-09T14:24:03Z"
   }
 }
