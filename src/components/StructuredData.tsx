@@ -42,7 +42,7 @@ export default function StructuredData({ locale }: Props) {
       {
         '@type': 'WebSite',
         '@id': websiteId,
-        name: 'TeGo by Zhama',
+        name: isZh ? 'TeGo 数字员工协作平台' : 'TeGo AI Workforce Collaboration Platform',
         url: SITE_URL,
         inLanguage: ['zh-CN', 'en-US'],
         publisher: { '@id': organizationId },

@@ -1,10 +1,10 @@
 ---
 title: "BusinessMonitor: A Single Screen for the Health and Performance of Your Digital-Avatar Platform"
-description: "Tego OS v3.0.0 ships the brand-new BusinessMonitor service and dashboard. Six panels — coverage, growth, engagement, tasks, workflow, skill effectiveness — aggregated into one snapshot, backed by an in-process LRU cache and dedicated routes in both ai-studio and dashboard, so leaders can finally see the platform clearly on one screen."
+description: "TeGo v3.0.0 ships the brand-new BusinessMonitor service and dashboard. Six panels — coverage, growth, engagement, tasks, workflow, skill effectiveness — aggregated into one snapshot, backed by an in-process LRU cache and dedicated routes in both ai-studio and dashboard, so leaders can finally see the platform clearly on one screen."
 date: "2026-04-28"
 author: "Zhama AI Engineering"
 category: "Engineering Deep Dive"
-tags: ["Tego OS", "v3.0.0", "BusinessMonitor", "Operations Dashboard", "Digital Avatar", "AI Operations"]
+tags: ["TeGo", "v3.0.0", "BusinessMonitor", "Operations Dashboard", "Digital Avatar", "AI Operations"]
 image: "/images/features/dashboard.jpg"
 featured: false
 ---

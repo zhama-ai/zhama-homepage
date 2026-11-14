@@ -17,11 +17,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: downloadSeo.title || (locale === 'zh' 
-      ? '下载体验 - TeGo AI智能体操作系统' 
-      : 'Download & Experience - TeGo AI Agent Platform'),
+      ? '下载体验' 
+      : 'Download & Experience'),
     description: downloadSeo.description || (locale === 'zh' 
-      ? 'TeGo AI智能体操作系统下载与体验页面。'
-      : 'TeGo AI Agent Platform download and experience page.'),
+      ? 'TeGo 数字员工协作平台下载与体验页面。'
+      : 'TeGo AI Workforce Collaboration Platform download and experience page.'),
     keywords: downloadSeo.keywords || (locale === 'zh'
       ? 'TeGo下载, 智能体平台体验, 企业AI演示'
       : 'TeGo download, AI agent platform experience, enterprise AI demo'),

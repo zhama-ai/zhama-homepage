@@ -57,7 +57,7 @@ export default async function ResourceCenterSection({ locale }: ResourceCenterSe
               {locale === 'zh' ? '专题 · 云端 Agent' : 'Feature · Cloud AI Agents'}
             </p>
             <h3 className="mt-3 text-2xl font-bold leading-tight sm:text-3xl">
-              {locale === 'zh' ? '从 Muse 到 Tego OS：让数字员工接任务、交结果' : 'From Muse to Tego OS: agents that deliver real work'}
+              {locale === 'zh' ? '从 Muse 到 TeGo：让数字员工接任务、交结果' : 'From Muse to TeGo: agents that deliver real work'}
             </h3>
             <p className="mt-4 max-w-xl leading-7 text-slate-200">
               {locale === 'zh'

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Tego OS v3.0.0 架构总览">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="TeGo v3.0.0 架构总览">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#f8fafc"/>
@@ -9,7 +9,7 @@
     </marker>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <text x="600" y="50" text-anchor="middle" fill="#0f172a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="26" font-weight="700">Tego OS v3.0.0 架构总览 · Architecture Overview</text>
+  <text x="600" y="50" text-anchor="middle" fill="#0f172a" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="26" font-weight="700">TeGo v3.0.0 架构总览 · Architecture Overview</text>
 
   <g font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" fill="#0f172a">
     <g>
@@ -51,7 +51,7 @@
     <g>
       <rect x="760" y="310" width="380" height="80" rx="10" fill="#fff" stroke="#10b981"/>
       <text x="950" y="340" text-anchor="middle" font-weight="700">Skills · Templates · Memory</text>
-      <text x="950" y="362" text-anchor="middle" font-size="12" fill="#64748b">16 个 Tego 模板技能</text>
+      <text x="950" y="362" text-anchor="middle" font-size="12" fill="#64748b">16 个 TeGo 模板技能</text>
       <text x="950" y="380" text-anchor="middle" font-size="12" fill="#64748b">模板单一权威 · 三层 fallback 读取</text>
     </g>
 

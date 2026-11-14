@@ -1,15 +1,15 @@
 ---
-title: "16 Out-of-the-Box Tego Template Skills: IT Ops + Cross-Border E-commerce, Productive Day One"
-description: "Tego OS v3.0.0 ships 16 Tego template skills covering the two highest-frequency industry chains: IT operations and cross-border e-commerce. Every skill comes with executable bash scripts — not 'prompt templates' but actually runnable. This post walks through every skill, the matching business workflows and how they integrate with per_user, template governance and BusinessMonitor."
+title: "16 Out-of-the-Box TeGo Template Skills: IT Ops + Cross-Border E-commerce, Productive Day One"
+description: "TeGo v3.0.0 ships 16 TeGo template skills covering the two highest-frequency industry chains: IT operations and cross-border e-commerce. Every skill comes with executable bash scripts — not 'prompt templates' but actually runnable. This post walks through every skill, the matching business workflows and how they integrate with per_user, template governance and BusinessMonitor."
 date: "2026-05-04"
 author: "Zhama AI Engineering"
 category: "Industry Solutions"
-tags: ["Tego OS", "v3.0.0", "Tego Template Skills", "IT Operations", "Cross-Border E-commerce", "Digital Avatar", "Digital Worker"]
+tags: ["TeGo", "v3.0.0", "TeGo Template Skills", "IT Operations", "Cross-Border E-commerce", "Digital Avatar", "Digital Worker"]
 image: "/images/features/dashboard.jpg"
 featured: true
 ---
 
-# 16 Out-of-the-Box Tego Template Skills: IT Ops + Cross-Border E-commerce, Productive Day One
+# 16 Out-of-the-Box TeGo Template Skills: IT Ops + Cross-Border E-commerce, Productive Day One
 
 > For a digital avatar to "do work right away," the bottleneck has never been the model — it's the absence of a ready-made skill library.
 
@@ -19,7 +19,7 @@ featured: true
 
 Over the past year we've heard the same family of questions from many customers:
 
-- "What can a Tego digital avatar actually do?"
+- "What can a TeGo digital avatar actually do?"
 - "How long would it take us to build a skill library from scratch?"
 - "Can you give us a working starting kit?"
 
@@ -29,7 +29,7 @@ The real bottleneck of digital avatars is never model capability; it's:
 2. **Executable scripts have to actually run** — "prompt templates" don't count; skills must include tool calls, state machines and rollback;
 3. **Skills must integrate with the avatar's runtime** — they need access to memory, MCP, and metric reporting into BusinessMonitor.
 
-v3.0.0 answers all of that at once: **16 Tego template skills** across two of the highest-frequency industry chains: **IT operations** and **cross-border e-commerce**.
+v3.0.0 answers all of that at once: **16 TeGo template skills** across two of the highest-frequency industry chains: **IT operations** and **cross-border e-commerce**.
 
 ---
 

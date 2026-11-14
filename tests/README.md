@@ -29,7 +29,7 @@ snapshots and never borrow links from latest or another version. Downloads
 retain the original official latest catalogs, including older platform targets.
 A latest target with no historical snapshot does not create a synthetic one.
 
-Tego Studio uses the independent `releases/tego/studio/` catalogs, including
+TeGo Studio uses the independent `releases/tego/studio/` catalogs, including
 Electron's Linux `tar.gz` format. `/api/downloads` returns it as `studio`.
 `/api/builds` returns a separate Studio matrix, using its latest catalog by
 default or an exact historical snapshot with `studioVersion=v1.0.0`.

@@ -37,13 +37,13 @@ export function localizedOpenGraph(locale: string, path = '') {
     url: localizedUrl(locale, path),
     locale: LOCALES[locale as keyof typeof LOCALES] === 'zh-CN' ? 'zh_CN' : 'en_US',
     alternateLocale: locale === 'zh' ? ['en_US'] : ['zh_CN'],
-    siteName: 'TeGo by Zhama',
+    siteName: locale === 'zh' ? 'TeGo 数字员工协作平台' : 'TeGo AI Workforce Collaboration Platform',
     images: [
       {
         url: `${SITE_URL}/images/home.png`,
         width: 1200,
         height: 630,
-        alt: locale === 'zh' ? 'TeGo 数字员工平台' : 'TeGo AI Workforce Platform',
+        alt: locale === 'zh' ? 'TeGo 数字员工协作平台' : 'TeGo AI Workforce Collaboration Platform',
       },
     ],
   };

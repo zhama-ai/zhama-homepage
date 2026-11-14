@@ -10,12 +10,12 @@ import {
   CheckCircle
 } from 'lucide-react';
 
-interface TegoOSSectionProps {
+interface TeGoSectionProps {
   locale: string;
 }
 
-export default async function TegoOSSection({ locale }: TegoOSSectionProps) {
-  const t = await getTranslations({ locale, namespace: 'whyTego' });
+export default async function TeGoSection({ locale }: TeGoSectionProps) {
+  const t = await getTranslations({ locale, namespace: 'whyTeGo' });
 
   const advantages = [
     {

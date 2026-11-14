@@ -207,7 +207,7 @@ Connected B Workdlows:0 Executions:。 07/31/2025,18:05:11
 
 *® **สW** Al Assistant
 
-**欢迎使用Tego控制中心**
+**欢迎使用TeGo控制中心**
 
 8·110:36
 

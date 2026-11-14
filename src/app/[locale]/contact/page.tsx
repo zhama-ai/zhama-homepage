@@ -17,11 +17,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: contactSeo.title || (locale === 'zh' 
-      ? '联系我们 - TeGo AI智能体操作系统' 
-      : 'Contact Us - TeGo AI Agent Platform'),
+      ? '联系我们' 
+      : 'Contact Us'),
     description: contactSeo.description || (locale === 'zh' 
-      ? '联系TeGo AI智能体操作系统团队，获取企业级AI解决方案咨询服务。'
-      : 'Contact TeGo AI Agent Platform team for enterprise AI solution consultation.'),
+      ? '联系TeGo 数字员工协作平台团队，获取企业级AI解决方案咨询服务。'
+      : 'Contact the TeGo AI Workforce Collaboration Platform team for enterprise AI solution consultation.'),
     keywords: contactSeo.keywords || (locale === 'zh'
       ? 'TeGo, 联系我们, 智能体平台, 企业AI, 技术支持'
       : 'TeGo, contact us, AI agent platform, enterprise AI, technical support'),

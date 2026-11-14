@@ -12,12 +12,12 @@ type Props = { params: Promise<{ locale: string }> };
 
 const copy = {
   zh: {
-    metaTitle: '云端 Agent 数字员工 | Tego OS',
-    metaDescription: 'Tego OS 让云端 Agent 进入中国企业的真实工作流：接住目标、调用工具、交付成果，并在授权、审批和审计下持续工作。',
+    metaTitle: '云端 Agent 数字员工',
+    metaDescription: 'TeGo 让云端 Agent 进入中国企业的真实工作流：接住目标、调用工具、交付成果，并在授权、审批和审计下持续工作。',
     eyebrow: '从 Muse 看见 Agent 的下一步',
     heroLine1: '给 AI 一个目标，',
     heroLine2: '让数字员工交付。',
-    heroLead: 'Tego OS 把云端 Agent 带进真实业务：在项目工作空间里规划任务、使用工具、处理文件，并在关键时刻请人确认。',
+    heroLead: 'TeGo 把云端 Agent 带进真实业务：在项目工作空间里规划任务、使用工具、处理文件，并在关键时刻请人确认。',
     demo: '预约企业演示',
     tryCloud: '体验云端版',
     readStory: '阅读完整故事',
@@ -47,7 +47,7 @@ const copy = {
     workflowPoints: ['先规划、再执行，过程可查看', '桌面、移动端与协作渠道都能参与', '成果留在工作空间，方便下一步接力'],
     trustEyebrow: '企业治理',
     trustTitle: '能动手，也懂得何时交还决定权',
-    trustBody: '数字员工的使用范围、可访问资料和关键操作，都应由组织明确管理。Tego OS 支持授权、审批、审计和运行状态管理；用户的个人档案、长期记忆与工作日记保存在隔离的工作区。',
+    trustBody: '数字员工的使用范围、可访问资料和关键操作，都应由组织明确管理。TeGo 支持授权、审批、审计和运行状态管理；用户的个人档案、长期记忆与工作日记保存在隔离的工作区。',
     trustImageAlt: '企业负责人确认关键操作的场景示意',
     trustPoints: [
       { title: '权限有边界', description: '为用户、团队和分身配置访问与操作范围。' },
@@ -57,17 +57,17 @@ const copy = {
     ctaEyebrow: '从一件具体的工作开始',
     ctaTitle: '让你的第一位数字员工上岗',
     ctaBody: '选择一项每周重复、结果可检验的任务。给它目标，看看它交回什么，再把有效的方法复制到更多岗位。',
-    disclaimer: 'Muse 是 Meta 的产品。本文以云端 Agent 的产品方向作类比，Tego OS 与 Meta 无品牌或产品关联；具体功能以实际部署配置为准。',
+    disclaimer: 'Muse 是 Meta 的产品。本文以云端 Agent 的产品方向作类比，TeGo 与 Meta 无品牌或产品关联；具体功能以实际部署配置为准。',
   },
   en: {
-    metaTitle: 'Cloud AI Agents for Real Work | Tego OS',
-    metaDescription: 'Tego OS brings cloud AI agents into enterprise workflows to plan work, use tools, deliver results, and operate with clear approval and governance.',
+    metaTitle: 'Cloud AI Agents for Real Work',
+    metaDescription: 'TeGo brings cloud AI agents into enterprise workflows to plan work, use tools, deliver results, and operate with clear approval and governance.',
     eyebrow: 'The next step for cloud agents',
     heroLine1: 'Give AI a goal.',
     heroLine2: 'Get work back.',
-    heroLead: 'Tego OS brings cloud agents into real workflows. Digital employees plan work, use tools, handle files, and return to people when a decision or approval is needed.',
+    heroLead: 'TeGo brings cloud agents into real workflows. Digital employees plan work, use tools, handle files, and return to people when a decision or approval is needed.',
     demo: 'Book an enterprise demo',
-    tryCloud: 'Try Tego Cloud',
+    tryCloud: 'Try TeGo Cloud',
     readStory: 'Read the full story',
     heroImageAlt: 'A cloud workspace connected to an office desk and mobile device',
     storyEyebrow: 'A shift in how AI works',
@@ -95,7 +95,7 @@ const copy = {
     workflowPoints: ['Plan first, execute step by step', 'Collaborate across desktop, mobile, and messaging', 'Keep deliverables in the project workspace'],
     trustEyebrow: 'Enterprise control',
     trustTitle: 'Capable agents need clear decision boundaries',
-    trustBody: 'Organizations need to define who can use each agent, which information it can access, and which actions need approval. Tego OS supports permissions, approvals, audit, and runtime management. Each user’s profile, long-term memory, and work journal stay in an isolated workspace.',
+    trustBody: 'Organizations need to define who can use each agent, which information it can access, and which actions need approval. TeGo supports permissions, approvals, audit, and runtime management. Each user’s profile, long-term memory, and work journal stay in an isolated workspace.',
     trustImageAlt: 'A person approving a sensitive action in a cloud-agent workflow',
     trustPoints: [
       { title: 'Defined access', description: 'Set usage and operating permissions for users, teams, and agents.' },
@@ -105,7 +105,7 @@ const copy = {
     ctaEyebrow: 'Start with one real task',
     ctaTitle: 'Put your first digital employee to work',
     ctaBody: 'Choose a recurring task with a clear result. Give it a goal, review what comes back, and bring the proven workflow to more roles.',
-    disclaimer: 'Muse is a Meta product. This page compares product directions only; Tego OS is not affiliated with Meta. Features depend on deployment configuration.',
+    disclaimer: 'Muse is a Meta product. This page compares product directions only; TeGo is not affiliated with Meta. Features depend on deployment configuration.',
   },
 } as const;
 

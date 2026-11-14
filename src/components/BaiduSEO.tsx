@@ -14,8 +14,8 @@ export default function BaiduSEO() {
   const baiduStructuredData = {
     "@context": "https://ziyuan.baidu.com/college/courseinfo",
     "@type": "WebPage",
-    name: "TeGo AI 超级团队",
-    description: "深圳市扎马未来科技有限公司旗下 TeGo AI 超级团队，组建永不疲惫的 AI 超级团队。提供企业级多智能体协作平台与私有化解决方案。",
+    name: "TeGo 数字员工协作平台",
+    description: "深圳市扎马未来科技有限公司旗下 TeGo 数字员工协作平台，组建永不疲惫的 AI 超级团队。提供企业级多智能体协作平台与私有化解决方案。",
     url: `${baseUrl}/zh`,
     author: {
       "@type": "Organization",
