@@ -87,9 +87,9 @@ interface Plugin {
 }
 ```
 
-## TeGo-OS中的MCP实现
+## TeGo中的MCP实现
 
-TeGo-OS深度集成了MCP框架，提供了完整的企业级实现方案。
+TeGo深度集成了MCP框架，提供了完整的企业级实现方案。
 
 ### 特色功能
 
@@ -110,13 +110,13 @@ TeGo-OS深度集成了MCP框架，提供了完整的企业级实现方案。
 
 ### 实践案例：构建智能客服
 
-让我们看一个实际的例子，如何使用TeGo-OS和MCP框架构建一个智能客服系统：
+让我们看一个实际的例子，如何使用TeGo和MCP框架构建一个智能客服系统：
 
 ```typescript
-import { TegoOS, MCPPlugin } from '@tego-os/core';
+import { TeGo, MCPPlugin } from '@tego-os/core';
 
-// 初始化TeGo-OS
-const tegoOS = new TegoOS({
+// 初始化TeGo
+const tego = new TeGo({
   mcp: {
     contextWindowSize: 8000,
     maxTokens: 4096,
@@ -124,26 +124,26 @@ const tegoOS = new TegoOS({
 });
 
 // 添加知识库插件
-tegoOS.use(new KnowledgeBasePlugin({
+tego.use(new KnowledgeBasePlugin({
   source: 'company-knowledge-base',
   embedding: 'text-embedding-ada-002'
 }));
 
 // 添加客户数据插件
-tegoOS.use(new CustomerDataPlugin({
+tego.use(new CustomerDataPlugin({
   database: 'customer-db',
   cache: true
 }));
 
 // 处理客户咨询
 async function handleCustomerQuery(query: string, customerId: string) {
-  const context = await tegoOS.buildContext({
+  const context = await tego.buildContext({
     query,
     customerId,
     history: await getCustomerHistory(customerId)
   });
   
-  const response = await tegoOS.chat({
+  const response = await tego.chat({
     context,
     stream: true,
     plugins: ['knowledge-base', 'customer-data']
@@ -225,7 +225,7 @@ MCP框架正在快速发展，未来将会支持：
 
 ## 开始使用
 
-想要在项目中使用MCP框架？TeGo-OS提供了完整的文档和示例代码：
+想要在项目中使用MCP框架？TeGo提供了完整的文档和示例代码：
 
 1. [查看技术文档](/zh/technical)
 2. [下载开发工具包](/zh/download)
@@ -235,7 +235,7 @@ MCP框架正在快速发展，未来将会支持：
 
 MCP框架代表了AI应用开发的未来方向。通过标准化、模块化的设计理念，它为开发者提供了强大而灵活的工具，让构建高质量的AI应用变得前所未有的简单。
 
-TeGo-OS作为MCP框架的优秀实现，不仅提供了完整的功能支持，还在企业级应用场景中经过了充分验证。无论您是AI应用开发新手，还是经验丰富的架构师，TeGo-OS都能帮助您快速实现目标。
+TeGo作为MCP框架的优秀实现，不仅提供了完整的功能支持，还在企业级应用场景中经过了充分验证。无论您是AI应用开发新手，还是经验丰富的架构师，TeGo都能帮助您快速实现目标。
 
 ---
 

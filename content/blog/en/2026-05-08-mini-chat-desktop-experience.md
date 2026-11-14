@@ -1,15 +1,15 @@
 ---
-title: "Mini Chat + Downloads + Windows Installer: Tego OS v3.0.0's Desktop Triple Play"
-description: "Tego OS v3.0.0 ships three things on the desktop: an always-on-top Mini Chat floating window, a unified Downloads center, and a fully rewritten Windows NSIS installer. This post focuses on the experience details and explains how the combination genuinely puts the digital avatar into daily work."
+title: "Mini Chat + Downloads + Windows Installer: TeGo v3.0.0's Desktop Triple Play"
+description: "TeGo v3.0.0 ships three things on the desktop: an always-on-top Mini Chat floating window, a unified Downloads center, and a fully rewritten Windows NSIS installer. This post focuses on the experience details and explains how the combination genuinely puts the digital avatar into daily work."
 date: "2026-05-08"
 author: "Zhama AI Engineering"
 category: "Product Experience"
-tags: ["Tego OS", "v3.0.0", "Mini Chat", "Tauri", "Desktop", "Windows Installer", "Digital Avatar"]
+tags: ["TeGo", "v3.0.0", "Mini Chat", "Tauri", "Desktop", "Windows Installer", "Digital Avatar"]
 image: "/images/features/dashboard.jpg"
 featured: false
 ---
 
-# Mini Chat + Downloads + Windows Installer: Tego OS v3.0.0's Desktop Triple Play
+# Mini Chat + Downloads + Windows Installer: TeGo v3.0.0's Desktop Triple Play
 
 > Put the digital avatar into the daily workflow — not as a new app to launch, but as something you summon, use, and dismiss.
 
@@ -77,7 +77,7 @@ Mini Chat's webview is **lazily created** — not at app startup but on first in
 
 ### The pain
 
-In v2.x, when an enterprise distributed Tego across endpoints, they hit:
+In v2.x, when an enterprise distributed TeGo across endpoints, they hit:
 
 - Desktop / mobile / CLI installers scattered across multiple places;
 - Different employees on different versions ("I'm on 0.x, you're on 0.y");
@@ -120,7 +120,7 @@ Windows is where v3.0.0's desktop experience improved most. The v2.x installer r
 5. **Signature compatibility** — works with mainstream AV signature checks, fewer false positives;
 6. **Optional install path** — enterprises can specify a standardized directory.
 
-> Whether Tego "installs and upgrades reliably on Windows" is the hard gate for any enterprise rollout. v3.0.0 lowers that gate by more than one notch.
+> Whether TeGo "installs and upgrades reliably on Windows" is the hard gate for any enterprise rollout. v3.0.0 lowers that gate by more than one notch.
 
 ---
 

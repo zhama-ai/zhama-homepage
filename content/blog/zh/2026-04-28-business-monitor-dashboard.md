@@ -1,10 +1,10 @@
 ---
 title: "BusinessMonitor 业务运营大屏：让管理者一屏看清数字分身平台的健康度与业务表现"
-description: "Tego OS v3.0.0 全新上线 BusinessMonitor 服务与大屏。覆盖、增长、参与、任务、工作流、技能效能六大面板一次聚合，配合进程内 LRU 缓存与 ai-studio / dashboard 双端路由，让企业管理者第一次能在一个界面里把 AI 平台真正「看清楚」。"
+description: "TeGo v3.0.0 全新上线 BusinessMonitor 服务与大屏。覆盖、增长、参与、任务、工作流、技能效能六大面板一次聚合，配合进程内 LRU 缓存与 ai-studio / dashboard 双端路由，让企业管理者第一次能在一个界面里把 AI 平台真正「看清楚」。"
 date: "2026-04-28"
 author: "Zhama AI 技术团队"
 category: "技术深度"
-tags: ["Tego OS", "v3.0.0", "BusinessMonitor", "业务大屏", "数字分身", "AI 运营"]
+tags: ["TeGo", "v3.0.0", "BusinessMonitor", "业务大屏", "数字分身", "AI 运营"]
 image: "/images/features/dashboard.jpg"
 featured: false
 ---

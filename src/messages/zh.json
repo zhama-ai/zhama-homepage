@@ -74,7 +74,7 @@
     "hero": {
       "title": "AI，终于能像团队一样工作了",
       "tagline": "数字分身 × 智能协作 × 企业治理",
-      "description": "Tego OS v3.0.0 正式发布——让一个数字分身真正能被一群人放心地、互不打扰地一起用。独享实例、数据隔离、模板治理、运营观测一次重写，把「能跑的产品」升级为「可对企业、对组织、对生产业务真正交付的系统」。",
+      "description": "TeGo v3.0.0 正式发布——让一个数字分身真正能被一群人放心地、互不打扰地一起用。独享实例、数据隔离、模板治理、运营观测一次重写，把「能跑的产品」升级为「可对企业、对组织、对生产业务真正交付的系统」。",
       "bullets": {
         "dualAvatar": "数字分身双形态：个人分身独立容器运行，组织分身多副本高可用，每个分身都是完整的 AI 运行时",
         "orchestration": "编排即生产力：LAMP 协作框架 + DAG 并发调度，效率提升 2-5 倍",
@@ -84,7 +84,7 @@
       "cta": "申请企业版演示",
       "secondaryCta": "体验在线 Demo",
       "deployLink": "查看部署方案（私有化 / 混合云）",
-      "imgAlt": "TeGo-OS 企业数字分身与 AI 超级团队平台"
+      "imgAlt": "TeGo 数字员工协作平台"
     }
   },
   "productSuite": {
@@ -127,7 +127,7 @@
       "link": "联系我们"
     }
   },
-  "whyTego": {
+  "whyTeGo": {
     "title": "为什么选择 TeGo",
     "subtitle": "从 Agent 孤岛到 AI 超级团队，让智能体像真正的团队一样协作",
     "metrics": {
@@ -222,12 +222,12 @@
       }
     },
     "seo": {
-      "title": "联系我们 - TeGo AI 超级团队",
-      "description": "联系 TeGo AI 超级团队，组建永不疲惫的 AI 超级团队。获取企业级多智能体协作解决方案咨询服务，我们提供定制化智能体平台部署与技术支持。",
+      "title": "联系我们",
+      "description": "联系 TeGo 数字员工协作平台团队，组建永不疲惫的 AI 超级团队。获取企业级多智能体协作解决方案咨询服务，我们提供定制化智能体平台部署与技术支持。",
       "keywords": "TeGo, AI 超级团队, 联系我们, 智能体协作, 企业AI, 多智能体平台, 技术支持, 深圳扎马",
       "openGraph": {
-        "title": "联系我们 - TeGo AI 超级团队",
-        "description": "联系 TeGo AI 超级团队，获取专业的企业级多智能体协作解决方案咨询与技术支持服务。"
+        "title": "联系我们 - TeGo 数字员工协作平台",
+        "description": "联系 TeGo 数字员工协作平台团队，获取专业的企业级多智能体协作解决方案咨询与技术支持服务。"
       }
     }
   },
@@ -245,9 +245,9 @@
       "title": "桌面客户端"
     },
     "studio": {
-      "title": "Tego Studio · 插件与 SKILL 开发工作室",
-      "description": "通过对话开发、校验和打包 Tego 插件与 SKILL，支持 macOS、Windows 和 Linux。",
-      "loading": "正在读取 Tego Studio 下载信息…"
+      "title": "TeGo Studio · 插件与 SKILL 开发工作室",
+      "description": "通过对话开发、校验和打包 TeGo 插件与 SKILL，支持 macOS、Windows 和 Linux。",
+      "loading": "正在读取 TeGo Studio 下载信息…"
     },
     "mobile": {
       "title": "移动端与 Web"
@@ -446,12 +446,12 @@
     "sections": {
       "acceptance": {
         "title": "接受条款",
-        "content": "欢迎使用TeGo OS平台。通过访问和使用我们的服务，您表示同意受本服务条款的约束。如果您不同意这些条款，请不要使用我们的服务。",
+        "content": "欢迎使用TeGo平台。通过访问和使用我们的服务，您表示同意受本服务条款的约束。如果您不同意这些条款，请不要使用我们的服务。",
         "content2": "我们保留随时修改这些条款的权利。您继续使用服务将被视为接受修改后的条款。"
       },
       "service": {
         "title": "服务描述",
-        "content": "TeGo OS是一个企业级多智能体自主协作平台，提供以下服务：",
+        "content": "TeGo是一个企业级多智能体自主协作平台，提供以下服务：",
         "items": [
           "多智能体协同调度与管理",
           "LAMP智能协作框架",
@@ -553,7 +553,7 @@
       }
     ],
     "footer": {
-      "prefix": "TeGo AI 超级团队",
+      "prefix": "TeGo 数字员工协作平台",
       "suffix": "，组建永不疲惫的 AI 团队，自动完成复杂业务任务。"
     },
     "typingPhrases": [
@@ -609,12 +609,12 @@
   },
   "footer": {
     "companyName": "扎马未来",
-    "companyDescription": "TeGo-OS — 企业数字分身与 AI 超级团队平台",
+    "companyDescription": "TeGo 数字员工协作平台",
     "about": "扎马未来以 TeGo 为统一品牌，为企业提供私有化数字员工、深度定制与 FDE 驻场支持，同时通过 zhama.ai 向全球个人与团队提供开箱即用的数字员工 SaaS 服务。",
     "products": "产品与能力",
     "home": {
       "hero": {
-        "title": "TeGo-OS 企业 AI 平台"
+        "title": "TeGo 数字员工协作平台"
       }
     },
     "digitalAvatar": "数字分身体系",
@@ -711,7 +711,7 @@
     "enterprise": {
       "ribbon": "ON PREMISE",
       "badge": "企业旗舰",
-      "name": "TeGo-OS · 企业版",
+      "name": "TeGo · 企业版",
       "lead": "全链路数字分身协作与治理平台",
       "desc": "自主品牌 + 高安全 + 专属支持 + POC 验证，定制化报价",
       "featuresTitle": "包含「订阅版特性」，并提供",
@@ -748,7 +748,7 @@
     }
   },
   "downloadSection": {
-    "title": "立即体验 TeGo AI 超级团队",
+    "title": "立即体验 TeGo 数字员工协作平台",
     "subtitle": "多种方式快速对接，开启您的企业智能化之旅",
     "enterprise": {
       "title": "企业服务",
@@ -757,12 +757,12 @@
     },
     "ios": {
       "title": "iOS 应用",
-      "description": "在 App Store 下载 TeGo OS 移动版",
+      "description": "在 App Store 下载 TeGo 移动版",
       "button": "App Store"
     },
     "android": {
       "title": "Android 应用",
-      "description": "获取 Android 版本的 TeGo OS 应用",
+      "description": "获取 Android 版本的 TeGo 应用",
       "button": "立即下载"
     },
     "docs": {
@@ -877,17 +877,17 @@
       }
     },
     "seo": {
-      "title": "MCP 统一管理平台 - TeGo AI 超级团队",
+      "title": "MCP 统一管理平台",
       "description": "发明专利技术 · 基于模型上下文协议的动态服务器统一管理平台，一键生成 MCP 服务，零代码快速上线，平台级可扩展与可运维。",
       "keywords": "MCP平台, 模型上下文协议, 动态服务器管理, 工具生成, 发明专利, 零代码, TeGo, AI 超级团队",
       "openGraph": {
-        "title": "MCP 统一管理平台 - TeGo AI 超级团队",
+        "title": "MCP 统一管理平台 - TeGo 数字员工协作平台",
         "description": "企业级 MCP 动态服务器统一管理平台，支持无代码一键生成 MCP 服务。"
       }
     }
   },
   "pluginSystem": {
-    "title": "TeGo OS 企业级插件平台",
+    "title": "TeGo 企业级插件平台",
     "subtitle": "像安装手机 App 一样为系统添加新功能 · 开发周期缩短 90%",
     "badge": "安全可靠 · 极速开发 · 技术先进 · 超高 ROI",
     "features": {
@@ -954,11 +954,11 @@
       "highlight": "唯一支持 React Hooks 的企业级插件系统"
     },
     "seo": {
-      "title": "企业级插件平台 - TeGo OS",
-      "description": "TeGo OS 企业级插件平台 · 唯一支持 React Hooks 的插件系统。开发周期缩短 90%，投资回报率超 500%，安全可靠、极速开发、即插即用。",
-      "keywords": "企业级插件, TeGo OS, React Hooks, 插件系统, 快速开发, 高ROI, 零侵入",
+      "title": "企业级插件平台",
+      "description": "TeGo 企业级插件平台 · 唯一支持 React Hooks 的插件系统。开发周期缩短 90%，投资回报率超 500%，安全可靠、极速开发、即插即用。",
+      "keywords": "企业级插件, TeGo, React Hooks, 插件系统, 快速开发, 高ROI, 零侵入",
       "openGraph": {
-        "title": "企业级插件平台 - TeGo OS",
+        "title": "企业级插件平台 - TeGo 数字员工协作平台",
         "description": "唯一支持React Hooks的企业级插件系统，极速开发，安全可靠。"
       }
     }
@@ -1006,17 +1006,17 @@
       "content": "装饰器驱动开发模式让开发者专注业务逻辑，无需关心底层注册、验证等繁琐细节。声明式开发方式大幅提升开发效率与代码可维护性，降低技术门槛与交付成本。"
     },
     "seo": {
-      "title": "技术特点 - TeGo OS MCP 平台",
-      "description": "TeGo OS MCP 平台技术特点：自主研发MCP框架、装饰器驱动开发、标准化工具注册、简化开发流程，大幅提升开发效率。",
+      "title": "技术特点",
+      "description": "TeGo MCP 平台技术特点：自主研发MCP框架、装饰器驱动开发、标准化工具注册、简化开发流程，大幅提升开发效率。",
       "keywords": "MCP框架, 装饰器驱动, 工具注册, TypeScript, 智能体开发",
       "openGraph": {
-        "title": "技术特点 - TeGo OS MCP 平台",
+        "title": "技术特点 - TeGo 数字员工协作平台",
         "description": "装饰器驱动的开发模式，极大简化智能体工具开发流程。"
       }
     }
   },
   "tegoOS": {
-    "title": "TeGo AI 超级团队",
+    "title": "TeGo 数字员工协作平台",
     "subtitle": "组建一支永不疲惫的 AI 超级团队，自主完成复杂业务任务",
     "problem": {
       "title": "企业 AI 应用的四大困境",
@@ -1200,11 +1200,11 @@
       "learnMore": "了解更多"
     },
     "seo": {
-      "title": "多智能体协同 - TeGo AI 超级团队",
+      "title": "多智能体协同",
       "description": "发明专利技术：基于语言增强的多智能体协同决策系统（LAMP框架），融合 Think-Speak-Decide 三阶段推理管道，实现智能体间深度协作，任务成功率提升 15-25%，执行效率提升 2-5 倍。",
       "keywords": "多智能体协同, LAMP框架, Think-Speak-Decide, 智能体通信, DAG调度, 发明专利, TeGo, AI 超级团队",
       "openGraph": {
-        "title": "多智能体协同 - TeGo AI 超级团队",
+        "title": "多智能体协同 - TeGo 数字员工协作平台",
         "description": "LAMP 框架：语言增强的多智能体协同决策系统，让 AI 智能体像真正的团队一样深度协作。"
       }
     }
@@ -1285,7 +1285,7 @@
   },
   "blog": {
     "meta": {
-      "title": "技术博客 - TeGo AI 超级团队",
+      "title": "技术博客",
       "description": "TeGo 最新技术动态、产品更新、行业洞察和最佳实践分享"
     },
     "nav": {
@@ -1470,7 +1470,7 @@
   "productOverview": {
     "title": "从「单点 AI 工具」到「企业级 AI 生产力平台」",
     "description": "传统 AI 工具解决的是局部效率，而企业需要的是可长期演进的智能基础设施。",
-    "highlight": "TeGo-OS 以数字分身为核心对象，把智能编排、工具、知识、权限、审计统一在同一平台：让 AI 不只是回答问题，而是能够代表组织执行任务、协同决策、沉淀经验的「数字员工」。",
+    "highlight": "TeGo 以数字分身为核心对象，把智能编排、工具、知识、权限、审计统一在同一平台：让 AI 不只是回答问题，而是能够代表组织执行任务、协同决策、沉淀经验的「数字员工」。",
     "capabilities": [
       "可持续学习",
       "可团队协作",
@@ -1727,9 +1727,9 @@
     }
   },
   "competitiveComparison": {
-    "title": "为什么选择 TeGo-OS",
+    "title": "为什么选择 TeGo",
     "subtitle": "对比 Dify、Coze、ChatGPT Teams 等主流产品",
-    "description": "Tego OS v3.0.0 在独享实例、S3 三层隔离、模板治理、业务大屏、开箱技能等维度全面领先",
+    "description": "TeGo v3.0.0 在独享实例、S3 三层隔离、模板治理、业务大屏、开箱技能等维度全面领先",
     "categories": {
       "avatar": {
         "title": "数字分身体系",
@@ -1767,7 +1767,7 @@
       }
     },
     "competitors": {
-      "tego": "TeGo-OS",
+      "tego": "TeGo",
       "dify": "Dify",
       "coze": "Coze",
       "chatgptTeams": "ChatGPT Teams"
@@ -1781,7 +1781,7 @@
   },
   "bottomCTA": {
     "title": "让你的企业，拥有第一支 24×7 在线的 AI 数字员工团队",
-    "description": "用 TeGo-OS 把业务编排、系统能力和组织知识，转化为真正可执行的业务生产力。",
+    "description": "用 TeGo 把业务编排、系统能力和组织知识，转化为真正可执行的业务生产力。",
     "primaryCTA": "申请企业版演示",
     "secondaryCTA": "获取行业解决方案",
     "hint": "从一个试点场景开始，在 30 天内验证 AI 超级团队的业务价值。"
@@ -1791,7 +1791,7 @@
     "releaseDate": "2026-04-19",
     "newBadge": "v3.0.0 NEW",
     "hero": {
-      "version": "Tego OS v3.0.0 · 正式发布",
+      "version": "TeGo v3.0.0 · 正式发布",
       "title": "同一个数字分身，可被一群人放心、互不打扰地共同使用",
       "tagline": "独享实例 × 数据隔离 × 模板治理 × 运营观测",
       "description": "v3.0.0 对底层的实例编排、数据隔离、模板治理与运营观测进行了系统性重构，并完善了客户端的开箱体验。本次发布并非常规迭代，旨在将平台从可用产品演进为面向企业级生产业务的可交付系统。",
@@ -1873,7 +1873,7 @@
           "value": "在工作流中按需调用分身，避免打断主任务"
         },
         "skills": {
-          "name": "16 项 Tego 模板技能",
+          "name": "16 项 TeGo 模板技能",
           "upgrade": "覆盖 IT 运维（11 项）与跨境电商（5+ 项），均附可执行脚本",
           "value": "新建分身即可投入使用，无需自行搭建完整技能体系"
         },
@@ -2048,7 +2048,7 @@
       }
     },
     "skillLibrary": {
-      "title": "16 项开箱即用的 Tego 模板技能",
+      "title": "16 项开箱即用的 TeGo 模板技能",
       "subtitle": "数字分身在企业内快速形成生产力，最大的门槛并非模型本身，而是缺少可直接使用的技能库。",
       "executable": "可执行脚本",
       "tabs": {
@@ -2225,8 +2225,8 @@
         "web": "Web 浏览器",
         "desktop": "Tauri 桌面端 / Mini Chat",
         "mini": "嵌入式 Mini Chat SDK",
-        "server": "Tego Server",
-        "gateway": "Tego 分身网关",
+        "server": "TeGo Server",
+        "gateway": "TeGo 分身网关",
         "shared": "shared 共享实例池",
         "perUser": "per-user 独占实例",
         "channels": "通道适配（飞书 / Slack / Web API）",
@@ -2439,7 +2439,7 @@
     },
     "valuePillars": {
       "title": "把 AI 真正部署进企业，需要这四项基本能力",
-      "subtitle": "Tego OS 不止提供一个 AI 助手，而是让 AI 成为您企业的数字员工。",
+      "subtitle": "TeGo 不止提供一个 AI 助手，而是让 AI 成为您企业的数字员工。",
       "pillars": {
         "dedicated": {
           "title": "每位员工的专属 AI 同事",
@@ -2501,7 +2501,7 @@
     },
     "outcomes": {
       "title": "客户业务侧的成果",
-      "subtitle": "上线 Tego OS 数字员工后，企业普遍可以达到的业务表现。",
+      "subtitle": "上线 TeGo 数字员工后，企业普遍可以达到的业务表现。",
       "metrics": {
         "resolution": {
           "value": "60%+",
@@ -2528,7 +2528,7 @@
     },
     "readiness": {
       "title": "面向生产环境设计的企业级就绪",
-      "subtitle": "Tego OS 自上线第一天起，就按企业生产业务的标准构建。",
+      "subtitle": "TeGo 自上线第一天起，就按企业生产业务的标准构建。",
       "items": {
         "private": {
           "title": "纯私有化部署",
@@ -2575,7 +2575,7 @@
           "tagline": "数据本地、控制面云端",
           "features": [
             "敏感数据保留在客户内网",
-            "控制面与升级由 Tego 托管",
+            "控制面与升级由 TeGo 托管",
             "兼顾合规要求与运维成本"
           ],
           "cta": "了解混合云方案"
@@ -2595,7 +2595,7 @@
     },
     "logos": {
       "title": "已经服务于这些行业",
-      "subtitle": "互联网、跨境电商、IT 服务商、政企与金融客户，正在使用 Tego OS 构建自己的 AI 数字员工。",
+      "subtitle": "互联网、跨境电商、IT 服务商、政企与金融客户，正在使用 TeGo 构建自己的 AI 数字员工。",
       "industries": [
         { "key": "internet", "label": "互联网与 SaaS" },
         { "key": "ecommerce", "label": "跨境电商" },
@@ -2607,7 +2607,7 @@
       "footnote": "为保护客户隐私，部分企业未在公开页面展示。如需了解同行业落地案例，欢迎在演示中获取参考。"
     },
     "resources": {
-      "title": "深入了解 Tego OS",
+      "title": "深入了解 TeGo",
       "subtitle": "面向不同角色的资料与文档入口。",
       "items": {
         "manual": {
@@ -2717,7 +2717,7 @@
       "title": "常见问题",
       "subtitle": "关于云端版、数据与企业升级。",
       "items": [
-        {"question": "云端版和企业版是两个不同产品吗？", "answer": "不是。它们同属 TeGo 数字员工平台。云端版面向自助使用与快速验证，企业版提供私有化部署、深度定制、治理能力与 FDE 支持。"},
+        {"question": "云端版和企业版是两个不同产品吗？", "answer": "不是。它们同属 TeGo 数字员工协作平台。云端版面向自助使用与快速验证，企业版提供私有化部署、深度定制、治理能力与 FDE 支持。"},
         {"question": "云端版如何保护我的数据？", "answer": "每位用户拥有独立的工作空间与数据边界。对数据驻留、专属网络或更严格审计有要求的组织，建议选择企业版。"},
         {"question": "使用云端版后可以升级到企业版吗？", "answer": "可以。团队规模、流程复杂度或合规要求增长后，我们会协助评估迁移与企业交付方案。"}
       ]
@@ -2732,7 +2732,7 @@
   "station": {
     "seo": {
       "title": "TeGo Station 企业级 AI 数字员工一体机 | 扎马科技",
-      "description": "TeGo Station 把 TeGo OS 预装进一台低功耗小型主机，软硬一体、开箱即用。本地运行、数据不出门，通电联网即可创建企业数字员工。",
+      "description": "TeGo Station 把 TeGo 预装进一台低功耗小型主机，软硬一体、开箱即用。本地运行、数据不出门，通电联网即可创建企业数字员工。",
       "keywords": "TeGo Station,AI一体机,数字员工,私有部署,企业AI,数据不出门,开箱即用",
       "openGraph": {
         "title": "TeGo Station · 一台盒子，开启企业 AI 时代",
@@ -2741,7 +2741,7 @@
     },
     "badge": "企业级 AI 数字员工一体机",
     "title": "把 AI 数字员工装进盒子",
-    "subtitle": "TeGo Station 将完整的 TeGo OS 企业数字分身平台预装进一台低功耗小型主机。通电、联网、登录，即可在本地创建属于自己企业的第一位数字员工。",
+    "subtitle": "TeGo Station 将完整的 TeGo 企业数字分身平台预装进一台低功耗小型主机。通电、联网、登录，即可在本地创建属于自己企业的第一位数字员工。",
     "tagline": "从「买 AI 工具」到「招 AI 员工」——一台盒子，交付一支可控的数字团队。",
     "heroImageAlt": "TeGo Station 企业级 AI 数字员工一体机",
     "cta": {
@@ -2756,9 +2756,9 @@
     "teaser": {
       "eyebrow": "TeGo Station 一体机",
       "title": "一台盒子，交付一支可控的数字员工团队",
-      "description": "软硬一体、开箱即用的企业级 AI 数字员工设备。本地运行 TeGo OS，敏感数据留在企业内部，1–3 天即可上线首个数字员工。",
+      "description": "软硬一体、开箱即用的企业级 AI 数字员工设备。本地运行 TeGo，敏感数据留在企业内部，1–3 天即可上线首个数字员工。",
       "highlights": [
-        "预装 TeGo OS，通电联网即可使用",
+        "预装 TeGo，通电联网即可使用",
         "本地私有算力，支持内网 / 离线部署",
         "标配用户席位，按需增购扩展"
       ],
@@ -2831,7 +2831,7 @@
         },
         "system": {
           "title": "系统层",
-          "description": "TeGo OS：权限、审批、审计、治理、运维。",
+          "description": "TeGo：权限、审批、审计、治理、运维。",
           "value": "AI 可管可控、有身份、可追溯"
         },
         "hardware": {
@@ -2955,7 +2955,7 @@
         },
         "login": {
           "title": "登录平台",
-          "description": "进入预装 TeGo OS，开始本地使用。"
+          "description": "进入预装 TeGo，开始本地使用。"
         },
         "pilot": {
           "title": "试点搭建",
@@ -2977,7 +2977,7 @@
       "includesTitle": "价格已包含",
       "includes": [
         "TeGo Station 一体机硬件（本地算力设备）",
-        "预装 TeGo OS 企业数字分身平台",
+        "预装 TeGo 企业数字分身平台",
         "3 个用户席位",
         "开箱即用交付：通电、联网、登录即可使用"
       ],

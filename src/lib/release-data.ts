@@ -142,7 +142,7 @@ export function localBuilds(data: LocalReleaseData, requestedVersion?: string, r
       return { arch: cell.arch, url: record?.url ?? null, checksumUrl: record?.checksumUrl ?? null, error: null };
     }),
   })) };
-  // Studio has an independent version stream; never use the TeGo OS version.
+  // Studio has an independent version stream; never use the TeGo version.
   const studioVersion = requestedStudioVersion ? normalizeBuildVersion(requestedStudioVersion) : undefined;
   const studio = data.clients.get(studioVersion ? `${studioVersion}/clients/tego/studio.json` : 'latest/tego/studio.json') as DownloadInfo ?? null;
   return { ...buildReleaseMatrix(brands, version), checkedAt: data.index.updatedAt, server,

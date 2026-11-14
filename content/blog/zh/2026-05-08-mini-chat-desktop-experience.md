@@ -1,15 +1,15 @@
 ---
-title: "Mini Chat 浮窗 + 下载中心 + Windows 安装器：Tego OS v3.0.0 桌面端体验三连击"
-description: "Tego OS v3.0.0 在桌面端做了三件事：常驻置顶的 Mini Chat 浮窗、统一的下载中心、Windows NSIS 安装器全面重写。本文聚焦体验细节，解释这套组合是怎么把数字分身真正「装进每天的工作流」的。"
+title: "Mini Chat 浮窗 + 下载中心 + Windows 安装器：TeGo v3.0.0 桌面端体验三连击"
+description: "TeGo v3.0.0 在桌面端做了三件事：常驻置顶的 Mini Chat 浮窗、统一的下载中心、Windows NSIS 安装器全面重写。本文聚焦体验细节，解释这套组合是怎么把数字分身真正「装进每天的工作流」的。"
 date: "2026-05-08"
 author: "Zhama AI 技术团队"
 category: "产品体验"
-tags: ["Tego OS", "v3.0.0", "Mini Chat", "Tauri", "桌面端", "Windows 安装器", "数字分身"]
+tags: ["TeGo", "v3.0.0", "Mini Chat", "Tauri", "桌面端", "Windows 安装器", "数字分身"]
 image: "/images/features/dashboard.jpg"
 featured: false
 ---
 
-# Mini Chat 浮窗 + 下载中心 + Windows 安装器：Tego OS v3.0.0 桌面端体验三连击
+# Mini Chat 浮窗 + 下载中心 + Windows 安装器：TeGo v3.0.0 桌面端体验三连击
 
 > 让数字分身真正装进每天的工作流——不是开一个新 App，而是「随手呼出、用完就走」。
 
@@ -77,7 +77,7 @@ Mini Chat 的 webview 是**懒创建**的——不在应用启动时就拉起来
 
 ### 痛点
 
-在 v2.x 时代，企业首次拿到 Tego 环境后要分发到不同终端时，会发现：
+在 v2.x 时代，企业首次拿到 TeGo 环境后要分发到不同终端时，会发现：
 
 - 桌面端、移动端、命令行的安装包散落在多个地方；
 - 不同员工拿到的是不同版本，常见「我装的是 0.x，TA 装的是 0.y」；
@@ -120,7 +120,7 @@ Windows 是 v3.0.0 桌面端体验提升最大的一环。v2.x 的 Windows 安�
 5. **签名兼容性**：兼容主流杀软的签名校验，降低误报率；
 6. **可选自定义路径**：企业可以指定标准化的安装目录（C 盘 / D 盘）。
 
-> 「能不能在 Windows 上稳定装上 + 升级」是企业大批量铺开 Tego 桌面端的硬门槛。v3.0.0 把这条门槛往下压了不止一档。
+> 「能不能在 Windows 上稳定装上 + 升级」是企业大批量铺开 TeGo 桌面端的硬门槛。v3.0.0 把这条门槛往下压了不止一档。
 
 ---
 

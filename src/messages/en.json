@@ -74,7 +74,7 @@
     "hero": {
       "title": "AI That Works Across Your Business, Not Just in Chat",
       "tagline": "AI coworkers × orchestration × enterprise governance",
-      "description": "Tego OS v3.0.0 turns a single AI runtime into a governed, isolated, multi-user system for enterprise production. With per-user runtimes, data isolation, template governance, and operations visibility, AI can finally move from pilot demos into real business workflows.",
+      "description": "TeGo v3.0.0 turns a single AI runtime into a governed, isolated, multi-user system for enterprise production. With per-user runtimes, data isolation, template governance, and operations visibility, AI can finally move from pilot demos into real business workflows.",
       "bullets": {
         "dualAvatar": "Dedicated AI runtimes: personal and organizational AI workers run with isolated state, data, and operating boundaries",
         "orchestration": "Orchestration for production workflows: LAMP + DAG scheduling improves execution speed by 2-5x",
@@ -84,14 +84,14 @@
       "cta": "Book an Enterprise Demo",
       "secondaryCta": "Try the Online Demo",
       "deployLink": "Explore deployment options",
-      "imgAlt": "Tego OS enterprise AI workforce platform"
+      "imgAlt": "TeGo AI Workforce Collaboration Platform"
     }
   },
   "productSuite": {
-    "title": "Tego Product Suite",
+    "title": "TeGo Product Suite",
     "subtitle": "AI collaboration across desktop, browser, and Office workflows",
     "desktop": {
-      "title": "Tego Desktop",
+      "title": "TeGo Desktop",
       "description": "A native desktop client for everyday AI work, with fast startup, offline-ready workflows, local file access, and shell command support.",
       "features": [
         "Fast startup",
@@ -102,8 +102,8 @@
       "cta": "Download desktop client"
     },
     "web": {
-      "title": "Tego Web",
-      "description": "Use Tego OS directly in the browser and access your AI workforce across devices.",
+      "title": "TeGo Web",
+      "description": "Use TeGo directly in the browser and access your AI workforce across devices.",
       "features": [
         "No install",
         "Cross-device access",
@@ -113,7 +113,7 @@
       "cta": "Open web app"
     },
     "office": {
-      "title": "Tego Office",
+      "title": "TeGo Office",
       "description": "Use AI directly in Excel, Word, and WPS to analyze data, draft reports, and review documents in place.",
       "features": [
         "Excel integration",
@@ -150,8 +150,8 @@
       "link": "Contact us"
     }
   },
-  "whyTego": {
-    "title": "Why Tego",
+  "whyTeGo": {
+    "title": "Why TeGo",
     "subtitle": "Move from isolated AI tools to a coordinated AI workforce that can execute real business workflows.",
     "metrics": {
       "efficiency": "Efficiency gain",
@@ -181,7 +181,7 @@
     }
   },
   "useCases": {
-    "title": "Tego Use Cases",
+    "title": "TeGo Use Cases",
     "subtitle": "AI-powered workflows for industries where coordination, governance, and speed matter.",
     "industries": {
       "enterprise": {
@@ -245,21 +245,21 @@
       }
     },
     "seo": {
-      "title": "Contact Tego OS | Enterprise AI Workforce Platform",
-      "description": "Contact the Tego OS team to discuss enterprise AI workforce deployment, private or hybrid architecture, governance, and pilot workflows.",
-      "keywords": "Tego OS contact, enterprise AI workforce, AI coworker platform, private AI deployment, enterprise AI consultation",
+      "title": "Contact Us",
+      "description": "Contact the TeGo team to discuss enterprise AI workforce deployment, private or hybrid architecture, governance, and pilot workflows.",
+      "keywords": "TeGo contact, enterprise AI workforce, AI coworker platform, private AI deployment, enterprise AI consultation",
       "openGraph": {
-        "title": "Contact Tego OS",
-        "description": "Discuss enterprise AI workforce deployment, governance, and pilot workflows with the Tego OS team."
+        "title": "Contact Us | TeGo AI Workforce Collaboration Platform",
+        "description": "Discuss enterprise AI workforce deployment, governance, and pilot workflows with the TeGo team."
       }
     }
   },
   "appDownload": {
     "unavailable": "Download unavailable",
     "loadFailed": "Download information is temporarily unavailable. Please refresh and try again.",
-    "title": "Download Tego AI Studio",
+    "title": "Download TeGo AI Studio",
     "download": {
-      "heading": "Download Tego AI Studio"
+      "heading": "Download TeGo AI Studio"
     },
     "version": "Version {version}",
     "recommended": "Recommended for your system",
@@ -268,9 +268,9 @@
       "title": "Desktop client"
     },
     "studio": {
-      "title": "Tego Studio · Plugin & SKILL Development",
-      "description": "Develop, validate and package Tego plugins and SKILLs through conversation. Available for macOS, Windows and Linux.",
-      "loading": "Loading Tego Studio downloads…"
+      "title": "TeGo Studio · Plugin & SKILL Development",
+      "description": "Develop, validate and package TeGo plugins and SKILLs through conversation. Available for macOS, Windows and Linux.",
+      "loading": "Loading TeGo Studio downloads…"
     },
     "mobile": {
       "title": "Mobile and web"
@@ -286,7 +286,7 @@
     },
     "web": {
       "title": "Web app",
-      "description": "Use Tego OS in your browser without installing a client."
+      "description": "Use TeGo in your browser without installing a client."
     },
     "enterprise": {
       "title": "Need an enterprise deployment?",
@@ -469,12 +469,12 @@
     "sections": {
       "acceptance": {
         "title": "Acceptance of Terms",
-        "content": "Welcome to the Tego OS platform. By accessing or using our services, you agree to these Terms of Service. If you do not agree, please do not use the services.",
+        "content": "Welcome to the TeGo platform. By accessing or using our services, you agree to these Terms of Service. If you do not agree, please do not use the services.",
         "content2": "We may update these terms from time to time. Your continued use of the services means you accept the updated terms."
       },
       "service": {
         "title": "Service Description",
-        "content": "Tego OS is an enterprise AI workforce platform that provides:",
+        "content": "TeGo is an enterprise AI workforce platform that provides:",
         "items": [
           "Multi-agent orchestration and management",
           "LAMP-based agent collaboration",
@@ -548,9 +548,9 @@
   "aboutSection": {
     "title": "From Isolated Agents to a Coordinated AI Workforce",
     "subtitle": "Help AI agents collaborate, share context, and complete complex business tasks together",
-    "description": "Tego OS is not a loose collection of AI tools. It gives enterprises a governed orchestration layer where multiple agents can reason, collaborate, execute in parallel, and improve over time.",
+    "description": "TeGo is not a loose collection of AI tools. It gives enterprises a governed orchestration layer where multiple agents can reason, collaborate, execute in parallel, and improve over time.",
     "vision": {
-      "title": "How Tego OS differs from traditional AI platforms",
+      "title": "How TeGo differs from traditional AI platforms",
       "paragraphs": [
         "From silos to coordination: agents work together instead of operating as disconnected tools",
         "From sequential to parallel: DAG scheduling runs independent tasks at the same time for 2-5x faster execution",
@@ -576,7 +576,7 @@
       }
     ],
     "footer": {
-      "prefix": "Tego AI Workforce",
+      "prefix": "TeGo AI Workforce Collaboration Platform",
       "suffix": " helps teams complete complex business tasks with always-on AI coworkers."
     },
     "typingPhrases": [
@@ -587,7 +587,7 @@
   },
   "featuresSection": {
     "title": "Four Core Capabilities",
-    "subtitle": "From task understanding to autonomous execution, Tego helps teams build a real AI workforce.",
+    "subtitle": "From task understanding to autonomous execution, TeGo helps teams build a real AI workforce.",
     "tabs": {
       "collection": "Task decomposition",
       "analysis": "Parallel scheduling",
@@ -635,7 +635,7 @@
       ]
     },
     "moreFeatures": {
-      "title": "Tego Technical Advantages",
+      "title": "TeGo Technical Advantages",
       "taskManagement": {
         "title": "Visual workflow tracking",
         "description": "DAG, timeline, reasoning, and communication views make each workflow observable, traceable, and auditable."
@@ -652,12 +652,12 @@
   },
   "footer": {
     "companyName": "Zhama Future",
-    "companyDescription": "Tego OS — Enterprise AI Workforce Platform",
+    "companyDescription": "TeGo AI Workforce Collaboration Platform",
     "about": "Zhama Future builds TeGo as one digital workforce platform: private deployment, customization, and FDE support for enterprises, plus a ready-to-use global SaaS at zhama.ai for individuals and teams.",
     "products": "Product",
     "home": {
       "hero": {
-        "title": "Tego-OS Enterprise AI Platform"
+        "title": "TeGo AI Workforce Collaboration Platform"
       }
     },
     "digitalAvatar": "AI coworker runtime",
@@ -718,7 +718,7 @@
       "badge": "Free forever",
       "name": "Community Edition",
       "lead": "Explore the core AI coworker experience",
-      "desc": "Best for individual developers and small teams evaluating Tego OS.",
+      "desc": "Best for individual developers and small teams evaluating TeGo.",
       "featuresTitle": "Included features",
       "features": [
         "Personal AI coworker",
@@ -754,7 +754,7 @@
     "enterprise": {
       "ribbon": "ON PREMISE",
       "badge": "Enterprise",
-      "name": "Tego OS Enterprise",
+      "name": "TeGo Enterprise",
       "lead": "Full AI Workforce governance platform",
       "desc": "Custom branding, advanced security, dedicated support, and POC validation. Custom pricing.",
       "featuresTitle": "Everything in Business, plus:",
@@ -791,7 +791,7 @@
     }
   },
   "downloadSection": {
-    "title": "Get Started with Tego",
+    "title": "Get Started with TeGo",
     "subtitle": "Choose the path that fits your team: enterprise consultation, desktop client, web app, or developer documentation.",
     "enterprise": {
       "title": "Enterprise services",
@@ -800,12 +800,12 @@
     },
     "ios": {
       "title": "iOS App",
-      "description": "Download the Tego mobile app from the App Store",
+      "description": "Download the TeGo mobile app from the App Store",
       "button": "App Store"
     },
     "android": {
       "title": "Android App",
-      "description": "Get the Tego app for Android devices",
+      "description": "Get the TeGo app for Android devices",
       "button": "Download Now"
     },
     "docs": {
@@ -815,7 +815,7 @@
     },
     "web": {
       "title": "Web app",
-      "description": "Use Tego directly in your browser without installing a client.",
+      "description": "Use TeGo directly in your browser without installing a client.",
       "button": "Open web app"
     },
     "downloadApp": {
@@ -827,7 +827,7 @@
     },
     "webAccess": {
       "title": "Web app",
-      "description": "Use Tego directly in your browser without installing a client.",
+      "description": "Use TeGo directly in your browser without installing a client.",
       "button": "Open web app"
     },
     "documentation": {
@@ -850,12 +850,12 @@
   },
   "downloadPage": {
     "seo": {
-      "title": "Download Tego AI Studio | Desktop Client for Enterprise AI Workflows",
-      "description": "Download Tego AI Studio for macOS, Windows, and Linux. Give employees a dedicated AI coworker for enterprise workflows.",
-      "keywords": "Tego AI Studio download, enterprise AI desktop client, AI coworker client, macOS, Windows, Linux",
+      "title": "Download TeGo AI Studio | Desktop Client for Enterprise AI Workflows",
+      "description": "Download TeGo AI Studio for macOS, Windows, and Linux. Give employees a dedicated AI coworker for enterprise workflows.",
+      "keywords": "TeGo AI Studio download, enterprise AI desktop client, AI coworker client, macOS, Windows, Linux",
       "openGraph": {
-        "title": "Download Tego AI Studio",
-        "description": "Desktop client for Tego OS enterprise AI workflows, available for macOS, Windows, and Linux."
+        "title": "Download TeGo AI Studio",
+        "description": "Desktop client for TeGo enterprise AI workflows, available for macOS, Windows, and Linux."
       }
     }
   },
@@ -920,7 +920,7 @@
       }
     },
     "seo": {
-      "title": "Unified MCP Management | Tego OS",
+      "title": "Unified MCP Management",
       "description": "Operate MCP servers, dynamic tools, routing, health checks, and no-code capability rollout from one enterprise management layer.",
       "keywords": "MCP management, Model Context Protocol, enterprise tooling, dynamic MCP servers, AI tool governance",
       "openGraph": {
@@ -930,7 +930,7 @@
     }
   },
   "pluginSystem": {
-    "title": "Enterprise Plugin Platform for Tego OS",
+    "title": "Enterprise Plugin Platform for TeGo",
     "subtitle": "Add governed extensions to your AI system without long custom development cycles",
     "badge": "Secure · Fast to build · Governed · High ROI",
     "features": {
@@ -997,11 +997,11 @@
       "highlight": "The only enterprise-grade plugin system supporting React Hooks"
     },
     "seo": {
-      "title": "Enterprise Plugin Platform | Tego OS",
-      "description": "Extend Tego OS with governed enterprise plugins, fast development workflows, React Hooks support, and secure runtime isolation.",
-      "keywords": "enterprise plugin platform, Tego OS plugins, React Hooks, secure plugin system, AI platform extensions",
+      "title": "Enterprise Plugin Platform",
+      "description": "Extend TeGo with governed enterprise plugins, fast development workflows, React Hooks support, and secure runtime isolation.",
+      "keywords": "enterprise plugin platform, TeGo plugins, React Hooks, secure plugin system, AI platform extensions",
       "openGraph": {
-        "title": "Enterprise Plugin Platform for Tego OS",
+        "title": "Enterprise Plugin Platform for TeGo",
         "description": "Build secure, governed extensions for enterprise AI workflows."
       }
     }
@@ -1009,7 +1009,7 @@
   "technicalFeatures": {
     "title": "Technical Platform",
     "badge": "Core architecture",
-    "heroDescription": "Explore the technical foundation behind Tego OS: LAMP orchestration, DAG scheduling, experience memory, A2UI interfaces, and Agent Skills.",
+    "heroDescription": "Explore the technical foundation behind TeGo: LAMP orchestration, DAG scheduling, experience memory, A2UI interfaces, and Agent Skills.",
     "mcpTitle": "MCP Development Framework",
     "mcpSubtitle": "Decorator-driven development model that greatly simplifies agent tool development",
     "features": {
@@ -1046,24 +1046,24 @@
     },
     "summary": {
       "title": "Core Advantages Summary",
-      "content": "The decorator-driven model lets developers focus on business logic while Tego OS handles registration, validation, and operational integration. This improves delivery speed, maintainability, and enterprise readiness."
+      "content": "The decorator-driven model lets developers focus on business logic while TeGo handles registration, validation, and operational integration. This improves delivery speed, maintainability, and enterprise readiness."
     },
     "seo": {
-      "title": "Technical Platform | Tego OS",
-      "description": "Learn how Tego OS uses MCP, decorators, DAG scheduling, LAMP orchestration, and Agent Skills to power enterprise AI workflows.",
-      "keywords": "Tego OS technical platform, MCP framework, DAG scheduler, LAMP orchestration, Agent Skills, enterprise AI architecture",
+      "title": "Technical Platform",
+      "description": "Learn how TeGo uses MCP, decorators, DAG scheduling, LAMP orchestration, and Agent Skills to power enterprise AI workflows.",
+      "keywords": "TeGo technical platform, MCP framework, DAG scheduler, LAMP orchestration, Agent Skills, enterprise AI architecture",
       "openGraph": {
-        "title": "Technical Platform | Tego OS",
+        "title": "Technical Platform | TeGo AI Workforce Collaboration Platform",
         "description": "Architecture and developer experience for enterprise AI workflows."
       }
     }
   },
   "tegoOS": {
-    "title": "Tego AI Workforce",
+    "title": "TeGo AI Workforce Collaboration Platform",
     "subtitle": "Always-on AI coworkers for complex business workflows",
     "problem": {
       "title": "Four Barriers to Production Enterprise AI",
-      "description": "Enterprise AI often stalls because agents are isolated, capabilities are fragmented, governance is weak, and workflows still require manual assembly. Tego OS provides the orchestration, permissions, auditability, and execution layer needed for production-grade AI collaboration.",
+      "description": "Enterprise AI often stalls because agents are isolated, capabilities are fragmented, governance is weak, and workflows still require manual assembly. TeGo provides the orchestration, permissions, auditability, and execution layer needed for production-grade AI collaboration.",
       "systems": {
         "crm": "CRM",
         "erp": "ERP",
@@ -1076,8 +1076,8 @@
       }
     },
     "mission": {
-      "title": "How Tego OS Breaks Through",
-      "description": "Tego OS coordinates multiple AI agents so they can reason, collaborate, execute in parallel, and improve over time. LAMP orchestration and DAG scheduling turn disconnected tools into a governed AI workforce."
+      "title": "How TeGo Breaks Through",
+      "description": "TeGo coordinates multiple AI agents so they can reason, collaborate, execute in parallel, and improve over time. LAMP orchestration and DAG scheduling turn disconnected tools into a governed AI workforce."
     },
     "technologies": {
       "title": "Four Core Capabilities",
@@ -1243,11 +1243,11 @@
       "learnMore": "Learn more"
     },
     "seo": {
-      "title": "Multi-Agent Orchestration | Tego OS",
+      "title": "Multi-Agent Orchestration",
       "description": "Language-enhanced multi-agent orchestration with Think-Speak-Decide reasoning, DAG scheduling, and experience reuse for enterprise AI workflows.",
       "keywords": "multi-agent orchestration, LAMP framework, DAG scheduling, AI agent collaboration, enterprise AI workflows",
       "openGraph": {
-        "title": "Multi-Agent Orchestration | Tego OS",
+        "title": "Multi-Agent Orchestration | TeGo AI Workforce Collaboration Platform",
         "description": "Coordinate AI agents like a governed enterprise workflow."
       }
     }
@@ -1328,8 +1328,8 @@
   },
   "blog": {
     "meta": {
-      "title": "Engineering Blog | Tego OS",
-      "description": "Product updates, technical deep dives, industry insights, and implementation notes from the Tego OS team."
+      "title": "Engineering Blog",
+      "description": "Product updates, technical deep dives, industry insights, and implementation notes from the TeGo team."
     },
     "nav": {
       "title": "Engineering Blog",
@@ -1454,7 +1454,7 @@
     "a2ui": {
       "badge": "Dynamic Interface Technology",
       "title": "A2UI Dynamic Interface Engine",
-      "description": "The A2UI engine lets AI generate interactive interface components such as charts, forms, and buttons instead of returning text only. Tego implemented a complete React renderer ahead of Google’s official release.",
+      "description": "The A2UI engine lets AI generate interactive interface components such as charts, forms, and buttons instead of returning text only. TeGo implemented a complete React renderer ahead of Google’s official release.",
       "features": [
         "Full implementation of A2UI protocol specification",
         "15+ standard components (Text, Card, Chart, Form, etc.)",
@@ -1478,7 +1478,7 @@
       "description": "Extend AI capabilities like installing apps. Standardized skill definition specification, compatible with Claude Agent Skills open standard, cross-platform usable. Supports Cowork collaboration mode for dynamic multi-skill combination without predefined workflows.",
       "features": [
         "Standardized SKILL.md format definition",
-        "Cross-platform compatible (Tego, Claude, Cursor)",
+        "Cross-platform compatible (TeGo, Claude, Cursor)",
         "Cowork collaboration mode, intelligent multi-skill orchestration",
         "Secure sandbox isolated execution",
         "Progressive loading, optimized Token consumption"
@@ -1513,7 +1513,7 @@
   "productOverview": {
     "title": "From Single-Purpose AI Tools to an Enterprise AI Workforce Platform",
     "description": "Traditional AI tools improve isolated tasks. Enterprises need governed AI infrastructure that can execute workflows, learn over time, and scale across teams.",
-    "highlight": "Tego OS puts AI coworkers at the center and unifies orchestration, tools, knowledge, permissions, and auditability on one platform. AI can answer questions, execute tasks, support decisions, and accumulate reusable experience on behalf of the organization.",
+    "highlight": "TeGo puts AI coworkers at the center and unifies orchestration, tools, knowledge, permissions, and auditability on one platform. AI can answer questions, execute tasks, support decisions, and accumulate reusable experience on behalf of the organization.",
     "capabilities": [
       "Continuous Learning",
       "Team Collaboration",
@@ -1638,15 +1638,15 @@
     "products": {
       "title": "Multi-Platform Product Coverage",
       "desktop": {
-        "title": "Tego Desktop",
+        "title": "TeGo Desktop",
         "description": "Native desktop client, instant startup, works offline"
       },
       "web": {
-        "title": "Tego Web",
+        "title": "TeGo Web",
         "description": "No installation, browser-ready, access anytime"
       },
       "office": {
-        "title": "Tego Office",
+        "title": "TeGo Office",
         "description": "AI works directly inside Excel and Word"
       }
     }
@@ -1783,9 +1783,9 @@
     }
   },
   "competitiveComparison": {
-    "title": "Why Choose Tego-OS",
+    "title": "Why Choose TeGo",
     "subtitle": "Compared to Dify, Coze, ChatGPT Teams and more",
-    "description": "Tego OS v3.0.0 brings together runtime isolation, three-layer S3 isolation, template governance, business dashboards, and ready-to-run skills",
+    "description": "TeGo v3.0.0 brings together runtime isolation, three-layer S3 isolation, template governance, business dashboards, and ready-to-run skills",
     "categories": {
       "avatar": {
         "title": "AI Coworker System",
@@ -1823,7 +1823,7 @@
       }
     },
     "competitors": {
-      "tego": "Tego-OS",
+      "tego": "TeGo",
       "dify": "Dify",
       "coze": "Coze",
       "chatgptTeams": "ChatGPT Teams"
@@ -1847,10 +1847,10 @@
     "releaseDate": "2026-04-19",
     "newBadge": "v3.0.0 NEW",
     "hero": {
-      "version": "Tego OS v3.0.0 · Now available",
+      "version": "TeGo v3.0.0 · Now available",
       "title": "One AI Coworker, Safely Shared Across an Entire Team",
       "tagline": "Per-user runtimes × data isolation × template governance × operations visibility",
-      "description": "v3.0.0 rebuilds instance orchestration, data isolation, template governance, and operations visibility so Tego OS can move from a usable product to a production-ready enterprise system.",
+      "description": "v3.0.0 rebuilds instance orchestration, data isolation, template governance, and operations visibility so TeGo can move from a usable product to a production-ready enterprise system.",
       "bullets": {
         "perUser": "Per-user runtimes: one AI coworker can spin up isolated containers for each user, keeping sessions, memory, and files separate",
         "isolation": "S3 data isolation: template and runtime data are separated by prefix, with per-user backup, restore, and deletion",
@@ -1929,7 +1929,7 @@
           "value": "Summon the AI coworker mid-workflow without breaking the main task"
         },
         "skills": {
-          "name": "16 Tego Template Skills",
+          "name": "16 TeGo Template Skills",
           "upgrade": "11 IT Ops + 5+ Cross-Border E-commerce, with executable scripts",
           "value": "New AI coworkers are productive from day one — no need to build a skill library from scratch"
         },
@@ -2104,7 +2104,7 @@
       }
     },
     "skillLibrary": {
-      "title": "16 Out-of-the-Box Tego Template Skills",
+      "title": "16 Out-of-the-Box TeGo Template Skills",
       "subtitle": "For AI coworkers to \"work immediately\", the biggest barrier has never been the model — it's the lack of a ready skill library.",
       "executable": "executable script",
       "tabs": {
@@ -2295,8 +2295,8 @@
         "web": "Web Browser",
         "desktop": "Tauri Desktop / Mini Chat",
         "mini": "Embedded Mini Chat SDK",
-        "server": "Tego Server",
-        "gateway": "Tego AI Worker Gateway",
+        "server": "TeGo Server",
+        "gateway": "TeGo AI Worker Gateway",
         "shared": "shared instance pool",
         "perUser": "per-user dedicated instances",
         "channels": "Channel adapters (Feishu / Slack / Web API)",
@@ -2369,7 +2369,7 @@
     },
     "competitiveUpgrade": {
       "title": "v2.x to v3.0.0: What Changed",
-      "subtitle": "Tego OS moves from a usable product to a production-ready enterprise system",
+      "subtitle": "TeGo moves from a usable product to a production-ready enterprise system",
       "before": "v2.x",
       "after": "v3.0.0",
       "items": {
@@ -2509,7 +2509,7 @@
     },
     "valuePillars": {
       "title": "Four Foundations for Production-Ready Enterprise AI",
-      "subtitle": "Tego OS is more than an AI assistant. It gives each role a governed AI coworker that can operate safely inside the business.",
+      "subtitle": "TeGo is more than an AI assistant. It gives each role a governed AI coworker that can operate safely inside the business.",
       "pillars": {
         "dedicated": {
           "title": "A dedicated AI coworker for every employee",
@@ -2528,13 +2528,13 @@
         },
         "ready": {
           "title": "Ready-to-run industry skills",
-          "description": "Tego OS ships with production-grade skills for IT operations and cross-border commerce, so new AI coworkers can support real workflows quickly.",
+          "description": "TeGo ships with production-grade skills for IT operations and cross-border commerce, so new AI coworkers can support real workflows quickly.",
           "tag": "Ready to run"
         }
       }
     },
     "scenarios": {
-      "title": "Where Tego OS Is Already Creating Value",
+      "title": "Where TeGo Is Already Creating Value",
       "subtitle": "Production workflows for internal support, growth operations, and highly regulated teams.",
       "items": {
         "itSupport": {
@@ -2598,7 +2598,7 @@
     },
     "outcomes": {
       "title": "Business Outcomes Customers Can Expect",
-      "subtitle": "Typical production results after deploying Tego OS AI coworkers.",
+      "subtitle": "Typical production results after deploying TeGo AI coworkers.",
       "metrics": {
         "resolution": {
           "value": "60%+",
@@ -2625,7 +2625,7 @@
     },
     "readiness": {
       "title": "Built for Enterprise Production from Day One",
-      "subtitle": "Tego OS is engineered for the operating, security, and compliance standards of production business systems.",
+      "subtitle": "TeGo is engineered for the operating, security, and compliance standards of production business systems.",
       "items": {
         "private": {
           "title": "On-prem deployment",
@@ -2669,10 +2669,10 @@
         },
         "hybrid": {
           "title": "Hybrid Cloud",
-          "tagline": "Keep sensitive data local while Tego manages the control plane",
+          "tagline": "Keep sensitive data local while TeGo manages the control plane",
           "features": [
             "Sensitive data remains inside your network",
-            "Tego manages control-plane upgrades and operations",
+            "TeGo manages control-plane upgrades and operations",
             "Balances compliance requirements with operational cost"
           ],
           "cta": "Explore hybrid deployment"
@@ -2692,7 +2692,7 @@
     },
     "logos": {
       "title": "Built for These Industries",
-      "subtitle": "Tego OS helps SaaS companies, cross-border commerce teams, IT service providers, public-sector organizations, and financial institutions build governed AI workflows.",
+      "subtitle": "TeGo helps SaaS companies, cross-border commerce teams, IT service providers, public-sector organizations, and financial institutions build governed AI workflows.",
       "industries": [
         {
           "key": "internet",
@@ -2722,7 +2722,7 @@
       "footnote": "Some customer names are not displayed publicly. Industry-specific references are available during your demo."
     },
     "resources": {
-      "title": "Learn More About Tego OS",
+      "title": "Learn More About TeGo",
       "subtitle": "Resources for product, architecture, security, and operations teams.",
       "items": {
         "manual": {
@@ -2832,7 +2832,7 @@
       "title": "Frequently asked questions",
       "subtitle": "About TeGo Cloud, your data, and moving to Enterprise.",
       "items": [
-        {"question": "Are Cloud and Enterprise different products?", "answer": "No. Both are part of the TeGo digital workforce platform. Cloud is designed for self-serve use and fast validation; Enterprise adds private deployment, deep customization, governance, and FDE support."},
+        {"question": "Are Cloud and Enterprise different products?", "answer": "No. Both are part of the TeGo AI Workforce Collaboration Platform. Cloud is designed for self-serve use and fast validation; Enterprise adds private deployment, deep customization, governance, and FDE support."},
         {"question": "How does TeGo Cloud protect my data?", "answer": "Each user gets a dedicated workspace and data boundary. Organizations with data residency, private networking, or stricter audit requirements should choose Enterprise."},
         {"question": "Can I move from Cloud to Enterprise later?", "answer": "Yes. When your team, workflow complexity, or compliance requirements grow, we can assess a migration and enterprise delivery plan with you."}
       ]
@@ -2847,7 +2847,7 @@
   "station": {
     "seo": {
       "title": "TeGo Station | Enterprise AI Digital Employee Appliance | Zhama",
-      "description": "TeGo Station preloads TeGo OS onto a compact low-power host. Hardware + software, ready out of the box. Run locally so sensitive data stays on-premises.",
+      "description": "TeGo Station preloads TeGo onto a compact low-power host. Hardware + software, ready out of the box. Run locally so sensitive data stays on-premises.",
       "keywords": "TeGo Station,AI appliance,digital employee,private deployment,enterprise AI,on-premises,out of the box",
       "openGraph": {
         "title": "TeGo Station · One box to start your enterprise AI era",
@@ -2856,7 +2856,7 @@
     },
     "badge": "Enterprise AI Digital Employee Appliance",
     "title": "Put AI digital employees in a box",
-    "subtitle": "TeGo Station preloads the full TeGo OS enterprise digital avatar platform onto a compact low-power host. Power on, connect, sign in — and create your first on-prem digital employee.",
+    "subtitle": "TeGo Station preloads the full TeGo enterprise digital avatar platform onto a compact low-power host. Power on, connect, sign in — and create your first on-prem digital employee.",
     "tagline": "From “buy an AI tool” to “hire AI employees” — one box delivers a manageable digital team.",
     "heroImageAlt": "TeGo Station enterprise AI digital employee appliance",
     "cta": {
@@ -2871,9 +2871,9 @@
     "teaser": {
       "eyebrow": "TeGo Station Appliance",
       "title": "One box. Deliver a manageable team of digital employees",
-      "description": "An enterprise AI digital employee appliance with hardware and software bundled. Run TeGo OS locally, keep sensitive data inside your network, and go live with your first digital employee in 1–3 days.",
+      "description": "An enterprise AI digital employee appliance with hardware and software bundled. Run TeGo locally, keep sensitive data inside your network, and go live with your first digital employee in 1–3 days.",
       "highlights": [
-        "TeGo OS preloaded — power on, connect, and use",
+        "TeGo preloaded — power on, connect, and use",
         "Local private compute with intranet / offline options",
         "Standard user seats, expandable as you grow"
       ],
@@ -2946,7 +2946,7 @@
         },
         "system": {
           "title": "System layer",
-          "description": "TeGo OS: permissions, approvals, audit, governance, operations.",
+          "description": "TeGo: permissions, approvals, audit, governance, operations.",
           "value": "Governable AI with identity and traceability"
         },
         "hardware": {
@@ -3070,7 +3070,7 @@
         },
         "login": {
           "title": "Sign in",
-          "description": "Enter preloaded TeGo OS and start local use."
+          "description": "Enter preloaded TeGo and start local use."
         },
         "pilot": {
           "title": "Pilot build",
@@ -3092,7 +3092,7 @@
       "includesTitle": "Included",
       "includes": [
         "TeGo Station appliance hardware (local compute device)",
-        "TeGo OS enterprise digital avatar platform preloaded",
+        "TeGo enterprise digital avatar platform preloaded",
         "3 user seats",
         "Ready-out-of-the-box delivery: power on, connect, sign in, and use"
       ],

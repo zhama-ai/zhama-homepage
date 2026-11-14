@@ -86,9 +86,9 @@ Establish a comprehensive data governance system:
    - Operations and maintenance costs
    - Expansion costs
 
-### Why Choose TeGo-OS
+### Why Choose TeGo
 
-TeGo-OS has unique advantages in enterprise AI projects:
+TeGo has unique advantages in enterprise AI projects:
 
 1. **Private Deployment**
    - Data completely controlled by the enterprise
@@ -205,7 +205,7 @@ Establish regular evaluation mechanism:
 - Customer experience needs improvement
 
 **Solution**:
-- Deploy TeGo-OS intelligent risk control system
+- Deploy TeGo intelligent risk control system
 - Integrate anti-fraud model and rule engine
 - Real-time transaction monitoring and alerts
 
@@ -314,7 +314,7 @@ Through extensive practice, we have summarized the key factors for AI project su
 
 ## Start Your AI Journey
 
-Enterprise AI transformation is a systematic project requiring professional guidance and support. TeGo-OS not only provides an advanced technical platform but also offers complete consulting and implementation services:
+Enterprise AI transformation is a systematic project requiring professional guidance and support. TeGo not only provides an advanced technical platform but also offers complete consulting and implementation services:
 
 1. **Free Assessment**: Analyze your business needs, develop preliminary plan
 2. **Proof of Concept**: Quickly build prototype, validate technical feasibility
@@ -328,7 +328,7 @@ Enterprise AI transformation is a systematic project requiring professional guid
 
 Enterprise AI implementation is a complex but opportunity-filled process. By following best practices, avoiding common pitfalls, and choosing the right technical platform and partners, enterprises can successfully achieve AI transformation and gain significant business value.
 
-The TeGo-OS team looks forward to working with you to open a new chapter of intelligence.
+The TeGo team looks forward to working with you to open a new chapter of intelligence.
 
 ---
 

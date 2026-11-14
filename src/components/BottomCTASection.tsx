@@ -19,7 +19,7 @@ export default async function BottomCTASection({ locale }: BottomCTASectionProps
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
             <p className="text-sm font-semibold text-primary-700 dark:text-primary-200">
-              TeGo OS
+              TeGo
             </p>
             <h2 className="mt-3 max-w-3xl text-3xl font-bold tracking-normal text-zinc-950 dark:text-white md:text-4xl">
               {t('title')}

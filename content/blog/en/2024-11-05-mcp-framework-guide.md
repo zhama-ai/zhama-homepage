@@ -87,9 +87,9 @@ interface Plugin {
 }
 ```
 
-## MCP Implementation in TeGo-OS
+## MCP Implementation in TeGo
 
-TeGo-OS deeply integrates the MCP framework, providing a complete enterprise-grade implementation solution.
+TeGo deeply integrates the MCP framework, providing a complete enterprise-grade implementation solution.
 
 ### Featured Capabilities
 
@@ -110,13 +110,13 @@ TeGo-OS deeply integrates the MCP framework, providing a complete enterprise-gra
 
 ### Practical Case: Building Intelligent Customer Service
 
-Let's look at a practical example of how to build an intelligent customer service system using TeGo-OS and MCP framework:
+Let's look at a practical example of how to build an intelligent customer service system using TeGo and MCP framework:
 
 ```typescript
-import { TegoOS, MCPPlugin } from '@tego-os/core';
+import { TeGo, MCPPlugin } from '@tego-os/core';
 
-// Initialize TeGo-OS
-const tegoOS = new TegoOS({
+// Initialize TeGo
+const tego = new TeGo({
   mcp: {
     contextWindowSize: 8000,
     maxTokens: 4096,
@@ -124,26 +124,26 @@ const tegoOS = new TegoOS({
 });
 
 // Add knowledge base plugin
-tegoOS.use(new KnowledgeBasePlugin({
+tego.use(new KnowledgeBasePlugin({
   source: 'company-knowledge-base',
   embedding: 'text-embedding-ada-002'
 }));
 
 // Add customer data plugin
-tegoOS.use(new CustomerDataPlugin({
+tego.use(new CustomerDataPlugin({
   database: 'customer-db',
   cache: true
 }));
 
 // Handle customer query
 async function handleCustomerQuery(query: string, customerId: string) {
-  const context = await tegoOS.buildContext({
+  const context = await tego.buildContext({
     query,
     customerId,
     history: await getCustomerHistory(customerId)
   });
   
-  const response = await tegoOS.chat({
+  const response = await tego.chat({
     context,
     stream: true,
     plugins: ['knowledge-base', 'customer-data']
@@ -225,7 +225,7 @@ The MCP framework is developing rapidly and will support in the future:
 
 ## Get Started
 
-Want to use MCP framework in your project? TeGo-OS provides complete documentation and sample code:
+Want to use MCP framework in your project? TeGo provides complete documentation and sample code:
 
 1. [View Technical Documentation](/en/technical)
 2. [Download Development Kit](/en/download)
@@ -235,7 +235,7 @@ Want to use MCP framework in your project? TeGo-OS provides complete documentati
 
 The MCP framework represents the future direction of AI application development. Through standardized and modular design philosophy, it provides developers with powerful and flexible tools, making building high-quality AI applications easier than ever.
 
-TeGo-OS, as an excellent implementation of the MCP framework, not only provides complete functional support but has also been fully validated in enterprise-level application scenarios. Whether you're new to AI application development or an experienced architect, TeGo-OS can help you quickly achieve your goals.
+TeGo, as an excellent implementation of the MCP framework, not only provides complete functional support but has also been fully validated in enterprise-level application scenarios. Whether you're new to AI application development or an experienced architect, TeGo can help you quickly achieve your goals.
 
 ---
 

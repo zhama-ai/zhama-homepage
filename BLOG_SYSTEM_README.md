@@ -135,9 +135,9 @@ featured: true
 ## 代码示例
 
 \`\`\`typescript
-import { TegoOS } from '@tego-os/core';
+import { TeGo } from '@tego-os/core';
 
-const app = new TegoOS({
+const app = new TeGo({
   mcp: {
     enabled: true,
     version: '2.0'

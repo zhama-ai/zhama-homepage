@@ -19,9 +19,9 @@ export async function GET(request: Request, { params }: Props) {
   const rssFeed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>${locale === 'zh' ? 'TeGo-OS技术博客' : 'TeGo-OS Technical Blog'}</title>
+    <title>${locale === 'zh' ? 'TeGo技术博客' : 'TeGo Technical Blog'}</title>
     <link>${baseUrl}/${locale}/blog</link>
-    <description>${locale === 'zh' ? 'TeGo-OS最新技术动态、产品更新、行业洞察和最佳实践分享' : 'Latest technical updates, product news, industry insights and best practices from TeGo-OS'}</description>
+    <description>${locale === 'zh' ? 'TeGo最新技术动态、产品更新、行业洞察和最佳实践分享' : 'Latest technical updates, product news, industry insights and best practices from TeGo'}</description>
     <language>${locale === 'zh' ? 'zh-CN' : 'en-US'}</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${baseUrl}/${locale}/blog/rss.xml" rel="self" type="application/rss+xml" />
