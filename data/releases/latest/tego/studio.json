@@ -2,47 +2,47 @@
   "schemaVersion": 1,
   "brand": "tego",
   "kind": "studio",
-  "version": "v5.14.0",
-  "releaseDate": "2026-11-12T14:28:06Z",
+  "version": "v5.15.0",
+  "releaseDate": "2026-11-14T04:39:14Z",
   "platforms": {
     "macos": {
       "arm64": {
-        "dmg": "https://cdn.zhama.com.cn/releases/tego/studio/v5.14.0/macos/arm64/Tego-Studio-5.14.0-mac-arm64.dmg",
-        "zip": "https://cdn.zhama.com.cn/releases/tego/studio/v5.14.0/macos/arm64/Tego-Studio-5.14.0-mac-arm64.zip"
+        "dmg": "https://cdn.zhama.com.cn/releases/tego/studio/v5.15.0/macos/arm64/Tego-Studio-5.15.0-mac-arm64.dmg",
+        "zip": "https://cdn.zhama.com.cn/releases/tego/studio/v5.15.0/macos/arm64/Tego-Studio-5.15.0-mac-arm64.zip"
       },
       "x64": {
-        "dmg": "https://cdn.zhama.com.cn/releases/tego/studio/v5.14.0/macos/x64/Tego-Studio-5.14.0-mac-x64.dmg",
-        "zip": "https://cdn.zhama.com.cn/releases/tego/studio/v5.14.0/macos/x64/Tego-Studio-5.14.0-mac-x64.zip"
+        "dmg": "https://cdn.zhama.com.cn/releases/tego/studio/v5.15.0/macos/x64/Tego-Studio-5.15.0-mac-x64.dmg",
+        "zip": "https://cdn.zhama.com.cn/releases/tego/studio/v5.15.0/macos/x64/Tego-Studio-5.15.0-mac-x64.zip"
       }
     },
     "windows": {
       "x64": {
-        "exe": "https://cdn.zhama.com.cn/releases/tego/studio/v5.14.0/windows/x64/Tego-Studio-5.14.0-win-x64.exe"
+        "exe": "https://cdn.zhama.com.cn/releases/tego/studio/v5.15.0/windows/x64/Tego-Studio-5.15.0-win-x64.exe"
       }
     },
     "linux": {
       "x64": {
-        "tar.gz": "https://cdn.zhama.com.cn/releases/tego/studio/v5.14.0/linux/x64/Tego-Studio-5.14.0-linux-x64.tar.gz",
-        "AppImage": "https://cdn.zhama.com.cn/releases/tego/studio/v5.14.0/linux/x64/Tego-Studio-5.14.0-linux-x86_64.AppImage"
+        "tar.gz": "https://cdn.zhama.com.cn/releases/tego/studio/v5.15.0/linux/x64/Tego-Studio-5.15.0-linux-x64.tar.gz",
+        "AppImage": "https://cdn.zhama.com.cn/releases/tego/studio/v5.15.0/linux/x64/Tego-Studio-5.15.0-linux-x86_64.AppImage"
       },
       "arm64": {
-        "AppImage": "https://cdn.zhama.com.cn/releases/tego/studio/v5.14.0/linux/arm64/Tego-Studio-5.14.0-linux-arm64.AppImage",
-        "tar.gz": "https://cdn.zhama.com.cn/releases/tego/studio/v5.14.0/linux/arm64/Tego-Studio-5.14.0-linux-arm64.tar.gz"
+        "AppImage": "https://cdn.zhama.com.cn/releases/tego/studio/v5.15.0/linux/arm64/Tego-Studio-5.15.0-linux-arm64.AppImage",
+        "tar.gz": "https://cdn.zhama.com.cn/releases/tego/studio/v5.15.0/linux/arm64/Tego-Studio-5.15.0-linux-arm64.tar.gz"
       }
     }
   },
   "targetVersions": {
-    "macos/arm64": "v5.14.0",
-    "macos/x64": "v5.14.0",
-    "windows/x64": "v5.14.0",
-    "linux/x64": "v5.14.0",
-    "linux/arm64": "v5.14.0"
+    "macos/arm64": "v5.15.0",
+    "macos/x64": "v5.15.0",
+    "windows/x64": "v5.15.0",
+    "linux/x64": "v5.15.0",
+    "linux/arm64": "v5.15.0"
   },
   "targetDates": {
-    "macos/arm64": "2026-11-12T14:27:28Z",
-    "macos/x64": "2026-11-12T14:27:39Z",
-    "windows/x64": "2026-11-12T14:27:50Z",
-    "linux/x64": "2026-11-12T14:27:55Z",
-    "linux/arm64": "2026-11-12T14:28:06Z"
+    "macos/arm64": "2026-11-14T04:38:38Z",
+    "macos/x64": "2026-11-14T04:38:48Z",
+    "windows/x64": "2026-11-14T04:38:59Z",
+    "linux/x64": "2026-11-14T04:39:05Z",
+    "linux/arm64": "2026-11-14T04:39:14Z"
   }
 }
