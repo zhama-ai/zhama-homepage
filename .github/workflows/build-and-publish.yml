@@ -15,7 +15,7 @@ env:
   NODE_OPTIONS: '--max-old-space-size=8192'
   REGISTRY: ghcr.io
   IMAGE_PREFIX: ${{ github.repository_owner }}
-  DEPLOY_DIR: ${{ vars.HOMEPAGE_DEPLOY_DIR || '/mnt/data/zhama/zhama-homepage' }}
+  DEPLOY_DIR: ${{ vars.HOMEPAGE_DEPLOY_DIR || '/mnt/data/zhama/homepage' }}
   DEPLOY_ARCH: ${{ vars.HOMEPAGE_DEPLOY_ARCH || 'amd64' }}
   SSH_PORT: ${{ vars.HOMEPAGE_SSH_PORT || '22' }}
 
@@ -174,7 +174,7 @@ jobs:
       packages: read
     env:
       DEPLOY_IMAGE: ghcr.io/${{ github.repository_owner }}/zhama-homepage:sha-${{ github.sha }}-${{ vars.HOMEPAGE_DEPLOY_ARCH || 'amd64' }}
-      INCOMING: ${{ vars.HOMEPAGE_DEPLOY_DIR || '/mnt/data/zhama/zhama-homepage' }}/.incoming/${{ github.run_id }}-${{ github.run_attempt }}
+      INCOMING: ${{ vars.HOMEPAGE_DEPLOY_DIR || '/mnt/data/zhama/homepage' }}/.incoming/${{ github.run_id }}-${{ github.run_attempt }}
       OSS_OBJECT: oss://${{ vars.HOMEPAGE_OSS_BUCKET || 'zhama-public' }}/zhama-homepage/deploy-images/${{ github.run_id }}-${{ github.run_attempt }}/image.tar.gz
     steps:
       - name: Checkout the built source

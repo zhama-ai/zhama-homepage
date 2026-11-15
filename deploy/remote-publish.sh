@@ -6,7 +6,7 @@ set -eu
 [ "$#" -eq 2 ] || { echo 'Usage: remote-publish.sh <incoming-dir> <image-ref>' >&2; exit 2; }
 incoming="$1"
 image="$2"
-DEPLOY_DIR="${DEPLOY_DIR:-/mnt/data/zhama/zhama-homepage}"
+DEPLOY_DIR="${DEPLOY_DIR:-/mnt/data/zhama/homepage}"
 export DEPLOY_DIR
 cd "$DEPLOY_DIR"
 
@@ -19,7 +19,7 @@ else
   cp "$incoming/docker-compose.yml" docker-compose.yml
 fi
 [ -f .env ] || {
-  echo 'Missing deployment .env; copy deploy/.env.production.example, fill in SMTP settings, then rerun the deploy job.' >&2
+  echo 'Missing deployment .env; add the keys from deploy/.env.production.example, then rerun the deploy job.' >&2
   exit 1
 }
 

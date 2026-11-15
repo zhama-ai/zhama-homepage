@@ -1,12 +1,19 @@
 services:
-  zhama-homepage:
-    image: ${ZHAMA_HOMEPAGE_IMAGE:-ghcr.io/zhama-ai/zhama-homepage:latest}
-    restart: unless-stopped
-    # Runtime settings (SMTP, contact mailbox, rate limits) live in the
-    # deployment .env next to this file.
-    env_file: .env
+  homepage:
+    # deploy.sh pins HOMEPAGE_IMAGE in .env after a verified release;
+    # TEGO_HOMEPAGE_VERSION keeps the previous manual setup working.
+    image: ${HOMEPAGE_IMAGE:-ghcr.io/zhama-ai/zhama-homepage:${TEGO_HOMEPAGE_VERSION:-latest}}
+    restart: always
+    # The image ships release metadata under /app/data/releases, so /app/data
+    # must not be mounted over. Only the variables below reach the container;
+    # the shared .env also holds other services' secrets.
     environment:
-      PORT: "3000"
-      HOSTNAME: 0.0.0.0
+      SMTP_HOST: ${SMTP_HOST:-smtp.exmail.qq.com}
+      SMTP_PORT: ${SMTP_PORT:-465}
+      SMTP_SECURE: ${SMTP_SECURE:-true}
+      SMTP_USER: ${SMTP_USER:-support@zhama.com}
+      SMTP_PASS: ${SMTP_PASS:?Set SMTP_PASS in .env}
+      SMTP_FROM: ${SMTP_FROM:-}
+      CONTACT_EMAIL: ${CONTACT_EMAIL:-}
     ports:
-      - "${HOMEPAGE_PORT:-3000}:3000"
+      - "${HOMEPAGE_PORT:-9200}:3000"

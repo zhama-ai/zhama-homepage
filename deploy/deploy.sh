@@ -10,8 +10,8 @@ usage() {
 
 IMAGE_NAME="${IMAGE_NAME:-ghcr.io/zhama-ai/zhama-homepage}"
 DEPLOY_ARCH="${DEPLOY_ARCH:-amd64}"
-DEPLOY_DIR="${DEPLOY_DIR:-/mnt/data/zhama/zhama-homepage}"
-SERVICE=zhama-homepage
+DEPLOY_DIR="${DEPLOY_DIR:-/mnt/data/zhama/homepage}"
+SERVICE=homepage
 PULL=1
 if [ "${1:-}" = '--image' ]; then
   [ "$#" -ge 2 ] || usage
@@ -60,7 +60,7 @@ recover() {
   if [ "$new_started" -eq 0 ]; then
     echo 'Image is not available; the running service and .env are unchanged.' >&2
   elif [ -n "$old_image" ]; then
-    export ZHAMA_HOMEPAGE_IMAGE="$old_image"
+    export HOMEPAGE_IMAGE="$old_image"
     if docker compose up -d --pull never --wait --wait-timeout 180 && verify; then
       echo 'New image failed validation; the previous local image is running again.' >&2
     else
@@ -76,7 +76,7 @@ trap recover HUP INT TERM
 
 # Compose uses an environment override until every check passes. Recovery uses
 # the exact previous local image ID and does not pull or delete any old image.
-export ZHAMA_HOMEPAGE_IMAGE="$IMAGE_REF"
+export HOMEPAGE_IMAGE="$IMAGE_REF"
 if [ "$PULL" -eq 1 ]; then
   docker compose pull "$SERVICE" || recover
 else
@@ -87,11 +87,11 @@ docker compose up -d --pull never --wait --wait-timeout 180 || recover
 verify || recover
 
 env_tmp=$(mktemp .env.release.XXXXXX) || recover
-if ! awk '!/^ZHAMA_HOMEPAGE_IMAGE=/' .env > "$env_tmp"; then
+if ! awk '!/^HOMEPAGE_IMAGE=/' .env > "$env_tmp"; then
   rm -f "$env_tmp"
   recover
 fi
-if ! printf '\nZHAMA_HOMEPAGE_IMAGE=%s\n' "$IMAGE_REF" >> "$env_tmp" || ! mv "$env_tmp" .env; then
+if ! printf '\nHOMEPAGE_IMAGE=%s\n' "$IMAGE_REF" >> "$env_tmp" || ! mv "$env_tmp" .env; then
   rm -f "$env_tmp"
   recover
 fi
