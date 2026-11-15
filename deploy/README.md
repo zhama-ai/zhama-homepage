@@ -4,7 +4,7 @@
 
 1. `build`：构建 amd64 / arm64 镜像推送到 GHCR，除原有 tag 外额外打上不可变的 `sha-<commit>-<arch>`。
 2. `create-manifest`：生成多架构 manifest（与原流程一致）。
-3. `deploy`（仅当 Actions variable `HOMEPAGE_DEPLOY_ENABLED` 为 `true`）：
+3. `deploy`（每次 tag 推送或手动运行都会执行）：
    - 上传 `docker-compose.yml` 与 `deploy/` 脚本到服务器 `<部署目录>/.incoming/<run>/`；
    - runner 拉取 `sha-<commit>-<arch>` 镜像，`docker save | gzip` 后经加速域名上传到阿里云 OSS（默认 `zhama-public` 桶 `zhama-homepage/deploy-images/<run>/`）；
    - 服务器用预签名链接从 OSS 下载、校验 SHA-256 后 `docker load`（`deploy/fetch-image.sh`），任务结束删除 OSS 临时包；
@@ -16,7 +16,6 @@
 
 | 配置 | 位置 | 说明 |
 | --- | --- | --- |
-| `HOMEPAGE_DEPLOY_ENABLED` | Actions variable | `true` 才执行 deploy job |
 | `HOMEPAGE_DEPLOY_DIR` | Actions variable | 服务器部署目录，默认 `/mnt/data/zhama/homepage` |
 | `HOMEPAGE_DEPLOY_ARCH` | Actions variable | 服务器架构，`amd64`（默认）或 `arm64` |
 | `HOMEPAGE_SSH_PORT` | Actions variable | 默认 `22` |
@@ -29,7 +28,7 @@
 
 1. 服务器准备部署目录，部署账号需要 Docker 权限，服务器装有 `curl`（或 `wget`）和 `sha256sum`，能通过 HTTPS 访问 OSS。部署账号可参考 tego-docs 的 `deploy/setup-deploy-user.sh` 创建。
 2. 部署目录下的 `.env` 需要包含 `SMTP_PASS`（其余键见 `deploy/.env.production.example`，未设置时使用 Compose 中的默认值）；`HOMEPAGE_PORT` 为边缘 nginx 转发 `zhama.com.cn` 的宿主端口，默认 9200。该 `.env` 与其他服务共用，Compose 只把列出的 SMTP / 联系邮箱变量传入容器。
-3. 设置上表的 variables 与 secrets，最后将 `HOMEPAGE_DEPLOY_ENABLED` 设为 `true`。
+3. 设置上表的 secrets（variables 均有默认值，按需覆盖）。
 
 镜像在 `/app/data/releases` 内置发行数据，Compose 不得把卷挂到 `/app/data`；旧版本使用的 `volumes/homepage/data/database.sqlite` 保留在服务器上，不再挂载。
 

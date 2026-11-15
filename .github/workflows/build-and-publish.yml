@@ -163,7 +163,6 @@ jobs:
   deploy:
     name: Deploy to zhama.com.cn
     needs: build
-    if: vars.HOMEPAGE_DEPLOY_ENABLED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     concurrency:
