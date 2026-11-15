@@ -34,15 +34,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: {
       default: seo.title || (locale === 'zh' 
-        ? 'TeGo 数字员工协作平台 | 深圳市扎马未来科技有限公司'
-        : 'TeGo AI Workforce Collaboration Platform | Shenzhen Zhama Future Technology Co., Ltd.'),
+        ? 'TeGo 数字员工执行与治理平台 | 深圳市扎马未来科技有限公司'
+        : 'TeGo Digital Employee Execution & Governance Platform | Shenzhen Zhama Future Technology Co., Ltd.'),
       template: locale === 'zh'
-        ? '%s | TeGo 数字员工协作平台'
-        : '%s | TeGo AI Workforce Collaboration Platform'
+        ? '%s | TeGo 数字员工'
+        : '%s | TeGo Digital Employees'
     },
     description: seo.description || (locale === 'zh'
-      ? '深圳市扎马未来科技有限公司官方平台：TeGo 数字员工协作平台与企业级AI解决方案'
-      : 'Shenzhen Zhama Future Technology Co., Ltd. official platform: TeGo AI Workforce Collaboration Platform and enterprise AI solutions'),
+      ? '深圳市扎马未来科技有限公司官方网站：TeGo 数字员工执行与治理平台'
+      : 'Official site of Shenzhen Zhama Future Technology Co., Ltd.: TeGo Digital Employee Execution & Governance Platform'),
     keywords: seo.keywords || (locale === 'zh'
       ? 'TeGo, 智能体, AI Agent, 企业智能, 私有化部署, MCP 框架, 深圳扎马, 人工智能, 企业级AI, 智能化解决方案'
       : 'TeGo, AI Agent, Enterprise Intelligence, Private Deployment, MCP Framework, Zhama Technology, Artificial Intelligence, Enterprise AI, Intelligent Solutions'),
@@ -62,10 +62,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     openGraph: {
       title: seo.openGraph?.title || seo.title || (locale === 'zh' 
-        ? 'TeGo 数字员工协作平台 | 深圳市扎马未来科技有限公司'
-        : 'TeGo AI Workforce Collaboration Platform | Shenzhen Zhama Future Technology Co., Ltd.'),
+        ? 'TeGo 数字员工执行与治理平台 | 深圳市扎马未来科技有限公司'
+        : 'TeGo Digital Employee Execution & Governance Platform | Shenzhen Zhama Future Technology Co., Ltd.'),
       description: seo.openGraph?.description || seo.description,
-      siteName: locale === 'zh' ? 'TeGo 数字员工协作平台' : 'TeGo AI Workforce Collaboration Platform',
+      siteName: 'TeGo',
       type: 'website',
       locale: locale === 'zh' ? 'zh_CN' : 'en_US',
       images: [
@@ -73,7 +73,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           url: `${SITE_URL}/images/home.png`,
           width: 1200,
           height: 630,
-          alt: locale === 'zh' ? 'TeGo 数字员工协作平台' : 'TeGo AI Workforce Collaboration Platform',
+          alt: locale === 'zh' ? 'TeGo 数字员工执行与治理平台' : 'TeGo Digital Employee Execution & Governance Platform',
         },
       ],
     },

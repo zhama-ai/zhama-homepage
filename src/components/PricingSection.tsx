@@ -38,7 +38,7 @@ export default async function PricingSection({ locale }: PricingSectionProps) {
   };
 
   return (
-    <section id="pricing" className="bg-white py-16 dark:bg-zinc-900 md:py-24">
+    <section id="pricing" className="scroll-mt-20 bg-zinc-50 py-16 dark:bg-zinc-950 md:py-24">
       <Container>
         <SectionHead title={t('title')} lead={t('subtitle')} center />
 
@@ -96,8 +96,8 @@ export default async function PricingSection({ locale }: PricingSectionProps) {
                     {t(`${plan.key}.period`)}
                   </div>
                 </div>
-                <Link 
-                  href={`/${locale}/contact`}
+                <Link
+                  href={plan.key === 'community' ? `/${locale}/download` : `/${locale}/contact`}
                   className={`rounded-lg px-5 py-2.5 text-sm font-semibold transition-all duration-300 active:scale-95 ${
                     plan.key === 'community'
                       ? 'border border-zinc-300 bg-white text-zinc-900 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:hover:bg-zinc-800'

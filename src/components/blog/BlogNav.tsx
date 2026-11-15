@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { docsUrl } from '@/lib/external-links';
 import { ThemeSwitcher } from '../ThemeSwitcher';
 import { LanguageSwitcher } from '../LanguageSwitcher';
 import { ChevronRight, Menu, X } from 'lucide-react';
@@ -101,7 +102,7 @@ export default function BlogNav() {
             </Link>
             
             <a
-              href="https://docs.zhama.com.cn"
+              href={docsUrl()}
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
@@ -159,7 +160,7 @@ export default function BlogNav() {
             </Link>
             
             <a
-              href="https://docs.zhama.com.cn"
+              href={docsUrl()}
               target="_blank"
               rel="noopener noreferrer"
               className={cn(

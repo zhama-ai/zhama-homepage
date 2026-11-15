@@ -2,6 +2,8 @@
 
 import { useEffect, useState, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
+import ExternalLink from './ExternalLink';
+import { docsUrl } from '@/lib/external-links';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
 
@@ -281,6 +283,27 @@ export default function DownloadClient() {
             <p role="status" className="text-center text-sm text-zinc-600 dark:text-zinc-400">{loading ? t('studio.loading') : t('unavailable')}</p>
           )}
         </section>
+
+        {/* Docs links */}
+        <div className="mb-8 flex flex-col items-center gap-3 text-sm sm:flex-row sm:justify-center">
+          <span className="font-semibold text-zinc-900 dark:text-zinc-50">{t('docs.title')}</span>
+          <ExternalLink
+            href={docsUrl('deploy')}
+            medium="download"
+            icon
+            className="inline-flex items-center gap-1 text-primary-700 hover:text-primary-800 dark:text-primary-300"
+          >
+            {t('docs.deploy')}
+          </ExternalLink>
+          <ExternalLink
+            href={docsUrl('downloads')}
+            medium="download"
+            icon
+            className="inline-flex items-center gap-1 text-primary-700 hover:text-primary-800 dark:text-primary-300"
+          >
+            {t('docs.downloads')}
+          </ExternalLink>
+        </div>
 
         {/* Enterprise CTA */}
         <div className="text-center rounded-2xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-8">

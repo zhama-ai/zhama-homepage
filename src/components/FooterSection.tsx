@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { Container } from './ui/Container';
+import ExternalLink from './ExternalLink';
+import { docsUrl } from '@/lib/external-links';
 
 interface FooterSectionProps {
   locale: string;
@@ -12,16 +14,21 @@ export default async function FooterSection({ locale }: FooterSectionProps) {
   const t = await getTranslations({ locale, namespace: 'footer' });
   const tc = await getTranslations({ locale, namespace: 'common' });
 
-  const footerSections = [
+  const footerSections: {
+    title: string;
+    links: { label: string; href: string; external?: boolean }[];
+  }[] = [
     {
       title: t('products'),
       links: [
         { label: t('cloud'), href: `/${locale}/cloud` },
-        { label: locale === 'zh' ? '云端 Agent' : 'Cloud Agents', href: `/${locale}/cloud-agent` },
+        { label: t('cloudAgent'), href: `/${locale}/cloud-agent` },
         { label: t('station'), href: `/${locale}/station` },
         { label: t('digitalAvatar'), href: `/${locale}/#value-pillars` },
         { label: t('lampEngine'), href: `/${locale}/technical` },
         { label: t('mcpEngine'), href: `/${locale}/platform` },
+        { label: t('pluginSystem'), href: `/${locale}/plugin-system` },
+        { label: t('multiAgent'), href: `/${locale}/multi-agent` },
         { label: t('governanceEngine'), href: `/${locale}/#readiness` },
         { label: t('enterprise'), href: `/${locale}/contact` },
       ],
@@ -29,9 +36,11 @@ export default async function FooterSection({ locale }: FooterSectionProps) {
     {
       title: t('support'),
       links: [
-        { label: t('helpCenter'), href: 'https://docs.zhama.com.cn/', external: true },
-        { label: t('tutorials'), href: 'https://docs.zhama.com.cn/requirements/', external: true },
-        { label: t('faq'), href: 'https://docs.zhama.com.cn/faq/', external: true },
+        { label: t('helpCenter'), href: docsUrl(), external: true },
+        { label: t('quickStart'), href: docsUrl('quickStart'), external: true },
+        { label: t('tutorials'), href: docsUrl('deploy'), external: true },
+        { label: t('faq'), href: docsUrl('faq'), external: true },
+        { label: t('releaseNotes'), href: docsUrl('releaseNotes'), external: true },
         { label: tc('contactUs'), href: `/${locale}/contact` },
       ],
     },
@@ -39,8 +48,7 @@ export default async function FooterSection({ locale }: FooterSectionProps) {
       title: t('resources'),
       links: [
         { label: t('blog'), href: `/${locale}/blog` },
-        { label: t('docs'), href: 'https://docs.zhama.com.cn/', external: true },
-        { label: t('community'), href: `/${locale}/#pricing` },
+        { label: t('community'), href: `/${locale}/download` },
         { label: tc('privacyPolicy'), href: `/${locale}/privacy` },
         { label: tc('termsOfService'), href: `/${locale}/terms` },
       ],
@@ -92,15 +100,15 @@ export default async function FooterSection({ locale }: FooterSectionProps) {
               <ul className="mt-4 space-y-2 text-sm">
                 {section.links.map((link, index) => (
                   <li key={`${section.title}-${link.label}-${index}`}>
-                    {'external' in link && link.external ? (
-                      <a
+                    {link.external ? (
+                      <ExternalLink
                         href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-zinc-600 transition-colors hover:text-primary-600 dark:text-zinc-400 dark:hover:text-primary-400"
+                        medium="footer"
+                        icon
+                        className="inline-flex items-center gap-1 text-zinc-600 transition-colors hover:text-primary-600 dark:text-zinc-400 dark:hover:text-primary-400"
                       >
                         {link.label}
-                      </a>
+                      </ExternalLink>
                     ) : (
                       <Link
                         href={link.href}

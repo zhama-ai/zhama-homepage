@@ -4,6 +4,8 @@ import { ArrowRight, CheckCircle2, Database, LockKeyhole, Network } from 'lucide
 import { Container } from './ui/Container';
 import HeroVideoButton from './HeroVideoButton';
 import CloudLink from './CloudLink';
+import ExternalLink from './ExternalLink';
+import { docsUrl } from '@/lib/external-links';
 import { cloudFirst } from '@/lib/audience';
 
 interface HeroSectionProps {
@@ -15,35 +17,20 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
   const cloudT = await getTranslations({ locale, namespace: 'cloud.hero' });
   const isCloudFirst = cloudFirst(locale);
 
-  const highlightKeys = ['scale', 'speed', 'delivery'] as const;
-  const consoleCopy =
-    locale === 'zh'
-      ? {
-          title: '数字员工控制台',
-          subtitle: '统一编排任务、权限、数据与审计状态',
-          workers: [
-            ['IT 支持', '正在处理 12 个员工请求'],
-            ['跨境运营', 'Listing 本地化任务运行中'],
-          ],
-          workflowTitle: '实时任务流',
-          workflow: ['接收员工请求', '调用知识与系统', '生成可审计结果'],
-          governanceTitle: '治理状态',
-          governance: ['RBAC 权限已启用', '用户级数据边界', '调用全链路留痕'],
-          footer: ['实例隔离', '企业知识库', '审计追踪'],
-        }
-      : {
-          title: 'Digital Employee Console',
-          subtitle: 'Orchestrate tasks, access, data and audit status in one place',
-          workers: [
-            ['IT Support', 'Handling 12 employee requests'],
-            ['Commerce Ops', 'Listing localization in progress'],
-          ],
-          workflowTitle: 'Live Workflow',
-          workflow: ['Receive employee request', 'Call knowledge and systems', 'Return auditable result'],
-          governanceTitle: 'Governance',
-          governance: ['RBAC enabled', 'Per-user data boundary', 'Full call audit trail'],
-          footer: ['Instance isolation', 'Enterprise knowledge', 'Audit trail'],
-        };
+  const highlightKeys = ['poc', 'xinchuang', 'evidence'] as const;
+  const tags = t.raw('tags') as string[];
+  const consoleCopy = t.raw('console') as {
+    title: string;
+    subtitle: string;
+    live: string;
+    workers: { name: string; status: string }[];
+    workflowTitle: string;
+    steps: string;
+    workflow: string[];
+    governanceTitle: string;
+    governance: string[];
+    footer: string[];
+  };
   const panelItems = [
     { label: consoleCopy.footer[0], icon: LockKeyhole },
     { label: consoleCopy.footer[1], icon: Database },
@@ -73,6 +60,18 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
             {t('subtitle')}
           </p>
 
+          <ul className="mt-5 flex max-w-2xl flex-wrap gap-2">
+            {tags.map((tag) => (
+              <li
+                key={tag}
+                className="inline-flex items-center gap-1.5 rounded-md border border-zinc-200 bg-white/80 px-2.5 py-1 text-xs font-medium text-zinc-700 dark:border-white/10 dark:bg-white/5 dark:text-zinc-300"
+              >
+                <CheckCircle2 className="h-3.5 w-3.5 text-primary-700 dark:text-primary-200" aria-hidden="true" />
+                {tag}
+              </li>
+            ))}
+          </ul>
+
           <div className="mt-7 flex flex-wrap items-center gap-3">
             {isCloudFirst ? (
               <CloudLink
@@ -100,14 +99,16 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
                 {t('primaryCta')}
               </Link>
             )}
-            <Link
-              href={`/${locale}/download`}
+            <ExternalLink
+              href={docsUrl('quickStart')}
+              medium="hero"
+              icon
               className={isCloudFirst
-                ? 'inline-flex items-center justify-center whitespace-nowrap rounded-lg px-3 py-3 text-sm font-semibold text-zinc-600 transition-colors hover:text-primary-700 dark:text-zinc-300 dark:hover:text-primary-200'
+                ? 'inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-lg px-3 py-3 text-sm font-semibold text-zinc-600 transition-colors hover:text-primary-700 dark:text-zinc-300 dark:hover:text-primary-200'
                 : 'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-zinc-300 bg-white px-6 py-3 text-base font-semibold text-zinc-900 transition-all duration-300 hover:bg-zinc-50 active:scale-95 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:hover:bg-zinc-800'}
             >
-              {t('secondaryCta')}
-            </Link>
+              {t('docsCta')}
+            </ExternalLink>
             <HeroVideoButton
               label={t('watchDemo')}
               ariaLabel={t('watchDemoAria')}
@@ -163,7 +164,7 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
                 <span className="h-2.5 w-2.5 rounded-full bg-amber-300/80" />
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
               </div>
-              <span className="text-xs font-semibold tracking-[0.24em] text-white/45">ZHAMA AI</span>
+              <span className="text-xs font-semibold tracking-[0.24em] text-white/45">TEGO</span>
               <span className="h-2 w-14 rounded-full bg-white/10" />
             </div>
 
@@ -198,13 +199,13 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
                   <p className="mt-2 max-w-sm text-sm leading-6 text-zinc-300">{consoleCopy.subtitle}</p>
                 </div>
                 <span className="rounded-md border border-emerald-300/20 bg-emerald-300/10 px-3 py-1 text-xs font-semibold text-emerald-100">
-                  Live
+                  {consoleCopy.live}
                 </span>
               </div>
 
               <div className="relative mt-5 grid grid-cols-[0.82fr_1.18fr] gap-3">
                 <div className="space-y-2">
-                  {consoleCopy.workers.map(([name, status], index) => (
+                  {consoleCopy.workers.map(({ name, status }, index) => (
                     <div key={name} className="rounded-lg border border-white/10 bg-white/[0.06] p-3">
                       <div className="flex items-center gap-2">
                         <span className="flex h-8 w-8 items-center justify-center rounded-md bg-primary-300/10 text-sm font-bold text-primary-100">
@@ -234,7 +235,7 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
                 <div className="rounded-lg border border-white/10 bg-white/[0.06] p-4">
                   <div className="mb-4 flex items-center justify-between">
                     <span className="text-sm font-semibold text-white">{consoleCopy.workflowTitle}</span>
-                    <span className="text-xs text-zinc-400">03 steps</span>
+                    <span className="text-xs text-zinc-400">{consoleCopy.steps}</span>
                   </div>
                   <div className="space-y-3">
                     {consoleCopy.workflow.map((step, index) => (

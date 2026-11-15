@@ -37,7 +37,7 @@ export default async function DigitalTeamsSection({ locale }: DigitalTeamsSectio
   const t = await getTranslations({ locale, namespace: 'biz.teamPacks' });
 
   return (
-    <section id="team-packs" className="bg-white py-16 dark:bg-zinc-900 md:py-24">
+    <section id="team-packs" className="scroll-mt-20 border-t border-zinc-200 bg-zinc-50 py-16 dark:border-white/10 dark:bg-zinc-950 md:py-24">
       <Container>
         <div className="mx-auto mb-4 w-fit rounded-full border border-primary-200 bg-primary-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary-800 dark:border-primary-800 dark:bg-primary-950/40 dark:text-primary-200">
           {t('eyebrow')}

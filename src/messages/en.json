@@ -21,7 +21,7 @@
     "coreCapabilities": "Capabilities",
     "scenarios": "Use Cases",
     "pricing": "Pricing",
-    "docs": "Documentation",
+    "docs": "Docs",
     "blog": "Blog",
     "about": "About Us",
     "contact": "Contact Us",
@@ -36,8 +36,7 @@
       "value": "Value",
       "solutions": "Solutions",
       "customers": "Customers",
-      "delivery": "Deployment",
-      "resources": "Resources"
+      "delivery": "Deployment"
     },
     "station": "Station",
     "capabilities": {
@@ -68,142 +67,13 @@
       "skills": "Agent Skills",
       "mcp": "MCP Framework",
       "multiAgent": "Multi-agent orchestration"
-    }
-  },
-  "home": {
-    "hero": {
-      "title": "AI That Works Across Your Business, Not Just in Chat",
-      "tagline": "AI coworkers × orchestration × enterprise governance",
-      "description": "TeGo v3.0.0 turns a single AI runtime into a governed, isolated, multi-user system for enterprise production. With per-user runtimes, data isolation, template governance, and operations visibility, AI can finally move from pilot demos into real business workflows.",
-      "bullets": {
-        "dualAvatar": "Dedicated AI runtimes: personal and organizational AI workers run with isolated state, data, and operating boundaries",
-        "orchestration": "Orchestration for production workflows: LAMP + DAG scheduling improves execution speed by 2-5x",
-        "governance": "Enterprise governance: tenant isolation, RBAC, audit logs, and lifecycle management for compliance-ready AI",
-        "mcp": "Skills and MCP integration: extend AI capabilities like apps and connect existing systems without rewriting them"
-      },
-      "cta": "Book an Enterprise Demo",
-      "secondaryCta": "Try the Online Demo",
-      "deployLink": "Explore deployment options",
-      "imgAlt": "TeGo AI Workforce Collaboration Platform"
-    }
-  },
-  "productSuite": {
-    "title": "TeGo Product Suite",
-    "subtitle": "AI collaboration across desktop, browser, and Office workflows",
-    "desktop": {
-      "title": "TeGo Desktop",
-      "description": "A native desktop client for everyday AI work, with fast startup, offline-ready workflows, local file access, and shell command support.",
-      "features": [
-        "Fast startup",
-        "Offline ready",
-        "Local-first",
-        "Privacy-aware"
-      ],
-      "cta": "Download desktop client"
     },
-    "web": {
-      "title": "TeGo Web",
-      "description": "Use TeGo directly in the browser and access your AI workforce across devices.",
-      "features": [
-        "No install",
-        "Cross-device access",
-        "Always available",
-        "Cloud collaboration"
-      ],
-      "cta": "Open web app"
-    },
-    "office": {
-      "title": "TeGo Office",
-      "description": "Use AI directly in Excel, Word, and WPS to analyze data, draft reports, and review documents in place.",
-      "features": [
-        "Excel integration",
-        "Word integration",
-        "WPS support",
-        "Works where you work"
-      ],
-      "cta": "Get the plugin"
-    },
-    "capabilities": {
-      "title": "Core Capabilities",
-      "subtitle": "Give AI the interfaces and skills it needs to work inside real workflows",
-      "a2ui": {
-        "title": "A2UI dynamic interfaces",
-        "description": "AI can generate interactive interfaces, not just text: charts, forms, buttons, and workflows users can act on immediately.",
-        "tags": [
-          "Dynamic rendering",
-          "Interactive UI",
-          "Visualization"
-        ]
-      },
-      "skills": {
-        "title": "Agent Skills extensions",
-        "description": "Extend AI capabilities like installing apps. Standardized skills work across platforms and can be composed into workflows.",
-        "tags": [
-          "Skill marketplace",
-          "Standardized",
-          "Extensible"
-        ]
-      }
-    },
-    "footer": {
-      "text": "Need a custom enterprise rollout?",
-      "link": "Contact us"
-    }
-  },
-  "whyTeGo": {
-    "title": "Why TeGo",
-    "subtitle": "Move from isolated AI tools to a coordinated AI workforce that can execute real business workflows.",
-    "metrics": {
-      "efficiency": "Efficiency gain",
-      "successRate": "Task success rate",
-      "response": "Response speed"
-    },
-    "advantages": {
-      "collaboration": {
-        "title": "Multi-agent collaboration",
-        "description": "Break AI tool silos so multiple agents can reason, share information, and decide together like a coordinated team."
-      },
-      "efficiency": {
-        "title": "Parallel execution",
-        "description": "The DAG scheduler analyzes dependencies and runs independent tasks in parallel, improving execution speed by 2-5x."
-      },
-      "intelligence": {
-        "title": "Continuous improvement",
-        "description": "Successful workflows are captured and reused, reducing planning time for similar tasks by 40-60%."
-      },
-      "security": {
-        "title": "Secure and governable",
-        "description": "Enterprise permissions, audit trails, and on-prem deployment options keep sensitive data under control."
-      }
-    },
-    "footer": {
-      "text": "Supporting enterprise teams across finance, manufacturing, retail, and other industries."
-    }
-  },
-  "useCases": {
-    "title": "TeGo Use Cases",
-    "subtitle": "AI-powered workflows for industries where coordination, governance, and speed matter.",
-    "industries": {
-      "enterprise": {
-        "title": "Internal enterprise operations",
-        "description": "Complex office workflows such as travel, project kickoff, scheduling, approvals, and knowledge Q&A are decomposed into executable subtasks and routed to specialized agents for coordinated execution."
-      },
-      "government": {
-        "title": "Government service operations",
-        "description": "Support local deployment, data sovereignty, and process traceability while connecting fragmented services across departments and systems."
-      },
-      "finance": {
-        "title": "Financial services operations",
-        "description": "Support investment research, credit risk review, compliance, and AML workflows by processing large volumes of structured and unstructured data."
-      },
-      "manufacturing": {
-        "title": "Manufacturing operations",
-        "description": "Connect sales orders, APS, MRP, procurement, production, and maintenance workflows so planning and execution teams can coordinate faster."
-      },
-      "stateOwned": {
-        "title": "State-owned enterprise modernization",
-        "description": "Unify AI capabilities as shared services, reduce duplicated investments across business lines, and help break down long-standing system silos."
-      }
+    "docsTitle": "Open the TeGo documentation center (in Chinese) in a new tab",
+    "productDesc": {
+      "enterprise": "Private digital-employee execution & governance",
+      "station": "Private AI appliance",
+      "cloud": "Self-serve SaaS from $0",
+      "cloudAgent": "Agents that deliver real work"
     }
   },
   "contactPage": {
@@ -249,7 +119,7 @@
       "description": "Contact the TeGo team to discuss enterprise AI workforce deployment, private or hybrid architecture, governance, and pilot workflows.",
       "keywords": "TeGo contact, enterprise AI workforce, AI coworker platform, private AI deployment, enterprise AI consultation",
       "openGraph": {
-        "title": "Contact Us | TeGo AI Workforce Collaboration Platform",
+        "title": "Contact Us",
         "description": "Discuss enterprise AI workforce deployment, governance, and pilot workflows with the TeGo team."
       }
     }
@@ -292,6 +162,11 @@
       "title": "Need an enterprise deployment?",
       "description": "We support Docker Compose, Kubernetes, and hybrid deployment, with a 30-day POC option.",
       "cta": "Contact sales"
+    },
+    "docs": {
+      "title": "Deployment & install docs (Chinese)",
+      "deploy": "Private deployment guide",
+      "downloads": "Client download & install notes"
     }
   },
   "privacy": {
@@ -545,121 +420,11 @@
       }
     }
   },
-  "aboutSection": {
-    "title": "From Isolated Agents to a Coordinated AI Workforce",
-    "subtitle": "Help AI agents collaborate, share context, and complete complex business tasks together",
-    "description": "TeGo is not a loose collection of AI tools. It gives enterprises a governed orchestration layer where multiple agents can reason, collaborate, execute in parallel, and improve over time.",
-    "vision": {
-      "title": "How TeGo differs from traditional AI platforms",
-      "paragraphs": [
-        "From silos to coordination: agents work together instead of operating as disconnected tools",
-        "From sequential to parallel: DAG scheduling runs independent tasks at the same time for 2-5x faster execution",
-        "From tools to operating layer: LAMP enables agents to reason, communicate, and make decisions as a team"
-      ]
-    },
-    "features": [
-      {
-        "title": "LAMP reasoning framework",
-        "description": "A Think-Speak-Decide pipeline helps agents reason continuously, share context, and make coordinated decisions, improving task success rates by 15-25%."
-      },
-      {
-        "title": "DAG scheduling engine",
-        "description": "Dependencies are analyzed automatically so independent tasks can run in parallel, improving execution speed by 2-5x with response latency as low as 100 ms."
-      },
-      {
-        "title": "Experience memory",
-        "description": "Successful workflows are stored, retrieved, and reused for similar tasks, reducing planning time by 40-60%."
-      },
-      {
-        "title": "A2A open protocol",
-        "description": "Agent2Agent support makes it easier to integrate third-party agents and expand the enterprise AI ecosystem."
-      }
-    ],
-    "footer": {
-      "prefix": "TeGo AI Workforce Collaboration Platform",
-      "suffix": " helps teams complete complex business tasks with always-on AI coworkers."
-    },
-    "typingPhrases": [
-      "Build an always-on AI workforce",
-      "Reason together · Coordinate work · Execute in parallel",
-      "From isolated agents to coordinated operations"
-    ]
-  },
-  "featuresSection": {
-    "title": "Four Core Capabilities",
-    "subtitle": "From task understanding to autonomous execution, TeGo helps teams build a real AI workforce.",
-    "tabs": {
-      "collection": "Task decomposition",
-      "analysis": "Parallel scheduling",
-      "organization": "Agent collaboration",
-      "gateway": "Experience learning"
-    },
-    "collection": {
-      "title": "Task Decomposition · Understand Intent and Plan Work",
-      "description": "Understand high-level business goals, break them into executable subtasks, match the right agents, analyze dependencies, and generate a clear execution plan.",
-      "tags": [
-        "Intent understanding",
-        "Task decomposition",
-        "Agent matching",
-        "Plan generation"
-      ]
-    },
-    "analysis": {
-      "title": "Parallel Scheduling · 2-5x Faster Execution",
-      "description": "The DAG scheduler analyzes dependencies, launches independent tasks in parallel, adjusts concurrency dynamically, and isolates exceptions to keep workflows stable.",
-      "tags": [
-        "DAG scheduling",
-        "Parallel execution",
-        "Dynamic optimization",
-        "Exception isolation"
-      ]
-    },
-    "organization": {
-      "title": "Agent Collaboration · LAMP-Based Team Intelligence",
-      "description": "The LAMP framework enables agents to think, speak, and decide together, sharing context and making coordinated decisions like a real team.",
-      "tags": [
-        "Reasoning",
-        "Communication",
-        "Decision fusion",
-        "Trust management"
-      ]
-    },
-    "gateway": {
-      "title": "Experience Learning · Better with Every Workflow",
-      "description": "Successful trajectories are stored and retrieved for similar tasks, while failed cases become counterexamples. This reduces planning time by 40-60% and improves task success rates.",
-      "tags": [
-        "Experience reuse",
-        "Smart retrieval",
-        "Strategy optimization",
-        "Continuous learning"
-      ]
-    },
-    "moreFeatures": {
-      "title": "TeGo Technical Advantages",
-      "taskManagement": {
-        "title": "Visual workflow tracking",
-        "description": "DAG, timeline, reasoning, and communication views make each workflow observable, traceable, and auditable."
-      },
-      "habitTracking": {
-        "title": "Dynamic replanning",
-        "description": "Detect execution anomalies, predict workflow trends, and adjust plans automatically when conditions change."
-      },
-      "financeManagement": {
-        "title": "Enterprise-grade deployment",
-        "description": "Supports on-prem, hybrid cloud, and SaaS deployment, with permissions and audit mechanisms for enterprise security and compliance."
-      }
-    }
-  },
   "footer": {
     "companyName": "Zhama Future",
-    "companyDescription": "TeGo AI Workforce Collaboration Platform",
-    "about": "Zhama Future builds TeGo as one digital workforce platform: private deployment, customization, and FDE support for enterprises, plus a ready-to-use global SaaS at zhama.ai for individuals and teams.",
+    "companyDescription": "TeGo Digital Employee Execution & Governance Platform",
+    "about": "Zhama Future builds TeGo, a privately deployable execution and governance platform for digital employees, with deep customization and on-site FDE support. Through zhama.ai, it also offers ready-to-use digital employees in the cloud to individuals and teams worldwide.",
     "products": "Product",
-    "home": {
-      "hero": {
-        "title": "TeGo AI Workforce Collaboration Platform"
-      }
-    },
     "digitalAvatar": "AI coworker runtime",
     "station": "TeGo Station Appliance",
     "cloud": "TeGo Cloud",
@@ -669,13 +434,12 @@
     "enterprise": "Enterprise deployment",
     "api": "API & Development",
     "support": "Support",
-    "helpCenter": "Documentation",
+    "helpCenter": "Docs center",
     "tutorials": "Deployment guide",
-    "faq": "Enterprise services",
+    "faq": "FAQ",
     "resources": "Resources",
     "blog": "Engineering blog",
-    "docs": "Developer docs",
-    "community": "Community edition",
+    "community": "Client downloads",
     "contact": {
       "title": "Contact Us",
       "business": {
@@ -690,26 +454,12 @@
       }
     },
     "copyright": "© 2026 Shenzhen Zhama Future Technology Co., Ltd. All rights reserved.",
-    "icp": ""
-  },
-  "advantagesSection": {
-    "title": "Typical Application Scenarios",
-    "subtitle": "Validated industry workflows where manual coordination can be reduced from hours to minutes.",
-    "scenarios": {
-      "title": "Core Scenarios",
-      "professional": {
-        "title": "Enterprise Travel Management",
-        "description": "Travel requests, approvals, flight and hotel booking, scheduling, and expense estimates can be coordinated automatically in about five minutes instead of two to three hours."
-      },
-      "personal": {
-        "title": "Project Kickoff Process",
-        "description": "Project kickoff tasks such as workspace creation, resource allocation, environment setup, notifications, and scheduling can be reduced from one to two days to about 30 minutes."
-      },
-      "enterprise": {
-        "title": "AI Customer Service",
-        "description": "Ticket creation, customer outreach, issue diagnosis, exchange or refund decisions, and satisfaction follow-up can move from hours to minutes."
-      }
-    }
+    "icp": "",
+    "pluginSystem": "Plugin system",
+    "multiAgent": "Multi-agent collaboration",
+    "quickStart": "Quick start",
+    "releaseNotes": "Release notes",
+    "cloudAgent": "Cloud Agents"
   },
   "pricingSection": {
     "title": "Choose the Right Plan for Your Rollout",
@@ -773,79 +523,6 @@
       "title": "Just you or a small team?",
       "description": "TeGo Cloud starts at $0. Sign up and work immediately — no deployment or maintenance.",
       "cta": "Start free"
-    },
-    "deployment": {
-      "title": "Deployment Options",
-      "saas": {
-        "title": "SaaS",
-        "description": "Fastest path to validation"
-      },
-      "private": {
-        "title": "On-prem deployment",
-        "description": "Docker / Kubernetes orchestration"
-      },
-      "hybrid": {
-        "title": "Hybrid cloud",
-        "description": "Local data, managed control plane"
-      }
-    }
-  },
-  "downloadSection": {
-    "title": "Get Started with TeGo",
-    "subtitle": "Choose the path that fits your team: enterprise consultation, desktop client, web app, or developer documentation.",
-    "enterprise": {
-      "title": "Enterprise services",
-      "description": "Discuss deployment architecture, pilot workflows, and custom rollout support.",
-      "button": "Contact sales"
-    },
-    "ios": {
-      "title": "iOS App",
-      "description": "Download the TeGo mobile app from the App Store",
-      "button": "App Store"
-    },
-    "android": {
-      "title": "Android App",
-      "description": "Get the TeGo app for Android devices",
-      "button": "Download Now"
-    },
-    "docs": {
-      "title": "Developer docs",
-      "description": "Read API documentation, integration guides, and deployment references.",
-      "button": "View docs"
-    },
-    "web": {
-      "title": "Web app",
-      "description": "Use TeGo directly in your browser without installing a client.",
-      "button": "Open web app"
-    },
-    "downloadApp": {
-      "title": "Download desktop client",
-      "description": "Install the desktop client for the best local AI workflow experience.",
-      "windows": "Windows",
-      "mac": "macOS",
-      "linux": "Linux"
-    },
-    "webAccess": {
-      "title": "Web app",
-      "description": "Use TeGo directly in your browser without installing a client.",
-      "button": "Open web app"
-    },
-    "documentation": {
-      "title": "Developer docs",
-      "description": "Read API documentation, integration guides, and deployment references.",
-      "button": "View docs"
-    }
-  },
-  "contactSection": {
-    "title": "Contact Us",
-    "subtitle": "Need a custom rollout or POC validation? Our team can help you assess use cases, architecture, and next steps.",
-    "business": {
-      "title": "Business inquiries",
-      "description": "Enterprise solutions, deployment options, and custom services"
-    },
-    "support": {
-      "title": "Technical support",
-      "description": "Product usage, technical issues, and implementation support"
     }
   },
   "downloadPage": {
@@ -860,16 +537,16 @@
     }
   },
   "seo": {
-    "title": "Zhama | AI Digital Employees for Global Teams",
-    "description": "Build a global AI workforce with dedicated digital employees for research, client delivery, operations, and market expansion. Start free and add employees as your workload grows.",
-    "keywords": "AI digital employees, digital workforce, AI workforce platform, AI coworkers, AI research team, AI client delivery, market expansion AI, global teams, Zhama",
+    "title": "TeGo Digital Employee Execution & Governance Platform | Zhama",
+    "description": "TeGo lets digital employees work safely, efficiently and continuously: identity-bound sandboxes, in-house runtime orchestration and verifiable execution evidence, with private and domestic-stack deployment and a 2-week POC.",
+    "keywords": "TeGo, digital employees, AI agents, enterprise AI agents, secure sandbox, trusted execution, private deployment, on-premise AI, knowledge management, process automation, Zhama",
     "openGraph": {
-      "title": "Zhama | Build Your AI Digital Workforce",
-      "description": "Create dedicated digital employees that research, execute tasks, and deliver editable work."
+      "title": "TeGo | Digital employees that work safely, efficiently and continuously",
+      "description": "Bring AI into your core business processes and get results you can sign off. Private deployment, scoped permissions and end-to-end audit."
     },
     "twitter": {
-      "title": "Zhama | AI Digital Employees for Global Teams",
-      "description": "Start with a focused digital team, then add employees as your workload grows."
+      "title": "TeGo Digital Employee Execution & Governance Platform",
+      "description": "Secure sandbox · in-house orchestration · trusted execution. Digital employees that deliver verifiable results."
     }
   },
   "mcpPlatform": {
@@ -1053,70 +730,8 @@
       "description": "Learn how TeGo uses MCP, decorators, DAG scheduling, LAMP orchestration, and Agent Skills to power enterprise AI workflows.",
       "keywords": "TeGo technical platform, MCP framework, DAG scheduler, LAMP orchestration, Agent Skills, enterprise AI architecture",
       "openGraph": {
-        "title": "Technical Platform | TeGo AI Workforce Collaboration Platform",
+        "title": "Technical Platform",
         "description": "Architecture and developer experience for enterprise AI workflows."
-      }
-    }
-  },
-  "tegoOS": {
-    "title": "TeGo AI Workforce Collaboration Platform",
-    "subtitle": "Always-on AI coworkers for complex business workflows",
-    "problem": {
-      "title": "Four Barriers to Production Enterprise AI",
-      "description": "Enterprise AI often stalls because agents are isolated, capabilities are fragmented, governance is weak, and workflows still require manual assembly. TeGo provides the orchestration, permissions, auditability, and execution layer needed for production-grade AI collaboration.",
-      "systems": {
-        "crm": "CRM",
-        "erp": "ERP",
-        "oa": "OA",
-        "finance": "Finance",
-        "hr": "HR",
-        "service": "Customer Service",
-        "bi": "BI",
-        "supply": "Supply Chain"
-      }
-    },
-    "mission": {
-      "title": "How TeGo Breaks Through",
-      "description": "TeGo coordinates multiple AI agents so they can reason, collaborate, execute in parallel, and improve over time. LAMP orchestration and DAG scheduling turn disconnected tools into a governed AI workforce."
-    },
-    "technologies": {
-      "title": "Four Core Capabilities",
-      "subtitle": "From intent understanding to closed-loop execution",
-      "apiToMcp": {
-        "title": "Intelligent Task Decomposition",
-        "description": "Understand high-level business goals and decompose them into executable subtasks.",
-        "features": [
-          "Intent understanding and semantic parsing",
-          "Task decomposition and agent matching",
-          "Dependency analysis and execution planning"
-        ]
-      },
-      "orchestration": {
-        "title": "Concurrent Intelligent Scheduling",
-        "description": "Use DAG analysis to identify work that can run in parallel and maximize execution efficiency.",
-        "features": [
-          "Topological sorting and layered execution",
-          "Parallel launch of independent tasks",
-          "Dynamic concurrency adjustment and exception isolation"
-        ]
-      },
-      "decisionEngine": {
-        "title": "Agent Collaboration and Decision Making",
-        "description": "Coordinate reasoning and decision making across agents through the LAMP framework.",
-        "features": [
-          "Information sharing and knowledge transfer",
-          "Trust management and belief updates",
-          "Multi-source decision fusion"
-        ]
-      },
-      "feedbackLoop": {
-        "title": "Continuous Learning & Optimization",
-        "description": "Reuse successful experiences and learn from failed cases so similar workflows can be planned faster over time.",
-        "features": [
-          "Successful trajectories stored in the experience pool",
-          "Failed cases used as counterexamples",
-          "Similar experiences retrieved for new tasks"
-        ]
       }
     }
   },
@@ -1247,83 +862,9 @@
       "description": "Language-enhanced multi-agent orchestration with Think-Speak-Decide reasoning, DAG scheduling, and experience reuse for enterprise AI workflows.",
       "keywords": "multi-agent orchestration, LAMP framework, DAG scheduling, AI agent collaboration, enterprise AI workflows",
       "openGraph": {
-        "title": "Multi-Agent Orchestration | TeGo AI Workforce Collaboration Platform",
+        "title": "Multi-Agent Orchestration",
         "description": "Coordinate AI agents like a governed enterprise workflow."
       }
-    }
-  },
-  "multiAgentSection": {
-    "badge": "Patented Technology · Multi-Agent Collaboration",
-    "title": "Multi-Agent Orchestration",
-    "subtitle": "Help AI agents work like a coordinated team, using LAMP-based reasoning and DAG scheduling for production workflows.",
-    "lamp": {
-      "title": "LAMP Three-Stage Reasoning Framework",
-      "subtitle": "Language-augmented multi-agent policy for coordinated agent work",
-      "think": {
-        "title": "Think",
-        "description": "Continuously analyze task progress, detect anomalies, predict trends, and reason across short-term and long-term context.",
-        "analogy": "Like a project manager spotting risks early"
-      },
-      "speak": {
-        "title": "Speak",
-        "description": "Share information, transfer knowledge, and manage trust between agents, with A2A protocol support.",
-        "analogy": "Like a team staying aligned"
-      },
-      "decide": {
-        "title": "Decide",
-        "description": "Fuse numerical data, reasoning outputs, and belief state into explainable decisions.",
-        "analogy": "Like a leadership team making the final call"
-      }
-    },
-    "technologies": {
-      "title": "Core Technology Highlights",
-      "dag": {
-        "title": "DAG scheduling",
-        "description": "Analyze dependencies automatically and run independent tasks in parallel for 2-5x faster execution."
-      },
-      "experience": {
-        "title": "Experience memory",
-        "description": "Store successful workflows as vectors, retrieve similar cases, and reuse proven strategies."
-      },
-      "a2a": {
-        "title": "A2A Open Protocol",
-        "description": "Integrates with the Agent2Agent protocol and remains compatible with the Google A2A standard."
-      },
-      "scheduling": {
-        "title": "Dynamic Replanning",
-        "description": "Adjust execution plans automatically when severe anomalies are detected."
-      }
-    },
-    "metrics": {
-      "title": "Key Performance Metrics",
-      "efficiency": "Execution speed",
-      "successRate": "Task success rate",
-      "complexity": "Complex workflow coverage",
-      "availability": "Always-on service"
-    },
-    "advantages": {
-      "title": "Advantages Over Traditional Solutions",
-      "subtitle": "Move from a single AI assistant to a coordinated, governed agent team.",
-      "autonomous": {
-        "title": "Adaptive decisions",
-        "description": "Agents can choose and optimize execution paths instead of following only fixed workflows."
-      },
-      "concurrent": {
-        "title": "Parallel execution",
-        "description": "Multiple tasks run in parallel to shorten cycle time."
-      },
-      "learning": {
-        "title": "Continuous Learning",
-        "description": "Experience reuse makes similar workflows faster and more reliable over time."
-      },
-      "secure": {
-        "title": "Secure and governable",
-        "description": "Enterprise permissions, audit trails, and flexible access control keep workflows under control."
-      }
-    },
-    "cta": {
-      "primary": "Book a demo",
-      "secondary": "Learn more"
     }
   },
   "blog": {
@@ -1489,1263 +1030,727 @@
       }
     }
   },
-  "painPoints": {
-    "title": "Does Your AI Struggle with These Too?",
-    "subtitle": "Three Critical Challenges in Enterprise AI",
-    "items": {
-      "island": {
-        "icon": "unplug",
-        "title": "Agent Silos",
-        "description": "Different AI tools work in isolation — data fragmented, workflows broken, requiring manual effort to bridge gaps between tools."
-      },
-      "unmanaged": {
-        "icon": "shield-off",
-        "title": "Uncontrolled Capabilities",
-        "description": "What is AI doing? Is it correct? Who can use it? Who's responsible? — No unified governance, audit, or permission control."
-      },
-      "inefficient": {
-        "icon": "timer-off",
-        "title": "Efficiency Ceiling",
-        "description": "Sequential execution, single-point intelligence, no collaboration, no concurrency, no learning — complex tasks still heavily depend on manual work."
-      }
-    }
-  },
-  "productOverview": {
-    "title": "From Single-Purpose AI Tools to an Enterprise AI Workforce Platform",
-    "description": "Traditional AI tools improve isolated tasks. Enterprises need governed AI infrastructure that can execute workflows, learn over time, and scale across teams.",
-    "highlight": "TeGo puts AI coworkers at the center and unifies orchestration, tools, knowledge, permissions, and auditability on one platform. AI can answer questions, execute tasks, support decisions, and accumulate reusable experience on behalf of the organization.",
-    "capabilities": [
-      "Continuous Learning",
-      "Team Collaboration",
-      "Enterprise Governance",
-      "Scalable Expansion"
-    ]
-  },
-  "coreEngines": {
-    "title": "Four Core Engines",
-    "subtitle": "Four core engines that move AI from usable demos to production-ready enterprise workflows.",
-    "digitalAvatar": {
-      "title": "AI Coworker Engine",
-      "tagline": "A dedicated AI runtime for every employee",
-      "highlight": "Not just an AI assistant, but an AI worker with its own container, data, skills, and security boundary.",
-      "features": {
-        "dualForm": {
-          "title": "Personal and organizational AI workers",
-          "description": "Personal AI workers run in isolated containers, while organizational AI workers scale with multi-replica high availability."
-        },
-        "containerRuntime": {
-          "title": "Isolated container runtime",
-          "description": "Each AI worker runs in its own Docker container with isolated CPU, memory, and storage."
-        },
-        "resourceQuota": {
-          "title": "Fine-Grained Resource Management",
-          "description": "CPU, memory, and storage can be configured by user, department, or tenant with transparent resource accounting."
-        },
-        "lifecycleManagement": {
-          "title": "Lifecycle management",
-          "description": "Create, approve, deploy, run, stop, and uninstall AI workers through a complete lifecycle state machine."
-        }
-      }
-    },
-    "lampEngine": {
-      "title": "LAMP Orchestration Engine",
-      "tagline": "AI no longer works in isolation",
-      "highlight": "Help AI agents reason, communicate, and decide like a coordinated team.",
-      "features": {
-        "thinkSpeakDecide": {
-          "title": "Think-Speak-Decide Three-Stage Reasoning",
-          "description": "A research-grade collaboration framework for inter-agent reasoning and decision making."
-        },
-        "dagScheduling": {
-          "title": "DAG Concurrent Scheduling",
-          "description": "Dependency analysis and parallel execution improve speed by 2-5x."
-        },
-        "experiencePool": {
-          "title": "Experience memory",
-          "description": "Successful experiences are vectorized, stored, retrieved, and reused over time."
-        },
-        "dynamicReplanning": {
-          "title": "Dynamic Replanning",
-          "description": "Plans are adjusted automatically when anomalies are detected."
-        }
-      }
-    },
-    "mcpEngine": {
-      "title": "MCP Capability Engine",
-      "tagline": "Non-invasive activation of existing systems",
-      "highlight": "Turn legacy systems into AI capabilities without changing a single line of code",
-      "features": {
-        "zeroInvasion": {
-          "title": "Non-Invasive Access",
-          "description": "No changes to existing system architecture or business logic — rapid AI capability integration"
-        },
-        "pluginEcosystem": {
-          "title": "Plugin System + SDK",
-          "description": "Open ecosystem — extend AI capabilities like installing apps"
-        },
-        "skillHotPlug": {
-          "title": "Hot-Pluggable Skill Packs",
-          "description": "Upload ZIP and use instantly, supporting Agent Skills standard format"
-        },
-        "oneClickPublish": {
-          "title": "One-Click Publish & Reuse",
-          "description": "Standardized capabilities can be quickly reused and centrally governed"
-        }
-      }
-    },
-    "governance": {
-      "title": "Enterprise Governance Engine",
-      "tagline": "Not just usable — controllable",
-      "highlight": "Every AI action, within the enterprise governance framework",
-      "features": {
-        "rbac": {
-          "title": "RBAC + Multi-Auth Sources",
-          "description": "LDAP / OIDC enterprise identity integration with fine-grained permission control"
-        },
-        "fullChain": {
-          "title": "Review-Approval-Guardrail-Audit",
-          "description": "End-to-end governance — who can see, use, edit, and who's responsible — all traceable"
-        },
-        "multiTenantIsolation": {
-          "title": "Multi-Tenant 4-Layer Isolation",
-          "description": "Database + cache + file + container — four layers of complete isolation, cross-tenant invisible, meeting compliance requirements"
-        },
-        "configManagement": {
-          "title": "Centralized Configuration Management",
-          "description": "LLM providers, model strategies, agent lists — unified configuration auto-synced to all AI worker instances"
-        }
-      }
-    }
-  },
-  "omniChannel": {
-    "title": "Omni-Channel AI Access",
-    "subtitle": "One AI coworker, 12+ channels simultaneously online",
-    "description": "Wherever your customers, colleagues, or partners are — your AI coworker is there.",
-    "channels": [
-      "WhatsApp",
-      "Telegram",
-      "Slack",
-      "Discord",
-      "Microsoft Teams",
-      "WeChat",
-      "Signal",
-      "iMessage",
-      "Matrix",
-      "Google Chat",
-      "WebChat",
-      "Voice"
-    ],
-    "products": {
-      "title": "Multi-Platform Product Coverage",
-      "desktop": {
-        "title": "TeGo Desktop",
-        "description": "Native desktop client, instant startup, works offline"
-      },
-      "web": {
-        "title": "TeGo Web",
-        "description": "No installation, browser-ready, access anytime"
-      },
-      "office": {
-        "title": "TeGo Office",
-        "description": "AI works directly inside Excel and Word"
-      }
-    }
-  },
-  "memoryEvolution": {
-    "title": "Memory & Evolution",
-    "subtitle": "AI with long-term memory — for the first time",
-    "description": "Experience Pool + Vector Retrieval + Few-shot Injection = Gets Smarter Over Time",
-    "dimensions": {
-      "context": {
-        "title": "Context Memory",
-        "description": "Understands the full context of the current conversation"
-      },
-      "preference": {
-        "title": "Preference Memory",
-        "description": "Remembers each user's habits and style"
-      },
-      "identity": {
-        "title": "Identity Memory",
-        "description": "Recognizes every person it interacts with"
-      },
-      "experience": {
-        "title": "Experience Memory",
-        "description": "Successful experiences automatically accumulated, failed lessons automatically avoided"
-      }
-    }
-  },
-  "securityCompliance": {
-    "title": "Security & Compliance",
-    "subtitle": "Built for Enterprise Production Environments",
-    "description": "Multi-tenant isolation, container security, permission governance, audit trails — the critical foundation for enterprise AI deployment.",
-    "features": {
-      "multiTenantIsolation": {
-        "title": "Multi-Tenant 4-Layer Isolation",
-        "description": "Database, cache, file, and container — four layers of complete isolation, cross-tenant invisible"
-      },
-      "containerSecurity": {
-        "title": "Container-Level Security Boundary",
-        "description": "Each AI worker runs in its own container with JWT Token auth + 30s heartbeat monitoring + auto-recovery"
-      },
-      "auditTrail": {
-        "title": "End-to-End Audit Trail",
-        "description": "Auto-logged audit trail before and after every tool call, sensitive operations auto-intercepted"
-      },
-      "aiGuardrail": {
-        "title": "AI Guardrail System",
-        "description": "Dual input/output filtering to prevent hallucinations, violations, and prompt attacks"
-      },
-      "observability": {
-        "title": "Full-Stack Observability",
-        "description": "OpenTelemetry integration, Traces / Metrics / Logs full collection"
-      },
-      "deployment": {
-        "title": "Elastic Deployment Architecture",
-        "description": "Docker Compose / Kubernetes / Traefik dynamic routing, on-prem deployment supported"
-      }
-    },
-    "upgrades": {
-      "title": "Enterprise-Grade Capability Leap",
-      "items": [
-        "From single-user to multi-user organizational collaboration",
-        "From basic permissions to enterprise RBAC and task authorization",
-        "From tool usage to end-to-end audit and guardrail governance",
-        "From a single runtime to elastic organizational AI worker replicas",
-        "From personal assistant to enterprise digital workforce system"
-      ]
-    }
-  },
-  "scenarios": {
-    "title": "AI Coworkers in Real Business Workflows",
-    "subtitle": "Validated across multiple industries with proven business value",
-    "items": {
-      "enterprise": {
-        "title": "Enterprise Operations & Collaboration",
-        "role": "Operations / Admin / HR",
-        "description": "Organizational AI workers handle cross-department workflow tasks, bridging knowledge Q&A, process execution, and system operations to reduce repetitive communication and manual coordination costs.",
-        "effect": "Significant improvement in cross-system process execution efficiency"
-      },
-      "finance": {
-        "title": "Finance & High-Compliance Industries",
-        "role": "Risk Control / Research / Service",
-        "description": "Build auditable AI execution loops within permission, audit, approval, and guardrail frameworks, supporting risk control, investment research, customer service, and other critical business processes.",
-        "effect": "Full traceability for all critical operations"
-      },
-      "manufacturing": {
-        "title": "Manufacturing & Supply Chain",
-        "role": "Procurement / Planning / Warehouse",
-        "description": "Through smart orchestration and system API integration, automate procurement, planning, inventory, and exception handling for improved response speed and cross-system execution efficiency.",
-        "effect": "Significant improvement in response speed and execution efficiency"
-      },
-      "government": {
-        "title": "Government & On-Prem Deployment",
-        "role": "IT / Government Affairs / Security",
-        "description": "Supports private or hybrid deployment to meet data boundary, access control, and process audit requirements, advancing controlled AI deployment within organizations.",
-        "effect": "Complete data sovereignty and autonomous control"
-      }
-    },
-    "customers": {
-      "title": "Customer Stories",
-      "yuekaiSecurities": {
-        "name": "Yuekai Securities",
-        "description": "Multi-scenario AI worker collaboration practice"
-      },
-      "taikangPension": {
-        "name": "Taikang Pension",
-        "description": "AI service upgrade for insurance and pension business"
-      }
-    }
-  },
-  "socialProof": {
-    "title": "Numbers Speak",
-    "subtitle": "Quantifiable value from an enterprise AI platform",
-    "metrics": {
-      "efficiency": {
-        "value": "2-5x",
-        "label": "Execution Efficiency Boost",
-        "description": "DAG concurrent scheduling engine optimization"
-      },
-      "availability": {
-        "value": "24×7",
-        "label": "Service Continuity",
-        "description": "Organizational AI workers always online"
-      },
-      "auditability": {
-        "value": "100%",
-        "label": "Full Traceability",
-        "description": "End-to-end audit trail for critical operations"
-      },
-      "onboarding": {
-        "value": "< 1 Day",
-        "label": "Capability Launch Time",
-        "description": "MCP non-invasive access + smart orchestration"
-      }
-    }
-  },
-  "competitiveComparison": {
-    "title": "Why Choose TeGo",
-    "subtitle": "Compared to Dify, Coze, ChatGPT Teams and more",
-    "description": "TeGo v3.0.0 brings together runtime isolation, three-layer S3 isolation, template governance, business dashboards, and ready-to-run skills",
-    "categories": {
-      "avatar": {
-        "title": "AI Coworker System",
-        "items": {
-          "digitalAvatar": "AI coworker / AI worker",
-          "personalAvatar": "Personal AI worker (isolated container)",
-          "orgAvatar": "Organizational AI worker (multi-replica HA)"
-        }
-      },
-      "enterprise": {
-        "title": "Enterprise Capabilities",
-        "items": {
-          "multiTenant": "Multi-Tenant Isolation (4-Layer)",
-          "resourceQuota": "Resource Quota Management",
-          "lifecycle": "Full Lifecycle Management",
-          "configManagement": "Centralized Config Management"
-        }
-      },
-      "ecosystem": {
-        "title": "Skills & Ecosystem",
-        "items": {
-          "skillHotReload": "Hot-Pluggable Skills",
-          "agentSkills": "Agent Skills Standard Ecosystem",
-          "a2ui": "A2UI Dynamic Interface",
-          "channels": "15+ Channel Access"
-        }
-      },
-      "deployment": {
-        "title": "Deployment & Compliance",
-        "items": {
-          "privateDeploy": "Fully On-Prem Deployment",
-          "rbac": "RBAC Permission System",
-          "audit": "End-to-End Audit Logs"
-        }
-      }
-    },
-    "competitors": {
-      "tego": "TeGo",
-      "dify": "Dify",
-      "coze": "Coze",
-      "chatgptTeams": "ChatGPT Teams"
-    },
-    "support": {
-      "full": "✓ Full Support",
-      "partial": "Partial",
-      "none": "✗ Not Supported",
-      "basic": "Basic"
-    }
-  },
   "bottomCTA": {
-    "title": "Launch Your First Always-On AI Workforce",
-    "description": "Turn business processes, system capabilities, and organizational knowledge into AI workflows that can actually execute.",
-    "primaryCTA": "Book an Enterprise Demo",
-    "secondaryCTA": "Get a Solution Brief",
-    "hint": "Start with one pilot workflow and validate business impact within 30 days."
-  },
-  "v3": {
-    "version": "v3.0.0",
-    "releaseDate": "2026-04-19",
-    "newBadge": "v3.0.0 NEW",
-    "hero": {
-      "version": "TeGo v3.0.0 · Now available",
-      "title": "One AI Coworker, Safely Shared Across an Entire Team",
-      "tagline": "Per-user runtimes × data isolation × template governance × operations visibility",
-      "description": "v3.0.0 rebuilds instance orchestration, data isolation, template governance, and operations visibility so TeGo can move from a usable product to a production-ready enterprise system.",
-      "bullets": {
-        "perUser": "Per-user runtimes: one AI coworker can spin up isolated containers for each user, keeping sessions, memory, and files separate",
-        "isolation": "S3 data isolation: template and runtime data are separated by prefix, with per-user backup, restore, and deletion",
-        "governance": "Template governance: templates are admin-managed, and standard users cannot write to template paths",
-        "monitor": "BusinessMonitor dashboard: coverage, growth, engagement, workflows, and skill effectiveness in one operations view"
-      },
-      "primaryCta": "Book an Enterprise Demo",
-      "primaryCtaHint": "30-minute walkthrough of 4 core scenarios",
-      "secondaryCta": "Download Product Brief and Whitepaper",
-      "secondaryCtaHint": "Includes a complete operating guide with UI screenshots",
-      "tertiaryCta": "Discuss On-Prem Deployment",
-      "tertiaryCtaHint": "On-prem, hybrid cloud, and SaaS options"
-    },
-    "watershed": {
-      "title": "Four Enterprise Milestones in v3.0.0",
-      "subtitle": "From a usable product to a production-ready enterprise system",
-      "vBefore": "v2.x (Before)",
-      "vAfter": "v3.0.0 (Now)",
-      "items": {
-        "concurrency": {
-          "dimension": "Multi-User Concurrency",
-          "before": "Multi-user shared runtime — sessions and memory easily cross-contaminate",
-          "after": "per_user isolated instances — each user gets a dedicated runtime"
-        },
-        "isolation": {
-          "dimension": "Data Isolation",
-          "before": "Shared S3 namespace with no user-level recovery or deletion boundary",
-          "after": "Template and runtime prefixes separated, with per-user backup, restore, and deletion"
-        },
-        "governance": {
-          "dimension": "Configuration Governance",
-          "before": "Anyone can edit — conflicts after edits",
-          "after": "Template is single source of truth — ordinary users writing template paths are forced 403"
-        },
-        "observability": {
-          "dimension": "Operational Observability",
-          "before": "Metrics scattered across multiple analytics warehouses",
-          "after": "BusinessMonitor dashboard shows coverage, growth, engagement, workflow, skill effectiveness on one screen"
-        }
-      }
-    },
-    "capabilityCards": {
-      "title": "Eight Core Capabilities in v3.0.0",
-      "subtitle": "This release strengthens architecture, governance, observability, user experience, and the skill ecosystem.",
-      "branches": {
-        "architecture": "Architecture",
-        "governance": "Governance",
-        "observability": "Observability",
-        "experience": "Experience",
-        "ecosystem": "Ecosystem"
-      },
-      "cards": {
-        "perUser": {
-          "name": "Isolated Instances (per_user)",
-          "upgrade": "One AI coworker spins up dedicated containers per user, idle auto-recycle, end-to-end quota guardrails",
-          "value": "Multiple users can use one AI coworker concurrently while sessions, memory, and files remain isolated"
-        },
-        "s3": {
-          "name": "S3 Runtime Data Isolation",
-          "upgrade": "Templates and runtime split by prefix; shared and per_user backed up independently",
-          "value": "Prevents cross-user data leakage and enables user-level recovery in disaster scenarios"
-        },
-        "template": {
-          "name": "Template / Runtime Single Authority",
-          "upgrade": "Templates only editable in console; ordinary users writing template paths are forced 403",
-          "value": "Configurations no longer accidentally overwritten — clear governance boundary"
-        },
-        "monitor": {
-          "name": "Business Operations Dashboard",
-          "upgrade": "Brand-new BusinessMonitor service — unified coverage, growth, engagement, workflow, skill effectiveness",
-          "value": "Management sees platform health and business performance on one screen"
-        },
-        "miniChat": {
-          "name": "Desktop Mini Chat Floating Window",
-          "upgrade": "Always-on-top mini chat window sharing one session with the main window",
-          "value": "Summon the AI coworker mid-workflow without breaking the main task"
-        },
-        "skills": {
-          "name": "16 TeGo Template Skills",
-          "upgrade": "11 IT Ops + 5+ Cross-Border E-commerce, with executable scripts",
-          "value": "New AI coworkers are productive from day one — no need to build a skill library from scratch"
-        },
-        "build": {
-          "name": "Build Pipeline Rewrite",
-          "upgrade": "tego-claw image build split into compile/package stages, base image slimmed down",
-          "value": "Faster CI builds, smaller images, more stable runtime"
-        },
-        "test": {
-          "name": "Test Suite Massively Expanded",
-          "upgrade": "New contract, gateway, file upload, notification push integration tests",
-          "value": "More reliable regression on critical paths — refactor with confidence"
-        }
-      },
-      "tableHeaders": {
-        "capability": "Core Capability",
-        "upgrade": "What changed",
-        "value": "Customer Value"
-      }
-    },
-    "perUserIsolation": {
-      "title": "Isolated Instances (per_user)",
-      "subtitle": "Dedicated runtime isolation for multi-user concurrency",
-      "painPoint": "In the v2 era, one AI coworker mapped to one container, with all users sharing the same runtime state. For scenarios like customer support and IT tickets where dozens of users hit the same AI coworker, sessions, memory, and workspaces overwrote each other — making true frontline production deployment difficult.",
-      "solution": "How v3.0.0 solves it",
-      "diagram": {
-        "userA": "User A",
-        "userB": "User B",
-        "userC": "User C",
-        "scheduler": "per_user Scheduler",
-        "containerA": "A's dedicated container + S3 namespace",
-        "containerB": "B's dedicated container + S3 namespace",
-        "containerC": "C's dedicated container + S3 namespace",
-        "recycle": "Idle 5min → graceful recycle / state flush to S3",
-        "wakeup": "Sub-second wake on next use"
-      },
-      "highlights": {
-        "container": {
-          "title": "Per-user dedicated container",
-          "description": "First connection spins up a dedicated instance bound to a dedicated S3 namespace"
-        },
-        "recycle": {
-          "title": "Idle auto-recycle",
-          "description": "Default 5 minutes idle triggers graceful shutdown — container has 45 seconds to flush state to S3, sub-second wake on next use"
-        },
-        "quota": {
-          "title": "Three-dimensional quota guardrails",
-          "description": "Per AI worker, per user, per tenant — independent caps prevent any over-allocation"
-        },
-        "capacity": {
-          "title": "Resource capacity guardrails",
-          "description": "Host CPU / memory > 80% returns 503 + queues — prevents node overload"
-        },
-        "heartbeat": {
-          "title": "Heartbeat timeout fallback",
-          "description": "3 minutes no heartbeat triggers auto-shutdown — eliminates \"zombie containers + permanently consumed quota\""
-        },
-        "stale": {
-          "title": "Stale lock auto-cleanup",
-          "description": "PROVISIONING / PENDING stuck from process crash is swept by a timer to FAILED — auto-retry next round"
-        }
-      },
-      "roadmap": "Warm Pool support is on the roadmap, with the goal of reducing first-start latency from a 5-15 second cold start to under 1 second."
-    },
-    "s3Isolation": {
-      "title": "S3 Three-Layer Data Isolation",
-      "subtitle": "Separating template data from user runtime data",
-      "description": "For per-user runtimes to work reliably, backup and recovery paths need user-level isolation. v3.0.0 redesigns the S3 namespace to provide that boundary.",
-      "layout": {
-        "title": "New S3 Namespace Layout",
-        "rows": {
-          "template": {
-            "path": "{avatarId}/{key}",
-            "comment": "AI-worker-level template (admin writable, all users read-only)"
-          },
-          "shared": {
-            "path": "{avatarId}/shared/{key}",
-            "comment": "Runtime backup for shared mode"
-          },
-          "perUser": {
-            "path": "{avatarId}/per-user/{userId}/{key}",
-            "comment": "Per-user dedicated backup under per_user mode"
-          }
-        }
-      },
-      "highlights": {
-        "jwt": {
-          "title": "JWT carries instanceUserId",
-          "description": "End-to-end transparent propagation — identifies which user instance each request belongs to"
-        },
-        "rewrite": {
-          "title": "Gateway auto-rewrites read/write paths",
-          "description": "S3 paths rewritten by instanceUserId — business code is unaware"
-        },
-        "fallback": {
-          "title": "Three-layer fallback read",
-          "description": "runtime/<key> → template/<key> → legacy seed path — smooth transition for new and old users"
-        },
-        "reset": {
-          "title": "One-click reset of all user instances",
-          "description": "Stop containers, delete orchestration resources, clear volumes, clear deployment records — clean and complete"
-        }
-      },
-      "value": "Customer value: when multiple users share the same AI coworker, each person’s sessions, memory, workspace, and media files remain independently backed up, restored, and deleted."
-    },
-    "templateGovernance": {
-      "title": "Template and Runtime Governance",
-      "subtitle": "Clear authority boundaries for admin-managed templates and user runtime data",
-      "diagram": {
-        "admin": "Admin / Owner",
-        "template": "Template template/*",
-        "runtime": "Per-user runtime/*",
-        "user": "Ordinary User",
-        "forbidden": "403 Forbidden",
-        "writeTemplate": "write",
-        "readTemplate": "read-only",
-        "writeRuntime": "write",
-        "tryWriteTemplate": "tries to write template"
-      },
-      "highlights": {
-        "adminOnly": {
-          "title": "Templates editable only by admin / owner via console",
-          "description": "Writes auto-bump the corresponding version (configVersion / workspaceVersion / skillsVersion)"
-        },
-        "interception": {
-          "title": "Gateway-side write interception",
-          "description": "Ordinary user tokens trying to write template paths get an immediate 403"
-        },
-        "consistency": {
-          "title": "Dual-write consistency",
-          "description": "RPC updates the local replica first, then admin REST writes the S3 template — operator sees no delay, other replicas converge via heartbeat"
-        },
-        "backfill": {
-          "title": "Backfill script",
-          "description": "pnpm db:backfill-template idempotently migrates legacy AI worker seed data to the new template path"
-        }
-      }
-    },
-    "businessMonitor": {
-      "title": "Business Operations Dashboard",
-      "subtitle": "One management view for platform health and business performance",
-      "description": "The new BusinessMonitorService aggregates metrics that were scattered across audit and analytics warehouses into a directly-displayable BusinessMonitorSnapshot v1 contract.",
-      "panels": {
-        "health": {
-          "name": "Baseline Health",
-          "metrics": "Audit / Channels / Health / Data Sources"
-        },
-        "coverage": {
-          "name": "Coverage",
-          "metrics": "Real active-user denominator — no more estimation"
-        },
-        "growth": {
-          "name": "Growth / Engagement",
-          "metrics": "DAU / WAU / MAU, retention and activity trends"
-        },
-        "tasks": {
-          "name": "Tasks / Realtime",
-          "metrics": "Current task volume and real-time load"
-        },
-        "workflow": {
-          "name": "Workflow",
-          "metrics": "Handoff, FCR (first-contact resolution), auto-flow rate, closure rate"
-        },
-        "skills": {
-          "name": "Skill Effectiveness",
-          "metrics": "Skill matrix + tool-call statistics"
-        }
-      },
-      "tech": {
-        "lru": "In-process LRU (5s TTL) cache — high-frequency multi-panel polling won't hammer the database",
-        "dual": "Both ai-studio and dashboard ship a dedicated route _authenticated/admin_.business-monitor"
-      }
-    },
-    "skillLibrary": {
-      "title": "16 Out-of-the-Box TeGo Template Skills",
-      "subtitle": "For AI coworkers to \"work immediately\", the biggest barrier has never been the model — it's the lack of a ready skill library.",
-      "executable": "executable script",
-      "tabs": {
-        "itOps": "IT Operations (11)",
-        "crossBorder": "Cross-Border E-commerce (5+)"
-      },
-      "noticeText": "Each skill ships with an executable script (bash) — not a \"prompt template\", but actually runnable.",
-      "itOps": {
-        "ticket-handler": {
-          "name": "ticket-handler",
-          "ability": "Full ticket lifecycle: intake, classification, priority, routing, SLA tracking"
-        },
-        "incident-triage": {
-          "name": "incident-triage",
-          "ability": "Rapid incident diagnosis: log analysis, metric correlation, runbook matching"
-        },
-        "auto-remediation": {
-          "name": "auto-remediation",
-          "ability": "Auto-remediation: service restart, disk cleanup, cache flush (with dry-run)"
-        },
-        "system-monitor": {
-          "name": "system-monitor",
-          "ability": "Proactive health monitoring: connectivity, resources, tiered anomaly alerts"
-        },
-        "infra-documenter": {
-          "name": "infra-documenter",
-          "ability": "Auto infrastructure docs: discovery, inventory, topology, change tracking"
-        },
-        "patch-manager": {
-          "name": "patch-manager",
-          "ability": "Vulnerability scanning and patch lifecycle: CVE matching, risk assessment, rollback plan"
-        },
-        "sla-reporter": {
-          "name": "sla-reporter",
-          "ability": "SLA compliance reports: availability, MTTR, trend analysis"
-        }
-      },
-      "crossBorder": {
-        "market-scout": {
-          "name": "market-scout",
-          "ability": "Market research: cross-validate Amazon Best Sellers / Google Trends / TikTok"
-        },
-        "competitor-intel": {
-          "name": "competitor-intel",
-          "ability": "Competitor analysis: scrape/analyze reviews, identify weaknesses, generate attack strategies"
-        },
-        "listing-forge": {
-          "name": "listing-forge",
-          "ability": "Listing copywriting: auto-pull competitor weaknesses from memory, SEO optimized"
-        },
-        "image-studio": {
-          "name": "image-studio",
-          "ability": "Hero / scene images: white background, compliance, AI generation"
-        },
-        "video-maker": {
-          "name": "video-maker",
-          "ability": "15-second UGC short videos for TikTok / Reels"
-        },
-        "voice-miner": {
-          "name": "voice-miner",
-          "ability": "Mining real user pain points from Reddit / forums"
-        },
-        "review-shield": {
-          "name": "review-shield",
-          "ability": "Negative review classification and compliant responses"
-        },
-        "site-cloner": {
-          "name": "site-cloner",
-          "ability": "Competitor landing page structure clone"
-        },
-        "locale-adapt": {
-          "name": "locale-adapt",
-          "ability": "Multi-market localization: cultural adaptation, local keywords, market SEO"
-        }
-      }
-    },
-    "desktopExperience": {
-      "title": "Desktop Experience Triple Hit",
-      "subtitle": "Mini Chat floating window / Downloads center / Windows installer rewrite",
-      "miniChat": {
-        "title": "Mini Chat",
-        "tagline": "An always-on-top \"on-demand AI coworker\"",
-        "features": {
-          "1": "Independent Tauri window — compact, frameless, always-on-top",
-          "2": "Reuses the same connection: shares one session with the main window — no split conversations",
-          "3": "Global hotkey: Spotlight / Raycast-style summon and dismiss",
-          "4": "Cross-window sync: both windows always show the same session",
-          "5": "Lazy create + reuse: webview only created on first summon to avoid double-loading"
-        }
-      },
-      "downloads": {
-        "title": "Downloads",
-        "tagline": "Unified \"Downloads Center\"",
-        "description": "Single entry for desktop, mobile, and CLI installers — enterprise users can quickly distribute to different endpoints after first onboarding"
-      },
-      "windows": {
-        "title": "Windows Installer Rewrite",
-        "tagline": "More stable install / upgrade / uninstall",
-        "features": {
-          "1": "584-line NSIS installer rewrite — more stable install / upgrade / uninstall",
-          "2": "New offline packaging script create-windows-installer.sh — friendly to private-deployment customers"
-        }
-      }
-    },
-    "scenarios": {
-      "title": "Real-World Scenarios",
-      "subtitle": "With 16 out-of-the-box template skills, new scenarios are just \"install skills + chain the flow\"",
-      "items": {
-        "itSupport": {
-          "title": "Scenario A · IT Internal Support",
-          "input": "An employee asks in chat: \"My laptop can't connect to VPN\"",
-          "path": "AI coworker identifies → incident-triage pulls logs → auto-remediation outputs a fix script (dry-run) → if it fails, ticket-handler auto-creates a ticket and tracks SLA",
-          "result": "Common issues self-resolve, complex issues escalate as structured tickets",
-          "tags": [
-            "incident-triage",
-            "auto-remediation",
-            "ticket-handler"
-          ]
-        },
-        "crossBorder": {
-          "title": "Scenario B · Cross-Border Selection / Listing",
-          "input": "Operator wants to quickly scope a new category",
-          "path": "market-scout pulls best sellers across platforms → competitor-intel scrapes reviews and identifies weaknesses → listing-forge writes SEO-optimized listings → image-studio / video-maker produce visuals → locale-adapt localizes for multiple markets",
-          "result": "What used to take 1 week from selection to listing is now drilled down to a 1-day rehearsal",
-          "tags": [
-            "market-scout",
-            "competitor-intel",
-            "listing-forge",
-            "image-studio",
-            "locale-adapt"
-          ]
-        },
-        "regulated": {
-          "title": "Scenario C · Government / Finance High-Sensitivity",
-          "input": "Regulator requires that each user's conversations and files be mutually invisible and independently destroyable",
-          "path": "AI coworker set to per_user → per-user dedicated containers + dedicated S3 namespaces → revoking an account triggers one-click cleanup of the corresponding prefix",
-          "result": "Meets compliance requirements for \"separable audit / targeted destruction of data\"",
-          "tags": [
-            "per_user",
-            "S3 Isolation",
-            "One-Click Destroy"
-          ]
-        }
-      }
-    },
-    "performanceMetrics": {
-      "title": "Performance & Footprint",
-      "subtitle": "v3.0.0 also tightens build, image, and runtime footprint",
-      "items": {
-        "build": {
-          "dimension": "tego-claw image build",
-          "improvement": "Two-stage split — JS compilation runs once on a single x64 machine"
-        },
-        "baseImage": {
-          "dimension": "Base image slimming",
-          "improvement": "Removed Bun (~96MB), Go / Rust / build-essential (~750MB), and global CLIs"
-        },
-        "ci": {
-          "dimension": "CI speed",
-          "improvement": "Using npm official source — faster than Chinese mirrors on GitHub runners"
-        },
-        "monitor": {
-          "dimension": "Business dashboard",
-          "improvement": "In-process LRU cache 5s TTL — multi-panel high-frequency polling doesn't hit DB"
-        },
-        "memory": {
-          "dimension": "per_user memory",
-          "improvement": "Default 768m (was 1024m) — a 16GB host can hold ~30% more instances"
-        },
-        "chat": {
-          "dimension": "Long chat sessions",
-          "improvement": "Virtualized log lists — long sessions and long logs render smoothly"
-        },
-        "pnpm": {
-          "dimension": "Package manager",
-          "improvement": "pnpm upgraded to 10.32.1"
-        }
-      },
-      "tableHeaders": {
-        "dimension": "Dimension",
-        "improvement": "Improvement"
-      }
-    },
-    "architecture": {
-      "title": "v3.0.0 Architecture Overview",
-      "subtitle": "Server + Gateway + S3 + Dashboard — four components with clear boundaries at last",
-      "nodes": {
-        "web": "Web Browser",
-        "desktop": "Tauri Desktop / Mini Chat",
-        "mini": "Embedded Mini Chat SDK",
-        "server": "TeGo Server",
-        "gateway": "TeGo AI Worker Gateway",
-        "shared": "shared instance pool",
-        "perUser": "per-user dedicated instances",
-        "channels": "Channel adapters (Feishu / Slack / Web API)",
-        "pg": "PostgreSQL (metadata)",
-        "redis": "Redis (sessions / rate limit)",
-        "s3": "S3 (data isolation)",
-        "monitor": "BusinessMonitor dashboard"
-      },
-      "legend": {
-        "server": "Server: hub for permission, quota, audit, monitoring, template/runtime governance",
-        "gateway": "Gateway: instance creation, scheduling, heartbeat, shutdown — shared and per_user share one scheduler",
-        "s3": "S3: three-layer prefix isolation by template / shared / per-user/{userId}",
-        "monitor": "Dashboard: aggregation layer deployed independently, cached independently, doesn't impact transactional path"
-      }
-    },
-    "upgradeMigration": {
-      "title": "Upgrade & Migration",
-      "subtitle": "Recommended order + breaking changes checklist",
-      "stepsTitle": "Upgrade actions (recommended order)",
-      "steps": {
-        "1": "Run database migration to 0015: pnpm db:migrate",
-        "2": "For legacy AI workers, run pnpm db:backfill-template once to explicitly relocate template paths",
-        "3": "For per_user mode, validate idle recycle / heartbeat fallback / capacity guardrails on a test tenant before canary in production",
-        "4": "Windows users should switch to the new NSIS installer",
-        "5": "Private-deployment customers align build process with \"build / bundle done externally → only packaged into image\""
-      },
-      "breakingTitle": "Important breaking changes (please notify engineering)",
-      "breaking": {
-        "1": "Removed the legacy avatar_agents table and corresponding API routes — external direct-callers must switch to the new template API",
-        "2": "JWT payload adds instanceUserId — clients should re-issue tokens after upgrade",
-        "3": "S3 path layout has changed — fallback exists for legacy paths, but explicit relocation is recommended",
-        "4": "Gateway template write permission tightened — ordinary user tokens writing template paths return 403",
-        "5": "tego-claw Docker image no longer compiles JS internally — private-deployment build flows must adapt",
-        "6": "Base image removed Bun / Go / Rust — private plugins relying on in-container compilation must add them back in their own Dockerfile"
-      }
-    },
-    "privateDelivery": {
-      "title": "On-Prem Deployment Capabilities",
-      "subtitle": "Pure private / Hybrid cloud / SaaS — three delivery modes covering government, enterprise, finance, and cross-border",
-      "items": {
-        "deployment": {
-          "dimension": "Deployment forms",
-          "ability": "Pure private (K8s / Docker) · Hybrid cloud · SaaS"
-        },
-        "residency": {
-          "dimension": "Data residency",
-          "ability": "All data can stay in the customer's intranet; S3 can be replaced with compatible object storage"
-        },
-        "auth": {
-          "dimension": "Authentication",
-          "ability": "Built-in account/password + LDAP, supports enterprise SSO (OIDC / SAML)"
-        },
-        "audit": {
-          "dimension": "Audit",
-          "ability": "Operation audit, call audit, data export"
-        },
-        "localization": {
-          "dimension": "China-localized stack support",
-          "ability": "Adapted to mainstream domestic CPU / OS / database / object storage"
-        },
-        "offline": {
-          "dimension": "Offline",
-          "ability": "Full offline installer supported, including model weights packaging"
-        }
-      },
-      "tableHeaders": {
-        "dimension": "Dimension",
-        "ability": "Capability"
-      }
-    },
-    "competitiveUpgrade": {
-      "title": "v2.x to v3.0.0: What Changed",
-      "subtitle": "TeGo moves from a usable product to a production-ready enterprise system",
-      "before": "v2.x",
-      "after": "v3.0.0",
-      "items": {
-        "concurrency": {
-          "dimension": "Multi-user concurrency",
-          "before": "✗ Shared runtime — sessions/memory cross-contaminate",
-          "after": "✓ per_user isolated instances — no interference"
-        },
-        "isolation": {
-          "dimension": "Data isolation",
-          "before": "✗ Shared S3 namespace with no user-level boundary",
-          "after": "✓ Three-layer path separation with independent backup and deletion"
-        },
-        "governance": {
-          "dimension": "Configuration governance",
-          "before": "✗ Anyone can edit — easy conflicts",
-          "after": "✓ Template single authority + 403 interception"
-        },
-        "monitor": {
-          "dimension": "Operational observability",
-          "before": "✗ Metrics scattered across systems",
-          "after": "✓ BusinessMonitor dashboard in one view"
-        },
-        "skills": {
-          "dimension": "Out-of-the-box skills",
-          "before": "Build skill library yourself",
-          "after": "✓ 16 ready templates with executable scripts"
-        },
-        "desktop": {
-          "dimension": "Desktop client",
-          "before": "Single main window",
-          "after": "✓ Mini Chat floater + Downloads center + new Windows installer"
-        }
-      }
-    }
+    "eyebrow": "Get started",
+    "title": "Put your first digital employee on the job",
+    "description": "Pick your first business role and start a 2-week POC. Sign off on business results and turn the process into a reusable role asset.",
+    "primaryCTA": "Request a POC",
+    "secondaryCTA": "Read the quick start",
+    "hint": "AI has entered the era of task execution, and governance has to cover execution too."
   },
   "biz": {
     "hero": {
-      "badge": "Digital Employees for Global Teams",
-      "title": "Build Your AI Workforce, One Digital Employee at a Time",
-      "subtitle": "Create dedicated digital employees for research, client delivery, and market expansion. Each one has its own skills, memory, and workspace—and delivers editable work, not just answers.",
-      "primaryCta": "Book an Enterprise Demo",
-      "primaryCtaHint": "A one-on-one walkthrough with a solution expert",
-      "secondaryCta": "Download the Product Brief",
-      "secondaryCtaHint": "Deployment options, architecture, and pricing overview",
+      "badge": "TeGo · Digital employee execution & governance",
+      "title": "Digital employees that work safely, efficiently and continuously",
+      "subtitle": "Bring AI into your core business processes and get results you can sign off. TeGo defines each role's duties, permissions and acceptance criteria, then runs it under control inside your own environment with a full audit trail.",
+      "tags": [
+        "Autonomous task execution",
+        "Private deployment",
+        "Scoped permissions",
+        "Domestic-stack ready"
+      ],
+      "primaryCta": "Request a 2-week POC",
+      "docsCta": "Read the quick start",
       "watchDemo": "Watch product demo",
       "watchDemoAria": "Open the product demo video",
-      "tertiaryCta": "Discuss On-Prem Deployment",
-      "tertiaryCtaHint": "On-prem, hybrid cloud, and SaaS delivery options",
-      "trustLine": "Built for SaaS companies, cross-border commerce teams, IT service providers, government, and financial institutions",
+      "tertiaryCta": "Private deployment consultation",
+      "tertiaryCtaHint": "Private deployment, TeGo Station appliance, or TeGo Cloud",
       "highlights": {
-        "scale": {
-          "value": "200+",
-          "label": "ready-to-work roles"
+        "poc": {
+          "value": "2 weeks",
+          "label": "POC to prove the first role"
         },
-        "speed": {
-          "value": "Minutes",
-          "label": "to the first task"
+        "xinchuang": {
+          "value": "Full stack",
+          "label": "Domestic hardware & OS support"
         },
-        "delivery": {
-          "value": "$0",
-          "label": "to start globally"
+        "evidence": {
+          "value": "End-to-end",
+          "label": "Execution trail & verifiable evidence"
         }
-      }
-    },
-    "audienceSplit": {
-      "title": "One digital workforce, two ways to start",
-      "subtitle": "Choose the TeGo path that fits your team size, data boundaries, and delivery requirements.",
-      "private": {
-        "eyebrow": "For enterprises",
-        "title": "TeGo Enterprise",
-        "description": "Deploy in your environment, customize around real workflows, and launch with hands-on engineering support.",
-        "features": ["Keep data and models inside your network", "Deep workflow and industry customization", "Forward Deployed Engineer support", "SSO, permissions, audit, and high availability"],
-        "cta": "Book an enterprise demo"
       },
-      "cloud": {
-        "eyebrow": "For individuals and teams",
-        "title": "TeGo Cloud",
-        "description": "No deployment required. Create dedicated AI coworkers and move real work forward from day one.",
-        "features": ["Start at $0 and upgrade as needed", "200+ ready-to-work experts", "Automatic updates with zero maintenance", "Available globally"],
-        "cta": "Start free"
+      "console": {
+        "title": "Digital Employee Role Console",
+        "subtitle": "Identity, permissions, execution and evidence in one view",
+        "live": "Live",
+        "workers": [
+          {
+            "name": "Knowledge desk",
+            "status": "Role-scoped search · cites sources"
+          },
+          {
+            "name": "Process follow-up",
+            "status": "OA tickets in flight · 3 awaiting review"
+          }
+        ],
+        "workflowTitle": "Controlled execution",
+        "steps": "3 steps",
+        "workflow": [
+          "Verify requester & scope",
+          "Call tools in the sandbox",
+          "Produce verifiable evidence"
+        ],
+        "governanceTitle": "Governance",
+        "governance": [
+          "Least privilege enforced",
+          "High-risk actions need approval",
+          "Audit records verified"
+        ],
+        "footer": [
+          "Identity-bound sandbox",
+          "Runtime orchestration",
+          "Trusted execution evidence"
+        ]
       }
     },
     "teamPacks": {
       "eyebrow": "Start with a digital team",
       "title": "Choose the work you need done—not another blank chat",
-      "subtitle": "Start with a focused three-person digital team. Your first task is prepared automatically in Zhama, and you can add more employees whenever the workload grows.",
+      "subtitle": "Start with a focused three-person digital team. Your first task is prepared automatically in TeGo Cloud, and you can add more employees whenever the workload grows.",
       "recommended": "Start here",
       "employeesLabel": "Your first 3 digital employees",
       "outcomeLabel": "First outcome",
-      "reassurance": "No credit card required. The task opens pre-filled in Zhama so you can review it before creating your free workspace.",
+      "reassurance": "No credit card required. The task opens pre-filled in TeGo Cloud so you can review it before creating your free workspace.",
       "items": {
         "research": {
           "title": "Research & Strategy Team",
           "description": "For founders, consultants, product teams, and anyone who needs faster evidence-backed decisions.",
-          "employees": ["Market Researcher", "Competitive Intelligence Analyst", "Strategy Writer"],
+          "employees": [
+            "Market Researcher",
+            "Competitive Intelligence Analyst",
+            "Strategy Writer"
+          ],
           "outcome": "A decision-ready market and competitor brief",
           "cta": "Start a research brief"
         },
         "delivery": {
           "title": "Client Delivery Team",
           "description": "For agencies and professional services teams that turn rough inputs into client-ready work every week.",
-          "employees": ["Research Analyst", "Proposal & Deck Writer", "QA Reviewer"],
+          "employees": [
+            "Research Analyst",
+            "Proposal & Deck Writer",
+            "QA Reviewer"
+          ],
           "outcome": "A structured, client-ready strategy deck",
           "cta": "Prepare a client deliverable"
         },
         "expansion": {
           "title": "Market Expansion Team",
           "description": "For companies entering a new country, language, or sales channel—including cross-border commerce.",
-          "employees": ["Market Entry Researcher", "Localization Specialist", "Growth Operator"],
+          "employees": [
+            "Market Entry Researcher",
+            "Localization Specialist",
+            "Growth Operator"
+          ],
           "outcome": "A prioritized market-entry opportunity brief",
           "cta": "Evaluate a new market"
         }
       }
     },
     "painPoints": {
-      "title": "Why Most Enterprise AI Pilots Never Reach Production",
-      "subtitle": "The model is rarely the bottleneck. Production AI needs isolation, governance, auditability, and operating visibility.",
-      "items": {
-        "shared": {
-          "title": "Everyone shares the same assistant",
-          "description": "When dozens of employees use one shared AI assistant, sessions overwrite each other, memory becomes unreliable, and the system cannot support real operational load."
+      "eyebrow": "Why TeGo",
+      "title": "When agents touch real business, four control risks appear",
+      "subtitle": "AI is moving from answering to acting. Without roles, permissions, review and audit in place together, risk concerns block scale-out.",
+      "items": [
+        {
+          "action": "Connecting to business systems",
+          "risk": "Unclear accountability",
+          "description": "When an agent acts on someone's behalf, nobody can say who authorized it or who owns the outcome."
         },
-        "data": {
-          "title": "No clear data boundary or audit trail",
-          "description": "Teams cannot see where data goes, what sources an answer used, or how to prove compliance, so AI stays stuck in pilot projects."
+        {
+          "action": "Talking to customers directly",
+          "risk": "Uncontrolled content",
+          "description": "Inconsistent answers and sensitive content reach customers without review."
         },
-        "control": {
-          "title": "Weak permissions and unstable configuration",
-          "description": "If anyone can change AI behavior or overwrite shared settings, operations teams cannot safely govern AI across the enterprise."
+        {
+          "action": "Calling tools on its own",
+          "risk": "No full operation trail",
+          "description": "What was called, what changed and what happened can't be fully reconstructed."
         },
-        "blackbox": {
-          "title": "The business impact is hard to prove",
-          "description": "Without a unified operations view, leaders cannot see employee coverage, resolution rates, automation value, or labor savings."
+        {
+          "action": "Touching core data",
+          "risk": "No data-security guarantee",
+          "description": "Knowledge, memory and logs leave the company boundary and access is hard to scope."
         }
+      ],
+      "compare": {
+        "title": "Close the execution-control gap and keep know-how as a private asset",
+        "fromLabel": "Manual work & generic AI",
+        "toLabel": "TeGo digital employees",
+        "rows": [
+          {
+            "from": "Blurred accountability",
+            "to": "Role definitions & acceptance criteria"
+          },
+          {
+            "from": "No operation records",
+            "to": "End-to-end audit trail"
+          },
+          {
+            "from": "Uncontrolled content",
+            "to": "Skills lock in approved answers, plus human review"
+          },
+          {
+            "from": "Unsafe data",
+            "to": "Least privilege & on-premise retention"
+          }
+        ]
       }
     },
     "valuePillars": {
-      "title": "Four Foundations for Production-Ready Enterprise AI",
-      "subtitle": "TeGo is more than an AI assistant. It gives each role a governed AI coworker that can operate safely inside the business.",
-      "pillars": {
-        "dedicated": {
-          "title": "A dedicated AI coworker for every employee",
-          "description": "Each employee gets an isolated AI workspace with separate sessions, memory, and files, designed for enterprise-scale concurrency.",
-          "tag": "Concurrency ready"
+      "eyebrow": "Four qualifications to go live",
+      "title": "Manage agent execution the way you manage roles",
+      "subtitle": "Every digital employee is assigned a role, granted permissions, reviewed and audited like a real hire, then signed off on business results.",
+      "items": [
+        {
+          "title": "Role definition",
+          "description": "Identity, duties, who it serves and how it is accepted."
         },
-        "ownership": {
-          "title": "Enterprise-owned data by design",
-          "description": "Conversations, knowledge, and files stay in enterprise-controlled storage, with independent backup, migration, and deletion.",
-          "tag": "Data ownership"
+        {
+          "title": "Permission boundary",
+          "description": "Least-privilege access to data and tools, scoped to the role."
         },
-        "governance": {
-          "title": "Governed and auditable end to end",
-          "description": "Permissions, audit logs, operations dashboards, SLA controls, and versioning work together so every AI action is visible and accountable.",
-          "tag": "Governance"
+        {
+          "title": "Human approval",
+          "description": "Write-backs, publishing and sensitive exports are reviewed first."
         },
-        "ready": {
-          "title": "Ready-to-run industry skills",
-          "description": "TeGo ships with production-grade skills for IT operations and cross-border commerce, so new AI coworkers can support real workflows quickly.",
-          "tag": "Ready to run"
+        {
+          "title": "Audit trail",
+          "description": "Tasks, identities, calls and results are traceable end to end."
         }
+      ],
+      "acceptance": {
+        "title": "Business sign-off",
+        "description": "Role tasks completed and results meet the bar."
+      },
+      "assets": {
+        "title": "Five-asset model",
+        "subtitle": "Five building blocks that let a digital employee go live, all kept inside your network.",
+        "items": [
+          {
+            "title": "Role definition",
+            "description": "Duties & acceptance criteria"
+          },
+          {
+            "title": "Skill library",
+            "description": "Task methods & process gates"
+          },
+          {
+            "title": "Knowledge & memory",
+            "description": "Policies, SOPs & past cases"
+          },
+          {
+            "title": "System & tool connections",
+            "description": "Standard APIs, least privilege"
+          },
+          {
+            "title": "Permissions & audit",
+            "description": "Human review & full trail"
+          }
+        ]
+      },
+      "path": {
+        "title": "Delivery path",
+        "steps": [
+          {
+            "title": "Define the role",
+            "description": "Write the job description"
+          },
+          {
+            "title": "Install Skills",
+            "description": "Reusable methods & processes"
+          },
+          {
+            "title": "Connect systems",
+            "description": "Execution channel into core flows"
+          },
+          {
+            "title": "Sign off",
+            "description": "Accept on auditable execution records"
+          }
+        ]
       }
     },
     "scenarios": {
-      "title": "Where TeGo Is Already Creating Value",
-      "subtitle": "Production workflows for internal support, growth operations, and highly regulated teams.",
-      "items": {
-        "itSupport": {
-          "industry": "Internal IT Support",
-          "title": "24/7 frontline response for employee IT requests",
-          "description": "From the first employee message to diagnosis, remediation, and SLA tracking, common issues can be resolved in minutes while complex cases escalate as structured tickets.",
-          "metrics": [
-            {
-              "label": "First-contact fix",
-              "value": "≥60%"
-            },
-            {
-              "label": "Response time",
-              "value": "40%↓"
-            },
-            {
-              "label": "Tickets/agent",
-              "value": "3×"
-            }
-          ]
+      "eyebrow": "Solutions",
+      "title": "Eight business domains, served by reusable role assets",
+      "subtitle": "Prebuilt roles and a Skill library lower setup cost: enable a prebuilt asset, tune it to your process, then replicate it across teams.",
+      "domains": [
+        {
+          "title": "Knowledge management",
+          "description": "Policy Q&A, case search"
         },
-        "crossBorder": {
-          "industry": "Cross-Border Commerce",
-          "title": "A digital growth team for research, listings, and localization",
-          "description": "Market research, competitor analysis, listing copy, creative assets, and multi-market localization run as one AI-powered operations workflow.",
-          "metrics": [
-            {
-              "label": "Launch cycle",
-              "value": "7d→1d"
-            },
-            {
-              "label": "Listing throughput",
-              "value": "5×"
-            },
-            {
-              "label": "Ops effort",
-              "value": "50%↓"
-            }
-          ]
+        {
+          "title": "Process execution",
+          "description": "Ticket routing, follow-ups"
         },
-        "regulated": {
-          "industry": "Government and Finance",
-          "title": "AI workers built for sensitive and regulated environments",
-          "description": "User-level isolation and targeted data deletion help regulated teams adopt AI while meeting strict audit and compliance requirements.",
-          "metrics": [
-            {
-              "label": "Isolation",
-              "value": "Per-user"
-            },
-            {
-              "label": "Deletion trace",
-              "value": "100%"
-            },
-            {
-              "label": "Audit coverage",
-              "value": "End-to-end"
-            }
-          ]
+        {
+          "title": "Data analysis",
+          "description": "Daily reports, anomaly alerts"
+        },
+        {
+          "title": "Customer service",
+          "description": "Inquiries, after-sales"
+        },
+        {
+          "title": "Sales support",
+          "description": "Lead cleanup, quoting"
+        },
+        {
+          "title": "Human resources",
+          "description": "Screening, employee Q&A"
+        },
+        {
+          "title": "Finance & compliance",
+          "description": "Invoice checks, expense review"
+        },
+        {
+          "title": "Supply chain & ops",
+          "description": "Order tracking, stock alerts"
         }
-      }
-    },
-    "outcomes": {
-      "title": "Business Outcomes Customers Can Expect",
-      "subtitle": "Typical production results after deploying TeGo AI coworkers.",
-      "metrics": {
-        "resolution": {
-          "value": "60%+",
-          "label": "First-contact resolution",
-          "description": "Common employee IT requests are diagnosed and resolved in minutes"
+      ],
+      "featuredTitle": "Four featured scenarios",
+      "painLabel": "Pain point: ",
+      "usesLabel": "Typical uses: ",
+      "items": [
+        {
+          "label": "Scenario 1",
+          "title": "Knowledge management employee",
+          "tagline": "Scattered documents go into a private knowledge base; every answer cites its source",
+          "pain": "Scattered material, slow search, slow onboarding",
+          "steps": [
+            "Ingest documents",
+            "Extract key rules",
+            "Scoped search",
+            "Cite sources"
+          ],
+          "uses": "Research search, policy Q&A, contract clause lookup"
         },
-        "ttm": {
-          "value": "1 day",
-          "label": "Time to market",
-          "description": "Cross-border listing workflows that took more than a week can be compressed into one business day"
+        {
+          "label": "Scenario 2",
+          "title": "Process execution employee",
+          "tagline": "Cross-system tasks, with completion proven by business receipts",
+          "pain": "Slow hand-offs, copy errors, hard-to-track progress",
+          "steps": [
+            "Pick up ticket",
+            "Route",
+            "Human review",
+            "Write back",
+            "Receipt check"
+          ],
+          "uses": "Approval follow-ups, filings, ticket closure"
         },
-        "cost": {
-          "value": "50%+",
-          "label": "Operations effort reduced",
-          "description": "Repetitive, rules-based work is handed off to AI coworkers"
+        {
+          "label": "Scenario 3",
+          "title": "Data analysis employee",
+          "tagline": "Business users get authorized data and analysis in plain language",
+          "pain": "Dependence on IT, inconsistent metrics, risky exports",
+          "steps": [
+            "Ask in plain language",
+            "Check metric definitions",
+            "Scoped query",
+            "Summaries & reports"
+          ],
+          "uses": "KPI queries, customer stats, business briefs, anomaly alerts"
         },
-        "response": {
-          "value": "7×24",
-          "label": "Always-on coverage",
-          "description": "AI coworkers keep responding to internal and external requests around the clock"
+        {
+          "label": "Scenario 4",
+          "title": "Customer service employee",
+          "tagline": "Standard questions handled 24/7; complex or sensitive cases go to people",
+          "pain": "High volume, inconsistent answers, slow at peak",
+          "steps": [
+            "Detect intent",
+            "Scoped retrieval",
+            "Standard reply"
+          ],
+          "uses": "Inquiries, product Q&A, self-service tickets, follow-up reminders"
         }
-      },
-      "footnote": "Actual results vary by industry, scale, and rollout depth. We can prepare a business impact assessment during your demo."
+      ],
+      "docsCta": "See best-practice cases"
     },
     "readiness": {
-      "title": "Built for Enterprise Production from Day One",
-      "subtitle": "TeGo is engineered for the operating, security, and compliance standards of production business systems.",
-      "items": {
-        "private": {
-          "title": "On-prem deployment",
-          "description": "Runs on Kubernetes or Docker inside the customer network, so data stays within the enterprise boundary."
+      "eyebrow": "Enterprise ready",
+      "title": "A private foundation for safe digital-employee operations",
+      "subtitle": "Enterprise delivery for state-owned and financial institutions: domestic stacks, multi-device access and group-level management in one platform.",
+      "governanceTitle": "Secure runtime governance",
+      "governance": [
+        {
+          "title": "Least privilege",
+          "description": "Only the access this role needs"
         },
-        "compliance": {
-          "title": "Compliance and auditability",
-          "description": "Operation logs, AI call logs, and data export support regulated review and audit workflows."
+        {
+          "title": "Human approval gate",
+          "description": "High-risk actions run after review"
         },
-        "sso": {
-          "title": "Enterprise SSO and access control",
-          "description": "Supports account login, LDAP, and enterprise SSO through OIDC or SAML, integrating with your existing identity stack."
+        {
+          "title": "End-to-end audit",
+          "description": "Tasks, identities, calls and results archived"
         },
-        "domestic": {
-          "title": "China-localized stack support",
-          "description": "Supports mainstream China-localized CPUs, operating systems, databases, and object storage for sovereign IT delivery."
-        },
-        "isolation": {
-          "title": "Per-user data isolation",
-          "description": "Each employee’s conversations, memory, and files are isolated, with independent backup, recovery, and deletion."
-        },
-        "sla": {
-          "title": "Reliability and SLA readiness",
-          "description": "Production-grade capacity guardrails, fault handling, and observability support enterprise SLA commitments."
+        {
+          "title": "Data-domain isolation",
+          "description": "Knowledge, memory and logs stay on-prem"
         }
-      }
+      ],
+      "deliveryTitle": "Enterprise delivery capabilities",
+      "delivery": [
+        {
+          "title": "Domestic full stack",
+          "points": [
+            "Kunpeng / Phytium CPUs",
+            "Kylin / UOS",
+            "Domestic databases & SM crypto"
+          ]
+        },
+        {
+          "title": "Mobile access",
+          "points": [
+            "DingTalk, WeCom, Feishu",
+            "App / mini-program / H5",
+            "Native HarmonyOS"
+          ]
+        },
+        {
+          "title": "System connections",
+          "points": [
+            "OA / ERP / HR",
+            "Knowledge bases & data sources",
+            "Standard APIs & connectors"
+          ]
+        },
+        {
+          "title": "Group multi-tenancy",
+          "points": [
+            "Org and user isolation",
+            "Role assets managed per domain",
+            "Unified audit & operations"
+          ]
+        }
+      ],
+      "note": "Exact compatibility and scope follow the delivery checklist and validation results."
     },
     "delivery": {
-      "title": "Flexible Deployment and Commercial Models",
-      "subtitle": "Keep all data on-prem, run a hybrid architecture, or start quickly with SaaS. Choose the model that fits your governance requirements.",
+      "title": "Choose how to deploy",
+      "subtitle": "Keep data inside your network, go live fast on an appliance, or start in the cloud.",
+      "popularLabel": "Recommended",
+      "docsLink": "Deployment docs (Chinese)",
       "modes": {
         "private": {
-          "title": "On-Prem Deployment",
-          "tagline": "For teams with strict data residency and compliance requirements",
+          "title": "Private deployment",
+          "tagline": "For government and financial customers with the strictest data and compliance needs",
           "features": [
-            "Full stack runs inside the customer network",
-            "China-localized CPU, OS, database, and object storage supported",
-            "Offline installer and model-weight packaging available"
+            "Full stack inside your network; data never leaves",
+            "Offline packages: single-node Compose or K3s + Helm cluster",
+            "Domestic CPUs, OS, databases and SM crypto supported"
           ],
           "cta": "Talk to a deployment expert"
         },
-        "hybrid": {
-          "title": "Hybrid Cloud",
-          "tagline": "Keep sensitive data local while TeGo manages the control plane",
+        "station": {
+          "title": "TeGo Station appliance",
+          "tagline": "Hardware and software in one private AI box",
           "features": [
-            "Sensitive data remains inside your network",
-            "TeGo manages control-plane upgrades and operations",
-            "Balances compliance requirements with operational cost"
+            "TeGo platform and model runtime preinstalled",
+            "Live in 1–3 days",
+            "Ideal for department pilots and branches"
           ],
-          "cta": "Explore hybrid deployment"
+          "cta": "Explore TeGo Station"
         },
-        "saas": {
-          "title": "SaaS",
-          "tagline": "Start quickly without managing infrastructure",
+        "cloud": {
+          "title": "TeGo Cloud",
+          "tagline": "Sign up and start; nothing to deploy or operate",
           "features": [
-            "Flexible per-seat or usage-based pricing",
-            "Automatic upgrades to the latest version",
-            "Best for fast validation and small-team rollout"
+            "Start at $0 and scale as you go",
+            "200+ ready-to-use expert roles",
+            "Great for individuals and small teams"
           ],
-          "cta": "Start with SaaS"
-        }
-      },
-      "popularLabel": "Recommended"
-    },
-    "logos": {
-      "title": "Built for These Industries",
-      "subtitle": "TeGo helps SaaS companies, cross-border commerce teams, IT service providers, public-sector organizations, and financial institutions build governed AI workflows.",
-      "industries": [
-        {
-          "key": "internet",
-          "label": "Internet and SaaS"
-        },
-        {
-          "key": "ecommerce",
-          "label": "Cross-border commerce"
-        },
-        {
-          "key": "itServices",
-          "label": "IT services and operations"
-        },
-        {
-          "key": "government",
-          "label": "Government and public sector"
-        },
-        {
-          "key": "finance",
-          "label": "Financial services"
-        },
-        {
-          "key": "manufacturing",
-          "label": "Manufacturing and supply chain"
-        }
-      ],
-      "footnote": "Some customer names are not displayed publicly. Industry-specific references are available during your demo."
-    },
-    "resources": {
-      "title": "Learn More About TeGo",
-      "subtitle": "Resources for product, architecture, security, and operations teams.",
-      "items": {
-        "manual": {
-          "title": "Product brief",
-          "description": "A practical overview of core workflows, deployment options, and operating model.",
-          "cta": "Read the brief"
-        },
-        "whitepaper": {
-          "title": "Technical whitepaper",
-          "description": "Architecture, data isolation, and compliance model for architects and security teams.",
-          "cta": "Download whitepaper"
-        },
-        "blog": {
-          "title": "Engineering blog",
-          "description": "Product updates, technical deep dives, and field notes from enterprise AI deployments.",
-          "cta": "Visit the blog"
-        },
-        "deploy": {
-          "title": "Deployment docs",
-          "description": "Deployment, upgrade, and operations guides, including private delivery playbooks.",
-          "cta": "Open docs"
+          "cta": "Start free"
         }
       }
+    },
+    "resources": {
+      "eyebrow": "Docs & resources",
+      "title": "TeGo Documentation Center",
+      "subtitle": "Manuals, deployment and operations, video tutorials and release notes, all at docs.zhama.com.cn (in Chinese).",
+      "docsBanner": {
+        "title": "From quick start to private deployment, in one place",
+        "description": "Pick a digital employee, send a request and check the result file to finish your first task in minutes. Ops teams can follow the docs for offline install, high availability and upgrade or rollback.",
+        "cta": "Open the docs"
+      },
+      "items": {
+        "quickStart": {
+          "title": "Quick start",
+          "description": "No setup needed: see a digital employee finish a real task in a few steps.",
+          "cta": "Start reading"
+        },
+        "bestPractices": {
+          "title": "Best practices",
+          "description": "Configured roles such as meeting assistant, month-end close and IT ops.",
+          "cta": "View cases"
+        },
+        "deploy": {
+          "title": "Deployment & ops",
+          "description": "Requirements, Compose / K8s install, security checks and HA.",
+          "cta": "Read the guide"
+        },
+        "videos": {
+          "title": "Video tutorials",
+          "description": "Create a digital employee, single-node install and model setup.",
+          "cta": "Watch videos"
+        },
+        "downloads": {
+          "title": "Client downloads",
+          "description": "Install notes for desktop, mobile and TeGo Studio.",
+          "cta": "View downloads"
+        },
+        "releaseNotes": {
+          "title": "Release notes",
+          "description": "New features, improvements and fixes in every version.",
+          "cta": "See what's new"
+        },
+        "blog": {
+          "title": "Blog",
+          "description": "Methods, architecture and industry notes on digital employees.",
+          "cta": "Read the blog"
+        },
+        "whitepaper": {
+          "title": "Solution briefs",
+          "description": "Get industry solutions and the product white paper, walked through by an expert.",
+          "cta": "Request materials"
+        }
+      },
+      "feature": {
+        "eyebrow": "Feature · Cloud AI Agents",
+        "title": "From Muse to TeGo: agents that deliver real work",
+        "description": "Explore how cloud agents fit into enterprise roles, tools, and approvals.",
+        "cta": "Explore the story",
+        "imageAlt": "Cloud agent workspace illustration"
+      }
+    },
+    "coreTech": {
+      "eyebrow": "Core technology",
+      "title": "Secure sandboxes and in-house orchestration for digital employees at scale",
+      "subtitle": "Once digital employees enter business systems, the execution layer must solve authorization boundaries, runtime efficiency and accountability at the same time.",
+      "items": [
+        {
+          "label": "Core tech 01",
+          "title": "Identity-bound secure sandbox",
+          "description": "When one digital employee serves many users, TeGo identifies the real requester and scopes data and tool permissions for that piece of work.",
+          "points": [
+            "Verifies the runtime instance and the requester separately",
+            "Checks the data-mount scope",
+            "Constrains processes, network and resources",
+            "Business actions follow the requester's grants"
+          ],
+          "value": "Share digital employees while keeping each user's authorization boundary"
+        },
+        {
+          "label": "Core tech 02",
+          "title": "In-house runtime orchestration",
+          "description": "Coordinates environment reuse, idle reclamation and instance allocation around permission scopes, active tasks and persistent state.",
+          "points": [
+            "Scoped reuse by user, employee and workspace",
+            "Quota-aware reclamation that skips active tasks",
+            "Stateful allocation that preserves data ownership"
+          ],
+          "value": "Higher runtime efficiency under security constraints, with continuity"
+        },
+        {
+          "label": "Core tech 03",
+          "title": "Trusted execution",
+          "description": "Links the real requester, the digital employee, key operations and outputs, with evidence export and offline verification.",
+          "points": [
+            "Links requester, employee, task steps and deliverables",
+            "Hash chains and signature anchors verify integrity",
+            "Evidence packages for export and offline checks"
+          ],
+          "value": "Supports security reviews, decision audits and accountability"
+        }
+      ],
+      "replay": {
+        "title": "Observable execution and task replay",
+        "subtitle": "Asset definitions say what should happen; execution records prove what actually happened.",
+        "steps": [
+          "Task source",
+          "Reasoning",
+          "Tool calls",
+          "Results",
+          "Exceptions",
+          "Receipt check"
+        ],
+        "points": [
+          {
+            "title": "Every step recorded",
+            "description": "Inputs, outputs, intermediate results and errors"
+          },
+          {
+            "title": "Full task replay",
+            "description": "Pinpoint reasoning drift and call failures"
+          },
+          {
+            "title": "Human-in-the-loop on risk",
+            "description": "Completion judged by business-system receipts"
+          }
+        ]
+      }
+    },
+    "customers": {
+      "eyebrow": "Customer practice",
+      "title": "Digital employees already inside real business processes",
+      "subtitle": "They connect to existing systems, take business actions and deliver results you can sign off. Key decisions always stay with people.",
+      "principles": [
+        {
+          "title": "Executes",
+          "description": "Files and cross-system actions"
+        },
+        {
+          "title": "Escalates",
+          "description": "Missing info and risk go to people"
+        },
+        {
+          "title": "Traceable",
+          "description": "Inputs, process and results recorded"
+        },
+        {
+          "title": "Private",
+          "description": "Isolated permissions, data stays on-prem"
+        }
+      ],
+      "industries": [
+        "Office collaboration",
+        "Insurance",
+        "Securities",
+        "Manufacturing",
+        "Government IT",
+        "Universities"
+      ],
+      "guardrailLabel": "Human control",
+      "cases": [
+        {
+          "industry": "Office collaboration",
+          "client": "A data-technology group",
+          "title": "Closed-loop office work",
+          "description": "Meetings, follow-ups, intelligence and the policy knowledge base run together, so meeting decisions no longer depend on manual ticketing.",
+          "points": [
+            "Meeting breakdown: items, owners and deadlines",
+            "OA ticketing: written to the task system after confirmation",
+            "Weekly follow-up report: overdue and risk items"
+          ],
+          "metric": {
+            "value": "Hours → tens of minutes",
+            "label": "Overall to-do handling time"
+          },
+          "guardrail": "Task edits and major decisions remain manual"
+        },
+        {
+          "industry": "Insurance",
+          "client": "A life insurance company",
+          "title": "A cluster of role-based digital employees",
+          "description": "A secure runtime foundation first, then Skills installed role by role, with one entry point on PC and mobile.",
+          "points": [
+            "Claims: read policies and verify documents",
+            "Month-end close: OA data, vouchers and reconciliation",
+            "HR services: recognize documents and update records"
+          ],
+          "guardrail": "Fine-grained RBAC; exceptions go to a human review queue"
+        },
+        {
+          "industry": "Securities",
+          "client": "A securities firm",
+          "title": "Advisory and IT operations employees",
+          "description": "Human in the loop, with a clear line between role execution and business decisions.",
+          "points": [
+            "Advisory assistant: drafts reports from authorized material with citations",
+            "IT ops: 24/7 alert intake, read-only diagnosis and standard ticket dispatch"
+          ],
+          "guardrail": "Investment judgments and system changes need licensed staff or approval"
+        },
+        {
+          "industry": "Manufacturing",
+          "client": "An industrial manufacturer",
+          "title": "Digital twin for industrial equipment",
+          "description": "Engineers' know-how becomes Skills; past cases support troubleshooting and shorten onboarding.",
+          "points": [
+            "Collect equipment data over OPC-UA",
+            "Detect anomalies and analyze running state",
+            "Suggest process and diagnostic actions"
+          ],
+          "guardrail": "Parameter changes and production actions are confirmed by engineers"
+        },
+        {
+          "industry": "Government IT",
+          "client": "A provincial government agency",
+          "title": "Operations and back-office assistant",
+          "description": "Closed-loop equipment ops (inspection, alert analysis, ticket dispatch, daily reports) and document workflows (material gathering, first drafts, follow-ups, weekly and monthly reports).",
+          "points": [
+            "Government data stays in the private domain",
+            "Every operation fully audited"
+          ],
+          "metrics": [
+            {
+              "value": "60%",
+              "label": "Faster ops response"
+            },
+            {
+              "value": "50%",
+              "label": "Less back-office time"
+            }
+          ],
+          "guardrail": "High-risk actions keep human confirmation"
+        }
+      ],
+      "note": "Cases are anonymized to protect customer privacy. Results come from customer project feedback and follow each project's acceptance metrics."
+    },
+    "poc": {
+      "eyebrow": "POC pilot",
+      "title": "Put your first digital employee to work in 2 weeks",
+      "subtitle": "Pick a role that is frequent, low-risk and easy to measure, and let business results speak.",
+      "criteriaTitle": "Four criteria for choosing a scenario",
+      "criteria": [
+        {
+          "title": "Frequent",
+          "description": "Daily or weekly repeated tasks"
+        },
+        {
+          "title": "Clear process",
+          "description": "Stable inputs, outputs and logic"
+        },
+        {
+          "title": "Data ready",
+          "description": "Files and business APIs can be authorized"
+        },
+        {
+          "title": "Controllable risk",
+          "description": "Human review and decision limits can be set"
+        }
+      ],
+      "targetsTitle": "Suggested POC acceptance targets",
+      "targets": [
+        {
+          "value": "≥30%",
+          "label": "Less processing time"
+        },
+        {
+          "value": "≥99%",
+          "label": "Output accuracy"
+        },
+        {
+          "value": "≥99%",
+          "label": "Task success rate"
+        }
+      ],
+      "targetsExtra": [
+        "Complete permission isolation and retained logs",
+        "Process captured as a reusable Skill asset"
+      ],
+      "note": "These are suggested acceptance targets, not results from past projects.",
+      "stepsTitle": "2-week pilot path",
+      "steps": [
+        "Define the role",
+        "Authorize",
+        "Controlled run",
+        "Sign off"
+      ],
+      "primaryCta": "Request a POC",
+      "docsCta": "POC guide (Chinese)"
     }
   },
   "cloud": {
@@ -2775,16 +1780,96 @@
       "statFamilies": "16 job families",
       "statUpdate": "New experts every week",
       "families": [
-        { "name": "Engineering", "count": "58", "roles": ["AI Systems Engineer", "API Testing Expert", "Accessibility Auditor"] },
-        { "name": "Marketing growth", "count": "28", "roles": ["Viral Video Analyst", "App Store Expert", "Bidding Strategist"] },
-        { "name": "Digital Employees", "count": "19", "roles": ["Founder Advisor", "Smart Video Editor", "Community Manager"] },
-        { "name": "E-commerce", "count": "19", "roles": ["Amazon PPC Optimizer", "Cross-Border Ops Expert", "Product Sourcing Analyst"] },
-        { "name": "Industry consultant", "count": "17", "roles": ["Account Strategy Designer", "Behavioral Nudge Expert", "Due Diligence Advisor"] },
-        { "name": "Creative", "count": "16", "roles": ["AI Image Prompt Designer", "Book Co-Author", "Visual Consultant"] },
-        { "name": "Product", "count": "14", "roles": ["Data Analytics Reporter", "Experiment Officer", "Developer Evangelist"] },
-        { "name": "Productivity", "count": "14", "roles": ["Knowledge Base Admin", "Video Production Expert", "Workflow Optimizer"] },
-        { "name": "Data Analysis", "count": "10", "roles": ["Anomaly Detection Expert", "Report Distribution Agent", "Business Insight Analyst"] },
-        { "name": "Content Operations", "count": "9", "roles": ["Social Operations Expert", "Content Summary Expert", "Content Planner"] }
+        {
+          "name": "Engineering",
+          "count": "58",
+          "roles": [
+            "AI Systems Engineer",
+            "API Testing Expert",
+            "Accessibility Auditor"
+          ]
+        },
+        {
+          "name": "Marketing growth",
+          "count": "28",
+          "roles": [
+            "Viral Video Analyst",
+            "App Store Expert",
+            "Bidding Strategist"
+          ]
+        },
+        {
+          "name": "Digital Employees",
+          "count": "19",
+          "roles": [
+            "Founder Advisor",
+            "Smart Video Editor",
+            "Community Manager"
+          ]
+        },
+        {
+          "name": "E-commerce",
+          "count": "19",
+          "roles": [
+            "Amazon PPC Optimizer",
+            "Cross-Border Ops Expert",
+            "Product Sourcing Analyst"
+          ]
+        },
+        {
+          "name": "Industry consultant",
+          "count": "17",
+          "roles": [
+            "Account Strategy Designer",
+            "Behavioral Nudge Expert",
+            "Due Diligence Advisor"
+          ]
+        },
+        {
+          "name": "Creative",
+          "count": "16",
+          "roles": [
+            "AI Image Prompt Designer",
+            "Book Co-Author",
+            "Visual Consultant"
+          ]
+        },
+        {
+          "name": "Product",
+          "count": "14",
+          "roles": [
+            "Data Analytics Reporter",
+            "Experiment Officer",
+            "Developer Evangelist"
+          ]
+        },
+        {
+          "name": "Productivity",
+          "count": "14",
+          "roles": [
+            "Knowledge Base Admin",
+            "Video Production Expert",
+            "Workflow Optimizer"
+          ]
+        },
+        {
+          "name": "Data Analysis",
+          "count": "10",
+          "roles": [
+            "Anomaly Detection Expert",
+            "Report Distribution Agent",
+            "Business Insight Analyst"
+          ]
+        },
+        {
+          "name": "Content Operations",
+          "count": "9",
+          "roles": [
+            "Social Operations Expert",
+            "Content Summary Expert",
+            "Content Planner"
+          ]
+        }
       ],
       "more": "More job families are in the directory, with new experts added regularly.",
       "cta": "Browse all experts free"
@@ -2794,11 +1879,31 @@
       "subtitle": "Every digital employee returns editable work, not just an answer.",
       "outputLabel": "You get back",
       "items": [
-        {"title": "Slide Deck Builder", "description": "Turn data, narrative, and templates into a board-ready presentation.", "output": "10–15 slides · PPTX + PDF"},
-        {"title": "Legal Assistant", "description": "Find contract risks, rank clauses, and draft redlines you can use.", "output": "Risk register + redlines"},
-        {"title": "User Manual Generator", "description": "Build step-by-step, maintainable guides from your real product and workflow.", "output": "Editable user manual"},
-        {"title": "Growth Experiment Planner", "description": "Rank hypotheses with ICE scoring and turn them into a weekly plan.", "output": "Experiment backlog + plan"},
-        {"title": "Market Intelligence Brief", "description": "Track competitors, market moves, and the changes worth acting on.", "output": "Daily market brief"}
+        {
+          "title": "Slide Deck Builder",
+          "description": "Turn data, narrative, and templates into a board-ready presentation.",
+          "output": "10–15 slides · PPTX + PDF"
+        },
+        {
+          "title": "Legal Assistant",
+          "description": "Find contract risks, rank clauses, and draft redlines you can use.",
+          "output": "Risk register + redlines"
+        },
+        {
+          "title": "User Manual Generator",
+          "description": "Build step-by-step, maintainable guides from your real product and workflow.",
+          "output": "Editable user manual"
+        },
+        {
+          "title": "Growth Experiment Planner",
+          "description": "Rank hypotheses with ICE scoring and turn them into a weekly plan.",
+          "output": "Experiment backlog + plan"
+        },
+        {
+          "title": "Market Intelligence Brief",
+          "description": "Track competitors, market moves, and the changes worth acting on.",
+          "output": "Daily market brief"
+        }
       ]
     },
     "pricing": {
@@ -2806,9 +1911,51 @@
       "subtitle": "Monthly plans with no long-term lock-in. Move to Enterprise whenever you need private deployment or customization.",
       "recommended": "Recommended",
       "plans": [
-        {"key": "free", "name": "Free", "tagline": "Kick the tires", "price": "$0", "period": "", "description": "Try AI coworkers on a real task before committing.", "features": ["2 avatars", "1 active instance", "Starter workflow credits", "Web access"], "cta": "Start free"},
-        {"key": "pro", "name": "Pro", "tagline": "One person, full team output", "price": "$20", "period": "/mo", "description": "For people who ship every day and want coworkers always ready.", "features": ["5 avatars", "Web + Desktop + Mini Chat", "Editable Office deliverables", "Persistent memory + scheduled tasks"], "cta": "Start Pro"},
-        {"key": "team", "name": "Team", "tagline": "One shared coworker. Zero crosstalk.", "price": "Contact sales", "period": "", "description": "For teams that need shared avatars without sharing data.", "features": ["Per-user data isolation", "SSO + admin controls", "Audit log", "Priority support"], "cta": "Talk to sales"}
+        {
+          "key": "free",
+          "name": "Free",
+          "tagline": "Kick the tires",
+          "price": "$0",
+          "period": "",
+          "description": "Try AI coworkers on a real task before committing.",
+          "features": [
+            "2 avatars",
+            "1 active instance",
+            "Starter workflow credits",
+            "Web access"
+          ],
+          "cta": "Start free"
+        },
+        {
+          "key": "pro",
+          "name": "Pro",
+          "tagline": "One person, full team output",
+          "price": "$20",
+          "period": "/mo",
+          "description": "For people who ship every day and want coworkers always ready.",
+          "features": [
+            "5 avatars",
+            "Web + Desktop + Mini Chat",
+            "Editable Office deliverables",
+            "Persistent memory + scheduled tasks"
+          ],
+          "cta": "Start Pro"
+        },
+        {
+          "key": "team",
+          "name": "Team",
+          "tagline": "One shared coworker. Zero crosstalk.",
+          "price": "Contact sales",
+          "period": "",
+          "description": "For teams that need shared avatars without sharing data.",
+          "features": [
+            "Per-user data isolation",
+            "SSO + admin controls",
+            "Audit log",
+            "Priority support"
+          ],
+          "cta": "Talk to sales"
+        }
       ],
       "note": "Final pricing and availability are shown on zhama.ai."
     },
@@ -2818,12 +1965,36 @@
       "cloudLabel": "TeGo Cloud",
       "enterpriseLabel": "TeGo Enterprise",
       "rows": [
-        {"label": "Best for", "cloud": "Individuals and small teams", "enterprise": "Mid-market, enterprise, and regulated organizations"},
-        {"label": "Deployment", "cloud": "Hosted SaaS at zhama.ai", "enterprise": "On-prem, hybrid cloud, or appliance"},
-        {"label": "Time to start", "cloud": "Sign up and work", "enterprise": "Planned delivery around your workflow"},
-        {"label": "Customization", "cloud": "Standard roles and skills", "enterprise": "Custom workflows, skills, UI, and branding"},
-        {"label": "Data and governance", "cloud": "Cloud with per-user isolation", "enterprise": "Your network, SSO, RBAC, and full audit"},
-        {"label": "Delivery support", "cloud": "Product support", "enterprise": "Solution team + Forward Deployed Engineers"}
+        {
+          "label": "Best for",
+          "cloud": "Individuals and small teams",
+          "enterprise": "Mid-market, enterprise, and regulated organizations"
+        },
+        {
+          "label": "Deployment",
+          "cloud": "Hosted SaaS at zhama.ai",
+          "enterprise": "On-prem, hybrid cloud, or appliance"
+        },
+        {
+          "label": "Time to start",
+          "cloud": "Sign up and work",
+          "enterprise": "Planned delivery around your workflow"
+        },
+        {
+          "label": "Customization",
+          "cloud": "Standard roles and skills",
+          "enterprise": "Custom workflows, skills, UI, and branding"
+        },
+        {
+          "label": "Data and governance",
+          "cloud": "Cloud with per-user isolation",
+          "enterprise": "Your network, SSO, RBAC, and full audit"
+        },
+        {
+          "label": "Delivery support",
+          "cloud": "Product support",
+          "enterprise": "Solution team + Forward Deployed Engineers"
+        }
       ],
       "cloudCta": "Start free",
       "enterpriseCta": "Talk to Enterprise"
@@ -2832,9 +2003,18 @@
       "title": "Frequently asked questions",
       "subtitle": "About TeGo Cloud, your data, and moving to Enterprise.",
       "items": [
-        {"question": "Are Cloud and Enterprise different products?", "answer": "No. Both are part of the TeGo AI Workforce Collaboration Platform. Cloud is designed for self-serve use and fast validation; Enterprise adds private deployment, deep customization, governance, and FDE support."},
-        {"question": "How does TeGo Cloud protect my data?", "answer": "Each user gets a dedicated workspace and data boundary. Organizations with data residency, private networking, or stricter audit requirements should choose Enterprise."},
-        {"question": "Can I move from Cloud to Enterprise later?", "answer": "Yes. When your team, workflow complexity, or compliance requirements grow, we can assess a migration and enterprise delivery plan with you."}
+        {
+          "question": "Are Cloud and Enterprise different products?",
+          "answer": "No. Both are part of the TeGo Digital Employee Execution & Governance Platform. Cloud is designed for self-serve use and fast validation; Enterprise adds private deployment, deep customization, governance, and FDE support."
+        },
+        {
+          "question": "How does TeGo Cloud protect my data?",
+          "answer": "Each user gets a dedicated workspace and data boundary. Organizations with data residency, private networking, or stricter audit requirements should choose Enterprise."
+        },
+        {
+          "question": "Can I move from Cloud to Enterprise later?",
+          "answer": "Yes. When your team, workflow complexity, or compliance requirements grow, we can assess a migration and enterprise delivery plan with you."
+        }
       ]
     },
     "bottomCta": {
@@ -2846,7 +2026,7 @@
   },
   "station": {
     "seo": {
-      "title": "TeGo Station | Enterprise AI Digital Employee Appliance | Zhama",
+      "title": "TeGo Station | Enterprise AI Digital Employee Appliance",
       "description": "TeGo Station preloads TeGo onto a compact low-power host. Hardware + software, ready out of the box. Run locally so sensitive data stays on-premises.",
       "keywords": "TeGo Station,AI appliance,digital employee,private deployment,enterprise AI,on-premises,out of the box",
       "openGraph": {
@@ -2867,19 +2047,6 @@
       "ready": "Ready out of the box",
       "private": "Private & secure",
       "local": "Data stays local"
-    },
-    "teaser": {
-      "eyebrow": "TeGo Station Appliance",
-      "title": "One box. Deliver a manageable team of digital employees",
-      "description": "An enterprise AI digital employee appliance with hardware and software bundled. Run TeGo locally, keep sensitive data inside your network, and go live with your first digital employee in 1–3 days.",
-      "highlights": [
-        "TeGo preloaded — power on, connect, and use",
-        "Local private compute with intranet / offline options",
-        "Standard user seats, expandable as you grow"
-      ],
-      "primaryCta": "Explore Station",
-      "secondaryCta": "Talk to sales",
-      "imageAlt": "TeGo Station appliance highlights"
     },
     "sellingPoints": {
       "title": "Four selling points",

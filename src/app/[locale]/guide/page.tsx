@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation';
+import { docsUrl } from '@/lib/external-links';
 
-export default async function GuidePage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  // Server-side redirect to download page with locale
-  redirect(`/${locale}/download`);
-} 
+// The product manual lives in the documentation center.
+export default function GuidePage() {
+  redirect(docsUrl('manual'));
+}

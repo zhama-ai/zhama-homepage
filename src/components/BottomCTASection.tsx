@@ -2,6 +2,8 @@ import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { Container } from './ui/Container';
 import { ArrowRight } from 'lucide-react';
+import ExternalLink from './ExternalLink';
+import { docsUrl } from '@/lib/external-links';
 
 interface BottomCTASectionProps {
   locale: string;
@@ -19,7 +21,7 @@ export default async function BottomCTASection({ locale }: BottomCTASectionProps
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
             <p className="text-sm font-semibold text-primary-700 dark:text-primary-200">
-              TeGo
+              {t('eyebrow')}
             </p>
             <h2 className="mt-3 max-w-3xl text-3xl font-bold tracking-normal text-zinc-950 dark:text-white md:text-4xl">
               {t('title')}
@@ -37,12 +39,14 @@ export default async function BottomCTASection({ locale }: BottomCTASectionProps
               {t('primaryCTA')}
               <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link
-              href={`/${locale}/contact`}
+            <ExternalLink
+              href={docsUrl('quickStart')}
+              medium="bottom_cta"
+              icon
               className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-zinc-300 bg-white px-6 py-3 text-base font-semibold text-zinc-900 transition-all duration-300 hover:bg-zinc-50 active:scale-95 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:hover:bg-zinc-800"
             >
               {t('secondaryCTA')}
-            </Link>
+            </ExternalLink>
           </div>
         </div>
         <p className="mt-8 text-sm text-zinc-500 dark:text-zinc-400">{t('hint')}</p>

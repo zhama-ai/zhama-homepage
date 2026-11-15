@@ -1,4 +1,5 @@
 import { SITE_URL } from '@/lib/seo';
+import { DOCS_URL } from '@/lib/external-links';
 
 type Props = {
   locale: string;
@@ -24,8 +25,8 @@ export default function StructuredData({ locale }: Props) {
           url: `${SITE_URL}/zhama-logo/zhama-horizontal-transparent-light-v5.svg`,
         },
         description: isZh
-          ? 'TeGo 为企业提供数字员工私有化部署、定制与 FDE 支持，并通过 TeGo Cloud 为全球个人和团队提供 SaaS 服务。'
-          : 'TeGo provides private AI workforce deployment, customization, and FDE support for enterprises, plus self-serve SaaS for individuals and teams worldwide.',
+          ? 'TeGo 数字员工执行与治理平台：以安全沙箱、自研运行编排与可信执行，让数字员工在企业私有域内受控工作；同时通过 TeGo Cloud 为全球个人和团队提供 SaaS 服务。'
+          : 'TeGo is an execution and governance platform for digital employees, using secure sandboxes, in-house runtime orchestration and trusted execution to run them under control inside the enterprise, plus TeGo Cloud SaaS for individuals and teams worldwide.',
         address: {
           '@type': 'PostalAddress',
           addressCountry: 'CN',
@@ -35,16 +36,31 @@ export default function StructuredData({ locale }: Props) {
         contactPoint: {
           '@type': 'ContactPoint',
           contactType: 'sales',
+          email: 'contact@zhama.com',
           url: `${SITE_URL}/${locale}/contact`,
           availableLanguage: ['zh-CN', 'en-US'],
         },
+        sameAs: [DOCS_URL, 'https://zhama.ai'],
       },
       {
         '@type': 'WebSite',
         '@id': websiteId,
-        name: isZh ? 'TeGo 数字员工协作平台' : 'TeGo AI Workforce Collaboration Platform',
+        name: isZh ? 'TeGo 数字员工执行与治理平台' : 'TeGo Digital Employee Execution & Governance Platform',
         url: SITE_URL,
         inLanguage: ['zh-CN', 'en-US'],
+        publisher: { '@id': organizationId },
+      },
+      {
+        '@type': 'SoftwareApplication',
+        '@id': `${SITE_URL}/${locale}#enterprise`,
+        name: isZh ? 'TeGo 企业版' : 'TeGo Enterprise',
+        description: isZh
+          ? '可私有化与信创部署的数字员工执行与治理平台，提供岗位定义、最小授权、人工确认与全链路审计。'
+          : 'A privately deployable execution and governance platform for digital employees with role definitions, least privilege, human approval and end-to-end audit.',
+        url: `${SITE_URL}/${locale}`,
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Linux, Docker, Kubernetes',
+        softwareHelp: { '@type': 'CreativeWork', url: DOCS_URL },
         publisher: { '@id': organizationId },
       },
       {

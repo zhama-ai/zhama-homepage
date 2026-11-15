@@ -19,7 +19,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/privacy', changeFrequency: 'yearly' as const, priority: 0.3 },
     { path: '/terms', changeFrequency: 'yearly' as const, priority: 0.3 },
   ];
-  const siteUpdatedAt = new Date('2026-08-20');
+  const siteUpdatedAt = new Date('2026-11-15');
   const sitemapEntries: MetadataRoute.Sitemap = [];
 
   for (const page of pages) {

@@ -10,6 +10,8 @@ import { cloudFirst } from '@/lib/audience';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import CloudLink from './CloudLink';
+import ExternalLink from './ExternalLink';
+import { docsUrl } from '@/lib/external-links';
 
 export default function Header() {
   const t = useTranslations();
@@ -50,16 +52,15 @@ export default function Header() {
     if (typeof window === 'undefined') return;
     const sectionIds = [
       'home',
-      'team-packs',
-      'choose',
       'pain-points',
       'value-pillars',
+      'technology',
       'scenarios',
-      'outcomes',
+      'customers',
       'readiness',
       'delivery',
+      'poc',
       'pricing',
-      'customers',
       'resources',
       'cta',
     ];
@@ -89,12 +90,12 @@ export default function Header() {
     return () => observer.disconnect();
   }, []);
 
-  const navItems = [
-    { href: `/${locale}/#team-packs`, label: t('nav.biz.solutions'), section: 'team-packs' },
+  const navItems: { href: string; label: string; section?: string; external?: boolean }[] = [
+    { href: `/${locale}/#scenarios`, label: t('nav.biz.solutions'), section: 'scenarios' },
     { href: `/${locale}/#customers`, label: t('nav.biz.customers'), section: 'customers' },
     { href: `/${locale}/#delivery`, label: t('nav.biz.delivery'), section: 'delivery' },
     { href: `/${locale}/#pricing`, label: t('nav.pricing'), section: 'pricing' },
-    { href: `/${locale}/#resources`, label: t('nav.biz.resources'), section: 'resources' },
+    { href: docsUrl(), label: t('nav.docs'), external: true },
     { href: `/${locale}/download`, label: t('nav.download') },
     { href: `/${locale}/blog`, label: t('nav.blog') },
   ];
@@ -103,26 +104,26 @@ export default function Header() {
     {
       href: `/${locale}/#value-pillars`,
       label: t('nav.enterpriseProduct'),
-      description: t('nav.biz.value'),
+      description: t('nav.productDesc.enterprise'),
       icon: Server,
     },
     {
       href: `/${locale}/station`,
       label: t('nav.station'),
-      description: locale === 'zh' ? '软硬一体，私有部署' : 'Private AI appliance',
+      description: t('nav.productDesc.station'),
       icon: Zap,
     },
     {
       href: `/${locale}/cloud`,
       label: t('nav.cloud'),
-      description: locale === 'zh' ? '注册即用，$0 起步' : 'Self-serve SaaS from $0',
+      description: t('nav.productDesc.cloud'),
       icon: Cloud,
       live: true,
     },
     {
       href: `/${locale}/cloud-agent`,
       label: t('nav.cloudAgent'),
-      description: locale === 'zh' ? '接任务、用工具、交结果' : 'Agents that deliver real work',
+      description: t('nav.productDesc.cloudAgent'),
       icon: Sparkles,
     },
   ];
@@ -223,6 +224,21 @@ export default function Header() {
                     'bg-zinc-100 text-primary-700 dark:bg-white/10 dark:text-primary-200',
                 );
 
+                if (item.external) {
+                  return (
+                    <ExternalLink
+                      key={item.href}
+                      href={item.href}
+                      medium="header"
+                      title={t('nav.docsTitle')}
+                      icon
+                      className={cn(linkClass, 'inline-flex items-center gap-1')}
+                    >
+                      {item.label}
+                    </ExternalLink>
+                  );
+                }
+
                 return (
                   <Link key={item.href} href={item.href} className={linkClass}>
                     {item.label}
@@ -279,6 +295,7 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="flex h-9 w-9 items-center justify-center rounded-lg text-zinc-600 hover:bg-zinc-100 hover:text-zinc-950 dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white lg:hidden"
               aria-label="Toggle mobile menu"
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -322,6 +339,22 @@ export default function Header() {
                   activeSection === item.section &&
                   'bg-zinc-100 text-primary-700 dark:bg-white/10 dark:text-primary-200',
               );
+
+              if (item.external) {
+                return (
+                  <ExternalLink
+                    key={item.href}
+                    href={item.href}
+                    medium="header_mobile"
+                    title={t('nav.docsTitle')}
+                    icon
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={cn(linkClass, 'inline-flex items-center gap-1.5')}
+                  >
+                    {item.label}
+                  </ExternalLink>
+                );
+              }
 
               return (
                 <Link

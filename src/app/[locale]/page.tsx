@@ -2,17 +2,15 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
-import DigitalTeamsSection from '@/components/DigitalTeamsSection';
-import AudienceSplitSection from '@/components/AudienceSplitSection';
 import PainPointsSection from '@/components/PainPointsSection';
 import ValuePillarsSection from '@/components/ValuePillarsSection';
+import CoreTechnologySection from '@/components/CoreTechnologySection';
 import ScenariosSection from '@/components/ScenariosSection';
-import CustomerOutcomesSection from '@/components/CustomerOutcomesSection';
+import CustomerCasesSection from '@/components/CustomerCasesSection';
 import EnterpriseReadinessSection from '@/components/EnterpriseReadinessSection';
 import PrivateDeliverySection from '@/components/PrivateDeliverySection';
-import StationTeaserSection from '@/components/StationTeaserSection';
+import PocSection from '@/components/PocSection';
 import PricingSection from '@/components/PricingSection';
-import CustomerLogosSection from '@/components/CustomerLogosSection';
 import ResourceCenterSection from '@/components/ResourceCenterSection';
 import BottomCTASection from '@/components/BottomCTASection';
 import FooterSection from '@/components/FooterSection';
@@ -27,7 +25,7 @@ export async function generateMetadata({ params }: HomeProps): Promise<Metadata>
   const t = await getTranslations({ locale, namespace: 'seo' });
 
   return {
-    title: t('title'),
+    title: { absolute: t('title') },
     description: t('description'),
     keywords: t('keywords'),
     alternates: localizedAlternates(locale),
@@ -53,17 +51,15 @@ export default async function Home({ params }: HomeProps) {
       <Header />
       <main>
         <HeroSection locale={locale} />
-        <DigitalTeamsSection locale={locale} />
-        <AudienceSplitSection locale={locale} />
         <PainPointsSection locale={locale} />
         <ValuePillarsSection locale={locale} />
+        <CoreTechnologySection locale={locale} />
         <ScenariosSection locale={locale} />
-        <CustomerOutcomesSection locale={locale} />
+        <CustomerCasesSection locale={locale} />
         <EnterpriseReadinessSection locale={locale} />
         <PrivateDeliverySection locale={locale} />
-        <StationTeaserSection locale={locale} />
+        <PocSection locale={locale} />
         <PricingSection locale={locale} />
-        <CustomerLogosSection locale={locale} />
         <ResourceCenterSection locale={locale} />
         <BottomCTASection locale={locale} />
       </main>

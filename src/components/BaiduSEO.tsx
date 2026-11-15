@@ -39,15 +39,9 @@ export default function BaiduSEO() {
 
   return (
     <>
-      {/* Baidu site verification - replace with your actual verification code */}
+      {/* Baidu site verification */}
       <meta name="baidu-site-verification" content="codeva-z01CSON5KK" />
-      
-      {/* Baidu-specific meta tags for better indexing */}
-      <meta name="baidu-gxt-verify-codeva" content="YOUR_BAIDU_GXT_CODE" />
-      
-      {/* Tell Baidu this is original content */}
-      <meta name="baidu-tc-verification" content="YOUR_BAIDU_TC_CODE" />
-      
+
       {/* Baidu mobile optimization */}
       <meta name="applicable-device" content="pc,mobile" />
       <meta name="MobileOptimized" content="width" />

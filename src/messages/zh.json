@@ -34,10 +34,9 @@
     "startFree": "免费试用",
     "biz": {
       "value": "核心价值",
-      "solutions": "行业方案",
-      "customers": "客户",
-      "delivery": "交付方式",
-      "resources": "资源中心"
+      "solutions": "解决方案",
+      "customers": "客户实践",
+      "delivery": "交付方式"
     },
     "station": "一体机",
     "capabilities": {
@@ -68,119 +67,13 @@
       "skills": "Agent Skills",
       "mcp": "MCP 框架",
       "multiAgent": "多智能体协同"
-    }
-  },
-  "home": {
-    "hero": {
-      "title": "AI，终于能像团队一样工作了",
-      "tagline": "数字分身 × 智能协作 × 企业治理",
-      "description": "TeGo v3.0.0 正式发布——让一个数字分身真正能被一群人放心地、互不打扰地一起用。独享实例、数据隔离、模板治理、运营观测一次重写，把「能跑的产品」升级为「可对企业、对组织、对生产业务真正交付的系统」。",
-      "bullets": {
-        "dualAvatar": "数字分身双形态：个人分身独立容器运行，组织分身多副本高可用，每个分身都是完整的 AI 运行时",
-        "orchestration": "编排即生产力：LAMP 协作框架 + DAG 并发调度，效率提升 2-5 倍",
-        "governance": "企业级治理：多租户四层隔离、RBAC 权限、审计日志、全生命周期管理，合规可追溯",
-        "mcp": "技能热装卸 + MCP 零侵入：像装 App 一样给分身安装技能，一键转换原系统接口"
-      },
-      "cta": "申请企业版演示",
-      "secondaryCta": "体验在线 Demo",
-      "deployLink": "查看部署方案（私有化 / 混合云）",
-      "imgAlt": "TeGo 数字员工协作平台"
-    }
-  },
-  "productSuite": {
-    "title": "TeGo 产品套件",
-    "subtitle": "一站式 AI 协作解决方案，覆盖桌面、浏览器、Office，满足全场景需求",
-    "desktop": {
-      "title": "TeGo Desktop",
-      "description": "原生桌面客户端，秒级启动，离线可用。本地优先的隐私保护，支持文件操作和 Shell 命令执行。",
-      "features": ["秒级启动", "离线可用", "本地优先", "隐私安全"],
-      "cta": "立即下载"
     },
-    "web": {
-      "title": "TeGo Web",
-      "description": "无需安装，浏览器即用。随时随地访问您的 AI 超级团队，支持跨设备无缝协作。",
-      "features": ["无需安装", "跨设备同步", "随时访问", "云端协作"],
-      "cta": "立即使用"
-    },
-    "office": {
-      "title": "TeGo Office",
-      "description": "AI 直接在 Excel 和 Word 里工作。无需切换应用，智能分析数据、生成报告、审查合同。",
-      "features": ["Excel 集成", "Word 集成", "WPS 支持", "无缝融合"],
-      "cta": "获取插件"
-    },
-    "capabilities": {
-      "title": "核心能力",
-      "subtitle": "赋予 AI 更强大的交互和扩展能力",
-      "a2ui": {
-        "title": "A2UI 动态界面",
-        "description": "AI 不再只是输出文字，而是直接生成可交互的界面。图表、表单、按钮，所见即所得。",
-        "tags": ["动态渲染", "交互式", "可视化"]
-      },
-      "skills": {
-        "title": "Agent Skills 技能扩展",
-        "description": "像安装 App 一样扩展 AI 能力。标准化技能格式，跨平台兼容，能力无限扩展。",
-        "tags": ["技能市场", "标准化", "可扩展"]
-      }
-    },
-    "footer": {
-      "text": "需要企业定制方案？",
-      "link": "联系我们"
-    }
-  },
-  "whyTeGo": {
-    "title": "为什么选择 TeGo",
-    "subtitle": "从 Agent 孤岛到 AI 超级团队，让智能体像真正的团队一样协作",
-    "metrics": {
-      "efficiency": "执行效率提升",
-      "successRate": "任务成功率",
-      "response": "协作响应速度"
-    },
-    "advantages": {
-      "collaboration": {
-        "title": "多智能体协作",
-        "description": "打破 AI 工具壁垒，让多个智能体自主思考、信息共享、协同决策，像真正的团队一样工作。"
-      },
-      "efficiency": {
-        "title": "并发高效执行",
-        "description": "基于 DAG 调度引擎，自动分析任务依赖，可并行任务同时执行，效率提升 2-5 倍。"
-      },
-      "intelligence": {
-        "title": "越用越智能",
-        "description": "经验池持续学习，成功案例自动积累复用，新任务规划时间缩短 40-60%，持续进化。"
-      },
-      "security": {
-        "title": "安全可控",
-        "description": "企业级权限体系，完整审计追溯，支持私有化部署，敏感数据本地处理，合规无忧。"
-      }
-    },
-    "footer": {
-      "text": "已服务多家企业客户，覆盖金融、制造、零售等行业"
-    }
-  },
-  "useCases": {
-    "title": "TeGo 应用场景",
-    "subtitle": "赋能千行百业的智能协作",
-    "industries": {
-      "enterprise": {
-        "title": "企业内部协同办公",
-        "description": "通过智能规划引擎，将复杂的办公任务（如差旅管理、项目启动、会议安排、行政审批、知识问答）自主拆解为可执行的子任务，并调度不同的业务智能体（如行政智能体、日历智能体、HR智能体）进行并发执行，实现端到端业务闭环。"
-      },
-      "government": {
-        "title": "政府政务服务系统协同",
-        "description": "政府对本地化部署、数据不出域、全链路可控的需求，通过高度安全和合规的架构，将分散在不同部门和系统中的政务服务流程进行统一编排和管理。"
-      },
-      "finance": {
-        "title": "金融行业系统协同应用",
-        "description": "在金融行业的应用主要围绕智能投研辅助、全流程信贷风控和合规与反洗钱（AML）三大核心场景，通过聚合处理海量非结构化数据，实现对市场和客户风险的精准捕捉。"
-      },
-      "manufacturing": {
-        "title": "制造行业系统协同应用",
-        "description": "协同中台连接了需求端（销售订单）、计划与排程（APS、MRP）和执行端（采购、生产），通过计划协同智能体、供应商协同智能体和设备预测性维护智能体等集群，实现跨系统的信息拉通和动态调整。"
-      },
-      "stateOwned": {
-        "title": "国央企系统协同应用",
-        "description": "中台化架构设计非常契合国央企的需求，它将AI能力抽象为统一服务，避免各业务线重复建设和投资，解决了国央企\"打通系统孤岛\"和\"规避重复投资\"的核心诉求。"
-      }
+    "docsTitle": "在新窗口打开 TeGo 文档中心",
+    "productDesc": {
+      "enterprise": "私有化数字员工执行与治理平台",
+      "station": "软硬一体，开箱私有部署",
+      "cloud": "注册即用，$0 起步",
+      "cloudAgent": "接任务、用工具、交结果"
     }
   },
   "contactPage": {
@@ -223,11 +116,11 @@
     },
     "seo": {
       "title": "联系我们",
-      "description": "联系 TeGo 数字员工协作平台团队，组建永不疲惫的 AI 超级团队。获取企业级多智能体协作解决方案咨询服务，我们提供定制化智能体平台部署与技术支持。",
+      "description": "联系 TeGo 数字员工执行与治理平台团队，组建永不疲惫的 AI 超级团队。获取企业级多智能体协作解决方案咨询服务，我们提供定制化智能体平台部署与技术支持。",
       "keywords": "TeGo, AI 超级团队, 联系我们, 智能体协作, 企业AI, 多智能体平台, 技术支持, 深圳扎马",
       "openGraph": {
-        "title": "联系我们 - TeGo 数字员工协作平台",
-        "description": "联系 TeGo 数字员工协作平台团队，获取专业的企业级多智能体协作解决方案咨询与技术支持服务。"
+        "title": "联系我们",
+        "description": "联系 TeGo 数字员工执行与治理平台团队，获取专业的企业级多智能体协作解决方案咨询与技术支持服务。"
       }
     }
   },
@@ -269,6 +162,11 @@
       "title": "需要企业级私有化部署？",
       "description": "支持 Docker Compose / Kubernetes / 混合云部署，30 天免费 POC 验证",
       "cta": "联系销售"
+    },
+    "docs": {
+      "title": "部署与安装文档",
+      "deploy": "私有化运维部署指南",
+      "downloads": "客户端下载与安装说明"
     }
   },
   "privacy": {
@@ -522,101 +420,11 @@
       }
     }
   },
-  "aboutSection": {
-    "title": "从 Agent 孤岛到 AI 超级团队",
-    "subtitle": "让 AI 智能体像高效团队一样自主协作，自动完成复杂业务任务",
-    "description": "我们不是简单的 AI 工具集成，而是让多个智能体像真正的团队一样自主思考、相互协作、并发执行。打破 AI 工具间的壁垒，统一管控、智能协同、持续进化，真正实现企业 AI 的规模化落地",
-    "vision": {
-      "title": "TeGo vs 传统 AI 平台的差异化优势",
-      "paragraphs": [
-        "从孤岛到团队：解决 Agent 孤岛问题，让智能体真正协作，而非各自为战",
-        "从串行到并发：DAG 并发调度引擎，任务并行执行，效率提升 2-5 倍",
-        "从工具到智能：基于 LAMP 协作框架，智能体像人类团队一样自主推理与决策"
-      ]
-    },
-    "features": [
-      {
-        "title": "LAMP 智能协作框架",
-        "description": "Think-Speak-Decide 三阶段推理管道，让智能体像人类团队一样持续推理、信息共享、协同决策，任务成功率提升 15-25%"
-      },
-      {
-        "title": "DAG 并发调度引擎",
-        "description": "自动分析任务依赖关系，可并行任务同时执行，从串行变并发，执行效率提升 2-5 倍，响应速度低至 <100ms"
-      },
-      {
-        "title": "经验池持续学习",
-        "description": "向量化存储成功经验，智能检索历史案例，新任务自动复用最佳策略，规划时间缩短 40-60%，越用越智能"
-      },
-      {
-        "title": "A2A 开放协议",
-        "description": "支持 Agent2Agent 标准协议，与第三方智能体无缝对接，扩展团队能力边界，构建开放的企业 AI 生态"
-      }
-    ],
-    "footer": {
-      "prefix": "TeGo 数字员工协作平台",
-      "suffix": "，组建永不疲惫的 AI 团队，自动完成复杂业务任务。"
-    },
-    "typingPhrases": [
-      "组建一支永不疲惫的 AI 超级团队",
-      "自主思考 · 相互协作 · 并发执行",
-      "从 Agent 孤岛到超级团队"
-    ]
-  },
-  "featuresSection": {
-    "title": "四大核心能力",
-    "subtitle": "从任务理解到自动执行，打造真正的 AI 超级团队",
-    "tabs": {
-      "collection": "智能任务分解",
-      "analysis": "并发智能调度",
-      "organization": "团队协作框架",
-      "gateway": "持续学习进化"
-    },
-    "collection": {
-      "title": "智能任务分解 · 理解意图自动规划",
-      "description": "理解用户高层级业务目标，自动分解为可执行的子任务，智能匹配合适的 Agent 团队成员。支持意图理解、任务分解、依赖分析、执行计划生成，让复杂任务变成清晰的执行步骤。",
-      "tags": ["意图理解", "任务分解", "智能匹配", "计划生成"]
-    },
-    "analysis": {
-      "title": "并发智能调度 · 效率提升 2-5 倍",
-      "description": "基于 DAG（有向无环图）的任务调度引擎，自动分析任务依赖关系，无依赖任务并行启动，动态调整并发数，异常隔离保障稳定性。从串行执行到并发调度，大幅缩短任务完成时间。",
-      "tags": ["DAG 调度", "并发执行", "动态优化", "异常隔离"]
-    },
-    "organization": {
-      "title": "团队协作框架 · LAMP 智能协作",
-      "description": "基于前沿学术研究的 LAMP 框架，实现 Think（持续推理分析）、Speak（智能体通信共享）、Decide（协同决策融合）。让 AI 智能体像人类团队一样信息共享、协同推理、共同决策。",
-      "tags": ["Think 推理", "Speak 通信", "Decide 决策", "信任管理"]
-    },
-    "gateway": {
-      "title": "持续学习进化 · 越用越智能",
-      "description": "向量化存储历史成功经验，智能检索相似案例，自动复用最佳策略。失败案例作为反例避免重蹈覆辙，新任务规划时间缩短 40-60%。经验积累让 AI 团队持续进化，任务成功率达 95%+。",
-      "tags": ["经验复用", "智能检索", "策略优化", "持续进化"]
-    },
-    "moreFeatures": {
-      "title": "TeGo 核心技术优势",
-      "taskManagement": {
-        "title": "全流程可视化追踪",
-        "description": "DAG 视图展示任务依赖关系，时间线视图追踪执行进度，推理视图呈现智能体分析过程，通信视图监控团队协作消息。全程可观测、可回溯、可审计。"
-      },
-      "habitTracking": {
-        "title": "动态重规划能力",
-        "description": "自动识别 7 种执行异常类型，分析 4 种趋势方向预判任务走势。检测到严重异常时自动触发计划调整，保障任务成功完成，成功率达 95%+。"
-      },
-      "financeManagement": {
-        "title": "企业级安全部署",
-        "description": "支持私有化部署、混合云部署、SaaS 服务三种模式。针对大语言模型可能产生的幻觉、违规内容和提示词攻击，内置了企业级AI 护栏系统，在输入和输出端进行双重过滤。"
-      }
-    }
-  },
   "footer": {
     "companyName": "扎马未来",
-    "companyDescription": "TeGo 数字员工协作平台",
-    "about": "扎马未来以 TeGo 为统一品牌，为企业提供私有化数字员工、深度定制与 FDE 驻场支持，同时通过 zhama.ai 向全球个人与团队提供开箱即用的数字员工 SaaS 服务。",
+    "companyDescription": "TeGo 数字员工执行与治理平台",
+    "about": "扎马未来以 TeGo 为统一品牌，为企业提供可私有化部署的数字员工执行与治理平台，以及深度定制与 FDE 驻场支持；同时通过 zhama.ai 向全球个人与团队提供开箱即用的数字员工云服务。",
     "products": "产品与能力",
-    "home": {
-      "hero": {
-        "title": "TeGo 数字员工协作平台"
-      }
-    },
     "digitalAvatar": "数字分身体系",
     "station": "TeGo Station 一体机",
     "cloud": "TeGo 云端版",
@@ -626,13 +434,12 @@
     "enterprise": "企业解决方案",
     "api": "API 与开发",
     "support": "支持与资源",
-    "helpCenter": "技术文档",
-    "tutorials": "部署指南",
-    "faq": "企业服务",
+    "helpCenter": "文档中心",
+    "tutorials": "运维部署",
+    "faq": "常见问题",
     "resources": "资源",
     "blog": "技术博客",
-    "docs": "开发文档",
-    "community": "社区版下载",
+    "community": "客户端下载",
     "contact": {
       "title": "联系我们",
       "business": {
@@ -647,26 +454,12 @@
       }
     },
     "copyright": "© 2026 深圳市扎马未来科技有限公司 版权所有",
-    "icp": "粤ICP备2025426259号-1"
-  },
-  "advantagesSection": {
-    "title": "典型应用场景",
-    "subtitle": "已在多个行业场景验证并产生实际业务价值，从小时级人工协调到分钟级自动完成",
-    "scenarios": {
-      "title": "核心场景",
-      "professional": {
-        "title": "企业差旅管理",
-        "description": "涉及出差申请、审批、机票酒店预订、日程安排、费用预估等多环节，原本 2-3 小时的协调工作 5 分钟自动完成"
-      },
-      "personal": {
-        "title": "项目启动流程",
-        "description": "自动完成项目空间创建、资源分配、环境配置、通知发送、排期安排，项目启动从 1-2 天缩短到 30 分钟"
-      },
-      "enterprise": {
-        "title": "智能客户服务",
-        "description": "工单创建、客户联系、问题诊断、智能决策（换货/维修/退款）、满意度回访，响应时间从小时级降到分钟级"
-      }
-    }
+    "icp": "粤ICP备2025426259号-1",
+    "pluginSystem": "插件系统",
+    "multiAgent": "多智能体协作",
+    "quickStart": "快速入门",
+    "releaseNotes": "发布说明",
+    "cloudAgent": "云端 Agent"
   },
   "pricingSection": {
     "title": "选择适合您的方案",
@@ -730,79 +523,6 @@
       "title": "只需要个人或小团队使用？",
       "description": "TeGo 云端版 $0 起，注册即用，无需部署和运维。",
       "cta": "免费开始使用"
-    },
-    "deployment": {
-      "title": "灵活部署方式",
-      "saas": {
-        "title": "SaaS 云服务",
-        "description": "开箱即用，免运维"
-      },
-      "private": {
-        "title": "私有化部署",
-        "description": "Docker / Kubernetes 弹性编排"
-      },
-      "hybrid": {
-        "title": "混合云部署",
-        "description": "数据本地 + 能力云端"
-      }
-    }
-  },
-  "downloadSection": {
-    "title": "立即体验 TeGo 数字员工协作平台",
-    "subtitle": "多种方式快速对接，开启您的企业智能化之旅",
-    "enterprise": {
-      "title": "企业服务",
-      "description": "获取企业级多智能体协作解决方案和定制服务",
-      "button": "联系销售"
-    },
-    "ios": {
-      "title": "iOS 应用",
-      "description": "在 App Store 下载 TeGo 移动版",
-      "button": "App Store"
-    },
-    "android": {
-      "title": "Android 应用",
-      "description": "获取 Android 版本的 TeGo 应用",
-      "button": "立即下载"
-    },
-    "docs": {
-      "title": "开发文档",
-      "description": "查看完整的 API 文档和开发指南",
-      "button": "查看文档"
-    },
-    "web": {
-      "title": "Web版本",
-      "description": "无需安装，直接在浏览器中使用",
-      "button": "立即体验"
-    },
-    "downloadApp": {
-      "title": "下载客户端",
-      "description": "获取最佳的桌面体验",
-      "windows": "Windows版本",
-      "mac": "macOS版本",
-      "linux": "Linux版本"
-    },
-    "webAccess": {
-      "title": "Web版本",
-      "description": "无需安装，直接在浏览器中使用",
-      "button": "立即访问"
-    },
-    "documentation": {
-      "title": "开发文档",
-      "description": "查看完整的API文档和开发指南",
-      "button": "查看文档"
-    }
-  },
-  "contactSection": {
-    "title": "联系我们",
-    "subtitle": "需要定制方案或 POC 验证？我们的专家团队随时为您提供专业咨询",
-    "business": {
-      "title": "商务合作",
-      "description": "企业解决方案和定制服务咨询"
-    },
-    "support": {
-      "title": "技术支持",
-      "description": "产品使用和技术问题支持"
     }
   },
   "downloadPage": {
@@ -817,16 +537,16 @@
     }
   },
   "seo": {
-    "title": "Zhama｜面向全球团队的 AI 数字员工平台",
-    "description": "用 Zhama 创建调研、客户交付、运营和市场拓展数字员工，从一位扩展到一支完整的 AI 团队。免费开始，按工作需要持续添加员工。",
-    "keywords": "AI 数字员工, 数字员工平台, AI 团队, AI 劳动力, 市场调研 AI, 客户交付 AI, 市场拓展 AI, 全球团队, Zhama",
+    "title": "TeGo 数字员工执行与治理平台 | 扎马科技",
+    "description": "TeGo 让数字员工安全、高效、持续地工作：身份约束的安全沙箱、自研运行编排与可信执行证据，支持私有化与信创部署，2 周 POC 验证首个业务岗位。",
+    "keywords": "TeGo, 数字员工, 数字员工平台, AI 智能体, 企业智能体, 安全沙箱, 可信执行, 私有化部署, 信创, 国产化, 知识管理, 流程自动化, 扎马科技",
     "openGraph": {
-      "title": "Zhama｜组建您的 AI 数字员工团队",
-      "description": "创建能够调研、执行任务并交付可编辑成果的专属数字员工。"
+      "title": "TeGo｜让数字员工安全、高效、持续地工作",
+      "description": "让 AI 进入业务主流程，让数字员工交付可验收结果。私有化部署、权限可控、全链路审计。"
     },
     "twitter": {
-      "title": "Zhama｜面向全球团队的 AI 数字员工",
-      "description": "从目标明确的数字团队开始，随着工作量增长不断添加员工。"
+      "title": "TeGo 数字员工执行与治理平台",
+      "description": "安全沙箱 · 自研编排 · 可信执行，让数字员工交付可验收结果。"
     }
   },
   "mcpPlatform": {
@@ -881,7 +601,7 @@
       "description": "发明专利技术 · 基于模型上下文协议的动态服务器统一管理平台，一键生成 MCP 服务，零代码快速上线，平台级可扩展与可运维。",
       "keywords": "MCP平台, 模型上下文协议, 动态服务器管理, 工具生成, 发明专利, 零代码, TeGo, AI 超级团队",
       "openGraph": {
-        "title": "MCP 统一管理平台 - TeGo 数字员工协作平台",
+        "title": "MCP 统一管理平台",
         "description": "企业级 MCP 动态服务器统一管理平台，支持无代码一键生成 MCP 服务。"
       }
     }
@@ -958,7 +678,7 @@
       "description": "TeGo 企业级插件平台 · 唯一支持 React Hooks 的插件系统。开发周期缩短 90%，投资回报率超 500%，安全可靠、极速开发、即插即用。",
       "keywords": "企业级插件, TeGo, React Hooks, 插件系统, 快速开发, 高ROI, 零侵入",
       "openGraph": {
-        "title": "企业级插件平台 - TeGo 数字员工协作平台",
+        "title": "企业级插件平台",
         "description": "唯一支持React Hooks的企业级插件系统，极速开发，安全可靠。"
       }
     }
@@ -1010,70 +730,8 @@
       "description": "TeGo MCP 平台技术特点：自主研发MCP框架、装饰器驱动开发、标准化工具注册、简化开发流程，大幅提升开发效率。",
       "keywords": "MCP框架, 装饰器驱动, 工具注册, TypeScript, 智能体开发",
       "openGraph": {
-        "title": "技术特点 - TeGo 数字员工协作平台",
+        "title": "技术特点",
         "description": "装饰器驱动的开发模式，极大简化智能体工具开发流程。"
-      }
-    }
-  },
-  "tegoOS": {
-    "title": "TeGo 数字员工协作平台",
-    "subtitle": "组建一支永不疲惫的 AI 超级团队，自主完成复杂业务任务",
-    "problem": {
-      "title": "企业 AI 应用的四大困境",
-      "description": "Agent 孤岛、能力碎片、管控缺失、效率瓶颈——不同 AI 工具间数据割裂无法协同，流程断裂需人工拼接，缺乏统一权限和审计，串行执行效率低下。企业迫切需要一个能让 AI 真正协作的解决方案。",
-      "systems": {
-        "crm": "CRM",
-        "erp": "ERP",
-        "oa": "OA",
-        "finance": "财务",
-        "hr": "人事",
-        "service": "客服",
-        "bi": "BI",
-        "supply": "供应链"
-      }
-    },
-    "mission": {
-      "title": "TeGo 的破局之道",
-      "description": "组建 AI 超级团队：让多个智能体像真正的团队一样自主思考、相互协作、并发执行。基于 LAMP 协作框架和 DAG 并发调度引擎，打破 AI 工具壁垒，实现统一管控、智能协同、持续进化。从 Agent 孤岛到超级团队。"
-    },
-    "technologies": {
-      "title": "四大核心能力",
-      "subtitle": "从理解意图到闭环交付的端到端智能协作",
-      "apiToMcp": {
-        "title": "智能任务分解",
-        "description": "理解用户高层级业务目标，自动分解为可执行的子任务",
-        "features": [
-          "意图理解与语义解析",
-          "任务分解与智能体匹配",
-          "依赖分析与执行计划生成"
-        ]
-      },
-      "orchestration": {
-        "title": "并发智能调度",
-        "description": "基于 DAG 分析，自动识别可并行任务，最大化执行效率",
-        "features": [
-          "拓扑排序与层级划分",
-          "无依赖任务并行启动",
-          "动态并发数调整与异常隔离"
-        ]
-      },
-      "decisionEngine": {
-        "title": "智能协作与决策",
-        "description": "通过 LAMP 框架实现智能体之间的深度协作",
-        "features": [
-          "信息共享与知识传递",
-          "信任度管理与信念更新",
-          "多源信息融合的协同决策"
-        ]
-      },
-      "feedbackLoop": {
-        "title": "持续学习与优化",
-        "description": "系统具备持续学习能力，越用越智能",
-        "features": [
-          "成功轨迹自动存入经验池",
-          "失败案例作为反例避免重蹈覆辙",
-          "新任务检索相似经验复用成功策略"
-        ]
       }
     }
   },
@@ -1204,83 +862,9 @@
       "description": "发明专利技术：基于语言增强的多智能体协同决策系统（LAMP框架），融合 Think-Speak-Decide 三阶段推理管道，实现智能体间深度协作，任务成功率提升 15-25%，执行效率提升 2-5 倍。",
       "keywords": "多智能体协同, LAMP框架, Think-Speak-Decide, 智能体通信, DAG调度, 发明专利, TeGo, AI 超级团队",
       "openGraph": {
-        "title": "多智能体协同 - TeGo 数字员工协作平台",
+        "title": "多智能体协同",
         "description": "LAMP 框架：语言增强的多智能体协同决策系统，让 AI 智能体像真正的团队一样深度协作。"
       }
-    }
-  },
-  "multiAgentSection": {
-    "badge": "专利技术 · 多智能体协同",
-    "title": "多智能体协同调度系统",
-    "subtitle": "让 AI 智能体像高效团队一样协作，基于前沿 LAMP 框架，打造多个专业智能体自主协作的解决方案",
-    "lamp": {
-      "title": "LAMP 三阶段推理框架",
-      "subtitle": "Language-Augmented Multi-Agent Policy · 语言增强的多智能体策略",
-      "think": {
-        "title": "Think 思考",
-        "description": "持续分析任务进展，检测异常（冲击检测），预判趋势，进行短期和长期推理",
-        "analogy": "如同项目经理的洞察力"
-      },
-      "speak": {
-        "title": "Speak 沟通",
-        "description": "智能体之间信息共享、知识传递、信任度管理，支持 A2A 协议通信",
-        "analogy": "如同团队成员的高效协作"
-      },
-      "decide": {
-        "title": "Decide 决策",
-        "description": "综合数值数据、推理结果、信念状态，做出最优决策，支持策略自适应",
-        "analogy": "如同领导层的精准判断"
-      }
-    },
-    "technologies": {
-      "title": "核心技术亮点",
-      "dag": {
-        "title": "DAG 并发调度",
-        "description": "自动分析任务依赖，可并行任务同时执行，效率提升 2-5 倍"
-      },
-      "experience": {
-        "title": "经验池学习",
-        "description": "向量化存储成功经验，智能检索复用历史策略，越用越智能"
-      },
-      "a2a": {
-        "title": "A2A 开放协议",
-        "description": "支持 Agent2Agent 标准协议，与 Google A2A 标准兼容"
-      },
-      "scheduling": {
-        "title": "动态重规划",
-        "description": "检测到严重异常时自动触发计划调整，保障任务成功完成"
-      }
-    },
-    "metrics": {
-      "title": "关键性能指标",
-      "efficiency": "执行效率提升",
-      "successRate": "任务成功率",
-      "complexity": "复杂任务处理",
-      "availability": "全天候服务"
-    },
-    "advantages": {
-      "title": "相比传统方案的优势",
-      "subtitle": "从单一 AI 助手到多智能体团队协作的全面升级",
-      "autonomous": {
-        "title": "自主决策",
-        "description": "智能体自主决策、自我优化，无需固定流程"
-      },
-      "concurrent": {
-        "title": "并发执行",
-        "description": "多任务并行处理，串行变并发，大幅缩短周期"
-      },
-      "learning": {
-        "title": "持续学习",
-        "description": "经验积累与复用，处理相似任务越来越高效"
-      },
-      "secure": {
-        "title": "安全可控",
-        "description": "企业级权限体系，完整审计追溯，灵活权限控制"
-      }
-    },
-    "cta": {
-      "primary": "预约演示",
-      "secondary": "了解更多技术细节"
     }
   },
   "blog": {
@@ -1446,1191 +1030,727 @@
       }
     }
   },
-  "painPoints": {
-    "title": "你的 AI 是不是也这样？",
-    "subtitle": "企业 AI 应用的三大困境",
-    "items": {
-      "island": {
-        "icon": "unplug",
-        "title": "Agent 孤岛",
-        "description": "不同 AI 工具各自为政，数据割裂、流程断裂，需要人工在工具之间搬运信息和拼接流程。"
-      },
-      "unmanaged": {
-        "icon": "shield-off",
-        "title": "能力失控",
-        "description": "AI 在做什么、做得对不对、谁能用、谁负责——没有统一的管控、审计和权限治理。"
-      },
-      "inefficient": {
-        "icon": "timer-off",
-        "title": "效率天花板",
-        "description": "串行执行、单点智能，无法协作、无法并发、无法学习，复杂任务依然高度依赖人工。"
-      }
-    }
-  },
-  "productOverview": {
-    "title": "从「单点 AI 工具」到「企业级 AI 生产力平台」",
-    "description": "传统 AI 工具解决的是局部效率，而企业需要的是可长期演进的智能基础设施。",
-    "highlight": "TeGo 以数字分身为核心对象，把智能编排、工具、知识、权限、审计统一在同一平台：让 AI 不只是回答问题，而是能够代表组织执行任务、协同决策、沉淀经验的「数字员工」。",
-    "capabilities": [
-      "可持续学习",
-      "可团队协作",
-      "可企业治理",
-      "可规模扩展"
-    ]
-  },
-  "coreEngines": {
-    "title": "四大核心引擎",
-    "subtitle": "每一个引擎，都是企业 AI 从可用到好用的关键跃迁",
-    "digitalAvatar": {
-      "title": "数字分身引擎",
-      "tagline": "每位员工的专属 AI 运行时",
-      "highlight": "不只是 AI 助手，是拥有独立容器、数据、技能和安全边界的数字员工",
-      "features": {
-        "dualForm": {
-          "title": "个人分身 + 组织分身",
-          "description": "个人分身绑定员工独立运行，组织分身多副本高可用（每副本支持 100 用户），覆盖全场景"
-        },
-        "containerRuntime": {
-          "title": "独立容器运行时",
-          "description": "每个分身独立 Docker 容器运行，CPU / 内存 / 存储完全隔离，互不干扰"
-        },
-        "resourceQuota": {
-          "title": "精细化资源管控",
-          "description": "CPU 0.25-4 核、内存 512MB-8GB 可配，按用户/部门/租户灵活分配，成本透明"
-        },
-        "lifecycleManagement": {
-          "title": "全生命周期管理",
-          "description": "创建 → 审批 → 部署 → 运行 → 停止 → 卸载，完整状态机管理，零人工干预"
-        }
-      }
-    },
-    "lampEngine": {
-      "title": "LAMP 智能协作引擎",
-      "tagline": "AI 不再各干各的",
-      "highlight": "让 AI 像人类团队一样思考、沟通、决策",
-      "features": {
-        "thinkSpeakDecide": {
-          "title": "Think-Speak-Decide 三阶段推理",
-          "description": "学术级原创协作框架，实现智能体间深度协作与智能决策"
-        },
-        "dagScheduling": {
-          "title": "DAG 并发调度",
-          "description": "自动分析任务依赖，无关任务并行执行，效率提升 2-5 倍"
-        },
-        "experiencePool": {
-          "title": "经验池持续学习",
-          "description": "成功经验向量化存储，智能检索复用，越用越聪明"
-        },
-        "dynamicReplanning": {
-          "title": "动态重规划",
-          "description": "检测异常自动调整计划，保障任务成功完成"
-        }
-      }
-    },
-    "mcpEngine": {
-      "title": "MCP 能力引擎",
-      "tagline": "零侵入激活既有系统",
-      "highlight": "不改一行旧代码，让老系统秒变 AI 能力",
-      "features": {
-        "zeroInvasion": {
-          "title": "零侵入接入",
-          "description": "不改原系统架构与业务逻辑，快速纳入 AI 能力体系"
-        },
-        "pluginEcosystem": {
-          "title": "插件系统 + SDK",
-          "description": "开放生态，像安装 App 一样扩展 AI 能力"
-        },
-        "skillHotPlug": {
-          "title": "技能包热插拔",
-          "description": "ZIP 上传即用，支持 Agent Skills 标准格式"
-        },
-        "oneClickPublish": {
-          "title": "一键发布复用",
-          "description": "标准化能力沉淀后可快速复用与统一治理"
-        }
-      }
-    },
-    "governance": {
-      "title": "企业治理引擎",
-      "tagline": "不只可用，更要可控",
-      "highlight": "每个 AI 动作，都在企业治理框架内",
-      "features": {
-        "rbac": {
-          "title": "RBAC + 多认证源",
-          "description": "支持 LDAP / OIDC 企业级身份集成，精细化权限管控"
-        },
-        "fullChain": {
-          "title": "审核-审批-护栏-审计",
-          "description": "全链路管控，谁可见、谁可用、谁可改、谁负责清晰可追溯"
-        },
-        "multiTenantIsolation": {
-          "title": "多租户四层隔离",
-          "description": "数据库 + 缓存 + 文件 + 容器四层完全隔离，跨租户互不可见，满足等保 / 金融 / 政务合规"
-        },
-        "configManagement": {
-          "title": "配置集中管控",
-          "description": "LLM 提供商、模型策略、Agent 列表统一配置，自动同步所有分身实例，一处修改全局生效"
-        }
-      }
-    }
-  },
-  "omniChannel": {
-    "title": "全渠道 AI 触达",
-    "subtitle": "一个数字分身，12+ 通道同时在线",
-    "description": "无论你的客户、同事、合作伙伴在哪里，你的数字分身都在那里。",
-    "channels": ["WhatsApp", "Telegram", "Slack", "Discord", "Microsoft Teams", "微信", "Signal", "iMessage", "Matrix", "Google Chat", "WebChat", "语音对话"],
-    "products": {
-      "title": "多端产品覆盖",
-      "desktop": {
-        "title": "TeGo Desktop",
-        "description": "原生桌面客户端，秒级启动，离线可用"
-      },
-      "web": {
-        "title": "TeGo Web",
-        "description": "无需安装，浏览器即用，随时访问"
-      },
-      "office": {
-        "title": "TeGo Office",
-        "description": "AI 在 Excel 和 Word 里直接工作"
-      }
-    }
-  },
-  "memoryEvolution": {
-    "title": "记忆与进化",
-    "subtitle": "AI 第一次有了长期记忆",
-    "description": "经验池 + 向量化检索 + Few-shot 注入 = 越用越聪明",
-    "dimensions": {
-      "context": {
-        "title": "上下文记忆",
-        "description": "理解当前对话的完整语境"
-      },
-      "preference": {
-        "title": "偏好记忆",
-        "description": "记住每个用户的习惯与风格"
-      },
-      "identity": {
-        "title": "身份记忆",
-        "description": "认识每一个与它交互的人"
-      },
-      "experience": {
-        "title": "经验记忆",
-        "description": "成功经验自动沉淀，失败教训自动规避"
-      }
-    }
-  },
-  "securityCompliance": {
-    "title": "安全与合规",
-    "subtitle": "面向企业生产环境打造",
-    "description": "多租户隔离、容器安全、权限管控、审计追溯——企业级 AI 落地的关键基座。",
-    "features": {
-      "multiTenantIsolation": {
-        "title": "多租户四层隔离",
-        "description": "数据库、缓存、文件、容器四层完全隔离，跨租户互不可见"
-      },
-      "containerSecurity": {
-        "title": "容器级安全边界",
-        "description": "每个分身独立容器运行，JWT Token 认证 + 30 秒心跳监控 + 异常自动恢复"
-      },
-      "auditTrail": {
-        "title": "全链路审计",
-        "description": "工具调用前后自动记录审计日志，敏感操作自动拦截校验，全链路可追溯"
-      },
-      "aiGuardrail": {
-        "title": "AI 护栏系统",
-        "description": "输入输出双重过滤，防范幻觉、违规和提示词攻击"
-      },
-      "observability": {
-        "title": "全栈可观测",
-        "description": "OpenTelemetry 集成，Traces / Metrics / Logs 全量采集"
-      },
-      "deployment": {
-        "title": "弹性部署架构",
-        "description": "Docker Compose / Kubernetes / Traefik 动态路由，支持完全私有化部署"
-      }
-    },
-    "upgrades": {
-      "title": "企业级能力跃迁",
-      "items": [
-        "从单用户到多用户组织协作",
-        "从轻量权限到企业级 RBAC 与任务授权",
-        "从工具使用到全链路审计与护栏治理",
-        "从单实例到组织分身副本弹性扩容",
-        "从个人助手到企业数字员工体系"
-      ]
-    }
-  },
-  "scenarios": {
-    "title": "让数字分身进入真实业务流程",
-    "subtitle": "已在多个行业场景验证并产生实际业务价值",
-    "items": {
-      "enterprise": {
-        "title": "企业运营与协同",
-        "role": "运营 / 行政 / HR",
-        "description": "组织分身承接跨部门流程任务，打通知识问答、流程执行与系统操作，减少重复沟通与人工协调成本。",
-        "effect": "跨系统流程执行效率显著提升"
-      },
-      "finance": {
-        "title": "金融与高合规行业",
-        "role": "风控 / 投研 / 客服",
-        "description": "在权限、审计、审批、护栏框架下，构建可监管的 AI 执行闭环，支持风控、投研、客服、运营等关键业务流程。",
-        "effect": "关键操作全链路可追溯"
-      },
-      "manufacturing": {
-        "title": "制造与供应链",
-        "role": "采购 / 计划 / 仓储",
-        "description": "通过智能编排与系统接口联动，实现采购、计划、库存、异常处理的自动化协同，提升响应速度与跨系统执行效率。",
-        "effect": "响应速度与执行效率大幅提升"
-      },
-      "government": {
-        "title": "政企与私有化部署",
-        "role": "IT / 政务 / 安全",
-        "description": "支持私有化或混合部署，满足数据边界、访问控制和流程留痕要求，推进 AI 在组织内可控落地。",
-        "effect": "数据主权完全自主可控"
-      }
-    },
-    "customers": {
-      "title": "客户实践",
-      "yuekaiSecurities": {
-        "name": "粤开证券",
-        "description": "多场景数字员工协同实践"
-      },
-      "taikangPension": {
-        "name": "泰康养老",
-        "description": "保险与养老业务的 AI 服务升级"
-      }
-    }
-  },
-  "socialProof": {
-    "title": "用数据说话",
-    "subtitle": "企业级 AI 平台的可量化价值",
-    "metrics": {
-      "efficiency": {
-        "value": "2-5x",
-        "label": "执行效率提升",
-        "description": "DAG 并发调度引擎优化"
-      },
-      "availability": {
-        "value": "24×7",
-        "label": "服务连续性",
-        "description": "组织分身全天候在线服务"
-      },
-      "auditability": {
-        "value": "100%",
-        "label": "操作可追溯",
-        "description": "关键操作全链路审计留痕"
-      },
-      "onboarding": {
-        "value": "< 1天",
-        "label": "能力上线周期",
-        "description": "MCP 零侵入接入 + 智能编排"
-      }
-    }
-  },
-  "competitiveComparison": {
-    "title": "为什么选择 TeGo",
-    "subtitle": "对比 Dify、Coze、ChatGPT Teams 等主流产品",
-    "description": "TeGo v3.0.0 在独享实例、S3 三层隔离、模板治理、业务大屏、开箱技能等维度全面领先",
-    "categories": {
-      "avatar": {
-        "title": "数字分身体系",
-        "items": {
-          "digitalAvatar": "数字分身 / 数字员工",
-          "personalAvatar": "个人专属 AI（独立容器）",
-          "orgAvatar": "组织共享 AI（多副本高可用）"
-        }
-      },
-      "enterprise": {
-        "title": "企业级能力",
-        "items": {
-          "multiTenant": "多租户隔离（四层）",
-          "resourceQuota": "资源配额管控",
-          "lifecycle": "全生命周期管理",
-          "configManagement": "配置集中管控"
-        }
-      },
-      "ecosystem": {
-        "title": "技能与生态",
-        "items": {
-          "skillHotReload": "技能热装卸",
-          "agentSkills": "Agent Skills 标准化生态",
-          "a2ui": "A2UI 动态界面",
-          "channels": "15+ 渠道接入"
-        }
-      },
-      "deployment": {
-        "title": "部署与合规",
-        "items": {
-          "privateDeploy": "完全私有化部署",
-          "rbac": "RBAC 权限体系",
-          "audit": "全链路审计日志"
-        }
-      }
-    },
-    "competitors": {
-      "tego": "TeGo",
-      "dify": "Dify",
-      "coze": "Coze",
-      "chatgptTeams": "ChatGPT Teams"
-    },
-    "support": {
-      "full": "✓ 完整支持",
-      "partial": "部分支持",
-      "none": "✗ 不支持",
-      "basic": "基础"
-    }
-  },
   "bottomCTA": {
-    "title": "让你的企业，拥有第一支 24×7 在线的 AI 数字员工团队",
-    "description": "用 TeGo 把业务编排、系统能力和组织知识，转化为真正可执行的业务生产力。",
-    "primaryCTA": "申请企业版演示",
-    "secondaryCTA": "获取行业解决方案",
-    "hint": "从一个试点场景开始，在 30 天内验证 AI 超级团队的业务价值。"
-  },
-  "v3": {
-    "version": "v3.0.0",
-    "releaseDate": "2026-04-19",
-    "newBadge": "v3.0.0 NEW",
-    "hero": {
-      "version": "TeGo v3.0.0 · 正式发布",
-      "title": "同一个数字分身，可被一群人放心、互不打扰地共同使用",
-      "tagline": "独享实例 × 数据隔离 × 模板治理 × 运营观测",
-      "description": "v3.0.0 对底层的实例编排、数据隔离、模板治理与运营观测进行了系统性重构，并完善了客户端的开箱体验。本次发布并非常规迭代，旨在将平台从可用产品演进为面向企业级生产业务的可交付系统。",
-      "bullets": {
-        "perUser": "独享实例 per_user：同一分身按用户维度拉起独立容器，会话、记忆与文件均彼此隔离",
-        "isolation": "S3 三层数据隔离：模板与运行时按前缀分层，支持按用户进行独立备份、恢复与销毁",
-        "governance": "模板单一权威：模板仅限管理员维护，对普通用户写入模板路径的请求统一返回 403",
-        "monitor": "BusinessMonitor 业务大屏：覆盖率、增长、参与度、工作流与技能效能集中呈现"
-      },
-      "primaryCta": "申请企业版演示",
-      "primaryCtaHint": "30 分钟覆盖 4 个核心场景",
-      "secondaryCta": "下载产品手册与白皮书",
-      "secondaryCtaHint": "包含 53 张界面截图的完整操作指南",
-      "tertiaryCta": "私有化部署咨询",
-      "tertiaryCtaHint": "支持纯私有化、混合云与 SaaS 三种交付形态"
-    },
-    "watershed": {
-      "title": "v3.0.0 的四项关键演进",
-      "subtitle": "由可用产品演进为面向企业级生产业务的可交付系统",
-      "vBefore": "v2.x",
-      "vAfter": "v3.0.0",
-      "items": {
-        "concurrency": {
-          "dimension": "多用户并发",
-          "before": "多用户共享同一运行时，会话与记忆易发生交叉",
-          "after": "独享实例 per_user，每位用户拥有独立运行环境"
-        },
-        "isolation": {
-          "dimension": "数据隔离",
-          "before": "S3 未做用户级隔离，难以按用户进行备份与销毁",
-          "after": "模板与运行时按前缀分层，支持按用户独立备份、恢复与销毁"
-        },
-        "governance": {
-          "dimension": "配置治理",
-          "before": "权限边界模糊，写入冲突频发",
-          "after": "模板单一权威，对普通用户写入模板路径的请求统一返回 403"
-        },
-        "observability": {
-          "dimension": "运营观测",
-          "before": "指标分散于多个分析数据仓",
-          "after": "BusinessMonitor 大屏集中呈现覆盖率、增长、参与度、工作流与技能效能"
-        }
-      }
-    },
-    "capabilityCards": {
-      "title": "八项核心能力总览",
-      "subtitle": "围绕企业级可交付目标，本次升级覆盖架构、治理、观测、体验与生态五个维度",
-      "branches": {
-        "architecture": "架构",
-        "governance": "治理",
-        "observability": "观测",
-        "experience": "体验",
-        "ecosystem": "生态"
-      },
-      "cards": {
-        "perUser": {
-          "name": "独享实例（per_user）",
-          "upgrade": "同一分身按用户拉起独立容器，空闲自动回收，配套全链路配额护栏",
-          "value": "多用户并发使用同一分身时，会话、记忆与文件均彼此隔离"
-        },
-        "s3": {
-          "name": "S3 运行时数据隔离",
-          "upgrade": "模板与运行时按前缀分层，shared 与 per_user 各自独立备份",
-          "value": "避免多用户数据交叉，灾备可按用户单独恢复"
-        },
-        "template": {
-          "name": "模板与运行时单一权威",
-          "upgrade": "模板仅可在控制台维护，对普通用户写入模板路径的请求统一返回 403",
-          "value": "配置不再被误改或覆盖，治理边界明确"
-        },
-        "monitor": {
-          "name": "业务运营监测大屏",
-          "upgrade": "全新 BusinessMonitor 服务，统一汇总覆盖率、增长、参与度、工作流与技能效能",
-          "value": "为管理者提供平台健康度与业务表现的统一视图"
-        },
-        "miniChat": {
-          "name": "桌面端 Mini Chat 浮窗",
-          "upgrade": "始终置顶的轻量对话窗口，与主窗口共享同一会话",
-          "value": "在工作流中按需调用分身，避免打断主任务"
-        },
-        "skills": {
-          "name": "16 项 TeGo 模板技能",
-          "upgrade": "覆盖 IT 运维（11 项）与跨境电商（5+ 项），均附可执行脚本",
-          "value": "新建分身即可投入使用，无需自行搭建完整技能体系"
-        },
-        "build": {
-          "name": "构建管线重构",
-          "upgrade": "tego-claw 镜像构建拆分为编译与打包两个阶段，并对基础镜像进行了瘦身",
-          "value": "CI 构建更快、镜像更小、运行更稳定"
-        },
-        "test": {
-          "name": "测试体系扩展",
-          "upgrade": "新增契约、网关、文件上传与通知推送等多组集成测试",
-          "value": "关键路径回归更可靠，重构更稳健"
-        }
-      },
-      "tableHeaders": {
-        "capability": "核心能力",
-        "upgrade": "本次升级",
-        "value": "客户价值"
-      }
-    },
-    "perUserIsolation": {
-      "title": "独享实例（per_user）",
-      "subtitle": "面向多用户并发的独享运行时",
-      "painPoint": "在 v2 版本中，一个分身对应一个容器，所有用户共享同一份运行时状态。在客服、IT 工单等需要数十名用户并发使用同一分身的场景下，会话、记忆与工作区会相互覆盖，难以真正部署至一线生产环境。",
-      "solution": "v3.0.0 的解决方案",
-      "diagram": {
-        "userA": "用户 A",
-        "userB": "用户 B",
-        "userC": "用户 C",
-        "scheduler": "per_user 调度器",
-        "containerA": "A 的独立容器与独立 S3 命名空间",
-        "containerB": "B 的独立容器与独立 S3 命名空间",
-        "containerC": "C 的独立容器与独立 S3 命名空间",
-        "recycle": "空闲 5 分钟优雅回收，状态持久化至 S3",
-        "wakeup": "下次访问可在秒级唤醒"
-      },
-      "highlights": {
-        "container": {
-          "title": "每用户独立容器",
-          "description": "用户首次连接时拉起专属实例，并绑定专属 S3 命名空间"
-        },
-        "recycle": {
-          "title": "空闲自动回收",
-          "description": "默认 5 分钟无活跃即触发优雅停机，预留 45 秒供容器将状态持久化至 S3，下次访问可在秒级唤醒"
-        },
-        "quota": {
-          "title": "三维配额护栏",
-          "description": "按分身、用户与租户三个维度独立设置上限，避免资源越权占用"
-        },
-        "capacity": {
-          "title": "资源容量护栏",
-          "description": "宿主 CPU 或内存使用率超过 80% 时返回 503 并进入排队，避免节点过载"
-        },
-        "heartbeat": {
-          "title": "心跳超时兜底",
-          "description": "3 分钟无心跳触发自动停机，避免容器僵死导致配额长期占用"
-        },
-        "stale": {
-          "title": "Stale 锁自动清理",
-          "description": "由进程崩溃造成的 PROVISIONING / PENDING 长时间卡滞状态将由定时任务扫描并置为 FAILED，下次调度时自动重试"
-        }
-      },
-      "roadmap": "Warm Pool 方案已纳入下一阶段路线图，目标是将首次启动延迟由 5–15 秒的冷启动降低至 1 秒以内。"
-    },
-    "s3Isolation": {
-      "title": "S3 三层数据隔离",
-      "subtitle": "模板与运行时按职责分层",
-      "description": "per_user 模式的可靠运行，需要底层备份与恢复路径具备用户级隔离能力。v3.0.0 对 S3 命名空间进行了重新设计。",
-      "layout": {
-        "title": "新版 S3 命名空间布局",
-        "rows": {
-          "template": {
-            "path": "{avatarId}/{key}",
-            "comment": "分身级模板（管理员可写，所有用户只读）"
-          },
-          "shared": {
-            "path": "{avatarId}/shared/{key}",
-            "comment": "shared 模式下的运行时备份"
-          },
-          "perUser": {
-            "path": "{avatarId}/per-user/{userId}/{key}",
-            "comment": "per_user 模式下各用户的独立备份"
-          }
-        }
-      },
-      "highlights": {
-        "jwt": {
-          "title": "JWT 携带 instanceUserId",
-          "description": "在全链路中透明传递，用以识别每个请求所归属的用户实例"
-        },
-        "rewrite": {
-          "title": "网关自动改写读写路径",
-          "description": "按 instanceUserId 改写 S3 路径，对业务代码透明"
-        },
-        "fallback": {
-          "title": "三层 fallback 读取",
-          "description": "runtime/<key> → template/<key> → 历史 seed 路径，确保新老用户平滑过渡"
-        },
-        "reset": {
-          "title": "一键重置全部用户实例",
-          "description": "停止容器、删除编排资源、清理 volume 与 deployment 记录，过程完整可追溯"
-        }
-      },
-      "value": "对企业用户的实际价值：同一分身被多名用户共同使用时，每位用户的会话、记忆、工作区与媒体文件均归属本人，支持独立备份、独立恢复与独立销毁。"
-    },
-    "templateGovernance": {
-      "title": "模板与运行时单一权威",
-      "subtitle": "治理边界明确，权限职责清晰",
-      "diagram": {
-        "admin": "管理员 / Owner",
-        "template": "模板 template/*",
-        "runtime": "各用户运行时 runtime/*",
-        "user": "普通用户",
-        "forbidden": "403 Forbidden",
-        "writeTemplate": "写入",
-        "readTemplate": "只读",
-        "writeRuntime": "写入",
-        "tryWriteTemplate": "尝试写入模板"
-      },
-      "highlights": {
-        "adminOnly": {
-          "title": "模板路径仅可由 admin / owner 通过控制台修改",
-          "description": "写入将自动递增对应版本号（configVersion / workspaceVersion / skillsVersion）"
-        },
-        "interception": {
-          "title": "网关写入侧强制拦截",
-          "description": "普通用户 token 写入模板路径的请求将统一返回 403"
-        },
-        "consistency": {
-          "title": "双写一致性",
-          "description": "先经 RPC 更新本地副本，再通过 admin REST 写入 S3 模板；操作者所见无感知延迟，其他副本通过心跳达成最终一致"
-        },
-        "backfill": {
-          "title": "回填脚本",
-          "description": "pnpm db:backfill-template 以幂等方式将历史分身的 seed 数据迁移至新版模板路径"
-        }
-      }
-    },
-    "businessMonitor": {
-      "title": "业务运营监测大屏",
-      "subtitle": "为管理者提供平台健康度与业务表现的统一视图",
-      "description": "新版 BusinessMonitorService 将原本分散于审计与分析数据仓中的指标，统一聚合为可直接展示的 BusinessMonitorSnapshot v1 契约。",
-      "panels": {
-        "health": {
-          "name": "基础健康",
-          "metrics": "审计 / 渠道 / 健康 / 数据源"
-        },
-        "coverage": {
-          "name": "覆盖率（Coverage）",
-          "metrics": "基于真实活跃用户口径，不再依赖估算"
-        },
-        "growth": {
-          "name": "增长与参与（Growth / Engagement）",
-          "metrics": "DAU / WAU / MAU、留存与活跃趋势"
-        },
-        "tasks": {
-          "name": "任务与实时（Tasks / Realtime）",
-          "metrics": "当前任务量与实时负载"
-        },
-        "workflow": {
-          "name": "工作流（Workflow）",
-          "metrics": "Handoff、FCR（一次解决率）、自动流转率与关闭率"
-        },
-        "skills": {
-          "name": "技能效能（Skill Effectiveness）",
-          "metrics": "技能矩阵与工具调用统计"
-        }
-      },
-      "tech": {
-        "lru": "进程内 LRU（5 秒 TTL）缓存，支持多面板高频轮询而不增加数据库负载",
-        "dual": "ai-studio 与 dashboard 双端均已上线独立路由 _authenticated/admin_.business-monitor"
-      }
-    },
-    "skillLibrary": {
-      "title": "16 项开箱即用的 TeGo 模板技能",
-      "subtitle": "数字分身在企业内快速形成生产力，最大的门槛并非模型本身，而是缺少可直接使用的技能库。",
-      "executable": "可执行脚本",
-      "tabs": {
-        "itOps": "IT 运维（11 项）",
-        "crossBorder": "跨境电商（5+ 项）"
-      },
-      "noticeText": "每项技能均附带可执行脚本（bash），并非提示词模板，可在生产环境中直接调用。",
-      "itOps": {
-        "ticket-handler": {
-          "name": "ticket-handler",
-          "ability": "工单全生命周期：受理、分类、优先级、路由、SLA 跟踪"
-        },
-        "incident-triage": {
-          "name": "incident-triage",
-          "ability": "故障快速诊断：日志分析、指标关联、Runbook 匹配"
-        },
-        "auto-remediation": {
-          "name": "auto-remediation",
-          "ability": "自动修复：服务重启、磁盘清理、缓存刷新（带 dry-run）"
-        },
-        "system-monitor": {
-          "name": "system-monitor",
-          "ability": "主动健康监测：连通性、资源、异常告警分级"
-        },
-        "infra-documenter": {
-          "name": "infra-documenter",
-          "ability": "自动化基础设施文档：发现、清单、拓扑、变更跟踪"
-        },
-        "patch-manager": {
-          "name": "patch-manager",
-          "ability": "漏洞扫描与补丁生命周期：CVE 比对、风险评估、回滚预案"
-        },
-        "sla-reporter": {
-          "name": "sla-reporter",
-          "ability": "SLA 合规报告：可用率、MTTR、趋势分析"
-        }
-      },
-      "crossBorder": {
-        "market-scout": {
-          "name": "market-scout",
-          "ability": "市场研究：Amazon Best Sellers / Google Trends / TikTok 交叉验证"
-        },
-        "competitor-intel": {
-          "name": "competitor-intel",
-          "ability": "竞品分析：抓取/分析评论、识别弱点、生成攻击策略"
-        },
-        "listing-forge": {
-          "name": "listing-forge",
-          "ability": "Listing 撰写：自动从记忆中读取竞品弱点，SEO 优化"
-        },
-        "image-studio": {
-          "name": "image-studio",
-          "ability": "主图/场景图：白底图、合规化、AI 生成"
-        },
-        "video-maker": {
-          "name": "video-maker",
-          "ability": "15 秒 UGC 短视频，适配 TikTok / Reels"
-        },
-        "voice-miner": {
-          "name": "voice-miner",
-          "ability": "Reddit / 论坛真实用户痛点挖掘"
-        },
-        "review-shield": {
-          "name": "review-shield",
-          "ability": "差评分类与合规回复"
-        },
-        "site-cloner": {
-          "name": "site-cloner",
-          "ability": "竞品落地页结构克隆"
-        },
-        "locale-adapt": {
-          "name": "locale-adapt",
-          "ability": "多市场本地化：文化适配、本地关键词、市场化 SEO"
-        }
-      }
-    },
-    "desktopExperience": {
-      "title": "桌面端体验全面升级",
-      "subtitle": "Mini Chat 浮窗、下载中心与 Windows 安装器重写",
-      "miniChat": {
-        "title": "Mini Chat",
-        "tagline": "始终置顶的随时调用窗口",
-        "features": {
-          "1": "独立的 Tauri 窗口，紧凑、无边框、可置顶",
-          "2": "复用同一连接：与主窗口共享同一会话，对话上下文不分裂",
-          "3": "全局快捷键：参考 Spotlight / Raycast 实现唤出与隐藏",
-          "4": "跨窗口同步：两个窗口始终展示同一会话",
-          "5": "懒创建与复用：首次唤出时才创建 webview，避免重复加载"
-        }
-      },
-      "downloads": {
-        "title": "Downloads",
-        "tagline": "统一的下载中心",
-        "description": "为桌面端、移动端与命令行安装包提供统一入口，便于企业用户在初次部署后快速分发至不同终端"
-      },
-      "windows": {
-        "title": "Windows 安装器重写",
-        "tagline": "更稳定的安装、升级与卸载体验",
-        "features": {
-          "1": "NSIS 安装器累计重写 584 行，安装、升级与卸载更稳定",
-          "2": "新增离线打包脚本 create-windows-installer.sh，更适配私有化交付场景"
-        }
-      }
-    },
-    "scenarios": {
-      "title": "典型应用场景",
-      "subtitle": "基于 16 项开箱模板技能，新场景接入仅需完成技能安装与流程编排",
-      "items": {
-        "itSupport": {
-          "title": "场景 A · IT 内部支持",
-          "input": "员工在企业内部群中提出「我电脑连不上 VPN」",
-          "path": "分身识别意图 → incident-triage 拉取日志 → auto-remediation 输出修复脚本（dry-run）→ 修复失败时由 ticket-handler 自动建单并跟踪 SLA",
-          "result": "常见问题实现自助闭环，复杂问题以结构化工单转交人工",
-          "tags": ["incident-triage", "auto-remediation", "ticket-handler"]
-        },
-        "crossBorder": {
-          "title": "场景 B · 跨境电商选品与 Listing",
-          "input": "运营人员需在新类目下快速完成摸底",
-          "path": "market-scout 跨平台采集 Best Sellers → competitor-intel 抓取评论并识别竞品弱点 → listing-forge 生成 SEO 化 Listing → image-studio / video-maker 产出图文与视频素材 → locale-adapt 完成多市场本地化",
-          "result": "原本约一周的选品与上架流程，可压缩至一个工作日内完成演练",
-          "tags": ["market-scout", "competitor-intel", "listing-forge", "image-studio", "locale-adapt"]
-        },
-        "regulated": {
-          "title": "场景 C · 政务与金融高敏场景",
-          "input": "监管要求各用户的对话与文件相互不可见，并可独立销毁",
-          "path": "分身配置为 per_user 模式 → 每位用户对应独立容器与独立 S3 命名空间 → 撤销账号时一键清理对应前缀",
-          "result": "满足数据可分离审计与可定向销毁的合规诉求",
-          "tags": ["per_user", "S3 隔离", "一键销毁"]
-        }
-      }
-    },
-    "performanceMetrics": {
-      "title": "性能与资源体量",
-      "subtitle": "v3.0.0 在构建、镜像与运行时三个维度同步进行了体量收敛",
-      "items": {
-        "build": {
-          "dimension": "tego-claw 镜像构建",
-          "improvement": "构建拆分为两个阶段，JS 编译仅在单台 X64 机器执行一次"
-        },
-        "baseImage": {
-          "dimension": "基础镜像瘦身",
-          "improvement": "移除 Bun（~96MB）、Go / Rust / build-essential（~750MB）以及全局 CLI"
-        },
-        "ci": {
-          "dimension": "CI 速度",
-          "improvement": "切换至 npm 官方源，在 GitHub Runner 环境下相较国内镜像更快"
-        },
-        "monitor": {
-          "dimension": "业务大屏",
-          "improvement": "进程内 LRU 缓存（5 秒 TTL），支持多面板高频轮询而不直接访问数据库"
-        },
-        "memory": {
-          "dimension": "per_user 内存",
-          "improvement": "默认 768m（原 1024m），单台 16GB 机器可多承载约 30% 的实例"
-        },
-        "chat": {
-          "dimension": "长会话渲染",
-          "improvement": "采用虚拟化日志列表，长会话与长日志的渲染保持流畅"
-        },
-        "pnpm": {
-          "dimension": "包管理",
-          "improvement": "pnpm 升级至 10.32.1"
-        }
-      },
-      "tableHeaders": {
-        "dimension": "维度",
-        "improvement": "提升"
-      }
-    },
-    "architecture": {
-      "title": "v3.0.0 架构总览",
-      "subtitle": "Server、网关、S3 与业务大屏四个组件边界清晰、职责明确",
-      "nodes": {
-        "web": "Web 浏览器",
-        "desktop": "Tauri 桌面端 / Mini Chat",
-        "mini": "嵌入式 Mini Chat SDK",
-        "server": "TeGo Server",
-        "gateway": "TeGo 分身网关",
-        "shared": "shared 共享实例池",
-        "perUser": "per-user 独占实例",
-        "channels": "通道适配（飞书 / Slack / Web API）",
-        "pg": "PostgreSQL（元数据）",
-        "redis": "Redis（会话 / 限流）",
-        "s3": "S3（数据隔离）",
-        "monitor": "BusinessMonitor 大屏"
-      },
-      "legend": {
-        "server": "Server：承担权限、配额、审计、监控以及模板与运行时治理的中枢职能",
-        "gateway": "网关：负责实例的创建、调度、心跳与停机；shared 与 per_user 两条路径共用同一调度器",
-        "s3": "S3：按 template / shared / per-user/{userId} 三层前缀进行数据隔离",
-        "monitor": "业务大屏：聚合层独立部署并独立缓存，不影响事务路径"
-      }
-    },
-    "upgradeMigration": {
-      "title": "升级与迁移指南",
-      "subtitle": "推荐升级流程与破坏性变更说明",
-      "stepsTitle": "升级流程（推荐执行顺序）",
-      "steps": {
-        "1": "执行数据库迁移至 0015：pnpm db:migrate",
-        "2": "针对历史分身，建议执行一次 pnpm db:backfill-template，将模板路径显式迁移至新版布局",
-        "3": "per_user 模式建议先在测试租户中验证空闲回收、心跳兜底与容量护栏，验证通过后再灰度发布至生产环境",
-        "4": "Windows 用户请切换至新版 NSIS 安装器",
-        "5": "私有化客户的构建流程请对齐「build 与 bundle 在外部完成、镜像仅承担打包」的模式"
-      },
-      "breakingTitle": "重要破坏性变更（请知会研发团队）",
-      "breaking": {
-        "1": "已移除遗留 avatar_agents 表与对应 API 路由；请外部直连接入方迁移至新的 template API",
-        "2": "JWT Payload 新增 instanceUserId；建议升级后由客户端重新换发 token",
-        "3": "S3 路径布局已调整；历史路径仍提供 fallback，建议显式迁移至新版布局",
-        "4": "网关模板写入权限已收紧；普通用户携 token 写入模板路径将返回 403",
-        "5": "tego-claw Docker 镜像不再在内部编译 JS；私有化客户的构建流程需相应调整",
-        "6": "基础镜像已移除 Bun / Go / Rust；依赖容器内编译的私有插件请在自有 Dockerfile 中补回"
-      }
-    },
-    "privateDelivery": {
-      "title": "私有化交付能力",
-      "subtitle": "纯私有化 / 混合云 / SaaS 三种交付，覆盖政企、金融、跨境全场景",
-      "items": {
-        "deployment": {
-          "dimension": "部署形态",
-          "ability": "纯私有化（K8s / Docker） · 混合云 · SaaS"
-        },
-        "residency": {
-          "dimension": "数据驻留",
-          "ability": "全数据可留客户内网；S3 可替换为兼容对象存储"
-        },
-        "auth": {
-          "dimension": "认证",
-          "ability": "内置账密 + LDAP，支持企业 SSO（OIDC / SAML）"
-        },
-        "audit": {
-          "dimension": "审计",
-          "ability": "操作审计、调用审计、数据导出"
-        },
-        "localization": {
-          "dimension": "国产化",
-          "ability": "适配主流国产 CPU / OS / 数据库 / 国产对象存储"
-        },
-        "offline": {
-          "dimension": "离线",
-          "ability": "支持完全离线安装包，含模型权重打包方案"
-        }
-      },
-      "tableHeaders": {
-        "dimension": "维度",
-        "ability": "能力"
-      }
-    },
-    "competitiveUpgrade": {
-      "title": "v2.x → v3.0.0 升级前后",
-      "subtitle": "把「能跑的产品」升级为「可对企业真正交付的系统」",
-      "before": "v2.x",
-      "after": "v3.0.0",
-      "items": {
-        "concurrency": {
-          "dimension": "多人并发",
-          "before": "✗ 共享运行时，会话/记忆易串扰",
-          "after": "✓ per_user 独享实例，互不干扰"
-        },
-        "isolation": {
-          "dimension": "数据隔离",
-          "before": "✗ S3 大锅饭，难以按用户切片",
-          "after": "✓ 三层路径分离，可独立备份 / 销毁"
-        },
-        "governance": {
-          "dimension": "配置治理",
-          "before": "✗ 谁都能改、易冲突",
-          "after": "✓ 模板单一权威 + 403 拦截"
-        },
-        "monitor": {
-          "dimension": "运营观测",
-          "before": "✗ 指标散落多处",
-          "after": "✓ BusinessMonitor 大屏一屏看清"
-        },
-        "skills": {
-          "dimension": "开箱技能",
-          "before": "需要自建技能体系",
-          "after": "✓ 16 个开箱模板，含可执行脚本"
-        },
-        "desktop": {
-          "dimension": "桌面端",
-          "before": "单一主窗口",
-          "after": "✓ Mini Chat 浮窗 + 下载中心 + 新 Windows 安装器"
-        }
-      }
-    }
+    "eyebrow": "开始行动",
+    "title": "让第一位数字员工正式上岗",
+    "description": "锁定首个业务岗位，启动 2 周 POC 评估。以业务结果验收，把流程沉淀为可复用的岗位资产。",
+    "primaryCTA": "申请 POC 评估",
+    "secondaryCTA": "阅读快速入门",
+    "hint": "AI 已进入任务执行时代：企业治理需要同步覆盖执行过程。"
   },
   "biz": {
     "hero": {
-      "badge": "面向全球团队的 AI 数字员工",
-      "title": "从一位到一支团队，组建您的 AI 数字员工队伍",
-      "subtitle": "为调研、客户交付与市场拓展创建专属数字员工。每位员工都有自己的技能、记忆与工作空间，交付可编辑成果，而不只是回答问题。",
-      "primaryCta": "申请企业版演示",
-      "primaryCtaHint": "由解决方案专家 1 对 1 介绍",
-      "secondaryCta": "下载产品手册",
-      "secondaryCtaHint": "包含部署方式与价格说明",
+      "badge": "TeGo · 数字员工执行与治理平台",
+      "title": "让数字员工安全、高效、持续地工作",
+      "subtitle": "让 AI 进入业务主流程，让数字员工交付可验收结果。TeGo 以岗位为单位定义职责、权限与验收标准，在企业私有域内受控执行、全程留痕。",
+      "tags": [
+        "自主任务执行",
+        "私有化部署",
+        "权限可控",
+        "国产化适配"
+      ],
+      "primaryCta": "申请 2 周 POC",
+      "docsCta": "阅读快速入门",
       "watchDemo": "观看产品演示",
       "watchDemoAria": "打开产品演示视频",
       "tertiaryCta": "私有化部署咨询",
-      "tertiaryCtaHint": "支持纯私有化、混合云与 SaaS 三种交付",
-      "trustLine": "适用于互联网、跨境电商、IT 服务商、政企与金融客户",
+      "tertiaryCtaHint": "支持私有化、TeGo Station 一体机与云端版",
       "highlights": {
-        "scale": {
-          "value": "200+",
-          "label": "开箱即用的角色"
+        "poc": {
+          "value": "2 周",
+          "label": "POC 验证首个岗位"
         },
-        "speed": {
-          "value": "几分钟",
-          "label": "开始第一项任务"
+        "xinchuang": {
+          "value": "信创",
+          "label": "全栈国产化适配"
         },
-        "delivery": {
-          "value": "$0",
-          "label": "面向全球免费开始"
+        "evidence": {
+          "value": "全链路",
+          "label": "执行留痕与可核验证据"
         }
-      }
-    },
-    "audienceSplit": {
-      "title": "一种数字员工，两种开始方式",
-      "subtitle": "根据团队规模、数据边界与交付要求，选择最适合您的 TeGo。",
-      "private": {
-        "eyebrow": "面向企业",
-        "title": "TeGo 企业版",
-        "description": "部署到您的环境，围绕真实业务流程深度定制，并由工程团队陪伴落地。",
-        "features": ["数据与模型留在企业网络", "业务流程与行业能力深度定制", "FDE 驻场工程师支持", "SSO、权限、审计与高可用"],
-        "cta": "申请企业版演示"
       },
-      "cloud": {
-        "eyebrow": "面向个人与团队",
-        "title": "TeGo 云端版",
-        "description": "无需部署，注册即可创建专属数字员工，让日常工作马上开始流动。",
-        "features": ["$0 起步，按需升级", "200+ 位专家，选中即用", "自动升级，免运维", "面向全球随时访问"],
-        "cta": "免费试用云端版"
+      "console": {
+        "title": "数字员工岗位控制台",
+        "subtitle": "身份、权限、执行与证据，一处可见",
+        "live": "运行中",
+        "workers": [
+          {
+            "name": "知识咨询岗",
+            "status": "按岗位授权检索 · 附原文出处"
+          },
+          {
+            "name": "流程督办岗",
+            "status": "OA 工单流转中 · 3 项待复核"
+          }
+        ],
+        "workflowTitle": "受控执行",
+        "steps": "3 步",
+        "workflow": [
+          "识别发起人与授权范围",
+          "沙箱内调用工具与系统",
+          "生成可核验执行证据"
+        ],
+        "governanceTitle": "治理状态",
+        "governance": [
+          "最小权限已生效",
+          "高风险动作人工确认",
+          "审计记录已校验"
+        ],
+        "footer": [
+          "身份约束沙箱",
+          "自研运行编排",
+          "可信执行证据"
+        ]
       }
     },
     "teamPacks": {
       "eyebrow": "从一支数字团队开始",
       "title": "先选择要完成的工作，而不是面对一个空白对话框",
-      "subtitle": "先启用一支目标明确的三人数字团队。Zhama 会自动准备第一项任务，工作增加后再随时添加更多数字员工。",
+      "subtitle": "先启用一支目标明确的三人数字团队。TeGo 云端版会自动准备第一项任务，工作增加后再随时添加更多数字员工。",
       "recommended": "推荐首选",
       "employeesLabel": "首批 3 位数字员工",
       "outcomeLabel": "首次交付",
-      "reassurance": "无需信用卡。任务会预先填入 Zhama，您可以确认内容后再创建免费工作空间。",
+      "reassurance": "无需信用卡。任务会预先填入 TeGo 云端版，您可以确认内容后再创建免费工作空间。",
       "items": {
         "research": {
           "title": "调研与战略团队",
           "description": "适合创业者、顾问、产品团队，以及所有需要更快做出有依据决策的用户。",
-          "employees": ["市场研究员", "竞争情报分析师", "战略报告撰稿人"],
+          "employees": [
+            "市场研究员",
+            "竞争情报分析师",
+            "战略报告撰稿人"
+          ],
           "outcome": "一份可直接用于决策的市场与竞品简报",
           "cta": "开始市场调研"
         },
         "delivery": {
           "title": "客户交付团队",
           "description": "适合代理商和专业服务团队，把零散输入持续转化为可交付给客户的成果。",
-          "employees": ["研究分析师", "方案与演示文稿撰稿人", "质量审核员"],
+          "employees": [
+            "研究分析师",
+            "方案与演示文稿撰稿人",
+            "质量审核员"
+          ],
           "outcome": "一份结构完整、可交付客户的战略方案",
           "cta": "准备客户交付物"
         },
         "expansion": {
           "title": "市场拓展团队",
           "description": "适合进入新国家、新语言或新渠道的企业，包括跨境电商与国际业务团队。",
-          "employees": ["市场进入研究员", "本地化专家", "增长运营专员"],
+          "employees": [
+            "市场进入研究员",
+            "本地化专家",
+            "增长运营专员"
+          ],
           "outcome": "一份按优先级排列的新市场机会简报",
           "cta": "评估一个新市场"
         }
       }
     },
     "painPoints": {
-      "title": "为什么大多数企业的 AI 试点，最终都没能进入生产？",
-      "subtitle": "不是模型不够强，而是企业级落地的关键能力没补齐。",
-      "items": {
-        "shared": {
-          "title": "员工共用一个对话",
-          "description": "几十名员工同时使用同一个 AI 助手时，会话相互覆盖、记忆错乱，无法承载真实业务负载。"
+      "eyebrow": "为什么需要 TeGo",
+      "title": "智能体接入真实业务，四类管控风险随之浮现",
+      "subtitle": "AI 正从“会回答”走向“能执行”。岗位、权限、复核和审计不能同时到位，风险顾虑就会阻碍规模化落地。",
+      "items": [
+        {
+          "action": "接入业务系统",
+          "risk": "权责无法界定",
+          "description": "智能体代人操作系统，出了问题说不清是谁授权、谁负责。"
         },
-        "data": {
-          "title": "数据出不去，也回不来",
-          "description": "看不清企业数据流向哪里、AI 的回答从何而来，合规与审计的不确定让 AI 始终停在 PoC。"
+        {
+          "action": "直接对客输出",
+          "risk": "内容风险不可控",
+          "description": "回答口径不统一，敏感内容缺少复核就直接触达客户。"
         },
-        "control": {
-          "title": "权限模糊，配置失控",
-          "description": "AI 的行为谁都能改、被反复覆盖，运营团队无法对企业级 AI 形成稳定治理。"
+        {
+          "action": "自主调用工具",
+          "risk": "操作链路缺少记录",
+          "description": "调用了什么、改了什么、结果如何，无法完整还原。"
         },
-        "blackbox": {
-          "title": "效果说不清，价值算不明",
-          "description": "AI 上线后没有统一的运营视图，无法回答「覆盖了多少员工、解决了多少问题、节省了多少人力」。"
+        {
+          "action": "触碰核心数据",
+          "risk": "数据安全缺乏保障",
+          "description": "知识、记忆与日志流出企业边界，访问范围难以约束。"
         }
+      ],
+      "compare": {
+        "title": "补齐执行管控短板，把经验沉淀为企业私有资产",
+        "fromLabel": "传统人工与通用 AI",
+        "toLabel": "TeGo 数字员工",
+        "rows": [
+          {
+            "from": "权责模糊",
+            "to": "岗位定义与验收标准"
+          },
+          {
+            "from": "操作无记录",
+            "to": "全流程审计追溯"
+          },
+          {
+            "from": "内容不可控",
+            "to": "Skill 固化口径与人工复核"
+          },
+          {
+            "from": "数据不安全",
+            "to": "最小授权与内网留存"
+          }
+        ]
       }
     },
     "valuePillars": {
-      "title": "把 AI 真正部署进企业，需要这四项基本能力",
-      "subtitle": "TeGo 不止提供一个 AI 助手，而是让 AI 成为您企业的数字员工。",
-      "pillars": {
-        "dedicated": {
-          "title": "每位员工的专属 AI 同事",
-          "description": "每位员工拥有独立的 AI 工作空间，会话、记忆与文件互不干扰，可承载企业级并发使用。",
-          "tag": "并发就绪"
+      "eyebrow": "数字员工的四项上岗资格",
+      "title": "用岗位管理机制，承接智能体的执行能力",
+      "subtitle": "每位数字员工都像正式员工一样定岗、授权、复核与留痕，最终以业务结果验收。",
+      "items": [
+        {
+          "title": "岗位定义",
+          "description": "明确身份、职责、服务对象与验收标准。"
         },
-        "ownership": {
-          "title": "数据严格归属企业",
-          "description": "对话、知识与文件全部沉淀在企业自有空间，可独立备份、迁移与销毁，满足合规要求。",
-          "tag": "数据主权"
+        {
+          "title": "权限边界",
+          "description": "数据与工具按岗位最小授权，按授权范围运行。"
         },
-        "governance": {
-          "title": "全程可治理、可审计",
-          "description": "权限、审计、运营视图、SLA、版本管理在同一平台内闭环，AI 的每一次行为都可见、可控、可追责。",
-          "tag": "企业治理"
+        {
+          "title": "人工确认",
+          "description": "写回系统、对外发布、敏感导出等高风险动作先复核。"
         },
-        "ready": {
-          "title": "开箱即用的行业能力",
-          "description": "内置 16 项面向 IT 运维与跨境电商的成熟技能，新建数字员工即可投入业务，无需自建技能体系。",
-          "tag": "开箱即用"
+        {
+          "title": "审计留痕",
+          "description": "任务、身份、调用与结果全过程可追溯。"
         }
+      ],
+      "acceptance": {
+        "title": "业务验收",
+        "description": "岗位任务完成，交付结果达标。"
+      },
+      "assets": {
+        "title": "五大资产模型",
+        "subtitle": "数字员工的五个构成面，共同支撑业务上岗，并沉淀在企业内网。",
+        "items": [
+          {
+            "title": "岗位定义",
+            "description": "身份职责与验收标准"
+          },
+          {
+            "title": "Skill 能力库",
+            "description": "任务方法与流程门禁"
+          },
+          {
+            "title": "知识记忆",
+            "description": "制度、SOP 与历史案例"
+          },
+          {
+            "title": "系统与工具连接",
+            "description": "标准 API 与最小授权"
+          },
+          {
+            "title": "权限与审计",
+            "description": "人工复核与全程留痕"
+          }
+        ]
+      },
+      "path": {
+        "title": "交付路径",
+        "steps": [
+          {
+            "title": "定岗",
+            "description": "编写岗位说明书"
+          },
+          {
+            "title": "装 Skill",
+            "description": "可复用的任务方法与流程"
+          },
+          {
+            "title": "接系统",
+            "description": "打通业务主流程执行通道"
+          },
+          {
+            "title": "验收",
+            "description": "以可审计的执行记录验收"
+          }
+        ]
       }
     },
     "scenarios": {
-      "title": "已经在这些业务场景中创造价值",
-      "subtitle": "覆盖企业内部支持、增长业务与高合规场景的完整工作流。",
-      "items": {
-        "itSupport": {
-          "industry": "IT 内部支持",
-          "title": "员工技术问题的 24×7 一线响应",
-          "description": "从员工提问到自动诊断、自动修复、SLA 跟踪一站完成，常见问题在分钟级闭环，复杂问题以结构化工单转交人工。",
-          "metrics": [
-            { "label": "一次性解决率", "value": "≥ 60%" },
-            { "label": "平均响应时长", "value": "下降 40%+" },
-            { "label": "人均承载工单量", "value": "提升 3×" }
-          ]
+      "eyebrow": "解决方案",
+      "title": "八大职能域，以岗位资产承接企业高频业务",
+      "subtitle": "预制岗位与 Skill 资产库降低搭建成本：启用预制资产、按业务微调方法，再跨部门复制复用。",
+      "domains": [
+        {
+          "title": "知识管理",
+          "description": "制度问答、案例检索"
         },
-        "crossBorder": {
-          "industry": "跨境电商",
-          "title": "选品、上架与多市场本地化的数字增长团队",
-          "description": "市场调研、竞品分析、Listing 撰写、图文素材与多语本地化串成一条数字员工流水线，让中小卖家具备上市公司级的运营能力。",
-          "metrics": [
-            { "label": "新品上架周期", "value": "1 周 → 1 天" },
-            { "label": "Listing 产能", "value": "提升 5×" },
-            { "label": "运营人力投入", "value": "下降 50%+" }
-          ]
+        {
+          "title": "流程执行",
+          "description": "工单流转、任务督办"
         },
-        "regulated": {
-          "industry": "政务与金融",
-          "title": "高敏行业里的可独立销毁的数字员工",
-          "description": "每位用户的对话与数据完全隔离，账号撤销时可定向销毁，满足合规与审计的硬性要求，让 AI 走进对数据最严格的行业。",
-          "metrics": [
-            { "label": "数据隔离粒度", "value": "用户级" },
-            { "label": "销毁可追溯", "value": "100%" },
-            { "label": "操作 / 调用审计", "value": "全留痕" }
-          ]
+        {
+          "title": "数据分析",
+          "description": "经营日报、异常预警"
+        },
+        {
+          "title": "客户服务",
+          "description": "业务咨询、售后跟进"
+        },
+        {
+          "title": "销售支持",
+          "description": "线索清洗、报价辅助"
+        },
+        {
+          "title": "人力资源",
+          "description": "材料初筛、员工问答"
+        },
+        {
+          "title": "财务与合规",
+          "description": "发票核对、费用初审"
+        },
+        {
+          "title": "供应链与运营",
+          "description": "订单跟踪、库存预警"
         }
-      }
-    },
-    "outcomes": {
-      "title": "客户业务侧的成果",
-      "subtitle": "上线 TeGo 数字员工后，企业普遍可以达到的业务表现。",
-      "metrics": {
-        "resolution": {
-          "value": "60%+",
-          "label": "常见问题一次性解决率",
-          "description": "员工技术支持类问题在分钟级完成自动诊断与修复"
+      ],
+      "featuredTitle": "四大重点场景",
+      "painLabel": "业务痛点：",
+      "usesLabel": "典型应用：",
+      "items": [
+        {
+          "label": "场景一",
+          "title": "知识管理数字员工",
+          "tagline": "分散资料进入私有知识库，答案保留原文出处",
+          "pain": "资料分散、查找耗时、新人上手慢",
+          "steps": [
+            "文档入库",
+            "解析要点",
+            "授权检索",
+            "答案溯源"
+          ],
+          "uses": "投研检索、制度问答、合同条款查阅"
         },
-        "ttm": {
-          "value": "1 天",
-          "label": "新品上架周期",
-          "description": "原本一周以上的跨境电商上架流程被压缩至一个工作日"
+        {
+          "label": "场景二",
+          "title": "流程执行数字员工",
+          "tagline": "跨系统任务执行，以业务回执验证办结",
+          "pain": "人工流转慢、复制易错、进度难跟踪",
+          "steps": [
+            "抓取工单",
+            "发起流转",
+            "人工复核",
+            "信息回填",
+            "回执验收"
+          ],
+          "uses": "审批督办、材料报送、工单闭环"
         },
-        "cost": {
-          "value": "50%+",
-          "label": "运营人力节省",
-          "description": "重复性、规则化的运营工作由数字员工承担"
+        {
+          "label": "场景三",
+          "title": "数据分析数字员工",
+          "tagline": "业务人员用自然语言获取授权数据与分析结果",
+          "pain": "提数依赖 IT、口径不一、导出风险高",
+          "steps": [
+            "自然语言提问",
+            "口径校验",
+            "授权查询",
+            "汇总与报表"
+          ],
+          "uses": "经营指标查询、客户统计、经营简报、异常数据预警"
         },
-        "response": {
-          "value": "7×24",
-          "label": "全天候响应",
-          "description": "数字员工不下班，企业内外部请求得到稳定响应"
+        {
+          "label": "场景四",
+          "title": "客户服务数字员工",
+          "tagline": "标准问题 7×24 自动承接，复杂与敏感事项转人工",
+          "pain": "咨询量大、口径不一、高峰响应慢",
+          "steps": [
+            "识别意图",
+            "授权检索",
+            "标准答复"
+          ],
+          "uses": "业务咨询、产品答疑、工单自助受理、客户回访提醒"
         }
-      },
-      "footnote": "实际指标因行业、规模与上线深度不同存在差异，欢迎在演示中获取面向您业务的评估报告。"
+      ],
+      "docsCta": "查看最佳实践案例"
     },
     "readiness": {
-      "title": "面向生产环境设计的企业级就绪",
-      "subtitle": "TeGo 自上线第一天起，就按企业生产业务的标准构建。",
-      "items": {
-        "private": {
-          "title": "纯私有化部署",
-          "description": "支持 Kubernetes 与 Docker，全栈可在客户内网运行，数据不出边界。"
+      "eyebrow": "企业级就绪",
+      "title": "私有化底座，承接数字员工的安全运行边界",
+      "subtitle": "面向国企与金融的企业级交付能力：统一承接国产化、多端接入与集团管理。",
+      "governanceTitle": "安全运行治理",
+      "governance": [
+        {
+          "title": "最小权限",
+          "description": "仅授予本岗位必需的访问权"
         },
-        "compliance": {
-          "title": "合规与审计",
-          "description": "完整的操作审计、调用审计与数据导出，匹配合规审查与等保要求。"
+        {
+          "title": "人工确认闸门",
+          "description": "高风险动作复核后执行"
         },
-        "sso": {
-          "title": "企业 SSO 与权限",
-          "description": "原生支持账号密码、LDAP 与企业 SSO（OIDC / SAML），与现有身份体系无缝接入。"
+        {
+          "title": "全链路审计",
+          "description": "任务、身份、调用与结果归档"
         },
-        "domestic": {
-          "title": "国产化适配",
-          "description": "适配主流国产 CPU、操作系统、数据库与对象存储，支持信创交付。"
-        },
-        "isolation": {
-          "title": "用户级数据隔离",
-          "description": "每位员工的对话、记忆与文件互不可见，可独立备份、恢复与销毁。"
-        },
-        "sla": {
-          "title": "稳定性与 SLA",
-          "description": "面向生产环境设计的容量护栏、故障兜底与可观测体系，提供企业级 SLA 承诺。"
+        {
+          "title": "数据域隔离",
+          "description": "知识、记忆与日志留存内网"
         }
-      }
+      ],
+      "deliveryTitle": "企业级交付能力",
+      "delivery": [
+        {
+          "title": "信创全栈",
+          "points": [
+            "鲲鹏 / 飞腾 CPU",
+            "麒麟 / 统信 OS",
+            "国产数据库与国密加密"
+          ]
+        },
+        {
+          "title": "移动端管控",
+          "points": [
+            "钉钉、企业微信、飞书",
+            "App / 小程序 / H5",
+            "鸿蒙原生适配"
+          ]
+        },
+        {
+          "title": "系统连接",
+          "points": [
+            "OA / ERP / HR",
+            "知识库与数据源",
+            "标准 API 与连接器"
+          ]
+        },
+        {
+          "title": "集团多租户",
+          "points": [
+            "组织与用户隔离",
+            "岗位资产按域管理",
+            "统一审计与运营"
+          ]
+        }
+      ],
+      "note": "具体兼容性与适配范围以交付清单和验证结果为准。"
     },
     "delivery": {
-      "title": "灵活的交付与商务模式",
-      "subtitle": "无论您是要在本地保留全部数据，还是希望按用量灵活开通，都能找到合适的方式。",
+      "title": "选择适合您的交付方式",
+      "subtitle": "数据要留在内网、需要软硬一体快速上线，还是先在云端试用，都有对应的方案。",
+      "popularLabel": "推荐",
+      "docsLink": "查看部署文档",
       "modes": {
         "private": {
-          "title": "纯私有化",
-          "tagline": "面向数据与合规要求最严格的客户",
+          "title": "私有化部署",
+          "tagline": "面向数据与合规要求最严格的政企、金融客户",
           "features": [
             "全栈部署在客户内网，数据不出边界",
-            "支持国产 CPU、OS、数据库与对象存储",
-            "支持完全离线安装，提供模型权重打包方案"
+            "离线安装包：Compose 单机或 K3s + Helm 集群",
+            "支持信创 CPU、OS、数据库与国密加密"
           ],
           "cta": "联系私有化方案专家"
         },
-        "hybrid": {
-          "title": "混合云",
-          "tagline": "数据本地、控制面云端",
+        "station": {
+          "title": "TeGo Station 一体机",
+          "tagline": "软硬一体，开箱即用的私有 AI 底座",
           "features": [
-            "敏感数据保留在客户内网",
-            "控制面与升级由 TeGo 托管",
-            "兼顾合规要求与运维成本"
+            "预装 TeGo 平台与模型运行环境",
+            "1–3 天完成部署上线",
+            "适合部门级试点与分支机构"
           ],
-          "cta": "了解混合云方案"
+          "cta": "了解 TeGo Station"
         },
-        "saas": {
-          "title": "SaaS",
-          "tagline": "无需部署、按需开通",
+        "cloud": {
+          "title": "TeGo 云端版",
+          "tagline": "注册即用，无需部署和运维",
           "features": [
-            "按账号或用量灵活计费",
-            "新版本自动升级，永远在最新版",
-            "适合快速验证与中小团队起步"
+            "$0 起步，按需扩展",
+            "200+ 开箱即用的专家角色",
+            "适合个人与小团队快速验证"
           ],
-          "cta": "免费开始体验"
+          "cta": "免费开始使用"
         }
-      },
-      "popularLabel": "推荐"
-    },
-    "logos": {
-      "title": "已经服务于这些行业",
-      "subtitle": "互联网、跨境电商、IT 服务商、政企与金融客户，正在使用 TeGo 构建自己的 AI 数字员工。",
-      "industries": [
-        { "key": "internet", "label": "互联网与 SaaS" },
-        { "key": "ecommerce", "label": "跨境电商" },
-        { "key": "itServices", "label": "IT 服务与运维" },
-        { "key": "government", "label": "政务与公共服务" },
-        { "key": "finance", "label": "金融与保险" },
-        { "key": "manufacturing", "label": "制造与供应链" }
-      ],
-      "footnote": "为保护客户隐私，部分企业未在公开页面展示。如需了解同行业落地案例，欢迎在演示中获取参考。"
+      }
     },
     "resources": {
-      "title": "深入了解 TeGo",
-      "subtitle": "面向不同角色的资料与文档入口。",
+      "eyebrow": "文档与资源",
+      "title": "TeGo 文档中心",
+      "subtitle": "产品手册、部署运维、视频教程与发布说明，统一在 docs.zhama.com.cn。",
+      "docsBanner": {
+        "title": "从快速入门到私有化部署，一站查阅",
+        "description": "选择数字员工、发出请求、检查结果文件，几分钟跑通第一项任务；运维团队可按文档完成离线部署、高可用与升级回滚。",
+        "cta": "进入文档中心"
+      },
       "items": {
-        "manual": {
-          "title": "产品手册",
-          "description": "53 张界面截图覆盖核心操作路径，适合产品负责人与运营团队。",
-          "cta": "在线阅读"
+        "quickStart": {
+          "title": "快速入门",
+          "description": "无需配置，几步体验数字员工完成一项真实工作。",
+          "cta": "开始阅读"
         },
-        "whitepaper": {
-          "title": "技术白皮书",
-          "description": "面向架构师与安全团队，介绍底层架构、数据隔离与合规模型。",
-          "cta": "下载白皮书"
+        "bestPractices": {
+          "title": "最佳实践",
+          "description": "会议助理、财务月结、IT 运维等岗位的配置案例。",
+          "cta": "查看案例"
+        },
+        "deploy": {
+          "title": "运维部署",
+          "description": "环境要求、Compose / K8s 部署、安全检查与高可用。",
+          "cta": "查看部署指南"
+        },
+        "videos": {
+          "title": "视频教程",
+          "description": "创建数字员工、单机部署、模型配置的操作演示。",
+          "cta": "观看视频"
+        },
+        "downloads": {
+          "title": "客户端下载",
+          "description": "桌面端、移动端与 TeGo Studio 的下载与安装说明。",
+          "cta": "查看下载说明"
+        },
+        "releaseNotes": {
+          "title": "发布说明",
+          "description": "每个版本的新功能、改进与修复记录。",
+          "cta": "查看更新"
         },
         "blog": {
           "title": "技术博客",
-          "description": "持续更新的产品演进、技术深度与行业实践文章。",
-          "cta": "查看 Blog"
+          "description": "数字员工落地方法、架构实践与行业观察。",
+          "cta": "阅读博客"
         },
-        "deploy": {
-          "title": "部署文档",
-          "description": "面向运维团队的部署、升级与运维手册，含私有化交付指南。",
-          "cta": "查看文档"
+        "whitepaper": {
+          "title": "解决方案资料",
+          "description": "获取行业解决方案与产品白皮书，由专家 1 对 1 讲解。",
+          "cta": "联系获取"
         }
+      },
+      "feature": {
+        "eyebrow": "专题 · 云端 Agent",
+        "title": "从 Muse 到 TeGo：让数字员工接任务、交结果",
+        "description": "看看云端 Agent 如何进入企业岗位、工具与审批流程。",
+        "cta": "查看专题",
+        "imageAlt": "云端 Agent 工作空间场景示意"
       }
+    },
+    "coreTech": {
+      "eyebrow": "核心技术",
+      "title": "安全沙箱与自研编排，支撑数字员工规模化工作",
+      "subtitle": "数字员工进入企业业务系统，执行层需要同时解决授权边界、运行效率和责任追溯。",
+      "items": [
+        {
+          "label": "核心技术 01",
+          "title": "身份约束的安全沙箱",
+          "description": "同一个数字员工服务多位用户时，识别实际业务发起人，约束本次工作的数据与工具权限。",
+          "points": [
+            "分开校验运行实例与业务发起人",
+            "校验数据挂载范围",
+            "约束进程、网络与资源",
+            "业务操作按发起人授权"
+          ],
+          "value": "共享数字员工能力，同时保留各自授权边界"
+        },
+        {
+          "label": "核心技术 02",
+          "title": "自研运行编排",
+          "description": "围绕权限作用域、活跃任务与持久状态，协调环境复用、闲置回收与实例分配。",
+          "points": [
+            "作用域内复用：按用户、员工与工作空间划定范围",
+            "配额感知回收：跳过活跃任务，回收前复核状态",
+            "有状态分配：既有用户保留数据归属"
+          ],
+          "value": "在安全约束下提高运行效率，保持工作连续"
+        },
+        {
+          "label": "核心技术 03",
+          "title": "可信执行",
+          "description": "将实际发起人、数字员工、关键操作与成果关联，支持责任追溯、证据导出与离线校验。",
+          "points": [
+            "关联发起人、员工、任务步骤与交付成果",
+            "哈希链与签名锚点校验记录完整性",
+            "证据包导出与离线校验"
+          ],
+          "value": "支撑安全评审、关键决策复核与责任追溯"
+        }
+      ],
+      "replay": {
+        "title": "可观测执行与任务回放",
+        "subtitle": "资产定义要做什么，执行记录证明实际做了什么。",
+        "steps": [
+          "任务来源",
+          "推理步骤",
+          "工具调用",
+          "返回结果",
+          "异常处理",
+          "回执校验"
+        ],
+        "points": [
+          {
+            "title": "全步骤留痕",
+            "description": "记录入参、返回、中间输出与异常"
+          },
+          {
+            "title": "完整任务回放",
+            "description": "定位判断偏差与调用故障"
+          },
+          {
+            "title": "高风险分支触发人工介入",
+            "description": "以业务系统回执和状态判定完成"
+          }
+        ]
+      }
+    },
+    "customers": {
+      "eyebrow": "客户实践",
+      "title": "数字员工已进入真实业务流程",
+      "subtitle": "接入现有系统，执行业务动作，交付可验收结果。关键决策始终保留在人手中。",
+      "principles": [
+        {
+          "title": "能执行",
+          "description": "完成文件与跨系统动作"
+        },
+        {
+          "title": "能复核",
+          "description": "缺失信息与高风险转人工"
+        },
+        {
+          "title": "能追溯",
+          "description": "输入、过程与结果留痕"
+        },
+        {
+          "title": "可私有化",
+          "description": "权限隔离，数据留存内网"
+        }
+      ],
+      "industries": [
+        "办公协同",
+        "保险经营",
+        "证券金融",
+        "工业制造",
+        "政务运维",
+        "高校产学研"
+      ],
+      "guardrailLabel": "人工把关",
+      "cases": [
+        {
+          "industry": "办公协同",
+          "client": "某数据科技集团",
+          "title": "一体化办公闭环",
+          "description": "会议、督办、情报与制度知识库协同运行，会议决议不再靠人工建单。",
+          "points": [
+            "会议拆解：识别事项、责任人与时限",
+            "OA 建单：确认后写入任务系统",
+            "督办周报：汇总逾期与风险事项"
+          ],
+          "metric": {
+            "value": "数小时 → 数十分钟",
+            "label": "待办整体处理耗时"
+          },
+          "guardrail": "任务修改与重大事项确认保留人工操作"
+        },
+        {
+          "industry": "保险经营",
+          "client": "某人寿保险公司",
+          "title": "多岗位数字员工集群",
+          "description": "先搭建安全运行底座，再逐岗位装配 Skill；PC 与移动端统一入口。",
+          "points": [
+            "智能理赔：读取保单与核验材料",
+            "财务月结：OA 取数、制单与对账",
+            "人资服务：识别材料、写入档案"
+          ],
+          "guardrail": "RBAC 细粒度权限，异常事项进入人工复核队列"
+        },
+        {
+          "industry": "证券金融",
+          "client": "某证券公司",
+          "title": "投顾与 IT 运维数字员工",
+          "description": "人在回路，岗位执行与业务决策边界清晰。",
+          "points": [
+            "投顾助手：读取授权材料，生成附引用依据的报告初稿",
+            "IT 运维：7×24 接收告警，只读诊断并标准分派工单"
+          ],
+          "guardrail": "投资判断与系统变更须持牌人员或人工审批"
+        },
+        {
+          "industry": "工业制造",
+          "client": "某工业制造企业",
+          "title": "工业设备数字分身",
+          "description": "工程师经验沉淀为 Skill，历史案例支持故障排查，降低新人上手门槛。",
+          "points": [
+            "OPC-UA 采集设备数据",
+            "异常识别与运行状态分析",
+            "输出工艺与诊断建议"
+          ],
+          "guardrail": "调参与生产动作由工程师确认"
+        },
+        {
+          "industry": "政务运维",
+          "client": "某省级政务单位",
+          "title": "运维与内勤助理",
+          "description": "设备运维闭环（巡检、告警解析、工单派发、日报）与内勤公文闭环（材料聚合、拟办初稿、督办、周月报）。",
+          "points": [
+            "政务数据留存私有域",
+            "操作完整审计"
+          ],
+          "metrics": [
+            {
+              "value": "60%",
+              "label": "运维响应效率提升"
+            },
+            {
+              "value": "50%",
+              "label": "内勤事务耗时下降"
+            }
+          ],
+          "guardrail": "高风险动作保留人工确认"
+        }
+      ],
+      "note": "为保护客户隐私，案例均已匿名处理；成效数据来自客户项目反馈，以项目验收统计口径为准。"
+    },
+    "poc": {
+      "eyebrow": "POC 试点",
+      "title": "让第一位数字员工，在 2 周内正式上岗",
+      "subtitle": "优先选择高频、风险可控、结果可验收的岗位，用业务结果说话。",
+      "criteriaTitle": "场景筛选四条标准",
+      "criteria": [
+        {
+          "title": "高频发生",
+          "description": "每日或每周重复的任务"
+        },
+        {
+          "title": "流程清晰",
+          "description": "输入输出与处理逻辑稳定"
+        },
+        {
+          "title": "数据就绪",
+          "description": "文件与业务 API 可授权"
+        },
+        {
+          "title": "风险可控",
+          "description": "可设人工复核与决策边界"
+        }
+      ],
+      "targetsTitle": "POC 验收参考目标",
+      "targets": [
+        {
+          "value": "≥30%",
+          "label": "业务处理工时下降"
+        },
+        {
+          "value": "≥99%",
+          "label": "业务输出准确率"
+        },
+        {
+          "value": "≥99%",
+          "label": "任务运行成功率"
+        }
+      ],
+      "targetsExtra": [
+        "权限隔离完整，操作日志留存",
+        "流程沉淀为可复用 Skill 资产"
+      ],
+      "note": "以上为建议验收目标，非既有项目成效。",
+      "stepsTitle": "2 周试点路径",
+      "steps": [
+        "定岗",
+        "授权",
+        "受控运行",
+        "结果验收"
+      ],
+      "primaryCta": "申请 POC 评估",
+      "docsCta": "阅读 POC 指导手册"
     }
   },
   "cloud": {
@@ -2660,16 +1780,96 @@
       "statFamilies": "16 个岗位方向",
       "statUpdate": "每周持续上新",
       "families": [
-        { "name": "工程研发", "count": "58", "roles": ["AI 系统工程师", "API 测试专家", "无障碍审计师"] },
-        { "name": "市场增长", "count": "28", "roles": ["爆款视频分析师", "应用商店专家", "投放策略师"] },
-        { "name": "数字员工", "count": "19", "roles": ["创始人顾问", "智能视频剪辑师", "社群运营官"] },
-        { "name": "跨境电商", "count": "19", "roles": ["亚马逊广告优化师", "跨境运营专家", "选品分析师"] },
-        { "name": "行业顾问", "count": "17", "roles": ["客户策略设计师", "行为助推专家", "企业尽调顾问"] },
-        { "name": "创意设计", "count": "16", "roles": ["AI 图像提示词设计师", "图书共创作者", "视觉顾问"] },
-        { "name": "产品", "count": "14", "roles": ["数据分析报告员", "实验管理官", "开发者布道师"] },
-        { "name": "效率办公", "count": "14", "roles": ["知识库管理员", "视频生产专家", "流程优化引擎"] },
-        { "name": "数据分析", "count": "10", "roles": ["异常检测专家", "报表分发助手", "业务洞察分析师"] },
-        { "name": "内容运营", "count": "9", "roles": ["微信运营专家", "内容摘要专家", "社媒内容策划"] }
+        {
+          "name": "工程研发",
+          "count": "58",
+          "roles": [
+            "AI 系统工程师",
+            "API 测试专家",
+            "无障碍审计师"
+          ]
+        },
+        {
+          "name": "市场增长",
+          "count": "28",
+          "roles": [
+            "爆款视频分析师",
+            "应用商店专家",
+            "投放策略师"
+          ]
+        },
+        {
+          "name": "数字员工",
+          "count": "19",
+          "roles": [
+            "创始人顾问",
+            "智能视频剪辑师",
+            "社群运营官"
+          ]
+        },
+        {
+          "name": "跨境电商",
+          "count": "19",
+          "roles": [
+            "亚马逊广告优化师",
+            "跨境运营专家",
+            "选品分析师"
+          ]
+        },
+        {
+          "name": "行业顾问",
+          "count": "17",
+          "roles": [
+            "客户策略设计师",
+            "行为助推专家",
+            "企业尽调顾问"
+          ]
+        },
+        {
+          "name": "创意设计",
+          "count": "16",
+          "roles": [
+            "AI 图像提示词设计师",
+            "图书共创作者",
+            "视觉顾问"
+          ]
+        },
+        {
+          "name": "产品",
+          "count": "14",
+          "roles": [
+            "数据分析报告员",
+            "实验管理官",
+            "开发者布道师"
+          ]
+        },
+        {
+          "name": "效率办公",
+          "count": "14",
+          "roles": [
+            "知识库管理员",
+            "视频生产专家",
+            "流程优化引擎"
+          ]
+        },
+        {
+          "name": "数据分析",
+          "count": "10",
+          "roles": [
+            "异常检测专家",
+            "报表分发助手",
+            "业务洞察分析师"
+          ]
+        },
+        {
+          "name": "内容运营",
+          "count": "9",
+          "roles": [
+            "微信运营专家",
+            "内容摘要专家",
+            "社媒内容策划"
+          ]
+        }
       ],
       "more": "目录中还有更多岗位方向，并持续上新。",
       "cta": "免费浏览全部专家"
@@ -2679,11 +1879,31 @@
       "subtitle": "每位数字员工都产出可以直接编辑的成果，而不只是一段回答。",
       "outputLabel": "交付成果",
       "items": [
-        {"title": "演示文稿制作员", "description": "把数据、叙事与模板变成董事会级演示文稿。", "output": "10–15 页 PPTX + PDF"},
-        {"title": "法务助手", "description": "识别合同风险、排列优先级，并给出可直接采用的修订建议。", "output": "风险清单 + 修订稿"},
-        {"title": "用户手册生成员", "description": "根据真实产品与流程生成分步骤、可维护的用户手册。", "output": "可编辑用户手册"},
-        {"title": "增长实验规划师", "description": "用 ICE 框架整理增长假设、实验优先级与每周计划。", "output": "实验积压 + 周计划"},
-        {"title": "市场情报分析员", "description": "持续跟踪竞争对手、市场动作与值得关注的变化。", "output": "每日市场简报"}
+        {
+          "title": "演示文稿制作员",
+          "description": "把数据、叙事与模板变成董事会级演示文稿。",
+          "output": "10–15 页 PPTX + PDF"
+        },
+        {
+          "title": "法务助手",
+          "description": "识别合同风险、排列优先级，并给出可直接采用的修订建议。",
+          "output": "风险清单 + 修订稿"
+        },
+        {
+          "title": "用户手册生成员",
+          "description": "根据真实产品与流程生成分步骤、可维护的用户手册。",
+          "output": "可编辑用户手册"
+        },
+        {
+          "title": "增长实验规划师",
+          "description": "用 ICE 框架整理增长假设、实验优先级与每周计划。",
+          "output": "实验积压 + 周计划"
+        },
+        {
+          "title": "市场情报分析员",
+          "description": "持续跟踪竞争对手、市场动作与值得关注的变化。",
+          "output": "每日市场简报"
+        }
       ]
     },
     "pricing": {
@@ -2691,9 +1911,51 @@
       "subtitle": "月付，无长期绑定。需要私有化与定制能力时，可随时升级企业版。",
       "recommended": "推荐",
       "plans": [
-        {"key": "free", "name": "Free", "tagline": "先用起来", "price": "$0", "period": "", "description": "在真实任务中体验 AI 数字员工。", "features": ["2 位数字员工", "1 个活跃实例", "入门工作流额度", "Web 访问"], "cta": "免费开始"},
-        {"key": "pro", "name": "Pro", "tagline": "一个人，拥有团队产能", "price": "$20", "period": "/月", "description": "适合每天交付成果的个人与专业用户。", "features": ["5 位数字员工", "Web + Desktop + Mini Chat", "可编辑 Office 成果", "持久记忆与定时任务"], "cta": "开始 Pro"},
-        {"key": "team", "name": "Team", "tagline": "共享同事，数据不混用", "price": "联系销售", "period": "", "description": "适合需要共享数字员工与用户隔离的团队。", "features": ["用户级数据隔离", "SSO + 管理控制", "审计日志", "优先支持"], "cta": "咨询团队版"}
+        {
+          "key": "free",
+          "name": "Free",
+          "tagline": "先用起来",
+          "price": "$0",
+          "period": "",
+          "description": "在真实任务中体验 AI 数字员工。",
+          "features": [
+            "2 位数字员工",
+            "1 个活跃实例",
+            "入门工作流额度",
+            "Web 访问"
+          ],
+          "cta": "免费开始"
+        },
+        {
+          "key": "pro",
+          "name": "Pro",
+          "tagline": "一个人，拥有团队产能",
+          "price": "$20",
+          "period": "/月",
+          "description": "适合每天交付成果的个人与专业用户。",
+          "features": [
+            "5 位数字员工",
+            "Web + Desktop + Mini Chat",
+            "可编辑 Office 成果",
+            "持久记忆与定时任务"
+          ],
+          "cta": "开始 Pro"
+        },
+        {
+          "key": "team",
+          "name": "Team",
+          "tagline": "共享同事，数据不混用",
+          "price": "联系销售",
+          "period": "",
+          "description": "适合需要共享数字员工与用户隔离的团队。",
+          "features": [
+            "用户级数据隔离",
+            "SSO + 管理控制",
+            "审计日志",
+            "优先支持"
+          ],
+          "cta": "咨询团队版"
+        }
       ],
       "note": "价格以 zhama.ai 实际展示为准。"
     },
@@ -2703,12 +1965,36 @@
       "cloudLabel": "TeGo 云端版",
       "enterpriseLabel": "TeGo 企业版",
       "rows": [
-        {"label": "适合对象", "cloud": "个人与中小团队", "enterprise": "中大型企业与高合规组织"},
-        {"label": "部署形态", "cloud": "zhama.ai 托管 SaaS", "enterprise": "私有化 / 混合云 / 一体机"},
-        {"label": "上线速度", "cloud": "注册即用", "enterprise": "按业务场景规划交付"},
-        {"label": "业务定制", "cloud": "标准角色与技能", "enterprise": "流程、技能、界面与品牌深度定制"},
-        {"label": "数据与治理", "cloud": "云端用户级隔离", "enterprise": "企业网络、SSO、RBAC、完整审计"},
-        {"label": "交付支持", "cloud": "产品支持", "enterprise": "解决方案团队 + FDE 驻场工程师"}
+        {
+          "label": "适合对象",
+          "cloud": "个人与中小团队",
+          "enterprise": "中大型企业与高合规组织"
+        },
+        {
+          "label": "部署形态",
+          "cloud": "zhama.ai 托管 SaaS",
+          "enterprise": "私有化 / 混合云 / 一体机"
+        },
+        {
+          "label": "上线速度",
+          "cloud": "注册即用",
+          "enterprise": "按业务场景规划交付"
+        },
+        {
+          "label": "业务定制",
+          "cloud": "标准角色与技能",
+          "enterprise": "流程、技能、界面与品牌深度定制"
+        },
+        {
+          "label": "数据与治理",
+          "cloud": "云端用户级隔离",
+          "enterprise": "企业网络、SSO、RBAC、完整审计"
+        },
+        {
+          "label": "交付支持",
+          "cloud": "产品支持",
+          "enterprise": "解决方案团队 + FDE 驻场工程师"
+        }
       ],
       "cloudCta": "免费试用云端版",
       "enterpriseCta": "咨询企业方案"
@@ -2717,9 +2003,18 @@
       "title": "常见问题",
       "subtitle": "关于云端版、数据与企业升级。",
       "items": [
-        {"question": "云端版和企业版是两个不同产品吗？", "answer": "不是。它们同属 TeGo 数字员工协作平台。云端版面向自助使用与快速验证，企业版提供私有化部署、深度定制、治理能力与 FDE 支持。"},
-        {"question": "云端版如何保护我的数据？", "answer": "每位用户拥有独立的工作空间与数据边界。对数据驻留、专属网络或更严格审计有要求的组织，建议选择企业版。"},
-        {"question": "使用云端版后可以升级到企业版吗？", "answer": "可以。团队规模、流程复杂度或合规要求增长后，我们会协助评估迁移与企业交付方案。"}
+        {
+          "question": "云端版和企业版是两个不同产品吗？",
+          "answer": "不是。它们同属 TeGo 数字员工执行与治理平台。云端版面向自助使用与快速验证，企业版提供私有化部署、深度定制、治理能力与 FDE 支持。"
+        },
+        {
+          "question": "云端版如何保护我的数据？",
+          "answer": "每位用户拥有独立的工作空间与数据边界。对数据驻留、专属网络或更严格审计有要求的组织，建议选择企业版。"
+        },
+        {
+          "question": "使用云端版后可以升级到企业版吗？",
+          "answer": "可以。团队规模、流程复杂度或合规要求增长后，我们会协助评估迁移与企业交付方案。"
+        }
       ]
     },
     "bottomCta": {
@@ -2731,7 +2026,7 @@
   },
   "station": {
     "seo": {
-      "title": "TeGo Station 企业级 AI 数字员工一体机 | 扎马科技",
+      "title": "TeGo Station 企业级 AI 数字员工一体机",
       "description": "TeGo Station 把 TeGo 预装进一台低功耗小型主机，软硬一体、开箱即用。本地运行、数据不出门，通电联网即可创建企业数字员工。",
       "keywords": "TeGo Station,AI一体机,数字员工,私有部署,企业AI,数据不出门,开箱即用",
       "openGraph": {
@@ -2752,19 +2047,6 @@
       "ready": "开箱即用",
       "private": "私有安全",
       "local": "数据不出门"
-    },
-    "teaser": {
-      "eyebrow": "TeGo Station 一体机",
-      "title": "一台盒子，交付一支可控的数字员工团队",
-      "description": "软硬一体、开箱即用的企业级 AI 数字员工设备。本地运行 TeGo，敏感数据留在企业内部，1–3 天即可上线首个数字员工。",
-      "highlights": [
-        "预装 TeGo，通电联网即可使用",
-        "本地私有算力，支持内网 / 离线部署",
-        "标配用户席位，按需增购扩展"
-      ],
-      "primaryCta": "了解一体机",
-      "secondaryCta": "联系销售",
-      "imageAlt": "TeGo Station 一体机卖点示意"
     },
     "sellingPoints": {
       "title": "四大卖点",

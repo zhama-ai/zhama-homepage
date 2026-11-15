@@ -18,6 +18,7 @@ import {
 import Header from '@/components/Header';
 import FooterSection from '@/components/FooterSection';
 import CloudLink from '@/components/CloudLink';
+import DigitalTeamsSection from '@/components/DigitalTeamsSection';
 import { Container } from '@/components/ui/Container';
 import { SectionHead } from '@/components/ui/Section';
 import { localizedAlternates, localizedOpenGraph } from '@/lib/seo';
@@ -280,6 +281,8 @@ export default async function CloudPage({ params }: Props) {
             </div>
           </Container>
         </section>
+
+        <DigitalTeamsSection locale={locale} />
 
         <section className="bg-white py-16 dark:bg-zinc-900 md:py-24">
           <Container>

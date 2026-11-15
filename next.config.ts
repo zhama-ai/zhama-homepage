@@ -1,10 +1,11 @@
 import createNextIntlPlugin from 'next-intl/plugin';
 import type { NextConfig } from "next";
 
+const DOCS_URL = 'https://docs.zhama.com.cn';
+
 const withNextIntl = createNextIntlPlugin('./src/i18n.ts');
 
 const nextConfig: NextConfig = {
-  /* config options here */
   output: 'standalone',
   outputFileTracingIncludes: {
     '/*': ['./data/releases/**/*.json'],
@@ -14,8 +15,12 @@ const nextConfig: NextConfig = {
   generateEtags: true,
   trailingSlash: false,
   experimental: {
-    optimizePackageImports: ['@heroicons/react'],
+    optimizePackageImports: ['lucide-react'],
   },
+  redirects: async () => [
+    { source: '/docs', destination: DOCS_URL, permanent: false },
+    { source: '/:locale(zh|en)/docs', destination: DOCS_URL, permanent: false },
+  ],
   images: {
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],

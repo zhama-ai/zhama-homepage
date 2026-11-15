@@ -1,16 +1,18 @@
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { Container } from './ui/Container';
-import { Building2, Cloud, Sparkles, Check } from 'lucide-react';
+import { ArrowUpRight, Building2, Cloud, Server, Check } from 'lucide-react';
 import { SectionHead } from './ui/Section';
 import CloudLink from './CloudLink';
+import ExternalLink from './ExternalLink';
+import { docsUrl } from '@/lib/external-links';
 
 interface PrivateDeliverySectionProps {
   locale: string;
 }
 
 interface ModeStyle {
-  key: 'private' | 'hybrid' | 'saas';
+  key: 'private' | 'station' | 'cloud';
   icon: typeof Building2;
   popular?: boolean;
 }
@@ -25,19 +27,19 @@ export default async function PrivateDeliverySection({ locale }: PrivateDelivery
       popular: true,
     },
     {
-      key: 'hybrid',
-      icon: Cloud,
+      key: 'station',
+      icon: Server,
     },
     {
-      key: 'saas',
-      icon: Sparkles,
+      key: 'cloud',
+      icon: Cloud,
     },
   ];
 
   return (
     <section
       id="delivery"
-      className="py-16 md:py-24 bg-zinc-50 dark:bg-zinc-950"
+      className="scroll-mt-20 py-16 md:py-24 bg-zinc-50 dark:bg-zinc-950"
     >
       <Container>
         <SectionHead title={t('title')} lead={t('subtitle')} center />
@@ -81,7 +83,18 @@ export default async function PrivateDeliverySection({ locale }: PrivateDelivery
                   ))}
                 </ul>
 
-                {mode.key === 'saas' ? (
+                {mode.key === 'private' ? (
+                  <ExternalLink
+                    href={docsUrl('deploy')}
+                    medium="delivery"
+                    className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary-700 hover:text-primary-800 dark:text-primary-200"
+                  >
+                    {t('docsLink')}
+                    <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                  </ExternalLink>
+                ) : null}
+
+                {mode.key === 'cloud' ? (
                   <CloudLink
                     medium="delivery"
                     locale={locale}
@@ -91,7 +104,7 @@ export default async function PrivateDeliverySection({ locale }: PrivateDelivery
                   </CloudLink>
                 ) : (
                   <Link
-                    href={`/${locale}/contact`}
+                    href={mode.key === 'station' ? `/${locale}/station` : `/${locale}/contact`}
                     className="mt-8 inline-flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-primary-950/10 transition-all duration-300 hover:bg-primary-800 hover:shadow-lg active:scale-95"
                   >
                     {t(`modes.${mode.key}.cta`)}
