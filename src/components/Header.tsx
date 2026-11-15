@@ -52,15 +52,13 @@ export default function Header() {
     if (typeof window === 'undefined') return;
     const sectionIds = [
       'home',
-      'pain-points',
-      'value-pillars',
-      'technology',
+      'how',
       'scenarios',
       'customers',
-      'readiness',
-      'delivery',
-      'poc',
+      'trust',
+      'get-started',
       'pricing',
+      'faq',
       'resources',
       'cta',
     ];
@@ -93,7 +91,7 @@ export default function Header() {
   const navItems: { href: string; label: string; section?: string; external?: boolean }[] = [
     { href: `/${locale}/#scenarios`, label: t('nav.biz.solutions'), section: 'scenarios' },
     { href: `/${locale}/#customers`, label: t('nav.biz.customers'), section: 'customers' },
-    { href: `/${locale}/#delivery`, label: t('nav.biz.delivery'), section: 'delivery' },
+    { href: `/${locale}/#get-started`, label: t('nav.biz.getStarted'), section: 'get-started' },
     { href: `/${locale}/#pricing`, label: t('nav.pricing'), section: 'pricing' },
     { href: docsUrl(), label: t('nav.docs'), external: true },
     { href: `/${locale}/download`, label: t('nav.download') },
@@ -102,7 +100,7 @@ export default function Header() {
 
   const productItems = [
     {
-      href: `/${locale}/#value-pillars`,
+      href: `/${locale}/#how`,
       label: t('nav.enterpriseProduct'),
       description: t('nav.productDesc.enterprise'),
       icon: Server,
@@ -137,7 +135,7 @@ export default function Header() {
     >
       <div className="container-custom">
         <div className="flex h-16 items-center justify-between lg:h-20">
-          <div className="flex min-w-0 items-center gap-8">
+          <div className="flex min-w-0 items-center gap-6">
             <Link href={`/${locale}`} className="flex shrink-0 items-center">
               <span className="flex h-12 items-center">
                 <Image
@@ -159,7 +157,7 @@ export default function Header() {
               </span>
             </Link>
 
-            <nav className="hidden items-center gap-1 lg:flex">
+            <nav className="hidden items-center gap-0.5 xl:flex">
               <div ref={productMenuRef} className="relative">
                 <button
                   type="button"
@@ -167,7 +165,7 @@ export default function Header() {
                   aria-expanded={productMenuOpen}
                   aria-haspopup="menu"
                   className={cn(
-                    'flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white',
+                    'flex items-center gap-1 rounded-lg px-2.5 py-2 text-sm font-medium text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white',
                     productMenuOpen && 'bg-zinc-100 text-zinc-950 dark:bg-white/10 dark:text-white',
                   )}
                 >
@@ -218,7 +216,7 @@ export default function Header() {
 
               {navItems.map((item) => {
                 const linkClass = cn(
-                  'whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white',
+                  'whitespace-nowrap rounded-lg px-2.5 py-2 text-sm font-medium text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white',
                   item.section &&
                     activeSection === item.section &&
                     'bg-zinc-100 text-primary-700 dark:bg-white/10 dark:text-primary-200',
@@ -257,7 +255,7 @@ export default function Header() {
                 <>
                   <Link
                     href={`/${locale}/contact`}
-                    className="hidden rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-900 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800 xl:inline-flex"
+                    className="hidden rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-900 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800 min-[1680px]:inline-flex"
                   >
                     {t('nav.tryNow')}
                   </Link>
@@ -275,7 +273,7 @@ export default function Header() {
                   <CloudLink
                     medium="header"
                     locale={locale}
-                    className="hidden rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-900 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800 xl:inline-flex"
+                    className="hidden rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-900 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800 min-[1680px]:inline-flex"
                   >
                     {t('nav.startFree')}
                   </CloudLink>
@@ -293,7 +291,7 @@ export default function Header() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="flex h-9 w-9 items-center justify-center rounded-lg text-zinc-600 hover:bg-zinc-100 hover:text-zinc-950 dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white lg:hidden"
+              className="flex h-9 w-9 items-center justify-center rounded-lg text-zinc-600 hover:bg-zinc-100 hover:text-zinc-950 dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white xl:hidden"
               aria-label="Toggle mobile menu"
               aria-expanded={mobileMenuOpen}
             >
@@ -304,7 +302,7 @@ export default function Header() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="border-t border-zinc-200 bg-white/95 backdrop-blur-xl dark:border-white/10 dark:bg-[#07131f]/95 lg:hidden">
+        <div className="border-t border-zinc-200 bg-white/95 backdrop-blur-xl dark:border-white/10 dark:bg-[#07131f]/95 xl:hidden">
           <nav className="container-custom flex flex-col gap-1 py-4">
             <p className="px-3 pb-1 text-xs font-semibold uppercase tracking-wider text-zinc-400">
               {t('nav.product')}

@@ -25,7 +25,7 @@
     "blog": "Blog",
     "about": "About Us",
     "contact": "Contact Us",
-    "tryNow": "Book an Enterprise Demo",
+    "tryNow": "Book a demo",
     "product": "Product",
     "enterpriseProduct": "TeGo Enterprise",
     "cloud": "TeGo Cloud",
@@ -34,9 +34,9 @@
     "startFree": "Start free",
     "biz": {
       "value": "Value",
-      "solutions": "Solutions",
+      "solutions": "Use cases",
       "customers": "Customers",
-      "delivery": "Deployment"
+      "getStarted": "Get started"
     },
     "station": "Station",
     "capabilities": {
@@ -70,7 +70,7 @@
     },
     "docsTitle": "Open the TeGo documentation center (in Chinese) in a new tab",
     "productDesc": {
-      "enterprise": "Private digital-employee execution & governance",
+      "enterprise": "Privately deployable AI employees",
       "station": "Private AI appliance",
       "cloud": "Self-serve SaaS from $0",
       "cloudAgent": "Agents that deliver real work"
@@ -422,8 +422,8 @@
   },
   "footer": {
     "companyName": "Zhama Future",
-    "companyDescription": "TeGo Digital Employee Execution & Governance Platform",
-    "about": "Zhama Future builds TeGo, a privately deployable execution and governance platform for digital employees, with deep customization and on-site FDE support. Through zhama.ai, it also offers ready-to-use digital employees in the cloud to individuals and teams worldwide.",
+    "companyDescription": "TeGo AI Digital Employee Platform",
+    "about": "Zhama Future builds TeGo, privately deployable AI digital employees for business, with custom development and on-site engineering support. Through zhama.ai, it also offers ready-to-use digital employees in the cloud to individuals and teams worldwide.",
     "products": "Product",
     "digitalAvatar": "AI coworker runtime",
     "station": "TeGo Station Appliance",
@@ -463,17 +463,17 @@
   },
   "pricingSection": {
     "title": "Choose the Right Plan for Your Rollout",
-    "subtitle": "Start with the community edition, scale to enterprise deployment, and match the plan to your governance and operating requirements.",
+    "subtitle": "From the free community edition to private enterprise deployment, choose by team size and security needs.",
     "community": {
       "badge": "Free forever",
       "name": "Community Edition",
-      "lead": "Explore the core AI coworker experience",
+      "lead": "Try AI digital employees for free",
       "desc": "Best for individual developers and small teams evaluating TeGo.",
       "featuresTitle": "Included features",
       "features": [
-        "Personal AI coworker",
-        "Basic orchestration",
-        "Community MCP capability packs",
+        "Personal AI digital employee",
+        "Basic task automation",
+        "Community tools and skill packs",
         "Visual workspace",
         "Community support"
       ],
@@ -485,17 +485,17 @@
       "ribbon": "ON PREMISE",
       "badge": "Annual subscription",
       "name": "Business",
-      "lead": "On-prem deployment with enterprise support",
-      "desc": "Starting at $7,000/year, including high availability, governance, and managed support.",
+      "lead": "Runs on your own servers, billed yearly",
+      "desc": "From $7,000/year, including high availability, compliance and managed operations.",
       "featuresTitle": "Everything in Community, plus:",
       "features": [
-        "Organization-level AI workers with elastic replicas",
-        "Full LAMP orchestration framework",
-        "DAG scheduler",
-        "Experience memory and reuse",
-        "RBAC access control",
+        "Shared digital employees for the whole team, scaled on demand",
+        "Multiple digital employees working together on complex tasks",
+        "Many tasks handled in parallel",
+        "Learns from past tasks and gets smoother over time",
+        "Role-based permissions",
         "Private environment deployment",
-        "One-on-one support and managed services"
+        "One-on-one support and managed operations"
       ],
       "price": "$7,000",
       "period": "per year",
@@ -505,24 +505,19 @@
       "ribbon": "ON PREMISE",
       "badge": "Enterprise",
       "name": "TeGo Enterprise",
-      "lead": "Full AI Workforce governance platform",
-      "desc": "Custom branding, advanced security, dedicated support, and POC validation. Custom pricing.",
+      "lead": "The complete package for large organizations",
+      "desc": "Custom branding, higher security requirements, dedicated support and pilot validation. Custom pricing.",
       "featuresTitle": "Everything in Business, plus:",
       "features": [
-        "Omnichannel AI access across 12+ channels",
-        "LDAP / OIDC multi-source authentication",
-        "OpenTelemetry observability",
+        "12+ channels including DingTalk, WeCom and Feishu",
+        "Works with your existing sign-in (LDAP / OIDC)",
+        "End-to-end runtime monitoring",
         "Custom brand identity",
-        "Audit, deployment, and POC support"
+        "Audit, deployment and pilot support"
       ],
       "price": "Custom",
       "period": "Talk to us",
       "cta": "Contact sales"
-    },
-    "cloudBanner": {
-      "title": "Just you or a small team?",
-      "description": "TeGo Cloud starts at $0. Sign up and work immediately — no deployment or maintenance.",
-      "cta": "Start free"
     }
   },
   "downloadPage": {
@@ -537,16 +532,16 @@
     }
   },
   "seo": {
-    "title": "TeGo Digital Employee Execution & Governance Platform | Zhama",
-    "description": "TeGo lets digital employees work safely, efficiently and continuously: identity-bound sandboxes, in-house runtime orchestration and verifiable execution evidence, with private and domestic-stack deployment and a 2-week POC.",
-    "keywords": "TeGo, digital employees, AI agents, enterprise AI agents, secure sandbox, trusted execution, private deployment, on-premise AI, knowledge management, process automation, Zhama",
+    "title": "TeGo AI Digital Employees for Business | Zhama",
+    "description": "TeGo's AI digital employees work inside your business systems: research, approvals, reports and customer questions, with results you can check. People approve what matters, and private deployment keeps your data in-house.",
+    "keywords": "TeGo, AI digital employees, AI workforce, AI agents for business, knowledge base Q&A, process automation, AI reporting, AI customer service, private deployment, on-premise AI, Zhama",
     "openGraph": {
-      "title": "TeGo | Digital employees that work safely, efficiently and continuously",
-      "description": "Bring AI into your core business processes and get results you can sign off. Private deployment, scoped permissions and end-to-end audit."
+      "title": "TeGo | AI employees that get the repetitive work done",
+      "description": "Research, approvals, reports and customer questions. Checkable results, human approval where it matters, and your data stays yours."
     },
     "twitter": {
-      "title": "TeGo Digital Employee Execution & Governance Platform",
-      "description": "Secure sandbox · in-house orchestration · trusted execution. Digital employees that deliver verifiable results."
+      "title": "TeGo AI Digital Employees",
+      "description": "AI employees that work inside your systems and hand back results you can check."
     }
   },
   "mcpPlatform": {
@@ -1032,74 +1027,74 @@
   },
   "bottomCTA": {
     "eyebrow": "Get started",
-    "title": "Put your first digital employee on the job",
-    "description": "Pick your first business role and start a 2-week POC. Sign off on business results and turn the process into a reusable role asset.",
-    "primaryCTA": "Request a POC",
+    "title": "Put one digital employee to work and see",
+    "description": "Pick your most time-consuming repetitive task and run a 2-week pilot. Or start with TeGo Cloud for free.",
+    "primaryCTA": "Book a 2-week pilot",
     "secondaryCTA": "Read the quick start",
-    "hint": "AI has entered the era of task execution, and governance has to cover execution too."
+    "hint": "Not sure which role to start with? Talk to us and we'll help you choose."
   },
   "biz": {
     "hero": {
-      "badge": "TeGo · Digital employee execution & governance",
-      "title": "Digital employees that work safely, efficiently and continuously",
-      "subtitle": "Bring AI into your core business processes and get results you can sign off. TeGo defines each role's duties, permissions and acceptance criteria, then runs it under control inside your own environment with a full audit trail.",
+      "badge": "TeGo · AI digital employees for business",
+      "title": "AI employees that get the repetitive work done",
+      "subtitle": "Research, approvals, reports, customer questions: TeGo's digital employees work inside your systems and hand back results you can check. People approve what matters, and your data stays yours.",
       "tags": [
-        "Autonomous task execution",
-        "Private deployment",
-        "Scoped permissions",
-        "Domestic-stack ready"
+        "Finishes the job",
+        "Checkable results",
+        "Your data stays yours",
+        "Private deployment option"
       ],
-      "primaryCta": "Request a 2-week POC",
-      "docsCta": "Read the quick start",
+      "primaryCta": "Book a 2-week pilot",
+      "docsCta": "See how it works",
       "watchDemo": "Watch product demo",
       "watchDemoAria": "Open the product demo video",
       "tertiaryCta": "Private deployment consultation",
-      "tertiaryCtaHint": "Private deployment, TeGo Station appliance, or TeGo Cloud",
+      "tertiaryCtaHint": "Run it on your own servers or an appliance",
       "highlights": {
-        "poc": {
+        "pilot": {
           "value": "2 weeks",
-          "label": "POC to prove the first role"
+          "label": "to see results in a pilot"
         },
-        "xinchuang": {
-          "value": "Full stack",
-          "label": "Domestic hardware & OS support"
+        "domains": {
+          "value": "8",
+          "label": "business areas ready to go"
         },
-        "evidence": {
-          "value": "End-to-end",
-          "label": "Execution trail & verifiable evidence"
+        "trace": {
+          "value": "Every step",
+          "label": "recorded and traceable"
         }
       },
       "console": {
-        "title": "Digital Employee Role Console",
-        "subtitle": "Identity, permissions, execution and evidence in one view",
-        "live": "Live",
+        "title": "Today's digital employees",
+        "subtitle": "Who is doing what, and how far along",
+        "live": "Working",
         "workers": [
           {
-            "name": "Knowledge desk",
-            "status": "Role-scoped search · cites sources"
+            "name": "Knowledge assistant",
+            "status": "26 policy questions answered · sources cited"
           },
           {
-            "name": "Process follow-up",
-            "status": "OA tickets in flight · 3 awaiting review"
+            "name": "Follow-up agent",
+            "status": "Tracking 12 approvals · 3 need you"
           }
         ],
-        "workflowTitle": "Controlled execution",
+        "workflowTitle": "In progress: monthly business report",
         "steps": "3 steps",
         "workflow": [
-          "Verify requester & scope",
-          "Call tools in the sandbox",
-          "Produce verifiable evidence"
+          "Read this month's data",
+          "Summarize with shared definitions",
+          "Draft report for your review"
         ],
-        "governanceTitle": "Governance",
+        "governanceTitle": "Safety",
         "governance": [
-          "Least privilege enforced",
-          "High-risk actions need approval",
-          "Audit records verified"
+          "Only authorized data is read",
+          "Sending needs your approval",
+          "Every step is logged"
         ],
         "footer": [
-          "Identity-bound sandbox",
-          "Runtime orchestration",
-          "Trusted execution evidence"
+          "Data stays in-house",
+          "Human approval",
+          "Full audit trail"
         ]
       }
     },
@@ -1147,226 +1142,51 @@
         }
       }
     },
-    "painPoints": {
-      "eyebrow": "Why TeGo",
-      "title": "When agents touch real business, four control risks appear",
-      "subtitle": "AI is moving from answering to acting. Without roles, permissions, review and audit in place together, risk concerns block scale-out.",
-      "items": [
-        {
-          "action": "Connecting to business systems",
-          "risk": "Unclear accountability",
-          "description": "When an agent acts on someone's behalf, nobody can say who authorized it or who owns the outcome."
-        },
-        {
-          "action": "Talking to customers directly",
-          "risk": "Uncontrolled content",
-          "description": "Inconsistent answers and sensitive content reach customers without review."
-        },
-        {
-          "action": "Calling tools on its own",
-          "risk": "No full operation trail",
-          "description": "What was called, what changed and what happened can't be fully reconstructed."
-        },
-        {
-          "action": "Touching core data",
-          "risk": "No data-security guarantee",
-          "description": "Knowledge, memory and logs leave the company boundary and access is hard to scope."
-        }
-      ],
-      "compare": {
-        "title": "Close the execution-control gap and keep know-how as a private asset",
-        "fromLabel": "Manual work & generic AI",
-        "toLabel": "TeGo digital employees",
-        "rows": [
-          {
-            "from": "Blurred accountability",
-            "to": "Role definitions & acceptance criteria"
-          },
-          {
-            "from": "No operation records",
-            "to": "End-to-end audit trail"
-          },
-          {
-            "from": "Uncontrolled content",
-            "to": "Skills lock in approved answers, plus human review"
-          },
-          {
-            "from": "Unsafe data",
-            "to": "Least privilege & on-premise retention"
-          }
-        ]
-      }
-    },
-    "valuePillars": {
-      "eyebrow": "Four qualifications to go live",
-      "title": "Manage agent execution the way you manage roles",
-      "subtitle": "Every digital employee is assigned a role, granted permissions, reviewed and audited like a real hire, then signed off on business results.",
-      "items": [
-        {
-          "title": "Role definition",
-          "description": "Identity, duties, who it serves and how it is accepted."
-        },
-        {
-          "title": "Permission boundary",
-          "description": "Least-privilege access to data and tools, scoped to the role."
-        },
-        {
-          "title": "Human approval",
-          "description": "Write-backs, publishing and sensitive exports are reviewed first."
-        },
-        {
-          "title": "Audit trail",
-          "description": "Tasks, identities, calls and results are traceable end to end."
-        }
-      ],
-      "acceptance": {
-        "title": "Business sign-off",
-        "description": "Role tasks completed and results meet the bar."
-      },
-      "assets": {
-        "title": "Five-asset model",
-        "subtitle": "Five building blocks that let a digital employee go live, all kept inside your network.",
-        "items": [
-          {
-            "title": "Role definition",
-            "description": "Duties & acceptance criteria"
-          },
-          {
-            "title": "Skill library",
-            "description": "Task methods & process gates"
-          },
-          {
-            "title": "Knowledge & memory",
-            "description": "Policies, SOPs & past cases"
-          },
-          {
-            "title": "System & tool connections",
-            "description": "Standard APIs, least privilege"
-          },
-          {
-            "title": "Permissions & audit",
-            "description": "Human review & full trail"
-          }
-        ]
-      },
-      "path": {
-        "title": "Delivery path",
-        "steps": [
-          {
-            "title": "Define the role",
-            "description": "Write the job description"
-          },
-          {
-            "title": "Install Skills",
-            "description": "Reusable methods & processes"
-          },
-          {
-            "title": "Connect systems",
-            "description": "Execution channel into core flows"
-          },
-          {
-            "title": "Sign off",
-            "description": "Accept on auditable execution records"
-          }
-        ]
-      }
-    },
     "scenarios": {
-      "eyebrow": "Solutions",
-      "title": "Eight business domains, served by reusable role assets",
-      "subtitle": "Prebuilt roles and a Skill library lower setup cost: enable a prebuilt asset, tune it to your process, then replicate it across teams.",
-      "domains": [
-        {
-          "title": "Knowledge management",
-          "description": "Policy Q&A, case search"
-        },
-        {
-          "title": "Process execution",
-          "description": "Ticket routing, follow-ups"
-        },
-        {
-          "title": "Data analysis",
-          "description": "Daily reports, anomaly alerts"
-        },
-        {
-          "title": "Customer service",
-          "description": "Inquiries, after-sales"
-        },
-        {
-          "title": "Sales support",
-          "description": "Lead cleanup, quoting"
-        },
-        {
-          "title": "Human resources",
-          "description": "Screening, employee Q&A"
-        },
-        {
-          "title": "Finance & compliance",
-          "description": "Invoice checks, expense review"
-        },
-        {
-          "title": "Supply chain & ops",
-          "description": "Order tracking, stock alerts"
-        }
-      ],
-      "featuredTitle": "Four featured scenarios",
-      "painLabel": "Pain point: ",
-      "usesLabel": "Typical uses: ",
+      "eyebrow": "What it can do",
+      "title": "Start with your most common, most repetitive work",
+      "subtitle": "Each of these roles comes as a template. Tune it to your business and put it to work.",
+      "beforeLabel": "Before",
+      "afterLabel": "With TeGo",
+      "usesLabel": "Typical uses",
       "items": [
         {
-          "label": "Scenario 1",
-          "title": "Knowledge management employee",
-          "tagline": "Scattered documents go into a private knowledge base; every answer cites its source",
-          "pain": "Scattered material, slow search, slow onboarding",
-          "steps": [
-            "Ingest documents",
-            "Extract key rules",
-            "Scoped search",
-            "Cite sources"
-          ],
-          "uses": "Research search, policy Q&A, contract clause lookup"
+          "title": "Knowledge assistant",
+          "tagline": "Answers policy and contract questions in seconds, with the source attached",
+          "before": "Information is scattered, finding one rule takes ages, new hires ramp up slowly",
+          "after": "Ask one assistant and get an answer with the original source to check",
+          "uses": "Policy Q&A · Contract lookup · Research search"
         },
         {
-          "label": "Scenario 2",
-          "title": "Process execution employee",
-          "tagline": "Cross-system tasks, with completion proven by business receipts",
-          "pain": "Slow hand-offs, copy errors, hard-to-track progress",
-          "steps": [
-            "Pick up ticket",
-            "Route",
-            "Human review",
-            "Write back",
-            "Receipt check"
-          ],
-          "uses": "Approval follow-ups, filings, ticket closure"
+          "title": "Follow-up agent",
+          "tagline": "Chases approvals and tickets so you always know where things are stuck",
+          "before": "Manual chasing and copy-paste, hard to track, easy to get wrong",
+          "after": "Picks up tickets, routes them, fills in details and produces a follow-up list",
+          "uses": "Approval follow-ups · Filings · Ticket closure"
         },
         {
-          "label": "Scenario 3",
-          "title": "Data analysis employee",
-          "tagline": "Business users get authorized data and analysis in plain language",
-          "pain": "Dependence on IT, inconsistent metrics, risky exports",
-          "steps": [
-            "Ask in plain language",
-            "Check metric definitions",
-            "Scoped query",
-            "Summaries & reports"
-          ],
-          "uses": "KPI queries, customer stats, business briefs, anomaly alerts"
+          "title": "Data analyst",
+          "tagline": "Business users ask for numbers in plain words and get a report back",
+          "before": "Waiting in the IT queue, and every team calculates the same metric differently",
+          "after": "Ask in plain language, get results on shared definitions with sources noted",
+          "uses": "KPI questions · Daily briefs · Anomaly alerts"
         },
         {
-          "label": "Scenario 4",
-          "title": "Customer service employee",
-          "tagline": "Standard questions handled 24/7; complex or sensitive cases go to people",
-          "pain": "High volume, inconsistent answers, slow at peak",
-          "steps": [
-            "Detect intent",
-            "Scoped retrieval",
-            "Standard reply"
-          ],
-          "uses": "Inquiries, product Q&A, self-service tickets, follow-up reminders"
+          "title": "Customer service assistant",
+          "tagline": "Answers common questions 24/7 and hands tricky ones to people",
+          "before": "High volume, slow at peak times, inconsistent answers",
+          "after": "Instant, consistent answers, with sensitive cases routed to a person",
+          "uses": "Inquiries · Product questions · Follow-up reminders"
         }
       ],
-      "docsCta": "See best-practice cases"
+      "moreTitle": "Also used for",
+      "more": [
+        "Sales: lead cleanup, quoting help",
+        "HR: resume screening, employee Q&A",
+        "Finance: invoice checks, expense review",
+        "Supply chain: order tracking, stock alerts"
+      ],
+      "docsCta": "See more examples (Chinese)"
     },
     "readiness": {
       "eyebrow": "Enterprise ready",
@@ -1428,44 +1248,6 @@
       ],
       "note": "Exact compatibility and scope follow the delivery checklist and validation results."
     },
-    "delivery": {
-      "title": "Choose how to deploy",
-      "subtitle": "Keep data inside your network, go live fast on an appliance, or start in the cloud.",
-      "popularLabel": "Recommended",
-      "docsLink": "Deployment docs (Chinese)",
-      "modes": {
-        "private": {
-          "title": "Private deployment",
-          "tagline": "For government and financial customers with the strictest data and compliance needs",
-          "features": [
-            "Full stack inside your network; data never leaves",
-            "Offline packages: single-node Compose or K3s + Helm cluster",
-            "Domestic CPUs, OS, databases and SM crypto supported"
-          ],
-          "cta": "Talk to a deployment expert"
-        },
-        "station": {
-          "title": "TeGo Station appliance",
-          "tagline": "Hardware and software in one private AI box",
-          "features": [
-            "TeGo platform and model runtime preinstalled",
-            "Live in 1–3 days",
-            "Ideal for department pilots and branches"
-          ],
-          "cta": "Explore TeGo Station"
-        },
-        "cloud": {
-          "title": "TeGo Cloud",
-          "tagline": "Sign up and start; nothing to deploy or operate",
-          "features": [
-            "Start at $0 and scale as you go",
-            "200+ ready-to-use expert roles",
-            "Great for individuals and small teams"
-          ],
-          "cta": "Start free"
-        }
-      }
-    },
     "resources": {
       "eyebrow": "Docs & resources",
       "title": "TeGo Documentation Center",
@@ -1488,7 +1270,7 @@
         },
         "deploy": {
           "title": "Deployment & ops",
-          "description": "Requirements, Compose / K8s install, security checks and HA.",
+          "description": "Requirements, installation steps, security checks and upgrades.",
           "cta": "Read the guide"
         },
         "videos": {
@@ -1519,7 +1301,7 @@
       },
       "feature": {
         "eyebrow": "Feature · Cloud AI Agents",
-        "title": "From Muse to TeGo: agents that deliver real work",
+        "title": "Cloud agents: digital employees that take tasks and deliver",
         "description": "Explore how cloud agents fit into enterprise roles, tools, and approvals.",
         "cta": "Explore the story",
         "imageAlt": "Cloud agent workspace illustration"
@@ -1593,164 +1375,239 @@
       }
     },
     "customers": {
-      "eyebrow": "Customer practice",
-      "title": "Digital employees already inside real business processes",
-      "subtitle": "They connect to existing systems, take business actions and deliver results you can sign off. Key decisions always stay with people.",
-      "principles": [
-        {
-          "title": "Executes",
-          "description": "Files and cross-system actions"
-        },
-        {
-          "title": "Escalates",
-          "description": "Missing info and risk go to people"
-        },
-        {
-          "title": "Traceable",
-          "description": "Inputs, process and results recorded"
-        },
-        {
-          "title": "Private",
-          "description": "Isolated permissions, data stays on-prem"
-        }
-      ],
-      "industries": [
-        "Office collaboration",
-        "Insurance",
-        "Securities",
-        "Manufacturing",
-        "Government IT",
-        "Universities"
-      ],
-      "guardrailLabel": "Human control",
+      "eyebrow": "Customers",
+      "title": "Already on the job in these organizations",
+      "subtitle": "AI does the gathering and the legwork; people still make the key decisions.",
       "cases": [
         {
-          "industry": "Office collaboration",
+          "industry": "Office work",
           "client": "A data-technology group",
-          "title": "Closed-loop office work",
-          "description": "Meetings, follow-ups, intelligence and the policy knowledge base run together, so meeting decisions no longer depend on manual ticketing.",
-          "points": [
-            "Meeting breakdown: items, owners and deadlines",
-            "OA ticketing: written to the task system after confirmation",
-            "Weekly follow-up report: overdue and risk items"
-          ],
-          "metric": {
-            "value": "Hours → tens of minutes",
-            "label": "Overall to-do handling time"
-          },
-          "guardrail": "Task edits and major decisions remain manual"
+          "title": "Meeting decisions become tracked to-dos",
+          "description": "Meeting notes are split into items, owners and deadlines, written to the OA system after confirmation, with a weekly overdue summary.",
+          "metrics": [
+            {
+              "value": "Hours → tens of minutes",
+              "label": "Overall to-do handling time"
+            }
+          ]
         },
         {
           "industry": "Insurance",
           "client": "A life insurance company",
-          "title": "A cluster of role-based digital employees",
-          "description": "A secure runtime foundation first, then Skills installed role by role, with one entry point on PC and mobile.",
-          "points": [
-            "Claims: read policies and verify documents",
-            "Month-end close: OA data, vouchers and reconciliation",
-            "HR services: recognize documents and update records"
-          ],
-          "guardrail": "Fine-grained RBAC; exceptions go to a human review queue"
+          "title": "Digital employees across several roles",
+          "description": "Claims document checks, month-end reconciliation and HR record entry each have their own digital employee, with exceptions sent to people for review."
         },
         {
           "industry": "Securities",
           "client": "A securities firm",
-          "title": "Advisory and IT operations employees",
-          "description": "Human in the loop, with a clear line between role execution and business decisions.",
-          "points": [
-            "Advisory assistant: drafts reports from authorized material with citations",
-            "IT ops: 24/7 alert intake, read-only diagnosis and standard ticket dispatch"
-          ],
-          "guardrail": "Investment judgments and system changes need licensed staff or approval"
+          "title": "Advisory and IT operations assistants",
+          "description": "The advisory assistant drafts reports from authorized material for licensed staff to approve; the IT assistant takes alerts around the clock, diagnoses issues and dispatches tickets."
         },
         {
           "industry": "Manufacturing",
           "client": "An industrial manufacturer",
-          "title": "Digital twin for industrial equipment",
-          "description": "Engineers' know-how becomes Skills; past cases support troubleshooting and shorten onboarding.",
-          "points": [
-            "Collect equipment data over OPC-UA",
-            "Detect anomalies and analyze running state",
-            "Suggest process and diagnostic actions"
-          ],
-          "guardrail": "Parameter changes and production actions are confirmed by engineers"
+          "title": "A digital twin for equipment",
+          "description": "Reads equipment data in real time, flags anomalies and suggests fixes, capturing veteran engineers' know-how so newcomers can use it too."
         },
         {
-          "industry": "Government IT",
+          "industry": "Government",
           "client": "A provincial government agency",
           "title": "Operations and back-office assistant",
-          "description": "Closed-loop equipment ops (inspection, alert analysis, ticket dispatch, daily reports) and document workflows (material gathering, first drafts, follow-ups, weekly and monthly reports).",
-          "points": [
-            "Government data stays in the private domain",
-            "Every operation fully audited"
-          ],
+          "description": "Equipment inspections, alert analysis and ticket dispatch, plus document gathering, follow-ups and weekly or monthly reports, with all data kept on the internal network.",
           "metrics": [
             {
               "value": "60%",
-              "label": "Faster ops response"
+              "label": "Faster operations response"
             },
             {
               "value": "50%",
               "label": "Less back-office time"
             }
-          ],
-          "guardrail": "High-risk actions keep human confirmation"
+          ]
         }
       ],
       "note": "Cases are anonymized to protect customer privacy. Results come from customer project feedback and follow each project's acceptance metrics."
     },
-    "poc": {
-      "eyebrow": "POC pilot",
-      "title": "Put your first digital employee to work in 2 weeks",
-      "subtitle": "Pick a role that is frequent, low-risk and easy to measure, and let business results speak.",
-      "criteriaTitle": "Four criteria for choosing a scenario",
-      "criteria": [
-        {
-          "title": "Frequent",
-          "description": "Daily or weekly repeated tasks"
-        },
-        {
-          "title": "Clear process",
-          "description": "Stable inputs, outputs and logic"
-        },
-        {
-          "title": "Data ready",
-          "description": "Files and business APIs can be authorized"
-        },
-        {
-          "title": "Controllable risk",
-          "description": "Human review and decision limits can be set"
-        }
-      ],
-      "targetsTitle": "Suggested POC acceptance targets",
-      "targets": [
-        {
-          "value": "≥30%",
-          "label": "Less processing time"
-        },
-        {
-          "value": "≥99%",
-          "label": "Output accuracy"
-        },
-        {
-          "value": "≥99%",
-          "label": "Task success rate"
-        }
-      ],
-      "targetsExtra": [
-        "Complete permission isolation and retained logs",
-        "Process captured as a reusable Skill asset"
-      ],
-      "note": "These are suggested acceptance targets, not results from past projects.",
-      "stepsTitle": "2-week pilot path",
+    "howItWorks": {
+      "eyebrow": "What TeGo is",
+      "title": "A platform for AI employees that actually do the job",
+      "subtitle": "Unlike chat assistants, a TeGo digital employee has a defined role, uses your documents and systems, and carries a task from start to finish.",
       "steps": [
-        "Define the role",
-        "Authorize",
-        "Controlled run",
-        "Sign off"
+        {
+          "title": "Pick a role",
+          "description": "Start from ready-made roles such as knowledge Q&A, follow-ups, data analysis or customer service, or tailor one to your business."
+        },
+        {
+          "title": "Connect your knowledge and systems",
+          "description": "Add policies, documents and past cases, connect systems like OA or ERP, and decide exactly what it may see."
+        },
+        {
+          "title": "Hand it work",
+          "description": "Assign tasks on the web or in DingTalk, WeCom or Feishu. It looks things up, uses tools and moves the process along."
+        },
+        {
+          "title": "Check the result",
+          "description": "You get files, reports or completed records. Important actions wait for your approval, and every step is logged."
+        }
       ],
-      "primaryCta": "Request a POC",
-      "docsCta": "POC guide (Chinese)"
+      "compare": {
+        "title": "How is this different from an AI chat assistant?",
+        "dimension": "",
+        "chat": "AI chat assistant",
+        "tego": "TeGo digital employee",
+        "rows": [
+          {
+            "label": "What it does",
+            "chat": "Answers questions, drafts text",
+            "tego": "Finishes the task: pulls data, updates systems, builds reports"
+          },
+          {
+            "label": "Your information",
+            "chat": "You copy and paste it in",
+            "tego": "Reads authorized documents and systems directly"
+          },
+          {
+            "label": "What you get",
+            "chat": "An answer you still have to rework",
+            "tego": "Files, reports or records you can use as-is"
+          },
+          {
+            "label": "When something goes wrong",
+            "chat": "Hard to tell what it did",
+            "tego": "Every step is logged and can be replayed"
+          },
+          {
+            "label": "Where data goes",
+            "chat": "Usually to an outside cloud",
+            "tego": "Can run on your own servers"
+          },
+          {
+            "label": "Know-how",
+            "chat": "Starts from scratch every time",
+            "tego": "Good practice becomes a reusable skill pack"
+          }
+        ]
+      }
+    },
+    "trust": {
+      "eyebrow": "Why you can trust it",
+      "title": "Manage every AI employee the way you'd manage a new hire",
+      "subtitle": "Because AI can act inside your systems, keeping it under control matters as much as getting work done.",
+      "items": [
+        {
+          "title": "Clear responsibilities",
+          "description": "Each digital employee has a defined role, scope of work and acceptance criteria."
+        },
+        {
+          "title": "Only the data it needs",
+          "description": "Least-privilege access per role. When one digital employee serves many people, A never sees B's data."
+        },
+        {
+          "title": "People approve key actions",
+          "description": "Writing to business systems, publishing externally or exporting sensitive data waits for a person to confirm."
+        },
+        {
+          "title": "Every step on record",
+          "description": "Who asked, what it did and what came of it are logged, tamper-checked and replayable."
+        }
+      ],
+      "deploy": {
+        "title": "Runs in your own environment",
+        "points": [
+          "Deploy on your internal network so documents, memory and logs stay in-house",
+          "Supports domestic Chinese chips, operating systems and databases",
+          "Connects to DingTalk, WeCom, Feishu and to OA, ERP and HR systems"
+        ]
+      },
+      "techLink": "Technology and security details"
+    },
+    "getStarted": {
+      "eyebrow": "Get started",
+      "title": "Three ways to start",
+      "subtitle": "Prove the value small, then roll out to more roles.",
+      "popularLabel": "Recommended",
+      "options": {
+        "cloud": {
+          "title": "Try TeGo Cloud free",
+          "tagline": "For individuals and small teams",
+          "points": [
+            "Sign up and start, nothing to install",
+            "200+ ready-made expert roles",
+            "Start at $0, upgrade as you grow"
+          ],
+          "cta": "Start free"
+        },
+        "pilot": {
+          "title": "2-week business pilot",
+          "tagline": "For companies that want proof first",
+          "points": [
+            "Pick a frequent, well-defined role",
+            "We help configure, authorize and launch",
+            "Judge it on real business results"
+          ],
+          "cta": "Book a pilot"
+        },
+        "private": {
+          "title": "Private deployment",
+          "tagline": "For government and financial organizations with strict data rules",
+          "points": [
+            "Your own servers or a TeGo Station appliance",
+            "Fully offline installation supported",
+            "Domestic hardware and software supported"
+          ],
+          "cta": "Talk to us"
+        }
+      },
+      "targets": {
+        "title": "Suggested pilot targets",
+        "items": [
+          {
+            "value": "≥30%",
+            "label": "Less processing time"
+          },
+          {
+            "value": "≥99%",
+            "label": "Result accuracy"
+          },
+          {
+            "value": "≥99%",
+            "label": "Task success rate"
+          }
+        ],
+        "note": "Suggested acceptance targets for a pilot; final targets are agreed with you."
+      },
+      "pilotGuide": "Pilot guide (Chinese)",
+      "deployDocs": "Deployment docs (Chinese)"
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "question": "How is TeGo different from ChatGPT-style assistants?",
+          "answer": "Chat assistants mainly answer questions. A TeGo digital employee has a defined role, reads authorized documents, connects to business systems and finishes the task with a usable result, all with access controls and a full record, so it can be part of real business processes."
+        },
+        {
+          "question": "Is our data safe?",
+          "answer": "TeGo can run on your own servers, so documents, memory and logs stay on your network. Each digital employee only reaches the data its role is authorized for, and important actions need human approval."
+        },
+        {
+          "question": "Do we need a strong technical team?",
+          "answer": "No. Business users assign work on the web or in DingTalk, WeCom or Feishu. Our engineers help with deployment and system integration."
+        },
+        {
+          "question": "How soon will we see results?",
+          "answer": "We suggest a 2-week pilot on one frequent, well-defined role, judged on real business results, before rolling out to more roles."
+        },
+        {
+          "question": "Does it support domestic Chinese infrastructure?",
+          "answer": "Yes. Kunpeng and Phytium CPUs, Kylin and UOS operating systems, and domestic databases are supported; exact coverage follows the delivery checklist."
+        },
+        {
+          "question": "Can individuals or small teams use it?",
+          "answer": "Yes. TeGo Cloud lets you sign up and start for free, with nothing to deploy or maintain."
+        }
+      ],
+      "docsCta": "More answers in the docs (Chinese)"
     }
   },
   "cloud": {
@@ -2005,7 +1862,7 @@
       "items": [
         {
           "question": "Are Cloud and Enterprise different products?",
-          "answer": "No. Both are part of the TeGo Digital Employee Execution & Governance Platform. Cloud is designed for self-serve use and fast validation; Enterprise adds private deployment, deep customization, governance, and FDE support."
+          "answer": "No. Both are part of the TeGo AI Digital Employee Platform. Cloud is designed for self-serve use and fast validation; Enterprise adds private deployment, deep customization, governance, and FDE support."
         },
         {
           "question": "How does TeGo Cloud protect my data?",

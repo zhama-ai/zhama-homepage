@@ -2,6 +2,8 @@ import { getTranslations } from 'next-intl/server';
 import Header from '@/components/Header';
 import FooterSection from '@/components/FooterSection';
 import TechnicalFeaturesSection from '@/components/TechnicalFeaturesSection';
+import CoreTechnologySection from '@/components/CoreTechnologySection';
+import EnterpriseReadinessSection from '@/components/EnterpriseReadinessSection';
 import { Container } from '@/components/ui/Container';
 import { localizedAlternates, localizedOpenGraph } from '@/lib/seo';
 import { 
@@ -121,6 +123,9 @@ export default async function TechnicalPage({ params }: Props) {
         </section>
 
         {/* LAMP 框架详解 */}
+        <CoreTechnologySection locale={locale} />
+        <EnterpriseReadinessSection locale={locale} />
+
         <section id="lamp" className="py-16 bg-zinc-50 dark:bg-zinc-950 scroll-mt-20">
           <Container>
             <div className="text-center mb-12">
@@ -348,7 +353,7 @@ export default async function TechnicalPage({ params }: Props) {
         <section id="skills" className="py-16 bg-zinc-50 dark:bg-zinc-950 scroll-mt-20">
           <Container>
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="order-2 md:order-1">
+              <div className="order-2 min-w-0 md:order-1">
                 <div className="bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-zinc-200 dark:border-zinc-800">
                   <div className="flex items-center gap-2 mb-4">
                     <Puzzle className="w-6 h-6 text-purple-500" />
@@ -371,7 +376,7 @@ export default async function TechnicalPage({ params }: Props) {
                 </div>
               </div>
               
-              <div className="order-1 md:order-2">
+              <div className="order-1 min-w-0 md:order-2">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium mb-4">
                   {tSkills('badge')}
                 </div>

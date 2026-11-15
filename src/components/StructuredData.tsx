@@ -25,8 +25,8 @@ export default function StructuredData({ locale }: Props) {
           url: `${SITE_URL}/zhama-logo/zhama-horizontal-transparent-light-v5.svg`,
         },
         description: isZh
-          ? 'TeGo 数字员工执行与治理平台：以安全沙箱、自研运行编排与可信执行，让数字员工在企业私有域内受控工作；同时通过 TeGo Cloud 为全球个人和团队提供 SaaS 服务。'
-          : 'TeGo is an execution and governance platform for digital employees, using secure sandboxes, in-house runtime orchestration and trusted execution to run them under control inside the enterprise, plus TeGo Cloud SaaS for individuals and teams worldwide.',
+          ? 'TeGo 企业 AI 数字员工平台：让 AI 数字员工直接在企业系统里办事、交出可检查的结果，支持私有化部署；同时通过 TeGo Cloud 为全球个人和团队提供云服务。'
+          : 'TeGo provides AI digital employees that work inside business systems and deliver checkable results, with private deployment for enterprises and TeGo Cloud for individuals and teams worldwide.',
         address: {
           '@type': 'PostalAddress',
           addressCountry: 'CN',
@@ -45,7 +45,7 @@ export default function StructuredData({ locale }: Props) {
       {
         '@type': 'WebSite',
         '@id': websiteId,
-        name: isZh ? 'TeGo 数字员工执行与治理平台' : 'TeGo Digital Employee Execution & Governance Platform',
+        name: isZh ? 'TeGo 企业 AI 数字员工平台' : 'TeGo AI Digital Employee Platform',
         url: SITE_URL,
         inLanguage: ['zh-CN', 'en-US'],
         publisher: { '@id': organizationId },
@@ -55,8 +55,8 @@ export default function StructuredData({ locale }: Props) {
         '@id': `${SITE_URL}/${locale}#enterprise`,
         name: isZh ? 'TeGo 企业版' : 'TeGo Enterprise',
         description: isZh
-          ? '可私有化与信创部署的数字员工执行与治理平台，提供岗位定义、最小授权、人工确认与全链路审计。'
-          : 'A privately deployable execution and governance platform for digital employees with role definitions, least privilege, human approval and end-to-end audit.',
+          ? '可私有化部署的企业 AI 数字员工平台：岗位职责清楚、按需授权、重要操作人工确认、每一步都有记录。'
+          : 'Privately deployable AI digital employees with clear roles, least-privilege access, human approval and a full audit trail.',
         url: `${SITE_URL}/${locale}`,
         applicationCategory: 'BusinessApplication',
         operatingSystem: 'Linux, Docker, Kubernetes',

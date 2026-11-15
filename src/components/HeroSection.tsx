@@ -17,7 +17,7 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
   const cloudT = await getTranslations({ locale, namespace: 'cloud.hero' });
   const isCloudFirst = cloudFirst(locale);
 
-  const highlightKeys = ['poc', 'xinchuang', 'evidence'] as const;
+  const highlightKeys = ['pilot', 'domains', 'trace'] as const;
   const tags = t.raw('tags') as string[];
   const consoleCopy = t.raw('console') as {
     title: string;

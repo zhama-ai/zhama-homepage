@@ -41,7 +41,7 @@ export default async function ResourceCenterSection({ locale }: ResourceCenterSe
   const t = await getTranslations({ locale, namespace: 'biz.resources' });
 
   return (
-    <section id="resources" className="scroll-mt-20 bg-white py-16 dark:bg-zinc-900 md:py-24">
+    <section id="resources" className="scroll-mt-20 bg-zinc-50 py-16 dark:bg-zinc-950 md:py-24">
       <Container>
         <SectionHead eyebrow={t('eyebrow')} title={t('title')} lead={t('subtitle')} center />
 

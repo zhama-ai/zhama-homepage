@@ -2,15 +2,13 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
-import PainPointsSection from '@/components/PainPointsSection';
-import ValuePillarsSection from '@/components/ValuePillarsSection';
-import CoreTechnologySection from '@/components/CoreTechnologySection';
+import HowItWorksSection from '@/components/HowItWorksSection';
 import ScenariosSection from '@/components/ScenariosSection';
 import CustomerCasesSection from '@/components/CustomerCasesSection';
-import EnterpriseReadinessSection from '@/components/EnterpriseReadinessSection';
-import PrivateDeliverySection from '@/components/PrivateDeliverySection';
-import PocSection from '@/components/PocSection';
+import TrustSection from '@/components/TrustSection';
+import GetStartedSection from '@/components/GetStartedSection';
 import PricingSection from '@/components/PricingSection';
+import FaqSection from '@/components/FaqSection';
 import ResourceCenterSection from '@/components/ResourceCenterSection';
 import BottomCTASection from '@/components/BottomCTASection';
 import FooterSection from '@/components/FooterSection';
@@ -51,15 +49,13 @@ export default async function Home({ params }: HomeProps) {
       <Header />
       <main>
         <HeroSection locale={locale} />
-        <PainPointsSection locale={locale} />
-        <ValuePillarsSection locale={locale} />
-        <CoreTechnologySection locale={locale} />
+        <HowItWorksSection locale={locale} />
         <ScenariosSection locale={locale} />
         <CustomerCasesSection locale={locale} />
-        <EnterpriseReadinessSection locale={locale} />
-        <PrivateDeliverySection locale={locale} />
-        <PocSection locale={locale} />
+        <TrustSection locale={locale} />
+        <GetStartedSection locale={locale} />
         <PricingSection locale={locale} />
+        <FaqSection locale={locale} />
         <ResourceCenterSection locale={locale} />
         <BottomCTASection locale={locale} />
       </main>
