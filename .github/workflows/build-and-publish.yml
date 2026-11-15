@@ -15,6 +15,9 @@ env:
   NODE_OPTIONS: '--max-old-space-size=8192'
   REGISTRY: ghcr.io
   IMAGE_PREFIX: ${{ github.repository_owner }}
+  DEPLOY_DIR: ${{ vars.HOMEPAGE_DEPLOY_DIR || '/mnt/data/zhama/zhama-homepage' }}
+  DEPLOY_ARCH: ${{ vars.HOMEPAGE_DEPLOY_ARCH || 'amd64' }}
+  SSH_PORT: ${{ vars.HOMEPAGE_SSH_PORT || '22' }}
 
 jobs:
   build:
@@ -72,8 +75,10 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}/${{ matrix.image.name }}
+          # sha-<commit> is the immutable tag the deploy job ships.
           tags: |
             type=ref,event=tag
+            type=raw,value=sha-${{ github.sha }}
             type=raw,value=latest,enable={{is_default_branch}}
             type=raw,value=${{ github.event.inputs.tag }},enable=${{ github.event_name == 'workflow_dispatch' }}
           flavor: |
@@ -151,3 +156,131 @@ jobs:
               ${IMAGE_BASE}:${CUSTOM_TAG}-arm64
             echo "✅ Created multi-arch manifest: ${IMAGE_BASE}:${CUSTOM_TAG}"
           fi
+
+  # The host is slow to reach from GHCR and from the runner, so the image goes
+  # through Aliyun OSS (same approach as tego-docs): the runner uploads over the
+  # accelerated endpoint and the host downloads from the region endpoint.
+  deploy:
+    name: Deploy to zhama.com.cn
+    needs: build
+    if: vars.HOMEPAGE_DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    concurrency:
+      group: homepage-deploy
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      packages: read
+    env:
+      DEPLOY_IMAGE: ghcr.io/${{ github.repository_owner }}/zhama-homepage:sha-${{ github.sha }}-${{ vars.HOMEPAGE_DEPLOY_ARCH || 'amd64' }}
+      INCOMING: ${{ vars.HOMEPAGE_DEPLOY_DIR || '/mnt/data/zhama/zhama-homepage' }}/.incoming/${{ github.run_id }}-${{ github.run_attempt }}
+      OSS_OBJECT: oss://${{ vars.HOMEPAGE_OSS_BUCKET || 'zhama-public' }}/zhama-homepage/deploy-images/${{ github.run_id }}-${{ github.run_attempt }}/image.tar.gz
+    steps:
+      - name: Checkout the built source
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Validate deployment configuration
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+          ALIYUN_OSS_ACCESS_KEY_ID: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
+          ALIYUN_OSS_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
+        run: |
+          python3 - <<'PY'
+          import os, re
+          required = ('DEPLOY_HOST', 'DEPLOY_USER', 'DEPLOY_KEY', 'ALIYUN_OSS_ACCESS_KEY_ID', 'ALIYUN_OSS_ACCESS_KEY_SECRET')
+          missing = [name for name in required if not os.environ.get(name)]
+          if not re.fullmatch(r'/[A-Za-z0-9_./-]+', os.environ['DEPLOY_DIR']) or '..' in os.environ['DEPLOY_DIR']:
+              missing.append('valid HOMEPAGE_DEPLOY_DIR')
+          if not os.environ['SSH_PORT'].isdigit():
+              missing.append('numeric HOMEPAGE_SSH_PORT')
+          if os.environ['DEPLOY_ARCH'] not in ('amd64', 'arm64'):
+              missing.append('HOMEPAGE_DEPLOY_ARCH of amd64 or arm64')
+          if missing:
+              raise SystemExit('Missing or invalid deployment settings: ' + ', '.join(missing))
+          PY
+
+      - name: Configure deployment SSH
+        uses: ./.github/actions/deploy-ssh
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          port: ${{ env.SSH_PORT }}
+          user: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+
+      - name: Upload deployment files
+        run: |
+          set -o pipefail
+          ssh deploy "mkdir -p '$INCOMING'"
+          tar czf - docker-compose.yml deploy/deploy.sh deploy/fetch-image.sh deploy/remote-publish.sh deploy/.env.production.example \
+            | ssh deploy "tar xzf - -C '$INCOMING'"
+
+      - name: Log in to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up ossutil
+        uses: ./.github/actions/setup-ossutil
+
+      - name: Stage image on OSS
+        id: stage
+        timeout-minutes: 20
+        env:
+          OSS_ACCESS_KEY_ID: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
+          OSS_ENDPOINT: oss-accelerate.aliyuncs.com
+        run: |
+          set -euo pipefail
+          docker pull --platform "linux/$DEPLOY_ARCH" "$DEPLOY_IMAGE"
+          archive="$RUNNER_TEMP/image.tar.gz"
+          docker save "$DEPLOY_IMAGE" | gzip -n -6 > "$archive"
+          ls -lh "$archive"
+          echo "sha256=$(sha256sum "$archive" | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+          for attempt in 1 2 3; do
+            if ossutil cp "$archive" "$OSS_OBJECT" --force \
+                --checkpoint-dir "$RUNNER_TEMP/ossutil-checkpoint" \
+                --parallel 4 --part-size 16M \
+                --connect-timeout 60 --read-timeout 300 --retry-times 20; then
+              exit 0
+            fi
+            echo "::warning::OSS upload attempt $attempt of 3 failed."
+            sleep "$((attempt * 10))"
+          done
+          echo '::error::Uploading the image to OSS failed.'
+          exit 1
+
+      - name: Download image on the host
+        timeout-minutes: 20
+        env:
+          OSS_ACCESS_KEY_ID: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
+          # Use oss-cn-heyuan-internal.aliyuncs.com when the host is an ECS
+          # instance in the same region.
+          OSS_ENDPOINT: ${{ vars.HOMEPAGE_OSS_DOWNLOAD_ENDPOINT || 'oss-cn-heyuan.aliyuncs.com' }}
+          IMAGE_SHA256: ${{ steps.stage.outputs.sha256 }}
+        run: |
+          set -euo pipefail
+          url=$(ossutil presign "$OSS_OBJECT" --expires-duration 2h | grep -m1 '^https://')
+          echo "::add-mask::$url"
+          # The URL goes over stdin, not the SSH command line.
+          printf '%s\n' "$url" \
+            | ssh deploy "sh '$INCOMING/deploy/fetch-image.sh' '$INCOMING' '$DEPLOY_IMAGE' '$IMAGE_SHA256'"
+
+      - name: Remove staged image from OSS
+        if: always() && steps.stage.outcome != 'skipped'
+        env:
+          OSS_ACCESS_KEY_ID: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
+          OSS_ENDPOINT: oss-accelerate.aliyuncs.com
+        run: ossutil rm "$OSS_OBJECT" --force || echo "::warning::Could not remove $OSS_OBJECT; delete it by hand."
+
+      - name: Publish and verify
+        run: |
+          ssh deploy "DEPLOY_DIR='$DEPLOY_DIR' sh '$INCOMING/deploy/remote-publish.sh' '$INCOMING' '$DEPLOY_IMAGE'"

@@ -1,0 +1,38 @@
+name: Set up ossutil
+description: >-
+  Make ossutil 2.x available (copied from tego-os). On a GitHub-hosted Linux
+  runner, install the pinned release after checking its SHA-256. Credentials
+  come from OSS_* env vars in the calling step, never from a config file.
+
+runs:
+  using: composite
+  steps:
+    - name: Install ossutil
+      shell: bash
+      run: |
+        set -euo pipefail
+        if command -v ossutil >/dev/null 2>&1 && ossutil version 2>/dev/null | grep -Eq '(^|[^0-9])2\.'; then
+          echo "Using the preinstalled $(ossutil version | head -1)"
+          exit 0
+        fi
+        [[ "$RUNNER_OS" == Linux ]] || { echo "::error::ossutil 2.x is missing and only Linux installs are supported"; exit 1; }
+        version=2.2.0
+        case "$(uname -m)" in
+          x86_64|amd64)
+            package="ossutil-${version}-linux-amd64"
+            sha256=9e02837d806cfe976ae6c1fc22557d8e0a394ca6d298b45fb9f48a360d3a67f4
+            ;;
+          aarch64|arm64)
+            package="ossutil-${version}-linux-arm64"
+            sha256=4f76dfd71d2af8265fcb9309b530f4671242cf5993a8fd0f0e089de7e9665f72
+            ;;
+          *) echo "::error::No ossutil build for $(uname -m)"; exit 1 ;;
+        esac
+        work="$(mktemp -d)"
+        curl -fsSL --retry 3 -o "${work}/${package}.zip" \
+          "https://gosspublic.alicdn.com/ossutil/v2/${version}/${package}.zip"
+        echo "${sha256}  ${work}/${package}.zip" | sha256sum -c -
+        unzip -q "${work}/${package}.zip" -d "$work"
+        sudo install -m 0755 "${work}/${package}/ossutil" /usr/local/bin/ossutil
+        rm -rf "$work"
+        ossutil version

@@ -1,0 +1,12 @@
+services:
+  zhama-homepage:
+    image: ${ZHAMA_HOMEPAGE_IMAGE:-ghcr.io/zhama-ai/zhama-homepage:latest}
+    restart: unless-stopped
+    # Runtime settings (SMTP, contact mailbox, rate limits) live in the
+    # deployment .env next to this file.
+    env_file: .env
+    environment:
+      PORT: "3000"
+      HOSTNAME: 0.0.0.0
+    ports:
+      - "${HOMEPAGE_PORT:-3000}:3000"

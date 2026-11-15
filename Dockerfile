@@ -26,5 +26,9 @@ ENV HOSTNAME="0.0.0.0"
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# deploy.sh 依赖健康状态（docker compose up --wait）；alpine 自带 busybox wget
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+  CMD wget -q -T 4 -O /dev/null http://127.0.0.1:3000/zh || exit 1
+
 # 启动应用
 CMD ["node", "server.js"]
