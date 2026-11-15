@@ -18,6 +18,8 @@ env:
   DEPLOY_DIR: ${{ vars.HOMEPAGE_DEPLOY_DIR || '/mnt/data/zhama/homepage' }}
   DEPLOY_ARCH: ${{ vars.HOMEPAGE_DEPLOY_ARCH || 'amd64' }}
   SSH_PORT: ${{ vars.HOMEPAGE_SSH_PORT || '22' }}
+  # ossutil 2.x signs with V4 and needs the bucket region (same bucket as tego-os / tego-docs).
+  OSS_REGION: ${{ vars.HOMEPAGE_OSS_REGION || 'cn-heyuan' }}
 
 jobs:
   build:
