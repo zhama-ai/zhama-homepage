@@ -2,30 +2,30 @@
   "schemaVersion": 1,
   "brand": "tego",
   "kind": "desktop",
-  "version": "v5.16.0",
-  "releaseDate": "2026-11-14T17:56:22Z",
+  "version": "v5.17.0",
+  "releaseDate": "2026-11-16T03:23:08Z",
   "platforms": {
     "linux": {
       "arm64": {
-        "AppImage": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.16.0/linux/arm64/TeGo_5.16.0_aarch64.AppImage",
-        "deb": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.16.0/linux/arm64/TeGo_5.16.0_arm64.deb"
+        "AppImage": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.17.0/linux/arm64/TeGo_5.17.0_aarch64.AppImage",
+        "deb": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.17.0/linux/arm64/TeGo_5.17.0_arm64.deb"
       },
       "x64": {
-        "AppImage": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.16.0/linux/x64/TeGo_5.16.0_amd64.AppImage",
-        "deb": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.16.0/linux/x64/TeGo_5.16.0_amd64.deb"
+        "AppImage": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.17.0/linux/x64/TeGo_5.17.0_amd64.AppImage",
+        "deb": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.17.0/linux/x64/TeGo_5.17.0_amd64.deb"
       }
     },
     "macos": {
       "arm64": {
-        "dmg": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.16.0/macos/arm64/TeGo_5.16.0_aarch64.dmg"
+        "dmg": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.17.0/macos/arm64/TeGo_5.17.0_aarch64.dmg"
       },
       "x64": {
-        "dmg": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.16.0/macos/x64/TeGo_5.16.0_x64.dmg"
+        "dmg": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.17.0/macos/x64/TeGo_5.17.0_x64.dmg"
       }
     },
     "windows": {
       "x64": {
-        "exe": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.16.0/windows/x64/TeGo-5.16.0-windows-x64-setup.exe"
+        "exe": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.17.0/windows/x64/TeGo-5.17.0-windows-x64-setup.exe"
       },
       "x86": {
         "exe": "https://cdn.zhama.com.cn/releases/tego/desktop/v3.9.8/windows/x86/TeGo-3.9.8-windows-x86-setup.exe"
@@ -33,27 +33,27 @@
     },
     "kylin": {
       "arm64": {
-        "flatpak": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.16.0/kylin/arm64/tego-ai-studio-5.16.0-arm64.flatpak",
-        "tar": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.16.0/kylin/arm64/tego-ai-studio-5.16.0-arm64.tar"
+        "flatpak": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.17.0/kylin/arm64/tego-ai-studio-5.17.0-arm64.flatpak",
+        "tar": "https://cdn.zhama.com.cn/releases/tego/desktop/v5.17.0/kylin/arm64/tego-ai-studio-5.17.0-arm64.tar"
       }
     }
   },
   "targetVersions": {
-    "linux/arm64": "v5.16.0",
-    "linux/x64": "v5.16.0",
-    "macos/arm64": "v5.16.0",
-    "macos/x64": "v5.16.0",
-    "windows/x64": "v5.16.0",
+    "linux/arm64": "v5.17.0",
+    "linux/x64": "v5.17.0",
+    "macos/arm64": "v5.17.0",
+    "macos/x64": "v5.17.0",
+    "windows/x64": "v5.17.0",
     "windows/x86": "v3.9.8",
-    "kylin/arm64": "v5.16.0"
+    "kylin/arm64": "v5.17.0"
   },
   "targetDates": {
-    "linux/arm64": "2026-11-14T16:39:31Z",
-    "linux/x64": "2026-11-14T16:34:25Z",
-    "macos/arm64": "2026-11-14T17:47:27Z",
-    "macos/x64": "2026-11-14T17:56:22Z",
-    "windows/x64": "2026-11-14T16:39:56Z",
+    "linux/arm64": "2026-11-16T03:21:35Z",
+    "linux/x64": "2026-11-16T03:13:49Z",
+    "macos/arm64": "2026-11-16T03:01:12Z",
+    "macos/x64": "2026-11-16T03:19:13Z",
+    "windows/x64": "2026-11-16T03:20:27Z",
     "windows/x86": "2026-05-21T21:34:46Z",
-    "kylin/arm64": "2026-11-14T16:47:55Z"
+    "kylin/arm64": "2026-11-16T03:23:08Z"
   }
 }
