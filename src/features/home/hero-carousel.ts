@@ -1,3 +1,4 @@
+import { media } from '../../lib/breakpoints';
 import { observeMotion, type MotionState } from '../../lib/motion';
 
 function hydrateSlide(slide: HTMLElement) {
@@ -21,7 +22,7 @@ export function initializeHeroCarousels(signal?: AbortSignal) {
     const announcement = hero.querySelector<HTMLElement>('[data-carousel-announcement]')!;
     const slideRegion = hero.querySelector<HTMLElement>('[data-hero-slides]')!;
     const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const compactViewport = window.matchMedia('(max-width: 700px)');
+    const compactViewport = window.matchMedia(media.compact);
     let workspacePaused = false;
     let disposed = false;
     let active = 0;

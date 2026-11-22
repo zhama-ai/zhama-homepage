@@ -97,6 +97,8 @@ const groups = capabilityGroups[locale];
     .pricing-description{min-height:0}.pricing-card h2{font-size:24px;margin-top:14px}.pricing-quote{margin-top:18px}
     .capability-browser{grid-template-columns:1fr}.capability-index{position:static;display:flex;flex-wrap:wrap;gap:8px;max-height:none;overflow:visible}
     .capability-index>a{padding:9px 11px;font-size:12px;border-color:#6695b433;border-radius:99px}.capability-index>a>:global(svg){display:none}
+    /* 44 px touch target from the drawn 38 px chip; the 8 px gap keeps neighbours apart. */
+    .capability-index>a{position:relative}.capability-index>a::after{content:'';position:absolute;inset:-3px 0}
     .capability-group h3{font-size:18px;padding:16px 20px}.capability-group dl{padding:0 20px 18px}.capability-row{padding-block:18px;gap:7px}
     .pricing-plans{padding-bottom:45px}
   }

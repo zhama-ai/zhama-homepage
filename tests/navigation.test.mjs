@@ -11,6 +11,8 @@ const source = ts.transpileModule(script, {
   compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
 }).outputText;
 
+const breakpoints = await import('../src/lib/breakpoints.ts');
+
 class ElementStub extends EventTarget {
   dataset = {};
   attrs = new Map();
@@ -46,6 +48,7 @@ class ElementStub extends EventTarget {
   getAttribute(name) { return this.attrs.get(name) ?? null; }
   hasAttribute(name) { return this.attrs.has(name); }
   removeAttribute(name) { this.attrs.delete(name); }
+  toggleAttribute(name, force = !this.attrs.has(name)) { if (force) this.attrs.set(name, ''); else this.attrs.delete(name); return force; }
   append(...children) {
     for (const child of children) {
       child.parentElement = this;
@@ -75,6 +78,7 @@ class ElementStub extends EventTarget {
 function fixture({ desktop = true, hover = true, animatePanels = false } = {}) {
   const document = new ElementStub('#document');
   document.ownerDocument = document;
+  document.documentElement = new ElementStub('html');
   document.getElementById = id => document.querySelector(`#${id}`);
   const body = new ElementStub('body'); document.append(body); document.activeElement = body;
   const header = new ElementStub('header', { 'data-site-header': '' }); body.append(header);
@@ -128,7 +132,7 @@ function fixture({ desktop = true, hover = true, animatePanels = false } = {}) {
   const clearTimer = id => timers.delete(id);
   window.setTimeout = setTimer; window.clearTimeout = clearTimer;
   runInNewContext(source, { document, window, Node: ElementStub, HTMLElement: ElementStub, HTMLButtonElement: ElementStub,
-    exports: {}, require: () => ({ onPageMount: mount => mount(new AbortController().signal) }),
+    exports: {}, require: specifier => specifier.endsWith('breakpoints') ? breakpoints : ({ onPageMount: mount => mount(new AbortController().signal) }),
     Event, URL, URLSearchParams, location: { pathname: '/zh/', search: '', hash: '' },
     getComputedStyle: panel => panel.computedStyle ?? { opacity: '1', translate: '0 0' },
     setTimeout: setTimer, clearTimeout: clearTimer });
@@ -290,6 +294,7 @@ test('touch and coarse pointer navigation uses clicks and never schedules hover 
   env.click(env.mobileToggle, 1, 'touch');
   assert.equal(env.mobile.inert, false);
   assert.equal(env.mobile.classList.contains('is-open'), true);
+  assert.equal(env.document.documentElement.hasAttribute('data-mobile-nav-open'), true, 'the page behind the menu is locked');
   env.pointer(env.mobileProduct.button, 'pointerenter', 'touch'); expectOpen(env.mobileProduct, false);
   env.click(env.mobileProduct.button, 1, 'touch'); expectOpen(env.mobileProduct, true);
   env.pointer(env.mobileProduct.button, 'pointerleave');
@@ -299,7 +304,14 @@ test('touch and coarse pointer navigation uses clicks and never schedules hover 
   env.key('Escape');
   assert.equal(env.mobile.inert, true);
   assert.equal(env.mobile.classList.contains('is-open'), false);
+  assert.equal(env.document.documentElement.hasAttribute('data-mobile-nav-open'), false);
   assert.equal(env.document.activeElement, env.mobileToggle);
+  env.click(env.mobileToggle, 1, 'touch');
+  const outsideTap = env.click(env.outside, 1, 'touch');
+  assert.equal(outsideTap.defaultPrevented, true, 'a tap on the dimmed page only closes the menu');
+  assert.equal(env.mobile.classList.contains('is-open'), false);
+  assert.equal(env.document.documentElement.hasAttribute('data-mobile-nav-open'), false);
+  assert.equal(env.click(env.outside, 1, 'touch').defaultPrevented, false, 'with the menu closed the page receives taps');
 });
 
 test('touch pointer events do not open a desktop hover menu', () => {

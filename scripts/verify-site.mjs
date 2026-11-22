@@ -3,6 +3,10 @@ import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse } from 'parse5';
+import { latestDownloads } from '../shared/release-catalog.mjs';
+import { releaseBuilds, studioVersions } from '../shared/release-builds.mjs';
+import { loadReleaseData } from '../shared/release-store.mjs';
+import { internalPages } from '../shared/seo-routes.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const dist = path.join(root, 'dist');
@@ -175,6 +179,11 @@ for(const document of documents.values()) {
  const label=relative(document.file);
  auditPublishedMarkup(html,label,check);
  if(redirect){redirectPages++;validateReference(redirect,document,'重定向');}
+ // Internal tools (the build list) are noindex utilities, not localized content pages.
+ else if(internalPages.includes(pathname)){
+  check(tags.some(t=>t.name==='meta'&&t.attrs.name==='robots'&&/\bnoindex\b/.test(t.attrs.content||'')),`${label}：内部页面必须禁止索引`);
+  check(!tags.some(t=>t.name==='link'&&t.attrs.rel==='canonical'),`${label}：内部页面不应声明 canonical`);
+ }
  else {
   regularPages++;
   check(tags.filter(t=>t.name==='h1').length===1,`${label}：h1 必须唯一`);
@@ -185,11 +194,16 @@ for(const document of documents.values()) {
   const locale=({'en':'en','zh':'zh-CN','zh-Hant':'zh-Hant','ja':'ja'})[pathname.split('/')[1]] || 'zh-CN';
   check(tags.find(t=>t.name==='html')?.attrs.lang===locale,`${label}：页面语言不符`);
   const canonical=tags.find(t=>t.name==='link'&&t.attrs.rel==='canonical');
-  check(Boolean(canonical),`${label}：缺少 canonical`);
-  for(const lang of ['zh-CN','en','zh-Hant']) {
-   const alternate=tags.find(t=>t.name==='link'&&t.attrs.hreflang===lang);
-   check(Boolean(alternate),`${label}：缺少 ${lang} 对应页`);
-   if(alternate)validateReference(alternate.attrs.href,document,'语言对应页');
+  const noindex=/\bnoindex\b/.test(tags.find(t=>t.name==='meta'&&t.attrs.name==='robots')?.attrs.content||'');
+  // Excluded pages (404) must not point search engines at a canonical or language alternates.
+  if(noindex)check(!canonical&&!tags.some(t=>t.name==='link'&&t.attrs.hreflang),`${label}：禁止索引的页面不应声明 canonical 或语言对应页`);
+  else {
+   check(Boolean(canonical),`${label}：缺少 canonical`);
+   for(const lang of ['zh-CN','en','zh-Hant']) {
+    const alternate=tags.find(t=>t.name==='link'&&t.attrs.hreflang===lang);
+    check(Boolean(alternate),`${label}：缺少 ${lang} 对应页`);
+    if(alternate)validateReference(alternate.attrs.href,document,'语言对应页');
+   }
   }
   for(const image of tags.filter(t=>t.name==='img')) {
    check(image.attrs.alt!==undefined,`${label}：图片缺少 alt`);
@@ -227,7 +241,7 @@ for(const locale of ['zh','en','zh-Hant']){
  const visible=decodeEntities(home.markup.replace(/<[^>]+>/g,' '));
  check(!/example\.com|TODO|FIXME|仅供演示|占位数据|100%|零风险/.test(visible),`${locale} 首页存在未完成或绝对化文案`);
 }
-const baseline=JSON.parse(readFileSync(path.join(root,'docs/content-baseline_V1.5.json'),'utf8'));
+const baseline=JSON.parse(readFileSync(path.join(root,'docs/content-baseline_V1.6.json'),'utf8'));
 const digest=text=>createHash('sha256').update(text).digest('hex');
 const normalizedBody=text=>text.split('---').slice(2).join('---').trim().replaceAll('/blog-assets/images/','/images/').replaceAll('https://www.zhama.com/','https://zhama.com/');
 for(const post of baseline.articles){
@@ -237,13 +251,32 @@ for(const post of baseline.articles){
  if(existsSync(file))check(digest(normalizedBody(readFileSync(file,'utf8')))===post.normalizedBodySha256,`历史文章正文与原站不符：${post.filename}`);
  check(existsSync(path.join(dist,post.locale,'blog',post.slug,'index.html')),`历史文章路由缺失：${post.slug}`);
 }
-check(digest(readFileSync(path.join(root,'src/data/legacy.ts'),'utf8'))===baseline.legacyDataSha256,'法律文本与发行数据非预期变化');
+check(digest(readFileSync(path.join(root,'src/data/legacy.ts'),'utf8'))===baseline.legalDataSha256,'法律文本非预期变化');
+// Release data changes with every tego-os release: validate its structure instead of freezing its size.
 let releaseCount=0;
 try{
- const index=JSON.parse(readFileSync(path.join(dist,'releases/index.json'),'utf8'));
- releaseCount=index.files.length;
- check(releaseCount===baseline.releaseCount,'发行索引条数变化');
- for(const file of index.files){validateReference(file.path,documentFor(path.join(dist,'zh/download/index.html')),'发行清单');}
+ const releases=await loadReleaseData(path.join(dist,'releases'));
+ releaseCount=releases.index.files.length;
+ const downloadPage=documentFor(path.join(dist,'zh/download/index.html'));
+ for(const file of releases.index.files)validateReference(file.path,downloadPage,'发行清单');
+ const downloadLinks=new Set(downloadPage.tags.filter(t=>t.name==='a').map(t=>t.attrs.href));
+ for(const item of latestDownloads(releases.clients).filter(item=>item.platform!=='ios')){
+  const variants=latestDownloads(releases.clients).filter(other=>other.product===item.product&&other.platform===item.platform&&other.architecture===item.architecture);
+  check(variants.some(variant=>downloadLinks.has(variant.url)),`下载页缺少当前版本 ${item.product}/${item.platform}/${item.architecture||'universal'}`);
+ }
+ const historyPage=documentFor(path.join(dist,'zh/releases/index.html'));
+ const historyDefault=releases.index.versions.find(version=>['desktop','mobile','studio'].some(kind=>releases.clients.has(`${version}/clients/tego/${kind}.json`)));
+ check(historyPage.html.includes(`<option value="${historyDefault}" selected`),`历史版本页默认版本应为 ${historyDefault}`);
+ for(const version of [...releases.index.versions,'latest']){
+  const file=path.join(dist,'releases/builds',`${version}.json`);
+  check(existsSync(file),`构建清单数据缺失：${version}`);
+  if(existsSync(file)&&version!=='latest'){
+   const payload=JSON.parse(readFileSync(file,'utf8'));
+   check(JSON.stringify(payload)===JSON.stringify(releaseBuilds(releases,version)),`构建清单数据与发行记录不一致：${version}`);
+  }
+ }
+ for(const version of studioVersions(releases))check(existsSync(path.join(dist,'releases/builds/studio',`${version}.json`)),`Studio 构建清单数据缺失：${version}`);
+ check(existsSync(path.join(dist,'builds.html')),'内部构建清单页面缺失');
 }catch(error){check(false,`发行索引异常：${error.message}`);}
 const imageFiles=allFiles.filter(f=>f.includes('/images/saaslauncher/'));
 check(imageFiles.every(f=>f.endsWith('_V1.2.webp')),'发布目录含非当前品牌版本的配图或制图原件');

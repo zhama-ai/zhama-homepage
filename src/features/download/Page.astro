@@ -1,6 +1,7 @@
 ---
 import Icon from '../../components/Icon.astro';
-import { releaseDownloads } from '../../data/legacy';
+import { latestDownloads } from '../../../shared/release-catalog.mjs';
+import { releaseData } from '../../../shared/release-store.mjs';
 import type { Locale } from '../../data/types';
 import { site } from '../../lib/site';
 import Shell from '../resources/Shell.astro';
@@ -11,7 +12,8 @@ const products = zh ? { desktop: 'TeGo 桌面端', mobile: 'TeGo 移动端', stu
 const platforms: Record<string, string> = { macos: 'macOS', windows: 'Windows', linux: 'Linux', kylin: zh ? '银河麒麟' : 'Kylin', android: 'Android', ios: 'iOS' };
 const platformIcons: Record<string, string> = { macos: 'apple', windows: 'windows', linux: 'linux', android: 'android', ios: 'apple' };
 const architecture = (platform: string, arch: string) => platform === 'macos' ? (arch === 'arm64' ? 'Apple silicon · ARM64' : 'Intel · x64') : arch === 'x86' ? (zh ? 'x86 · 32 位' : 'x86 · 32-bit') : arch === 'x64' ? (zh ? 'x64 · 64 位' : 'x64 · 64-bit') : arch === 'arm64' ? 'ARM64' : '';
-type Download = (typeof releaseDownloads)[number];
+interface Download { product: 'desktop' | 'mobile' | 'studio'; platform: string; architecture: string; format: string; url: string; version: string; releasedAt: string; }
+const releaseDownloads: Download[] = latestDownloads((await releaseData()).clients);
 const sharesVersion = (files: Download[]) => files.every(file => file.version === files[0].version);
 const preferredFormats = ['dmg', 'exe', 'AppImage', 'flatpak', 'apk', 'appstore', 'testflight'];
 const primaryDownload = (files: Download[]) => preferredFormats.map(format => files.find(file => file.format === format)).find(Boolean) ?? files[0];

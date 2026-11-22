@@ -1,7 +1,4 @@
 .anywhere-topology{position:relative;isolation:isolate;width:100%;color:#fff}
-.anywhere-scene-desktop{display:block;width:100%;height:auto;mask-image:linear-gradient(to right,transparent,#000 2%,#000 98%,transparent)}
-.anywhere-topology--luminous .anywhere-scene-desktop{-webkit-mask-image:linear-gradient(to right,transparent,#000 1.5%,#000 98.5%,transparent),linear-gradient(to bottom,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(to right,transparent,#000 1.5%,#000 98.5%,transparent),linear-gradient(to bottom,transparent,#000 10%,#000 90%,transparent);-webkit-mask-composite:source-in;mask-composite:intersect}
-.anywhere-scene-mobile{display:none}
 .workspace-scene{position:relative;aspect-ratio:1948/760}
 .workspace-scene>img{display:block;width:100%;height:100%;object-fit:contain}
 .workspace-labels{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
@@ -23,7 +20,6 @@
 .anywhere-topology--workspace .anywhere-motion-crop--outputs{aspect-ratio:681/630;--image-width:286.0499%;--image-height:120.6349%;--image-left:-186.0499%;--image-top:-11.1111%}
 .topology-links{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 #topology-flow-route{fill:none;stroke:none}
-.topology-flow-dot{opacity:0;animation:topology-dot-visibility 10s linear infinite}
 @keyframes topology-dot-visibility{0%,3%,85%,100%{opacity:0}5%,81%{opacity:.65}}
 .anywhere-topology[data-topology-motion='paused'] *{animation-play-state:paused!important}
 .anywhere-motion-crop{position:relative;overflow:hidden}
@@ -31,17 +27,13 @@
 .anywhere-motion-crop--platform{aspect-ratio:817/530;--image-width:265.850673%;--image-height:136.603774%;--image-left:-80.293758%;--image-top:-15.471698%}
 .anywhere-motion-crop--outputs{aspect-ratio:530/485;--image-width:409.811321%;--image-height:149.278351%;--image-left:-307.169811%;--image-top:-20.618557%}
 @media(max-width:700px){
- .anywhere-scene-desktop,.topology-links{display:none}
- .anywhere-scene-mobile{display:grid;gap:30px;max-width:430px;margin-inline:auto}
+ .topology-links{display:none}
  .workspace-planes{display:grid;aspect-ratio:auto;gap:30px;max-width:430px;margin-inline:auto}
  .workspace-planes>.anywhere-motion-crop{position:relative;left:auto;top:auto;width:auto;transform:none}
- .anywhere-scene-mobile img{display:block;width:100%;height:auto;mask-image:linear-gradient(to right,transparent,#000 3%,#000 97%,transparent)}
- .anywhere-topology--luminous .anywhere-motion-crop{-webkit-mask-image:linear-gradient(to right,transparent,#000 1%,#000 99%,transparent),linear-gradient(to bottom,transparent,#000 1%,#000 99%,transparent);mask-image:linear-gradient(to right,transparent,#000 1%,#000 99%,transparent),linear-gradient(to bottom,transparent,#000 1%,#000 99%,transparent);-webkit-mask-composite:source-in;mask-composite:intersect}
- .anywhere-scene-mobile .anywhere-motion-crop>img{position:absolute;max-width:none;width:var(--image-width);height:var(--image-height);left:var(--image-left);top:var(--image-top);-webkit-mask-image:none;mask-image:none}
  .workspace-scene .workspace-flow{display:block}
  .workspace-input-scene.topology-links{display:block}
  .workspace-scene>img{-webkit-mask-image:none;mask-image:none}
  .anywhere-topology--workspace .anywhere-motion-crop{-webkit-mask-image:none;mask-image:none}
  .workspace-foreground{filter:drop-shadow(1px 4px 3px rgba(0,4,12,.5)) drop-shadow(4px 12px 10px rgba(0,4,12,.42))}
 }
-@media(prefers-reduced-motion:reduce){.anywhere-topology *{animation:none!important}.topology-flow-dot{opacity:0}.workspace-flow .workspace-motion{display:none!important}}
+@media(prefers-reduced-motion:reduce){.anywhere-topology *{animation:none!important}.workspace-flow .workspace-motion{display:none!important}}

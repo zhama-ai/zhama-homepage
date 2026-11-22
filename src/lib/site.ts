@@ -7,7 +7,6 @@ export const site = {
   origin: normalizeSiteOrigin(import.meta.env.PUBLIC_SITE_URL),
   app: 'https://zhama.ai/',
   docs: 'https://docs.zhama.com.cn/',
-  blog: 'https://www.zhama.com/zh/blog',
   iosAppStore: {
     url: 'https://apps.apple.com/cn/app/id6744411300',
     version: 'v5.15.0',

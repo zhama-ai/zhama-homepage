@@ -1,19 +1,19 @@
 ---
-title: "Three-Layer S3 Isolation + Single-Authority Templates: How Tego OS v3.0.0 Makes the Governance Boundary Explicit"
+title: "Three-Layer S3 Isolation + Single-Authority Templates: How TeGo v3.0.0 Makes the Governance Boundary Explicit"
 description: "v3.0.0 rewrites the S3 namespace and the template/runtime governance protocol together — templates belong to templates, runtime belongs to users, and any regular user trying to write a template path gets 403. This post walks through the design end-to-end and explains what it actually means for enterprises."
 date: "2026-04-25"
 author: "Zhama AI Engineering"
 category: "Engineering Deep Dive"
-tags: ["Tego OS", "v3.0.0", "S3 Isolation", "Template Governance", "Permission Boundaries", "Enterprise AI", "Private Deployment"]
+tags: ["TeGo", "v3.0.0", "S3 Isolation", "Template Governance", "Permission Boundaries", "Enterprise AI", "Private Deployment"]
 image: "/blog-assets/images/features/dashboard.jpg"
 featured: false
 locale: "en"
 legacySlug: "s3-data-isolation-template-governance"
 sourceUrl: "https://zhama.com/en/blog/s3-data-isolation-template-governance"
-sourceCommit: "e61f09338aa2534916dc3b4822555b90927b4a40"
+sourceCommit: "b498784645789e8cb5efc32c4589c69f2e60833a"
 ---
 
-# Three-Layer S3 Isolation + Single-Authority Templates: How Tego OS v3.0.0 Makes the Governance Boundary Explicit
+# Three-Layer S3 Isolation + Single-Authority Templates: How TeGo v3.0.0 Makes the Governance Boundary Explicit
 
 > Templates belong to templates, runtime belongs to users — and the governance boundary is no longer a doc, it's a protocol.
 

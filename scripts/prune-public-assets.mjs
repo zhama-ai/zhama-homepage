@@ -8,7 +8,7 @@ const visualExtension = /\.(?:avif|gif|jpe?g|png|svg|webp|webm|mp4)$/i;
 const textExtension = /\.(?:astro|[cm]?[jt]sx?|css|html|json|webmanifest|xml|svg|md|mdx|py)$/i;
 const assetExtension = /\.(?:avif|gif|jpe?g|png|svg|webp|webm|mp4|css|c?m?js|json|webmanifest|xml|woff2?|ttf|otf|ico|pdf|zip)(?:[?#].*)?$/i;
 const publicPrefixes = ['images/', 'blog-assets/'];
-const localOrigins = new Set(['https://www.zhama.com', 'https://zhama.com']);
+const localOrigins = new Set(['https://www.zhama.com', 'https://zhama.com', 'https://zhama.com.cn', 'https://www.zhama.com.cn']);
 const posix = value => value.split(path.sep).join('/');
 const escapeRegex = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 

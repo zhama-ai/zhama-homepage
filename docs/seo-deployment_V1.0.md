@@ -6,8 +6,9 @@
 
 ## 确认发布条件
 
-- 使用 Node.js 22.23.4 或更高版本，在含 `package.json` 的项目根目录执行命令。
-- 生产规范域名为 `https://www.zhama.com`，内容页保留尾斜杠。构建与 Nginx 生成器使用同一 `PUBLIC_SITE_URL`。
+- 使用 Node.js 24，在含 `package.json` 的项目根目录执行命令。
+- 两个站点分别构建：国际站 `https://www.zhama.com`（Google），中国站 `https://zhama.com.cn`（百度，`www.zhama.com.cn` 一次 301 至此）。内容页保留尾斜杠。每次构建与 Nginx 生成器使用同一 `PUBLIC_SITE_URL`，两站产物不可互换。
+- `/docs`、`/zh/docs`、`/en/docs`、`/zh-Hant/docs` 与旧站一样临时跳转到文档中心 `https://docs.zhama.com.cn/`。
 - 现有 Nginx 负责域名、TLS 证书和静态根目录；联系接口继续使用已有 `/api/contact`、`/api/contact/` 反向代理。
 - 发布前取得现有 Nginx 配置和静态目录位置，保留可回退的代码、构建和配置版本。本仓库不提供服务器现有证书与 root 的实际值，不猜测这些路径。
 
@@ -124,7 +125,7 @@ curl --fail --silent --show-error --user-agent 'Baiduspider' 'https://www.zhama.
 仅由有站点管理权限的部署者，在正式域名验收后完成：
 
 1. 在 [Google Search Console](https://search.google.com/search-console/)、[Bing Webmaster Tools](https://www.bing.com/webmasters/) 和 [百度搜索资源平台](https://ziyuan.baidu.com/) 复核实际站点属性与验证。
-2. 提交 `https://www.zhama.com/sitemap-index.xml`，并使用平台当前提供的 URL 检查或提交入口处理重要新旧页面。本轮工具操作没有代为提交。
+2. Google、Bing 提交 `https://www.zhama.com/sitemap-index.xml`；百度新增并验证 `https://zhama.com.cn` 站点后提交 `https://zhama.com.cn/sitemap-index.xml`。旧规范域名 `https://zhama.com`（无尾斜杠路径）已改为 www 带尾斜杠地址，在各平台对旧站点属性提交改版/地址变更。使用平台当前提供的 URL 检查或提交入口处理重要新旧页面。本轮工具操作没有代为提交。
 3. 对照服务器访问日志、平台抓取与索引报告持续检查旧路径 301、找不到页面、规范网址选择和 sitemap 读取状态。保留旧域名、验证资源和迁移对应关系，避免发布后立即撤销。
 
 已有本机 Nginx HTTP 验证使用临时编译的官方 Nginx 1.28.0，语法检查、GET/HEAD、规范页 200、旧入口一跳 301 和三语 404 已通过，临时服务已关闭。正式域名的证书、HTTP/www 入口、现有 API 共存与搜索平台状态仍需上述部署验收；本机结果不作为已上线证明。

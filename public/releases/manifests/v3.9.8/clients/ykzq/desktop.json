@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "brand": "ykzq",
+  "kind": "desktop",
+  "version": "v3.9.8",
+  "releaseDate": "2026-05-21T21:43:29Z",
+  "platforms": {
+    "macos": {
+      "arm64": {
+        "dmg": "https://cdn.zhama.com.cn/releases/ykzq/desktop/v3.9.8/macos/arm64/YKAI_3.9.8_aarch64.dmg"
+      },
+      "x64": {
+        "dmg": "https://cdn.zhama.com.cn/releases/ykzq/desktop/v3.9.8/macos/x64/YKAI_3.9.8_x64.dmg"
+      }
+    },
+    "windows": {
+      "x64": {
+        "exe": "https://cdn.zhama.com.cn/releases/ykzq/desktop/v3.9.8/windows/x64/YKAI-3.9.8-windows-x64-setup.exe"
+      },
+      "x86": {
+        "exe": "https://cdn.zhama.com.cn/releases/ykzq/desktop/v3.9.8/windows/x86/YKAI-3.9.8-windows-x86-setup.exe"
+      }
+    }
+  },
+  "targetVersions": {
+    "macos/arm64": "v3.9.8",
+    "macos/x64": "v3.9.8",
+    "windows/x64": "v3.9.8",
+    "windows/x86": "v3.9.8"
+  },
+  "targetDates": {
+    "macos/arm64": "2026-05-21T21:43:29Z",
+    "macos/x64": "2026-05-21T21:30:42Z",
+    "windows/x64": "2026-05-21T21:35:23Z",
+    "windows/x86": "2026-05-21T21:36:01Z"
+  }
+}

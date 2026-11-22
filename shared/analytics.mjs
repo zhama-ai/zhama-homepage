@@ -1,5 +1,6 @@
 export const BAIDU_SITE_ID = 'e6770cf50973b8dbda39ef528cf8a6ba';
-export const analyticsHosts = Object.freeze(['zhama.com', 'www.zhama.com']);
+// Production hosts: www.zhama.com (international) and zhama.com.cn (China); the others redirect to them.
+export const analyticsHosts = Object.freeze(['zhama.com', 'www.zhama.com', 'zhama.com.cn', 'www.zhama.com.cn']);
 export const campaignKeys = Object.freeze(['utm_source', 'utm_medium', 'utm_term', 'utm_content', 'utm_campaign', 'hmsr', 'hmpl', 'hmcu', 'hmkw', 'hmci', 'hmmd']);
 export const productSlugs = Object.freeze(['digital-employees', 'multi-agent', 'knowledge', 'integrations', 'collaboration', 'governance']);
 export const industrySlugs = Object.freeze(['banking', 'insurance', 'securities', 'government', 'state-owned', 'trust', 'general', 'appliance']);

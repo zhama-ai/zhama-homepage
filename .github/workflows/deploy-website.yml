@@ -1,14 +1,25 @@
-# A v* tag is verified once, then packaged and deployed to both hosts:
-# - zhama.ai (arm64, www.zhama.com): images go straight over SSH.
-# - zhama.com.cn (amd64, zhama.com.cn / www.zhama.com.cn): slow to reach from
-#   GitHub, so the images go through Aliyun OSS as in tego-docs.
+# The website is built and verified once per canonical origin, then packaged
+# and deployed to its host:
+# - zhama.ai (arm64): https://www.zhama.com, the international site indexed by
+#   Google. Images go straight over SSH.
+# - zhama.com.cn (amd64): https://zhama.com.cn, the China site indexed by Baidu;
+#   www.zhama.com.cn redirects to it. Slow to reach from GitHub, so the images
+#   go through Aliyun OSS as in tego-docs.
+# Each build carries its own canonical links, sitemap and robots.txt.
 # Each host's deploy job is independent; one failing does not undo the other.
+#
+# Runs on v* tags, by hand, and when sync-releases.yml commits new release
+# metadata (public/releases/**) to main.
 name: Deploy website
 
 on:
   push:
     tags:
       - "v*"
+    branches:
+      - main
+    paths:
+      - "public/releases/**"
   workflow_dispatch:
 
 concurrency:
@@ -18,16 +29,27 @@ concurrency:
 permissions:
   contents: read
 
-env:
-  PUBLIC_SITE_URL: ${{ vars.WEBSITE_PUBLIC_SITE_URL || 'https://www.zhama.com' }}
-
 jobs:
   verify:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - site: com
+            origin: ${{ vars.WEBSITE_PUBLIC_SITE_URL || 'https://www.zhama.com' }}
+            baidu-verification: ${{ vars.BAIDU_SITE_VERIFICATION }}
+          - site: cn
+            origin: ${{ vars.WEBSITE_CN_PUBLIC_SITE_URL || 'https://zhama.com.cn' }}
+            baidu-verification: ${{ vars.BAIDU_SITE_VERIFICATION_CN }}
     env:
       ASTRO_TELEMETRY_DISABLED: "1"
       NGINX_BIN: /usr/sbin/nginx
+      PUBLIC_SITE_URL: ${{ matrix.origin }}
+      BAIDU_SITE_VERIFICATION: ${{ matrix.baidu-verification }}
+      GOOGLE_SITE_VERIFICATION: ${{ vars.GOOGLE_SITE_VERIFICATION }}
+      BING_SITE_VERIFICATION: ${{ vars.BING_SITE_VERIFICATION }}
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
@@ -41,10 +63,10 @@ jobs:
       - run: npm ci --no-audit
       - run: npm audit --registry=https://registry.npmjs.org --audit-level=high
       - run: npm run release:check
-      # Both hosts ship exactly this verified build.
+      # The host for this origin ships exactly this verified build.
       - uses: actions/upload-artifact@v4
         with:
-          name: dist-${{ github.run_id }}-${{ github.run_attempt }}
+          name: dist-${{ matrix.site }}-${{ github.run_id }}-${{ github.run_attempt }}
           path: dist/
           retention-days: 7
           if-no-files-found: error
@@ -54,6 +76,7 @@ jobs:
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 30
     env:
+      PUBLIC_SITE_URL: ${{ vars.WEBSITE_PUBLIC_SITE_URL || 'https://www.zhama.com' }}
       DEPLOY_DIR: ${{ vars.WEBSITE_DEPLOY_DIR || '/opt/zhama-website' }}
       SSH_PORT: ${{ vars.WEBSITE_SSH_PORT || '22' }}
       INCOMING: ${{ vars.WEBSITE_DEPLOY_DIR || '/opt/zhama-website' }}/.incoming/${{ github.run_id }}-${{ github.run_attempt }}
@@ -66,7 +89,7 @@ jobs:
           node-version: "24"
       - uses: actions/download-artifact@v4
         with:
-          name: dist-${{ github.run_id }}-${{ github.run_attempt }}
+          name: dist-com-${{ github.run_id }}-${{ github.run_attempt }}
           path: dist
 
       - name: Build images
@@ -109,13 +132,14 @@ jobs:
           WEB_IMAGE: ${{ steps.images.outputs.web }}
           CONTACT_IMAGE: ${{ steps.images.outputs.contact }}
         run: |
-          ssh deploy "DEPLOY_DIR='$DEPLOY_DIR' SITE_HOST=www.zhama.com sh '$INCOMING/deploy/website/remote-publish.sh' '$INCOMING' '$WEB_IMAGE' '$CONTACT_IMAGE'"
+          ssh deploy "DEPLOY_DIR='$DEPLOY_DIR' SITE_HOST='${PUBLIC_SITE_URL#*://}' sh '$INCOMING/deploy/website/remote-publish.sh' '$INCOMING' '$WEB_IMAGE' '$CONTACT_IMAGE'"
 
   deploy-zhama-com-cn:
     needs: verify
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     env:
+      PUBLIC_SITE_URL: ${{ vars.WEBSITE_CN_PUBLIC_SITE_URL || 'https://zhama.com.cn' }}
       DEPLOY_DIR: ${{ vars.HOMEPAGE_DEPLOY_DIR || '/mnt/data/zhama/website' }}
       SSH_PORT: ${{ vars.HOMEPAGE_SSH_PORT || '22' }}
       INCOMING: ${{ vars.HOMEPAGE_DEPLOY_DIR || '/mnt/data/zhama/website' }}/.incoming/${{ github.run_id }}-${{ github.run_attempt }}
@@ -130,7 +154,7 @@ jobs:
           node-version: "24"
       - uses: actions/download-artifact@v4
         with:
-          name: dist-${{ github.run_id }}-${{ github.run_attempt }}
+          name: dist-cn-${{ github.run_id }}-${{ github.run_attempt }}
           path: dist
 
       - name: Build images
@@ -226,4 +250,14 @@ jobs:
           WEB_IMAGE: ${{ steps.images.outputs.web }}
           CONTACT_IMAGE: ${{ steps.images.outputs.contact }}
         run: |
-          ssh deploy "DEPLOY_DIR='$DEPLOY_DIR' SITE_HOST=zhama.com.cn sh '$INCOMING/deploy/website/remote-publish.sh' '$INCOMING' '$WEB_IMAGE' '$CONTACT_IMAGE'"
+          ssh deploy "DEPLOY_DIR='$DEPLOY_DIR' SITE_HOST='${PUBLIC_SITE_URL#*://}' sh '$INCOMING/deploy/website/remote-publish.sh' '$INCOMING' '$WEB_IMAGE' '$CONTACT_IMAGE'"
+
+      # Notify Baidu of the published pages (data.zz.baidu.com). Optional: runs
+      # only when the BAIDU_PUSH_TOKEN secret exists, and never fails the deploy.
+      - name: Push sitemap URLs to Baidu
+        continue-on-error: true
+        env:
+          BAIDU_PUSH_TOKEN: ${{ secrets.BAIDU_PUSH_TOKEN }}
+        run: |
+          if [ -z "$BAIDU_PUSH_TOKEN" ]; then echo 'BAIDU_PUSH_TOKEN is not set; skipping.'; exit 0; fi
+          node scripts/baidu-push.mjs dist

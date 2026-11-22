@@ -103,7 +103,7 @@ function fixture({ href = 'https://www.zhama.com/zh/', stored, navigator = {}, d
 }
 
 test('the first production visit asks without loading analytics or moving focus; denial stays off', () => {
-  for (const href of ['https://www.zhama.com/zh/', 'https://zhama.com/en/']) {
+  for (const href of ['https://www.zhama.com/zh/', 'https://zhama.com/en/', 'https://zhama.com.cn/zh/', 'https://www.zhama.com.cn/zh-Hant/']) {
     const page = fixture({ href });
     assert.equal(page.root.hidden, false);
     assert.equal(page.root.focusCount, 0);

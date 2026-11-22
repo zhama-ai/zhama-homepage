@@ -41,7 +41,7 @@ test('configuration rejects ambiguous booleans and unsafe public data directorie
 });
 
 test('production origins exclude local development and every configured origin must be an origin URL', () => {
-  assert.deepEqual([...loadContactConfig({ NODE_ENV: 'production' }).origins], ['https://www.zhama.com', 'https://zhama.com']);
+  assert.deepEqual([...loadContactConfig({ NODE_ENV: 'production' }).origins], ['https://www.zhama.com', 'https://zhama.com', 'https://zhama.com.cn', 'https://www.zhama.com.cn']);
   assert.ok(loadContactConfig({}).origins.has('http://127.0.0.1:4350'));
   for (const value of ['https://www.zhama.com/path', 'https://www.zhama.com/?private=1', 'https://www.zhama.com/#private', 'https://credentials@www.zhama.com', 'file:///private', 'not-a-url', 'https://www.zhama.com,']) {
     assert.throws(() => loadContactConfig({ CONTACT_ALLOWED_ORIGINS: value }), { message: 'Invalid CONTACT_ALLOWED_ORIGINS' });
@@ -127,7 +127,7 @@ test('closed service and unsupported content encoding reject requests before per
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   t.after(async () => { await app.close(); await new Promise(resolve => server.close(resolve)); });
   const url = `http://127.0.0.1:${server.address().port}/api/contact`;
-  const options = { method: 'POST', headers: { 'Content-Type': 'application/json', 'Content-Encoding': 'gzip' }, body: JSON.stringify(body) };
+  const options = { method: 'POST', headers: { 'Content-Type': 'application/json', 'Content-Encoding': 'gzip', Origin: 'https://www.zhama.com' }, body: JSON.stringify(body) };
   const unsupported = await fetch(url, options);
   assert.equal(unsupported.status, 415); await unsupported.text();
   await app.close();

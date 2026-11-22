@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "brand": "qhtig",
+  "kind": "desktop",
+  "version": "v4.33.11",
+  "releaseDate": "2026-11-20T15:17:25Z",
+  "platforms": {
+    "windows": {
+      "x64": {
+        "exe": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v4.33.11/windows/x64/221/%E5%89%8D%E6%B5%B7%E6%95%B0%E5%AD%97%E5%91%98%E5%B7%A5-4.33.11-x64-221-setup.exe"
+      }
+    }
+  },
+  "targetVersions": {
+    "windows/x64": "v4.33.11"
+  },
+  "targetDates": {
+    "windows/x64": "2026-11-20T15:17:25Z"
+  }
+}

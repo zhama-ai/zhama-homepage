@@ -91,6 +91,21 @@ export async function optimizeMedia(dist, cacheDirectory) {
     return pending;
   };
 
+  // Intrinsic dimensions for local images that lack them (Markdown articles), so the page does not shift while loading.
+  const dimensions = new Map();
+  const dimensionsFor = source => {
+    if (!source?.startsWith('/') || source.startsWith('//') || !/\.(png|jpe?g|webp|gif|avif|svg)$/i.test(source)) return undefined;
+    if (!dimensions.has(source)) {
+      dimensions.set(source, (async () => {
+        const input = path.resolve(dist, '.' + decodeURIComponent(source));
+        if (!input.startsWith(dist + path.sep)) throw new Error(`图片路径越界：${source}`);
+        const metadata = await sharp(await readFile(input)).metadata();
+        return metadata.width && metadata.height ? { width: metadata.width, height: metadata.height } : undefined;
+      })());
+    }
+    return dimensions.get(source);
+  };
+
   for (const file of (await walkFiles(dist)).filter(file => file.endsWith('.html'))) {
     const html = await readFile(file, 'utf8');
     const tree = parse(html);
@@ -101,10 +116,16 @@ export async function optimizeMedia(dist, cacheDirectory) {
         const backgroundClasses = `${classes} ${attr(node, 'class') || ''}`;
         const fullWidthBackground = isFullWidthBackground(backgroundClasses);
         const deferred = attr(node, 'data-hero-src');
+        if (!attr(node, 'width') || !attr(node, 'height')) {
+          const size = await dimensionsFor(deferred || attr(node, 'src'));
+          if (size) { setAttr(node, 'width', String(size.width)); setAttr(node, 'height', String(size.height)); changed = true; }
+        }
         const srcset = await variantsFor(deferred || attr(node, 'src'), fullWidthBackground);
         if (srcset && !attr(node, 'srcset')) {
+          // An inline pixel width (Markdown articles) is the exact display size.
+          const fixedWidth = /(?:^|;)\s*width\s*:\s*(\d+(?:\.\d+)?)px/i.exec(attr(node, 'style') || '')?.[1];
           setAttr(node, deferred ? 'data-hero-srcset' : 'srcset', srcset);
-          setAttr(node, 'sizes', attr(node, 'sizes') || imageSizes(fullWidthBackground ? backgroundClasses : classes));
+          setAttr(node, 'sizes', attr(node, 'sizes') || (fixedWidth ? `${fixedWidth}px` : imageSizes(fullWidthBackground ? backgroundClasses : classes)));
           responsiveImages++;
           changed = true;
         }

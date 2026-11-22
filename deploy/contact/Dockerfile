@@ -1,6 +1,7 @@
 FROM node:24-alpine
 WORKDIR /app
 COPY package.json package-lock.json ./
+# Only the contact server's runtime packages (nodemailer, opencc-js); site build tools are devDependencies.
 RUN npm ci --omit=dev && npm cache clean --force
 COPY server/contact ./server/contact
 COPY shared ./shared

@@ -1,3 +1,4 @@
+import { media } from '../../lib/breakpoints';
 import { observeMotion, type MotionState } from '../../lib/motion';
 
 interface TaskScene {
@@ -12,9 +13,13 @@ interface TaskSceneWindow extends Window {
   TegoTaskScene?: TaskScene;
 }
 
-/** Play the original artwork only while its own carousel page is visible. */
+/**
+ * Play the original artwork only while its own carousel page is visible.
+ * Phones keep the static poster: the animated scene (an iframe with GSAP) is never loaded there.
+ */
 export function initializeTaskScenes(signal?: AbortSignal) {
   if (signal?.aborted) return;
+  const compact = window.matchMedia(media.compact);
   document.querySelectorAll<HTMLElement>('[data-task-visual]').forEach(visual => {
     if (visual.dataset.taskInitialized) return;
     visual.dataset.taskInitialized = 'true';
@@ -32,6 +37,7 @@ export function initializeTaskScenes(signal?: AbortSignal) {
     const sync = () => {
       if (disposed || !state) return;
       const active = !slide || slide.dataset.active === 'true';
+      if (!hydrated && compact.matches) return;
       if (active && !state.suspended && !hydrated) {
         hydrated = true;
         frame.srcdoc = JSON.parse(source.textContent || '""');
@@ -58,6 +64,7 @@ export function initializeTaskScenes(signal?: AbortSignal) {
       sync();
     };
     frame.addEventListener('load', sync, { signal });
+    compact.addEventListener('change', sync, { signal });
     window.addEventListener('message', ready, { signal });
     hero?.addEventListener('hero-motion-change', sync, { signal });
     const region = observeMotion(visual, value => { state = value; sync(); }, signal);
@@ -66,6 +73,7 @@ export function initializeTaskScenes(signal?: AbortSignal) {
       scene()?.pause();
       region.dispose();
       frame.removeEventListener('load', sync);
+      compact.removeEventListener('change', sync);
       window.removeEventListener('message', ready);
       hero?.removeEventListener('hero-motion-change', sync);
       delete visual.dataset.taskInitialized;

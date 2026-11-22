@@ -32,7 +32,8 @@ async function fixture(t, { max = 100, delivery, env = {} } = {}) {
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   t.after(async () => { await app.close(); await new Promise(resolve => server.close(resolve)); await rm(dataDir, { recursive: true, force: true }); });
   const url = `http://127.0.0.1:${server.address().port}/api/contact`;
-  const post = (body = leadBody, id = randomUUID(), headers = {}) => fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Idempotency-Key': id, ...headers }, body: JSON.stringify(body) });
+  // Browsers send Origin with every POST; the website form is on an allowed origin.
+  const post = (body = leadBody, id = randomUUID(), headers = {}) => fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Idempotency-Key': id, Origin: 'https://www.zhama.com', ...headers }, body: JSON.stringify(body) });
   return { config, app, post, url, calls, dataDir, store: new LeadStore(dataDir) };
 }
 
@@ -107,8 +108,14 @@ test('persists a lead and delivers once to both recipients and Feishu despite co
   assert.equal(lead.expectedReplyTime, leadBody.expectedReplyTime);
   assert.equal(lead.delivery.feishu.status, 'delivered');
   assert.ok(lead.delivery.email.every(item => item.status === 'delivered'));
-  assert.equal((await stat(path.join(f.dataDir, `${id}.json`))).mode & 0o777, 0o600);
+  // Fully delivered leads leave the retry queue but still count for duplicate submissions.
+  assert.deepEqual(await f.store.list(), []);
+  assert.equal((await stat(path.join(f.dataDir, 'delivered', `${id}.json`))).mode & 0o777, 0o600);
+  assert.equal((await stat(path.join(f.dataDir, 'delivered'))).mode & 0o777, 0o700);
   assert.equal((await f.post({ ...leadBody, content: '另一项需求' }, id)).status, 409);
+  assert.equal((await f.post(leadBody, id)).status, 200);
+  await f.app.deliverPending();
+  assert.equal(f.calls.length, 3, 'an archived lead is not delivered again');
 });
 
 test('rejects malformed input, injection, unexpected origins, unsupported methods and oversize content', async t => {
@@ -118,8 +125,11 @@ test('rejects malformed input, injection, unexpected origins, unsupported method
   }
   assert.equal((await f.post(leadBody, randomUUID(), { Origin: 'https://untrusted.invalid' })).status, 403);
   assert.equal((await fetch(f.url)).status, 405);
-  assert.equal((await fetch(f.url, { method: 'POST', body: 'plain' })).status, 415);
-  assert.equal((await fetch(f.url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{bad' })).status, 400);
+  assert.equal((await fetch(f.url, { method: 'POST', headers: { Origin: 'https://www.zhama.com' }, body: 'plain' })).status, 415);
+  assert.equal((await fetch(f.url, { method: 'POST', headers: { 'Content-Type': 'application/json', Origin: 'https://www.zhama.com' }, body: '{bad' })).status, 400);
+  // Scripts posting without a browser Origin are refused; a same-origin fetch marker is accepted.
+  assert.equal((await fetch(f.url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(leadBody) })).status, 403);
+  assert.equal((await fetch(f.url, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Sec-Fetch-Site': 'same-origin' }, body: '{bad' })).status, 400);
   assert.equal((await f.post({ ...leadBody, content: '文'.repeat(18000) })).status, 413);
   assert.equal((await readdir(f.dataDir)).filter(name => name.endsWith('.json')).length, 0);
 });
@@ -324,4 +334,38 @@ test('attribution rejects malformed or oversized metadata and direct entries can
   const direct = validateLead({...leadBody,sourceTrail:[]});
   assert.equal(direct.referrer, '');
   assert.equal(cardElements(buildLeadCard(direct)).find(e=>e.element_id==='lead_journey').text.content, '直接进入联系页');
+});
+
+test('delivered leads are removed only after the configured retention period', async t => {
+  const f = await fixture(t, { env: { CONTACT_RETENTION_DAYS: '30' } });
+  const id = randomUUID();
+  assert.equal((await f.post(leadBody, id)).status, 201);
+  await f.app.deliverPending();
+  const file = path.join(f.dataDir, 'delivered', `${id}.json`);
+  assert.equal(await f.store.purgeDelivered(30 * 86400000), 0);
+  const { utimes } = await import('node:fs/promises');
+  const old = new Date(Date.now() - 31 * 86400000);
+  await utimes(file, old, old);
+  // The check runs when the service starts (and hourly after that).
+  const restarted = createContactApp(f.config, { delivery: { async email() {}, async feishu() {} }, logger });
+  await new Promise(resolve => setImmediate(resolve));
+  await restarted.deliverPending();
+  await restarted.close();
+  assert.equal(await f.store.get(id), null);
+  assert.equal(loadContactConfig({ CONTACT_DATA_DIR: f.dataDir }).retentionDays, 0, 'leads are kept unless a period is configured');
+});
+
+test('the rate limiter drops its oldest address instead of refusing new visitors when full', async t => {
+  const f = await fixture(t, { max: 1, env: { CONTACT_TRUST_PROXY: 'true', RATE_LIMIT_TRACKED: '10' } });
+  assert.equal(f.config.rateLimit.trackedAddresses, 10);
+  assert.equal(loadContactConfig({}).rateLimit.trackedAddresses, 10000);
+  for (let index = 0; index < 10; index++) {
+    const response = await f.post({}, randomUUID(), { 'X-Forwarded-For': `192.0.2.${index}` });
+    assert.equal(response.status, 400);
+    await response.arrayBuffer();
+  }
+  const fresh = await f.post({}, randomUUID(), { 'X-Forwarded-For': '192.0.2.200' });
+  assert.equal(fresh.status, 400, 'a new address is still served');
+  const repeat = await f.post({}, randomUUID(), { 'X-Forwarded-For': '192.0.2.200' });
+  assert.equal(repeat.status, 429, 'the new address keeps its own quota');
 });

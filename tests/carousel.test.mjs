@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { runInNewContext } from 'node:vm';
 import ts from 'typescript';
 
+const breakpoints = await import('../src/lib/breakpoints.ts');
 const source = ts.transpileModule(await readFile(new URL('../src/features/home/hero-carousel.ts', import.meta.url), 'utf8'), {
   compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
 }).outputText;
@@ -49,7 +50,7 @@ function fixture({ signal } = {}) {
   let lifecycle;
   const timers = new Map(); let id = 0;
   const module = { exports: {} };
-  runInNewContext(source, { exports: module.exports, require: () => ({ observeMotion: (_element, callback) => {
+  runInNewContext(source, { exports: module.exports, require: specifier => specifier.endsWith('breakpoints') ? breakpoints : ({ observeMotion: (_element, callback) => {
     lifecycle = callback;
     callback({ running: true, reduced: false, suspended: false, paused: false, enabled: true });
   } }), document, window, Element: ElementStub, Event, Error, performance: { now: () => 0 },

@@ -1,3 +1,9 @@
+/* Header height: the single source for the bar, the mobile menu and anchor offsets. */
+:root { --header-h: 80px; }
+@media (max-width: 700px) { :root { --header-h: 72px; } }
+html { scroll-padding-top: calc(var(--header-h) + 14px); }
+.tego-header .header-inner { height: var(--header-h); }
+
 /* Navigation owns its type scale independently of page content. */
 .tego-header {
   --nav-text: #b5bfcd;
@@ -203,16 +209,25 @@
   .tego-header .mobile-login { align-self: flex-start; justify-content: center; min-width: 92px; margin-top: 12px; }
   .tego-header .desktop-nav { display: none; }
   .tego-header .mobile-nav.is-open {
+    position: absolute;
+    left: 0;
+    right: 0;
     display: flex;
     flex-direction: column;
     gap: 0;
     top: 100%;
-    max-height: calc(100dvh - 80px);
-    padding: 10px var(--gutter) 24px;
+    max-height: calc(100dvh - var(--header-h));
+    padding: 10px var(--gutter) calc(24px + env(safe-area-inset-bottom, 0px));
     overflow: auto;
     overscroll-behavior: contain;
+    border: 0;
     background: #0b1420;
+    /* The second shadow dims the page below the open menu; the clip keeps the header bar undimmed. */
+    box-shadow: 0 24px 40px #191b1a1a, 0 0 0 100vmax #02060c99;
+    clip-path: inset(0 -100vmax -100vmax -100vmax);
   }
+  /* The page behind the open menu does not scroll. */
+  html[data-mobile-nav-open] { overflow: hidden; }
   .tego-header .tego-nav-trigger,
   .tego-header .tego-nav-direct { min-height: 48px; width: 100%; justify-content: space-between; font-size: 15px; }
   .tego-header .tego-nav-panel {
@@ -232,9 +247,6 @@
   }
   .tego-header .tego-nav-grid { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .tego-header .tego-nav-item { min-height: 56px; padding: 10px 8px; gap: 10px; }
-}
-@media (max-width: 700px) {
-  .tego-header .mobile-nav.is-open { max-height: calc(100dvh - 72px); }
 }
 
 .tego-language-group { position: relative; }
@@ -288,8 +300,6 @@
 @media (max-width: 480px) {
   .tego-header .header-contact { min-height: 34px; padding-inline: 12px; font-size: 12px; }
   .tego-header .brand .official-wordmark { width: 106px; }
-  .tego-header .header-cta { display: flex; min-width: 72px; min-height: 34px; padding-inline: 16px; }
-  .tego-header .header-cta > svg { display: none; }
   .tego-header .header-tools { gap: 8px; }
   .tego-header .language-link { gap: 4px; }
   .tego-header .language-link > svg:last-child { display: none; }
@@ -303,4 +313,18 @@
 @media (prefers-reduced-motion: reduce) {
   .tego-header * { transition: none !important; animation: none !important; }
   .tego-header .tego-nav-panel-body::before { transition: none !important; }
+}
+
+/* Touch screens: at least 44 x 44 px tap areas without changing the drawn controls. */
+@media (pointer: coarse) {
+  .tego-header :is(.menu-toggle, .language-link) { position: relative; }
+  .tego-header .menu-toggle::after,
+  .tego-header .language-link::after {
+    content: '';
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: max(100%, 44px);
+    height: max(100%, 44px);
+    transform: translate(-50%, -50%);
+  }
 }

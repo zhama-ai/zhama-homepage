@@ -1,24 +1,236 @@
 /* Desktop artwork is composed horizontally; mobile keeps its readable stack. */
-@media(min-width:1101px){
- .home-value-edition .hero-center{grid-template-columns:.81fr 1.35fr;column-gap:clamp(48px,5vw,80px);padding-top:122px;align-items:center}
- .home-value-edition .hero-message>h1{font-size:43px;letter-spacing:-1px;line-height:1.5}
- .home-value-edition .sl-hero-description{font-size:16px!important;line-height:1.9}
- .home-value-edition .hero-message>.sl-hero-description{margin-top:32px}
- .home-value-edition .hero-message>.sl-actions{margin-top:38px}
- .home-value-edition .home-product-frame{width:calc(100% + 30px)}
- .team-window-bar{height:26px}.team-content{padding:10px 12px 8px}.team-heading{margin-bottom:8px}.team-heading>strong{font-size:16px}.team-employees{margin-bottom:7px}.team-employees>button{padding:7px 9px}.team-employees strong{font-size:10px}.team-employees small{font-size:6px}
- .business-dashboard{display:grid;grid-template-columns:1.5fr .92fr 1fr;grid-template-rows:auto auto 68px 68px auto;gap:6px}
- .analytics-heading,.analytics-metrics,.analytics-insights{grid-column:1/-1;margin:0}
- .analytics-heading{grid-row:1}.home-value-edition .analytics-heading h2{font-size:13px}.analytics-metrics{grid-row:2}.analytics-metrics>div{padding:5px 8px}.analytics-metrics strong{font-size:19px;line-height:1.35}.analytics-metrics em{font-size:6px}.analytics-metrics>div>span{font-size:7px}
- .analytics-primary,.analytics-secondary{display:contents}
- .revenue-panel{grid-column:1;grid-row:3/5}.mix-panel{grid-column:2;grid-row:3/5}.orders-panel{grid-column:3;grid-row:3}.drivers-panel{grid-column:3;grid-row:4}
- .analytics-panel,.analytics-secondary .analytics-panel{padding:8px 8px 5px}.analytics-panel-heading{margin-bottom:4px}.home-value-edition .analytics-panel-heading h3{font-size:8px}
- .analytics-trend{height:94px}.analytics-legend{margin-block:5px}.analytics-mix-body{flex-direction:column;min-height:0;gap:5px}.analytics-panel .analytics-donut{width:65px;height:65px;margin-top:0}.analytics-mix-legend{width:100%;gap:5px}.analytics-mix-legend>div{flex-direction:row;justify-content:space-between;font-size:6px;gap:4px}.analytics-mix-legend strong{font-size:7px;padding:0}
- .orders-panel svg{height:36px}.analytics-drivers{gap:4px;margin:4px 0 0}.analytics-drivers>div>span{width:34px;font-size:6px}.analytics-drivers>div{gap:4px}.analytics-drivers strong{font-size:7px;width:22px}.analytics-driver-period{font-size:4px;line-height:1.2}.analytics-secondary .drivers-panel{padding-top:5px;padding-bottom:3px}.drivers-panel .analytics-panel-heading{margin-bottom:2px}.analytics-drivers{gap:3px;margin-top:2px}
- .analytics-insights{grid-row:5;padding:7px 9px;display:grid;grid-template-columns:1fr 1.45fr;column-gap:10px}.analytics-insight-heading{grid-column:1/-1}.analytics-insight-heading{margin-bottom:3px}.analytics-insights p{font-size:6.5px;line-height:1.65}.analytics-insights p>strong{margin-right:4px}
- .home-value-edition .access-row{margin-top:32px;padding-bottom:30px}
+
+@media (min-width:1101px) {
+  .home-value-edition .hero-center {
+    grid-template-columns: .81fr 1.35fr;
+    column-gap: clamp(48px,5vw,80px);
+    padding-top: 122px;
+    align-items: center;
+  }
+  .home-value-edition .hero-message>h1 {
+    font-size: 43px;
+    letter-spacing: -1px;
+    line-height: 1.5;
+  }
+  .home-value-edition .sl-hero-description {
+    font-size: 16px !important;
+    line-height: 1.9;
+  }
+  .home-value-edition .hero-message>.sl-hero-description {
+    margin-top: 32px;
+  }
+  .home-value-edition .hero-message>.sl-actions {
+    margin-top: 38px;
+  }
+  .home-value-edition .home-product-frame {
+    width: calc(100% + 30px);
+  }
+  .team-window-bar {
+    height: 26px;
+  }
+  .team-content {
+    padding: 10px 12px 8px;
+  }
+  .team-heading {
+    margin-bottom: 8px;
+  }
+  .team-heading>strong {
+    font-size: 16px;
+  }
+  .team-employees {
+    margin-bottom: 7px;
+  }
+  .team-employees>button {
+    padding: 7px 9px;
+  }
+  .team-employees strong {
+    font-size: 10px;
+  }
+  .team-employees small {
+    font-size: 6px;
+  }
+  .business-dashboard {
+    display: grid;
+    grid-template-columns: 1.5fr .92fr 1fr;
+    grid-template-rows: auto auto 68px 68px auto;
+    gap: 6px;
+  }
+  .analytics-heading,
+  .analytics-metrics,
+  .analytics-insights {
+    grid-column: 1/-1;
+    margin: 0;
+  }
+  .analytics-heading {
+    grid-row: 1;
+  }
+  .home-value-edition .analytics-heading h2 {
+    font-size: 13px;
+  }
+  .analytics-metrics {
+    grid-row: 2;
+  }
+  .analytics-metrics>div {
+    padding: 5px 8px;
+  }
+  .analytics-metrics strong {
+    font-size: 19px;
+    line-height: 1.35;
+  }
+  .analytics-metrics em {
+    font-size: 6px;
+  }
+  .analytics-metrics>div>span {
+    font-size: 7px;
+  }
+  .analytics-primary,
+  .analytics-secondary {
+    display: contents;
+  }
+  .revenue-panel {
+    grid-column: 1;
+    grid-row: 3/5;
+  }
+  .mix-panel {
+    grid-column: 2;
+    grid-row: 3/5;
+  }
+  .orders-panel {
+    grid-column: 3;
+    grid-row: 3;
+  }
+  .drivers-panel {
+    grid-column: 3;
+    grid-row: 4;
+  }
+  .analytics-panel,
+  .analytics-secondary .analytics-panel {
+    padding: 8px 8px 5px;
+  }
+  .analytics-panel-heading {
+    margin-bottom: 4px;
+  }
+  .home-value-edition .analytics-panel-heading h3 {
+    font-size: 8px;
+  }
+  .analytics-trend {
+    height: 94px;
+  }
+  .analytics-legend {
+    margin-block: 5px;
+  }
+  .analytics-mix-body {
+    flex-direction: column;
+    min-height: 0;
+    gap: 5px;
+  }
+  .analytics-panel .analytics-donut {
+    width: 65px;
+    height: 65px;
+    margin-top: 0;
+  }
+  .analytics-mix-legend {
+    width: 100%;
+    gap: 5px;
+  }
+  .analytics-mix-legend>div {
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 6px;
+    gap: 4px;
+  }
+  .analytics-mix-legend strong {
+    font-size: 7px;
+    padding: 0;
+  }
+  .orders-panel svg {
+    height: 36px;
+  }
+  .analytics-drivers {
+    gap: 4px;
+    margin: 4px 0 0;
+  }
+  .analytics-drivers>div>span {
+    width: 34px;
+    font-size: 6px;
+  }
+  .analytics-drivers>div {
+    gap: 4px;
+  }
+  .analytics-drivers strong {
+    font-size: 7px;
+    width: 22px;
+  }
+  .analytics-driver-period {
+    font-size: 4px;
+    line-height: 1.2;
+  }
+  .analytics-secondary .drivers-panel {
+    padding-top: 5px;
+    padding-bottom: 3px;
+  }
+  .drivers-panel .analytics-panel-heading {
+    margin-bottom: 2px;
+  }
+  .analytics-drivers {
+    gap: 3px;
+    margin-top: 2px;
+  }
+  .analytics-insights {
+    grid-row: 5;
+    padding: 7px 9px;
+    display: grid;
+    grid-template-columns: 1fr 1.45fr;
+    column-gap: 10px;
+  }
+  .analytics-insight-heading {
+    grid-column: 1/-1;
+  }
+  .analytics-insight-heading {
+    margin-bottom: 3px;
+  }
+  .analytics-insights p {
+    font-size: 6.5px;
+    line-height: 1.65;
+  }
+  .analytics-insights p>strong {
+    margin-right: 4px;
+  }
 }
-@media(min-width:701px) and (max-width:1100px){
- .home-value-edition .home-product-frame{max-width:820px}
- .analytics-heading{margin-bottom:8px}.analytics-metrics>div{padding:9px}.analytics-metrics strong{font-size:23px}.analytics-primary{grid-template-columns:1.65fr 1fr}.analytics-panel{padding:11px}.analytics-trend{height:110px}.analytics-mix-body{min-height:120px}.analytics-panel .analytics-donut{width:94px;height:94px}.orders-panel svg{height:75px}.analytics-insights{padding:11px}
+
+@media (min-width:701px) and (max-width:1100px) {
+  .home-value-edition .home-product-frame {
+    max-width: 820px;
+  }
+  .analytics-heading {
+    margin-bottom: 8px;
+  }
+  .analytics-metrics>div {
+    padding: 9px;
+  }
+  .analytics-metrics strong {
+    font-size: 23px;
+  }
+  .analytics-primary {
+    grid-template-columns: 1.65fr 1fr;
+  }
+  .analytics-panel {
+    padding: 11px;
+  }
+  .analytics-trend {
+    height: 110px;
+  }
+  .analytics-mix-body {
+    min-height: 120px;
+  }
+  .analytics-panel .analytics-donut {
+    width: 94px;
+    height: 94px;
+  }
+  .orders-panel svg {
+    height: 75px;
+  }
+  .analytics-insights {
+    padding: 11px;
+  }
 }

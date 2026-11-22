@@ -31,6 +31,7 @@ const activeLanguage = languages.find(item => item.id === language)!;
 <script>
   import type { TransitionBeforePreparationEvent, TransitionBeforeSwapEvent } from 'astro:transitions/client';
   import { onPageMount } from '../../lib/page-lifecycle';
+  import { media } from '../../lib/breakpoints';
 
   const header = document.querySelector<HTMLElement>('[data-site-header]');
   if (header) {
@@ -45,9 +46,9 @@ const activeLanguage = languages.find(item => item.id === language)!;
     const toggles = [...header.querySelectorAll<HTMLButtonElement>('[data-nav-disclosure]')];
     const mobileToggle = header.querySelector<HTMLButtonElement>('.menu-toggle');
     const mobile = header.querySelector<HTMLElement>('#mobile-nav');
-    const desktopMode = window.matchMedia('(min-width: 1101px)');
+    const desktopMode = window.matchMedia(media.desktopNav);
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const hoverMode = window.matchMedia('(min-width: 1101px) and (hover: hover) and (pointer: fine)');
+    const hoverMode = window.matchMedia(media.desktopHover);
     const panelAnimations = new Map<HTMLElement, Animation>();
     let closeTimer: ReturnType<typeof setTimeout> | undefined;
     let hoverOpenedButton: HTMLButtonElement | null = null;
@@ -131,11 +132,16 @@ const activeLanguage = languages.find(item => item.id === language)!;
         if (!panel?.contains(document.activeElement)) closeDisclosures();
       }, 120);
     };
+    // While the mobile menu is open the page behind it is locked (navigation.css).
+    const setMobileOpen = (open: boolean) => {
+      mobileToggle?.setAttribute('aria-expanded', String(open));
+      if (mobileToggle) mobileToggle.setAttribute('aria-label', open ? mobileToggle.dataset.closeLabel! : mobileToggle.dataset.openLabel!);
+      mobile?.classList.toggle('is-open', open);
+      if (mobile) mobile.inert = !open;
+      document.documentElement.toggleAttribute('data-mobile-nav-open', open);
+    };
     const closeMobile = (animated = true) => {
-      mobileToggle?.setAttribute('aria-expanded', 'false');
-      if (mobileToggle) mobileToggle.setAttribute('aria-label', mobileToggle.dataset.openLabel!);
-      mobile?.classList.remove('is-open');
-      if (mobile) mobile.inert = true;
+      setMobileOpen(false);
       closeDisclosures(animated);
     };
     toggles.forEach(button => {
@@ -187,12 +193,14 @@ const activeLanguage = languages.find(item => item.id === language)!;
     mobileToggle?.addEventListener('click', () => {
       const open = mobileToggle.getAttribute('aria-expanded') !== 'true';
       closeDisclosures();
-      mobileToggle.setAttribute('aria-expanded', String(open));
-      mobileToggle.setAttribute('aria-label', open ? mobileToggle.dataset.closeLabel! : mobileToggle.dataset.openLabel!);
-      mobile?.classList.toggle('is-open', open);
-      if (mobile) mobile.inert = !open;
+      setMobileOpen(open);
     });
-    document.addEventListener('click', event => { if (event.target instanceof Node && !header.contains(event.target)) closeMobile(); });
+    // A tap on the dimmed page closes the open menu without also activating what is underneath.
+    document.addEventListener('click', event => {
+      if (!(event.target instanceof Node) || header.contains(event.target)) return;
+      if (mobileToggle?.getAttribute('aria-expanded') === 'true') { event.preventDefault(); event.stopPropagation(); }
+      closeMobile();
+    }, true);
     header.addEventListener('focusout', event => { if (event.relatedTarget instanceof Node && !header.contains(event.relatedTarget)) closeMobile(); });
     document.addEventListener('keydown', event => {
       if (event.key !== 'Escape') return;

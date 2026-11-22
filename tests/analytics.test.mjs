@@ -83,9 +83,9 @@ function fixture(href = 'https://www.zhama.com/zh/', consent = 'granted') {
 }
 const flush = () => new Promise(resolve => queueMicrotask(resolve));
 
-test('the tracker runs only on the two HTTPS production hosts and respects privacy signals', () => {
-  for (const url of ['http://www.zhama.com/zh/', 'http://localhost:4350/zh/', 'https://localhost/zh/', 'https://preview.zhama.com/zh/', 'https://www.zhama.com.other.invalid/zh/', 'https://www.zhama.com:8443/zh/', 'https://account@www.zhama.com/zh/']) assert.equal(analyticsEnabled({ href: url }), false, url);
-  for (const host of ['zhama.com', 'www.zhama.com']) assert.equal(analyticsEnabled({ href: `https://${host}/zh/` }), true);
+test('the tracker runs only on the HTTPS production hosts and respects privacy signals', () => {
+  for (const url of ['http://www.zhama.com/zh/', 'http://zhama.com.cn/zh/', 'http://localhost:4350/zh/', 'https://localhost/zh/', 'https://preview.zhama.com/zh/', 'https://www.zhama.com.other.invalid/zh/', 'https://zhama.com.cn.other.invalid/zh/', 'https://www.zhama.com:8443/zh/', 'https://account@www.zhama.com/zh/']) assert.equal(analyticsEnabled({ href: url }), false, url);
+  for (const host of ['zhama.com', 'www.zhama.com', 'zhama.com.cn', 'www.zhama.com.cn']) assert.equal(analyticsEnabled({ href: `https://${host}/zh/` }), true);
   assert.equal(analyticsEnabled({ href: 'https://www.zhama.com/' }, { doNotTrack: '1' }), false);
   assert.equal(analyticsEnabled({ href: 'https://www.zhama.com/' }, { doNotTrack: 'yes' }), false);
   assert.equal(analyticsEnabled({ href: 'https://www.zhama.com/' }, { globalPrivacyControl: true }), false);

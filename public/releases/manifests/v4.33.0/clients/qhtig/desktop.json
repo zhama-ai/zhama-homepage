@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "brand": "qhtig",
+  "kind": "desktop",
+  "version": "v4.33.0",
+  "releaseDate": "2026-10-23T10:06:06Z",
+  "platforms": {
+    "linux": {
+      "arm64": {
+        "AppImage": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v4.33.0/linux/arm64/%E7%A7%91%E5%88%9BAI%E5%8A%A9%E6%89%8B_4.33.0_aarch64.AppImage",
+        "deb": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v4.33.0/linux/arm64/%E7%A7%91%E5%88%9BAI%E5%8A%A9%E6%89%8B_4.33.0_arm64.deb"
+      },
+      "x64": {
+        "AppImage": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v4.33.0/linux/x64/%E7%A7%91%E5%88%9BAI%E5%8A%A9%E6%89%8B_4.33.0_amd64.AppImage",
+        "deb": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v4.33.0/linux/x64/%E7%A7%91%E5%88%9BAI%E5%8A%A9%E6%89%8B_4.33.0_amd64.deb"
+      }
+    },
+    "macos": {
+      "arm64": {
+        "dmg": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v4.33.0/macos/arm64/%E7%A7%91%E5%88%9BAI%E5%8A%A9%E6%89%8B_4.33.0_aarch64.dmg"
+      },
+      "x64": {
+        "dmg": "https://cdn.zhama.com.cn/releases/qhtig/desktop/v4.33.0/macos/x64/%E7%A7%91%E5%88%9BAI%E5%8A%A9%E6%89%8B_4.33.0_x64.dmg"
+      }
+    }
+  },
+  "targetVersions": {
+    "linux/arm64": "v4.33.0",
+    "linux/x64": "v4.33.0",
+    "macos/arm64": "v4.33.0",
+    "macos/x64": "v4.33.0"
+  },
+  "targetDates": {
+    "linux/arm64": "2026-10-23T10:02:02Z",
+    "linux/x64": "2026-10-23T09:55:59Z",
+    "macos/arm64": "2026-10-23T09:55:21Z",
+    "macos/x64": "2026-10-23T10:06:06Z"
+  }
+}

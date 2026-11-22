@@ -1,19 +1,19 @@
 ---
-title: "深度解析：Tego OS v3.0.0 的 per_user 独享实例是怎么落地的"
+title: "深度解析：TeGo v3.0.0 的 per_user 独享实例是怎么落地的"
 description: "v3.0.0 引入了 per_user 独享实例，让同一个数字分身能被一群人放心地、互不打扰地一起用。本文从调度模型、生命周期、容量护栏、Stale 锁清理、Warm Pool 路线图五个维度，解释这套机制是怎么真正跑稳的。"
 date: "2026-04-22"
 author: "Zhama AI 技术团队"
 category: "技术深度"
-tags: ["Tego OS", "v3.0.0", "per_user", "数字分身", "容器调度", "并发隔离", "私有化部署"]
+tags: ["TeGo", "v3.0.0", "per_user", "数字分身", "容器调度", "并发隔离", "私有化部署"]
 image: "/blog-assets/images/features/dashboard.jpg"
 featured: false
 locale: "zh"
 legacySlug: "per-user-isolated-instances"
 sourceUrl: "https://zhama.com/zh/blog/per-user-isolated-instances"
-sourceCommit: "e61f09338aa2534916dc3b4822555b90927b4a40"
+sourceCommit: "b498784645789e8cb5efc32c4589c69f2e60833a"
 ---
 
-# 深度解析：Tego OS v3.0.0 的 per_user 独享实例是怎么落地的
+# 深度解析：TeGo v3.0.0 的 per_user 独享实例是怎么落地的
 
 > 一句话：让一个分身能被一群人放心地、互不打扰地一起用。
 
@@ -21,7 +21,7 @@ sourceCommit: "e61f09338aa2534916dc3b4822555b90927b4a40"
 
 ## 为什么必须做 per_user
 
-在 Tego OS v2.x 里，「分身」是这样的：
+在 TeGo v2.x 里，「分身」是这样的：
 
 - 一个分身对应一个容器；
 - 该分身的所有用户，都连到同一份运行时；

@@ -20,3 +20,7 @@
   .capability-artwork { width: calc(100% + 30px); margin: 30px -15px 0; aspect-ratio: 1; }
   .capability-artwork img { aspect-ratio: 1; }
 }
+
+/* The artwork bleeds past its column; its full-width section clips the bleed so it never adds sideways scrolling. */
+.overview-hero,
+.detail-section { overflow-x: clip; }

@@ -10,28 +10,33 @@
     "test": "node --test tests/*.test.mjs",
     "preview": "node server/contact/preview.mjs",
     "verify": "node scripts/verify-site.mjs && node scripts/verify-locales.mjs && node scripts/verify-seo.mjs && node scripts/verify-analytics.mjs",
+    "audit:browser": "node scripts/audit-browser.mjs",
     "release:check": "npm run check && npm test && npm run build && npm run verify",
     "contact:serve": "node server/contact/start.mjs",
-    "contact:verify": "node server/contact/verify.mjs"
+    "contact:verify": "node server/contact/verify.mjs",
+    "sync:releases": "node scripts/sync-releases.mjs",
+    "icons": "node scripts/generate-icons.mjs"
   },
   "engines": {
-    "node": ">=22.23.4"
+    "node": ">=24"
   },
   "dependencies": {
+    "nodemailer": "10.6.1",
+    "opencc-js": "1.4.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.12",
     "@astrojs/markdown-satteri": "0.4.8",
     "@astrojs/sitemap": "3.7.4",
     "@fontsource-variable/plus-jakarta-sans": "5.3.0",
     "astro": "7.4.10",
+    "gsap": "3.15.0",
     "mermaid": "12.3.0",
-    "nodemailer": "10.6.1",
-    "opencc-js": "1.4.2",
     "parse5": "8.1.1",
+    "playwright": "1.65.0",
     "sharp": "0.35.5",
-    "sirv": "3.0.2"
-  },
-  "devDependencies": {
-    "@astrojs/check": "0.9.12",
+    "sirv": "3.0.2",
     "smtp-server": "3.21.7",
-    "typescript": "^5.9.3"
+    "typescript": "5.9.3"
   }
 }

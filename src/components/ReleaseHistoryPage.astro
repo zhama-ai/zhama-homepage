@@ -1,9 +1,8 @@
 ---
-import releaseIndex from '../../public/releases/index.json';
-import { releaseArchive } from '../data/legacy';
+import { releaseData } from '../../shared/release-store.mjs';
 import type { Locale } from '../data/types';
 import Shell from '../features/resources/Shell.astro';
-import { releasePackages, releaseStatus } from '../lib/releases';
+import { releasePackages, releaseStatus, type ReleaseFile } from '../lib/releases';
 
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
@@ -11,18 +10,21 @@ const zh = locale === 'zh';
 const products: Record<string, string> = zh
   ? { desktop: 'TeGo 桌面端', mobile: 'TeGo 移动端', studio: 'Tego Studio' }
   : { desktop: 'TeGo Desktop', mobile: 'TeGo Mobile', studio: 'Tego Studio' };
-const clientFiles = releaseIndex.files.filter(file => Object.hasOwn(products, file.product));
-const versions = releaseIndex.versions.filter(version => clientFiles.some(file => file.version === version));
-const defaultVersion = versions.includes(releaseArchive.defaultVersion) ? releaseArchive.defaultVersion : versions[0];
-const manifestLabel = (file: (typeof clientFiles)[number]) => [products[file.product], file.arch || ''].filter(Boolean).join(' · ');
+// Public history lists the official TeGo clients; customer builds stay on the internal /builds.html.
+const data = await releaseData();
+const clientFiles: ReleaseFile[] = data.index.files
+  .filter((file: { type: string; brand?: string; version: string }) => file.type === 'client' && file.brand === 'tego' && file.version !== 'latest')
+  .map(({ path, version, product, arch }: ReleaseFile) => ({ path, version, product, arch }));
+const versions: string[] = data.index.versions.filter((version: string) => clientFiles.some(file => file.version === version));
+const defaultVersion = versions[0];
+const manifestLabel = (file: ReleaseFile) => [products[file.product], file.arch || ''].filter(Boolean).join(' · ');
 const defaultFiles = clientFiles.filter(file => file.version === defaultVersion);
 const defaultFile = defaultFiles[0];
-if (!defaultFile || !defaultFile.path.startsWith('/releases/manifests/')) throw new Error('The default client release manifest is not listed.');
-const manifests = import.meta.glob('../../public/releases/manifests/**/clients/tego/*.json', { eager: true, import: 'default' });
-const defaultManifest = manifests[`../../public${defaultFile.path}`];
+if (!defaultFile) throw new Error('The default client release manifest is not listed.');
+const defaultManifest = data.clients.get(defaultFile.path.slice('/releases/manifests/'.length));
 const initialPackages = releasePackages(defaultManifest, defaultFile, zh);
 const initialStatus = releaseStatus(initialPackages, zh);
-const config = { versions, files: clientFiles.map(({ path, version, product, arch }) => ({ path, version, product, arch })), defaultVersion, initial: { path: defaultFile.path, ...initialPackages } };
+const config = { versions, files: clientFiles, defaultVersion, initial: { path: defaultFile.path, ...initialPackages } };
 ---
 <Shell locale={locale} page="releases" navigation={false}>
 <header class="support-hero release-hero"><div class="container"><h1>{zh ? '客户端历史版本' : 'Client release history'}</h1></div></header>

@@ -1,29 +1,348 @@
-:root{--page-bg:#060b12;--home-light:#f8fbff;--home-copy:#adb9c7;--home-soft:#94a4b5;--craft-muted:#a9b8c8;--brand-blue:#126fca;--brand-cyan:#28b8ff;--brand-light:#a7dcff;--purple:#126fca;--purple-light:#91d5ff;--ui-purple:#86cfff;--accent:#126fca;--accent-hover:#1676cc}
-body,.home-value-edition{background:#060b12;color:#f4f7fb}.site-header{background:#060e18ed}
-.desktop-nav>a,.nav-solutions>a{color:#b5bec8}.desktop-nav>a:hover,.nav-solutions>a:hover{color:#fff}
+:root {
+  --page-bg: #060b12;
+  --home-light: #f8fbff;
+  --home-copy: #adb9c7;
+  --home-soft: #94a4b5;
+  --craft-muted: #a9b8c8;
+  --brand-blue: #126fca;
+  --brand-cyan: #28b8ff;
+  --brand-light: #a7dcff;
+  --purple: #126fca;
+  --purple-light: #91d5ff;
+  --ui-purple: #86cfff;
+  --accent: #126fca;
+  --accent-hover: #1676cc;
+}
 
+body,
+.home-value-edition {
+  background: #060b12;
+  color: #f4f7fb;
+}
 
+.site-header {
+  background: #060e18ed;
+}
 
+.desktop-nav>a {
+  color: #b5bec8;
+}
 
+.desktop-nav>a:hover {
+  color: #fff;
+}
 
-.home-value-edition .sl-hero{background:radial-gradient(ellipse at 61% 9%,#003656b3,transparent 57%),radial-gradient(ellipse at 82% 52%,#00497559,transparent 53%),#060b12}
-.home-value-edition .sl-hero:before{display:none}.home-value-edition .sl-hero h1{color:#fff}.home-value-edition .sl-hero-description{color:#acb7c5!important}
-.home-value-edition .hero-badge{color:#d4dee8;border-color:#b9cbd236;background:#07152255}.home-value-edition .hero-badge>span{color:#a6ddff;border-color:#129eff59;background:#008bdb1a}.home-value-edition .hero-badge>svg{color:#66b9ea}
-.home-value-edition .eyebrow{color:#55bbff}.home-value-edition .text-link{color:#a1d8ff}.home-value-edition .access-row,.home-value-edition .access-row>span{color:#9cabbc}.home-value-edition .access-row a{color:#c6d5e4}
-.outcomes-section{background:radial-gradient(ellipse at 74% 16%,#00365830,transparent 60%),#08121e}.outcome{background:#102032;border-color:#98c6e526}.outcome-copy>span{color:#63bcff}.outcome-copy p{color:#b5c6d8}.outcome-knowledge{background:linear-gradient(150deg,#172c42,#0d1c2d)}.outcome-delivery{background:radial-gradient(ellipse at 85% 100%,#1689cb1f,transparent 80%),#12263a}.outcome-method{background:linear-gradient(135deg,#182e46,#102134)}
-.source-orbit>span{color:#d7ecff;background:#0b2134d9;border-color:#94c3e14d}.source-result{background:linear-gradient(120deg,#1a3b59ee,#10283ff5);border-color:#93c8ed52;color:#b6dfff}.source-result strong{color:#f1faff}.source-result span{color:#a9c6df}
-.delivery-sheet{background:linear-gradient(130deg,#f4faff,#bdd3e4);color:#253e54}.delivery-sheet>span{color:#657f96}.delivery-chart{background:linear-gradient(145deg,#235d89,#173c5c);border-color:#88bde77a;color:#e6f4ff}.delivery-chart i{background:linear-gradient(#65c8ff,#078fe7)}.delivery-review{background:#0b2034ee;color:#e1f2ff;border-color:#79acd061}
-.method-route>span{color:#d2e8fa;background:linear-gradient(145deg,#203e5c,#132b43);border-color:#7fb6df33}.method-route>span>svg{color:#81cfff;filter:drop-shadow(0 0 7px #008dff40)}.method-route>svg{color:#7bafd3}
-.industry-section{background:radial-gradient(ellipse at 85% 60%,#00497626,transparent 65%),#0c1928}.home-solutions .solution-tabs>button{color:#aec4d8;border-color:#8bb9dc33;background:#8bb9dc05}.home-solutions .solution-tabs>button[aria-selected='true']{background:linear-gradient(125deg,#096899,#0a486e);border-color:#47b9ff85;color:#f4fbff;box-shadow:inset 0 1px 0 #aadfff1c,0 5px 20px #008de517}.home-solutions .solution-panel{background:#10243a;border-color:#8abce026}.industry-deliverables{background:linear-gradient(135deg,#193b57ef,#0b2338f5);border-color:#91c5e754}.industry-deliverables>strong{color:#90cefa}.industry-deliverables>div{color:#edf8ff}.industry-deliverables>div>svg{color:#6fbff7!important}
-.home-value-edition .brand-closing{background:radial-gradient(ellipse at 50% 100%,#00629b66,transparent 75%),#071522}.brand-closing:before{background:radial-gradient(ellipse at 50% 35%,#0a2137e3 10%,#0a3b5d65 68%,#2a8bb430)}.home-value-edition .brand-closing .eyebrow{color:#84ceff}.home-value-edition .brand-closing .container>p:not(.eyebrow){color:#bfd1e3}
-.knowledge-sculpture>img,.home-solutions .solution-image>img,.brand-closing>img{filter:saturate(.8) brightness(1.1)}
-.site-footer{background:radial-gradient(ellipse at 70% 100%,#004a7621,transparent 65%),#060e17}.footer-grid h2{color:#eff8ff}.site-footer .footer-grid>div>a,.footer-brand p{color:#adbed0}.footer-bottom,.footer-bottom a{color:#8499b0}
-.home-value-edition .hero-team-composition:before{background:radial-gradient(ellipse at 52% 48%,#0089dc33,transparent 65%)}
-.team-window{border-color:#7ba9c457;background:#0c1c2c;box-shadow:inset 0 0 0 1px #aad6f30c,2px 2px 0 #3d627c80,4px 4px 0 #102d43,10px 12px 18px #020a1455,24px 35px 55px -18px #00060f99,0 0 60px #0089d41c}
-.team-window-bar{background:linear-gradient(110deg,#203b54,#142b41);color:#aec8df}.team-app-mark svg,.team-rail-brand{color:#67c0ff}.team-content{background:radial-gradient(ellipse at 25% 0,#008cf010,transparent 65%),#0f2235}.team-rail{background:linear-gradient(180deg,#0b1c2d,#091827)}.team-rail-item{color:#7b9bb6}.team-rail-item.is-current{color:#8cd4ff;background:#008de52b;box-shadow:inset 0 0 0 1px #59b9ff30}
-.team-heading>strong{color:#f0f8ff}.team-heading>span{color:#8daac3}.team-employees>button{background:linear-gradient(140deg,#1b334b,#172c41);border-color:#78aad02b;color:#c0d5e7}.team-employees>button[aria-selected='true']{background:linear-gradient(120deg,#0a5987,#134367);border-color:#50baff99;color:#f4fcff;box-shadow:inset 0 1px 0 #93d7ff26,0 4px 13px #020b194d}.team-employees>[aria-selected='true'] .team-employee-icon{color:#8cdcff;filter:drop-shadow(0 0 5px #009dff33)}.team-employees>[aria-selected='true'] small{color:#b0ddf7}.team-employees>button:hover{border-color:#63b9f2a6}.team-employee-icon{color:#77acd4}.team-employees small{color:#8ca9c3}
-.business-dashboard{--chart-sage:#22adff;--chart-gold:#87dbe8;--chart-slate:#8c9cdf;--chart-muted:#85a3bd;color:#d1e6f6}.analytics-metrics>div{background:linear-gradient(140deg,#1a354d,#152c41);border-color:#79aed126}.analytics-metrics>div>span{color:#9cbbd4}.analytics-metrics>div>span svg{color:#64a8d6}.analytics-metrics strong{color:#f1faff}.analytics-metrics strong small{color:#96b4cf}.analytics-metrics em{color:#69c9fa}
-.analytics-panel{background:linear-gradient(140deg,#142c42,#102639);border-color:#73a8cc26}.home-value-edition .analytics-panel-heading h3{color:#c0dbef}.analytics-panel-heading>span,.analytics-panel-heading>svg{color:#7ea6c6}.analytics-legend{color:#9ebed7}.analytics-panel svg text{fill:#83a9c8}.chart-grid{stroke:#84b6da2b}.chart-dot{fill:#b0e7ff;stroke:#168bcf}.donut-track{stroke:#739bb72b}.analytics-panel .donut-value{fill:#e0f5ff}.analytics-panel .donut-caption{fill:#8bafca}.analytics-mix-legend>div{color:#9bbdd6}.analytics-mix-legend strong{color:#d9edfc}
-.order-bar{fill:#1889ca}.order-bar-current{fill:#54bdff}.analytics-drivers>div>span{color:#98bad5}.driver-track{background:#7ab5d21c}.driver-bar{background:linear-gradient(90deg,#147fc2,#48baff)}.driver-bar.driver-negative{background:linear-gradient(90deg,#9b8a82,#cab6a4)}.analytics-drivers strong{color:#7bcfff}.analytics-drivers .driver-value-negative{color:#d7c7b9}.analytics-driver-period{color:#7ea4c3}
-.analytics-insights{background:linear-gradient(120deg,#12446a,#12344f);border-color:#258ed25c}.analytics-insight-heading>span{color:#a0dbff}.analytics-insight-heading>span:last-child{color:#98bedb}.analytics-insights p{color:#bad7ed}.analytics-insights p>strong{color:#63c3ff}
-::selection{background:#126fca66;color:#fff}
+.home-value-edition .sl-hero {
+  background: radial-gradient(ellipse at 61% 9%,#003656b3,transparent 57%),radial-gradient(ellipse at 82% 52%,#00497559,transparent 53%),#060b12;
+}
+
+.home-value-edition .sl-hero:before {
+  display: none;
+}
+
+.home-value-edition .sl-hero h1 {
+  color: #fff;
+}
+
+.home-value-edition .sl-hero-description {
+  color: #acb7c5 !important;
+}
+
+.home-value-edition .eyebrow {
+  color: #55bbff;
+}
+
+.home-value-edition .text-link {
+  color: #a1d8ff;
+}
+
+.outcome {
+  background: #102032;
+  border-color: #98c6e526;
+}
+
+.industry-section {
+  background: radial-gradient(ellipse at 85% 60%,#00497626,transparent 65%),#0c1928;
+}
+
+.home-solutions .solution-tabs>button {
+  color: #aec4d8;
+  border-color: #8bb9dc33;
+  background: #8bb9dc05;
+}
+
+.home-solutions .solution-tabs>button[aria-selected='true'] {
+  background: linear-gradient(125deg,#096899,#0a486e);
+  border-color: #47b9ff85;
+  color: #f4fbff;
+  box-shadow: inset 0 1px 0 #aadfff1c,0 5px 20px #008de517;
+}
+
+.home-solutions .solution-panel {
+  background: #10243a;
+  border-color: #8abce026;
+}
+
+.home-value-edition .brand-closing {
+  background: radial-gradient(ellipse at 50% 100%,#00629b66,transparent 75%),#071522;
+}
+
+.brand-closing:before {
+  background: radial-gradient(ellipse at 50% 35%,#0a2137e3 10%,#0a3b5d65 68%,#2a8bb430);
+}
+
+.home-value-edition .brand-closing .eyebrow {
+  color: #84ceff;
+}
+
+.home-value-edition .brand-closing .container>p:not(.eyebrow) {
+  color: #bfd1e3;
+}
+
+.brand-closing>img {
+  filter: saturate(.8) brightness(1.1);
+}
+
+.site-footer {
+  background: radial-gradient(ellipse at 70% 100%,#004a7621,transparent 65%),#060e17;
+}
+
+.footer-grid h2 {
+  color: #eff8ff;
+}
+
+.site-footer .footer-grid>div>a,
+.footer-brand p {
+  color: #adbed0;
+}
+
+.footer-bottom,
+.footer-bottom a {
+  color: #8499b0;
+}
+
+.home-value-edition .hero-team-composition:before {
+  background: radial-gradient(ellipse at 52% 48%,#0089dc33,transparent 65%);
+}
+
+.team-window {
+  border-color: #7ba9c457;
+  background: #0c1c2c;
+  box-shadow: inset 0 0 0 1px #aad6f30c,2px 2px 0 #3d627c80,4px 4px 0 #102d43,10px 12px 18px #020a1455,24px 35px 55px -18px #00060f99,0 0 60px #0089d41c;
+}
+
+.team-window-bar {
+  background: linear-gradient(110deg,#203b54,#142b41);
+  color: #aec8df;
+}
+
+.team-app-mark svg,
+.team-rail-brand {
+  color: #67c0ff;
+}
+
+.team-content {
+  background: radial-gradient(ellipse at 25% 0,#008cf010,transparent 65%),#0f2235;
+}
+
+.team-rail {
+  background: linear-gradient(180deg,#0b1c2d,#091827);
+}
+
+.team-rail-item {
+  color: #7b9bb6;
+}
+
+.team-rail-item.is-current {
+  color: #8cd4ff;
+  background: #008de52b;
+  box-shadow: inset 0 0 0 1px #59b9ff30;
+}
+
+.team-heading>strong {
+  color: #f0f8ff;
+}
+
+.team-heading>span {
+  color: #8daac3;
+}
+
+.team-employees>button {
+  background: linear-gradient(140deg,#1b334b,#172c41);
+  border-color: #78aad02b;
+  color: #c0d5e7;
+}
+
+.team-employees>button[aria-selected='true'] {
+  background: linear-gradient(120deg,#0a5987,#134367);
+  border-color: #50baff99;
+  color: #f4fcff;
+  box-shadow: inset 0 1px 0 #93d7ff26,0 4px 13px #020b194d;
+}
+
+.team-employees>[aria-selected='true'] .team-employee-icon {
+  color: #8cdcff;
+  filter: drop-shadow(0 0 5px #009dff33);
+}
+
+.team-employees>[aria-selected='true'] small {
+  color: #b0ddf7;
+}
+
+.team-employees>button:hover {
+  border-color: #63b9f2a6;
+}
+
+.team-employee-icon {
+  color: #77acd4;
+}
+
+.team-employees small {
+  color: #8ca9c3;
+}
+
+.business-dashboard {
+  --chart-sage: #22adff;
+  --chart-gold: #87dbe8;
+  --chart-slate: #8c9cdf;
+  --chart-muted: #85a3bd;
+  color: #d1e6f6;
+}
+
+.analytics-metrics>div {
+  background: linear-gradient(140deg,#1a354d,#152c41);
+  border-color: #79aed126;
+}
+
+.analytics-metrics>div>span {
+  color: #9cbbd4;
+}
+
+.analytics-metrics>div>span svg {
+  color: #64a8d6;
+}
+
+.analytics-metrics strong {
+  color: #f1faff;
+}
+
+.analytics-metrics strong small {
+  color: #96b4cf;
+}
+
+.analytics-metrics em {
+  color: #69c9fa;
+}
+
+.analytics-panel {
+  background: linear-gradient(140deg,#142c42,#102639);
+  border-color: #73a8cc26;
+}
+
+.home-value-edition .analytics-panel-heading h3 {
+  color: #c0dbef;
+}
+
+.analytics-panel-heading>span,
+.analytics-panel-heading>svg {
+  color: #7ea6c6;
+}
+
+.analytics-legend {
+  color: #9ebed7;
+}
+
+.analytics-panel svg text {
+  fill: #83a9c8;
+}
+
+.chart-grid {
+  stroke: #84b6da2b;
+}
+
+.chart-dot {
+  fill: #b0e7ff;
+  stroke: #168bcf;
+}
+
+.donut-track {
+  stroke: #739bb72b;
+}
+
+.analytics-panel .donut-value {
+  fill: #e0f5ff;
+}
+
+.analytics-panel .donut-caption {
+  fill: #8bafca;
+}
+
+.analytics-mix-legend>div {
+  color: #9bbdd6;
+}
+
+.analytics-mix-legend strong {
+  color: #d9edfc;
+}
+
+.order-bar {
+  fill: #1889ca;
+}
+
+.order-bar-current {
+  fill: #54bdff;
+}
+
+.analytics-drivers>div>span {
+  color: #98bad5;
+}
+
+.driver-track {
+  background: #7ab5d21c;
+}
+
+.driver-bar {
+  background: linear-gradient(90deg,#147fc2,#48baff);
+}
+
+.driver-bar.driver-negative {
+  background: linear-gradient(90deg,#9b8a82,#cab6a4);
+}
+
+.analytics-drivers strong {
+  color: #7bcfff;
+}
+
+.analytics-drivers .driver-value-negative {
+  color: #d7c7b9;
+}
+
+.analytics-driver-period {
+  color: #7ea4c3;
+}
+
+.analytics-insights {
+  background: linear-gradient(120deg,#12446a,#12344f);
+  border-color: #258ed25c;
+}
+
+.analytics-insight-heading>span {
+  color: #a0dbff;
+}
+
+.analytics-insight-heading>span:last-child {
+  color: #98bedb;
+}
+
+.analytics-insights p {
+  color: #bad7ed;
+}
+
+.analytics-insights p>strong {
+  color: #63c3ff;
+}
+
+::selection {
+  background: #126fca66;
+  color: #fff;
+}

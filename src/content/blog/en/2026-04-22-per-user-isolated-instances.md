@@ -1,19 +1,19 @@
 ---
-title: "Deep Dive: How Tego OS v3.0.0's per_user Dedicated Instances Actually Work"
+title: "Deep Dive: How TeGo v3.0.0's per_user Dedicated Instances Actually Work"
 description: "v3.0.0 introduces per_user dedicated instances so a single digital avatar can be safely used by a whole team without interference. This post walks through the scheduling model, lifecycle, capacity guardrails, stale-lock cleanup and the Warm Pool roadmap that make the system genuinely production-grade."
 date: "2026-04-22"
 author: "Zhama AI Engineering"
 category: "Engineering Deep Dive"
-tags: ["Tego OS", "v3.0.0", "per_user", "Digital Avatar", "Container Scheduling", "Concurrency Isolation", "Private Deployment"]
+tags: ["TeGo", "v3.0.0", "per_user", "Digital Avatar", "Container Scheduling", "Concurrency Isolation", "Private Deployment"]
 image: "/blog-assets/images/features/dashboard.jpg"
 featured: false
 locale: "en"
 legacySlug: "per-user-isolated-instances"
 sourceUrl: "https://zhama.com/en/blog/per-user-isolated-instances"
-sourceCommit: "e61f09338aa2534916dc3b4822555b90927b4a40"
+sourceCommit: "b498784645789e8cb5efc32c4589c69f2e60833a"
 ---
 
-# Deep Dive: How Tego OS v3.0.0's per_user Dedicated Instances Actually Work
+# Deep Dive: How TeGo v3.0.0's per_user Dedicated Instances Actually Work
 
 > One sentence: a single avatar, safely used by a whole team — without anyone stepping on anyone else.
 
@@ -21,7 +21,7 @@ sourceCommit: "e61f09338aa2534916dc3b4822555b90927b4a40"
 
 ## Why per_user had to happen
 
-In Tego OS v2.x, an "avatar" looked like this:
+In TeGo v2.x, an "avatar" looked like this:
 
 - One avatar mapped to one container;
 - Every user of that avatar connected to the same runtime;

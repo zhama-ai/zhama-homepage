@@ -144,11 +144,15 @@ for(const [language, paths] of Object.entries(routes)) for(const route of paths)
  check(image && existsSync(path.join(dist,new URL(image).pathname)),`${label}: missing localized share image`);
  check(attr(nodes.find(n=>n.tagName==='html'),'lang')===languages[language],`${label}: html lang`);
  const page=route.replace(/index\.html$/,'');
- const canonical=attr(nodes.find(n=>n.tagName==='link'&&attr(n,'rel')==='canonical'),'href');
- check(canonical && new URL(canonical).pathname===`/${language}/${page}`,`${label}: canonical counterpart`);
+ const canonicalNode=nodes.find(n=>n.tagName==='link'&&attr(n,'rel')==='canonical');
+ const canonical=canonicalNode&&attr(canonicalNode,'href');
+ // Noindex pages (404) declare no canonical or alternates; their language switch is still checked.
+ const robotsNode=nodes.find(n=>n.tagName==='meta'&&attr(n,'name')==='robots');
+ const indexable=!/\bnoindex\b/.test((robotsNode&&attr(robotsNode,'content'))||'');
+ if(indexable)check(canonical && new URL(canonical).pathname===`/${language}/${page}`,`${label}: canonical counterpart`);
  for(const [target,tag] of Object.entries(languages)) {
   const alternate=nodes.find(n=>n.tagName==='link'&&attr(n,'hreflang')===tag);
-  check(alternate && new URL(attr(alternate,'href')).pathname===`/${target}/${page}`,`${label}: ${tag} alternate`);
+  if(indexable)check(alternate && new URL(attr(alternate,'href')).pathname===`/${target}/${page}`,`${label}: ${tag} alternate`);
   const link=nodes.find(n=>n.tagName==='a'&&attr(n,'data-language-option')!==undefined&&attr(n,'hreflang')===tag);
   check(link && attr(link,'href')===`/${target}/${page}`,`${label}: ${tag} language switch`);
   check(!link || (attr(link,'aria-current')==='true')===(target===language),`${label}: selected language`);

@@ -1,0 +1,68 @@
+# Reusable workflow called by the tego-os release workflows
+# (uses: zhama-ai/zhama-homepage/.github/workflows/sync-releases.yml@main).
+# Keep the workflow_call interface and secret names stable: renaming or removing
+# this file makes every tego-os release run fail at startup.
+#
+# It reads the release records on Aliyun OSS, regenerates public/releases and
+# pushes a "chore: sync release metadata" commit to main with GH_PAT. That push
+# starts deploy-website.yml (push to main, paths: public/releases/**), which
+# verifies and publishes both hosts.
+name: Sync homepage release metadata
+
+on:
+  workflow_call:
+    secrets:
+      GH_PAT:
+        required: true
+      ALIYUN_OSS_ACCESS_KEY_ID:
+        required: true
+      ALIYUN_OSS_ACCESS_KEY_SECRET:
+        required: true
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Concurrent callers are safe: scripts/publish-releases.mjs regenerates the
+# snapshot from OSS on the latest main whenever its push is rejected.
+jobs:
+  sync:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Check required credentials
+        shell: bash
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+          OSS_ACCESS_KEY_ID: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
+        run: |
+          : "${GH_PAT:?GH_PAT must have contents write access to zhama-ai/zhama-homepage}"
+          : "${OSS_ACCESS_KEY_ID:?OSS credentials are required}"
+          : "${OSS_ACCESS_KEY_SECRET:?OSS credentials are required}"
+
+      - name: Checkout homepage
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          repository: zhama-ai/zhama-homepage
+          ref: main
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: "24"
+
+      - name: Set up ossutil
+        uses: ./.github/actions/setup-ossutil
+
+      - name: Synchronize, validate and commit homepage metadata
+        shell: bash
+        env:
+          OSS_ACCESS_KEY_ID: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
+        run: |
+          set -euo pipefail
+          git config user.name zhama
+          git config user.email zhama@zhama.com
+          node scripts/publish-releases.mjs

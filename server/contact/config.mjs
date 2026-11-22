@@ -21,7 +21,7 @@ export function loadContactConfig(env) {
     if (!['true', 'false'].includes(env[key])) throw new Error(`Invalid ${key}`);
     return env[key] === 'true';
   };
-  const defaultOrigins = ['https://www.zhama.com', 'https://zhama.com'];
+  const defaultOrigins = ['https://www.zhama.com', 'https://zhama.com', 'https://zhama.com.cn', 'https://www.zhama.com.cn'];
   if (env.NODE_ENV !== 'production') defaultOrigins.push('http://127.0.0.1:4350', 'http://localhost:4350');
   const origins = new Set((env.CONTACT_ALLOWED_ORIGINS || defaultOrigins.join(',')).split(',').map(value => {
     try {
@@ -45,7 +45,9 @@ export function loadContactConfig(env) {
     dataDir,
     origins,
     trustProxy: boolean('CONTACT_TRUST_PROXY', false),
-    rateLimit: { max: integer('RATE_LIMIT_MAX', 5, 1, 1000), windowMs: integer('RATE_LIMIT_WINDOW', 60000, 1000, 3600000) },
+    rateLimit: { max: integer('RATE_LIMIT_MAX', 5, 1, 1000), windowMs: integer('RATE_LIMIT_WINDOW', 60000, 1000, 3600000), trackedAddresses: integer('RATE_LIMIT_TRACKED', 10000, 10, 1000000) },
+    // Days to keep fully delivered leads; 0 (the default) keeps them until removed by hand.
+    retentionDays: integer('CONTACT_RETENTION_DAYS', 0, 0, 3650),
     recipients,
     smtp: {
       host: env.SMTP_HOST || '', port,

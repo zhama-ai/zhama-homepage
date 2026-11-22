@@ -45,7 +45,7 @@ probe() {
     --header "Host: $SITE_HOST" --header 'X-Forwarded-Proto: https' "http://127.0.0.1$1"
 }
 verify() {
-  for path in /healthz /zh/ /en/ /zh-Hant/ /robots.txt; do
+  for path in /healthz /zh/ /en/ /zh-Hant/ /robots.txt /builds.html /api/builds; do
     probe "$path" || { echo "Verification failed for $path." >&2; return 1; }
   done
 }

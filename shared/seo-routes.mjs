@@ -17,23 +17,28 @@ export const legacyTarget = (locale, route) => `/${locale}/${route.to}${route.ha
 export const seoAliasRoutes = Object.freeze({
   '/': '/zh/',
   '/ja/': '/en/',
-  '/builds.html': '/zh/releases/',
   ...Object.fromEntries(seoLocales.flatMap(locale => [
     ...legacyPageRoutes.map(route => [`/${locale}/${route.from}/`, legacyTarget(locale, route)]),
     [`/${locale}/contact/submitted/`, `/${locale}/contact/`],
   ])),
 });
 
+/** Previous website paths that left the site (temporary, as before); exact match, optional trailing slash. */
+export const DOCS_ORIGIN = 'https://docs.zhama.com.cn/';
+export const externalRedirects = Object.freeze(Object.fromEntries(['/docs', ...seoLocales.map(locale => `/${locale}/docs`)].map(route => [route, DOCS_ORIGIN])));
+
 const aliasKey = pathname => pathname.length > 1 ? pathname.replace(/\/$/, '') : pathname;
 const aliases = new Map(Object.entries(seoAliasRoutes).map(([from, to]) => [aliasKey(from), to]));
 
-// builds.html already has a file endpoint; Astro would also emit builds.html/index.html.
-export const astroSeoRedirects = Object.fromEntries(Object.entries(seoAliasRoutes).filter(([from]) => from !== '/builds.html').map(([from, destination]) => [from, { status: 301, destination }]));
+export const astroSeoRedirects = Object.fromEntries(Object.entries(seoAliasRoutes).map(([from, destination]) => [from, { status: 301, destination }]));
+
+/** Internal tools served from the site root; never indexed or listed in the sitemap. */
+export const internalPages = Object.freeze(['/builds.html']);
 
 /** Use exact routes: /product/multi-agent/ is content, while /multi-agent/ is an alias. */
 export function isIndexableSeoPath(pathname) {
   const contentPath = pathname.endsWith('/index.html') ? pathname.slice(0, -10) : pathname;
-  return !aliases.has(aliasKey(contentPath)) && !/^\/(?:(?:zh|zh-Hant|en)\/)?404(?:\.html|\/)?$/.test(contentPath);
+  return !aliases.has(aliasKey(contentPath)) && !internalPages.includes(contentPath) && !/^\/(?:(?:zh|zh-Hant|en)\/)?404(?:\.html|\/)?$/.test(contentPath);
 }
 
 /** The caller confirms real HTML files before normalizing suffixes; unknown paths remain 404. */
@@ -41,6 +46,8 @@ export function resolveSeoRedirect(requestTarget, { isHtmlPage = () => false } =
   if (typeof requestTarget !== 'string' || !requestTarget.startsWith('/') || requestTarget.startsWith('//') || /[\u0000-\u0020\u007f\\]/.test(requestTarget)) return undefined;
   const url = new URL(requestTarget, 'https://route.internal');
   const pathname = url.pathname;
+  const external = externalRedirects[aliasKey(pathname)];
+  if (external) return { status: 302, location: external };
   const withoutIndex = pathname.endsWith('/index.html') ? pathname.slice(0, -10) : pathname;
   let destination = aliases.get(aliasKey(withoutIndex));
   if (!destination && !isIndexableSeoPath(withoutIndex)) return undefined;

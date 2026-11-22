@@ -4,10 +4,14 @@ import { fileURLToPath } from 'node:url';
 import { prepareTraditionalPages } from './prepare-traditional.mjs';
 import { optimizeMedia } from './optimize-media.mjs';
 import { prepareSeoPublication } from './prepare-seo.mjs';
+import { prepareSocialImages } from './prepare-social-images.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const dist=path.join(root,'dist');
 const traditional = prepareTraditionalPages(dist);
 console.log(`繁體中文靜態頁面準備完成：${traditional.pages} 頁、${traditional.feeds} 個訂閱源、${traditional.scripts} 個本地化腳本。`);
+// After localization, so each language's share image is converted from its own artwork.
+const social = await prepareSocialImages(dist);
+console.log('社交分享图准备完成：' + JSON.stringify(social));
 // Localize originals before deriving srcsets, so every responsive candidate has the same language.
 const media = await optimizeMedia(dist, path.join(root, '.astro/media-cache'));
 console.log('响应式图片构建完成：' + JSON.stringify(media));

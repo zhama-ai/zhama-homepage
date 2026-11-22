@@ -14,12 +14,18 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Both canonical origins are built and verified, as the deploy workflow does.
   verify:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        origin: ["https://www.zhama.com", "https://zhama.com.cn"]
     env:
       ASTRO_TELEMETRY_DISABLED: "1"
       NGINX_BIN: /usr/sbin/nginx
+      PUBLIC_SITE_URL: ${{ matrix.origin }}
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
@@ -33,3 +39,7 @@ jobs:
       - run: npm ci --no-audit
       - run: npm audit --registry=https://registry.npmjs.org --audit-level=high
       - run: npm run release:check
+      # Every page at 1440/768/390/320 px and the localized interactions, in Chrome (preinstalled on the runner).
+      - name: Browser audit
+        if: matrix.origin == 'https://www.zhama.com'
+        run: npm run audit:browser

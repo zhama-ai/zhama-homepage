@@ -58,6 +58,7 @@ async function readJson(request) {
 export function createContactApp(config, { delivery = createDelivery(config), store = new LeadStore(config.dataDir), logger = console } = {}) {
   const requests = new Map();
   let worker;
+  let lastPurge = 0;
   let closed = false;
   const writeLog = (event, leadId, code) => logger.info(JSON.stringify({ event, leadId, ...(code ? { code } : {}) }));
   async function deliverPending() {
@@ -95,6 +96,16 @@ export function createContactApp(config, { delivery = createDelivery(config), st
           }
           await store.write(lead);
         }
+        if (!closed && channels.every(channel => channel.state.status === 'delivered')) {
+          try { await store.archive(id); writeLog('lead_archived', id); }
+          catch (error) { writeLog('lead_archive_failed', id, errorCode(error)); }
+        }
+      }
+      // Expired delivered leads are checked at start-up and then hourly, not on every retry pass.
+      if (config.retentionDays > 0 && !closed && Date.now() - lastPurge >= 3600000) {
+        lastPurge = Date.now();
+        const removed = await store.purgeDelivered(config.retentionDays * 86400000);
+        if (removed) writeLog('delivered_leads_removed', undefined, String(removed));
       }
     })().finally(() => { worker = undefined; });
     return worker;
@@ -117,6 +128,8 @@ export function createContactApp(config, { delivery = createDelivery(config), st
     const origin = request.headers.origin;
     response.setHeader('Vary', 'Accept-Language');
     if (origin && !config.origins.has(origin)) return reply(403, { success: false, message: message('不允许从此页面提交。', 'Submissions from this page are not allowed.') });
+    // Browsers send Origin with every POST; a submission without it did not come from the website form.
+    if (request.method === 'POST' && !origin && request.headers['sec-fetch-site'] !== 'same-origin') return reply(403, { success: false, message: message('不允许从此页面提交。', 'Submissions from this page are not allowed.') });
     if (origin) { response.setHeader('Access-Control-Allow-Origin', origin); response.setHeader('Vary', 'Origin, Accept-Language'); }
     if (request.method === 'OPTIONS') return reply(204, {}, { 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type, Idempotency-Key, Accept-Language', 'Access-Control-Max-Age': '600' });
     if (request.method !== 'POST') return reply(405, { success: false, message: message('此接口仅支持提交消息。', 'This endpoint only accepts message submissions.') }, { Allow: 'POST, OPTIONS' });
@@ -126,7 +139,9 @@ export function createContactApp(config, { delivery = createDelivery(config), st
     const ip = isIP(forwarded || '') ? forwarded : request.socket.remoteAddress || 'unknown';
     const now = Date.now();
     for (const [key, item] of requests) if (item.reset <= now) requests.delete(key);
-    if (!requests.has(ip) && requests.size >= 10000) return reply(429, { success: false, message: message('咨询较多，请稍后重试。', 'Please try again shortly.') }, { 'Retry-After': '60' });
+    // Bounded memory: past the tracked-address limit the oldest entry is dropped, so rotating
+    // addresses cannot lock every visitor out. Nginx limit_req throttles per address in front.
+    if (!requests.has(ip) && requests.size >= config.rateLimit.trackedAddresses) requests.delete(requests.keys().next().value);
     const quota = requests.get(ip) || { count: 0, reset: now + config.rateLimit.windowMs };
     requests.set(ip, quota);
     if (quota.count >= config.rateLimit.max) return reply(429, { success: false, message: message('提交过于频繁，请稍后重试。', 'Too many submissions. Please try again later.') }, { 'Retry-After': String(Math.ceil((quota.reset - now) / 1000)), 'X-RateLimit-Remaining': '0' });

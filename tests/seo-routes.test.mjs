@@ -30,7 +30,11 @@ test('old content moves directly to its matching final page and preserves the in
     }
     assert.deepEqual(resolveSeoRedirect(`/${locale}/contact/submitted/?plan=enterprise`), { status: 301, location: `/${locale}/contact/?plan=enterprise` });
   }
-  assert.deepEqual(resolveSeoRedirect('/builds.html?version=2.8.0&product=studio'), { status: 301, location: '/zh/releases/?version=2.8.0&product=studio' });
+  // The internal build list is a real page again; it is served, not redirected.
+  assert.equal(resolveSeoRedirect('/builds.html?version=v5.20.0&studioVersion=v5.13.0'), undefined);
+  for (const route of ['/docs', '/docs/', '/zh/docs', '/en/docs/', '/zh-Hant/docs']) {
+    assert.deepEqual(resolveSeoRedirect(`${route}?from=search`), { status: 302, location: 'https://docs.zhama.com.cn/' });
+  }
   assert.deepEqual(resolveSeoRedirect('/?utm_source=baidu'), { status: 301, location: '/zh/?utm_source=baidu' });
   assert.deepEqual(resolveSeoRedirect('/ja/'), { status: 301, location: '/en/' });
 });
@@ -95,11 +99,24 @@ test('generated Nginx routes come from actual published HTML and keep localized 
   assert.match(preview, /absolute_redirect off;/);
   assert.match(preview, /location = \/zh\/multi-agent \{ return 301 "\/zh\/product\/multi-agent\/\$is_args\$args";/);
   assert.doesNotMatch(preview, /www\.zhama\.com|\$host|\$scheme/);
-  const proxied = renderNginxSeoConfig(publishedHtmlPaths(directory), undefined, { proxy: true });
-  assert.match(proxied, /location = \/zh\/multi-agent \{ return 301 "\/zh\/product\/multi-agent\/\$is_args\$args";/);
-  assert.match(proxied, /if \(\$site_served_host = 0\) \{ return 301 https:\/\/www\.zhama\.com\$request_uri;/);
-  assert.match(proxied, /if \(\$site_scheme != https\) \{ return 301 https:\/\/\$host\$request_uri;/);
-  assert.doesNotMatch(proxied, /\$scheme|\$host !=/);
+  // Behind the edge, each build answers on its own canonical host; moved paths go there in one hop.
+  for (const [canonical, host] of [[undefined, 'www\\.zhama\\.com'], ['https://zhama.com.cn', 'zhama\\.com\\.cn']]) {
+    const proxied = renderNginxSeoConfig(publishedHtmlPaths(directory), canonical, { proxy: true });
+    assert.match(proxied, new RegExp(`location = /zh/multi-agent \\{ return 301 "https://${host}/zh/product/multi-agent/\\$is_args\\$args";`));
+    assert.match(proxied, new RegExp(`if \\(\\$host != ${host}\\) \\{ return 301 https://${host}\\$request_uri;`));
+    assert.match(proxied, new RegExp(`if \\(\\$site_scheme != https\\) \\{ return 301 https://${host}\\$request_uri;`));
+    assert.match(proxied, /add_header Strict-Transport-Security \$site_hsts always;/);
+    assert.doesNotMatch(proxied, /if \(\$scheme|site_served_host/);
+  }
+  assert.doesNotMatch(config, /Strict-Transport-Security/);
+  // Every location that sets its own headers repeats the security headers Nginx would otherwise drop.
+  for (const block of config.split(/\n(?=location )/).filter(block => block.includes('add_header'))) {
+    for (const header of ['X-Content-Type-Options "nosniff"', 'Referrer-Policy "strict-origin-when-cross-origin"', 'X-Frame-Options "SAMEORIGIN"']) assert.ok(block.includes(`add_header ${header} always;`), `${header} in ${block.split('\n')[0]}`);
+  }
+  assert.match(config, /location = \/builds\.html \{[^}]*\}?[\s\S]*?add_header X-Robots-Tag "noindex, nofollow" always;[\s\S]*?try_files \/builds\.html =404;/);
+  assert.match(config, /location = \/zh\/docs\/ \{ return 302 "https:\/\/docs\.zhama\.com\.cn\/"; \}/);
+  assert.match(config, /rewrite \^ \/releases\/builds\/v\$builds_version\.json\? last;/);
+  assert.match(preview, /add_header X-Robots-Tag "noindex, nofollow, noarchive" always;/);
   assert.throws(() => renderNginxSeoConfig([], undefined, { preview: true, proxy: true }), /preview or proxy/);
   assert.throws(() => renderNginxSeoConfig([], 'https://www.zhama.com/path'), /origin|PUBLIC_SITE_URL/);
 });
@@ -112,6 +129,10 @@ test('Nginx serves canonical pages without an index redirect loop and retains HT
     await mkdir(folder, { recursive: true });
     await writeFile(path.join(folder, 'index.html'), `<html lang="${page.split('/')[1]}"><body>${page}</body></html>`);
   }
+  await mkdir(path.join(directory, 'site/releases/builds'), { recursive: true });
+  await writeFile(path.join(directory, 'site/releases/builds/latest.json'), '{"version":"v5.20.0"}');
+  await writeFile(path.join(directory, 'site/releases/builds/v5.19.0.json'), '{"version":"v5.19.0"}');
+  await writeFile(path.join(directory, 'site/builds.html'), '<html lang="zh-CN"><body>builds</body></html>');
   const probe = createServer();
   await new Promise(resolve => probe.listen(0, '127.0.0.1', resolve));
   const port = probe.address().port;
@@ -164,8 +185,29 @@ test('Nginx serves canonical pages without an index redirect loop and retains HT
       const response = await fetch(`${origin}/${locale}/${suffix}`, { method, redirect: 'manual' });
       assert.equal(response.status, 404, `${method} /${locale}/${suffix}`);
       assert.equal(response.headers.get('x-robots-tag'), 'noindex');
+      assert.equal(response.headers.get('x-content-type-options'), 'nosniff');
+      assert.equal(response.headers.get('referrer-policy'), 'strict-origin-when-cross-origin');
       assert.equal(response.headers.get('content-language'), locale === 'zh' ? 'zh-CN' : locale);
       assert.equal(await response.text(), method === 'HEAD' ? '' : `<html lang="${locale}"><body>/${locale}/404/</body></html>`);
     }
+    const builds = await fetch(origin + '/builds.html?version=v5.19.0', { method, redirect: 'manual' });
+    assert.equal(builds.status, 200);
+    assert.equal(builds.headers.get('x-robots-tag'), 'noindex, nofollow');
+    for (const [query, status, body] of [
+      ['', 200, '{"version":"v5.20.0"}'],
+      ['?version=v5.19.0', 200, '{"version":"v5.19.0"}'],
+      ['?version=5.19.0', 200, '{"version":"v5.19.0"}'],
+      ['?version=v5.1.0', 404, '{"error":"未收录该版本。"}'],
+      ['?version=../../etc/passwd', 400, '{"error":"请输入有效版本号，例如 v4.34.0。"}'],
+    ]) {
+      const response = await fetch(origin + '/api/builds' + query, { method, redirect: 'manual' });
+      assert.equal(response.status, status, `${method} /api/builds${query}`);
+      assert.match(response.headers.get('content-type'), /^application\/json/);
+      assert.equal(response.headers.get('x-content-type-options'), 'nosniff');
+      assert.equal(await response.text(), method === 'HEAD' ? '' : body);
+    }
+    const docs = await fetch(origin + '/zh/docs', { method, redirect: 'manual' });
+    assert.equal(docs.status, 302);
+    assert.equal(docs.headers.get('location'), 'https://docs.zhama.com.cn/');
   }
 });

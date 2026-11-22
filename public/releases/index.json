@@ -1,9 +1,16 @@
 {
-  "source": "https://github.com/zhama-ai/zhama-homepage",
-  "sourceCommit": "e61f09338aa2534916dc3b4822555b90927b4a40",
-  "retrievedAt": "2026-11-12",
-  "defaultVersion": "v5.13.0",
+  "schemaVersion": 2,
+  "updatedAt": "2026-11-22T17:31:31.898Z",
+  "defaultVersion": "v5.20.0",
   "versions": [
+    "v5.20.0",
+    "v5.19.0",
+    "v5.18.0",
+    "v5.17.1",
+    "v5.17.0",
+    "v5.16.0",
+    "v5.15.0",
+    "v5.14.0",
     "v5.13.0",
     "v5.12.0",
     "v5.11.0",
@@ -27,6 +34,7 @@
     "v4.35.0",
     "v4.34.1",
     "v4.34.0",
+    "v4.33.11",
     "v4.33.1",
     "v4.33.0",
     "v4.32.0",
@@ -78,1530 +86,2270 @@
   ],
   "files": [
     {
-      "source": "data/releases/latest/tego/desktop.json",
+      "path": "/releases/manifests/latest/qhtig-data/desktop.json",
+      "version": "latest",
+      "type": "client",
+      "brand": "qhtig-data",
+      "product": "desktop",
+      "arch": null,
+      "size": 1035
+    },
+    {
+      "path": "/releases/manifests/latest/qhtig/desktop.json",
+      "version": "latest",
+      "type": "client",
+      "brand": "qhtig",
+      "product": "desktop",
+      "arch": null,
+      "size": 2084
+    },
+    {
+      "path": "/releases/manifests/latest/qhtig/mobile.json",
+      "version": "latest",
+      "type": "client",
+      "brand": "qhtig",
+      "product": "mobile",
+      "arch": null,
+      "size": 591
+    },
+    {
       "path": "/releases/manifests/latest/tego/desktop.json",
       "version": "latest",
+      "type": "client",
+      "brand": "tego",
       "product": "desktop",
       "arch": null,
       "size": 2091
     },
     {
-      "source": "data/releases/latest/tego/mobile.json",
       "path": "/releases/manifests/latest/tego/mobile.json",
       "version": "latest",
+      "type": "client",
+      "brand": "tego",
       "product": "mobile",
       "arch": null,
       "size": 593
     },
     {
-      "source": "data/releases/latest/tego/studio.json",
       "path": "/releases/manifests/latest/tego/studio.json",
       "version": "latest",
+      "type": "client",
+      "brand": "tego",
       "product": "studio",
       "arch": null,
       "size": 1818
     },
     {
-      "source": "data/releases/v2.14.0/server/workflow/compose/amd64.json",
+      "path": "/releases/manifests/latest/ykzq/desktop.json",
+      "version": "latest",
+      "type": "client",
+      "brand": "ykzq",
+      "product": "desktop",
+      "arch": null,
+      "size": 1063
+    },
+    {
       "path": "/releases/manifests/v2.14.0/server/workflow/compose/amd64.json",
       "version": "v2.14.0",
+      "type": "server",
       "product": "workflow",
+      "package": "compose",
       "arch": "amd64",
       "size": 462
     },
     {
-      "source": "data/releases/v2.14.0/server/workflow/compose/arm64.json",
       "path": "/releases/manifests/v2.14.0/server/workflow/compose/arm64.json",
       "version": "v2.14.0",
+      "type": "server",
       "product": "workflow",
+      "package": "compose",
       "arch": "arm64",
       "size": 462
     },
     {
-      "source": "data/releases/v3.43.2/clients/tego/desktop.json",
       "path": "/releases/manifests/v3.43.2/clients/tego/desktop.json",
       "version": "v3.43.2",
+      "type": "client",
+      "brand": "tego",
       "product": "desktop",
       "arch": null,
       "size": 857
     },
     {
-      "source": "data/releases/v3.9.8/clients/tego/desktop.json",
       "path": "/releases/manifests/v3.9.8/clients/tego/desktop.json",
       "version": "v3.9.8",
+      "type": "client",
+      "brand": "tego",
       "product": "desktop",
       "arch": null,
       "size": 434
     },
     {
-      "source": "data/releases/v4.21.0/server/avatar/compose/amd64.json",
+      "path": "/releases/manifests/v3.9.8/clients/ykzq/desktop.json",
+      "version": "v3.9.8",
+      "type": "client",
+      "brand": "ykzq",
+      "product": "desktop",
+      "arch": null,
+      "size": 1063
+    },
+    {
       "path": "/releases/manifests/v4.21.0/server/avatar/compose/amd64.json",
       "version": "v4.21.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.21.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.21.0/server/avatar/compose/arm64.json",
       "version": "v4.21.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.22.0/server/avatar/compose/amd64.json",
+      "path": "/releases/manifests/v4.22.0/clients/qhtig-data/desktop.json",
+      "version": "v4.22.0",
+      "type": "client",
+      "brand": "qhtig-data",
+      "product": "desktop",
+      "arch": null,
+      "size": 1035
+    },
+    {
+      "path": "/releases/manifests/v4.22.0/clients/qhtig/desktop.json",
+      "version": "v4.22.0",
+      "type": "client",
+      "brand": "qhtig",
+      "product": "desktop",
+      "arch": null,
+      "size": 546
+    },
+    {
       "path": "/releases/manifests/v4.22.0/server/avatar/compose/amd64.json",
       "version": "v4.22.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.22.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.22.0/server/avatar/compose/arm64.json",
       "version": "v4.22.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.23.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.23.0/server/avatar/compose/amd64.json",
       "version": "v4.23.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.23.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.23.0/server/avatar/compose/arm64.json",
       "version": "v4.23.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.24.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.24.0/server/avatar/compose/amd64.json",
       "version": "v4.24.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.24.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.24.0/server/avatar/compose/arm64.json",
       "version": "v4.24.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.24.2/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.24.2/server/avatar/compose/amd64.json",
       "version": "v4.24.2",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.24.2/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.24.2/server/avatar/compose/arm64.json",
       "version": "v4.24.2",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.25.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.25.0/server/avatar/compose/amd64.json",
       "version": "v4.25.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.25.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.25.0/server/avatar/compose/arm64.json",
       "version": "v4.25.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.25.11/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.25.11/server/avatar/compose/amd64.json",
       "version": "v4.25.11",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 461
     },
     {
-      "source": "data/releases/v4.25.11/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.25.11/server/avatar/compose/arm64.json",
       "version": "v4.25.11",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 461
     },
     {
-      "source": "data/releases/v4.25.12/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.25.12/server/avatar/compose/amd64.json",
       "version": "v4.25.12",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 461
     },
     {
-      "source": "data/releases/v4.25.12/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.25.12/server/avatar/compose/arm64.json",
       "version": "v4.25.12",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 461
     },
     {
-      "source": "data/releases/v4.25.13/server/avatar/compose/amd64.json",
+      "path": "/releases/manifests/v4.25.13/clients/qhtig/mobile.json",
+      "version": "v4.25.13",
+      "type": "client",
+      "brand": "qhtig",
+      "product": "mobile",
+      "arch": null,
+      "size": 427
+    },
+    {
       "path": "/releases/manifests/v4.25.13/server/avatar/compose/amd64.json",
       "version": "v4.25.13",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 461
     },
     {
-      "source": "data/releases/v4.25.13/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.25.13/server/avatar/compose/arm64.json",
       "version": "v4.25.13",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 461
     },
     {
-      "source": "data/releases/v4.25.16/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.25.16/server/avatar/compose/amd64.json",
       "version": "v4.25.16",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 461
     },
     {
-      "source": "data/releases/v4.25.16/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.25.16/server/avatar/compose/arm64.json",
       "version": "v4.25.16",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 461
     },
     {
-      "source": "data/releases/v4.25.2/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.25.2/server/avatar/compose/amd64.json",
       "version": "v4.25.2",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.25.2/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.25.2/server/avatar/compose/arm64.json",
       "version": "v4.25.2",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.25.3/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.25.3/server/avatar/compose/amd64.json",
       "version": "v4.25.3",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.25.3/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.25.3/server/avatar/compose/arm64.json",
       "version": "v4.25.3",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.25.4/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.25.4/server/avatar/compose/amd64.json",
       "version": "v4.25.4",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.25.4/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.25.4/server/avatar/compose/arm64.json",
       "version": "v4.25.4",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.25.5/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.25.5/server/avatar/compose/amd64.json",
       "version": "v4.25.5",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.25.5/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.25.5/server/avatar/compose/arm64.json",
       "version": "v4.25.5",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.25.6/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.25.6/server/avatar/compose/amd64.json",
       "version": "v4.25.6",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.25.6/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.25.6/server/avatar/compose/arm64.json",
       "version": "v4.25.6",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.25.7/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.25.7/server/avatar/compose/amd64.json",
       "version": "v4.25.7",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.25.7/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.25.7/server/avatar/compose/arm64.json",
       "version": "v4.25.7",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.25.9/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.25.9/server/avatar/compose/amd64.json",
       "version": "v4.25.9",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.25.9/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.25.9/server/avatar/compose/arm64.json",
       "version": "v4.25.9",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.26.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.26.0/server/avatar/compose/amd64.json",
       "version": "v4.26.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.26.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.26.0/server/avatar/compose/arm64.json",
       "version": "v4.26.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.27.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.27.0/server/avatar/compose/amd64.json",
       "version": "v4.27.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.27.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.27.0/server/avatar/compose/arm64.json",
       "version": "v4.27.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.28.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.28.0/server/avatar/compose/amd64.json",
       "version": "v4.28.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.28.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.28.0/server/avatar/compose/arm64.json",
       "version": "v4.28.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.29.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.29.0/server/avatar/compose/amd64.json",
       "version": "v4.29.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.29.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.29.0/server/avatar/compose/arm64.json",
       "version": "v4.29.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.29.2/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.29.2/server/avatar/compose/amd64.json",
       "version": "v4.29.2",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.29.2/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.29.2/server/avatar/compose/arm64.json",
       "version": "v4.29.2",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.29.3/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.29.3/server/avatar/compose/amd64.json",
       "version": "v4.29.3",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.29.3/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.29.3/server/avatar/compose/arm64.json",
       "version": "v4.29.3",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.29.4/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.29.4/server/avatar/compose/amd64.json",
       "version": "v4.29.4",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.29.4/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.29.4/server/avatar/compose/arm64.json",
       "version": "v4.29.4",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.29.6/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.29.6/server/avatar/compose/amd64.json",
       "version": "v4.29.6",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.29.6/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.29.6/server/avatar/compose/arm64.json",
       "version": "v4.29.6",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.29.7/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.29.7/server/avatar/compose/amd64.json",
       "version": "v4.29.7",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.29.7/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.29.7/server/avatar/compose/arm64.json",
       "version": "v4.29.7",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.30.1/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.30.1/server/avatar/compose/amd64.json",
       "version": "v4.30.1",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.30.1/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.30.1/server/avatar/compose/arm64.json",
       "version": "v4.30.1",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.30.2/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.30.2/server/avatar/compose/amd64.json",
       "version": "v4.30.2",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.30.2/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.30.2/server/avatar/compose/arm64.json",
       "version": "v4.30.2",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.30.3/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.30.3/server/avatar/compose/amd64.json",
       "version": "v4.30.3",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.30.3/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.30.3/server/avatar/compose/arm64.json",
       "version": "v4.30.3",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.30.4/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.30.4/server/avatar/compose/amd64.json",
       "version": "v4.30.4",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.30.4/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.30.4/server/avatar/compose/arm64.json",
       "version": "v4.30.4",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.30.5/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.30.5/server/avatar/compose/amd64.json",
       "version": "v4.30.5",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.30.5/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.30.5/server/avatar/compose/arm64.json",
       "version": "v4.30.5",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.31.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.31.0/server/avatar/compose/amd64.json",
       "version": "v4.31.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.31.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.31.0/server/avatar/compose/arm64.json",
       "version": "v4.31.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.32.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.32.0/server/avatar/compose/amd64.json",
       "version": "v4.32.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.32.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.32.0/server/avatar/compose/arm64.json",
       "version": "v4.32.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.33.0/server/avatar/compose/amd64.json",
+      "path": "/releases/manifests/v4.33.0/clients/qhtig/desktop.json",
+      "version": "v4.33.0",
+      "type": "client",
+      "brand": "qhtig",
+      "product": "desktop",
+      "arch": null,
+      "size": 1491
+    },
+    {
       "path": "/releases/manifests/v4.33.0/server/avatar/compose/amd64.json",
       "version": "v4.33.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.33.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.33.0/server/avatar/compose/arm64.json",
       "version": "v4.33.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.33.1/clients/tego/mobile.json",
       "path": "/releases/manifests/v4.33.1/clients/tego/mobile.json",
       "version": "v4.33.1",
+      "type": "client",
+      "brand": "tego",
       "product": "mobile",
       "arch": null,
       "size": 420
     },
     {
-      "source": "data/releases/v4.33.1/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.33.1/server/avatar/compose/amd64.json",
       "version": "v4.33.1",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.33.1/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.33.1/server/avatar/compose/arm64.json",
       "version": "v4.33.1",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.34.0/clients/tego/desktop.json",
+      "path": "/releases/manifests/v4.33.11/clients/qhtig/desktop.json",
+      "version": "v4.33.11",
+      "type": "client",
+      "brand": "qhtig",
+      "product": "desktop",
+      "arch": null,
+      "size": 494
+    },
+    {
+      "path": "/releases/manifests/v4.34.0/clients/qhtig/desktop.json",
+      "version": "v4.34.0",
+      "type": "client",
+      "brand": "qhtig",
+      "product": "desktop",
+      "arch": null,
+      "size": 1312
+    },
+    {
+      "path": "/releases/manifests/v4.34.0/clients/qhtig/mobile.json",
+      "version": "v4.34.0",
+      "type": "client",
+      "brand": "qhtig",
+      "product": "mobile",
+      "arch": null,
+      "size": 596
+    },
+    {
       "path": "/releases/manifests/v4.34.0/clients/tego/desktop.json",
       "version": "v4.34.0",
+      "type": "client",
+      "brand": "tego",
       "product": "desktop",
       "arch": null,
       "size": 1518
     },
     {
-      "source": "data/releases/v4.34.0/clients/tego/mobile.json",
       "path": "/releases/manifests/v4.34.0/clients/tego/mobile.json",
       "version": "v4.34.0",
+      "type": "client",
+      "brand": "tego",
       "product": "mobile",
       "arch": null,
       "size": 593
     },
     {
-      "source": "data/releases/v4.34.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.34.0/server/avatar/compose/amd64.json",
       "version": "v4.34.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.34.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.34.0/server/avatar/compose/arm64.json",
       "version": "v4.34.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.34.1/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.34.1/server/avatar/compose/amd64.json",
       "version": "v4.34.1",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.34.1/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.34.1/server/avatar/compose/arm64.json",
       "version": "v4.34.1",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.35.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.35.0/server/avatar/compose/amd64.json",
       "version": "v4.35.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.35.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.35.0/server/avatar/compose/arm64.json",
       "version": "v4.35.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.36.0/clients/tego/desktop.json",
+      "path": "/releases/manifests/v4.36.0/clients/qhtig/desktop.json",
+      "version": "v4.36.0",
+      "type": "client",
+      "brand": "qhtig",
+      "product": "desktop",
+      "arch": null,
+      "size": 2109
+    },
+    {
+      "path": "/releases/manifests/v4.36.0/clients/qhtig/mobile.json",
+      "version": "v4.36.0",
+      "type": "client",
+      "brand": "qhtig",
+      "product": "mobile",
+      "arch": null,
+      "size": 596
+    },
+    {
       "path": "/releases/manifests/v4.36.0/clients/tego/desktop.json",
       "version": "v4.36.0",
+      "type": "client",
+      "brand": "tego",
       "product": "desktop",
       "arch": null,
       "size": 1518
     },
     {
-      "source": "data/releases/v4.36.0/clients/tego/mobile.json",
       "path": "/releases/manifests/v4.36.0/clients/tego/mobile.json",
       "version": "v4.36.0",
+      "type": "client",
+      "brand": "tego",
       "product": "mobile",
       "arch": null,
       "size": 593
     },
     {
-      "source": "data/releases/v4.36.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.36.0/server/avatar/compose/amd64.json",
       "version": "v4.36.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.36.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.36.0/server/avatar/compose/arm64.json",
       "version": "v4.36.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.37.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.37.0/server/avatar/compose/amd64.json",
       "version": "v4.37.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.37.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.37.0/server/avatar/compose/arm64.json",
       "version": "v4.37.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.37.1/clients/tego/desktop.json",
       "path": "/releases/manifests/v4.37.1/clients/tego/desktop.json",
       "version": "v4.37.1",
+      "type": "client",
+      "brand": "tego",
       "product": "desktop",
       "arch": null,
       "size": 861
     },
     {
-      "source": "data/releases/v4.37.1/clients/tego/mobile.json",
       "path": "/releases/manifests/v4.37.1/clients/tego/mobile.json",
       "version": "v4.37.1",
+      "type": "client",
+      "brand": "tego",
       "product": "mobile",
       "arch": null,
       "size": 593
     },
     {
-      "source": "data/releases/v4.37.1/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.37.1/server/avatar/compose/amd64.json",
       "version": "v4.37.1",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.37.1/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.37.1/server/avatar/compose/arm64.json",
       "version": "v4.37.1",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.38.0/clients/tego/desktop.json",
+      "path": "/releases/manifests/v4.38.0/clients/qhtig/desktop.json",
+      "version": "v4.38.0",
+      "type": "client",
+      "brand": "qhtig",
+      "product": "desktop",
+      "arch": null,
+      "size": 2109
+    },
+    {
+      "path": "/releases/manifests/v4.38.0/clients/qhtig/mobile.json",
+      "version": "v4.38.0",
+      "type": "client",
+      "brand": "qhtig",
+      "product": "mobile",
+      "arch": null,
+      "size": 596
+    },
+    {
       "path": "/releases/manifests/v4.38.0/clients/tego/desktop.json",
       "version": "v4.38.0",
+      "type": "client",
+      "brand": "tego",
       "product": "desktop",
       "arch": null,
       "size": 1518
     },
     {
-      "source": "data/releases/v4.38.0/clients/tego/mobile.json",
       "path": "/releases/manifests/v4.38.0/clients/tego/mobile.json",
       "version": "v4.38.0",
+      "type": "client",
+      "brand": "tego",
       "product": "mobile",
       "arch": null,
       "size": 593
     },
     {
-      "source": "data/releases/v4.38.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.38.0/server/avatar/compose/amd64.json",
       "version": "v4.38.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.38.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.38.0/server/avatar/compose/arm64.json",
       "version": "v4.38.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v4.5.0-rc.2/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.5.0-rc.2/server/avatar/compose/amd64.json",
       "version": "v4.5.0-rc.2",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 476
     },
     {
-      "source": "data/releases/v4.5.0-rc.2/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.5.0-rc.2/server/avatar/compose/arm64.json",
       "version": "v4.5.0-rc.2",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 476
     },
     {
-      "source": "data/releases/v4.5.0-rc.2/server/avatar/service-images/amd64.json",
       "path": "/releases/manifests/v4.5.0-rc.2/server/avatar/service-images/amd64.json",
       "version": "v4.5.0-rc.2",
+      "type": "server",
       "product": "avatar",
+      "package": "service-images",
       "arch": "amd64",
       "size": 497
     },
     {
-      "source": "data/releases/v4.5.0-rc.2/server/avatar/service-images/arm64.json",
       "path": "/releases/manifests/v4.5.0-rc.2/server/avatar/service-images/arm64.json",
       "version": "v4.5.0-rc.2",
+      "type": "server",
       "product": "avatar",
+      "package": "service-images",
       "arch": "arm64",
       "size": 497
     },
     {
-      "source": "data/releases/v4.5.2/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.5.2/server/avatar/compose/amd64.json",
       "version": "v4.5.2",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 451
     },
     {
-      "source": "data/releases/v4.5.2/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.5.2/server/avatar/compose/arm64.json",
       "version": "v4.5.2",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 451
     },
     {
-      "source": "data/releases/v4.5.2/server/avatar/service-images/amd64.json",
       "path": "/releases/manifests/v4.5.2/server/avatar/service-images/amd64.json",
       "version": "v4.5.2",
+      "type": "server",
       "product": "avatar",
+      "package": "service-images",
       "arch": "amd64",
       "size": 472
     },
     {
-      "source": "data/releases/v4.5.2/server/avatar/service-images/arm64.json",
       "path": "/releases/manifests/v4.5.2/server/avatar/service-images/arm64.json",
       "version": "v4.5.2",
+      "type": "server",
       "product": "avatar",
+      "package": "service-images",
       "arch": "arm64",
       "size": 472
     },
     {
-      "source": "data/releases/v4.5.3/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.5.3/server/avatar/compose/amd64.json",
       "version": "v4.5.3",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 451
     },
     {
-      "source": "data/releases/v4.5.3/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.5.3/server/avatar/compose/arm64.json",
       "version": "v4.5.3",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 451
     },
     {
-      "source": "data/releases/v4.5.4/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.5.4/server/avatar/compose/amd64.json",
       "version": "v4.5.4",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 451
     },
     {
-      "source": "data/releases/v4.5.4/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.5.4/server/avatar/compose/arm64.json",
       "version": "v4.5.4",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 451
     },
     {
-      "source": "data/releases/v4.5.5/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.5.5/server/avatar/compose/amd64.json",
       "version": "v4.5.5",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 451
     },
     {
-      "source": "data/releases/v4.5.5/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.5.5/server/avatar/compose/arm64.json",
       "version": "v4.5.5",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 451
     },
     {
-      "source": "data/releases/v4.5.6/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.5.6/server/avatar/compose/amd64.json",
       "version": "v4.5.6",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 451
     },
     {
-      "source": "data/releases/v4.5.6/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.5.6/server/avatar/compose/arm64.json",
       "version": "v4.5.6",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 451
     },
     {
-      "source": "data/releases/v4.6.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.6.0/server/avatar/compose/amd64.json",
       "version": "v4.6.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 451
     },
     {
-      "source": "data/releases/v4.6.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.6.0/server/avatar/compose/arm64.json",
       "version": "v4.6.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 451
     },
     {
-      "source": "data/releases/v4.7.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.7.0/server/avatar/compose/amd64.json",
       "version": "v4.7.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 451
     },
     {
-      "source": "data/releases/v4.7.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.7.0/server/avatar/compose/arm64.json",
       "version": "v4.7.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 451
     },
     {
-      "source": "data/releases/v4.8.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.8.0/server/avatar/compose/amd64.json",
       "version": "v4.8.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 451
     },
     {
-      "source": "data/releases/v4.8.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.8.0/server/avatar/compose/arm64.json",
       "version": "v4.8.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 451
     },
     {
-      "source": "data/releases/v4.9.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v4.9.0/server/avatar/compose/amd64.json",
       "version": "v4.9.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 451
     },
     {
-      "source": "data/releases/v4.9.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v4.9.0/server/avatar/compose/arm64.json",
       "version": "v4.9.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.0.0/clients/tego/desktop.json",
       "path": "/releases/manifests/v5.0.0/clients/tego/desktop.json",
       "version": "v5.0.0",
+      "type": "client",
+      "brand": "tego",
       "product": "desktop",
       "arch": null,
       "size": 851
     },
     {
-      "source": "data/releases/v5.0.0/clients/tego/mobile.json",
       "path": "/releases/manifests/v5.0.0/clients/tego/mobile.json",
       "version": "v5.0.0",
+      "type": "client",
+      "brand": "tego",
       "product": "mobile",
       "arch": null,
       "size": 588
     },
     {
-      "source": "data/releases/v5.0.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v5.0.0/server/avatar/compose/amd64.json",
       "version": "v5.0.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.0.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v5.0.0/server/avatar/compose/arm64.json",
       "version": "v5.0.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.1.0/clients/tego/studio.json",
       "path": "/releases/manifests/v5.1.0/clients/tego/studio.json",
       "version": "v5.1.0",
+      "type": "client",
+      "brand": "tego",
       "product": "studio",
       "arch": null,
       "size": 1794
     },
     {
-      "source": "data/releases/v5.1.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v5.1.0/server/avatar/compose/amd64.json",
       "version": "v5.1.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.1.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v5.1.0/server/avatar/compose/arm64.json",
       "version": "v5.1.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.10.0/clients/tego/desktop.json",
       "path": "/releases/manifests/v5.10.0/clients/tego/desktop.json",
       "version": "v5.10.0",
+      "type": "client",
+      "brand": "tego",
       "product": "desktop",
       "arch": null,
       "size": 1879
     },
     {
-      "source": "data/releases/v5.10.0/clients/tego/mobile.json",
       "path": "/releases/manifests/v5.10.0/clients/tego/mobile.json",
       "version": "v5.10.0",
+      "type": "client",
+      "brand": "tego",
       "product": "mobile",
       "arch": null,
       "size": 593
     },
     {
-      "source": "data/releases/v5.10.0/clients/tego/studio.json",
       "path": "/releases/manifests/v5.10.0/clients/tego/studio.json",
       "version": "v5.10.0",
+      "type": "client",
+      "brand": "tego",
       "product": "studio",
       "arch": null,
       "size": 1818
     },
     {
-      "source": "data/releases/v5.10.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v5.10.0/server/avatar/compose/amd64.json",
       "version": "v5.10.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v5.10.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v5.10.0/server/avatar/compose/arm64.json",
       "version": "v5.10.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v5.11.0/clients/tego/desktop.json",
       "path": "/releases/manifests/v5.11.0/clients/tego/desktop.json",
       "version": "v5.11.0",
+      "type": "client",
+      "brand": "tego",
       "product": "desktop",
       "arch": null,
       "size": 1879
     },
     {
-      "source": "data/releases/v5.11.0/clients/tego/mobile.json",
       "path": "/releases/manifests/v5.11.0/clients/tego/mobile.json",
       "version": "v5.11.0",
+      "type": "client",
+      "brand": "tego",
       "product": "mobile",
       "arch": null,
       "size": 593
     },
     {
-      "source": "data/releases/v5.11.0/clients/tego/studio.json",
       "path": "/releases/manifests/v5.11.0/clients/tego/studio.json",
       "version": "v5.11.0",
+      "type": "client",
+      "brand": "tego",
       "product": "studio",
       "arch": null,
       "size": 1818
     },
     {
-      "source": "data/releases/v5.11.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v5.11.0/server/avatar/compose/amd64.json",
       "version": "v5.11.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v5.11.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v5.11.0/server/avatar/compose/arm64.json",
       "version": "v5.11.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v5.12.0/clients/tego/desktop.json",
       "path": "/releases/manifests/v5.12.0/clients/tego/desktop.json",
       "version": "v5.12.0",
+      "type": "client",
+      "brand": "tego",
       "product": "desktop",
       "arch": null,
       "size": 1879
     },
     {
-      "source": "data/releases/v5.12.0/clients/tego/mobile.json",
       "path": "/releases/manifests/v5.12.0/clients/tego/mobile.json",
       "version": "v5.12.0",
+      "type": "client",
+      "brand": "tego",
       "product": "mobile",
       "arch": null,
       "size": 593
     },
     {
-      "source": "data/releases/v5.12.0/clients/tego/studio.json",
       "path": "/releases/manifests/v5.12.0/clients/tego/studio.json",
       "version": "v5.12.0",
+      "type": "client",
+      "brand": "tego",
       "product": "studio",
       "arch": null,
       "size": 1818
     },
     {
-      "source": "data/releases/v5.12.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v5.12.0/server/avatar/compose/amd64.json",
       "version": "v5.12.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v5.12.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v5.12.0/server/avatar/compose/arm64.json",
       "version": "v5.12.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v5.13.0/clients/tego/desktop.json",
+      "path": "/releases/manifests/v5.13.0/clients/qhtig/desktop.json",
+      "version": "v5.13.0",
+      "type": "client",
+      "brand": "qhtig",
+      "product": "desktop",
+      "arch": null,
+      "size": 474
+    },
+    {
       "path": "/releases/manifests/v5.13.0/clients/tego/desktop.json",
       "version": "v5.13.0",
+      "type": "client",
+      "brand": "tego",
       "product": "desktop",
       "arch": null,
       "size": 1879
     },
     {
-      "source": "data/releases/v5.13.0/clients/tego/mobile.json",
       "path": "/releases/manifests/v5.13.0/clients/tego/mobile.json",
       "version": "v5.13.0",
+      "type": "client",
+      "brand": "tego",
       "product": "mobile",
       "arch": null,
       "size": 593
     },
     {
-      "source": "data/releases/v5.13.0/clients/tego/studio.json",
       "path": "/releases/manifests/v5.13.0/clients/tego/studio.json",
       "version": "v5.13.0",
+      "type": "client",
+      "brand": "tego",
       "product": "studio",
       "arch": null,
       "size": 1818
     },
     {
-      "source": "data/releases/v5.13.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v5.13.0/server/avatar/compose/amd64.json",
       "version": "v5.13.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 456
     },
     {
-      "source": "data/releases/v5.13.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v5.13.0/server/avatar/compose/arm64.json",
       "version": "v5.13.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 456
     },
     {
-      "source": "data/releases/v5.2.0/server/avatar/compose/amd64.json",
+      "path": "/releases/manifests/v5.14.0/clients/tego/desktop.json",
+      "version": "v5.14.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "desktop",
+      "arch": null,
+      "size": 1879
+    },
+    {
+      "path": "/releases/manifests/v5.14.0/clients/tego/mobile.json",
+      "version": "v5.14.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "mobile",
+      "arch": null,
+      "size": 593
+    },
+    {
+      "path": "/releases/manifests/v5.14.0/clients/tego/studio.json",
+      "version": "v5.14.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "studio",
+      "arch": null,
+      "size": 1818
+    },
+    {
+      "path": "/releases/manifests/v5.14.0/server/avatar/compose/amd64.json",
+      "version": "v5.14.0",
+      "type": "server",
+      "product": "avatar",
+      "package": "compose",
+      "arch": "amd64",
+      "size": 456
+    },
+    {
+      "path": "/releases/manifests/v5.14.0/server/avatar/compose/arm64.json",
+      "version": "v5.14.0",
+      "type": "server",
+      "product": "avatar",
+      "package": "compose",
+      "arch": "arm64",
+      "size": 456
+    },
+    {
+      "path": "/releases/manifests/v5.15.0/clients/tego/desktop.json",
+      "version": "v5.15.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "desktop",
+      "arch": null,
+      "size": 1879
+    },
+    {
+      "path": "/releases/manifests/v5.15.0/clients/tego/mobile.json",
+      "version": "v5.15.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "mobile",
+      "arch": null,
+      "size": 593
+    },
+    {
+      "path": "/releases/manifests/v5.15.0/clients/tego/studio.json",
+      "version": "v5.15.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "studio",
+      "arch": null,
+      "size": 1818
+    },
+    {
+      "path": "/releases/manifests/v5.15.0/server/avatar/compose/amd64.json",
+      "version": "v5.15.0",
+      "type": "server",
+      "product": "avatar",
+      "package": "compose",
+      "arch": "amd64",
+      "size": 456
+    },
+    {
+      "path": "/releases/manifests/v5.15.0/server/avatar/compose/arm64.json",
+      "version": "v5.15.0",
+      "type": "server",
+      "product": "avatar",
+      "package": "compose",
+      "arch": "arm64",
+      "size": 456
+    },
+    {
+      "path": "/releases/manifests/v5.16.0/clients/tego/desktop.json",
+      "version": "v5.16.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "desktop",
+      "arch": null,
+      "size": 1879
+    },
+    {
+      "path": "/releases/manifests/v5.16.0/clients/tego/mobile.json",
+      "version": "v5.16.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "mobile",
+      "arch": null,
+      "size": 593
+    },
+    {
+      "path": "/releases/manifests/v5.16.0/clients/tego/studio.json",
+      "version": "v5.16.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "studio",
+      "arch": null,
+      "size": 1818
+    },
+    {
+      "path": "/releases/manifests/v5.16.0/server/avatar/compose/amd64.json",
+      "version": "v5.16.0",
+      "type": "server",
+      "product": "avatar",
+      "package": "compose",
+      "arch": "amd64",
+      "size": 456
+    },
+    {
+      "path": "/releases/manifests/v5.16.0/server/avatar/compose/arm64.json",
+      "version": "v5.16.0",
+      "type": "server",
+      "product": "avatar",
+      "package": "compose",
+      "arch": "arm64",
+      "size": 456
+    },
+    {
+      "path": "/releases/manifests/v5.17.0/clients/tego/desktop.json",
+      "version": "v5.17.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "desktop",
+      "arch": null,
+      "size": 1879
+    },
+    {
+      "path": "/releases/manifests/v5.17.0/clients/tego/mobile.json",
+      "version": "v5.17.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "mobile",
+      "arch": null,
+      "size": 593
+    },
+    {
+      "path": "/releases/manifests/v5.17.0/clients/tego/studio.json",
+      "version": "v5.17.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "studio",
+      "arch": null,
+      "size": 1818
+    },
+    {
+      "path": "/releases/manifests/v5.17.0/server/avatar/compose/amd64.json",
+      "version": "v5.17.0",
+      "type": "server",
+      "product": "avatar",
+      "package": "compose",
+      "arch": "amd64",
+      "size": 456
+    },
+    {
+      "path": "/releases/manifests/v5.17.0/server/avatar/compose/arm64.json",
+      "version": "v5.17.0",
+      "type": "server",
+      "product": "avatar",
+      "package": "compose",
+      "arch": "arm64",
+      "size": 456
+    },
+    {
+      "path": "/releases/manifests/v5.17.1/clients/tego/desktop.json",
+      "version": "v5.17.1",
+      "type": "client",
+      "brand": "tego",
+      "product": "desktop",
+      "arch": null,
+      "size": 1879
+    },
+    {
+      "path": "/releases/manifests/v5.17.1/clients/tego/mobile.json",
+      "version": "v5.17.1",
+      "type": "client",
+      "brand": "tego",
+      "product": "mobile",
+      "arch": null,
+      "size": 593
+    },
+    {
+      "path": "/releases/manifests/v5.17.1/clients/tego/studio.json",
+      "version": "v5.17.1",
+      "type": "client",
+      "brand": "tego",
+      "product": "studio",
+      "arch": null,
+      "size": 1818
+    },
+    {
+      "path": "/releases/manifests/v5.17.1/server/avatar/compose/amd64.json",
+      "version": "v5.17.1",
+      "type": "server",
+      "product": "avatar",
+      "package": "compose",
+      "arch": "amd64",
+      "size": 456
+    },
+    {
+      "path": "/releases/manifests/v5.17.1/server/avatar/compose/arm64.json",
+      "version": "v5.17.1",
+      "type": "server",
+      "product": "avatar",
+      "package": "compose",
+      "arch": "arm64",
+      "size": 456
+    },
+    {
+      "path": "/releases/manifests/v5.18.0/clients/tego/desktop.json",
+      "version": "v5.18.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "desktop",
+      "arch": null,
+      "size": 1879
+    },
+    {
+      "path": "/releases/manifests/v5.18.0/clients/tego/mobile.json",
+      "version": "v5.18.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "mobile",
+      "arch": null,
+      "size": 593
+    },
+    {
+      "path": "/releases/manifests/v5.18.0/clients/tego/studio.json",
+      "version": "v5.18.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "studio",
+      "arch": null,
+      "size": 1818
+    },
+    {
+      "path": "/releases/manifests/v5.18.0/server/avatar/compose/amd64.json",
+      "version": "v5.18.0",
+      "type": "server",
+      "product": "avatar",
+      "package": "compose",
+      "arch": "amd64",
+      "size": 456
+    },
+    {
+      "path": "/releases/manifests/v5.18.0/server/avatar/compose/arm64.json",
+      "version": "v5.18.0",
+      "type": "server",
+      "product": "avatar",
+      "package": "compose",
+      "arch": "arm64",
+      "size": 456
+    },
+    {
+      "path": "/releases/manifests/v5.19.0/clients/tego/desktop.json",
+      "version": "v5.19.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "desktop",
+      "arch": null,
+      "size": 1879
+    },
+    {
+      "path": "/releases/manifests/v5.19.0/clients/tego/mobile.json",
+      "version": "v5.19.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "mobile",
+      "arch": null,
+      "size": 593
+    },
+    {
+      "path": "/releases/manifests/v5.19.0/clients/tego/studio.json",
+      "version": "v5.19.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "studio",
+      "arch": null,
+      "size": 1818
+    },
+    {
+      "path": "/releases/manifests/v5.19.0/server/avatar/compose/amd64.json",
+      "version": "v5.19.0",
+      "type": "server",
+      "product": "avatar",
+      "package": "compose",
+      "arch": "amd64",
+      "size": 456
+    },
+    {
+      "path": "/releases/manifests/v5.19.0/server/avatar/compose/arm64.json",
+      "version": "v5.19.0",
+      "type": "server",
+      "product": "avatar",
+      "package": "compose",
+      "arch": "arm64",
+      "size": 456
+    },
+    {
       "path": "/releases/manifests/v5.2.0/server/avatar/compose/amd64.json",
       "version": "v5.2.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.2.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v5.2.0/server/avatar/compose/arm64.json",
       "version": "v5.2.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.3.0/server/avatar/compose/amd64.json",
+      "path": "/releases/manifests/v5.20.0/clients/tego/desktop.json",
+      "version": "v5.20.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "desktop",
+      "arch": null,
+      "size": 1879
+    },
+    {
+      "path": "/releases/manifests/v5.20.0/clients/tego/mobile.json",
+      "version": "v5.20.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "mobile",
+      "arch": null,
+      "size": 593
+    },
+    {
+      "path": "/releases/manifests/v5.20.0/clients/tego/studio.json",
+      "version": "v5.20.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "studio",
+      "arch": null,
+      "size": 1818
+    },
+    {
+      "path": "/releases/manifests/v5.20.0/server/avatar/compose/amd64.json",
+      "version": "v5.20.0",
+      "type": "server",
+      "product": "avatar",
+      "package": "compose",
+      "arch": "amd64",
+      "size": 456
+    },
+    {
+      "path": "/releases/manifests/v5.20.0/server/avatar/compose/arm64.json",
+      "version": "v5.20.0",
+      "type": "server",
+      "product": "avatar",
+      "package": "compose",
+      "arch": "arm64",
+      "size": 456
+    },
+    {
       "path": "/releases/manifests/v5.3.0/server/avatar/compose/amd64.json",
       "version": "v5.3.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.3.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v5.3.0/server/avatar/compose/arm64.json",
       "version": "v5.3.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.5.0/clients/tego/desktop.json",
+      "path": "/releases/manifests/v5.5.0/clients/qhtig/desktop.json",
+      "version": "v5.5.0",
+      "type": "client",
+      "brand": "qhtig",
+      "product": "desktop",
+      "arch": null,
+      "size": 2084
+    },
+    {
+      "path": "/releases/manifests/v5.5.0/clients/qhtig/mobile.json",
+      "version": "v5.5.0",
+      "type": "client",
+      "brand": "qhtig",
+      "product": "mobile",
+      "arch": null,
+      "size": 591
+    },
+    {
       "path": "/releases/manifests/v5.5.0/clients/tego/desktop.json",
       "version": "v5.5.0",
+      "type": "client",
+      "brand": "tego",
       "product": "desktop",
       "arch": null,
       "size": 1498
     },
     {
-      "source": "data/releases/v5.5.0/clients/tego/mobile.json",
       "path": "/releases/manifests/v5.5.0/clients/tego/mobile.json",
       "version": "v5.5.0",
+      "type": "client",
+      "brand": "tego",
       "product": "mobile",
       "arch": null,
       "size": 588
     },
     {
-      "source": "data/releases/v5.5.0/clients/tego/studio.json",
       "path": "/releases/manifests/v5.5.0/clients/tego/studio.json",
       "version": "v5.5.0",
+      "type": "client",
+      "brand": "tego",
       "product": "studio",
       "arch": null,
       "size": 1794
     },
     {
-      "source": "data/releases/v5.5.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v5.5.0/server/avatar/compose/amd64.json",
       "version": "v5.5.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.5.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v5.5.0/server/avatar/compose/arm64.json",
       "version": "v5.5.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.5.1/clients/tego/desktop.json",
       "path": "/releases/manifests/v5.5.1/clients/tego/desktop.json",
       "version": "v5.5.1",
+      "type": "client",
+      "brand": "tego",
       "product": "desktop",
       "arch": null,
       "size": 851
     },
     {
-      "source": "data/releases/v5.6.0/clients/tego/desktop.json",
+      "path": "/releases/manifests/v5.6.0/clients/qhtig/desktop.json",
+      "version": "v5.6.0",
+      "type": "client",
+      "brand": "qhtig",
+      "product": "desktop",
+      "arch": null,
+      "size": 1297
+    },
+    {
+      "path": "/releases/manifests/v5.6.0/clients/qhtig/mobile.json",
+      "version": "v5.6.0",
+      "type": "client",
+      "brand": "qhtig",
+      "product": "mobile",
+      "arch": null,
+      "size": 591
+    },
+    {
       "path": "/releases/manifests/v5.6.0/clients/tego/desktop.json",
       "version": "v5.6.0",
+      "type": "client",
+      "brand": "tego",
       "product": "desktop",
       "arch": null,
       "size": 851
     },
     {
-      "source": "data/releases/v5.6.0/clients/tego/mobile.json",
       "path": "/releases/manifests/v5.6.0/clients/tego/mobile.json",
       "version": "v5.6.0",
+      "type": "client",
+      "brand": "tego",
       "product": "mobile",
       "arch": null,
       "size": 588
     },
     {
-      "source": "data/releases/v5.6.0/clients/tego/studio.json",
       "path": "/releases/manifests/v5.6.0/clients/tego/studio.json",
       "version": "v5.6.0",
+      "type": "client",
+      "brand": "tego",
       "product": "studio",
       "arch": null,
       "size": 1090
     },
     {
-      "source": "data/releases/v5.6.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v5.6.0/server/avatar/compose/amd64.json",
       "version": "v5.6.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.6.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v5.6.0/server/avatar/compose/arm64.json",
       "version": "v5.6.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.7.1/clients/tego/desktop.json",
       "path": "/releases/manifests/v5.7.1/clients/tego/desktop.json",
       "version": "v5.7.1",
+      "type": "client",
+      "brand": "tego",
       "product": "desktop",
       "arch": null,
       "size": 1854
     },
     {
-      "source": "data/releases/v5.7.1/clients/tego/mobile.json",
       "path": "/releases/manifests/v5.7.1/clients/tego/mobile.json",
       "version": "v5.7.1",
+      "type": "client",
+      "brand": "tego",
       "product": "mobile",
       "arch": null,
       "size": 588
     },
     {
-      "source": "data/releases/v5.7.1/clients/tego/studio.json",
       "path": "/releases/manifests/v5.7.1/clients/tego/studio.json",
       "version": "v5.7.1",
+      "type": "client",
+      "brand": "tego",
       "product": "studio",
       "arch": null,
       "size": 1794
     },
     {
-      "source": "data/releases/v5.7.1/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v5.7.1/server/avatar/compose/amd64.json",
       "version": "v5.7.1",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.7.1/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v5.7.1/server/avatar/compose/arm64.json",
       "version": "v5.7.1",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.8.0/clients/tego/desktop.json",
       "path": "/releases/manifests/v5.8.0/clients/tego/desktop.json",
       "version": "v5.8.0",
+      "type": "client",
+      "brand": "tego",
       "product": "desktop",
       "arch": null,
       "size": 555
     },
     {
-      "source": "data/releases/v5.8.0/clients/tego/mobile.json",
       "path": "/releases/manifests/v5.8.0/clients/tego/mobile.json",
       "version": "v5.8.0",
+      "type": "client",
+      "brand": "tego",
       "product": "mobile",
       "arch": null,
       "size": 588
     },
     {
-      "source": "data/releases/v5.8.0/clients/tego/studio.json",
       "path": "/releases/manifests/v5.8.0/clients/tego/studio.json",
       "version": "v5.8.0",
+      "type": "client",
+      "brand": "tego",
       "product": "studio",
       "arch": null,
       "size": 1794
     },
     {
-      "source": "data/releases/v5.8.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v5.8.0/server/avatar/compose/amd64.json",
       "version": "v5.8.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.8.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v5.8.0/server/avatar/compose/arm64.json",
       "version": "v5.8.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.8.1/clients/tego/desktop.json",
       "path": "/releases/manifests/v5.8.1/clients/tego/desktop.json",
       "version": "v5.8.1",
+      "type": "client",
+      "brand": "tego",
       "product": "desktop",
       "arch": null,
       "size": 1854
     },
     {
-      "source": "data/releases/v5.8.1/clients/tego/mobile.json",
       "path": "/releases/manifests/v5.8.1/clients/tego/mobile.json",
       "version": "v5.8.1",
+      "type": "client",
+      "brand": "tego",
       "product": "mobile",
       "arch": null,
       "size": 588
     },
     {
-      "source": "data/releases/v5.8.1/clients/tego/studio.json",
       "path": "/releases/manifests/v5.8.1/clients/tego/studio.json",
       "version": "v5.8.1",
+      "type": "client",
+      "brand": "tego",
       "product": "studio",
       "arch": null,
       "size": 1794
     },
     {
-      "source": "data/releases/v5.8.1/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v5.8.1/server/avatar/compose/amd64.json",
       "version": "v5.8.1",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.8.1/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v5.8.1/server/avatar/compose/arm64.json",
       "version": "v5.8.1",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.9.0/clients/tego/desktop.json",
       "path": "/releases/manifests/v5.9.0/clients/tego/desktop.json",
       "version": "v5.9.0",
+      "type": "client",
+      "brand": "tego",
       "product": "desktop",
       "arch": null,
       "size": 1854
     },
     {
-      "source": "data/releases/v5.9.0/clients/tego/mobile.json",
       "path": "/releases/manifests/v5.9.0/clients/tego/mobile.json",
       "version": "v5.9.0",
+      "type": "client",
+      "brand": "tego",
       "product": "mobile",
       "arch": null,
       "size": 588
     },
     {
-      "source": "data/releases/v5.9.0/clients/tego/studio.json",
       "path": "/releases/manifests/v5.9.0/clients/tego/studio.json",
       "version": "v5.9.0",
+      "type": "client",
+      "brand": "tego",
       "product": "studio",
       "arch": null,
       "size": 1794
     },
     {
-      "source": "data/releases/v5.9.0/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v5.9.0/server/avatar/compose/amd64.json",
       "version": "v5.9.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.9.0/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v5.9.0/server/avatar/compose/arm64.json",
       "version": "v5.9.0",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.9.1/clients/tego/desktop.json",
       "path": "/releases/manifests/v5.9.1/clients/tego/desktop.json",
       "version": "v5.9.1",
+      "type": "client",
+      "brand": "tego",
       "product": "desktop",
       "arch": null,
       "size": 1854
     },
     {
-      "source": "data/releases/v5.9.1/clients/tego/mobile.json",
       "path": "/releases/manifests/v5.9.1/clients/tego/mobile.json",
       "version": "v5.9.1",
+      "type": "client",
+      "brand": "tego",
       "product": "mobile",
       "arch": null,
       "size": 588
     },
     {
-      "source": "data/releases/v5.9.1/clients/tego/studio.json",
       "path": "/releases/manifests/v5.9.1/clients/tego/studio.json",
       "version": "v5.9.1",
+      "type": "client",
+      "brand": "tego",
       "product": "studio",
       "arch": null,
       "size": 1794
     },
     {
-      "source": "data/releases/v5.9.1/server/avatar/compose/amd64.json",
       "path": "/releases/manifests/v5.9.1/server/avatar/compose/amd64.json",
       "version": "v5.9.1",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "amd64",
       "size": 451
     },
     {
-      "source": "data/releases/v5.9.1/server/avatar/compose/arm64.json",
       "path": "/releases/manifests/v5.9.1/server/avatar/compose/arm64.json",
       "version": "v5.9.1",
+      "type": "server",
       "product": "avatar",
+      "package": "compose",
       "arch": "arm64",
       "size": 451
     }

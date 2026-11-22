@@ -6,7 +6,8 @@ import ts from 'typescript';
 import { allowedReleaseDownload, isReleaseManifest, releasePackages, releaseStatus } from '../src/lib/releases.ts';
 
 const releaseIndex = JSON.parse(await readFile(new URL('../public/releases/index.json', import.meta.url), 'utf8'));
-const files = releaseIndex.files.filter(file => ['desktop', 'mobile', 'studio'].includes(file.product));
+// The public history lists official TeGo clients; customer brands appear only on the internal build list.
+const files = releaseIndex.files.filter(file => file.type === 'client' && file.brand === 'tego' && file.version !== 'latest');
 const versions = releaseIndex.versions.filter(version => files.some(file => file.version === version));
 const defaultVersion = versions[0];
 const initialFile = files.find(file => file.version === defaultVersion);
@@ -16,7 +17,7 @@ const initialManifest = await readManifest(initialFile);
 test('the current release provides all platform and architecture links before JavaScript runs', () => {
   const result = releasePackages(initialManifest, initialFile, true);
   assert.equal(result.blocked, 0);
-  assert.deepEqual(result.cards.map(card => card.title), ['Linux', 'macOS', 'Windows', '银河麒麟']);
+  assert.deepEqual(result.cards.map(card => card.title), ['macOS', 'Windows', 'Linux', '银河麒麟']);
   assert.equal(result.cards.flatMap(card => card.variants).length, 6);
   for (const card of result.cards) {
     assert.equal(card.version, defaultVersion);
@@ -55,6 +56,23 @@ test('unknown schemas and untrusted links never become installation links', () =
   assert.equal(result.cards.length, 0);
   assert.equal(result.blocked, 1);
   assert.equal(releaseStatus(result, true), '所选版本没有可下载的客户端，请选择其他产品或版本。');
+});
+
+test('App Store links are trusted and CDN packages must sit in their own brand, version and target directory', () => {
+  const mobileFile = { path: '/releases/manifests/v5.20.0/clients/tego/mobile.json', version: 'v5.20.0', product: 'mobile', arch: null };
+  const store = releasePackages({ schemaVersion: 1, brand: 'tego', version: 'v5.20.0', targetVersions: { ios: 'v5.20.0' }, platforms: { ios: { downloads: { appstore: 'https://apps.apple.com/cn/app/id6744411300' } } } }, mobileFile, true);
+  assert.equal(store.blocked, 0);
+  assert.equal(store.cards[0].variants[0].label, 'App Store 下载');
+  const desktopFile = { path: '/releases/manifests/v5.20.0/clients/tego/desktop.json', version: 'v5.20.0', product: 'desktop', arch: null };
+  for (const url of [
+    'https://cdn.zhama.com.cn/releases/qhtig/desktop/v5.20.0/windows/x64/TeGo.exe',
+    'https://cdn.zhama.com.cn/releases/tego/desktop/v5.19.0/windows/x64/TeGo.exe',
+    'https://cdn.zhama.com.cn/releases/tego/desktop/v5.20.0/windows/x86/TeGo.exe',
+    'https://cdn.zhama.com.cn/releases/tego/desktop/v5.20.0/windows/x64/TeGo.exe?token=1',
+  ]) {
+    const result = releasePackages({ schemaVersion: 1, brand: 'tego', version: 'v5.20.0', targetVersions: { 'windows/x64': 'v5.20.0' }, platforms: { windows: { x64: { exe: url } } } }, desktopFile, true);
+    assert.equal(result.blocked, 1, url);
+  }
 });
 
 const component = await readFile(new URL('../src/components/ReleaseHistoryPage.astro', import.meta.url), 'utf8');

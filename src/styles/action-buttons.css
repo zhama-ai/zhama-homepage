@@ -64,12 +64,20 @@
   font-size: 13px;
 }
 
+/* Touch screens: the drawn small button keeps its size; its tap area reaches 44 px. */
+@media (pointer: coarse) {
+  .button-small { position: relative; }
+  .button-small::after { content: ''; position: absolute; inset: 50% 0 auto; height: max(100%, 44px); transform: translateY(-50%); }
+}
+
 .button svg {
   transition: transform .2s ease;
 }
 
-.button:not(:where(:disabled, [aria-disabled='true'])):hover svg {
-  transform: translateX(3px);
+@media (hover: hover) {
+  .button:not(:where(:disabled, [aria-disabled='true'])):hover svg {
+    transform: translateX(3px);
+  }
 }
 
 :is(.button-white, .button-outline, .button-subtle, .pricing-plan-action, .dei-button-outline) {

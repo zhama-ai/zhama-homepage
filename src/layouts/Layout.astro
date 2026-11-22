@@ -7,25 +7,13 @@ import '../styles/product-interface.css';
 import '../styles/home-rich.css';
 import '../styles/visual-craft.css';
 import '../styles/value-home.css';
-import '../styles/hero-workspace.css';
-import '../styles/business-dashboard.css';
 import '../styles/brand-nightblue.css';
-import '../styles/hero-landscape.css';
-import '../styles/hero-motion.css';
-import '../styles/insight-typewriter.css';
 import '../styles/render-quality.css';
-import '../styles/work-anywhere.css';
-import '../styles/hero-luminance.css';
-import '../styles/hero-spectrum.css';
-import '../styles/hero-space.css';
 import '../styles/navigation.css';
 import '../styles/industry-tabs.css';
 import '../styles/page-canvas.css';
 import '../styles/section-spacing.css';
-import '../styles/home-layout.css';
 import '../styles/typography.css';
-import '../styles/hero-workspace-theme.css';
-import '../styles/hero-duty-theme.css';
 // Keep the shared CTA theme last. New pages reuse .button instead of adding a local theme.
 import '../styles/action-buttons.css';
 import SiteHeader from '../components/navigation/SiteHeader.astro';
@@ -59,16 +47,25 @@ const baiduVerification = verificationToken(import.meta.env.BAIDU_SITE_VERIFICAT
     <meta name="theme-color" content="#060b12" />
     <meta name="color-scheme" content="dark" />
     <meta name="robots" content={seo.robots} />
+    {/* Baidu: the same responsive page serves every device; keep its mobile search from transcoding it. */}
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
     <meta name="author" content={article?.author || seo.organizationName} />
     <ClientRouter fallback="swap" />
     {googleVerification && <meta name="google-site-verification" content={googleVerification} />}
     {bingVerification && <meta name="msvalidate.01" content={bingVerification} />}
     {baiduVerification && <meta name="baidu-site-verification" content={baiduVerification} />}
     <title>{seo.title}</title>
-    <link rel="icon" href="/images/zhama-symbol_V1.0.png" type="image/png" />
-    <link rel="canonical" href={seo.canonical} />
-    {languages.map(item => <link rel="alternate" hreflang={item.tag} href={new URL(languagePathFor(item.id, page), site.origin).href}/>)}
-    <link rel="alternate" hreflang="x-default" href={new URL(pathFor('zh', page), site.origin).href} />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    {/* Pages excluded from indexing (404) declare no canonical or language alternates. */}
+    {!noindex && <>
+      <link rel="canonical" href={seo.canonical} />
+      {languages.map(item => <link rel="alternate" hreflang={item.tag} href={new URL(languagePathFor(item.id, page), site.origin).href}/>)}
+      <link rel="alternate" hreflang="x-default" href={new URL(pathFor('zh', page), site.origin).href} />
+    </>}
     <meta property="og:type" content={seo.openGraphType} />
     <meta property="og:site_name" content="TeGo" />
     <meta property="og:title" content={seo.title} />

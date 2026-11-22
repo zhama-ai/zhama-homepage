@@ -4,7 +4,7 @@ TeGo 数字员工协作平台官网，使用 Astro、TypeScript 和静态资源�
 
 ## 本地运行
 
-使用 Node.js 22.23.4 或更高版本与 npm，在项目根目录执行：
+使用 Node.js 24（见 `.nvmrc`）与 npm，在项目根目录执行：
 
 ```sh
 npm ci
@@ -33,12 +33,22 @@ npm run preview
 node scripts/audit-seo-http.mjs output/qa/seo-http_V1.1.json
 ```
 
-检查规范页面 GET/HEAD、旧地址的一跳 301、查询参数保留、三语真实 404、爬虫资源及站内可达性。报告路径已存在时递增版本，不覆盖历史结果。`npm test` 中实际 Nginx 用例需要 `NGINX_BIN` 指向已安装的 Nginx 可执行文件；未提供时该项跳过。GitHub CI 安装 Nginx 并执行此项及完整发布检查。
+检查规范页面 GET/HEAD、旧地址的一跳 301、查询参数保留、三语真实 404、爬虫资源及站内可达性。
+
+浏览器核验（各页面在 1440/768/390/320 宽度下的横向溢出、文字裁切、图片与脚本错误，以及语言切换、移动菜单、下载筛选、FAQ、历史版本和咨询表单交互）：
+
+```sh
+npm run build
+npm run audit:browser
+```
+
+需要本机安装 Google Chrome。CI 在 `website-checks.yml` 中对 `https://www.zhama.com` 构建执行此项。报告路径已存在时递增版本，不覆盖历史结果。`npm test` 中实际 Nginx 用例需要 `NGINX_BIN` 指向已安装的 Nginx 可执行文件；未提供时该项跳过。GitHub CI 安装 Nginx 并执行此项及完整发布检查。
 
 ## 后续开发必须保留的 SEO
 
 - 页面通过 `src/layouts/Layout.astro` 与 `src/lib/seo.ts` 输出标题、摘要、canonical、hreflang、分享元数据和结构化数据。标题与摘要对应当前正文及语言，不堆关键词，不伪造日期、评分或报价。
-- 正式规范域名为 `https://www.zhama.com`，内容页带尾斜杠。`PUBLIC_SITE_URL` 统一控制规范地址、分享链接、结构化数据、sitemap 和生产跳转；构建与路由生成必须使用同一个值。
+- 两个正式站点分别构建：国际站 `https://www.zhama.com`（Google 收录），中国站 `https://zhama.com.cn`（百度收录，`www.zhama.com.cn` 跳转至此）。内容页带尾斜杠。`PUBLIC_SITE_URL` 统一控制规范地址、分享链接、结构化数据、sitemap、robots 和生产跳转；同一次构建与路由生成必须使用同一个值，两个站点的产物不可混用。
+- 搜索平台验证码按构建注入：`BAIDU_SITE_VERIFICATION`（国际站）/ `BAIDU_SITE_VERIFICATION_CN`（中国站）、`GOOGLE_SITE_VERIFICATION`、`BING_SITE_VERIFICATION`，在 GitHub 仓库 Variables 中维护。中国站部署后，如设置了 `BAIDU_PUSH_TOKEN` Secret，会向百度普通收录接口推送站点地图 URL。
 - 新增或调整页面时同步简体与英文内容、导航、语言切换目标、实际配图和无障碍标签，再构建复核繁体。六个产品页共用首屏尺寸与样式，不用删减某一语言的功能来解决布局问题。
 - 新增路由同步 `shared/seo-routes.mjs`、相关索引及 `shared/analytics.mjs` 的页面分类。旧 URL 对应到最接近的有效内容，保持单次永久跳转；未知地址返回真实 404，不集中跳往首页。
 - 主体内容与关键链接直接输出到 HTML。保留文章原始 URL、日期、历史下载入口及百度验证文件；有依据的内容变更日期才进入 sitemap。
@@ -50,7 +60,7 @@ node scripts/audit-seo-http.mjs output/qa/seo-http_V1.1.json
 
 统计通过 `src/components/analytics/AnalyticsConsent.astro`、`src/features/analytics/` 和 `shared/analytics.mjs` 维护。站点标识为 `e6770cf50973b8dbda39ef528cf8a6ba`，是公开统计代码。
 
-- 三语共用一个站点。仅正式 HTTPS 域名、访客同意且浏览器隐私信号允许时加载；本机、HTTP 和服务器预览保持关闭。不要为验证而去掉域名或授权条件，不在页面另插统计脚本。
+- 三语共用一个站点，覆盖 `www.zhama.com`、`zhama.com` 与 `zhama.com.cn`、`www.zhama.com.cn`。仅正式 HTTPS 域名、访客同意且浏览器隐私信号允许时加载；本机、HTTP 和服务器预览保持关闭。不要为验证而去掉域名或授权条件，不在页面另插统计脚本。
 - 客户端页面切换也经过统一生命周期：每个规范页面一次 PV，Tab、轮播、筛选和滚动使用对应事件，不重复计 PV。新增交互复用固定动作与目标白名单，保持组合数量限制。
 - 自定义埋点不读取表单、联系方式、搜索原文或线索标识；不得把这些内容放进 URL、UTM、事件标签或日志。统计来源与页面路径使用已有清洗规则。
 - 咨询成功仅在接口确认接收后发送一次 `/virtual/contact-success/` 虚拟 PV。打开表单、点击提交、校验失败或网络失败不算成功；服务端接收不代表邮件或飞书已送达。
@@ -58,13 +68,31 @@ node scripts/audit-seo-http.mjs output/qa/seo-http_V1.1.json
 
 详见 [百度统计接入与维护](docs/baidu-analytics_V1.0.md)。
 
+## 发行数据、下载页与构建清单
+
+`public/releases/` 由 tego-os 的发布流程自动生成，不手工编辑：
+
+- tego-os 各发布工作流调用本仓库 `.github/workflows/sync-releases.yml`（`workflow_call`，接口与 Secret 名称不可改动或删除）。它从阿里云 OSS 读取发布记录，校验 MD5 与 SHA256，由 `scripts/publish-releases.mjs` 重新生成 `public/releases/` 并提交到 `main`。
+- 该提交触发 `deploy-website.yml`（`push` 到 `main` 且变更 `public/releases/**`），两个站点自动发布。
+- 下载页使用 `manifests/latest/tego/*` 的当前版本；`/zh/releases/` 只列 TeGo 官方客户端。
+- 内部构建清单 `/builds.html`（noindex）列出全部品牌客户端、TeGo Studio 与服务端离线包及 SHA256；`/api/builds` 与 `/api/builds?version=vX.Y.Z` 返回与原接口相同结构的 JSON（tego-docs 发布页读取此接口）。数据来自构建时生成的 `/releases/builds/*.json`。
+
+本机预览同步结果（只读 OSS，需要 ossutil 与凭据；不加 `--write` 不修改文件）：
+
+```sh
+npm run sync:releases
+node scripts/sync-releases.mjs --from <旧 data/releases 目录> --write   # 从既有清单目录导入
+```
+
 ## 准备上线
 
-推送 `v*` tag 后，GitHub Actions 自动检查、构建并发布到 zhama.ai 与 zhama.com.cn 服务器，详见 [官网自动发布](docs/website-deployment_V1.0.md)。以下为手动核对和生成路由的方式。
+推送 `v*` tag 后，GitHub Actions 自动检查、分别构建两个站点并发布到 zhama.ai（`https://www.zhama.com`）与 zhama.com.cn（`https://zhama.com.cn`）服务器，详见 [官网自动发布](docs/website-deployment_V1.0.md)。以下为手动核对和生成路由的方式。
 
 ```sh
 PUBLIC_SITE_URL=https://www.zhama.com npm run release:check
 PUBLIC_SITE_URL=https://www.zhama.com node deploy/website/generate-nginx.mjs
+PUBLIC_SITE_URL=https://zhama.com.cn npm run release:check
+PUBLIC_SITE_URL=https://zhama.com.cn node deploy/website/generate-nginx.mjs
 ```
 
 路由生成器只向标准输出写 Nginx include，不修改服务器。将完整 `dist/`、本次生成的路由配置、校验记录及回退版本一起准备，按 [SEO 部署说明](docs/seo-deployment_V1.0.md) 并入现有 Nginx。发布包和报告使用新版本文件名；保存校验和并在传输后核对。推送 Git、生成发布包和正式域名上线是不同步骤。
@@ -87,7 +115,8 @@ PUBLIC_SITE_URL=https://www.zhama.com node deploy/website/generate-nginx.mjs
 | `src/components/product/`、`src/styles/product-banner.css` | 产品配图与统一首屏尺寸 |
 | `src/lib/seo.ts`、`shared/seo-*.mjs` | SEO 元数据、规范地址与迁移映射 |
 | `src/features/analytics/`、`shared/analytics.mjs` | 百度统计授权、PV、事件和目标分类 |
-| `src/data/`、`src/content/` | 页面内容、历史文章、发行资料 |
+| `src/data/`、`src/content/` | 页面内容、历史文章、法律文本 |
+| `public/releases/`、`shared/release-*.mjs` | 自动同步的发行清单、校验规则与构建清单 |
 | `src/assets/`、`public/` | 构建素材与公开资源 |
 | `scripts/`、`tests/` | 发布处理、静态核验与回归测试 |
 | `deploy/`、`server/contact/` | 部署配置与咨询服务 |

@@ -147,7 +147,9 @@ export function translateHtml(source, scripts = new Map()) {
   const nodes = [];
   visit(document, node => nodes.push(node));
   const canonical = nodes.find(node => node.tagName === 'link' && attr(node, 'rel') === 'canonical');
-  const origin = new URL(attr(canonical, 'href') || 'https://www.zhama.com').origin;
+  // Noindex pages (404) carry no canonical; og:url holds the same build origin.
+  const pageUrl = nodes.find(node => node.tagName === 'meta' && attr(node, 'property') === 'og:url');
+  const origin = new URL(attr(canonical, 'href') || attr(pageUrl, 'content') || 'https://www.zhama.com').origin;
   const localizeUrl = value => {
     if (!value || !/^(?:https?:\/\/|\/)/.test(value)) return scripts.get(value) || value;
     let url;

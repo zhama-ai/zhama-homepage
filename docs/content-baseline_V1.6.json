@@ -1,0 +1,334 @@
+{
+  "sourceCommit": "e61f09338aa2534916dc3b4822555b90927b4a40",
+  "reviewedAt": "2026-11-23",
+  "previousBaseline": "content-baseline_V1.5.json",
+  "revision": "发行数据改为由 OSS 同步生成（public/releases），不再写入 legacy.ts；22 篇文章合并品牌统一提交 de5d8ff（TeGo-OS / Tego OS → TeGo），保留迁移后的人工修订。",
+  "revisionReason": "legacy.ts 仅保留法律文本与旧路由映射；文章品牌名称与原站 b498784 一致。发行数据以结构校验代替固定条数。",
+  "legalDataSha256": "0765d06b473d5ba06dcc5682dd48f59f16181fbbb75872d08c9cb76e0342e744",
+  "articles": [
+    {
+      "locale": "en",
+      "filename": "2024-11-01-tego-os-introduction.md",
+      "slug": "tego-os-introduction",
+      "sourceSha256": "a57bfa3f0b455100b9c176b9ed1201513e5b6db61c5e753238df48d33e372616",
+      "migratedSha256": "7f04feef93d7bc3a1448eeed0b24cb0f0e19451049f01e31f5e989c892fc88a2",
+      "normalizedBodySha256": "27eb7efc25c760df1f2cbc7f5feb6a837c49fc2a013af118634451b6b7a9b266",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "en",
+      "filename": "2024-11-05-mcp-framework-guide.md",
+      "slug": "mcp-framework-guide",
+      "sourceSha256": "c697b6dc3b0763f79a67fb9a0e63bb2b0ba401090538465cc5ab4bace42c878b",
+      "migratedSha256": "d6d528994a921f9c0369608dc4cc50b5bf7fb102fa591ac9de7d598e8edfb1cc",
+      "normalizedBodySha256": "b24bee5280b7fd04152e3c111d6f1ea9378948331b215c6b79759f70629a92cc",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "en",
+      "filename": "2024-11-10-enterprise-ai-best-practices.md",
+      "slug": "enterprise-ai-best-practices",
+      "sourceSha256": "ce419607f4c15ed5b7a269bf9cbb48f0e0c83cee7684e6d7b73943a345be51e6",
+      "migratedSha256": "e3af86c64193096b7b131cd1d4653749199fd5d0cdebf024a82b3ac53ddc5009",
+      "normalizedBodySha256": "a24968841b0e9e2e36750ec6d107b934472ea538371ed4c177af511cbcb41b32",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "en",
+      "filename": "2024-11-14-building-mcp-servers-with-typescript.md",
+      "slug": "building-mcp-servers-with-typescript",
+      "sourceSha256": "d2836ca4451913f2b153ba45411e9000a1267c88b950351f878feb0dc1ee11c3",
+      "migratedSha256": "b8d000f07bc9b48c0ecfb3167f1788716c589d0a1b0ce0d32fcf53d7935d177f",
+      "normalizedBodySha256": "c6b4a0cc66e6df4d771ba95e0684391578429d4f629446f64b959ad17784ba48",
+      "sourceCommit": "e61f09338aa2534916dc3b4822555b90927b4a40"
+    },
+    {
+      "locale": "en",
+      "filename": "2024-11-16-building-custom-mcp-servers-for-claude.md",
+      "slug": "building-custom-mcp-servers-for-claude",
+      "sourceSha256": "ffe7a1630cd5322ae8a71112bc05842ca8abb0851231e2f1d8b32262f0d01242",
+      "migratedSha256": "f2534eb969b642c19b49113e6015ac145735cdaff5359495dff4dc2af791a9d3",
+      "normalizedBodySha256": "85e63c3d809219b930140ecd09104e731b25745ecff8af7ba5934b199c474992",
+      "sourceCommit": "e61f09338aa2534916dc3b4822555b90927b4a40"
+    },
+    {
+      "locale": "en",
+      "filename": "2024-11-17-5-minute-claude-tool-framework.md",
+      "slug": "5-minute-claude-tool-framework",
+      "sourceSha256": "76195e7fbde8b1dcb3c54337ce59c839ffe5f84761feae2df3e3e61528ff7309",
+      "migratedSha256": "66ae1b9ab8765d99283a9ac10c39393bfa397a378dfa10e2fdafed526302b09d",
+      "normalizedBodySha256": "540b66a5041277ed69c2bbb79bd4d52f6d7d6dda80e39a5b9bd94cec3d1f63a1",
+      "sourceCommit": "e61f09338aa2534916dc3b4822555b90927b4a40"
+    },
+    {
+      "locale": "en",
+      "filename": "2024-11-18-why-existing-mcp-sdk-not-enough.md",
+      "slug": "why-existing-mcp-sdk-not-enough",
+      "sourceSha256": "63d0be4a46c74239e1677905810022eead91480a65ae420d018b77869bb4fa3e",
+      "migratedSha256": "bef78315fb53096071806ff75f1b6df08f8682bdb681f7fb80f7b2c38a4fbc69",
+      "normalizedBodySha256": "de78d1edbb24cd253821e38ef2bd622484e8a1154bcf696a1cec17769b57c73a",
+      "sourceCommit": "e61f09338aa2534916dc3b4822555b90927b4a40"
+    },
+    {
+      "locale": "en",
+      "filename": "2024-11-19-building-ai-tools-with-decorators.md",
+      "slug": "building-ai-tools-with-decorators",
+      "sourceSha256": "368a74cb3f247bc8a1cd9de5f021bbcda08dd5851f939a07d0dc69a26cafa5a6",
+      "migratedSha256": "5b3fbb3b9bdc8b9b124b6987b244b588408f3fed0e4c4b8dcce599c748aa59c9",
+      "normalizedBodySha256": "89fdcdcd6215a07e73dde2cd3dafceeb068f4392cb1e63c9a61c2bd2fd1d21e7",
+      "sourceCommit": "e61f09338aa2534916dc3b4822555b90927b4a40"
+    },
+    {
+      "locale": "en",
+      "filename": "2026-01-13-a2ui-future-of-ai-interaction.md",
+      "slug": "a2ui-future-of-ai-interaction",
+      "sourceSha256": "54373d3f86113cbd88f720eccb2f217bc743214c65b890f32c100db084a5e6a1",
+      "migratedSha256": "ac478399616bf1e3e337fabbb9166414481c2022f9023825b16785f09cc7174b",
+      "normalizedBodySha256": "997434814ff65dd24cef8de885ed9e0d0eb7fef35a762abae52a884bc234fa9c",
+      "sourceCommit": "e61f09338aa2534916dc3b4822555b90927b4a40"
+    },
+    {
+      "locale": "en",
+      "filename": "2026-01-13-a2ui-wechat-article.md",
+      "slug": "a2ui-wechat-article",
+      "sourceSha256": "b875b9d327144694a0c6da6e68bec0af7a60695aff6c8625774540ca16caa44d",
+      "migratedSha256": "2ec8e5d275164e49a819d1e0cf7e3f4b111c6f16a020f599ca6f9ce627109328",
+      "normalizedBodySha256": "8faee294649545a78e4ce01aea44a28611e145ece0e45ee870a9484d998fa077",
+      "sourceCommit": "e61f09338aa2534916dc3b4822555b90927b4a40"
+    },
+    {
+      "locale": "en",
+      "filename": "2026-02-25-tego-os-v2.8.0-digital-avatar.md",
+      "slug": "tego-os-v2.8.0-digital-avatar",
+      "sourceSha256": "bd0a016332e183beac73320e8dce58673ca623ca363f3cc1d41ee37173ee3721",
+      "migratedSha256": "596cce35b92288bb2505518d8569b4c12089326594a098d03fbb2a0d7f152d0c",
+      "normalizedBodySha256": "ee3a32faf582750f19da3a2673db34f244a519cfaa1576850ffd63c22fc25c0d",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "en",
+      "filename": "2026-04-19-tego-os-v3.0.0-launch.md",
+      "slug": "tego-os-v3.0.0-launch",
+      "sourceSha256": "ec7cfb7f1cc53462b5ca00739c1792939e5b7acb34a6ed8d0374b7c3ad13a901",
+      "migratedSha256": "2d97390c2eaffd4f5127ce0ed62a127609a2760656d8fd9068b1a247d6d85b33",
+      "normalizedBodySha256": "fd375cbff1ae6bf7e25e4a926770933a8d25b1b08c9a9a94011c49d6aa5724ad",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "en",
+      "filename": "2026-04-22-per-user-isolated-instances.md",
+      "slug": "per-user-isolated-instances",
+      "sourceSha256": "7d7204cd20865855b6e868d55ee5bfb743c4fb55cc9b87af5c6ad20ccf00eea9",
+      "migratedSha256": "c8f7334c35781bc7a29958f6e5b7aed75e42ad51355ca97509705f5c922fd020",
+      "normalizedBodySha256": "cf917140d3e93bba7dcfa2f66fae35b8a03eebade3fd1666b23805bd82b2cb8b",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "en",
+      "filename": "2026-04-25-s3-data-isolation-template-governance.md",
+      "slug": "s3-data-isolation-template-governance",
+      "sourceSha256": "63aba65bfe9ea47252c98379dd968f27fbc16a2f8c6763f63e2aa6a2dd2150ce",
+      "migratedSha256": "d72c23aff43a56bbb3632e1537b0e2c81be685adac13e7ae964302b18aca04b3",
+      "normalizedBodySha256": "8358b09c6099b438c900ee507275baa036c1877c5a99fffc6b562ed045806626",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "en",
+      "filename": "2026-04-28-business-monitor-dashboard.md",
+      "slug": "business-monitor-dashboard",
+      "sourceSha256": "d65bd6f93ea75015d660981f782ed90b3d787cee13c71cbcbee539b7b9a7befd",
+      "migratedSha256": "4771fbefb713512be1cb6b7511b37f38592d3d72d783155c0baf041608f1b563",
+      "normalizedBodySha256": "02f83eb558407326fa5887993efb1f27b654ee59e37f55d8376d120037cbfba7",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "en",
+      "filename": "2026-05-04-16-builtin-skills-it-ops-cross-border.md",
+      "slug": "16-builtin-skills-it-ops-cross-border",
+      "sourceSha256": "b6684f043e93cda9638f0ff163996102a9528d81fd993ddc10b75a72ae6f9205",
+      "migratedSha256": "3a45e058d000ebc96423809f90b92133ba3ee3c4e9ced7905b95f045437183de",
+      "normalizedBodySha256": "f0de5bbdcc486939c8e5f52292282d7f21381afd087b38d4ddc73c3fcc6825a3",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "en",
+      "filename": "2026-05-08-mini-chat-desktop-experience.md",
+      "slug": "mini-chat-desktop-experience",
+      "sourceSha256": "100c9083d1ace7d9f192af039539b8a1a1c37c04bf594a894bc6927c10c55a7b",
+      "migratedSha256": "3356f9b1930193482d9d3eb2645d6b35b2b83d8f3339bbfcc0bd5e9635fea984",
+      "normalizedBodySha256": "aec27649b1234d84b8389a83d68838e865cdbf0654a06a659d89f09843a7265c",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "en",
+      "filename": "2026-09-28-tego-os-cloud-agent-muse.md",
+      "slug": "tego-os-cloud-agent-muse",
+      "sourceSha256": "758b62d7fd315d97bf2151c4911af92d7373710105c732cc5ac859d5684031eb",
+      "migratedSha256": "a666c26ea9a0c33967b9ec6fb4986d389d213589961e42cde29a3e8aa4181286",
+      "normalizedBodySha256": "9a272c6a59bafc574d82891bbf61eadcb0929ecaae9ad3341884411f8fda9a14",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "zh",
+      "filename": "2024-11-01-tego-os-introduction.md",
+      "slug": "tego-os-introduction",
+      "sourceSha256": "fcebef71d46cdf8f408c3bca09ae481cb1b27f00be4b793ba25f740c0a63bf9e",
+      "migratedSha256": "0fe182db617c288a8b1059d864cd0237b5ac04521eb2db665e1657b9c5a71ee5",
+      "normalizedBodySha256": "dbf740ae71af206d3c16fc281fd5cc4dce610790c444772f2a5aa2f20874d813",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "zh",
+      "filename": "2024-11-05-mcp-framework-guide.md",
+      "slug": "mcp-framework-guide",
+      "sourceSha256": "695f0b1e7f00b06ecff3aa8763a2db64f915ff208fa3ac736ba187dfcb1c9faa",
+      "migratedSha256": "4b425298542f7c019239d29ad46c48952daca4b471302eba706f42d6ea852d1f",
+      "normalizedBodySha256": "e47d567c8b2d2f4f9ed7f16967cc36a652c8cc92f08ea3d7d64878d3f3bcd4fd",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "zh",
+      "filename": "2024-11-10-enterprise-ai-best-practices.md",
+      "slug": "enterprise-ai-best-practices",
+      "sourceSha256": "075bd9e2943c0ad95d9f64216ef68248cbd6cf74a54ba219db93190926d0db75",
+      "migratedSha256": "a8ef776ad36bf6df2f851a327bef99466eaa054eaacc94f893cc6c3337916c41",
+      "normalizedBodySha256": "84ecd86d4e770034a22778292416c1b3b8e843453cce8e7c5d495c04cbb2becb",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "zh",
+      "filename": "2024-11-14-building-mcp-servers-with-typescript.md",
+      "slug": "building-mcp-servers-with-typescript",
+      "sourceSha256": "22255e53c68d59a3bfea76cf3b61c802bb555a0ad4ff59677fbca50670f87472",
+      "migratedSha256": "4692aba293a9b91f3399b86cebf8acecdc0eb0152f4653d9b6e98693afe9694a",
+      "normalizedBodySha256": "ca9c03ed620148d8d905d1fe10418c7f63886d4dff69368a1a1f49b7da69333a",
+      "sourceCommit": "e61f09338aa2534916dc3b4822555b90927b4a40"
+    },
+    {
+      "locale": "zh",
+      "filename": "2024-11-16-building-custom-mcp-servers-for-claude.md",
+      "slug": "building-custom-mcp-servers-for-claude",
+      "sourceSha256": "df7499e3530b95e365002e2a0765c00ea47059ef03d9c122a37cf5ff188003cb",
+      "migratedSha256": "13b1ec98da009e87402c5183bd4df1ed251cdd37833517c3e016b02ea554f268",
+      "normalizedBodySha256": "57166084b003f7936329e47dc27e49fbec8aa6f4f3cd48b7c83f01b46b4fa4b7",
+      "sourceCommit": "e61f09338aa2534916dc3b4822555b90927b4a40"
+    },
+    {
+      "locale": "zh",
+      "filename": "2024-11-17-5-minute-claude-tool-framework.md",
+      "slug": "5-minute-claude-tool-framework",
+      "sourceSha256": "8c23bc46130867bdd84b2958a33972048e457326213f838ae10e8b5f140b102d",
+      "migratedSha256": "6f8bafee8b71883d1ad080e502ccef8ab836281a00e87cb360ef502631954d05",
+      "normalizedBodySha256": "3b519c0287b8a6f25be67e83ff0e49a9b2a97a84e58b0a2b54d6129005a1d56c",
+      "sourceCommit": "e61f09338aa2534916dc3b4822555b90927b4a40"
+    },
+    {
+      "locale": "zh",
+      "filename": "2024-11-18-why-existing-mcp-sdk-not-enough.md",
+      "slug": "why-existing-mcp-sdk-not-enough",
+      "sourceSha256": "78735271d2ed69e7f2a59f386548d3fe7f8104cc74e3b86380123dc83e6f3551",
+      "migratedSha256": "91b58fd054fc713333ba4577949980f8a6186b1bdd24cd932a6f2e7ce77f585b",
+      "normalizedBodySha256": "e32e8b2fb61bf96f12cbb77ca3260da2bfaf77d89930223ff614887ebf8064c6",
+      "sourceCommit": "e61f09338aa2534916dc3b4822555b90927b4a40"
+    },
+    {
+      "locale": "zh",
+      "filename": "2024-11-19-building-ai-tools-with-decorators.md",
+      "slug": "building-ai-tools-with-decorators",
+      "sourceSha256": "7d4827e97acc6d529a2a5a54516050e192e68e1a8167efad335e6f08ef76669b",
+      "migratedSha256": "c205e8911acf8b91f2f8cdc2db2abd5360c90ef9ed39d2ac70b17eadcf75523f",
+      "normalizedBodySha256": "6ffcbbb66f8ac8954d213688e1298d31ac51d72ca26c944299a147bae0c41445",
+      "sourceCommit": "e61f09338aa2534916dc3b4822555b90927b4a40"
+    },
+    {
+      "locale": "zh",
+      "filename": "2026-01-13-a2ui-future-of-ai-interaction.md",
+      "slug": "a2ui-future-of-ai-interaction",
+      "sourceSha256": "8debfbc40844b3ac17b2b344ba619bf608997c405ac087f5254fcbfccfa207b3",
+      "migratedSha256": "4e660922a25bdeb9dc17b1f1139df2f7e93a17f0e54f07089332e1b7373d20c9",
+      "normalizedBodySha256": "6511502ace000a1f0d56316a76a4e0d51296c8923b5bf507c82b0452e97bfe87",
+      "sourceCommit": "e61f09338aa2534916dc3b4822555b90927b4a40"
+    },
+    {
+      "locale": "zh",
+      "filename": "2026-01-13-a2ui-wechat-article.md",
+      "slug": "a2ui-wechat-article",
+      "sourceSha256": "6a50c36afbd7e3c3823b9ea380bae08f8951209545e1b02a595e9302a81b1050",
+      "migratedSha256": "146c7d7b654ee3c08351a3d1589bc4f51079ecd469929cf5512b51ef6786d883",
+      "normalizedBodySha256": "0e32da2a43cc8e95b9a625592c3178f77146255a34c00dc504a8b3fd880b2ad9",
+      "sourceCommit": "e61f09338aa2534916dc3b4822555b90927b4a40"
+    },
+    {
+      "locale": "zh",
+      "filename": "2026-02-25-tego-os-v2.8.0-digital-avatar.md",
+      "slug": "tego-os-v2.8.0-digital-avatar",
+      "sourceSha256": "3db8370a51bbcbfb9665dd37b947db3c6f03defcec7064977be33f1739e48f7d",
+      "migratedSha256": "aebc5655554f9bff70a81df95b44182c340352dddb441f815630e019e82d635d",
+      "normalizedBodySha256": "06e387c216463187b672c23b7f69b17662b6afec2dfab527700ff9e6ce0c6d93",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "zh",
+      "filename": "2026-04-19-tego-os-v3.0.0-launch.md",
+      "slug": "tego-os-v3.0.0-launch",
+      "sourceSha256": "67b46119f1ed41a68205ab4024c63bd738d93e660805dce9d4171c3b22feea61",
+      "migratedSha256": "8c9ffe082ff54c7e937bc4e1bd7b32c01070932dac5b4f7220c6ed6989b3dea3",
+      "normalizedBodySha256": "c43762a89ded34e4c0053d35557e27b4f2a93e7556c3440655bd716dcaa90d3e",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "zh",
+      "filename": "2026-04-22-per-user-isolated-instances.md",
+      "slug": "per-user-isolated-instances",
+      "sourceSha256": "f3ebea7961aadcee5805307128fa6cd289579e70ef2f85af0a88f1e68d3f5131",
+      "migratedSha256": "be6a43235cba340f71775c2924cfa667a4f6f78418794ed7bea0a4d03a73a95a",
+      "normalizedBodySha256": "2fefd34307ab8527454994c7f3ec28dcb9a0867820b68dc4214383c3b3df7752",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "zh",
+      "filename": "2026-04-25-s3-data-isolation-template-governance.md",
+      "slug": "s3-data-isolation-template-governance",
+      "sourceSha256": "15b13ac55dd99e9a62eeefdca1b20c4db40bdadcb69571c5062501abe86f787e",
+      "migratedSha256": "813dbe3df14bf214ea5317d0ce1bdeab24678cb2e8f0ac21473fe3f4b942dd09",
+      "normalizedBodySha256": "eebcf2982b5b6c709465a2cc1c9a0646a8b582ec953203013947416eb04bd30f",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "zh",
+      "filename": "2026-04-28-business-monitor-dashboard.md",
+      "slug": "business-monitor-dashboard",
+      "sourceSha256": "e204a6c7e0a07c6109e88e0fc756ea567e0712b4b3463c1c19093edfa01fc551",
+      "migratedSha256": "96d228cfeb1853a6baee54dbb7180ffdaead25de38062d9ae16dbedfc87653c1",
+      "normalizedBodySha256": "e8ca370447dc35b6a6e41925076a40b1a585bc8c29f40dd70b6220f0173ec215",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "zh",
+      "filename": "2026-05-04-16-builtin-skills-it-ops-cross-border.md",
+      "slug": "16-builtin-skills-it-ops-cross-border",
+      "sourceSha256": "59f6ad0bef3dc24ae412a42e4e334bf4308f74bd298e96050e7e978c6ba8502b",
+      "migratedSha256": "0019949ba5f04d66b6cfbfd9af1c1a0fcc8619522e95d22c2c80f2972c0c7c88",
+      "normalizedBodySha256": "1de2d77b48497f7beb971bbb978e2cbbca9d26c5a290c89fdf1a0783a1611fe1",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "zh",
+      "filename": "2026-05-08-mini-chat-desktop-experience.md",
+      "slug": "mini-chat-desktop-experience",
+      "sourceSha256": "3f2cc848b63c80f985efd47cb30922c2313cd400c59a641626a3409b3776bbdd",
+      "migratedSha256": "5140dcfbfe800aaff58c7931d759d0cbea203e745951854d46d68bcc7b9ee700",
+      "normalizedBodySha256": "b3969f68bc7b4716e5795cbd3966f339ec312f75cfc51f6cff46fb8f0d62787c",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    },
+    {
+      "locale": "zh",
+      "filename": "2026-09-28-tego-os-cloud-agent-muse.md",
+      "slug": "tego-os-cloud-agent-muse",
+      "sourceSha256": "73a7a9ba7291f6763c61620692704e00f249f62de1bf2b8d6438bf3d195ca2ee",
+      "migratedSha256": "0117d3f3bce580cd15cfdb73ab19d0e64ca7a2e2644d926e709e6d2bac12e738",
+      "normalizedBodySha256": "0531c685e3033c067911a9d281dce2351686d7de5640f29afabc00abb6e5428d",
+      "sourceCommit": "b498784645789e8cb5efc32c4589c69f2e60833a"
+    }
+  ]
+}

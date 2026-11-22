@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { runInNewContext } from 'node:vm';
 import ts from 'typescript';
 
+const breakpoints = await import('../src/lib/breakpoints.ts');
 const source = ts.transpileModule(await readFile(new URL('../src/features/home/hero-task-scene.ts', import.meta.url), 'utf8'), {
   compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
 }).outputText;
@@ -28,9 +29,11 @@ class ElementStub extends EventTarget {
 
 const runningState = { running: true, reduced: false, suspended: false, paused: false, enabled: true };
 
-function fixture({ active = true, state = runningState, heroMotion = 'running' } = {}) {
+function fixture({ active = true, state = runningState, heroMotion = 'running', compact = false } = {}) {
   const document = new ElementStub(), window = new ElementStub();
   window.location = { origin: 'https://tego.invalid' };
+  const compactQuery = Object.assign(new EventTarget(), { matches: compact });
+  window.matchMedia = query => { assert.equal(query, breakpoints.media.compact); return compactQuery; };
   const visual = new ElementStub(), hero = new ElementStub(), slide = new ElementStub(), frame = new ElementStub();
   const artworkDocument = '<!doctype html><html lang="zh"><title>客户经营分析工作台</title></html>';
   const sceneDocument = { textContent: JSON.stringify(artworkDocument) };
@@ -57,7 +60,7 @@ function fixture({ active = true, state = runningState, heroMotion = 'running' }
   const module = { exports: {} };
   runInNewContext(source, {
     exports: module.exports,
-    require: () => ({ observeMotion: (_element, callback) => {
+    require: specifier => specifier.endsWith('breakpoints') ? breakpoints : ({ observeMotion: (_element, callback) => {
       observations++;
       lifecycle = callback;
       callback(state);
@@ -90,8 +93,23 @@ function fixture({ active = true, state = runningState, heroMotion = 'running' }
       slide.dataset.active = String(value);
       hero.dispatchEvent(new Event('hero-motion-change'));
     },
+    setCompact: value => { compactQuery.matches = value; compactQuery.dispatchEvent(new Event('change')); },
   };
 }
+
+test('phones keep the static poster and load the animated scene only on a wider viewport', () => {
+  const env = fixture({ compact: true });
+  env.heroChange();
+  env.motion(runningState);
+  assert.equal(env.hydrationCount, 0);
+  assert.equal(env.frame.srcdoc, '');
+  assert.equal(env.calls.play, 0);
+  env.setCompact(false);
+  assert.equal(env.hydrationCount, 1);
+  env.setCompact(true);
+  env.ready();
+  assert.equal(env.calls.play, 1, 'an already loaded scene keeps playing after the viewport narrows');
+});
 
 test('inactive and offscreen scenes defer hydration until their slide is visible', () => {
   const inactive = fixture({ active: false });
