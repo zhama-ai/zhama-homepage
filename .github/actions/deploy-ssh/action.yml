@@ -1,0 +1,29 @@
+name: Configure deployment SSH
+description: Make the deployment host reachable as `ssh deploy` (same as tego-docs).
+inputs:
+  host: { required: true, description: Deployment host }
+  port: { required: true, description: SSH port }
+  user: { required: true, description: SSH user }
+  key: { required: true, description: SSH private key }
+  known-hosts: { required: false, default: '', description: Pinned known_hosts lines; scanned when empty }
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        HOST: ${{ inputs.host }}
+        PORT: ${{ inputs.port }}
+        USER_NAME: ${{ inputs.user }}
+        KEY: ${{ inputs.key }}
+        KNOWN_HOSTS: ${{ inputs.known-hosts }}
+      run: |
+        set -eu
+        install -m 700 -d ~/.ssh
+        (umask 077; printf '%s\n' "$KEY" > ~/.ssh/deploy_key)
+        if [ -n "$KNOWN_HOSTS" ]; then
+          printf '%s\n' "$KNOWN_HOSTS" >> ~/.ssh/known_hosts
+        else
+          ssh-keyscan -T 15 -p "$PORT" "$HOST" >> ~/.ssh/known_hosts
+        fi
+        printf 'Host deploy\n  HostName %s\n  Port %s\n  User %s\n  IdentityFile ~/.ssh/deploy_key\n  IdentitiesOnly yes\n  BatchMode yes\n  ConnectTimeout 20\n  ServerAliveInterval 15\n  ServerAliveCountMax 4\n' \
+          "$HOST" "$PORT" "$USER_NAME" > ~/.ssh/config

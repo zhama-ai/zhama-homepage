@@ -1,0 +1,64 @@
+# Production stack on the deployment host, installed there as docker-compose.yml.
+# deploy.sh pins the two image variables in .env after a verified release.
+name: zhama-website
+
+services:
+  web:
+    image: ${WEBSITE_WEB_IMAGE:?Set WEBSITE_WEB_IMAGE}
+    restart: unless-stopped
+    depends_on:
+      contact:
+        condition: service_healthy
+    # No host port: the edge Nginx reaches the site as zhama-website:80 over its network.
+    networks:
+      default:
+      edge:
+        aliases:
+          - zhama-website
+    read_only: true
+    tmpfs:
+      - /var/cache/nginx
+      - /var/run
+      - /tmp
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  contact:
+    image: ${WEBSITE_CONTACT_IMAGE:?Set WEBSITE_CONTACT_IMAGE}
+    # Mail and Feishu credentials; kept on the host only, mode 600.
+    env_file:
+      - contact.env
+    environment:
+      NODE_ENV: production
+      CONTACT_HOST: 0.0.0.0
+      CONTACT_PORT: 4351
+      CONTACT_DATA_DIR: /app/.contact-data
+      CONTACT_ALLOWED_ORIGINS: ${CONTACT_ALLOWED_ORIGINS:-https://www.zhama.com,https://zhama.com}
+      CONTACT_TRUST_PROXY: "true"
+    volumes:
+      - contact-leads:/app/.contact-data
+    restart: unless-stopped
+    init: true
+    stop_grace_period: 90s
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  edge:
+    external: true
+    name: ${EDGE_NETWORK:-proxy_default}
+
+volumes:
+  contact-leads:
+    name: zhama-website-contact-leads

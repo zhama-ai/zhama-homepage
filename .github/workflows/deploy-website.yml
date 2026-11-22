@@ -1,0 +1,99 @@
+# Every push to main is verified, packaged as two arm64 images and deployed to
+# the zhama.ai host. The images go straight over SSH, so the host needs no
+# registry credentials.
+name: Deploy website
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: website-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  PUBLIC_SITE_URL: ${{ vars.WEBSITE_PUBLIC_SITE_URL || 'https://www.zhama.com' }}
+  DEPLOY_DIR: ${{ vars.WEBSITE_DEPLOY_DIR || '/opt/zhama-website' }}
+  SSH_PORT: ${{ vars.WEBSITE_SSH_PORT || '22' }}
+
+jobs:
+  deploy:
+    # The host is arm64; a native runner builds the contact image without emulation.
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 45
+    env:
+      ASTRO_TELEMETRY_DISABLED: "1"
+      NGINX_BIN: /usr/sbin/nginx
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: "24"
+          cache: npm
+      - name: Install Nginx for HTTP routing checks
+        run: sudo apt-get update && sudo apt-get install -y nginx
+      - run: npm ci --no-audit
+      - run: npm audit --registry=https://registry.npmjs.org --audit-level=high
+      - run: npm run release:check
+
+      - name: Build images
+        id: images
+        run: |
+          tag="${GITHUB_SHA::12}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          web="zhama-website-web:$tag"
+          contact="zhama-website-contact:$tag"
+          sh deploy/website/build-images.sh "$web" "$contact"
+          echo "web=$web" >> "$GITHUB_OUTPUT"
+          echo "contact=$contact" >> "$GITHUB_OUTPUT"
+
+      - name: Validate deployment configuration
+        env:
+          DEPLOY_HOST: ${{ secrets.WEBSITE_DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.WEBSITE_DEPLOY_USER }}
+          DEPLOY_KEY: ${{ secrets.WEBSITE_DEPLOY_KEY }}
+        run: |
+          python3 - <<'PY'
+          import os, re
+          missing = [name for name in ('DEPLOY_HOST', 'DEPLOY_USER', 'DEPLOY_KEY') if not os.environ.get(name)]
+          if not re.fullmatch(r'/[A-Za-z0-9_./-]+', os.environ['DEPLOY_DIR']) or '..' in os.environ['DEPLOY_DIR']:
+              missing.append('valid WEBSITE_DEPLOY_DIR')
+          if not os.environ['SSH_PORT'].isdigit():
+              missing.append('numeric WEBSITE_SSH_PORT')
+          if missing:
+              raise SystemExit('Missing or invalid deployment settings: ' + ', '.join(missing))
+          PY
+
+      - name: Configure deployment SSH
+        uses: ./.github/actions/deploy-ssh
+        with:
+          host: ${{ secrets.WEBSITE_DEPLOY_HOST }}
+          port: ${{ env.SSH_PORT }}
+          user: ${{ secrets.WEBSITE_DEPLOY_USER }}
+          key: ${{ secrets.WEBSITE_DEPLOY_KEY }}
+          known-hosts: ${{ secrets.WEBSITE_DEPLOY_KNOWN_HOSTS }}
+
+      - name: Upload deployment files and images
+        env:
+          INCOMING: ${{ env.DEPLOY_DIR }}/.incoming/${{ github.run_id }}-${{ github.run_attempt }}
+          WEB_IMAGE: ${{ steps.images.outputs.web }}
+          CONTACT_IMAGE: ${{ steps.images.outputs.contact }}
+        run: |
+          set -euo pipefail
+          ssh deploy "mkdir -p '$INCOMING'"
+          tar czf - deploy/website/compose.yml deploy/website/deploy.sh deploy/website/remote-publish.sh \
+            | ssh deploy "tar xzf - -C '$INCOMING'"
+          docker save "$WEB_IMAGE" "$CONTACT_IMAGE" | gzip -1 | ssh deploy 'gunzip | docker load'
+
+      - name: Publish and verify
+        env:
+          INCOMING: ${{ env.DEPLOY_DIR }}/.incoming/${{ github.run_id }}-${{ github.run_attempt }}
+          WEB_IMAGE: ${{ steps.images.outputs.web }}
+          CONTACT_IMAGE: ${{ steps.images.outputs.contact }}
+        run: |
+          ssh deploy "DEPLOY_DIR='$DEPLOY_DIR' sh '$INCOMING/deploy/website/remote-publish.sh' '$INCOMING' '$WEB_IMAGE' '$CONTACT_IMAGE'"

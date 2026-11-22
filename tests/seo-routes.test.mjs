@@ -95,6 +95,10 @@ test('generated Nginx routes come from actual published HTML and keep localized 
   assert.match(preview, /absolute_redirect off;/);
   assert.match(preview, /location = \/zh\/multi-agent \{ return 301 "\/zh\/product\/multi-agent\/\$is_args\$args";/);
   assert.doesNotMatch(preview, /www\.zhama\.com|\$host|\$scheme/);
+  const proxied = renderNginxSeoConfig(publishedHtmlPaths(directory), undefined, { scheme: '$site_scheme' });
+  assert.match(proxied, /if \(\$site_scheme != https\) \{ return 301 https:\/\/www\.zhama\.com\$request_uri;/);
+  assert.doesNotMatch(proxied, /\$scheme/);
+  assert.throws(() => renderNginxSeoConfig([], undefined, { scheme: '$x; return 200' }), /variable/);
   assert.throws(() => renderNginxSeoConfig([], 'https://www.zhama.com/path'), /origin|PUBLIC_SITE_URL/);
 });
 

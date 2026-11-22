@@ -60,6 +60,8 @@ node scripts/audit-seo-http.mjs output/qa/seo-http_V1.1.json
 
 ## 准备上线
 
+推送 `main` 后，GitHub Actions 自动检查、构建并发布到 zhama.ai 服务器，详见 [官网自动发布](docs/website-deployment_V1.0.md)。以下为手动核对和生成路由的方式。
+
 ```sh
 PUBLIC_SITE_URL=https://www.zhama.com npm run release:check
 PUBLIC_SITE_URL=https://www.zhama.com node deploy/website/generate-nginx.mjs

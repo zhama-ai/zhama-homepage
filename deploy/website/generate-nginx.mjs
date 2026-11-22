@@ -13,8 +13,13 @@ export function publishedHtmlPaths(directory) {
     .filter(isIndexableSeoPath).sort();
 }
 
-/** Include in both HTTP and HTTPS website servers, after setting their static root. */
-export function renderNginxSeoConfig(pages, canonicalOrigin = 'https://www.zhama.com', { preview = false } = {}) {
+/**
+ * Include in both HTTP and HTTPS website servers, after setting their static root.
+ * Behind a TLS-terminating proxy, pass the variable holding the visitor's scheme
+ * (for example `$site_scheme` mapped from X-Forwarded-Proto) as `scheme`.
+ */
+export function renderNginxSeoConfig(pages, canonicalOrigin = 'https://www.zhama.com', { preview = false, scheme = '$scheme' } = {}) {
+  if (!/^\$[a-z_]+$/.test(scheme)) throw new Error('scheme must be an Nginx variable name.');
   const origin = new URL(normalizeSiteOrigin(canonicalOrigin));
   const canonicalPages = [...new Set(pages)].filter(page => page.endsWith('/') && isIndexableSeoPath(page)).sort();
   const redirects = new Map();
@@ -47,7 +52,7 @@ export function renderNginxSeoConfig(pages, canonicalOrigin = 'https://www.zhama
   lines.push('');
   const canonicalRules = preview ? [] : [
     `    if ($host != ${origin.hostname}) { return 301 ${origin.origin}$request_uri; }`,
-    `    if ($scheme != ${origin.protocol.slice(0, -1)}) { return 301 ${origin.origin}$request_uri; }`,
+    `    if (${scheme} != ${origin.protocol.slice(0, -1)}) { return 301 ${origin.origin}$request_uri; }`,
   ];
   const localeFor = page => seoLocales.find(locale => page.startsWith(`/${locale}/`)) || 'zh';
   const errorRule = locale => `    error_page 404 =404 @seo_not_found_${locale.replace('-', '_')};`;
@@ -71,7 +76,9 @@ export function renderNginxSeoConfig(pages, canonicalOrigin = 'https://www.zhama
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const args = process.argv.slice(2);
-  if (args.length > 1 || (args.length === 1 && args[0] !== '--preview')) throw new Error('Usage: node deploy/website/generate-nginx.mjs [--preview]');
+  // --behind-proxy reads the visitor's scheme from $site_scheme, defined in deploy/website/site.conf.
+  if (args.length > 1 || (args.length === 1 && !['--preview', '--behind-proxy'].includes(args[0]))) throw new Error('Usage: node deploy/website/generate-nginx.mjs [--preview | --behind-proxy]');
   const root = fileURLToPath(new URL('../../', import.meta.url));
-  process.stdout.write(renderNginxSeoConfig(publishedHtmlPaths(path.join(root, 'dist')), process.env.PUBLIC_SITE_URL, { preview: args[0] === '--preview' }));
+  const options = { preview: args[0] === '--preview', scheme: args[0] === '--behind-proxy' ? '$site_scheme' : '$scheme' };
+  process.stdout.write(renderNginxSeoConfig(publishedHtmlPaths(path.join(root, 'dist')), process.env.PUBLIC_SITE_URL, options));
 }
