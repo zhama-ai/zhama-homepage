@@ -1,0 +1,57 @@
+{
+  "accessed": "2026-11-15",
+  "lookup": "https://itunes.apple.com/lookup?id=414478124,444934666,930368978,1087897068,1401729613&country=cn",
+  "decision": "使用用户指定的原生应用图标式样。品牌图标保留原图颜色，只缩放和编码，不施加色彩、透明度、发光或阴影滤镜。页面统一圆角裁切。",
+  "assets": [
+    {
+      "name": "微信",
+      "publisher": "WeChat",
+      "appId": 414478124,
+      "source": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/84/6b/3a/846b3ab8-9dea-e3e5-861e-f6ecaa0b3387/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-0-0-85-220.png/512x512bb.jpg",
+      "path": "public/images/platforms/weixin-app_V1.0.webp",
+      "width": 128,
+      "height": 128,
+      "bytes": 6224
+    },
+    {
+      "name": "QQ",
+      "publisher": "Tencent Technology (Shenzhen) Company Limited",
+      "appId": 444934666,
+      "source": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e6/7f/b6/e67fb608-d48b-4366-e99f-ade6b3745728/AppIcon-1-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg",
+      "path": "public/images/platforms/qq-app_V1.0.webp",
+      "width": 128,
+      "height": 128,
+      "bytes": 9668
+    },
+    {
+      "name": "钉钉",
+      "publisher": "DingTalk Technology Co., Ltd.",
+      "appId": 930368978,
+      "source": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1b/14/30/1b14301e-fc3c-d429-07f6-4b5252d90897/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg",
+      "path": "public/images/platforms/dingtalk-app_V1.0.webp",
+      "width": 128,
+      "height": 128,
+      "bytes": 6878
+    },
+    {
+      "name": "企业微信",
+      "publisher": "Tencent Technology (Shenzhen) Company Limited",
+      "appId": 1087897068,
+      "source": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6d/b3/92/6db39257-641a-95f3-bf53-c6bce6361d77/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg",
+      "path": "public/images/platforms/wecom-app_V1.0.webp",
+      "width": 128,
+      "height": 128,
+      "bytes": 7454
+    },
+    {
+      "name": "飞书 - 字节跳动旗下 AI 工作平台",
+      "publisher": "Beijing Feishu Technology Co., Ltd.",
+      "appId": 1401729613,
+      "source": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c6/32/f6/c632f606-6503-611d-b2a6-447422072e07/AppIcon-0-0-1x_U007epad-0-0-0-1-0-0-85-220.png/512x512bb.jpg",
+      "path": "public/images/platforms/feishu-app_V1.0.webp",
+      "width": 128,
+      "height": 128,
+      "bytes": 4984
+    }
+  ]
+}

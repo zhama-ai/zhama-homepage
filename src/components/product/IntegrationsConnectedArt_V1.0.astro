@@ -1,0 +1,79 @@
+---
+import Icon from '../Icon.astro';
+import type { Locale } from '../../data/types';
+interface Props { locale: Locale; scene?: number; }
+const { locale, scene = -1 } = Astro.props;
+const zh = locale === 'zh';
+const t = (cn: string, en: string) => zh ? cn : en;
+const descriptions = [
+  t('客户经营任务中，CRM 客户档案、项目资料和数据库查询结果按来源汇入同一任务。','CRM customer records, project files and database query results become sourced context in one customer task.'),
+  t('客户沟通形成跟进事项，经负责人确认后，通过授权接口写入 CRM 客户时间线。','Customer conversations become follow-up actions, confirmed by the owner and recorded in CRM through an authorized API.'),
+  t('企业业务系统通过平台 OpenAPI 提交项目需求与附件，数字员工返回状态、回应及项目服务方案。','A business system submits project requirements and attachments through Platform OpenAPI and receives status, responses and a service proposal.'),
+];
+---
+<figure class:list={['cp-art', 'connected-art', { 'connected-hero': scene < 0, 'connected-en': !zh }]} role="img" aria-label={scene < 0 ? t('企业系统、项目资料与数据库连接到数字员工，工具参与授权执行，项目方案与跟进记录回到原有业务系统。','Business systems, project files and databases connect to a digital employee. Tools support authorized actions and proposals and follow-up records return to the business system.') : descriptions[scene]}>
+  {scene < 0 ? <img class="connected-hero-image" src={`/images/product/integrations/integrations-connected-work-${locale}_V1.0.webp`} width="1536" height="1024" alt="" loading="eager" fetchpriority="high" decoding="async"/> : <div class:list={['connected-surface', `connected-detail-${scene}`]} aria-hidden="true">
+    {scene === 0 && <>
+      <div class="workspace-heading"><span class="workspace-symbol"><Icon name="user-check" size={22}/></span><strong>{t('客户经营任务','Customer operations task')}</strong><Icon name="network" size={18}/></div>
+      <div class="context-workspace">
+        <div class="context-library">
+          <div class="resource-label">{t('业务资料','Business context')}</div>
+          {[
+            ['users', t('客户与商机','Customer & deal'), 'CRM'],
+            ['folder', t('项目需求','Requirements'), t('项目资料','Project files')],
+            ['file-check', t('产品能力清单','Product capabilities'), 'XLSX'],
+            ['chart', t('经营查询结果','Business query results'), t('数据库','Database')],
+          ].map(([icon,title,source])=><div class="context-resource"><Icon name={icon} size={19}/><div><strong>{title}</strong><span>{source}</span></div></div>)}
+        </div>
+        <div class="context-document">
+          <span class="document-label">{t('本次工作','Current task')}</span>
+          <h3>{t('设备巡检方案准备','Equipment inspection proposal')}</h3>
+          <p class="task-content">{t('整理客户沟通与项目进展，准备后续方案交流材料。','Organize customer conversations and project progress for the next proposal discussion.')}</p>
+          <div class="context-link"><Icon name="network" size={17}/><span>{t('关联客户档案与商机进展','Link customer records and deal progress')}</span></div>
+          <div class="context-link"><Icon name="file-search" size={17}/><span>{t('引用项目需求与产品资料','Use requirements and product materials')}</span></div>
+          <div class="context-link"><Icon name="chart" size={17}/><span>{t('保留查询结果来源','Retain query result sources')}</span></div>
+        </div>
+      </div>
+    </>}
+    {scene === 1 && <>
+      <div class="workspace-heading"><span class="workspace-symbol"><Icon name="users" size={22}/></span><strong>{t('CRM 客户跟进','CRM customer follow-up')}</strong><span class="protocol-label">RESTful API</span></div>
+      <div class="conversation-source"><Icon name="message" size={19}/><div><span class="document-label">{t('客户沟通','Customer conversation')}</span><p>{t('请补充设备巡检方案，下次交流重点看实施安排。','Please expand the inspection proposal. Focus the next discussion on implementation.')}</p></div></div>
+      <div class="followup-body">
+        <div class="action-sheet"><span class="document-label">{t('跟进事项','Follow-up actions')}</span><div><Icon name="check" size={17}/><strong>{t('补充巡检服务方案','Expand the service proposal')}</strong></div><div><Icon name="check" size={17}/><strong>{t('准备实施安排材料','Prepare the implementation plan')}</strong></div><div class="owner-confirmation"><Icon name="user-check" size={17}/>{t('负责人确认','Owner confirmation')}<span>{t('已确认','Confirmed')}</span></div></div>
+        <div class="crm-timeline"><span class="document-label">{t('客户时间线','Customer timeline')}</span><div class="timeline-record"><strong>{t('沟通结论','Discussion outcome')}</strong><p>{t('聚焦设备巡检场景与实施安排','Focus on inspection needs and implementation')}</p></div><div class="timeline-record"><strong>{t('后续工作','Next actions')}</strong><p>{t('完善方案，准备下一次交流','Refine the proposal for the next discussion')}</p></div><div class="saved-state"><Icon name="check" size={15}/>{t('跟进记录已写入','Follow-up record saved')}</div></div>
+      </div>
+    </>}
+    {scene === 2 && <>
+      <div class="workspace-heading"><span class="workspace-symbol"><Icon name="buildings" size={22}/></span><strong>{t('企业业务系统','Business system')}</strong><span class="protocol-label">OpenAPI</span></div>
+      <div class="api-request"><div class="request-text"><span class="document-label">{t('任务请求','Task request')}</span><strong>{t('编制项目服务方案','Prepare a service proposal')}</strong><div class="attachment"><Icon name="file" size={17}/>{t('项目需求清单.xlsx','Project requirements.xlsx')}</div></div><span class="execution-arrow"><Icon name="arrow" size={27}/></span><div class="employee-end"><Icon name="user-check" size={28}/><strong>{t('数字员工','Digital employee')}</strong></div></div>
+      <div class="api-identity"><Icon name="key" size={16}/>{t('绑定用户 · 作用域','Bound user · Scope')}<div>{[t('同步','Sync'),t('异步','Async'),t('流式','Stream')].map(mode=><span>{mode}</span>)}</div></div>
+      <div class="api-response"><div class="response-heading"><Icon name="arrow" size={20}/><strong>{t('返回原业务系统','Back to the business system')}</strong></div><div class="result-document"><span class="result-file-icon"><Icon name="file-check" size={29}/></span><div><strong>{t('项目服务方案.docx','Service proposal.docx')}</strong><span>{t('实施安排与交付事项','Implementation and deliverables')}</span></div></div><div class="return-values"><span><Icon name="check" size={15}/>{t('执行状态','Execution status')}</span><span><Icon name="message" size={15}/>{t('人工事项与回应','Human work items & responses')}</span><span><Icon name="file" size={15}/>{t('成果文件','Deliverables')}</span></div></div>
+    </>}
+  </div>}
+</figure>
+<style>
+.connected-art{--ca-line:#8daed020;--ca-soft:#8fa8bf;--ca-ink:#e1ecf7;--ca-blue:#9bc9f5;--ca-teal:#87c7c4;padding:8px 0;line-height:1.6}
+.connected-art::before{content:none}.connected-art :global(svg){flex-shrink:0;color:var(--ca-blue)}
+.connected-art strong{font-size:14px;font-weight:550;line-height:1.5;color:var(--ca-ink)}
+.connected-hero{max-width:800px;padding:0}.connected-hero-image{display:block;width:100%;height:auto;object-fit:contain;mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent),linear-gradient(to bottom,transparent,#000 5%,#000 95%,transparent);mask-composite:intersect}
+.connected-surface{background:linear-gradient(135deg,#122238,#0c1829 80%);border:1px solid #8eafd12b;border-radius:12px;box-shadow:0 22px 50px -20px #000b;overflow:hidden}
+.workspace-heading{display:flex;align-items:center;gap:12px;padding:21px 24px;background:#15294080;border-bottom:1px solid var(--ca-line)}
+.workspace-heading>strong{font-size:17px;flex:1}.workspace-heading>svg{opacity:.55}.workspace-symbol{display:grid;place-items:center;width:34px;height:34px;background:#78aeea12;border-radius:8px}.protocol-label{font-size:11px;color:#99b9d8;white-space:nowrap}
+.document-label,.resource-label{font-size:11px;letter-spacing:.035em;color:var(--ca-soft);display:block}
+.context-workspace{display:grid;grid-template-columns:.8fr 1.3fr;min-height:302px}.context-library{background:#0b1829a6;border-right:1px solid var(--ca-line);padding:23px 18px}.resource-label{margin-bottom:18px}
+.context-resource{display:flex;gap:10px;align-items:center;margin-top:20px}.context-resource:first-of-type{margin-top:0}.context-resource strong{font-size:14px}.context-resource span{display:block;font-size:11px;color:#7f9cb9;margin-top:3px}.context-resource>svg{opacity:.8}
+.context-document{padding:25px 25px 30px}.context-document h3{font-size:20px;line-height:1.55;margin-top:8px;color:#e7f1fb}.context-document .task-content{font-size:14px;line-height:1.85;color:#b8cce0;margin:15px 0 22px}.context-link{display:flex;gap:9px;align-items:flex-start;color:#a4bed6;font-size:13px;margin-top:14px}.context-link>svg{margin-top:2px;color:#89b6d8}
+.conversation-source{padding:23px 24px;display:flex;gap:13px;border-bottom:1px solid var(--ca-line)}.conversation-source>svg{margin-top:3px}.conversation-source p{margin-top:8px;color:#c3d8eb;font-size:13px;line-height:1.85}
+.followup-body{display:grid;grid-template-columns:1fr 1.04fr}.action-sheet{padding:24px;border-right:1px solid var(--ca-line)}.action-sheet>div:not(.owner-confirmation){display:flex;align-items:flex-start;gap:9px;margin-top:19px}.action-sheet strong{font-size:14px}.action-sheet>div>svg{color:var(--ca-teal);margin-top:2px}
+.owner-confirmation{margin-top:25px;padding-top:17px;border-top:1px solid var(--ca-line);font-size:10px;color:#9fb8cf;display:flex;align-items:center;gap:6px;flex-wrap:wrap}.owner-confirmation span{margin-left:auto;color:var(--ca-teal)}
+.crm-timeline{padding:24px;background:#16303538}.timeline-record{position:relative;margin:17px 0 0 3px;padding-left:17px;border-left:1px solid #81baba50}.timeline-record::before{content:'';position:absolute;top:6px;left:-3px;width:5px;height:5px;border-radius:50%;background:#8fc3c4}.timeline-record strong{font-size:11px;color:#9dbbc8}.timeline-record p{font-size:13px;color:#bed4de;margin-top:6px;line-height:1.8}.saved-state{font-size:10px;color:var(--ca-teal);display:flex;align-items:center;gap:6px;margin-top:19px}
+.api-request{display:grid;grid-template-columns:1.8fr 44px 1fr;align-items:center;padding:25px 24px;gap:12px}.request-text>strong{font-size:16px;margin-top:9px}.attachment{display:flex;align-items:center;gap:7px;margin-top:17px;font-size:11px;color:#a6bdd3;overflow-wrap:anywhere}.employee-end{display:grid;justify-items:center;gap:12px}.employee-end>svg{color:#b5d4f4}.employee-end strong{font-size:13px;text-align:center}
+.api-identity{display:flex;align-items:center;gap:7px;font-size:10px;color:#92b1cd;padding:14px 24px;background:#09152590;border-block:1px solid var(--ca-line);flex-wrap:wrap}.api-identity>div{display:flex;gap:12px;margin-left:auto;color:#abc8e1}
+.api-response{padding:22px 24px;background:linear-gradient(110deg,#13313760,transparent)}.response-heading{display:flex;align-items:center;gap:9px}.response-heading>svg{transform:rotate(180deg);color:var(--ca-teal)}.response-heading strong{font-size:12px;color:#a8caca}.result-document{display:flex;align-items:center;gap:14px;margin-top:20px;padding:17px;background:#17323c;border:1px solid #8ac6c72c;border-radius:6px}.result-file-icon{width:41px;height:46px;display:grid;place-items:center}.result-file-icon>svg{color:#a8d3da}.result-document strong{font-size:15px;overflow-wrap:anywhere}.result-document div>span{font-size:11px;color:#95b7c7;display:block;margin-top:5px}.return-values{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:18px}.return-values>span{display:flex;gap:5px;align-items:center;color:#97b6c7;font-size:10px}.return-values svg{color:#88b9be}
+.connected-en .context-workspace{grid-template-columns:.8fr 1.2fr}.connected-en .context-library{padding-inline:15px}.connected-en .context-resource strong{font-size:13px}.connected-en .context-document{padding-inline:20px}.connected-en .context-document h3{font-size:18px}.connected-en .followup-body{grid-template-columns:1fr 1fr}.connected-en .action-sheet,.connected-en .crm-timeline{padding-inline:20px}.connected-en .owner-confirmation span{margin-left:0}
+:global([data-capability="integrations"] .cp-hero-field){background:radial-gradient(ellipse at 73% 49%,#19314f40,transparent 55%),linear-gradient(125deg,#1122376b,transparent 45%)}
+:global([data-capability="integrations"] .cp-hero-field::before){content:none}
+@media(min-width:1101px){:global([data-capability="integrations"] .cp-hero){gap:35px;grid-template-columns:.9fr 1.25fr}}
+@media(max-width:1100px) and (min-width:851px){.workspace-heading{padding:18px}.context-library{padding:20px 13px}.context-document{padding:21px 18px}.context-workspace{grid-template-columns:.85fr 1.15fr}.context-resource{gap:7px}.context-document h3{font-size:16px}.followup-body,.connected-en .followup-body{grid-template-columns:1fr}.action-sheet{border-right:0;border-bottom:1px solid var(--ca-line)}.action-sheet>div:not(.owner-confirmation){margin-top:14px}.crm-timeline{padding-top:18px}.timeline-record{display:block;width:auto}.api-request{padding:22px 18px;gap:8px;grid-template-columns:1.6fr 28px 1fr}.request-text>strong{font-size:14px}.connected-en .context-workspace{grid-template-columns:1fr}.connected-en .context-library{display:grid;grid-template-columns:1fr 1fr;gap:14px;border-right:0;border-bottom:1px solid var(--ca-line)}.connected-en .resource-label{grid-column:1/-1;margin:0}.connected-en .context-resource{margin:0}}
+@media(max-width:580px){.workspace-heading{padding:18px;gap:10px}.workspace-heading>strong{font-size:15px}.protocol-label{font-size:10px}.context-workspace,.connected-en .context-workspace{grid-template-columns:1fr}.context-library,.connected-en .context-library{display:grid;grid-template-columns:1fr 1fr;gap:17px 14px;padding:20px;border-right:0;border-bottom:1px solid var(--ca-line)}.resource-label{grid-column:1/-1;margin:0}.context-resource{margin:0;gap:9px}.context-resource strong,.connected-en .context-resource strong{font-size:14px}.context-document,.connected-en .context-document{padding:24px}.context-document h3,.connected-en .context-document h3{font-size:19px}.context-document .task-content{font-size:14px}.context-link{font-size:12px}.followup-body,.connected-en .followup-body{grid-template-columns:1fr}.action-sheet,.connected-en .action-sheet{padding:23px;border-right:0;border-bottom:1px solid var(--ca-line)}.action-sheet strong{font-size:14px}.crm-timeline,.connected-en .crm-timeline{padding:23px}.timeline-record p{font-size:13px}.owner-confirmation,.saved-state{font-size:11px}.conversation-source{padding:22px}.conversation-source p{font-size:14px}.api-request{padding:23px 20px;gap:6px;grid-template-columns:1.8fr 27px 1fr}.request-text>strong{font-size:14px}.attachment{font-size:10px}.employee-end strong{font-size:12px}.api-identity{padding:14px 20px}.api-response{padding:23px 20px}.result-document{padding:13px}.result-document strong{font-size:13px}.return-values{gap:12px}.connected-hero{width:100%}}
+</style>

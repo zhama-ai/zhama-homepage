@@ -1,0 +1,24 @@
+{
+  "duration": 18,
+  "assertions": [
+    {
+      "kind": "appearsBy",
+      "selector": ".user-message",
+      "bySec": 4.1
+    },
+    {
+      "kind": "before",
+      "a": ".user-message",
+      "b": ".report"
+    },
+    {
+      "kind": "before",
+      "a": ".report",
+      "b": ".receipt"
+    },
+    {
+      "kind": "staysInFrame",
+      "selector": ".app"
+    }
+  ]
+}

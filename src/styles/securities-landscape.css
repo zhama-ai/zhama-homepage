@@ -1,0 +1,116 @@
+.industry-solution.industry-solution-securities {
+  --industry-accent: #bed3ef;
+  background: #0b1729;
+}
+
+.industry-solution.industry-solution-securities .banking-hero {
+  background: #15263a;
+}
+
+.industry-solution.industry-solution-securities .banking-banner-background {
+  object-position: 66% center;
+  filter: saturate(.78);
+}
+
+.industry-solution.industry-solution-securities .banking-hero::before {
+  background: linear-gradient(90deg, #061221e8 0%, #102038bd 34%, #13253e4d 67%, #13253e38), linear-gradient(0deg, #0b1729, #0b172900 26%);
+}
+
+.industry-solution.industry-solution-securities .banking-feature-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #101f33;
+}
+
+.industry-solution.industry-solution-securities .banking-feature-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.industry-solution.industry-solution-securities .banking-feature-section:nth-of-type(2)::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(90deg, #101f33 2%, #101f33eb 36%, #101f335c 100%), url('/images/solutions/securities/securities-financial-city_V1.1.webp') right 78% / cover no-repeat;
+  opacity: .42;
+  pointer-events: none;
+}
+
+.industry-solution.industry-solution-securities .banking-feature-section:nth-of-type(3) {
+  background: #e3eaf0;
+}
+
+.industry-solution.industry-solution-securities .banking-feature-section:nth-of-type(3)::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 0 48%;
+  background: url('/images/solutions/securities/securities-financial-city_V1.1.webp') right 30% / cover no-repeat;
+  opacity: .085;
+  mask-image: linear-gradient(90deg, transparent, #000 70%);
+  pointer-events: none;
+}
+
+.industry-solution.industry-solution-securities .banking-feature-section:nth-of-type(3) .banking-feature-copy h2 {
+  color: #203b55;
+}
+
+.industry-solution.industry-solution-securities .banking-feature-section:nth-of-type(3) .banking-feature-details dd {
+  color: #4c6375;
+}
+
+.industry-solution.industry-solution-securities .banking-feature-section:nth-of-type(3) .banking-feature-details dt {
+  color: #496a88;
+}
+
+.industry-solution.industry-solution-securities .banking-feature-section:nth-of-type(3) .rule-mapping h4 {
+  color: #74623e;
+}
+
+.industry-solution.industry-solution-securities .banking-feature-section:nth-of-type(3) .rule-mapping li {
+  color: #52687b;
+}
+
+.industry-solution.industry-solution-securities .banking-feature-section:nth-of-type(3) .rule-mapping svg {
+  color: #79745d;
+}
+
+.industry-solution.industry-solution-securities .banking-feature-section:nth-of-type(4) {
+  background: #13243a;
+}
+
+.industry-solution.industry-solution-securities .banking-feature-section:nth-of-type(4)::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0 45% 0 0;
+  background: url('/images/solutions/securities/securities-landscape_V1.0.webp') center / cover no-repeat;
+  opacity: .1;
+  mask-image: linear-gradient(90deg, #000, transparent);
+  pointer-events: none;
+}
+
+.industry-solution.industry-solution-securities .banking-scenarios {
+  background: radial-gradient(ellipse at 72% 12%, #27446055, transparent 65%), #0c192c;
+}
+
+.industry-solution.industry-solution-securities .banking-deployment {
+  background: #1a2c43;
+}
+
+@media (max-width: 600px) {
+  .industry-solution.industry-solution-securities .banking-banner-background {
+    object-position: 62% center;
+  }
+
+  .industry-solution.industry-solution-securities .banking-hero::before {
+    background: linear-gradient(90deg, #061221df, #102038b8 70%), linear-gradient(0deg, #0b1729, transparent 45%);
+  }
+
+  .industry-solution.industry-solution-securities .banking-feature-section:nth-of-type(2)::before {
+    opacity: .22;
+    background-position: 75% center;
+  }
+}

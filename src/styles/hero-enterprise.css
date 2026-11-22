@@ -1,0 +1,215 @@
+/* Homepage banners use one restrained enterprise-product surface system. */
+.is-home .home-value-edition .hero-carousel {
+  --hero-shell: #11171e;
+  --hero-surface: #171e26;
+  --hero-surface-raised: #1d2630;
+  --hero-edge: rgb(255 255 255 / 10%);
+  --hero-edge-strong: rgb(255 255 255 / 16%);
+  --hero-copy: #e7edf3;
+  --hero-muted: #93a0ad;
+  --hero-accent: #4b96df;
+  background:
+    radial-gradient(ellipse 42% 70% at 78% 46%, rgb(42 76 107 / 18%), transparent 72%),
+    linear-gradient(180deg, #090d12 0%, #0d1319 72%, var(--page-canvas) 100%);
+}
+
+/* Remove the synthetic space motif while retaining a small amount of depth. */
+.is-home .hero-carousel .hero-deep-space .hero-nebula,
+.is-home .hero-carousel .hero-deep-space .hero-fiber-field,
+.is-home .hero-carousel .hero-deep-space .hero-star {
+  display: none;
+}
+.is-home .hero-carousel .hero-deep-space > svg {
+  opacity: .12;
+}
+.is-home .hero-carousel .hero-deep-space .hero-far-stars circle {
+  fill: #a9b7c4;
+  opacity: .16 !important;
+}
+.is-home .hero-carousel .hero-visual-stage > .home-product-frame,
+.is-home .hero-carousel .hero-visual-stage .execution-concept,
+.is-home .hero-carousel .hero-visual-stage .banner-outcomes-visual {
+  transform: none !important;
+}
+.is-home .hero-carousel[data-carousel-transitioning='false'] .hero-slide.is-active {
+  will-change: auto;
+}
+
+/* Team workspace */
+.is-home .hero-carousel .hero-team-composition {
+  --workspace-surface: var(--hero-surface);
+  --workspace-edge: var(--hero-edge);
+  --workspace-shadow: none;
+}
+.is-home .hero-carousel .hero-team-composition::before {
+  background: none;
+}
+.is-home .hero-carousel .hero-team-composition .team-window {
+  overflow: hidden;
+  border: 1px solid var(--hero-edge-strong);
+  background: var(--hero-shell);
+  box-shadow: 0 24px 56px rgb(0 0 0 / 42%);
+}
+.is-home .hero-carousel .hero-team-composition .team-window-bar {
+  background: #1b222a;
+  color: #aeb8c2;
+}
+.is-home .hero-carousel .hero-team-composition .team-app-mark svg,
+.is-home .hero-carousel .hero-team-composition .team-rail-brand {
+  color: #7db1df;
+}
+.is-home .hero-carousel .hero-team-composition .team-rail {
+  background: #0f151b;
+}
+.is-home .hero-carousel .hero-team-composition .team-content {
+  background: #131a21;
+}
+.is-home .hero-carousel .hero-team-composition .team-rail-item.is-current {
+  color: #d5e7f6;
+  background: #263748;
+  box-shadow: none;
+}
+.is-home .hero-carousel .hero-team-composition .team-employees > button {
+  border-color: var(--hero-edge);
+  background: #1a222b;
+  box-shadow: none;
+}
+.is-home .hero-carousel .hero-team-composition .team-employees > button[aria-selected='true'] {
+  transform: none;
+  border-color: #6d8eaa;
+  background: #dce6ee;
+  color: #162432;
+  box-shadow: 0 8px 18px rgb(0 0 0 / 24%);
+}
+.is-home .hero-carousel .hero-team-composition .team-employee-icon,
+.is-home .hero-carousel .hero-team-composition .team-employees > button:nth-child(n) .team-employee-icon {
+  color: #8fb9dc;
+  background: #25313d;
+}
+.is-home .hero-carousel .hero-team-composition .team-employees > button[aria-selected='true'] .team-employee-icon {
+  color: #2c628e;
+  background: #c9d8e4;
+}
+.is-home .hero-carousel .hero-team-composition .team-employees > button[aria-selected='true'] small {
+  color: #4b6072;
+}
+.is-home .hero-carousel .hero-team-composition .business-dashboard {
+  --chart-sage: #63a7dd;
+  --chart-gold: #77b9a3;
+  --chart-slate: #8996aa;
+  --data-subscription: #63a7dd;
+  --data-delivery: #77b9a3;
+  --data-channel: #8996aa;
+  color: var(--hero-copy);
+}
+.is-home .hero-carousel .hero-team-composition .analytics-metrics > div,
+.is-home .hero-carousel .hero-team-composition .analytics-metrics > div:nth-child(n),
+.is-home .hero-carousel .hero-team-composition .analytics-panel,
+.is-home .hero-carousel .hero-team-composition .team-process,
+.is-home .hero-carousel .hero-team-composition .team-document,
+.is-home .hero-carousel .hero-team-composition .team-files > div {
+  border-color: var(--hero-edge);
+  background: var(--hero-surface);
+  box-shadow: none;
+}
+.is-home .hero-carousel .hero-team-composition .analytics-metrics > div:first-child {
+  transform: none;
+  border-color: rgb(99 167 221 / 38%);
+  background: #1c2a36;
+  box-shadow: none;
+}
+.is-home .hero-carousel .hero-team-composition .analytics-insights {
+  margin-inline: 0;
+  transform: none;
+  border-color: rgb(99 167 221 / 26%);
+  background: #1b2a36;
+  box-shadow: none;
+}
+.is-home .hero-carousel .hero-team-composition .chart-dot:last-of-type {
+  filter: none;
+}
+
+/* Cross-system task workspace: the animation already owns its application frame. */
+.is-home .hero-carousel .execution-concept {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Recurring work */
+.is-home .hero-carousel .hero-visual-stage .banner-outcomes-visual[data-duty-visual] {
+  border: 1px solid var(--hero-edge-strong);
+  border-radius: 11px;
+  background: var(--hero-shell);
+  box-shadow: 0 24px 56px rgb(0 0 0 / 42%);
+}
+.is-home .hero-carousel .banner-outcomes-visual[data-duty-visual] .duty-workspace::before {
+  content: none;
+}
+.is-home .hero-carousel .banner-outcomes-visual[data-duty-visual] .duty-window-heading,
+.is-home .hero-carousel .banner-outcomes-visual[data-duty-visual] .duty-employee,
+.is-home .hero-carousel .banner-outcomes-visual[data-duty-visual] .duty-dayline,
+.is-home .hero-carousel .banner-outcomes-visual[data-duty-visual] .duty-assignments,
+.is-home .hero-carousel .banner-outcomes-visual[data-duty-visual] .duty-assignments > li[data-current='true'],
+.is-home .hero-carousel .banner-outcomes-visual[data-duty-visual] .duty-results {
+  transform: none;
+}
+.is-home .hero-carousel .banner-outcomes-visual[data-duty-visual] .duty-window-heading {
+  padding-inline: 24px;
+  padding-top: 16px;
+}
+.is-home .hero-carousel .banner-outcomes-visual[data-duty-visual] .duty-assignments > li[data-current='true'] {
+  border-color: var(--hero-edge);
+  background: #1d2832;
+  box-shadow: none;
+}
+.is-home .hero-carousel .banner-outcomes-visual[data-duty-visual] .duty-results {
+  border-left: 1px solid var(--hero-edge);
+  padding-left: 21px;
+}
+.is-home .hero-carousel .banner-outcomes-visual[data-duty-visual] .duty-results::before {
+  content: none;
+}
+.is-home .hero-carousel .banner-outcomes-visual[data-duty-visual] .duty-result {
+  padding-bottom: 0;
+}
+.is-home .hero-carousel .banner-outcomes-visual[data-duty-visual] .duty-delivery {
+  position: static;
+  min-height: 25px;
+  padding: 8px 0 0;
+  border: 0;
+  border-top: 1px solid var(--hero-edge);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.is-home .hero-carousel .duty-dayline-position,
+.is-home .hero-carousel .duty-process [data-current='true'] i,
+.is-home .hero-carousel .duty-online > i {
+  box-shadow: none;
+}
+.is-home .hero-carousel .duty-bars > div > i,
+.is-home .hero-carousel .duty-bars > div:nth-child(3) > i,
+.is-home .hero-carousel .duty-bars > div:nth-child(4) > i {
+  background: #668ba6;
+  box-shadow: none;
+}
+
+@media (max-width: 700px) {
+  .is-home .hero-carousel .hero-visual-stage > .home-product-frame,
+  .is-home .hero-carousel .hero-visual-stage .execution-concept,
+  .is-home .hero-carousel .hero-visual-stage .banner-outcomes-visual {
+    transform: none;
+  }
+  .is-home .hero-carousel .banner-outcomes-visual[data-duty-visual] .duty-results {
+    border-left: 0;
+    padding-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .is-home .hero-carousel .hero-team-composition .team-employees > button {
+    transition: none;
+  }
+}

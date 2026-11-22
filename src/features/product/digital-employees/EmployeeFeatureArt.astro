@@ -1,0 +1,23 @@
+---
+import type { Locale } from '../../../data/types';
+import EmployeeWorkspaceArt from './EmployeeWorkspaceArt.astro';
+import EmployeeRecruitmentArt from './EmployeeRecruitmentArt.astro';
+import EmployeeContinuityArt from './EmployeeContinuityArt.astro';
+interface Props { locale: Locale; scene: 'work' | 'recruit' | 'continuity'; }
+const { locale, scene } = Astro.props;
+const zh = locale === 'zh';
+const descriptions = {
+  work: zh ? '数字员工组成示意图：财务核算专员由岗位职责、Agent 执行、专业技能与工作区共同组成。职责文件展开身份、行为、工作与工具规则；主 Agent 可按需要与核算、复核等子 Agent 协作。工作区保存文件、会话与业务成果，工作记忆按使用者隔离，企业知识、插件与业务系统按配置与授权接入。' : 'A digital employee consists of role responsibilities, Agent execution, specialist skills and a workspace. Role files define identity, conduct, collaboration and tool rules. A main Agent can work with accounting and review subagents as needed. The workspace holds files, conversations and deliverables; work memory is isolated by user. Knowledge, plugins and systems connect with authorization.',
+  recruit: zh ? '左侧标书专员模板包含岗位职责、Agent 配置、专业技能与工作文件。招募后可按业务需要配置为软件售前投标专员、工程项目投标专员、设备供货标书助理、运维服务标书助理，分别承接业务系统建设、园区改造工程、生产设备供货、信息系统运维投标。各员工沿用招标解读与标书编制能力，并拥有独立工作区。' : 'A bid specialist template contains role responsibilities, Agent configuration, specialist skills, and work files. Recruited employees can be configured for software, construction, equipment supply, and IT operations bids. Each reuses tender analysis and bid writing capabilities and has an independent workspace.',
+  continuity: zh ? '项目负责人在会话中交办本周周报并附进度表和编制规范，项目周报专员回复接收任务、整理资料并回交草稿。负责人反馈继续沿用测试环境进度口径、跟进迁移窗口。每周五的下一轮任务带入最新进度表，以及工作记忆中的已确认口径与待跟进事项，继续由同一数字员工处理。' : 'The project owner assigns a weekly report with progress files and reporting rules. The digital employee acknowledges the assignment and returns a draft. The owner confirms the test-environment scope and asks for a follow-up on the migration window. The next scheduled run brings fresh progress data and retained context back to the same employee.',
+};
+---
+<div class:list={['employee-feature-art', `feature-art-${scene}`]} role="img" aria-label={descriptions[scene]}>
+  {scene === 'work' && <EmployeeWorkspaceArt locale={locale}/>}
+  {scene === 'recruit' && <EmployeeRecruitmentArt locale={locale}/>}
+  {scene === 'continuity' && <EmployeeContinuityArt locale={locale}/>}
+</div>
+
+<style>
+  .employee-feature-art { width:100%; min-width:0; color:#dce7ed; }
+</style>

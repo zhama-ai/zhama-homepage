@@ -1,0 +1,143 @@
+/*
+ * 官网主题按钮的唯一视觉入口。调整全站颜色、圆角、阴影与交互，只改本文件。
+ * 新增 CTA 使用 class="button"；次操作加 button-outline，小尺寸加 button-small。
+ * capability-button / dei-button 为既有模板兼容类，新页面不要再创建主题类。
+ * 页面 CSS 只保留尺寸、字号、间距和布局，不覆盖颜色、背景、边框、圆角、
+ * 阴影、滤镜、焦点或悬停效果，也不要在页面重新定义 --action-* / --button-*。
+ * 价格方案按钮默认描边，仅悬停或键盘聚焦高亮；导航、Tab、筛选、轮播和二维码
+ * 等功能控件保留各自样式，不应为了统一主题而改成营销 CTA。
+ * tests/action-buttons.test.mjs 同时覆盖静态入口和脚本生成的下载入口。
+ */
+:root {
+  --action-radius: 999px;
+  --action-surface: #0071e3;
+  --action-surface-hover: #0077ed;
+  --action-border: transparent;
+  --action-border-hover: transparent;
+  --action-ink: #fff;
+  --action-shadow: 0 8px 20px -6px #000b2499;
+  --action-shadow-hover: 0 12px 24px -6px #000b24b3;
+  --action-shadow-active: 0 3px 8px -3px #000b2473;
+  --action-secondary-surface: transparent;
+  --action-secondary-surface-hover: #0071e3;
+  --action-secondary-border: #67aaf099;
+  --action-secondary-border-hover: transparent;
+  --action-focus: #2997ff;
+}
+
+:is(.button, .capability-button, .dei-button) {
+  --button-surface: var(--action-surface);
+  --button-surface-hover: var(--action-surface-hover);
+  --button-border: var(--action-border);
+  --button-border-hover: var(--action-border-hover);
+  --button-ink: var(--action-ink);
+  --button-ink-hover: var(--action-ink);
+  --button-shadow: var(--action-shadow);
+  --button-shadow-hover: var(--action-shadow-hover);
+  --button-shadow-active: var(--action-shadow-active);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 46px;
+  padding: 0 24px;
+  border: 1px solid var(--button-border);
+  border-radius: var(--action-radius);
+  background: var(--button-surface);
+  color: var(--button-ink);
+  box-shadow: var(--button-shadow);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: none;
+  cursor: pointer;
+  transform: none;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.button-small {
+  min-height: 38px;
+  padding-inline: 20px;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.button svg {
+  transition: transform .2s ease;
+}
+
+.button:not(:where(:disabled, [aria-disabled='true'])):hover svg {
+  transform: translateX(3px);
+}
+
+:is(.button-white, .button-outline, .button-subtle, .pricing-plan-action, .dei-button-outline) {
+  --button-surface: var(--action-secondary-surface);
+  --button-surface-hover: var(--action-secondary-surface-hover);
+  --button-border: var(--action-secondary-border);
+  --button-border-hover: var(--action-secondary-border-hover);
+  --button-shadow: none;
+  --button-shadow-hover: none;
+  --button-shadow-active: none;
+}
+
+.button-light {
+  --button-surface: #f5f5f7;
+  --button-surface-hover: #fff;
+  --button-border: transparent;
+  --button-border-hover: transparent;
+  --button-ink: #1d1d1f;
+  --button-ink-hover: #1d1d1f;
+}
+
+.pricing-plan-action {
+  --button-surface: transparent;
+  --button-surface-hover: var(--action-surface-hover);
+  --button-border-hover: var(--action-border-hover);
+  --button-shadow-hover: var(--action-shadow-hover);
+}
+
+:is(.button, .capability-button, .dei-button):not(:where(:disabled, [aria-disabled='true'])):is(:hover, :focus-visible) {
+  background: var(--button-surface-hover);
+  border-color: var(--button-border-hover);
+  color: var(--button-ink-hover);
+  box-shadow: var(--button-shadow-hover);
+}
+
+:is(.button, .capability-button, .dei-button):focus-visible {
+  outline: 2px solid var(--action-focus);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :is(.button, .capability-button, .dei-button):not(:where(.pricing-plan-action, :disabled, [aria-disabled='true'])):hover {
+    transform: translateY(-2px);
+  }
+}
+
+:is(.button, .capability-button, .dei-button):not(:where(:disabled, [aria-disabled='true'])):active {
+  box-shadow: var(--button-shadow-active);
+  transform: translateY(0);
+}
+
+:is(.button, .capability-button, .dei-button):is(:disabled, [aria-disabled='true']) {
+  opacity: .5;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* A shared display value must never reveal a control hidden by its native state. */
+:is(.button, .capability-button, .dei-button)[hidden] {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.button, .capability-button, .dei-button), .button svg {
+    transition: none;
+  }
+  :is(.button, .capability-button, .dei-button):is(:hover, :active), .button:hover svg {
+    transform: none;
+  }
+}

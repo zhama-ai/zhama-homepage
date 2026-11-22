@@ -1,0 +1,19 @@
+/* Each neighboring content section contributes half of the shared vertical gap. */
+:root {
+  --section-space: 64px;
+  --section-hero-tail: 96px;
+}
+
+@media (max-width: 1100px) {
+  :root {
+    --section-space: 48px;
+    --section-hero-tail: 80px;
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --section-space: 40px;
+    --section-hero-tail: 72px;
+  }
+}

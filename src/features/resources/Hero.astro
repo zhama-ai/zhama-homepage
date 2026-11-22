@@ -1,0 +1,5 @@
+---
+interface Props { title: string; compact?: boolean; }
+const { title, compact = false } = Astro.props;
+---
+<header class:list={['support-hero', { 'support-hero-compact': compact }]}><div class="container"><h1>{title}</h1><slot/></div></header>

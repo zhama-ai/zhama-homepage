@@ -1,0 +1,358 @@
+---
+import type { Locale } from '../../../data/types';
+interface Props { locale: Locale; index: number; }
+const { locale, index } = Astro.props;
+const zh = locale === 'zh';
+const copy = zh ? {
+  cycle: [
+    { stage: '预算与经营', employee: '经营分析', output: '经营审议与督办清单' },
+    { stage: '采购 / 投标', employee: '采购审查 · 投标响应', output: '审查清单 / 响应证据' },
+    { stage: '合同履约', employee: '履约跟进 · 成本分析', output: '履约台账与变更影响' },
+    { stage: '现场整改', employee: '整改核对', output: '证据复核与责任交接' },
+  ],
+  profile: '经营计划与执行剖面', operationsEmployee: 'TeGo · 集团经营数字员工',
+  plan: '集团经营计划', planFields: [
+    { title: '目标口径', value: '回款 · 成本 · 项目节点' },
+    { title: '管理范围', value: '所属单位 · 重点项目' },
+    { title: '执行依据', value: '预算、合同与现场记录' },
+  ],
+  execution: '单位 × 项目 × 合同', traces: [
+    { title: '收入回款', comparison: '回款计划 ↔ 收款记录', result: '合同回款节点与延期原因' },
+    { title: '项目投入', comparison: '目标成本 ↔ 采购与变更', result: '投入差异与工程变更影响' },
+    { title: '交付节点', comparison: '计划里程碑 ↔ 履约反馈', result: '现场偏差与待协调事项' },
+  ],
+  site: ['设备交付', '项目现场', '合同节点'], handoff: ['经营会议审议', '单位 / 项目责任', '协调事项接续督办'],
+  buyer: '采购方审查', buyerEmployee: 'TeGo · 招采审查数字员工',
+  buyerItems: [
+    { title: '采购需求', body: '需求、预算与采购范围对应', evidence: '需求清单 ↔ 采购文件' },
+    { title: '文件与评审', body: '技术商务要求与评审要素核对', evidence: '采购标准 ↔ 评审条款' },
+    { title: '审查交接', body: '问题位置、适用依据与修改事项', evidence: '审查清单 → 采购责任岗位' },
+  ],
+  buyerAuthority: '采购审查意见、评审与定标由有权岗位确认',
+  bidder: '投标方响应', bidderEmployee: 'TeGo · 投标响应数字员工',
+  responseTitle: '条款、响应与证明成套对应', bidderItems: [
+    { title: '资格条件', response: '资格响应位置', evidence: '资质与授权证明' },
+    { title: '技术要求', response: '技术方案对应章节', evidence: '方案、产品与实施依据' },
+    { title: '商务条款', response: '商务响应与偏离', evidence: '报价口径与履约承诺' },
+  ],
+  response: '响应位置', proof: '证明依据', gaps: '未覆盖响应 · 缺失证明 · 前后口径差异',
+  bidderAuthority: '投标口径与对外承诺由有权岗位确认',
+  contract: '合同履约基线', terms: ['交付清单', '验收条件', '工期节点', '变更约定'],
+  register: '合同履约与现场责任台账', registerEmployee: 'TeGo · 履约、成本与整改数字员工',
+  headers: ['核对对象', '关联依据', 'TeGo 作业', '责任交接'],
+  ledger: [
+    { object: '设备交付', basis: '合同设备清单 / 到货记录', work: '核对规格、交付范围与验收条件', owner: '采购与验收岗位', next: '到货差异与待验收事项' },
+    { object: '工程变更', basis: '原合同 / 变更单 / 成本记录', work: '关联合同范围、成本与工期影响', owner: '项目与成本岗位', next: '变更影响与待核实依据' },
+    { object: '履约节点', basis: '合同里程碑 / 现场进展', work: '识别计划与执行差异，整理协调事项', owner: '项目责任岗位', next: '节点偏差与后续协调' },
+    { object: '安全整改', basis: '整改要求 / 措施反馈 / 证明材料', work: '核对责任、时限与反馈证据', owner: '安全与现场岗位', next: '补正事项与专业复查' },
+  ],
+  package: '责任交接包', packageItems: ['本期差异与影响', '合同 / 现场证据引用', '责任岗位与后续节点', '待验收 / 待复查事项'],
+  fieldAuthority: '项目岗位确认履约验收，安全岗位复核整改销号',
+} : {
+  cycle: [
+    { stage: 'Budget & operations', employee: 'Operating analysis', output: 'Management review and follow-up' },
+    { stage: 'Procure / bid', employee: 'Buyer review · Bid response', output: 'Review findings / Response proof' },
+    { stage: 'Contract delivery', employee: 'Delivery · Cost analysis', output: 'Delivery register and change impacts' },
+    { stage: 'Site remediation', employee: 'Action verification', output: 'Evidence review and handover' },
+  ],
+  profile: 'Operating plan and execution cross-section', operationsEmployee: 'TeGo · Group Operations Digital Employee',
+  plan: 'Group operating plan', planFields: [
+    { title: 'Target definitions', value: 'Collections · Costs · Milestones' },
+    { title: 'Management scope', value: 'Group units · Key projects' },
+    { title: 'Execution evidence', value: 'Budgets, contracts and field records' },
+  ],
+  execution: 'Units × Projects × Contracts', traces: [
+    { title: 'Collections', comparison: 'Collection plan ↔ Receipt records', result: 'Contract payment milestones and delay causes' },
+    { title: 'Project spending', comparison: 'Target costs ↔ Procurement and changes', result: 'Spending differences and change impacts' },
+    { title: 'Delivery milestones', comparison: 'Planned milestones ↔ Delivery feedback', result: 'Field differences and coordination needs' },
+  ],
+  site: ['Equipment delivery', 'Project site', 'Contract milestones'], handoff: ['Management review', 'Unit / Project owners', 'Continued accountable follow-up'],
+  buyer: 'Buyer-side review', buyerEmployee: 'TeGo · Procurement Review Digital Employee',
+  buyerItems: [
+    { title: 'Procurement requirements', body: 'Align requirements, budget and procurement scope', evidence: 'Requirement list ↔ Procurement files' },
+    { title: 'Files and evaluation', body: 'Check technical, commercial and evaluation elements', evidence: 'Procurement standards ↔ Evaluation provisions' },
+    { title: 'Review handover', body: 'Locate findings, supporting rules and revision actions', evidence: 'Review checklist → Procurement owner' },
+  ],
+  buyerAuthority: 'Authorized teams confirm opinions, evaluation and awards',
+  bidder: 'Bidder-side response', bidderEmployee: 'TeGo · Bid Response Digital Employee',
+  responseTitle: 'Connect provisions, responses and evidence', bidderItems: [
+    { title: 'Qualifications', response: 'Eligibility response location', evidence: 'Credentials and authorization' },
+    { title: 'Technical requirements', response: 'Corresponding technical chapters', evidence: 'Solution, product and delivery evidence' },
+    { title: 'Commercial provisions', response: 'Commercial response and deviations', evidence: 'Pricing definitions and delivery commitments' },
+  ],
+  response: 'Response location', proof: 'Supporting evidence', gaps: 'Unanswered items · Missing proof · Inconsistent definitions',
+  bidderAuthority: 'Authorized teams confirm bid statements and commitments',
+  contract: 'Contract delivery baseline', terms: ['Delivery schedules', 'Acceptance criteria', 'Milestones', 'Change provisions'],
+  register: 'Contract delivery and field accountability register', registerEmployee: 'TeGo · Delivery, Cost and Remediation Digital Employees',
+  headers: ['Control object', 'Linked evidence', 'TeGo work', 'Accountable handover'],
+  ledger: [
+    { object: 'Equipment delivery', basis: 'Contract equipment list / Receipt records', work: 'Compare specifications, delivery scope and acceptance criteria', owner: 'Procurement and acceptance teams', next: 'Delivery differences and acceptance actions' },
+    { object: 'Engineering changes', basis: 'Original contract / Change orders / Cost records', work: 'Connect contract scope, cost and schedule impacts', owner: 'Project and cost teams', next: 'Change impacts and evidence to verify' },
+    { object: 'Delivery milestones', basis: 'Contract milestones / Field progress', work: 'Locate plan-to-actual differences and coordination needs', owner: 'Accountable project teams', next: 'Milestone differences and next actions' },
+    { object: 'Safety remediation', basis: 'Action requirements / Feedback / Supporting records', work: 'Check owners, deadlines and remediation evidence', owner: 'Safety and field teams', next: 'Corrections and specialist review' },
+  ],
+  package: 'Accountability handover pack', packageItems: ['Current differences and impacts', 'Contract / Field evidence references', 'Owners and next milestones', 'Acceptance / Review actions'],
+  fieldAuthority: 'Project teams confirm acceptance; safety teams verify remediation closure',
+};
+---
+
+<div class:list={['soe-visual', `soe-visual-${index}`, { 'soe-visual-en': !zh }]}>
+  {index === -1 && <ol class="lifecycle-axis">
+    {copy.cycle.map((stage, stageIndex) => <li>
+      <span class="cycle-joint" aria-hidden="true"><svg viewBox="0 0 22 22" fill="none">{stageIndex === 0 ? <path d="M4 3h14v16H4zM7 7h8M7 11h8m-8 4h5"/> : stageIndex === 1 ? <path d="M3 6h16v13H3zM7 6V3h8v3M3 11h16M9 9v4h4V9"/> : stageIndex === 2 ? <path d="M4 3h14v16H4zM7 7h8m-8 4h4m2 2 2 2 4-5"/> : <path d="m11 2 8 3v6c0 4-5 7-8 9-3-2-8-5-8-9V5l8-3Zm-4 9 3 3 5-6"/>}</svg></span>
+      <h3>{stage.stage}</h3>
+      <div class="cycle-executor"><strong>TeGo</strong><span>{stage.employee}</span></div>
+      <p>{stage.output}</p>
+    </li>)}
+  </ol>}
+
+  {index === 0 && <div class="budget-profile">
+    <div class="profile-heading"><h3>{copy.profile}</h3><span>{copy.operationsEmployee}</span></div>
+    <div class="budget-cross-section">
+      <div class="baseline-sheet">
+        <span class="sheet-symbol" aria-hidden="true"><svg viewBox="0 0 26 28" fill="none"><path d="M5 2h11l5 5v19H5zM16 2v6h5M9 12h8M9 17h8m-8 5h5"/></svg></span>
+        <h4>{copy.plan}</h4>
+        <dl>{copy.planFields.map(field => <div><dt>{field.title}</dt><dd>{field.value}</dd></div>)}</dl>
+      </div>
+      <div class="execution-cutaway">
+        <h4>{copy.execution}</h4>
+        <div class="execution-traces">{copy.traces.map(trace => <div class="execution-trace"><h5>{trace.title}</h5><p>{trace.comparison}</p><span>{trace.result}</span></div>)}</div>
+        <div class="industrial-section" aria-hidden="true"><svg viewBox="0 0 760 100" fill="none" preserveAspectRatio="xMidYMid meet"><path d="M12 85h736M35 84V39h84v45M39 39V21h13v18m16 0V21h13v18m16 0V21h13v18M149 85V34h46v51m-45-38h44m-45 18h44M224 85V20h159v65m-159-44h159m-159 22h159m-132-43v65m45-65v65m44-65v65M413 85V49h98v36m-98-36 49-26 49 26m-72 16h47M537 85V28h24v57m-24-42h24m-24 22h24M594 85V44h120v41m-121-41 61-25 61 25m-101 18h78M119 55h30m46 0h29m159 0h30m98 0h26m24 0h33"/><path class="section-foundation" d="M31 86v8h92v-8m21 0v8h56v-8m20 0v8h168v-8m20 0v8h108v-8m16 0v8h34v-8m23 0v8h130v-8"/></svg></div>
+        <div class="site-captions">{copy.site.map(site => <span>{site}</span>)}</div>
+      </div>
+    </div>
+    <div class="budget-handoff">{copy.handoff.map((item, itemIndex) => <><span>{item}</span>{itemIndex < copy.handoff.length - 1 && <svg viewBox="0 0 22 16" fill="none" aria-hidden="true"><path d="M2 8h18m-5-5 5 5-5 5"/></svg>}</>)}</div>
+  </div>}
+
+  {index === 1 && <div class="commercial-tracks">
+    <div class="buyer-track">
+      <div class="track-heading"><h3>{copy.buyer}</h3><span>{copy.buyerEmployee}</span></div>
+      <ol class="buyer-checkpoints">{copy.buyerItems.map(item => <li><span class="checkpoint-joint" aria-hidden="true"></span><h4>{item.title}</h4><p>{item.body}</p><div>{item.evidence}</div></li>)}</ol>
+      <div class="authority-handoff"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 17v-5h6v5m2 0v-8h6v8M6 12V4h8v5M6 7h8M1 17h18"/></svg><span>{copy.buyerAuthority}</span></div>
+    </div>
+    <div class="bidder-track">
+      <div class="track-heading"><h3>{copy.bidder}</h3><span>{copy.bidderEmployee}</span></div>
+      <div class="response-sheet"><h4>{copy.responseTitle}</h4><div class="response-clauses">{copy.bidderItems.map(item => <div class="response-clause"><h5>{item.title}</h5><dl><div><dt>{copy.response}</dt><dd>{item.response}</dd></div><div><dt>{copy.proof}</dt><dd>{item.evidence}</dd></div></dl></div>)}</div><div class="response-gaps">{copy.gaps}</div></div>
+      <div class="authority-handoff"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 2h8l4 4v12H4zM12 2v4h4M7 10h6M7 14h4"/></svg><span>{copy.bidderAuthority}</span></div>
+    </div>
+  </div>}
+
+  {index === 2 && <div class="contract-handover">
+    <div class="contract-baseline"><span class="contract-icon" aria-hidden="true"><svg viewBox="0 0 26 28" fill="none"><path d="M5 2h11l5 5v19H5zM16 2v6h5M9 12h8M9 17h8m-8 5h5"/></svg></span><h3>{copy.contract}</h3><ul>{copy.terms.map(term => <li>{term}</li>)}</ul></div>
+    <div class="delivery-ledger">
+      <div class="ledger-heading"><h3>{copy.register}</h3><span>{copy.registerEmployee}</span></div>
+      <table><thead><tr>{copy.headers.map(header => <th scope="col">{header}</th>)}</tr></thead><tbody>{copy.ledger.map(row => <tr><th scope="row">{row.object}</th><td data-label={copy.headers[1]}>{row.basis}</td><td data-label={copy.headers[2]}>{row.work}</td><td data-label={copy.headers[3]}><strong>{row.owner}</strong><span>{row.next}</span></td></tr>)}</tbody></table>
+    </div>
+    <div class="handover-pack"><h4>{copy.package}</h4><ul>{copy.packageItems.map(item => <li><span aria-hidden="true"></span>{item}</li>)}</ul></div>
+    <div class="field-authority"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="m6 10 3 3 5-6"/></svg><span>{copy.fieldAuthority}</span></div>
+  </div>}
+</div>
+
+<style>
+  .soe-visual { --sv-copper: #c4a178; --sv-text: #c9d0d1; --sv-muted: #96a4ac; width: 100%; container-type: inline-size; font-family: inherit; color: var(--sv-text); font-size: 13px; line-height: 1.7; }
+  .soe-visual *, .soe-visual *::before, .soe-visual *::after { box-sizing: border-box; }
+  .soe-visual h3, .soe-visual h4, .soe-visual h5, .soe-visual p, .soe-visual dl, .soe-visual dd, .soe-visual ol, .soe-visual ul { margin: 0; }
+  .soe-visual h3, .soe-visual h4, .soe-visual h5 { font-weight: 550; line-height: 1.6; overflow-wrap: break-word; }
+  .soe-visual ul, .soe-visual ol { padding: 0; list-style: none; }
+  .soe-visual svg { flex: 0 0 auto; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+  .lifecycle-axis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; padding: 13px 0 0 !important; }
+  .lifecycle-axis li { position: relative; min-width: 0; padding: 10px 28px 7px 0; }
+  .lifecycle-axis li:not(:last-child)::after { content: ''; position: absolute; left: 32px; top: 12px; right: 16px; height: 1px; background: linear-gradient(90deg, #c3ac8273, #9baebd29); }
+  .cycle-joint { display: flex; align-items: center; width: 25px; height: 25px; margin-bottom: 13px; color: #d2b78e; }
+  .cycle-joint svg { width: 23px; height: 23px; }
+  .lifecycle-axis h3 { color: #eee8dc; font-size: 19px; }
+  .cycle-executor { display: flex; align-items: baseline; flex-wrap: wrap; gap: 5px 8px; margin-top: 7px; color: #bdc7c9; font-size: 13px; line-height: 1.6; }
+  .cycle-executor strong { color: #d8bb8f; font-size: 14px; font-weight: 600; }
+  .lifecycle-axis p { margin-top: 7px; color: #9faeb6; font-size: 12px; line-height: 1.7; }
+  .budget-profile { position: relative; padding: 28px 32px 0; color: #3b4950; background: linear-gradient(115deg, #e4e0d2, #d9ddd3 68%, #d3d9d0); border: 1px solid #c2c9c3; border-radius: 3px; box-shadow: 0 22px 45px #120c0740; }
+  .profile-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 15px 35px; }
+  .profile-heading h3 { color: #25373e; font-size: 22px; }
+  .profile-heading > span { color: #65726f; font-size: 13px; }
+  .budget-cross-section { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.8fr); gap: 55px; align-items: start; margin-top: 29px; }
+  .baseline-sheet { position: relative; padding: 22px 24px 25px; background: #f1ece1; border: 1px solid #b9c2bc; box-shadow: -8px 8px 0 #c9cbbc, -9px 9px 0 #aeb9b14f; }
+  .sheet-symbol { position: absolute; right: 22px; top: 23px; display: flex; color: #8f805f; }
+  .sheet-symbol svg { width: 24px; height: 27px; }
+  .baseline-sheet h4 { max-width: calc(100% - 33px); color: #35484c; font-size: 17px; }
+  .baseline-sheet dl { display: grid; gap: 20px; margin-top: 22px; }
+  .baseline-sheet dt { margin-bottom: 6px; color: #7b8175; font-size: 12px; }
+  .baseline-sheet dd { color: #3f5358; font-size: 14px; line-height: 1.7; }
+  .execution-cutaway { min-width: 0; padding-top: 1px; }
+  .execution-cutaway > h4 { color: #51635f; font-size: 14px; letter-spacing: .08em; }
+  .execution-traces { display: grid; gap: 0; margin-top: 13px; }
+  .execution-trace { position: relative; display: grid; grid-template-columns: minmax(0, .45fr) minmax(0, 1.2fr) minmax(0, 1.2fr); gap: 18px; align-items: baseline; padding: 17px 0; border-bottom: 1px solid #9caaa044; }
+  .execution-trace h5 { color: #344e56; font-size: 14px; }
+  .execution-trace p { color: #536a6c; font-size: 13px; line-height: 1.8; }
+  .execution-trace > span { color: #8c6d47; font-size: 13px; line-height: 1.8; }
+  .industrial-section { height: 100px; margin-top: 20px; color: #758b808f; }
+  .industrial-section svg { width: 100%; height: 100%; stroke-width: .85; }
+  .industrial-section .section-foundation { stroke: #71867c; }
+  .site-captions { display: flex; justify-content: space-between; padding-inline: 8%; margin-top: -2px; color: #718078; font-size: 12px; }
+  .budget-handoff { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px 20px; margin: 30px -32px 0; padding: 18px 22px; background: #cbd0c7; color: #53645d; font-size: 13px; }
+  .budget-handoff > span:last-child { color: #79613e; }
+  .budget-handoff svg { width: 22px; height: 16px; color: #8d947c; }
+  .commercial-tracks { display: grid; grid-template-columns: minmax(0, .87fr) minmax(0, 1.13fr); gap: 64px; align-items: start; }
+  .track-heading h3 { color: #e2e4dd; font-size: 26px; }
+  .track-heading > span { display: block; margin-top: 9px; color: #b8aa90; font-size: 13px; line-height: 1.6; }
+  .buyer-checkpoints { position: relative; display: grid; gap: 22px; padding: 0 0 0 26px !important; margin-top: 28px !important; }
+  .buyer-checkpoints::before { content: ''; position: absolute; left: 3px; top: 12px; bottom: 12px; width: 1px; background: #ab94704d; }
+  .buyer-checkpoints li { position: relative; min-width: 0; }
+  .checkpoint-joint { position: absolute; left: -26px; top: 9px; width: 7px; height: 7px; background: #b8a17b; border-radius: 50%; box-shadow: 0 0 0 4px #151e25; }
+  .buyer-checkpoints h4 { color: #d3d9d5; font-size: 16px; }
+  .buyer-checkpoints p { color: #9eafb4; font-size: 13px; line-height: 1.8; margin-top: 5px; }
+  .buyer-checkpoints li > div { width: fit-content; padding: 9px 13px; margin-top: 10px; background: #52625d21; border: 1px solid #84928638; color: #b5c3bc; font-size: 13px; line-height: 1.7; }
+  .authority-handoff { display: flex; gap: 9px; align-items: flex-start; color: #b8ad95; font-size: 12px; line-height: 1.8; margin-top: 27px; }
+  .authority-handoff svg { width: 19px; height: 19px; margin-top: 1px; color: #9f9175; }
+  .bidder-track { padding-top: 0; }
+  .response-sheet { padding: 23px 25px 0; margin-top: 25px; background: linear-gradient(125deg, #e4dfd2, #d9ddd1); color: #34464d; border: 1px solid #b8c1ba; border-radius: 2px; box-shadow: 9px 9px 0 #343a35, 10px 10px 0 #847a6036; }
+  .response-sheet > h4 { color: #33494e; font-size: 17px; }
+  .response-clauses { margin-top: 17px; }
+  .response-clause { display: grid; grid-template-columns: minmax(0, .52fr) minmax(0, 1.4fr); gap: 17px; padding: 16px 0; border-bottom: 1px solid #aeb8ae66; }
+  .response-clause:last-child { border-bottom: 0; }
+  .response-clause h5 { color: #6c795f; font-size: 14px; }
+  .response-clause dl { display: grid; gap: 8px; min-width: 0; }
+  .response-clause dl > div { display: grid; grid-template-columns: 4.7em minmax(0, 1fr); gap: 10px; align-items: baseline; }
+  .response-clause dt { color: #899180; font-size: 12px; }
+  .response-clause dd { color: #405a60; font-size: 13px; line-height: 1.7; }
+  .response-gaps { margin: 8px -25px 0; padding: 15px 22px; color: #806442; background: #cdd1c5; font-size: 12px; line-height: 1.7; }
+  .contract-handover { position: relative; }
+  .contract-baseline { display: flex; align-items: center; gap: 13px 24px; margin-left: 30px; width: fit-content; max-width: calc(100% - 60px); padding: 19px 29px; background: #dadcd3; color: #43564f; border: 1px solid #b6c0b3; border-radius: 2px 2px 0 0; box-shadow: -7px -6px 0 #6f796c22; }
+  .contract-icon { display: flex; color: #847659; }
+  .contract-icon svg { width: 23px; height: 26px; }
+  .contract-baseline h3 { color: #415248; font-size: 16px; }
+  .contract-baseline ul { display: flex; gap: 8px 23px; flex-wrap: wrap; color: #737f6e; font-size: 12px; }
+  .delivery-ledger { position: relative; padding: 25px 30px 13px; background: linear-gradient(115deg, #28322e, #222e34 56%, #202c32); border: 1px solid #87978e4d; border-radius: 3px; box-shadow: 0 19px 38px #110b073b; }
+  .ledger-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px 25px; margin-bottom: 22px; }
+  .ledger-heading h3 { color: #e1e4d9; font-size: 21px; }
+  .ledger-heading > span { color: #a3b0a7; font-size: 12px; }
+  .delivery-ledger table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .delivery-ledger thead { color: #7f999c; font-size: 12px; }
+  .delivery-ledger thead th { text-align: left; font-weight: 500; padding: 0 18px 13px 0; }
+  .delivery-ledger thead th:first-child { width: 13%; }
+  .delivery-ledger thead th:nth-child(2) { width: 27%; }
+  .delivery-ledger thead th:nth-child(3) { width: 30%; }
+  .delivery-ledger thead th:nth-child(4) { width: 30%; }
+  .delivery-ledger tbody tr { border-top: 1px solid #8a9c8a2e; }
+  .delivery-ledger tbody th { color: #c2baa1; font-size: 14px; font-weight: 500; text-align: left; vertical-align: top; padding: 19px 17px 19px 0; }
+  .delivery-ledger td { color: #a6b6b9; font-size: 13px; line-height: 1.9; padding: 17px 21px 19px 0; vertical-align: top; overflow-wrap: break-word; }
+  .delivery-ledger td:last-child { padding-right: 0; }
+  .delivery-ledger td strong { display: block; color: #bdc8ba; font-size: 13px; font-weight: 450; }
+  .delivery-ledger td > span { display: block; color: #809a9c; font-size: 12px; margin-top: 3px; }
+  .handover-pack { position: relative; z-index: 1; display: flex; gap: 18px 32px; align-items: center; width: calc(100% - 80px); margin: -1px auto 0; padding: 18px 25px; background: #c6cabd; color: #435547; border: 1px solid #b7bdad; border-radius: 0 0 3px 3px; box-shadow: 0 10px 22px #030a1033; }
+  .handover-pack h4 { flex: 0 0 auto; color: #56614b; font-size: 15px; }
+  .handover-pack ul { display: flex; flex-wrap: wrap; gap: 5px 25px; }
+  .handover-pack li { display: flex; gap: 8px; align-items: baseline; color: #65715d; font-size: 12px; line-height: 1.8; }
+  .handover-pack li > span { width: 4px; height: 4px; background: #8b967e; flex: 0 0 auto; }
+  .field-authority { display: flex; gap: 8px; align-items: flex-start; justify-content: flex-end; color: #9daa96; font-size: 12px; line-height: 1.8; margin-top: 20px; padding-inline: 14px; }
+  .field-authority svg { width: 17px; height: 17px; margin-top: 2px; }
+  .soe-visual-en .profile-heading h3 { font-size: 20px; }
+  .soe-visual-en .profile-heading { align-items: flex-start; }
+  .soe-visual-en .profile-heading > span { max-width: 290px; font-size: 12px; }
+  .soe-visual-en .baseline-sheet h4 { font-size: 16px; }
+  .soe-visual-en .baseline-sheet dd { font-size: 13px; }
+  .soe-visual-en .execution-trace { grid-template-columns: minmax(0, .62fr) minmax(0, 1.2fr) minmax(0, 1.2fr); gap: 16px; }
+  .soe-visual-en .response-clause dl > div { grid-template-columns: minmax(0, .8fr) minmax(0, 1.6fr); }
+  @container (max-width: 1000px) {
+    .budget-profile { padding: 24px 25px 0; }
+    .budget-cross-section { gap: 34px; grid-template-columns: minmax(0, .8fr) minmax(0, 1.8fr); }
+    .baseline-sheet { padding-inline: 19px; }
+    .execution-trace, .soe-visual-en .execution-trace { grid-template-columns: minmax(0, .6fr) minmax(0, 1.4fr); gap: 5px 16px; }
+    .execution-trace > span { grid-column: 2; }
+    .budget-handoff { margin-inline: -25px; }
+    .commercial-tracks { gap: 38px; }
+    .response-sheet { padding-inline: 20px; }
+    .response-gaps { margin-inline: -20px; }
+    .response-clause { grid-template-columns: 1fr; gap: 10px; }
+    .delivery-ledger { padding-inline: 23px; }
+    .ledger-heading { flex-direction: column; gap: 7px; }
+    .delivery-ledger thead th:first-child { width: 14%; }
+    .delivery-ledger thead th:nth-child(2) { width: 26%; }
+    .delivery-ledger thead th:nth-child(3) { width: 30%; }
+    .delivery-ledger thead th:nth-child(4) { width: 30%; }
+    .handover-pack { width: calc(100% - 45px); }
+  }
+  @container (max-width: 700px) {
+    .lifecycle-axis { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 23px 14px; }
+    .lifecycle-axis li { padding-right: 12px; }
+    .lifecycle-axis li:nth-child(2)::after { content: none; }
+    .lifecycle-axis h3 { font-size: 18px; }
+    .profile-heading { flex-direction: column; gap: 7px; }
+    .profile-heading h3 { font-size: 20px; }
+    .budget-cross-section { grid-template-columns: minmax(0, 1fr); gap: 27px; margin-top: 24px; }
+    .baseline-sheet { padding: 17px 20px; }
+    .baseline-sheet h4 { font-size: 16px; }
+    .baseline-sheet dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 16px; }
+    .baseline-sheet dd { font-size: 13px; }
+    .sheet-symbol { top: 17px; }
+    .execution-trace, .soe-visual-en .execution-trace { grid-template-columns: minmax(0, .5fr) minmax(0, 1.6fr); gap: 5px 16px; }
+    .industrial-section { height: 85px; margin-top: 15px; }
+    .site-captions { padding-inline: 2%; }
+    .budget-handoff { gap: 7px 13px; margin-top: 22px; font-size: 12px; }
+    .budget-handoff svg { width: 17px; }
+    .commercial-tracks { grid-template-columns: minmax(0, 1fr); gap: 39px; }
+    .track-heading h3 { font-size: 24px; }
+    .buyer-checkpoints { gap: 20px; margin-top: 23px !important; }
+    .buyer-checkpoints li > div { margin-top: 8px; }
+    .authority-handoff { margin-top: 20px; }
+    .response-sheet { margin-top: 21px; }
+    .response-clause { grid-template-columns: minmax(0, .5fr) minmax(0, 1.4fr); gap: 15px; }
+    .contract-baseline { margin-left: 16px; max-width: calc(100% - 32px); flex-wrap: wrap; gap: 10px 12px; padding: 16px 19px; }
+    .contract-baseline ul { flex: 0 0 100%; gap: 6px 19px; }
+    .delivery-ledger { padding: 20px 20px 4px; }
+    .ledger-heading h3 { font-size: 19px; }
+    .delivery-ledger table, .delivery-ledger tbody { display: block; }
+    .delivery-ledger thead { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    .delivery-ledger tbody tr { display: grid; grid-template-columns: minmax(0, 1fr); padding: 17px 0 19px; gap: 11px; }
+    .delivery-ledger tbody th { padding: 0 0 2px; font-size: 15px; }
+    .delivery-ledger td, .delivery-ledger td:last-child { display: grid; grid-template-columns: 5em minmax(0, 1fr); gap: 0 13px; padding: 0; font-size: 13px; }
+    .delivery-ledger td::before { content: attr(data-label); color: #708d92; font-size: 12px; grid-row: 1 / 3; }
+    .delivery-ledger td strong { grid-column: 2; }
+    .delivery-ledger td > span { grid-column: 2; }
+    .handover-pack { width: calc(100% - 24px); padding: 17px 19px; flex-direction: column; align-items: flex-start; gap: 8px; }
+    .handover-pack ul { gap: 5px 19px; }
+    .field-authority { justify-content: flex-start; padding-inline: 4px; }
+    .soe-visual-en .profile-heading > span { max-width: none; }
+    .soe-visual-en .delivery-ledger td { grid-template-columns: 6.8em minmax(0, 1fr); }
+  }
+  @container (max-width: 430px) {
+    .cycle-joint { margin-bottom: 9px; }
+    .cycle-executor { gap: 3px 7px; font-size: 12px; }
+    .lifecycle-axis h3 { font-size: 16px; }
+    .lifecycle-axis p { line-height: 1.7; }
+    .budget-profile { padding: 19px 17px 0; }
+    .profile-heading h3, .soe-visual-en .profile-heading h3 { font-size: 18px; }
+    .profile-heading > span { font-size: 12px; }
+    .baseline-sheet { padding: 16px 17px 17px; }
+    .baseline-sheet dl { grid-template-columns: 1fr; gap: 12px; margin-top: 17px; }
+    .baseline-sheet dl > div { display: grid; grid-template-columns: 4.5em minmax(0, 1fr); gap: 13px; align-items: baseline; }
+    .baseline-sheet dt { margin: 0; }
+    .execution-trace, .soe-visual-en .execution-trace { grid-template-columns: 1fr; gap: 6px; padding-block: 14px; }
+    .execution-trace > span { grid-column: auto; }
+    .execution-trace h5 { font-size: 14px; }
+    .execution-cutaway > h4 { letter-spacing: 0; font-size: 13px; }
+    .industrial-section { height: 69px; }
+    .site-captions { gap: 10px; font-size: 12px; }
+    .budget-handoff { justify-content: flex-start; gap: 7px 10px; margin-inline: -17px; padding-inline: 17px; }
+    .budget-handoff > span:last-child { flex-basis: 100%; }
+    .budget-handoff svg:nth-last-child(2) { display: none; }
+    .track-heading h3 { font-size: 23px; }
+    .track-heading > span { font-size: 12px; }
+    .response-sheet { padding: 19px 17px 0; box-shadow: 5px 6px 0 #29343a, 6px 7px 0 #68736f36; }
+    .response-sheet > h4 { font-size: 16px; }
+    .response-clause { grid-template-columns: 1fr; gap: 10px; padding-block: 14px; }
+    .response-clause dl > div, .soe-visual-en .response-clause dl > div { grid-template-columns: 4.8em minmax(0, 1fr); gap: 10px; }
+    .response-gaps { margin-inline: -17px; padding-inline: 17px; }
+    .contract-baseline { padding: 15px 16px; }
+    .contract-baseline h3 { font-size: 15px; }
+    .contract-baseline ul { gap: 6px 14px; }
+    .delivery-ledger { padding-inline: 17px; }
+    .delivery-ledger td, .soe-visual-en .delivery-ledger td { grid-template-columns: 1fr; gap: 3px; }
+    .delivery-ledger td::before { grid-row: auto; font-size: 12px; }
+    .delivery-ledger td strong, .delivery-ledger td > span { grid-column: auto; }
+    .delivery-ledger td > span { margin-top: 0; }
+    .handover-pack { padding-inline: 16px; }
+    .soe-visual-en .lifecycle-axis { gap: 20px 11px; }
+    .soe-visual-en .lifecycle-axis h3 { font-size: 15px; }
+    .soe-visual-en .baseline-sheet dl > div { grid-template-columns: 1fr; gap: 3px; }
+    .soe-visual-en .response-clause dl > div { grid-template-columns: 1fr; gap: 2px; }
+  }
+</style>

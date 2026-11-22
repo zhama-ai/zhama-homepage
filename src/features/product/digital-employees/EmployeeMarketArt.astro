@@ -1,0 +1,183 @@
+---
+import Icon from '../../../components/Icon.astro';
+import type { Locale } from '../../../data/types';
+import { employeeArtworkFor } from './employee-artwork';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const zh = locale === 'zh';
+const employees = employeeArtworkFor(locale);
+const selected = employees[0];
+---
+<div class="employee-market-art" role="img" aria-label={zh ? '我的员工界面，八类岗位列表与财务核算专员的岗位职责、专业技能、企业知识、业务系统和业务成果' : 'My employees: eight business roles and a finance profile showing responsibilities, specialist skills, enterprise knowledge, business systems and deliverables'}>
+  <div class="market-shell" aria-hidden="true">
+    <div class="market-heading"><strong>{zh ? '我的员工' : 'My employees'}</strong><span><Icon name="search" size={13}/>{zh ? '搜索数字员工' : 'Search employees'}</span></div>
+    <div class="market-content">
+      <div class="market-roster">
+        {employees.map((employee, index) => <div class:list={['market-row', `market-tone-${employee.color}`, { 'market-row-selected': index === 0 }]}>
+          <img src={`/images/product/digital-employees/employee-portrait-${employee.portrait}_V1.1.webp`} alt="" width="256" height="256" loading="eager" decoding="async"/>
+          <div><strong>{employee.name}</strong><span>{employee.sector}</span></div>
+          {index === 0 && <Icon name="chevron" size={12}/>}
+        </div>)}
+      </div>
+      <div class="market-profile">
+        <div class="market-profile-heading">
+          <img src={`/images/product/digital-employees/employee-portrait-${selected.portrait}_V1.1.webp`} alt="" width="256" height="256" loading="eager" decoding="async"/>
+          <div><strong>{selected.name}</strong><span>{selected.sector}</span></div>
+        </div>
+        <div class="market-profile-responsibilities market-profile-group">
+          <strong>{zh ? '岗位职责' : 'Responsibilities'}</strong>
+          <p>{zh ? '月结核算 · 对账复核' : 'Monthly close · Account reconciliation'}</p>
+        </div>
+        <div class="market-profile-skills market-profile-group">
+          <strong>{zh ? '专业技能' : 'Specialist skills'}</strong>
+          <div>{(zh ? ['资料整理', '文书编制', '数据核对'] : ['Organize materials', 'Draft documents', 'Reconcile data']).map((skill,index)=><span class={`market-skill-${index}`}>{skill}</span>)}</div>
+        </div>
+        <div class="market-profile-knowledge market-profile-group">
+          <strong>{zh ? '企业知识' : 'Enterprise knowledge'}</strong>
+          <div class="market-profile-resource"><Icon name="book" size={16}/><span>{zh ? '财务口径 · 工资规则' : 'Accounting policies · Payroll rules'}</span></div>
+        </div>
+        <div class="market-profile-systems market-profile-group">
+          <strong>{zh ? '业务系统' : 'Business systems'}</strong>
+          <div class="market-profile-resource"><Icon name="network" size={16}/><span>{zh ? '财务系统 · OA · 考勤' : 'Finance · OA · Attendance'}</span></div>
+        </div>
+        <div class="market-profile-delivery">
+          <strong>{zh ? '业务成果' : 'Business deliverables'}</strong>
+          <div>{(zh ? ['月结材料', '核算结果表', '差异复核清单'] : ['Monthly close documents', 'Calculation results', 'Difference review checklist']).map((file,index)=><span><Icon name={index === 0 ? 'file' : index === 1 ? 'file-check' : 'clipboard-check'} size={17}/>{file}</span>)}</div>
+        </div>
+        <div class="market-profile-action"><span>{zh ? '交代工作' : 'Assign work'}<Icon name="arrow" size={13}/></span><span>{zh ? '查看详情' : 'Details'}</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .employee-market-art { position: relative; isolation: isolate; width: 100%; padding: 18px 18px 26px; box-sizing: border-box; }
+  .employee-market-art::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: -30px -16px -22px;
+    background: radial-gradient(ellipse at 50% 50%, #02060dd9 54%, #02060d80 76%, transparent 100%);
+    mask-image: radial-gradient(ellipse 64% 64% at 50% 50%, #000 58%, transparent 100%);
+    filter: blur(12px);
+    pointer-events: none;
+  }
+  .employee-market-art::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 11% -3% -7% 6%;
+    background: radial-gradient(ellipse at 56% 55%, #01050ce6 20%, #01050c8c 46%, transparent 72%);
+    filter: blur(16px);
+    pointer-events: none;
+  }
+  .market-shell {
+    padding: 16px;
+    border: 1px solid #91b0d23b;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #1b2b40, #0c1725 65%, #0f232b);
+    box-shadow: 0 3px 7px -3px #000d, 10px 21px 25px -10px #000e, 26px 42px 52px -14px #000d, 15px 68px 86px -26px #01050c;
+    color: #e2eaf4;
+    line-height: 1.4;
+  }
+  .market-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .market-heading > strong { font-size:17px; font-weight: 600; }
+  .market-heading > span { display: flex; align-items: center; gap: 6px; font-size:12px; color: #899eb8; }
+  .market-content { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.25fr); gap: 18px; }
+  .market-roster { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); grid-template-rows: repeat(4,minmax(0,1fr)); gap: 10px; align-content: start; }
+  .market-row {
+    --role-color: #78acf4;
+    display: flex; align-items: center; gap: 9px; min-width: 0;
+    padding: 10px 9px;
+    border: 1px solid color-mix(in srgb, var(--role-color) 15%, transparent);
+    border-radius: 7px;
+    background: linear-gradient(105deg, color-mix(in srgb, var(--role-color) 11%, #111e2d), color-mix(in srgb, var(--role-color) 3%, #111e2d));
+    box-shadow: 0 5px 9px -7px #0009;
+  }
+  .market-tone-teal { --role-color: #65c3b5; }
+  .market-tone-violet { --role-color: #ac9bdb; }
+  .market-tone-amber { --role-color: #c7ac79; }
+  .market-row-selected {
+    position: relative;
+    z-index: 1;
+    margin-block: 0;
+    padding-block: 10px;
+    transform: scale(1.035);
+    transform-origin: center;
+    border-color: #8ab9edb3;
+    background: linear-gradient(110deg, #326d9e, #284960);
+    box-shadow: 0 3px 6px -3px #000b, 0 13px 20px -8px #020b1bf2, 0 3px 16px -9px #5b9ae6;
+  }
+  .market-row img { display: block; width: 28px; height: 28px; flex: 0 0 auto; border-radius: 50%; object-fit: cover; border: 1px solid color-mix(in srgb, var(--role-color) 65%, transparent); box-shadow: 0 3px 6px #0004; }
+  .market-row > div { min-width: 0; flex: 1; }
+  .market-row strong { display: block; font-size:13px; font-weight: 550; overflow-wrap: anywhere; }
+  .market-row span { display: block; margin-top: 2px; font-size:11px; color: color-mix(in srgb, var(--role-color) 40%, #a0acb9); }
+  .market-row > svg { flex: 0 0 auto; color: #a7c3e3; }
+  .market-row-selected img { width: 34px; height: 34px; border-color: #9ec8ef; }
+  .market-row-selected strong { font-size:14px; color: #f1f6ff; }
+  .market-row-selected span { color: #bed3e7; }
+  .market-profile {
+    position: relative; align-self: start; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 15px 14px; padding: 18px 16px;
+    border: 1px solid #7dacc35c; border-radius: 11px;
+    background: linear-gradient(145deg, #254056, #172a3b 54%, #143139);
+    box-shadow: -8px 10px 22px -16px #000d, 0 18px 24px -12px #0009;
+  }
+  .market-profile-heading { grid-column: 1 / -1; display: flex; align-items: center; gap: 10px; }
+  .market-profile-heading img { width: 40px; height: 40px; flex: 0 0 auto; object-fit: cover; border-radius: 50%; border: 1px solid #7db1ca; box-shadow: 0 5px 10px #0005; }
+  .market-profile-heading strong { display: block; font-size:17px; font-weight: 600; }
+  .market-profile-heading span { display: block; margin-top: 4px; font-size:12px; color: #a5b8ca; }
+  .market-profile-group { min-width: 0; }
+  .market-profile :is(.market-profile-group, .market-profile-delivery) > strong { display: block; font-size:13px; font-weight: 550; color: #a1c6df; }
+  .employee-market-art .market-profile-responsibilities p { margin-top: 5px; font-size:13px; line-height: 1.6; color: #c6d6e4; }
+  .market-profile-skills > div { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+  .market-profile-skills span { padding: 4px 6px; border: 1px solid #76a7d63b; border-radius: 5px; font-size:12px; color: #b1d4f5; background: #29445e; }
+  .market-profile-skills .market-skill-1 { color: #a6d8ca; border-color: #66b7a43b; background: #294b4a; }
+  .market-profile-skills .market-skill-2 { color: #c9b9e9; border-color: #a58ad53b; background: #3c3c57; }
+  .market-profile-resource { display: flex; align-items: center; gap: 7px; margin-top: 6px; color: #c6d6e4; font-size:13px; line-height: 1.6; }
+  .market-profile-resource svg { flex: 0 0 auto; color: #88b6ce; }
+  .market-profile-delivery { grid-column: 1 / -1; padding: 10px; border: 1px solid #70baa33b; border-radius: 8px; background: linear-gradient(120deg, #152c3a, #1a3337); box-shadow: 0 7px 13px -9px #000a; }
+  .market-profile .market-profile-delivery > strong { color: #a4d3c4; }
+  .market-profile-delivery > div { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 9px; margin-top: 10px; }
+  .market-profile-delivery span { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; font-size:13px; color: #d2e5df; }
+  .market-profile-delivery svg { color: #80c4b0; flex: 0 0 auto; }
+  .market-profile-delivery span:nth-child(2) svg { color: #a5b6e7; }
+  .market-profile-action { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size:12px; color: #9db8d2; }
+  .market-profile-action > span:first-child { display: flex; align-items: center; gap: 6px; padding: 7px 9px; border: 1px solid #508fc94d; border-radius: 5px; color: #e3effc; background: #2364a0; box-shadow: 0 4px 8px -4px #071629; }
+  @media (max-width: 720px) {
+    .employee-market-art { padding: 15px 0 25px; }
+    .employee-market-art::before { inset: -24px -12px -18px; }
+    .market-shell { padding: 11px; border-radius: 10px; }
+    .market-heading { margin-bottom: 11px; }
+    .market-heading > strong { font-size:14px; }
+    .market-heading > span { font-size:10px; gap: 4px; }
+    .market-heading svg { width: 11px; height: 11px; }
+    .market-content { grid-template-columns: minmax(0,1fr); gap: 16px; }
+    .market-roster { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+    .market-row { padding: 7px 5px; gap: 5px; }
+    .market-row img { width: 22px; height: 22px; }
+    .market-row strong { font-size:11px; }
+    .market-row span { font-size:10px; margin-top: 2px; }
+    .market-row > svg { width: 9px; height: 9px; }
+    .market-row-selected { margin-block: 2px 5px; transform: scale(1.035); padding-block: 8px; }
+    .market-row-selected img { width: 25px; height: 25px; }
+    .market-row-selected strong { font-size:12px; }
+    .market-profile { padding: 14px 12px; gap: 14px 12px; border-radius: 8px; }
+    .market-profile-heading { flex-wrap: wrap; gap: 6px; }
+    .market-profile-heading img { width: 29px; height: 29px; }
+    .market-profile-heading strong { font-size:13px; }
+    .market-profile-heading span { font-size:10px; margin-top: 2px; }
+    .market-profile :is(.market-profile-group, .market-profile-delivery) > strong { font-size:11px; }
+    .employee-market-art .market-profile-responsibilities p { font-size:11px; margin-top: 4px; }
+    .market-profile-skills > div { margin-top: 6px; gap: 4px; }
+    .market-profile-skills span { font-size:10px; padding: 3px 4px; }
+    .market-profile-resource { gap: 6px; margin-top: 5px; font-size:11px; }
+    .market-profile-resource svg { width: 13px; height: 13px; }
+    .market-profile-delivery { padding: 10px 8px; }
+    .market-profile-delivery > div { margin-top: 8px; gap: 7px; }
+    .market-profile-delivery span { font-size:11px; gap: 5px; }
+    .market-profile-delivery svg { width: 13px; height: 13px; }
+    .market-profile-action { font-size:10px; margin-top: 15px; gap: 4px; }
+    .market-profile-action > span:first-child { padding: 6px; gap: 4px; }
+    .market-profile-action svg { width: 11px; height: 11px; }
+  }
+</style>

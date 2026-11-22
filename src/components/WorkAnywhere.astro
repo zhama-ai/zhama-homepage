@@ -1,0 +1,45 @@
+---
+import type { Locale } from '../data/types';
+import { renderAnywhereTopology } from '../lib/anywhere-topology';
+import '../styles/anywhere-topology.css';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const zh = locale === 'zh';
+---
+<section class="work-anywhere" aria-labelledby="anywhere-title">
+ <div class="container">
+  <header class="anywhere-heading">
+   <h2 id="anywhere-title">{zh?<><span>随时随地，</span><span>把任务交给数字员工</span></>:'Your work moves forward, wherever you are.'}</h2>
+   <p>{zh?'支持 PC、Web、平板、移动端与常用 IM 入口。一句话交办任务，让数字员工协同完成处理，把沟通转成可交付的业务成果。':'Delegate through desktop, web, tablet, mobile, and familiar messaging tools. Digital employees work together to turn each request into a usable business deliverable.'}</p>
+  </header>
+  <div set:html={renderAnywhereTopology(locale)} />
+ </div>
+</section>
+<script>
+ import { observeMotion } from '../lib/motion';
+ import { onPageMount } from '../lib/page-lifecycle';
+ onPageMount(signal => {
+ const diagram = document.querySelector<HTMLElement>('.anywhere-topology');
+ const flows = diagram?.querySelectorAll<SVGSVGElement>('.topology-links');
+ const animatedImages = diagram?.querySelectorAll<HTMLImageElement>('[data-topology-gif]');
+ if (diagram && (flows?.length || animatedImages?.length)) {
+  const sync = ({ running, reduced }: { running: boolean; reduced: boolean }) => {
+   const paused = !running;
+   diagram.dataset.topologyMotion = paused ? 'paused' : 'running';
+   flows?.forEach(flow => {
+    if (flow.classList.contains('workspace-input-scene')) flow.classList.toggle('input-motion-active', !reduced);
+    if (paused || !flow.getClientRects().length) flow.pauseAnimations(); else flow.unpauseAnimations();
+   });
+   animatedImages?.forEach(image => {
+    const play = !paused && image.getClientRects().length > 0;
+    const source = play ? image.dataset.animatedSrc : image.dataset.staticSrc;
+    if (source && image.getAttribute('src') !== source) image.src = source;
+   });
+  };
+  flows?.forEach(flow => flow.pauseAnimations());
+  const playback = observeMotion(diagram, sync, signal);
+  window.addEventListener('resize', () => playback.refresh(), { passive:true, signal });
+  signal.addEventListener('abort', () => sync({ running:false, reduced:false }), { once:true });
+ }
+ });
+</script>

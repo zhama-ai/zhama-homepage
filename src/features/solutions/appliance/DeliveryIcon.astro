@@ -1,0 +1,32 @@
+---
+interface Props { kind: 'hardware' | 'model' | 'platform' | 'handover'; }
+const { kind } = Astro.props;
+---
+<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  {kind === 'hardware' && <>
+    <rect x="9" y="14" width="46" height="36" rx="6" fill="currentColor" fill-opacity=".035"/>
+    <rect x="24" y="23" width="16" height="16" rx="2"/>
+    <path d="M28 19v4m8-4v4m-8 16v4m8-4v4M20 27h4m-4 8h4m16-8h4m-4 8h4M15 44h9m3 0h3M18 50v3m28-3v3"/>
+    <circle cx="48" cy="44" r="1.5" fill="currentColor" stroke="none"/>
+  </>}
+  {kind === 'model' && <>
+    <path d="m32 9 21 12v23L32 56 11 44V21Z" fill="currentColor" fill-opacity=".035"/>
+    <path d="m11 21 21 12 21-12M32 33v23M32 9v13m-21 22 12-7m30 7-12-7" opacity=".5"/>
+    <circle cx="32" cy="31" r="8" fill="#0b1a2b"/>
+    <path d="m28 32 4-7 4 7m-7-2h6m-7 6h8"/>
+  </>}
+  {kind === 'platform' && <>
+    <rect x="8" y="12" width="48" height="39" rx="5" fill="currentColor" fill-opacity=".035"/>
+    <path d="M8 23h48M15 18h1m5 0h1m5 0h1M23 23v28"/>
+    <rect x="30" y="30" width="8" height="7" rx="1.5"/>
+    <rect x="42" y="30" width="7" height="7" rx="1.5" opacity=".5"/>
+    <path d="M30 44h19M14 31h3m-3 7h3m-3 7h3"/>
+  </>}
+  {kind === 'handover' && <>
+    <path d="m10 25 22-12 22 12v25L32 62 10 50Z" fill="currentColor" fill-opacity=".045"/>
+    <path d="m10 25 22 12 22-12M32 37v25M21 19l22 12v10"/>
+    <path d="m17 40 7 4" opacity=".5"/>
+    <circle cx="48" cy="15" r="12" fill="#0b1b2c" stroke="#74c8ee"/>
+    <path d="m42.5 15 3.5 3.5 7-7" stroke="#a3e3ff" stroke-width="2"/>
+  </>}
+</svg>

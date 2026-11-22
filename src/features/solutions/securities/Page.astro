@@ -1,0 +1,8 @@
+---
+import type { Locale } from '../../../data/types';
+import IndustrySolutionPage from '../shared/IndustrySolutionPage.astro';
+import { securitiesPresentation } from './page-content';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+---
+<IndustrySolutionPage locale={locale} slug="securities" presentation={securitiesPresentation[locale]}/>

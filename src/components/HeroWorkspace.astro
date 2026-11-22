@@ -1,0 +1,84 @@
+---
+import Icon from './Icon.astro';
+import BusinessDashboard from './BusinessDashboard.astro';
+import type { Locale } from '../data/types';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const zh=locale==='zh';
+const employees=zh?[
+ {id:'proposal',icon:'file',name:'方案文书助理',specialty:'材料组织 · 方案编写',task:'企业数字员工建设方案',request:'结合产品资料，整理业务场景、实施路径与交付计划。',sources:'产品资料 / 项目需求',steps:[['检索项目资料','整理产品能力与业务需求','已完成'],['编写建设方案','组织业务场景与实施路径','已完成'],['提交团队审阅','等待补充意见与内容确认','待审阅']],paper:'企业数字员工\n建设与实施方案',sections:['业务场景与建设目标','岗位设计与协作方式','实施路径与交付计划'],files:[['DOCX','建设方案.docx'],['XLSX','实施计划.xlsx'],['PPTX','汇报提纲.pptx']]},
+ {id:'analysis',icon:'chart',name:'经营分析助理',specialty:'数据整理 · 经营简报',task:'经营数据分析与简报',request:'汇总业务明细，整理指标变化与需要关注的经营问题。',sources:'业务明细 / 指标口径',steps:[['整理业务明细','对齐分析范围与指标口径','已完成'],['分析指标变化','梳理业务结构与变化原因','已完成'],['提交分析简报','等待业务人员复核','待复核']],paper:'经营数据\n分析与业务简报',sections:['业务指标与变化趋势','关键问题与分析依据','后续关注与跟进事项'],files:[['XLSX','指标分析.xlsx'],['DOCX','经营简报.docx'],['PPTX','分析汇报.pptx']]},
+ {id:'knowledge',icon:'book',name:'知识管理助理',specialty:'授权检索 · 原文引用',task:'企业制度查询与依据整理',request:'检索适用的企业制度，整理相关条款并保留原文出处。',sources:'企业制度 / 岗位知识',steps:[['检索授权知识','查找与问题相关的企业制度','已完成'],['整理适用条款','关联规则与原文出处','已完成'],['提交查询结果','供业务人员查阅与核对','可查阅']],paper:'企业制度\n适用条款与依据',sections:['问题与适用范围','相关条款与业务规则','引用来源与原文出处'],files:[['DOCX','制度查询结果.docx'],['MD','条款引用.md'],['PDF','相关制度.pdf']]},
+]:[
+ {id:'proposal',icon:'file',name:'Proposal assistant',specialty:'Sources · Proposals',task:'Digital workforce implementation',request:'Use product materials to organize business scenarios, implementation and delivery.',sources:'Product materials / Requirements',steps:[['Research project materials','Connect capabilities and requirements','Complete'],['Prepare the proposal','Organize scenarios and implementation','Complete'],['Submit for team review','Await team feedback and confirmation','Awaiting review']],paper:'Digital workforce\nImplementation proposal',sections:['Business scope and objectives','Roles and collaboration','Implementation and delivery'],files:[['DOCX','Proposal.docx'],['XLSX','Implementation plan.xlsx'],['PPTX','Presentation.pptx']]},
+ {id:'analysis',icon:'chart',name:'Business analyst',specialty:'Data · Business briefs',task:'Business analysis and reporting',request:'Consolidate business records and summarize metric changes and business issues requiring attention.',sources:'Business records / Metric definitions',steps:[['Organize business records','Align the scope and metric definitions','Complete'],['Analyze business changes','Review business structure and drivers','Complete'],['Submit the business brief','Await business review','Awaiting review']],paper:'Business analysis\nManagement brief',sections:['Business metrics and trends','Findings and supporting sources','Questions and follow-through'],files:[['XLSX','Metrics.xlsx'],['DOCX','Business brief.docx'],['PPTX','Analysis.pptx']]},
+ {id:'knowledge',icon:'book',name:'Knowledge assistant',specialty:'Retrieval · References',task:'Company policy research',request:'Find relevant company policies and organize applicable rules with original sources.',sources:'Company policies / Role knowledge',steps:[['Search authorized knowledge','Find relevant company policies','Complete'],['Organize applicable rules','Connect rules with original references','Complete'],['Deliver the research','Ready for business review','Available']],paper:'Company policies\nRules and references',sections:['Question and applicable scope','Relevant rules and provisions','Original sources and references'],files:[['DOCX','Policy research.docx'],['MD','References.md'],['PDF','Company policy.pdf']]},
+];
+---
+<div class="home-product-frame hero-team-composition" data-hero-workspace>
+ <div class="team-window">
+  <div class="team-window-bar"><span class="team-app-mark"><Icon name="layers" size={15}/>TeGo</span><span>{zh?'数字员工协作工作台':'Digital workforce workspace'}</span><span class="team-window-actions"><button class="hero-motion-toggle" type="button" data-hero-motion-toggle data-pause-label={zh?'暂停动效':'Pause animation'} data-play-label={zh?'播放动效':'Play animation'} aria-label={zh?'暂停动效':'Pause animation'} title={zh?'暂停动效':'Pause animation'} aria-pressed="false" hidden><svg class="motion-pause-icon" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="4" y="3" width="2.5" height="10" rx=".6"/><rect x="9.5" y="3" width="2.5" height="10" rx=".6"/></svg><svg class="motion-play-icon" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M5 3.5 12 8l-7 4.5Z"/></svg></button><span class="team-window-menu"><i></i><i></i><i></i></span></span></div>
+  <div class="team-shell">
+   <div class="team-rail" aria-hidden="true"><span class="team-rail-brand"><Icon name="layers" size={20}/></span>{['message','folder','network','book','plug'].map((icon,index)=><span class:list={['team-rail-item',{'is-current':index===2}]}><Icon name={icon} size={17}/></span>)}<span class="team-rail-end"><Icon name="shield" size={15}/></span></div>
+   <div class="team-content">
+    <div class="team-heading"><strong>{zh?'数字员工团队':'Your digital workforce'}</strong><span><Icon name="folder" size={12}/>{zh?'协作工作空间':'Shared workspace'}</span></div>
+    <div class="team-employees" role="tablist" aria-label={zh?'查看数字员工执行成果':'Explore employee deliverables'}>
+     {employees.map(employee=><button type="button" role="tab" id={`hero-employee-${employee.id}`} aria-selected={employee.id==='analysis'} aria-controls={`hero-work-${employee.id}`} tabindex={employee.id==='analysis'?0:-1}><span class="team-employee-icon"><Icon name={employee.icon} size={19}/></span><span><strong>{employee.name}</strong><small>{employee.specialty}</small></span></button>)}
+    </div>
+    {employees.map(employee=><section class="team-work" role="tabpanel" id={`hero-work-${employee.id}`} aria-labelledby={`hero-employee-${employee.id}`} hidden={employee.id!=='analysis'} tabindex="0">
+     {employee.id==='analysis'?<BusinessDashboard locale={locale}/>:<>
+     <div class="team-task-heading"><div><span>{zh?'当前任务':'CURRENT TASK'}</span><h2>{employee.task}</h2></div><span class="team-review-state"><i></i>{employee.steps[2][2]}</span></div>
+     <p class="team-task-request">{employee.request}</p>
+     <div class="team-execution">
+      <div class="team-process"><div class="team-region-heading"><Icon name="clock" size={12}/>{zh?'执行过程':'EXECUTION'}</div><ol>{employee.steps.map(([title,description,status],step)=><li class:list={{'is-review':step===2}}><span class="team-step-icon"><Icon name={step===2?'message':'check'} size={12}/></span><div><strong>{title}</strong><small>{description}</small></div><span class="team-step-status">{status}</span></li>)}</ol><div class="team-source"><Icon name="book" size={11}/>{employee.sources}</div></div>
+      <div class="team-document"><div class="team-region-heading"><span><Icon name="file" size={12}/>{zh?'成果预览':'DELIVERABLE'}</span><span>DOCX</span></div><div class="team-document-paper"><span>TeGo / {zh?'项目成果':'PROJECT FILES'}</span><h3>{employee.paper}</h3><div class="team-document-sections">{employee.sections.map(title=><span><i></i>{title}</span>)}</div><div class="team-document-lines" aria-hidden="true"><i></i><i></i><i></i></div></div></div>
+     </div>
+     <div class="team-results"><div class="team-results-heading"><strong>{zh?'执行成果':'DELIVERABLES'}</strong><span>{zh?'与团队继续协作':'Ready for collaboration'}<Icon name="arrow" size={11}/></span></div><div class="team-files">{employee.files.map(([type,name])=><div><span class:list={['team-file-icon',`team-file-${type.toLowerCase()}`]}><Icon name={type==='XLSX'?'chart':type==='PPTX'?'monitor':'file'} size={16}/></span><span><strong>{name}</strong><small>{type}</small></span></div>)}</div></div>
+    </>}
+    </section>)}
+    <div class="team-capabilities">{(zh?[['book','企业知识'],['layers','岗位技能'],['plug','业务系统']]:[['book','Enterprise knowledge'],['layers','Role skills'],['plug','Business systems']]).map(([icon,label])=><span><Icon name={icon} size={12}/>{label}</span>)}<span class="team-capabilities-link"><Icon name="network" size={12}/>{zh?'连接工作与成果':'Connected work'}</span></div>
+   </div>
+  </div>
+ </div>
+</div>
+<script>
+ import { observeMotion } from '../lib/motion';
+ import { onPageMount } from '../lib/page-lifecycle';
+ onPageMount(signal => {
+ document.querySelectorAll<HTMLElement>('[data-hero-workspace]').forEach(workspace=>{
+  const hero=workspace.closest<HTMLElement>('[data-hero-motion]');
+  const motionButton=workspace.querySelector<HTMLButtonElement>('[data-hero-motion-toggle]');
+  if(hero && motionButton && !hero.hasAttribute('data-hero-carousel')){
+   const playback=observeMotion(hero,state=>{
+    hero.dataset.heroMotion=state.reduced?'reduced':state.paused?'paused':'running';
+    hero.dataset.motionSuspended=String(state.suspended);
+    motionButton.hidden=state.reduced;
+    motionButton.setAttribute('aria-pressed',String(state.paused));
+    const label=(state.paused?motionButton.dataset.playLabel:motionButton.dataset.pauseLabel) || '';
+    motionButton.setAttribute('aria-label',label);
+    motionButton.title=label;
+    hero.dispatchEvent(new Event('hero-motion-change'));
+   }, signal);
+   motionButton.addEventListener('click',()=>playback.setPaused(motionButton.getAttribute('aria-pressed')!=='true'),{ signal });
+  }
+  const tabs=[...workspace.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+  const panels=[...workspace.querySelectorAll<HTMLElement>('[role="tabpanel"]')];
+  const select=(tab:HTMLButtonElement)=>{
+   tabs.forEach(item=>{item.setAttribute('aria-selected',String(item===tab));item.tabIndex=item===tab?0:-1;});
+   panels.forEach(panel=>{panel.hidden=panel.id!==tab.getAttribute('aria-controls');});
+   hero?.dispatchEvent(new Event('hero-motion-change'));
+  };
+  tabs.forEach((tab,index)=>{
+   tab.addEventListener('click',()=>select(tab),{ signal });
+   tab.addEventListener('keydown',event=>{
+    let next:number|undefined;
+    if(event.key==='ArrowRight')next=(index+1)%tabs.length;
+    if(event.key==='ArrowLeft')next=(index-1+tabs.length)%tabs.length;
+    if(event.key==='Home')next=0;
+    if(event.key==='End')next=tabs.length-1;
+    if(next!==undefined){event.preventDefault();select(tabs[next]);tabs[next].focus();}
+   },{ signal });
+  });
+ });
+ });
+</script>

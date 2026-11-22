@@ -1,0 +1,19 @@
+---
+interface Props { label: string; method?: string; reverse?: boolean; vertical?: boolean; }
+const { label, method, reverse = false, vertical = false } = Astro.props;
+---
+<div class:list={['ifr', { 'ifr-reverse': reverse, 'ifr-vertical': vertical }]}>
+  <span class="ifr-label">{label}</span>
+  <span class="ifr-line"></span>
+  {method && <span class="ifr-method">{method}</span>}
+</div>
+<style>
+.ifr{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;width:100%;min-width:0;color:#c4daee;line-height:1.45;text-align:center}
+.ifr-label{font-size:11px}.ifr-method{font-size:10px;color:#9cb9d3;overflow-wrap:anywhere}.ifr-line{display:block;position:relative;width:100%;height:1px;background:#719bbd;flex-shrink:0}
+.ifr-line::before{content:'';position:absolute;width:5px;height:5px;border-radius:50%;left:-2px;top:-2px;background:#9fc9ec}
+.ifr-line::after{content:'';position:absolute;right:1px;top:-3px;width:6px;height:6px;border-top:1.5px solid #a9d2f3;border-right:1.5px solid #a9d2f3;transform:rotate(45deg)}
+.ifr-reverse .ifr-line{transform:rotate(180deg)}
+.ifr-vertical{height:55px;position:relative;gap:3px;align-items:flex-start;padding-left:calc(50% + 13px);box-sizing:border-box;text-align:left}
+.ifr-vertical .ifr-line{position:absolute;left:50%;top:0;width:1px;height:100%}.ifr-vertical .ifr-line::before{left:-2px;top:-1px}.ifr-vertical .ifr-line::after{left:-3px;right:auto;top:auto;bottom:1px;transform:rotate(135deg)}
+@media(max-width:580px){.ifr-label{font-size:10px}.ifr-reverse .ifr-line{transform:none}}
+</style>

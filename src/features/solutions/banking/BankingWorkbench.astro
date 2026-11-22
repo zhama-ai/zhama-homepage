@@ -1,0 +1,232 @@
+---
+import Icon from '../../../components/Icon.astro';
+import type { Locale } from '../../../data/types';
+interface Props { locale: Locale; compact?: boolean; }
+const { locale, compact = false } = Astro.props;
+const zh = locale === 'zh';
+const employees = zh ? [
+  ['尽调审查', 'proposal'], ['贷后风险', 'risk'], ['合规审阅', 'admin'],
+  ['客户经营', 'business'], ['制度支持', 'knowledge'], ['会议协同', 'project'],
+] : [
+  ['Credit review', 'proposal'], ['Post-loan risk', 'risk'], ['Compliance', 'admin'],
+  ['Client management', 'business'], ['Policy support', 'knowledge'], ['Meeting coordination', 'project'],
+];
+const tasks = zh ? [
+  {title:'尽调与合规审阅', action:'知识库检索 · 审查技能', state:'待复核', icon:'book'},
+  {title:'贷后风险核查', action:'授权系统查询 · 预警归并', state:'待跟进', icon:'shield'},
+  {title:'客户经营分析', action:'经营分析 · 员工协作', state:'待接续', icon:'chart'},
+] : [
+  {title:'Due diligence & compliance',action:'Knowledge retrieval · Review skills',state:'For review',icon:'book'},
+  {title:'Post-loan risk checks',action:'Authorized queries · Alert grouping',state:'Follow up',icon:'shield'},
+  {title:'Client business analysis',action:'Business analysis · Agent collaboration',state:'Next actions',icon:'chart'},
+];
+const outputs = zh ? ['尽调审查底稿','贷后核查清单','客户跟进材料'] : ['Credit review workbook','Post-loan checklist','Client briefing'];
+const compactEmployees = zh ? [employees[0], employees[1], employees[3]] : [['Credit review', 'proposal'], ['Post-loan risk', 'risk'], ['Client services', 'business']];
+const compactWorkflow = zh ? [
+  { title: '尽调审查', icon: 'file' },
+  { title: '风险核查', icon: 'shield' },
+  { title: '客户经营', icon: 'chart' },
+] : [
+  { title: 'Credit review', icon: 'file' },
+  { title: 'Risk checks', icon: 'shield' },
+  { title: 'Client planning', icon: 'chart' },
+];
+const compactOutputs = zh ? outputs : ['Review workbook', 'Risk checklist', 'Client brief'];
+---
+{compact ? <div class="bank-product bank-product-compact" role="group" aria-label={zh ? 'TeGo银行数字员工工作台，展示数字员工协作、会话任务、知识库、技能、系统连接、成果与人工复核。' : 'TeGo banking digital employees collaborate across conversations, tasks, knowledge, skills and system connections, with deliverables for human review.'}>
+  <header class="bank-compact-header">
+    <div class="bank-compact-brand"><span>TeGo</span><h2>{zh ? '银行数字员工' : 'Banking digital employees'}</h2></div>
+    <span class="bank-compact-current"><Icon name="message" size={14}/>{zh ? '工作会话' : 'Conversation'}</span>
+  </header>
+  <div class="bank-compact-grid">
+    <aside class="bank-compact-team">
+      <h3>{zh ? '数字员工' : 'Digital employees'}</h3>
+      <ul>{compactEmployees.map(([role, avatar], index) => <li class:list={{ 'is-selected': index === 0 }}>
+        <img src={`/images/home/employee-avatar-${avatar}_V1.0.webp`} width="30" height="30" alt="" loading="eager" decoding="async"/>
+        <span>{role}</span>
+      </li>)}</ul>
+    </aside>
+    <div class="bank-compact-work">
+      <div class="bank-compact-request"><Icon name="message" size={17}/><p>{zh ? '审查授信资料，核查风险线索，准备客户跟进材料。' : 'Review credit records, check risks, and prepare client follow-up.'}</p></div>
+      <div class="bank-compact-task">
+        <div class="bank-compact-task-heading"><h3><Icon name="network" size={16}/>{zh ? '任务协同' : 'Task collaboration'}</h3><span>{zh ? '待复核' : 'For review'}</span></div>
+        <ul>{compactWorkflow.map(task => <li><Icon name={task.icon} size={16}/><strong>{task.title}</strong></li>)}</ul>
+      </div>
+      <div class="bank-compact-results">
+        <h3>{zh ? '工作成果' : 'Deliverables'}</h3>
+        <ul>{compactOutputs.map((output, index) => <li class:list={{ 'is-sheet': index === 1 }}><Icon name="file" size={16}/><strong>{output}</strong></li>)}</ul>
+      </div>
+      <div class="bank-compact-review"><Icon name="check" size={16}/><strong>{zh ? '人工复核' : 'Human review'}</strong><span>{zh ? '审查要点与核查事项' : 'Priorities and checks'}</span></div>
+    </div>
+    <aside class="bank-compact-capabilities">
+      <div class="bank-compact-capability">
+        <h3><Icon name="book" size={16}/>{zh ? '知识库' : 'Knowledge'}</h3>
+        <ul class="bank-compact-policies"><li>{zh ? '授信审查制度' : 'Credit review policies'}</li><li>{zh ? '贷后管理要求' : 'Post-loan requirements'}</li></ul>
+      </div>
+      <div class="bank-compact-capability">
+        <h3><Icon name="layers" size={16}/>{zh ? '技能与插件' : 'Skills & plugins'}</h3>
+        <ul class="bank-compact-tags"><li>{zh ? '财务核对' : 'Financial checks'}</li><li>{zh ? '制度审阅' : 'Policy review'}</li><li>{zh ? '经营分析' : 'Business analysis'}</li></ul>
+      </div>
+      <div class="bank-compact-capability">
+        <h3><Icon name="plug" size={16}/>{zh ? '系统连接' : 'Connections'}</h3>
+        <ul class="bank-compact-tags bank-compact-connection-tags"><li>MCP</li><li>RESTful API</li><li>{zh ? '数据库' : 'Database'}</li></ul>
+      </div>
+      <div class="bank-compact-governance"><span><Icon name="key" size={14}/>{zh ? '授权访问' : 'Authorized access'}</span><span><Icon name="shield" size={14}/>{zh ? '调用审计' : 'Tool-call audit'}</span></div>
+    </aside>
+  </div>
+</div> : <div class="bank-product" role="group" aria-label={zh ? 'TeGo银行数字员工工作台，展示岗位配置、工作会话、任务协同、知识库、技能与插件、系统连接及人工复核。' : 'TeGo banking workspace with digital employees, conversations, collaborative tasks, knowledge, skills, system connections and human review.'}>
+  <header class="bank-product-header">
+    <div class="bank-product-brand"><span>TeGo</span><h2>{zh ? '银行数字员工' : 'Banking digital employees'}</h2></div>
+    <div class="bank-product-topics"><span>{zh ? '工作会话' : 'Conversations'}</span><span>{zh ? '任务计划' : 'Task plans'}</span><span>{zh ? '执行记录' : 'Execution history'}</span></div>
+  </header>
+  <div class="bank-product-grid">
+    <aside class="bank-product-team">
+      <h3>{zh ? '数字员工' : 'Digital employees'}</h3>
+      <ul>{employees.map(([role,avatar],index)=><li class:list={{'is-selected':index===0}}><img src={`/images/home/employee-avatar-${avatar}_V1.0.webp`} width="30" height="30" alt="" loading="eager" decoding="async"/><span>{role}</span></li>)}</ul>
+      <div class="bank-product-schedule"><div><Icon name="clock" size={16}/><strong>{zh ? '定时任务' : 'Scheduled tasks'}</strong></div><p>{zh ? '贷后风险资料整理' : 'Post-loan record preparation'}</p></div>
+    </aside>
+    <div class="bank-product-work">
+      <div class="bank-product-conversation">
+        <h3><Icon name="message" size={17}/>{zh ? '信贷与客户经营协作' : 'Credit and client management'}</h3>
+        <div class="bank-product-request">{zh ? '整理授信资料与审查重点，归并贷后预警，形成重点客户跟进材料。' : 'Prepare credit records and review priorities, group post-loan alerts, and create briefing materials for priority clients.'}</div>
+      </div>
+      <div class="bank-product-tasks">
+        <h3><Icon name="network" size={17}/>{zh ? '任务协同' : 'Task collaboration'}</h3>
+        {tasks.map(task=><div class="bank-product-task"><span class="bank-product-task-icon"><Icon name={task.icon} size={18}/></span><div><strong>{task.title}</strong><p>{task.action}</p></div><span class="bank-product-task-state">{task.state}</span></div>)}
+      </div>
+      <div class="bank-product-results">
+        <h3>{zh ? '工作成果' : 'Deliverables'}</h3>
+        <div>{outputs.map((output,index)=><div class="bank-product-file"><span class:list={['bank-product-file-icon', {'is-sheet':index===1}]}><Icon name="file" size={21}/></span><strong>{output}</strong><span>{index===1 ? 'XLSX' : 'DOCX'}</span></div>)}</div>
+      </div>
+      <div class="bank-product-review"><Icon name="check" size={16}/><strong>{zh ? '人工复核' : 'Human review'}</strong><span>{zh ? '审查要点与核查事项' : 'Review priorities and follow-up checks'}</span><span class="bank-product-review-state">{zh ? '待确认' : 'Pending'}</span></div>
+    </div>
+    <aside class="bank-product-capabilities">
+      <h3>{zh ? '岗位能力' : 'Role capabilities'}</h3>
+      <div class="bank-product-capability"><h4><Icon name="book" size={16}/>{zh ? '知识库' : 'Knowledge'}</h4><ul><li>{zh ? '授信审查制度' : 'Credit review policies'}</li><li>{zh ? '贷后管理要求' : 'Post-loan requirements'}</li></ul><span class="bank-product-reference">{zh ? '原文引用' : 'Source references'}</span></div>
+      <div class="bank-product-capability"><h4><Icon name="layers" size={16}/>{zh ? '技能与插件' : 'Skills & plugins'}</h4><div class="bank-product-skill-tags"><span>{zh ? '财务核对' : 'Financial checks'}</span><span>{zh ? '制度审阅' : 'Policy review'}</span><span>{zh ? '经营分析' : 'Business analysis'}</span></div></div>
+      <div class="bank-product-capability"><h4><Icon name="plug" size={16}/>{zh ? '系统连接' : 'System connections'}</h4><div class="bank-product-connections"><span>MCP</span><span>RESTful API</span><span>{zh ? '数据库' : 'Database'}</span></div></div>
+      <div class="bank-product-governance"><div><Icon name="key" size={15}/><span>{zh ? '按授权访问' : 'Authorized access'}</span></div><div><Icon name="shield" size={15}/><span>{zh ? '任务与工具调用审计' : 'Task and tool-call audit'}</span></div></div>
+    </aside>
+  </div>
+</div>}
+
+<style>
+.bank-product{overflow:hidden;border:1px solid #84b2d63b;border-radius:19px;background:radial-gradient(ellipse at 10% 0,#2c608331,transparent 60%),#0e1a28;box-shadow:0 24px 60px #0005;color:#e3effa;isolation:isolate}
+.bank-product-header{display:flex;justify-content:space-between;align-items:center;gap:25px;padding:18px 25px;background:#1e3a503d;border-bottom:1px solid #8bb6d51d}.bank-product-brand{display:flex;gap:18px;align-items:center}.bank-product-brand>span{line-height:1.2;font-size:24px;font-weight:650;letter-spacing:-1px;color:#a0d4ff}.bank-product-brand h2{margin:0;font-size:16px;font-weight:550;line-height:1.5}.bank-product-topics{display:flex;gap:22px;font-size:12px;color:#91a9bd}.bank-product-topics span:first-child{color:#c2e1fb}
+.bank-product-grid{display:grid;grid-template-columns:163px minmax(0,1fr) 242px;min-width:0}.bank-product-grid>*{min-width:0}.bank-product-team{padding:24px 14px 22px;background:#0b16233d;border-right:1px solid #89b1d018}.bank-product h3{margin:0;font-size:13px;font-weight:550;line-height:1.5;color:#c8dbea}.bank-product-team>h3{padding-left:10px;margin-bottom:15px}.bank-product-team>ul{list-style:none;display:grid;gap:8px;padding:0;margin:0}.bank-product-team li{display:flex;gap:9px;align-items:center;padding:8px 9px;border:1px solid transparent;border-radius:8px;color:#a2b8cb;font-size:12px;line-height:1.5}.bank-product-team li.is-selected{background:#335b7f2e;border-color:#8bc6f139;color:#e5f3ff}.bank-product-team img{width:30px;height:30px;object-fit:cover;border-radius:50%;flex-shrink:0}.bank-product-schedule{margin:21px 8px 0;padding-top:17px;border-top:1px solid #94bdd21c}.bank-product-schedule>div{display:flex;gap:7px;align-items:center;font-size:11px;color:#b4cce0}.bank-product-schedule strong{font-weight:500}.bank-product-schedule p{margin:9px 0 0;color:#7f9bb1;font-size:10px;line-height:1.7}
+.bank-product-work{padding:23px 25px;min-width:0;font-size:12px;line-height:1.5}.bank-product-conversation h3,.bank-product-tasks h3{display:flex;gap:8px;align-items:center}.bank-product-conversation h3 svg,.bank-product-tasks h3 svg{color:#8cbcdf}.bank-product-request{margin:15px 0 23px 30px;padding:13px 17px;border:1px solid #83bbeb2b;border-radius:11px 3px 11px 11px;background:linear-gradient(130deg,#21476968,#2039504a);font-size:13px;line-height:1.85;color:#c8dcec}.bank-product-tasks h3{margin-bottom:12px}.bank-product-task{display:flex;gap:10px;align-items:center;padding:12px 13px;border:1px solid #90b7d21c;border-radius:8px;background:#a0c6e106}.bank-product-task+.bank-product-task{margin-top:7px}.bank-product-task-icon{display:grid;place-items:center;width:30px;height:33px;flex-shrink:0;border-radius:7px;background:#7aadd51a;color:#9ecbf0}.bank-product-task>div{min-width:0;font-size:12px;line-height:1.5}.bank-product-task strong{font-size:12px;font-weight:500;line-height:1.5}.bank-product-task p{margin:4px 0 0;color:#83a1b9;font-size:10px;line-height:1.5}.bank-product-task-state{margin-left:auto;flex-shrink:0;font-size:10px;padding:3px 7px;border-radius:4px;color:#d6c699;background:#b49b5216}.bank-product-task:nth-of-type(2) .bank-product-task-state{color:#a6d9cc;background:#68aa9413}.bank-product-task:nth-of-type(3) .bank-product-task-state{color:#b8c4eb;background:#899bce18}.bank-product-results{margin-top:20px}.bank-product-results>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:11px}.bank-product-file{display:grid;grid-template-columns:28px 1fr;column-gap:7px;align-items:center;min-width:0;padding:11px 10px;border-radius:8px;border:1px solid #bfd7ec39;background:linear-gradient(140deg,#cbdceb,#a8bfd5);color:#1d405d;box-shadow:0 7px 18px #0003}.bank-product-file-icon{grid-row:span 2;color:#3d6d99}.bank-product-file-icon.is-sheet{color:#457d72}.bank-product-file strong{font-size:11px;font-weight:600;line-height:1.5}.bank-product-file>span:last-child{margin-top:2px;color:#53718b;font-size:8px;letter-spacing:.06em}.bank-product-review{display:flex;align-items:center;gap:7px;margin-top:17px;padding:10px 11px;border:1px solid #85bcae28;border-radius:7px;background:#85bcae07;color:#9ccbbc;font-size:10px;line-height:1.5}.bank-product-review strong{font-weight:500;flex-shrink:0}.bank-product-review>span:not(.bank-product-review-state){color:#8da89f}.bank-product-review-state{margin-left:auto;flex-shrink:0;color:#d8cca4}
+.bank-product-capabilities{padding:24px 21px;border-left:1px solid #8bb6d51d;background:#1e34471f}.bank-product-capabilities>h3{margin-bottom:19px}.bank-product-capability+.bank-product-capability{margin-top:22px}.bank-product-capability h4{display:flex;gap:8px;align-items:center;margin:0 0 11px;color:#aecde7;font-size:12px;font-weight:500}.bank-product-capability h4 svg{color:#88b5d8}.bank-product-capability ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}.bank-product-capability li{display:flex;gap:7px;font-size:11px;line-height:1.5;color:#a3bbcd}.bank-product-capability li::before{content:'';width:4px;height:4px;margin-top:6px;border-radius:50%;background:#739fbe;flex-shrink:0}.bank-product-reference{display:inline-block;margin-top:10px;padding:3px 7px;border:1px solid #6b9cb830;border-radius:4px;font-size:10px;color:#9fcdbd;background:#679b8510}.bank-product-skill-tags,.bank-product-connections{display:flex;flex-wrap:wrap;gap:6px}.bank-product-skill-tags span,.bank-product-connections span{padding:5px 7px;border:1px solid #94b5d024;border-radius:5px;font-size:10px;line-height:1.45;background:#95b7d008;color:#b3c8da}.bank-product-connections span{color:#b5c6ea;background:#718bcf0b}.bank-product-governance{display:grid;gap:10px;margin-top:23px;padding-top:17px;border-top:1px solid #85b3d01d}.bank-product-governance>div{display:flex;gap:7px;align-items:center;color:#809eb5;font-size:10px;line-height:1.5}.bank-product-governance svg{color:#86b2cf;flex-shrink:0}
+:global(html[lang='en']) .bank-product-grid{grid-template-columns:169px minmax(0,1fr) 240px}:global(html[lang='en']) .bank-product-work{padding-inline:20px}:global(html[lang='en']) .bank-product-file strong{font-size:10px}:global(html[lang='en']) .bank-product-team li{font-size:11px}:global(html[lang='en']) .bank-product-review{font-size:9px}
+@media(max-width:1100px){.bank-product-grid{grid-template-columns:145px minmax(0,1fr) 200px}.bank-product-header{padding-inline:20px}.bank-product-work{padding:21px 18px}.bank-product-capabilities{padding:22px 16px}.bank-product-team{padding-inline:9px}.bank-product-team li{font-size:11px;gap:7px;padding-inline:7px}.bank-product-team img{width:27px;height:27px}.bank-product-file{grid-template-columns:minmax(0,1fr);gap:5px}.bank-product-file-icon{grid-row:auto}.bank-product-task-state{font-size:9px}.bank-product-review{flex-wrap:wrap}:global(html[lang='en']) .bank-product-grid{grid-template-columns:145px minmax(0,1fr) 185px}}
+@media(max-width:850px){.bank-product-grid{grid-template-columns:145px minmax(0,1fr)}.bank-product-capabilities{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;border-left:0;border-top:1px solid #8bb6d51d}.bank-product-capabilities>h3{grid-column:1/-1;margin:0}.bank-product-capability+.bank-product-capability{margin:0}.bank-product-governance{grid-column:1/-1;display:flex;gap:22px;margin:0;padding-top:14px}.bank-product-topics{gap:15px;font-size:11px}.bank-product-brand{gap:12px}.bank-product-brand h2{font-size:14px}:global(html[lang='en']) .bank-product-grid{grid-template-columns:145px minmax(0,1fr)}}
+@media(max-width:600px){.bank-product{border-radius:15px}.bank-product-header{padding:16px 17px;display:block}.bank-product-brand>span{font-size:22px}.bank-product-brand h2{font-size:15px}.bank-product-topics{margin-top:16px;gap:25px;font-size:11px}.bank-product-grid{grid-template-columns:minmax(0,1fr)}.bank-product-team{padding:17px 16px;border-right:0;border-bottom:1px solid #8bb6d51d}.bank-product-team>h3{padding:0;margin-bottom:12px;font-size:12px}.bank-product-team>ul{display:flex;gap:7px;overflow-x:auto;scrollbar-width:thin;padding-bottom:6px}.bank-product-team li{flex-shrink:0;padding:6px 8px;font-size:11px;gap:6px}.bank-product-team img{width:25px;height:25px}.bank-product-schedule{display:flex;gap:12px;align-items:center;margin:13px 0 0;padding:0;border:0}.bank-product-schedule p{margin:0;font-size:10px}.bank-product-work{padding:20px 16px}.bank-product-request{margin:13px 0 20px 12px;font-size:12px;padding:12px}.bank-product-task{padding:11px 9px;gap:8px}.bank-product-task strong{font-size:12px}.bank-product-task p{font-size:9px}.bank-product-task-state{font-size:9px;padding:3px 5px}.bank-product-task-icon{width:25px;height:30px}.bank-product-results>div{gap:6px}.bank-product-file{padding:10px 8px;gap:7px}.bank-product-file strong{font-size:10px}.bank-product-file>span:last-child{font-size:8px}.bank-product-review{font-size:10px}.bank-product-capabilities{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px 14px;padding:20px 16px}.bank-product-capabilities>h3{font-size:12px}.bank-product-capability:nth-of-type(3){grid-column:1/-1}.bank-product-capability+.bank-product-capability{margin:0}.bank-product-capability li{font-size:11px}.bank-product-capability h4{font-size:12px}.bank-product-governance{flex-wrap:wrap;gap:10px 18px}.bank-product-governance>div{font-size:10px}:global(html[lang='en']) .bank-product-grid{grid-template-columns:minmax(0,1fr)}:global(html[lang='en']) .bank-product-work{padding-inline:16px}}
+
+.bank-product-compact {
+  width: 100%;
+  overflow: clip;
+  border: 1px solid #b1d2ed3d;
+  border-radius: 17px;
+  background: linear-gradient(135deg, #142b40d4, #0b1727e3 70%);
+  box-shadow: 0 18px 48px #00000038;
+  -webkit-backdrop-filter: blur(8px) saturate(1.08);
+  backdrop-filter: blur(8px) saturate(1.08);
+  color: #eaf3fc;
+}
+.bank-compact-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 48px; box-sizing: border-box; padding: 11px 17px; background: #9dcdf00a; }
+.bank-compact-brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.bank-compact-brand > span { color: #b8e0ff; font-size: 23px; font-weight: 650; line-height: 1; letter-spacing: -.06em; }
+.bank-compact-brand h2 { margin: 0; color: #f2f7ff; font-size: 13px; font-weight: 550; line-height: 1.5; }
+.bank-compact-current { display: flex; align-items: center; gap: 6px; flex-shrink: 0; color: #c6e4fc; font-size: 12px; line-height: 1.5; }
+.bank-compact-grid { display: grid; grid-template-columns: 128px minmax(0, 1fr) 156px; min-width: 0; }
+.bank-compact-grid > * { min-width: 0; }
+.bank-compact-grid h3 { margin: 0; color: #dceaf6; font-size: 13px; font-weight: 550; line-height: 1.5; }
+.bank-compact-grid ul { margin: 0; padding: 0; list-style: none; }
+.bank-compact-team { padding: 15px 10px; background: #07121e1a; }
+.bank-compact-team > h3 { margin: 0 4px 12px; }
+.bank-compact-team > ul { display: grid; gap: 8px; }
+.bank-compact-team li { display: flex; align-items: center; gap: 8px; padding: 9px 6px; border: 1px solid transparent; border-radius: 8px; color: #cbdeed; font-size: 13px; line-height: 1.5; }
+.bank-compact-team li.is-selected { border-color: #9ad0f53d; background: #71b6e72b; color: #f2f8ff; }
+.bank-compact-team img { display: block; width: 30px; height: 30px; flex-shrink: 0; border-radius: 50%; object-fit: cover; }
+.bank-compact-team li > span { min-width: 0; overflow-wrap: anywhere; }
+.bank-compact-work { padding: 12px 13px 14px; }
+.bank-compact-request { display: flex; align-items: flex-start; gap: 9px; padding: 9px 10px; border: 1px solid #a9d3f244; border-radius: 9px 3px 9px 9px; background: linear-gradient(135deg, #315979ad, #244562ae); box-shadow: 0 5px 12px #02091136, 0 2px 4px #00000026; }
+.bank-compact-request > svg { flex-shrink: 0; margin-top: 2px; color: #b6d9f6; }
+.bank-compact-request p { margin: 0; color: #edf5fd; font-size: 13px; line-height: 1.7; }
+.bank-compact-task { margin-top: 11px; padding: 10px 11px; border: 1px solid #b1cfe53d; border-radius: 8px; background: linear-gradient(145deg, #20384bcc, #192e40d8); box-shadow: 0 9px 18px #030a1145, 0 2px 5px #00000026; }
+.bank-compact-task-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.bank-compact-task-heading h3 { display: flex; align-items: center; gap: 6px; }
+.bank-compact-task-heading h3 > svg { color: #a4cdeb; }
+.bank-compact-task-heading > span { flex-shrink: 0; padding: 2px 6px; border-radius: 4px; background: #ceb67517; color: #e1d29f; font-size: 11px; line-height: 1.5; }
+.bank-compact-task ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 8px; }
+.bank-compact-task li { display: flex; align-items: center; justify-content: center; gap: 5px; padding: 6px 4px; border: 1px solid #b3d6ed1e; border-radius: 5px; background: #7db6e00f; }
+.bank-compact-task li > svg { flex-shrink: 0; color: #a5cee9; }
+.bank-compact-task strong { min-width: 0; color: #d8e9f6; font-size: 12px; font-weight: 450; line-height: 1.5; overflow-wrap: anywhere; }
+.bank-compact-results { margin-top: 12px; }
+.bank-compact-results ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 9px; }
+.bank-compact-results li { display: flex; align-items: center; gap: 6px; min-width: 0; padding: 9px 7px; border: 1px solid #bfd8e76b; border-radius: 7px; background: linear-gradient(145deg, #bdd1dfed, #aac3d4ed); color: #1b3d56; box-shadow: 0 7px 14px #00000038, 0 2px 4px #00000026; }
+.bank-compact-results li:nth-child(2) { position: relative; top: -4px; background: linear-gradient(145deg, #c9dedbed, #b2cfcaed); box-shadow: 0 12px 20px #0000004d, 0 3px 6px #0000002e; }
+.bank-compact-results li > svg { flex-shrink: 0; color: #376d9b; }
+.bank-compact-results li.is-sheet > svg { color: #3a786e; }
+.bank-compact-results strong { min-width: 0; font-size: 12px; font-weight: 600; line-height: 1.6; overflow-wrap: anywhere; }
+.bank-compact-review { display: flex; align-items: center; gap: 6px; margin-top: 11px; padding: 8px 10px; border: 1px solid #a5d7c632; border-radius: 6px; background: #87bcac10; color: #bce3d1; font-size: 12px; line-height: 1.5; }
+.bank-compact-review > svg { flex-shrink: 0; }
+.bank-compact-review strong { flex-shrink: 0; font-size: 12px; font-weight: 500; }
+.bank-compact-review > span { min-width: 0; color: #c0d6d0; }
+.bank-compact-capabilities { display: grid; align-content: start; gap: 19px; padding: 15px 12px; background: #35516a17; }
+.bank-compact-capability h3 { display: flex; align-items: center; gap: 7px; margin-bottom: 9px; }
+.bank-compact-capability h3 > svg { flex-shrink: 0; color: #a3ccea; }
+.bank-compact-policies { display: grid; gap: 6px; }
+.bank-compact-policies li { color: #d1e1ef; font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
+.bank-compact-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.bank-compact-tags li { min-width: 0; padding: 3px 6px; border: 1px solid #b8d7ef30; border-radius: 4px; background: #abcfe813; color: #d1e4f3; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+.bank-compact-connection-tags li { font-size: 11px; }
+.bank-compact-governance { display: grid; gap: 7px; margin-top: 0; }
+.bank-compact-governance > span { display: flex; align-items: center; gap: 6px; color: #b0c9da; font-size: 11px; line-height: 1.5; }
+.bank-compact-governance svg { flex-shrink: 0; color: #a1cdbd; }
+:global(html[lang='en']) .bank-compact-grid { grid-template-columns: 135px minmax(0, 1fr) 156px; }
+:global(html[lang='en']) .bank-compact-brand h2 { font-size: 12px; }
+:global(html[lang='en']) .bank-compact-team li { font-size: 12px; }
+:global(html[lang='en']) .bank-compact-task strong { font-size: 11px; }
+:global(html[lang='en']) .bank-compact-results strong { font-size: 11px; }
+:global(html[lang='en']) .bank-compact-tags li { font-size: 11px; }
+
+@media (max-width: 760px) {
+  .bank-product-compact { border-radius: 14px; }
+  .bank-compact-header { min-height: 48px; gap: 10px; padding: 12px 14px; }
+  .bank-compact-brand { gap: 9px; }
+  .bank-compact-brand > span { font-size: 22px; }
+  .bank-compact-brand h2 { font-size: 13px; }
+  .bank-compact-current { font-size: 11px; gap: 4px; }
+  .bank-compact-grid, :global(html[lang='en']) .bank-compact-grid { grid-template-columns: minmax(0, 1fr); }
+  .bank-compact-team { padding: 12px 14px 8px; }
+  .bank-compact-team > h3 { margin: 0 0 9px; font-size: 12px; }
+  .bank-compact-team > ul { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .bank-compact-team li { gap: 6px; padding: 7px 5px; font-size: 12px; }
+  .bank-compact-team img { width: 25px; height: 25px; }
+  .bank-compact-work { padding: 12px 14px 16px; }
+  .bank-compact-task { margin-top: 11px; padding: 11px 9px; }
+  .bank-compact-task ul { gap: 5px; }
+  .bank-compact-task li { gap: 4px; padding: 6px 3px; }
+  .bank-compact-task strong { font-size: 12px; }
+  .bank-compact-results li { gap: 5px; padding: 9px 6px; }
+  .bank-compact-results strong { font-size: 12px; }
+  .bank-compact-review { flex-wrap: wrap; }
+  .bank-compact-capabilities { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px 11px; padding: 14px; }
+  .bank-compact-capability h3 { gap: 5px; margin-bottom: 8px; font-size: 12px; }
+  .bank-compact-policies li, .bank-compact-tags li { font-size: 11px; }
+  .bank-compact-tags li { padding: 3px 5px; }
+  .bank-compact-governance { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 9px 18px; }
+  :global(html[lang='en']) .bank-compact-brand h2 { max-width: 130px; font-size: 11px; }
+  :global(html[lang='en']) .bank-compact-team li { font-size: 11px; }
+}
+
+@media (max-width: 380px) {
+  .bank-compact-current { gap: 3px; font-size: 10px; }
+  .bank-compact-brand h2 { font-size: 12px; }
+  .bank-compact-team li { flex-direction: column; align-items: center; gap: 5px; text-align: center; }
+  .bank-compact-task li { flex-direction: column; gap: 4px; text-align: center; }
+  .bank-compact-results li { flex-direction: column; align-items: flex-start; gap: 5px; }
+  .bank-compact-capabilities { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bank-compact-capability:nth-child(3) { grid-column: 1 / -1; }
+}
+</style>

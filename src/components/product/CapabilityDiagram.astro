@@ -1,0 +1,13 @@
+---
+import type { Locale } from '../../data/types';
+import IntegrationsWorkArt from './IntegrationsFlowArt_V2.0.astro';
+import CollaborationCapabilityArt from './CollaborationCapabilityArt.astro';
+import KnowledgeCapabilityArt from './KnowledgeCapabilityArt.astro';
+import GovernanceCapabilityArt from './GovernanceCapabilityArt.astro';
+interface Props { locale: Locale; capability: string; scene?: number; }
+const { locale, capability, scene = -1 } = Astro.props;
+---
+{capability === 'integrations' && <IntegrationsWorkArt locale={locale} scene={scene}/>}
+{capability === 'collaboration' && <CollaborationCapabilityArt locale={locale} scene={scene}/>}
+{capability === 'knowledge' && <KnowledgeCapabilityArt locale={locale} scene={scene}/>}
+{capability === 'governance' && <GovernanceCapabilityArt locale={locale} scene={scene}/>}

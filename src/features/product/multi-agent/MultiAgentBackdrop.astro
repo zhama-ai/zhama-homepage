@@ -1,0 +1,99 @@
+---
+import Icon from '../../../components/Icon.astro';
+import type { Locale } from '../../../data/types';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const zh = locale === 'zh';
+const agentRoles = zh ? [
+  { icon: 'workflow', title: '主 Agent', work: '统筹 · 分派 · 汇总', state: '协作统筹' },
+  { icon: 'file-search', title: '研究 Agent', work: '资料研究', state: '结果回传' },
+  { icon: 'chart', title: '分析 Agent', work: '专业分析', state: '结果回传' },
+  { icon: 'layers', title: '执行 Agent', work: '任务执行', state: '进度回传' },
+  { icon: 'clipboard-check', title: '审阅 Agent', work: '成果审阅', state: '问题回传' },
+] : [
+  { icon: 'workflow', title: 'Main Agent', work: 'Plan · Delegate · Assemble', state: 'Coordinates work' },
+  { icon: 'file-search', title: 'Research Agent', work: 'Research materials', state: 'Returns results' },
+  { icon: 'chart', title: 'Analysis Agent', work: 'Specialist analysis', state: 'Returns results' },
+  { icon: 'layers', title: 'Execution Agent', work: 'Execute tasks', state: 'Returns progress' },
+  { icon: 'clipboard-check', title: 'Review Agent', work: 'Review deliverables', state: 'Returns issues' },
+];
+const agentCards = Array.from({ length: 15 }, (_, index) => agentRoles[index % agentRoles.length]);
+---
+<div class="ma-hero-backdrop" aria-hidden="true">
+  <div class="ma-backdrop-field">
+    {agentCards.map((agent, index) => <div class:list={['ma-backdrop-agent', `ma-backdrop-agent-${index % agentRoles.length}`]}>
+      <div class="ma-backdrop-agent-heading">
+        <span><Icon name={agent.icon} size={24}/></span>
+        <strong>{agent.title}</strong>
+      </div>
+      <div class="ma-backdrop-agent-work"><span></span><strong>{agent.work}</strong></div>
+      <div class="ma-backdrop-agent-state"><Icon name="arrow" size={13}/><span>{agent.state}</span></div>
+    </div>)}
+  </div>
+</div>
+
+<style>
+  .ma-hero-backdrop {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    overflow: clip;
+    pointer-events: none;
+    mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 84%, transparent);
+  }
+  .ma-hero-backdrop::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(7, 18, 30, .92), rgba(7, 18, 30, .74) 34%, rgba(7, 18, 30, .34) 72%, rgba(7, 18, 30, .58));
+    content: '';
+  }
+  .ma-backdrop-field {
+    position: absolute;
+    top: 50%;
+    left: 58%;
+    display: grid;
+    grid-template-columns: repeat(5, 220px);
+    gap: 70px 82px;
+    width: 1428px;
+    transform: translate(-50%, -50%) rotateX(50deg) rotateZ(-28deg);
+    transform-origin: center;
+    transform-style: preserve-3d;
+  }
+  .ma-backdrop-agent {
+    --agent-accent: #6eafe8;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-width: 0;
+    height: 148px;
+    padding: 15px;
+    border: 1px solid color-mix(in srgb, var(--agent-accent) 42%, transparent);
+    border-radius: 8px;
+    color: #dbeaf7;
+    background: linear-gradient(145deg, color-mix(in srgb, var(--agent-accent) 17%, #102438), rgba(9, 24, 38, .9));
+    box-shadow: 0 24px 42px -20px #000c, inset 0 1px 0 color-mix(in srgb, var(--agent-accent) 18%, transparent);
+    opacity: .76;
+  }
+  .ma-backdrop-agent-0 { transform: translateZ(42px); }
+  .ma-backdrop-agent-1 { --agent-accent: #68c4b5; transform: translateZ(12px); }
+  .ma-backdrop-agent-2 { --agent-accent: #77b9ef; transform: translateZ(28px); }
+  .ma-backdrop-agent-3 { --agent-accent: #5c9dbf; transform: translateZ(8px); }
+  .ma-backdrop-agent-4 { --agent-accent: #a294dd; transform: translateZ(34px); }
+  .ma-backdrop-agent-heading { display: flex; align-items: center; gap: 10px; }
+  .ma-backdrop-agent-heading > span { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid color-mix(in srgb, var(--agent-accent) 48%, transparent); border-radius: 6px; color: color-mix(in srgb, var(--agent-accent) 78%, white); background: color-mix(in srgb, var(--agent-accent) 14%, transparent); }
+  .ma-backdrop-agent-heading strong { font-size: 14px; font-weight: 550; line-height: 1.4; }
+  .ma-backdrop-agent-work { display: flex; align-items: center; gap: 8px; margin-top: 15px; color: #9bb4c9; }
+  .ma-backdrop-agent-work > span { width: 7px; height: 7px; border-radius: 50%; background: var(--agent-accent); box-shadow: 0 0 0 5px color-mix(in srgb, var(--agent-accent) 10%, transparent); }
+  .ma-backdrop-agent-work strong { font-size: 11px; font-weight: 500; line-height: 1.5; }
+  .ma-backdrop-agent-state { display: flex; align-items: center; justify-content: flex-end; gap: 5px; color: color-mix(in srgb, var(--agent-accent) 62%, #9fb3c5); font-size: 10px; }
+  .ma-backdrop-agent-state svg { transform: rotate(180deg); }
+
+  @media (max-width: 720px) {
+    .ma-backdrop-field { left: 52%; width: 1130px; grid-template-columns: repeat(5, 174px); gap: 52px 65px; }
+    .ma-backdrop-agent { height: 124px; padding: 12px; }
+    .ma-backdrop-agent-heading > span { width: 31px; height: 31px; }
+    .ma-backdrop-agent-heading strong { font-size: 12px; }
+    .ma-backdrop-agent-work { margin-top: 10px; }
+    .ma-hero-backdrop::after { background: linear-gradient(rgba(7, 18, 30, .8), rgba(7, 18, 30, .5) 55%, rgba(7, 18, 30, .7)); }
+  }
+</style>

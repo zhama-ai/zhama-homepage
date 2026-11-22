@@ -1,0 +1,25 @@
+---
+interface Props { home: boolean; }
+const { home } = Astro.props;
+---
+{home ? <>
+  <div class="industry-introduction">
+    <slot name="scene"/>
+    <div class="industry-introduction-copy">
+      <slot name="action"/>
+      <slot name="context"/>
+      <slot name="work"/>
+    </div>
+  </div>
+  <slot name="results"/>
+</> : <>
+  <div class="industry-scene-column">
+    <slot name="scene"/>
+    <slot name="context"/>
+  </div>
+  <div class="industry-delivery">
+    <slot name="work"/>
+    <slot name="results"/>
+    <slot name="action"/>
+  </div>
+</>}

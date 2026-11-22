@@ -1,0 +1,9 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Page from '../../features/pricing/Page.astro';
+import { locales } from '../../lib/site';
+export function getStaticPaths() { return locales.map(locale => ({ params: { locale }, props: { locale } })); }
+const { locale } = Astro.props;
+const zh = locale === 'zh';
+---
+<Layout locale={locale} title={zh ? '价格方案' : 'Pricing'} description={zh ? '比较社区版、订阅版与企业版的价格、能力和服务，订阅版 ¥50,000/年起。' : 'Compare Community, Subscription and Enterprise editions. Subscription starts at CNY 50,000 per year.'} page="pricing"><Page locale={locale}/></Layout>

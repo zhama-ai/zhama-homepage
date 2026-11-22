@@ -1,0 +1,239 @@
+---
+import type { Locale } from '../../../data/types';
+interface Props { locale: Locale; index: number; }
+const { locale, index } = Astro.props;
+const zh = locale === 'zh';
+const copy = zh ? {
+  lifecycle: '保单生命周期', lifecycleSources: '投保与告知 · 保单责任 · 变更服务',
+  stages: [
+    { title: '核保数字员工', mechanism: '事实 × 规则 × 问询', outputs: ['投保事实核对表', '核保风险审阅表', '风险问询清单'] },
+    { title: '理赔数字员工', mechanism: '事故 × 责任 × 证据', outputs: ['案件事实时间线', '责任证据对照表', '补件核查清单'] },
+    { title: '保全数字员工', mechanism: '变更 × 影响 × 交接', outputs: ['变更影响对照', '材料补正清单', '保全办理交接表'] },
+  ],
+  executors: ['TeGo · 投保事实与核保问询数字员工', 'TeGo · 理赔责任与费用证据数字员工', 'TeGo · 保全变更与交接数字员工'],
+  underwriting: '投保事实与核保问询', matrixHead: ['投保事实', '核对依据', '问询准备'],
+  matrixRows: [
+    ['健康告知', '告知内容与证明资料', '说明事实差异'],
+    ['投保条件', '风险情况与承保规则', '补充风险信息'],
+    ['证明资料', '资料清单与已交材料', '整理待补内容'],
+  ],
+  underwritingOutputs: ['核保风险审阅表', '风险问询清单'], underwritingReview: '核保人员研判',
+  timeline: '事故与诊疗时间线', events: [
+    { title: '出险时间', detail: '关联保险期间' }, { title: '事故或诊疗', detail: '整理事实经过' },
+    { title: '费用发生', detail: '对应费用凭证' }, { title: '索赔申请', detail: '核对补件事项' },
+  ],
+  evidence: '责任与费用证据', evidenceRows: [
+    ['凭证主体', '费用凭证 ↔ 被保险人资料'], ['出险时间', '事故或诊疗记录 ↔ 保险期间'],
+    ['保障责任', '案件事实 ↔ 保障及除外条款'], ['费用项目', '费用明细 ↔ 凭证与证明材料'],
+  ],
+  claimsOutputs: ['责任证据对照表', '补件核查清单'],
+  change: '保全变更前后对照', changeHead: ['核对事项', '变更前', '变更申请'],
+  changeRows: [
+    ['合同事项', '现行合同约定', '拟变更内容'], ['客户资料', '已登记资料', '拟更新资料'],
+    ['办理影响', '原保障及缴费安排', '需核查的变更影响'],
+  ],
+  processing: ['申请受理', '材料核对', '业务确认', '办理交接'], correction: '材料缺项 → 补正后复核',
+  changeOutputs: ['保全变更影响对照', '保全办理交接表'],
+} : {
+  lifecycle: 'Policy lifecycle', lifecycleSources: 'Applications and disclosures · Coverage · Policy changes',
+  stages: [
+    { title: 'Underwriting employee', mechanism: 'Facts × Rules × Enquiries', outputs: ['Application fact comparison', 'Underwriting risk review', 'Risk enquiry list'] },
+    { title: 'Claims employee', mechanism: 'Events × Coverage × Evidence', outputs: ['Case timeline', 'Coverage evidence comparison', 'Missing-evidence checklist'] },
+    { title: 'Servicing employee', mechanism: 'Changes × Impacts × Handoffs', outputs: ['Change impact comparison', 'Correction checklist', 'Servicing handover'] },
+  ],
+  executors: ['TeGo · Application facts and underwriting enquiry employees', 'TeGo · Claims coverage and expense evidence employees', 'TeGo · Policy change and servicing handover employees'],
+  underwriting: 'Application facts and underwriting enquiries', matrixHead: ['Application fact', 'Comparison basis', 'Enquiry preparation'],
+  matrixRows: [
+    ['Health disclosure', 'Disclosures and supporting records', 'Explain differences'],
+    ['Application conditions', 'Risk facts and underwriting rules', 'Add risk information'],
+    ['Supporting records', 'Required and submitted evidence', 'Identify missing records'],
+  ],
+  underwritingOutputs: ['Underwriting risk review', 'Risk enquiry list'], underwritingReview: 'Underwriter judgment',
+  timeline: 'Incident and medical timeline', events: [
+    { title: 'Event date', detail: 'Link policy period' }, { title: 'Incident or care', detail: 'Organize case facts' },
+    { title: 'Expenses', detail: 'Match receipts' }, { title: 'Claim request', detail: 'Check missing evidence' },
+  ],
+  evidence: 'Coverage and expense evidence', evidenceRows: [
+    ['Named person', 'Expense receipt ↔ Insured person records'], ['Event date', 'Incident or medical records ↔ Policy period'],
+    ['Coverage', 'Case facts ↔ Coverage and exclusions'], ['Expense item', 'Expense details ↔ Receipts and evidence'],
+  ],
+  claimsOutputs: ['Coverage evidence comparison', 'Missing-evidence checklist'],
+  change: 'Policy changes and their impacts', changeHead: ['Review item', 'Current policy', 'Change request'],
+  changeRows: [
+    ['Contract terms', 'Current contract provisions', 'Requested changes'], ['Client records', 'Registered information', 'Proposed updates'],
+    ['Processing impacts', 'Current coverage and payments', 'Impacts requiring review'],
+  ],
+  processing: ['Receive request', 'Check records', 'Confirm change', 'Hand over work'], correction: 'Missing records → Correct and review',
+  changeOutputs: ['Policy change impact comparison', 'Policy servicing handover'],
+};
+---
+
+<div class:list={['insurance-visual', { 'insurance-visual-en': !zh }]}>
+  {index === -1 && <div class="lifecycle-visual">
+    <div class="policy-origin">
+      <span class="policy-emblem" aria-hidden="true"><svg viewBox="0 0 34 38" fill="none"><path d="m17 3 12 4v11c0 8-7 13-12 16C12 31 5 26 5 18V7z"/><path d="M12 13h10M12 18h10M12 23h6"/></svg></span>
+      <div><h3>{copy.lifecycle}</h3><span>{copy.lifecycleSources}</span></div>
+    </div>
+    <svg class="lifecycle-branches" viewBox="0 0 540 34" fill="none" aria-hidden="true"><path d="M270 0v15M90 34V15h360v19M270 15v19"/></svg>
+    <div class="lifecycle-stages">{copy.stages.map((stage, stageIndex) => <div class:list={['lifecycle-stage', `lifecycle-stage-${stageIndex}`]}>
+      <div class="stage-title"><span aria-hidden="true"></span><h4>{stage.title}</h4></div>
+      <p>{stage.mechanism}</p>
+      <div class="stage-deliverables">{stage.outputs.map(output => <span><svg viewBox="0 0 18 21" fill="none" aria-hidden="true"><path d="M4 2h7l4 4v13H4zM11 2v4h4M7 10h5M7 14h4"/></svg>{output}</span>)}</div>
+    </div>)}</div>
+  </div>}
+
+  {index === 0 && <div class="underwriting-visual">
+    <h3>{copy.underwriting}</h3>
+    <div class="visual-executor">{copy.executors[0]}</div>
+    <div class="underwriting-matrix">
+      <div class="matrix-head">{copy.matrixHead.map(label => <strong>{label}</strong>)}</div>
+      {copy.matrixRows.map(row => <div class="matrix-row"><strong>{row[0]}</strong><span>{row[1]}</span><span class="enquiry-cell">{row[2]}</span></div>)}
+    </div>
+    <div class="underwriting-delivery"><div>{copy.underwritingOutputs.map(output => <strong>{output}</strong>)}</div><span>{copy.underwritingReview}<svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="m4 9 3 3 7-7"/></svg></span></div>
+  </div>}
+
+  {index === 1 && <div class="claims-visual">
+    <h3>{copy.timeline}</h3>
+    <div class="visual-executor">{copy.executors[1]}</div>
+    <div class="claims-timeline">{copy.events.map(event => <div><i aria-hidden="true"></i><strong>{event.title}</strong><span>{event.detail}</span></div>)}</div>
+    <div class="claims-evidence"><h4>{copy.evidence}</h4>{copy.evidenceRows.map(row => <div><strong>{row[0]}</strong><span>{row[1]}</span></div>)}</div>
+    <div class="claims-delivery">{copy.claimsOutputs.map(output => <strong><svg viewBox="0 0 18 21" fill="none" aria-hidden="true"><path d="M4 2h7l4 4v13H4zM11 2v4h4M7 10h5M7 14h4"/></svg>{output}</strong>)}</div>
+  </div>}
+
+  {index === 2 && <div class="servicing-visual">
+    <h3>{copy.change}</h3>
+    <div class="visual-executor">{copy.executors[2]}</div>
+    <div class="change-comparison">
+      <div class="change-head">{copy.changeHead.map(label => <strong>{label}</strong>)}</div>
+      {copy.changeRows.map(row => <div class="change-row"><strong>{row[0]}</strong><span>{row[1]}</span><span>{row[2]}</span></div>)}
+    </div>
+    <div class="servicing-path">{copy.processing.map((step, stepIndex) => <><span>{step}</span>{stepIndex < copy.processing.length - 1 && <svg viewBox="0 0 20 16" fill="none" aria-hidden="true"><path d="M2 8h16m-4-4 4 4-4 4"/></svg>}</>)}</div>
+    <div class="correction-route"><svg viewBox="0 0 22 20" fill="none" aria-hidden="true"><path d="M18 14V8a4 4 0 0 0-4-4H4m4-3L4 4l4 3"/></svg><span>{copy.correction}</span></div>
+    <div class="change-delivery">{copy.changeOutputs.map(output => <strong>{output}</strong>)}</div>
+  </div>}
+</div>
+
+<style>
+  .insurance-visual { width: 100%; max-width: 560px; color: #b4cbdd; font-family: inherit; container-type: inline-size; isolation: isolate; }
+  .insurance-visual *, .insurance-visual *::before, .insurance-visual *::after { box-sizing: border-box; }
+  .insurance-visual h3, .insurance-visual h4, .insurance-visual p { margin: 0; }
+  .insurance-visual h3 { color: #e2eff7; font-size: 16px; font-weight: 550; line-height: 1.5; }
+  .insurance-visual h4 { color: #d8e9f4; font-size: 14px; font-weight: 550; line-height: 1.5; }
+  .visual-executor { margin: -10px 4px 18px; color: #7faaa9; font-size: 12px; line-height: 1.7; }
+  .insurance-visual svg { flex: 0 0 auto; color: #71a7b9; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+  .lifecycle-visual { padding: 15px 5px 9px; }
+  .policy-origin { display: flex; gap: 15px; align-items: center; justify-content: center; padding: 17px 15px; }
+  .policy-emblem { display: flex; color: #84c5c0; }
+  .policy-emblem svg { width: 39px; height: 43px; color: inherit; }
+  .policy-origin > div { display: grid; gap: 8px; }
+  .policy-origin h3 { font-size: 18px; }
+  .policy-origin > div > span { color: #829fb5; font-size: 12px; line-height: 1.6; }
+  .lifecycle-branches { display: block; width: 100%; height: 34px; color: #446c7b !important; }
+  .lifecycle-stages { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .lifecycle-stage { position: relative; min-width: 0; }
+  .stage-title { display: flex; gap: 7px; align-items: center; justify-content: center; }
+  .stage-title > span { width: 6px; height: 6px; background: #75bcb1; border-radius: 50%; box-shadow: 0 0 0 4px #75bcb10c; }
+  .lifecycle-stage > p { margin-top: 9px; color: #82a8ba; font-size: 12px; line-height: 1.6; text-align: center; }
+  .stage-deliverables { display: grid; gap: 14px; min-height: 167px; margin-top: 17px; padding: 18px 12px; background: linear-gradient(145deg, #17334bc7, #10233491); border: 1px solid #88b6c929; border-radius: 5px; box-shadow: 0 12px 26px #01070f26; }
+  .stage-deliverables > span { display: flex; gap: 7px; align-items: flex-start; color: #b4cfdf; font-size: 12px; line-height: 1.6; }
+  .stage-deliverables svg { width: 14px; height: 18px; margin-top: 1px; }
+  .lifecycle-stage-1 .stage-deliverables { background: linear-gradient(145deg, #143b42b3, #0c28328a); border-color: #84b9b72e; }
+  .lifecycle-stage-2 .stage-deliverables { background: linear-gradient(145deg, #193249c4, #1523338a); }
+  .underwriting-visual { padding: 19px 0 12px; }
+  .underwriting-visual > h3 { margin-left: 4px; margin-bottom: 19px; }
+  .underwriting-matrix { border: 1px solid #86aebd32; border-radius: 8px; background: linear-gradient(145deg, #142c40a8, #0e20308c); box-shadow: 0 14px 31px #01081224; }
+  .matrix-head, .matrix-row { display: grid; grid-template-columns: .8fr 1.2fr 1fr; align-items: stretch; }
+  .matrix-head { padding: 13px 16px; background: #7bb8bd07; border-bottom: 1px solid #7aadb928; }
+  .matrix-head strong { color: #80aaa9; font-size: 12px; font-weight: 500; line-height: 1.6; }
+  .matrix-row { margin: 0 16px; }
+  .matrix-row + .matrix-row { border-top: 1px solid #85acb919; }
+  .matrix-row > * { padding: 18px 9px 18px 0; font-size: 13px; font-weight: 450; line-height: 1.7; }
+  .matrix-row > strong { color: #d4e5f0; font-weight: 500; }
+  .matrix-row > span { color: #8faec3; }
+  .matrix-row .enquiry-cell { padding-left: 12px; color: #9dd1c3; border-left: 1px solid #80b9af1d; }
+  .underwriting-delivery { display: flex; gap: 13px; align-items: center; justify-content: space-between; padding: 18px 4px 0; }
+  .underwriting-delivery > div { display: flex; gap: 15px; flex-wrap: wrap; }
+  .underwriting-delivery strong { color: #c2dde9; font-size: 13px; font-weight: 500; line-height: 1.6; }
+  .underwriting-delivery > span { display: flex; flex: 0 0 auto; align-items: center; gap: 4px; color: #85b5a7; font-size: 12px; line-height: 1.6; }
+  .underwriting-delivery > span > svg { width: 15px; height: 15px; color: #85b5a7; }
+  .claims-visual { padding: 17px 3px 10px; }
+  .claims-visual > h3 { margin-bottom: 19px; }
+  .claims-timeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 9px; margin-bottom: 24px; }
+  .claims-timeline > div { position: relative; display: grid; gap: 7px; padding-top: 20px; }
+  .claims-timeline > div::before { position: absolute; top: 4px; right: -9px; left: 0; border-top: 1px solid #538b923e; content: ''; }
+  .claims-timeline > div:last-child::before { right: 76%; }
+  .claims-timeline i { position: absolute; top: 0; left: 0; width: 9px; height: 9px; border: 1px solid #80b5b1; background: #122b34; border-radius: 50%; }
+  .claims-timeline strong { color: #c2dbe8; font-size: 13px; font-weight: 500; line-height: 1.5; }
+  .claims-timeline span { color: #7d9eaf; font-size: 12px; line-height: 1.6; }
+  .claims-evidence { padding: 15px 17px 4px; background: linear-gradient(130deg, #12303888, #10233690); border: 1px solid #81b1b32b; border-radius: 8px; }
+  .claims-evidence > h4 { margin-bottom: 8px; }
+  .claims-evidence > div { display: grid; grid-template-columns: .7fr 2.2fr; gap: 13px; padding: 12px 0; }
+  .claims-evidence > div + div { border-top: 1px solid #8db4bb15; }
+  .claims-evidence > div > strong { color: #91bfb9; font-size: 12px; font-weight: 500; line-height: 1.6; }
+  .claims-evidence > div > span { color: #a3bece; font-size: 12px; line-height: 1.6; }
+  .claims-delivery { display: flex; flex-wrap: wrap; gap: 16px; padding: 17px 3px 0; }
+  .claims-delivery > strong { display: flex; gap: 6px; align-items: center; color: #c1dce6; font-size: 13px; font-weight: 500; line-height: 1.6; }
+  .claims-delivery svg { width: 15px; height: 18px; }
+  .servicing-visual { padding: 17px 0 10px; }
+  .servicing-visual > h3 { margin: 0 4px 18px; }
+  .change-comparison { padding: 0 15px; border: 1px solid #85aabd30; border-radius: 8px; background: linear-gradient(140deg, #172e438f, #10203099); }
+  .change-head, .change-row { display: grid; grid-template-columns: .8fr 1.2fr 1.2fr; gap: 12px; }
+  .change-head { padding: 13px 0; border-bottom: 1px solid #81abb92b; }
+  .change-head > strong { color: #83acae; font-size: 12px; font-weight: 500; line-height: 1.6; }
+  .change-row { padding: 15px 0; }
+  .change-row + .change-row { border-top: 1px solid #81abb916; }
+  .change-row > strong { color: #c0d9e6; font-size: 12px; font-weight: 500; line-height: 1.6; }
+  .change-row > span { color: #809eb3; font-size: 12px; line-height: 1.6; }
+  .change-row > span:last-child { color: #9dc8c0; }
+  .servicing-path { display: flex; gap: 9px; align-items: center; justify-content: space-between; margin: 22px 4px 0; }
+  .servicing-path > span { color: #c0dbe5; font-size: 13px; line-height: 1.6; }
+  .servicing-path svg { width: 16px; height: 14px; color: #588595; }
+  .correction-route { display: flex; gap: 5px; align-items: center; margin: 10px 0 0 29%; color: #81ada4; font-size: 12px; line-height: 1.6; }
+  .correction-route svg { width: 18px; height: 17px; color: #81ada4; }
+  .change-delivery { display: flex; gap: 20px; flex-wrap: wrap; margin: 20px 4px 0; }
+  .change-delivery > strong { color: #bad9e6; font-size: 13px; font-weight: 500; line-height: 1.6; }
+  .insurance-visual-en .stage-deliverables { min-height: 213px; padding: 17px 11px; }
+  .insurance-visual-en .stage-deliverables > span { font-size: 12px; }
+  .insurance-visual-en .matrix-head, .insurance-visual-en .matrix-row { grid-template-columns: .95fr 1.25fr 1fr; }
+  .insurance-visual-en .underwriting-delivery { align-items: flex-start; }
+  .insurance-visual-en .underwriting-delivery > span { flex: 0 1 auto; max-width: 120px; }
+  @container (max-width: 500px) {
+    .insurance-visual h3 { font-size: 15px; }
+    .policy-origin { justify-content: flex-start; padding: 8px 3px 18px; }
+    .policy-origin h3 { font-size: 17px; }
+    .policy-origin > div > span { font-size: 12px; }
+    .lifecycle-branches { display: none; }
+    .lifecycle-stages { grid-template-columns: 1fr; gap: 17px; }
+    .lifecycle-stage { display: grid; grid-template-columns: .85fr 1.2fr; gap: 5px 12px; align-items: center; padding: 0 0 0 4px; }
+    .stage-title { justify-content: flex-start; }
+    .lifecycle-stage > p { margin-top: 0; font-size: 12px; text-align: left; }
+    .stage-deliverables { grid-column: 2; grid-row: 1 / 3; gap: 9px; min-height: 0; margin-top: 0; padding: 13px 12px; }
+    .stage-deliverables > span { font-size: 12px; }
+    .matrix-head { padding: 12px; }
+    .matrix-row { margin: 0 12px; }
+    .matrix-head, .matrix-row { grid-template-columns: .8fr 1.1fr 1fr; }
+    .matrix-row > * { padding: 16px 7px 16px 0; font-size: 12px; }
+    .matrix-row .enquiry-cell { padding-left: 8px; }
+    .underwriting-delivery { flex-wrap: wrap; gap: 14px; }
+    .underwriting-delivery > div { gap: 10px 17px; }
+    .claims-timeline { grid-template-columns: 1fr 1fr; gap: 20px 14px; }
+    .claims-timeline > div:nth-child(2)::before { right: 76%; }
+    .claims-evidence { padding: 14px 13px 2px; }
+    .claims-evidence > div { grid-template-columns: .7fr 2fr; gap: 10px; }
+    .claims-delivery { gap: 11px; }
+    .change-comparison { padding: 0 12px; }
+    .change-head, .change-row { grid-template-columns: .8fr 1.1fr 1.1fr; gap: 9px; }
+    .servicing-path { display: grid; grid-template-columns: 1fr 17px 1fr; gap: 13px 9px; }
+    .servicing-path > span { text-align: center; }
+    .servicing-path > svg:nth-of-type(2) { grid-column: 3; justify-self: center; transform: rotate(90deg); }
+    .servicing-path > span:nth-of-type(3) { grid-column: 3; grid-row: 3; }
+    .servicing-path > svg:nth-of-type(3) { grid-column: 2; grid-row: 3; transform: rotate(180deg); }
+    .servicing-path > span:nth-of-type(4) { grid-column: 1; grid-row: 3; }
+    .correction-route { margin-left: 0; justify-content: center; }
+    .change-delivery { gap: 12px; }
+    .insurance-visual-en .stage-deliverables { min-height: 0; padding: 13px 12px; }
+    .insurance-visual-en .lifecycle-stage { grid-template-columns: .8fr 1.3fr; }
+    .insurance-visual-en .matrix-head, .insurance-visual-en .matrix-row { grid-template-columns: .9fr 1.1fr 1fr; }
+    .insurance-visual-en .underwriting-delivery > span { max-width: none; }
+  }
+</style>

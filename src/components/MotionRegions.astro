@@ -1,0 +1,22 @@
+<script>
+  import { observeMotion } from '../lib/motion';
+  import { onPageMount } from '../lib/page-lifecycle';
+  onPageMount(signal => document.querySelectorAll<HTMLElement>('.semantic-flow, .workflow-visual').forEach(region => {
+    region.dataset.ambientMotion = 'true';
+    observeMotion(region, state => {
+      region.querySelectorAll<SVGSVGElement>('svg').forEach(svg => {
+        if (state.running) svg.unpauseAnimations();
+        else svg.pauseAnimations();
+      });
+    }, signal);
+    signal.addEventListener('abort', () => region.querySelectorAll<SVGSVGElement>('svg').forEach(svg => svg.pauseAnimations()), { once: true });
+  }));
+</script>
+<style is:global>
+  [data-ambient-motion][data-motion-state='paused'],
+  [data-ambient-motion][data-motion-state='paused'] *,
+  [data-ambient-motion][data-motion-state='paused']::before,
+  [data-ambient-motion][data-motion-state='paused']::after { animation-play-state: paused !important; }
+  [data-ambient-motion][data-motion-state='reduced'],
+  [data-ambient-motion][data-motion-state='reduced'] * { animation: none !important; }
+</style>

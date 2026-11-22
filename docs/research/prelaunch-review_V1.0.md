@@ -1,0 +1,19 @@
+# 官网发布前检查依据
+
+访问与核查日期：2026-11-22。仅用于内部开发与发布检查。
+
+## 本次实际阅读的公开来源
+
+| 来源 | 采用理由 | 边界 |
+| --- | --- | --- |
+| [Google 多语言版本](https://developers.google.com/search/docs/specialty/international/localized-versions) | 每一语言版本包含自身与其他版本的绝对 hreflang 链接；正文需实际翻译，不能只依赖 lang 声明 | 保留本站已有三语路由；不引入自动按语言强制跳转，不视为收录证明 |
+| [Google 搜索结果标题](https://developers.google.com/search/docs/appearance/title-link) | title 简洁、对应正文与语言、区分具体页面，品牌名称一致 | 不把任意字符长度阈值当成排名标准，不承诺 Google 采用指定标题 |
+| [百度 _trackPageview](https://tongji.baidu.com/holmes/Analytics/技术接入指南/JS%20API/JS%20API技术文档/_trackPageview) | 手动 PV 必须使用以斜杠开头的相对路径；虚拟成功页面与实际页面分别理解 | 本地只验证包装层与队列，不向正式统计发送测试访问 |
+
+复用 2026-11-21 已实际阅读的 [SEO 迁移依据](seo-migration_V1.0.md) 与 [百度统计依据](baidu-analytics_V1.0.md)。本次重新检查实际源码和构建产物，未重新核查后台账号权限或修改转化目标。
+
+## 实施判断
+
+保留已确认的页面和图片，以跨语言内容完整、当前产品命名、共享模板、路由语义和受控统计生命周期为检查重点。修复六个行业页缺失的英文业务价值与平台理由，补齐数字员工六项组成，合并多 Agent 英文重复要点以匹配中文结构。未用竞品功能扩展本站事实。
+
+历史文章与发行源资料保持原样；仅当前对外页面和元数据更正产品名称，稳定 URL 与 JSON-LD 实体 ID 不变。自动结构比对用于发现整组翻译遗漏，不能代替人工语义核查，也不作为真人可用性测试。

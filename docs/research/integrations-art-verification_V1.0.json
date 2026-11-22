@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-22",
+  "status": "local implementation verified; not deployed",
+  "checks": {
+    "astro": "0 errors, 0 warnings",
+    "tests": {
+      "passed": 200,
+      "skipped": 1,
+      "failed": 0
+    },
+    "build": "passed",
+    "site_locale_seo_analytics": "passed"
+  },
+  "browser": {
+    "zh_en_widths": [
+      390,
+      580,
+      581,
+      850,
+      851,
+      1100,
+      1101
+    ],
+    "horizontal_overflow": 0,
+    "text_overflow": 0,
+    "traditional_built_page": "loaded localized zh-Hant V1.1 artwork"
+  },
+  "images": {
+    "zh": "1536x1024 PNG and WebP V1.0",
+    "en": "1536x1024 PNG and WebP V1.0",
+    "zh-Hant": "1536x1024 PNG and WebP V1.1"
+  },
+  "limits": [
+    "Browser inspection and automated checks; no human usability study",
+    "Remote website unchanged"
+  ],
+  "screenshots": "review/integrations_V1.0/"
+}

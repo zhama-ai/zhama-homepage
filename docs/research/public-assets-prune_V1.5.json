@@ -1,0 +1,6098 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-21T14:14:28.691Z",
+  "mode": "applied",
+  "root": "/Users/guoyongxu/Documents/zhama/官网重构wp/home-page-new",
+  "deletionScope": [
+    "public/images/** visual files",
+    "public/blog-assets/** visual files"
+  ],
+  "protectedScope": [
+    "output/**",
+    "artwork/**",
+    "docs/**",
+    "public/releases/**",
+    "public/brand/**",
+    "public root resources",
+    "all other public files"
+  ],
+  "method": "Recursive published HTML/CSS/JS/SVG/JSON references, reachable source/build/test imports, active artwork dependencies. Historical research and dormant artwork references do not keep obsolete public copies.",
+  "limitations": [
+    "Dynamic template paths are matched conservatively against existing files; arbitrary runtime-generated URLs require browser verification.",
+    "Artwork inputs are recognized through source/input assignments and read/open calls; generic destinations do not retain historical public outputs.",
+    "A fresh final build and whole-site verification are required before applying this report."
+  ],
+  "counts": {
+    "publicFiles": 807,
+    "visualAssets": 604,
+    "publishedUsed": 119,
+    "sourceUsed": 111,
+    "generatorUsed": 1,
+    "kept": 124,
+    "deletable": 480,
+    "deletableBytes": 364591166,
+    "publishedEntryPoints": 178,
+    "publishedReachableFiles": 844,
+    "sourceFilesInspected": 248,
+    "missingPublishedReferences": 0
+  },
+  "inputFingerprint": "0368719afc885b9afdb2beaaa3f1e7773089c2777e96bd5a4051e2477d143590",
+  "activeGenerators": [
+    "artwork/export-capability-heroes_V1.0.mjs",
+    "artwork/export-localized-product-assets_V1.0.mjs",
+    "artwork/export-localized-product-assets_V1.1.mjs",
+    "artwork/export-localized-product-assets_V1.2.mjs",
+    "artwork/export-workforce-localized_V1.0/align-workforce-planes_V1.4.py",
+    "artwork/export-workforce-localized_V1.0/compose-workforce-matrix_V1.1.py",
+    "artwork/export-workforce-localized_V1.0/compose-workforce-matrix_V3.4.py",
+    "artwork/export-workforce-localized_V1.0/export-traditional_V1.0.py"
+  ],
+  "dormantGenerators": [
+    "artwork/build-home-accent-preview_V1.0.mjs",
+    "artwork/build-home-accent-preview_V1.1.mjs",
+    "artwork/build-home-accent-preview_V1.2.mjs",
+    "artwork/build-home-atmosphere-previews_V1.0.mjs",
+    "artwork/build-home-dark-transparent-preview_V1.0.mjs",
+    "artwork/build-home-deep-glow-preview_V1.0.mjs",
+    "artwork/build-home-faded-edges-preview_V1.0.mjs",
+    "artwork/build-home-light-previews_V1.0.mjs",
+    "artwork/build-home-palette-previews_V1.0.mjs",
+    "artwork/build-home-transparent-preview_V1.0.mjs",
+    "artwork/export-employee-market_V1.0.mjs",
+    "artwork/export-employee-market_V1.1.mjs",
+    "artwork/export-employee-market_V1.2.mjs",
+    "artwork/export-employee-market_V1.3.mjs",
+    "artwork/export-employee-market_V1.4.mjs",
+    "artwork/export-workforce-localized_V1.0/compose-workforce-matrix_V1.2.py",
+    "artwork/export-workforce-localized_V1.0/compose-workforce-matrix_V1.3.py",
+    "artwork/export-workforce-localized_V1.0/compose-workforce-matrix_V3.0.py",
+    "artwork/export-workforce-localized_V1.0/compose-workforce-matrix_V3.1.py",
+    "artwork/export-workforce-localized_V1.0/compose-workforce-matrix_V3.2.py",
+    "artwork/export-workforce-localized_V1.0/compose-workforce-matrix_V3.3.py",
+    "artwork/export-workforce-localized_V1.0/translate-labels_V1.0.mjs",
+    "artwork/generate-employee-portraits_V1.0.py",
+    "artwork/generate-employee-portraits_V1.1.py",
+    "artwork/generate-home-enterprise_V1.0.py",
+    "artwork/generate-home-enterprise_V1.1.py",
+    "artwork/generate-home-enterprise_V1.2.py",
+    "artwork/generate-home-enterprise_V1.3.py",
+    "artwork/generate-home-enterprise_V1.4.py",
+    "artwork/generate-home-enterprise_V1.5.py",
+    "artwork/generate-home-enterprise_V1.6.py",
+    "artwork/generate-home-enterprise_V1.7.py",
+    "artwork/generate-home-enterprise_V1.8.py",
+    "artwork/generate-home-enterprise_V1.9.py",
+    "artwork/generate-home-enterprise_V2.0.py",
+    "artwork/generate-product-experience_V1.0.py",
+    "artwork/generate-product-experience_V1.1.py",
+    "artwork/generate-product-experience_V1.2.py",
+    "artwork/hero-task-execution_V1.10/en/compositions/task-session.html",
+    "artwork/hero-task-execution_V1.10/zh/compositions/task-session.html",
+    "artwork/hero-task-execution_V1.11/en/compositions/task-session.html",
+    "artwork/hero-task-execution_V1.11/zh/compositions/task-session.html",
+    "artwork/hero-task-execution_V1.5/create-poster.mjs",
+    "artwork/hero-task-execution_V1.5/en/compositions/task-session.html",
+    "artwork/hero-task-execution_V1.5/en/index.html",
+    "artwork/hero-task-execution_V1.5/zh/compositions/task-session.html",
+    "artwork/hero-task-execution_V1.5/zh/index.html",
+    "artwork/hero-task-execution_V1.6/create-poster.mjs",
+    "artwork/hero-task-execution_V1.6/en/compositions/task-session.html",
+    "artwork/hero-task-execution_V1.6/en/index.html",
+    "artwork/hero-task-execution_V1.6/render-derived.mjs",
+    "artwork/hero-task-execution_V1.6/validate-media.mjs",
+    "artwork/hero-task-execution_V1.6/zh/compositions/task-session.html",
+    "artwork/hero-task-execution_V1.6/zh/index.html",
+    "artwork/hero-task-execution_V1.7/en/compositions/task-session.html",
+    "artwork/hero-task-execution_V1.7/zh/compositions/task-session.html",
+    "artwork/hero-task-execution_V1.8/en/compositions/task-session.html",
+    "artwork/hero-task-execution_V1.8/zh/compositions/task-session.html",
+    "artwork/hero-task-execution_V1.9/en/compositions/task-session.html",
+    "artwork/hero-task-execution_V1.9/zh/compositions/task-session.html",
+    "artwork/prepare-home-enterprise_V1.9.py",
+    "artwork/prepare-home-enterprise_V2.0.py",
+    "artwork/prepare-home-enterprise_V2.1.py",
+    "artwork/prepare-home-enterprise_V2.2.py",
+    "artwork/prepare-home-enterprise_V3.0.py",
+    "artwork/prepare-home-enterprise_V3.1.py",
+    "artwork/prepare-home-enterprise_V3.2.py",
+    "artwork/prepare-home-enterprise_V4.0.py",
+    "artwork/prepare-home-enterprise_V4.4.py",
+    "artwork/prepare-home-enterprise_V4.5.py",
+    "artwork/prepare-home-enterprise_V4.7.py",
+    "artwork/prepare-home-enterprise_V5.0.py",
+    "artwork/prepare-home-enterprise_V5.2.py",
+    "artwork/refine-home-enterprise_V2.2.py",
+    "artwork/refine-home-enterprise_V3.0.py",
+    "artwork/refine-home-enterprise_V3.1.py",
+    "artwork/refine-home-enterprise_V3.2.py",
+    "artwork/refine-home-enterprise_V4.0.py",
+    "artwork/refine-home-enterprise_V4.4.py",
+    "artwork/refine-home-enterprise_V5.2.py",
+    "artwork/refine-home-light-previews_V1.0.mjs"
+  ],
+  "dynamicPatterns": [
+    {
+      "source": "tests/industry-solutions.test.mjs",
+      "pattern": "images/solutions/*/*-value-*_V2.0.webp",
+      "matchedAssets": 27
+    },
+    {
+      "source": "src/layouts/Layout.astro",
+      "pattern": "images/workforce/workforce-matrix-*_V3.4.webp",
+      "matchedAssets": 2
+    },
+    {
+      "source": "src/features/download/Page.astro",
+      "pattern": "images/platforms/*_V1.0.svg",
+      "matchedAssets": 11
+    },
+    {
+      "source": "src/features/product/visuals.ts",
+      "pattern": "images/product/*/experience-hero-zh_V3.1.webp",
+      "matchedAssets": 5
+    },
+    {
+      "source": "scripts/prepare-traditional.mjs",
+      "pattern": "blog-assets/images/blog/a2ui/chart-*.png",
+      "matchedAssets": 9
+    },
+    {
+      "source": "scripts/prepare-traditional.mjs",
+      "pattern": "blog-assets/images/blog/a2ui/chart-*-zh-Hant_V1.0.png",
+      "matchedAssets": 3
+    },
+    {
+      "source": "scripts/prepare-traditional.mjs",
+      "pattern": "images/product/*/experience-hero-zh_V3.1.webp",
+      "matchedAssets": 5
+    },
+    {
+      "source": "scripts/prepare-traditional.mjs",
+      "pattern": "images/product/*/experience-hero-zh-Hant_V3.1.webp",
+      "matchedAssets": 5
+    },
+    {
+      "source": "src/components/WorkforceMatrix.astro",
+      "pattern": "images/workforce/workforce-matrix-*_V3.4.webp",
+      "matchedAssets": 2
+    },
+    {
+      "source": "src/components/HomeEnterprise.astro",
+      "pattern": "images/enterprise/home-enterprise-network-*-mobile_V12.10.svg",
+      "matchedAssets": 2
+    },
+    {
+      "source": "src/components/HomeEnterprise.astro",
+      "pattern": "images/enterprise/home-enterprise-network-*_V12.10.svg",
+      "matchedAssets": 4
+    },
+    {
+      "source": "src/features/solutions/shared/IndustrySolutionPage.astro",
+      "pattern": "images/solutions/*/*-value-*_V2.0.webp",
+      "matchedAssets": 27
+    },
+    {
+      "source": "src/components/HeroTaskDemo.astro",
+      "pattern": "images/hero/task-execution-*-poster_V1.11.webp",
+      "matchedAssets": 3
+    }
+  ],
+  "missingReferences": [],
+  "assets": [
+    {
+      "path": "public/blog-assets/images/blog/a2ui/chart-bar-en_V1.0.png",
+      "bytes": 56383,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs",
+        "src/content/blog/en/2026-01-13-a2ui-future-of-ai-interaction.md"
+      ]
+    },
+    {
+      "path": "public/blog-assets/images/blog/a2ui/chart-bar-zh-Hant_V1.0.png",
+      "bytes": 58855,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs"
+      ]
+    },
+    {
+      "path": "public/blog-assets/images/blog/a2ui/chart-bar.png",
+      "bytes": 104678,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs",
+        "src/content/blog/zh/2026-01-13-a2ui-future-of-ai-interaction.md"
+      ]
+    },
+    {
+      "path": "public/blog-assets/images/blog/a2ui/chart-line-en_V1.0.png",
+      "bytes": 57953,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs",
+        "src/content/blog/en/2026-01-13-a2ui-future-of-ai-interaction.md"
+      ]
+    },
+    {
+      "path": "public/blog-assets/images/blog/a2ui/chart-line-zh-Hant_V1.0.png",
+      "bytes": 61863,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs"
+      ]
+    },
+    {
+      "path": "public/blog-assets/images/blog/a2ui/chart-line.png",
+      "bytes": 117917,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs",
+        "src/content/blog/zh/2026-01-13-a2ui-future-of-ai-interaction.md"
+      ]
+    },
+    {
+      "path": "public/blog-assets/images/blog/a2ui/chart-pie-en_V1.0.png",
+      "bytes": 71604,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs",
+        "src/content/blog/en/2026-01-13-a2ui-future-of-ai-interaction.md"
+      ]
+    },
+    {
+      "path": "public/blog-assets/images/blog/a2ui/chart-pie-zh-Hant_V1.0.png",
+      "bytes": 71487,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs"
+      ]
+    },
+    {
+      "path": "public/blog-assets/images/blog/a2ui/chart-pie.png",
+      "bytes": 126768,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs",
+        "src/content/blog/zh/2026-01-13-a2ui-future-of-ai-interaction.md"
+      ]
+    },
+    {
+      "path": "public/blog-assets/images/cloud-agent/cover.png",
+      "bytes": 1717732,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/content/blog/zh/2026-09-28-tego-os-cloud-agent-muse.md"
+      ]
+    },
+    {
+      "path": "public/blog-assets/images/cloud-agent/digital-employees.png",
+      "bytes": 2071783,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/content/blog/en/2026-09-28-tego-os-cloud-agent-muse.md",
+        "src/content/blog/zh/2026-09-28-tego-os-cloud-agent-muse.md"
+      ]
+    },
+    {
+      "path": "public/blog-assets/images/cloud-agent/hero.png",
+      "bytes": 1813096,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/content/blog/en/2026-09-28-tego-os-cloud-agent-muse.md"
+      ]
+    },
+    {
+      "path": "public/blog-assets/images/cloud-agent/human-approval.png",
+      "bytes": 1782748,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/content/blog/en/2026-09-28-tego-os-cloud-agent-muse.md",
+        "src/content/blog/zh/2026-09-28-tego-os-cloud-agent-muse.md"
+      ]
+    },
+    {
+      "path": "public/blog-assets/images/features/ai-content-refinement.jpg",
+      "bytes": 286834,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/content/blog/en/2024-11-14-building-mcp-servers-with-typescript.md",
+        "src/content/blog/en/2024-11-16-building-custom-mcp-servers-for-claude.md",
+        "src/content/blog/zh/2024-11-14-building-mcp-servers-with-typescript.md",
+        "src/content/blog/zh/2024-11-16-building-custom-mcp-servers-for-claude.md"
+      ]
+    },
+    {
+      "path": "public/blog-assets/images/features/ai-note.jpg",
+      "bytes": 332642,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/content/blog/en/2024-11-17-5-minute-claude-tool-framework.md",
+        "src/content/blog/zh/2024-11-17-5-minute-claude-tool-framework.md"
+      ]
+    },
+    {
+      "path": "public/blog-assets/images/features/dashboard.jpg",
+      "bytes": 332642,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/content/blog/en/2024-11-01-tego-os-introduction.md",
+        "src/content/blog/en/2024-11-19-building-ai-tools-with-decorators.md",
+        "src/content/blog/en/2026-01-13-a2ui-future-of-ai-interaction.md",
+        "src/content/blog/en/2026-01-13-a2ui-wechat-article.md",
+        "src/content/blog/en/2026-02-25-tego-os-v2.8.0-digital-avatar.md",
+        "src/content/blog/en/2026-04-19-tego-os-v3.0.0-launch.md",
+        "src/content/blog/en/2026-04-22-per-user-isolated-instances.md",
+        "src/content/blog/en/2026-04-25-s3-data-isolation-template-governance.md",
+        "src/content/blog/en/2026-04-28-business-monitor-dashboard.md",
+        "src/content/blog/en/2026-05-04-16-builtin-skills-it-ops-cross-border.md",
+        "src/content/blog/en/2026-05-08-mini-chat-desktop-experience.md",
+        "src/content/blog/zh/2024-11-01-tego-os-introduction.md",
+        "src/content/blog/zh/2024-11-19-building-ai-tools-with-decorators.md",
+        "src/content/blog/zh/2026-01-13-a2ui-future-of-ai-interaction.md",
+        "src/content/blog/zh/2026-01-13-a2ui-wechat-article.md",
+        "src/content/blog/zh/2026-02-25-tego-os-v2.8.0-digital-avatar.md",
+        "src/content/blog/zh/2026-04-19-tego-os-v3.0.0-launch.md",
+        "src/content/blog/zh/2026-04-22-per-user-isolated-instances.md",
+        "src/content/blog/zh/2026-04-25-s3-data-isolation-template-governance.md",
+        "src/content/blog/zh/2026-04-28-business-monitor-dashboard.md",
+        "src/content/blog/zh/2026-05-04-16-builtin-skills-it-ops-cross-border.md",
+        "src/content/blog/zh/2026-05-08-mini-chat-desktop-experience.md"
+      ]
+    },
+    {
+      "path": "public/blog-assets/images/features/knowledge-graph.jpg",
+      "bytes": 425621,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/content/blog/en/2024-11-05-mcp-framework-guide.md",
+        "src/content/blog/zh/2024-11-05-mcp-framework-guide.md"
+      ]
+    },
+    {
+      "path": "public/blog-assets/images/features/professional-scenarios.jpg",
+      "bytes": 397259,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/content/blog/en/2024-11-10-enterprise-ai-best-practices.md",
+        "src/content/blog/en/2024-11-18-why-existing-mcp-sdk-not-enough.md",
+        "src/content/blog/zh/2024-11-10-enterprise-ai-best-practices.md",
+        "src/content/blog/zh/2024-11-18-why-existing-mcp-sdk-not-enough.md"
+      ]
+    },
+    {
+      "path": "public/images/about/architecture-banner_V1.0.webp",
+      "bytes": 112000,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/about/Page.astro"
+      ]
+    },
+    {
+      "path": "public/images/anywhere/anywhere-panorama_V2.1.webp",
+      "bytes": 62250,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/anywhere-panorama_V2.2.webp",
+      "bytes": 70768,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/anywhere-panorama-collaboration_V2.1.webp",
+      "bytes": 32438,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/anywhere-panorama-collaboration_V2.2.webp",
+      "bytes": 32758,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/anywhere-panorama-input_V2.1.webp",
+      "bytes": 13514,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/anywhere-panorama-input_V2.2.webp",
+      "bytes": 19972,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/anywhere-panorama-input_V2.3.webp",
+      "bytes": 19258,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/anywhere-panorama-results_V2.1.webp",
+      "bytes": 14334,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/anywhere-panorama-results_V2.2.webp",
+      "bytes": 15400,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/anywhere-panorama-results_V2.3.webp",
+      "bytes": 14880,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/anywhere-ui-inward-inputs_V1.0.webp",
+      "bytes": 49188,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/anywhere-ui-inward-outputs_V1.0.webp",
+      "bytes": 61756,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/anywhere-ui-inward-platform_V1.0.webp",
+      "bytes": 33826,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/anywhere-ui-inward-scene_V1.0.webp",
+      "bytes": 154314,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/anywhere-workspace-depth_V1.18.webp",
+      "bytes": 101934,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/anywhere-workspace-floating_V1.19.webp",
+      "bytes": 77542,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/lib/anywhere-topology.ts"
+      ]
+    },
+    {
+      "path": "public/images/anywhere/anywhere-workspace-mobile_V1.17.webp",
+      "bytes": 165988,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/anywhere-workspace-poster_V1.17.webp",
+      "bytes": 165988,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/devices-front_V1.0.webp",
+      "bytes": 41754,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/devices-front_V1.1.webp",
+      "bytes": 91688,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/multi-entry-workforce_V1.0.webp",
+      "bytes": 108810,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/outcomes-restored_V1.0.png",
+      "bytes": 133908,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/platform-flow_V1.1.webp",
+      "bytes": 16841206,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/platform-flow-poster_V1.1.webp",
+      "bytes": 1585558,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/platform-integrated_V1.0.webp",
+      "bytes": 425964,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/platform-unified_V1.3.webp",
+      "bytes": 301686,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/workspace-foreground-execution_V1.19.webp",
+      "bytes": 29604,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/workspace-foreground-input_V1.19.webp",
+      "bytes": 11422,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/anywhere/workspace-foreground-result_V1.19.webp",
+      "bytes": 18090,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/appliance/scenario-governance_V1.0.webp",
+      "bytes": 94390,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/appliance/scenario-local-model_V1.0.webp",
+      "bytes": 152800,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/appliance/scenario-private-network_V1.0.webp",
+      "bytes": 123874,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/appliance/scenario-scale-out_V1.0.webp",
+      "bytes": 135942,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/appliance/tego-station_V1.0.webp",
+      "bytes": 261860,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/closing/office-skyline_V1.0.webp",
+      "bytes": 159286,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/components/CallToAction.astro"
+      ]
+    },
+    {
+      "path": "public/images/contact/wechat-community_V1.0.png",
+      "bytes": 4778,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/components/navigation/SiteFooter.astro"
+      ]
+    },
+    {
+      "path": "public/images/contact/wechat-official-account_V1.0.jpg",
+      "bytes": 149441,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/components/navigation/SiteFooter.astro"
+      ]
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-concept_V1.2.webp",
+      "bytes": 911288,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-concept_V1.3.webp",
+      "bytes": 1042404,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-concept_V1.4.webp",
+      "bytes": 1247530,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-concept_V1.5.webp",
+      "bytes": 1210272,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-concept_V1.6.webp",
+      "bytes": 1923230,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-concept_V1.8.webp",
+      "bytes": 1216884,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-concept_V1.9.webp",
+      "bytes": 1338556,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-concept_V2.0.webp",
+      "bytes": 1703068,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-concept_V2.1.webp",
+      "bytes": 1846314,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-concept_V2.2.webp",
+      "bytes": 1415718,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-concept_V3.0.webp",
+      "bytes": 1365866,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-concept_V3.1.webp",
+      "bytes": 1104598,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-concept_V3.2.webp",
+      "bytes": 1193178,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-concept_V4.0.webp",
+      "bytes": 1507756,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-concept_V4.4.webp",
+      "bytes": 960650,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-concept_V4.5.webp",
+      "bytes": 815056,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-concept_V4.7.webp",
+      "bytes": 810118,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-concept_V5.0.webp",
+      "bytes": 821592,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-integrated-en_V5.2.webp",
+      "bytes": 866528,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-integrated-zh_V5.2.webp",
+      "bytes": 969104,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-network-en_V11.2.svg",
+      "bytes": 7170,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-network-en_V12.10.svg",
+      "bytes": 19335,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/components/HomeEnterprise.astro"
+      ]
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-network-en_V12.7.svg",
+      "bytes": 20931,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-network-en-mobile_V12.10.svg",
+      "bytes": 19623,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/components/HomeEnterprise.astro"
+      ]
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-network-zh_V11.2.svg",
+      "bytes": 7073,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-network-zh_V12.10.svg",
+      "bytes": 19184,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/components/HomeEnterprise.astro"
+      ]
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-network-zh_V12.7.svg",
+      "bytes": 20854,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/enterprise/home-enterprise-network-zh-mobile_V12.10.svg",
+      "bytes": 19360,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/components/HomeEnterprise.astro"
+      ]
+    },
+    {
+      "path": "public/images/hero/always-on-en_V1.7.webp",
+      "bytes": 145268,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/always-on-portrait_V1.0.webp",
+      "bytes": 5176,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/components/HeroOutcomes.astro"
+      ]
+    },
+    {
+      "path": "public/images/hero/always-on-zh_V1.7.webp",
+      "bytes": 120102,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/business-outcomes-en_V1.1.webp",
+      "bytes": 169576,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/business-outcomes-zh_V1.1.webp",
+      "bytes": 162918,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/execution-loop-en_V1.0.webp",
+      "bytes": 148292,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/execution-loop-en_V1.3.webp",
+      "bytes": 171436,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/execution-loop-zh_V1.0.webp",
+      "bytes": 388698,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/execution-loop-zh_V1.3.webp",
+      "bytes": 193060,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en_V1.2.webm",
+      "bytes": 1323912,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en_V1.3.webm",
+      "bytes": 1412281,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en_V1.4.webm",
+      "bytes": 3910903,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en_V1.5.webm",
+      "bytes": 8312407,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en_V1.6.webm",
+      "bytes": 4650972,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en_V1.7.webm",
+      "bytes": 4694862,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en_V1.8.webm",
+      "bytes": 5439520,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en-compact_V1.4.webm",
+      "bytes": 1714999,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en-compact_V1.5.webm",
+      "bytes": 2954926,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en-compact_V1.6.webm",
+      "bytes": 1550998,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en-compact_V1.7.webm",
+      "bytes": 1396498,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en-compact_V1.8.webm",
+      "bytes": 1610361,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en-poster_V1.10.webp",
+      "bytes": 457686,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en-poster_V1.11.webp",
+      "bytes": 2048128,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/components/HeroTaskDemo.astro"
+      ]
+    },
+    {
+      "path": "public/images/hero/task-execution-en-poster_V1.2.webp",
+      "bytes": 199926,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en-poster_V1.3.webp",
+      "bytes": 113414,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en-poster_V1.4.webp",
+      "bytes": 318442,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en-poster_V1.5.webp",
+      "bytes": 2191810,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en-poster_V1.6.webp",
+      "bytes": 491704,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en-poster_V1.7.webp",
+      "bytes": 305570,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en-poster_V1.8.webp",
+      "bytes": 462748,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-en-poster_V1.9.webp",
+      "bytes": 1888542,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh_V1.2.webm",
+      "bytes": 1127051,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh_V1.3.webm",
+      "bytes": 1232220,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh_V1.4.webm",
+      "bytes": 3551525,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh_V1.5.webm",
+      "bytes": 7684292,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh_V1.6.webm",
+      "bytes": 4250255,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh_V1.7.webm",
+      "bytes": 4207863,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh_V1.8.webm",
+      "bytes": 4765185,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh-compact_V1.4.webm",
+      "bytes": 1482393,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh-compact_V1.5.webm",
+      "bytes": 2678838,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh-compact_V1.6.webm",
+      "bytes": 1375837,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh-compact_V1.7.webm",
+      "bytes": 1261588,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh-compact_V1.8.webm",
+      "bytes": 1409788,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh-Hant-poster_V1.11.webp",
+      "bytes": 1772086,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs",
+        "src/components/HeroTaskDemo.astro"
+      ]
+    },
+    {
+      "path": "public/images/hero/task-execution-zh-poster_V1.10.webp",
+      "bytes": 411892,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh-poster_V1.11.webp",
+      "bytes": 1757570,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs",
+        "src/components/HeroTaskDemo.astro"
+      ]
+    },
+    {
+      "path": "public/images/hero/task-execution-zh-poster_V1.2.webp",
+      "bytes": 175816,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh-poster_V1.3.webp",
+      "bytes": 101190,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh-poster_V1.4.webp",
+      "bytes": 305200,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh-poster_V1.5.webp",
+      "bytes": 1643710,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh-poster_V1.6.webp",
+      "bytes": 454834,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh-poster_V1.7.webp",
+      "bytes": 288628,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh-poster_V1.8.webp",
+      "bytes": 432496,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/hero/task-execution-zh-poster_V1.9.webp",
+      "bytes": 2036442,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/domain-paper-admin_V1.0.png",
+      "bytes": 112188,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/domain-paper-atlas_V1.0.png",
+      "bytes": 1210048,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/domain-paper-business_V1.0.png",
+      "bytes": 111906,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/domain-paper-customer_V1.0.png",
+      "bytes": 108441,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/domain-paper-knowledge_V1.0.png",
+      "bytes": 109325,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/domain-paper-project_V1.0.png",
+      "bytes": 117854,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/domain-paper-proposal_V1.0.png",
+      "bytes": 107809,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/domain-paper-research_V1.0.png",
+      "bytes": 110056,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/domain-paper-risk_V1.0.png",
+      "bytes": 114098,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/employee-avatar-admin_V1.0.webp",
+      "bytes": 11802,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/banking/page-content.ts",
+        "src/features/solutions/general/page-content.ts",
+        "src/features/solutions/government/page-content.ts",
+        "src/features/solutions/insurance/page-content.ts",
+        "src/features/solutions/securities/page-content.ts",
+        "src/features/solutions/state-owned/page-content.ts",
+        "src/features/solutions/trust/page-content.ts"
+      ]
+    },
+    {
+      "path": "public/images/home/employee-avatar-business_V1.0.webp",
+      "bytes": 9884,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/employee-avatar-customer_V1.0.webp",
+      "bytes": 9190,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/banking/page-content.ts",
+        "src/features/solutions/general/page-content.ts",
+        "src/features/solutions/government/page-content.ts",
+        "src/features/solutions/insurance/page-content.ts",
+        "src/features/solutions/securities/page-content.ts",
+        "src/features/solutions/state-owned/page-content.ts",
+        "src/features/solutions/trust/page-content.ts"
+      ]
+    },
+    {
+      "path": "public/images/home/employee-avatar-knowledge_V1.0.webp",
+      "bytes": 9362,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/banking/page-content.ts",
+        "src/features/solutions/general/page-content.ts",
+        "src/features/solutions/government/page-content.ts",
+        "src/features/solutions/insurance/page-content.ts",
+        "src/features/solutions/securities/page-content.ts",
+        "src/features/solutions/state-owned/page-content.ts",
+        "src/features/solutions/trust/page-content.ts"
+      ]
+    },
+    {
+      "path": "public/images/home/employee-avatar-project_V1.0.webp",
+      "bytes": 9884,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/employee-avatar-proposal_V1.0.webp",
+      "bytes": 9766,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/banking/page-content.ts",
+        "src/features/solutions/general/page-content.ts",
+        "src/features/solutions/government/page-content.ts",
+        "src/features/solutions/insurance/page-content.ts",
+        "src/features/solutions/securities/page-content.ts",
+        "src/features/solutions/state-owned/page-content.ts",
+        "src/features/solutions/trust/page-content.ts"
+      ]
+    },
+    {
+      "path": "public/images/home/employee-avatar-research_V1.0.webp",
+      "bytes": 9024,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/banking/page-content.ts",
+        "src/features/solutions/general/page-content.ts",
+        "src/features/solutions/government/page-content.ts",
+        "src/features/solutions/insurance/page-content.ts",
+        "src/features/solutions/securities/page-content.ts",
+        "src/features/solutions/state-owned/page-content.ts",
+        "src/features/solutions/trust/page-content.ts"
+      ]
+    },
+    {
+      "path": "public/images/home/employee-avatar-risk_V1.0.webp",
+      "bytes": 10378,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/banking/page-content.ts",
+        "src/features/solutions/general/page-content.ts",
+        "src/features/solutions/government/page-content.ts",
+        "src/features/solutions/insurance/page-content.ts",
+        "src/features/solutions/securities/page-content.ts",
+        "src/features/solutions/state-owned/page-content.ts",
+        "src/features/solutions/trust/page-content.ts"
+      ]
+    },
+    {
+      "path": "public/images/home/enterprise-capability-structure_V1.0.png",
+      "bytes": 1522510,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-capability-structure-mobile_V1.0.png",
+      "bytes": 1734729,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-core-workspace_V1.0.png",
+      "bytes": 1068384,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-core-workspace_V1.1.png",
+      "bytes": 671582,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-value-atlas_V1.0.png",
+      "bytes": 2673792,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-value-extension-atlas_V1.0.png",
+      "bytes": 2086329,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-value-matrix_V1.0.gif",
+      "bytes": 6534093,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-value-matrix_V1.0.png",
+      "bytes": 850776,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-value-matrix_V1.2.gif",
+      "bytes": 976398,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-value-matrix_V1.2.png",
+      "bytes": 1300823,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-value-matrix_V1.5.gif",
+      "bytes": 1142426,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-value-matrix-mobile_V1.0.gif",
+      "bytes": 9350942,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-value-matrix-mobile_V1.0.png",
+      "bytes": 761632,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-value-matrix-mobile_V1.2.gif",
+      "bytes": 420486,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-value-matrix-mobile_V1.2.png",
+      "bytes": 941656,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-value-platform_V1.0.png",
+      "bytes": 943801,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-workspace-admin_V1.0.png",
+      "bytes": 91323,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-workspace-business_V1.0.png",
+      "bytes": 89808,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-workspace-customer_V1.0.png",
+      "bytes": 96802,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-workspace-knowledge_V1.0.png",
+      "bytes": 94841,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-workspace-project_V1.0.png",
+      "bytes": 89506,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-workspace-proposal_V1.0.png",
+      "bytes": 95591,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-workspace-research_V1.0.png",
+      "bytes": 98317,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-workspace-risk_V1.0.png",
+      "bytes": 92582,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/home/enterprise-workspaces-atlas_V1.0.png",
+      "bytes": 951203,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/industries/banking-architecture_V1.1.webp",
+      "bytes": 195100,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/components/SolutionExplorer.astro",
+        "src/features/solutions/banking/page-content.ts"
+      ]
+    },
+    {
+      "path": "public/images/industries/banking-background_V1.0.webp",
+      "bytes": 132604,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/industries/government-architecture_V1.1.webp",
+      "bytes": 187180,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/components/SolutionExplorer.astro",
+        "src/features/solutions/government/page-content.ts"
+      ]
+    },
+    {
+      "path": "public/images/industries/government-background_V1.0.webp",
+      "bytes": 134402,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/industries/insurance-architecture_V1.1.webp",
+      "bytes": 156264,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/components/SolutionExplorer.astro",
+        "src/features/solutions/insurance/page-content.ts"
+      ]
+    },
+    {
+      "path": "public/images/industries/insurance-background_V1.0.webp",
+      "bytes": 135838,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/industries/securities-architecture_V1.1.webp",
+      "bytes": 212272,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/components/SolutionExplorer.astro",
+        "src/features/solutions/securities/page-content.ts"
+      ]
+    },
+    {
+      "path": "public/images/industries/securities-background_V1.0.webp",
+      "bytes": 171252,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/industries/state-owned-architecture_V1.3.webp",
+      "bytes": 255766,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/components/SolutionExplorer.astro",
+        "src/features/solutions/state-owned/page-content.ts"
+      ]
+    },
+    {
+      "path": "public/images/industries/state-owned-background_V1.0.webp",
+      "bytes": 136720,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/industries/trust-architecture_V1.0.webp",
+      "bytes": 266976,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/components/SolutionExplorer.astro",
+        "src/features/solutions/trust/page-content.ts"
+      ]
+    },
+    {
+      "path": "public/images/industries/value-icons/business-analysis_V1.0.webp",
+      "bytes": 7690,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/industries/value-icons/collaboration-network_V1.0.webp",
+      "bytes": 7372,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/industries/value-icons/delivery-progress_V1.0.webp",
+      "bytes": 9980,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/industries/value-icons/document-review_V1.0.webp",
+      "bytes": 7762,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/industries/value-icons/evidence-check_V1.0.webp",
+      "bytes": 8522,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/industries/value-icons/policy-matching_V1.0.webp",
+      "bytes": 9294,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/industries/value-icons/research-book_V1.0.webp",
+      "bytes": 7796,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/industries/value-icons/risk-protection_V1.0.webp",
+      "bytes": 8458,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/industries/value-icons/service-handoff_V1.0.webp",
+      "bytes": 7396,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/navigation/menu-atmosphere_V1.0.webp",
+      "bytes": 17068,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/styles/navigation.css"
+      ]
+    },
+    {
+      "path": "public/images/platforms/android_V1.0.svg",
+      "bytes": 1099,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/download/Page.astro"
+      ]
+    },
+    {
+      "path": "public/images/platforms/apple_V1.0.svg",
+      "bytes": 741,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/download/Page.astro"
+      ]
+    },
+    {
+      "path": "public/images/platforms/dingtalk_V1.0.svg",
+      "bytes": 667,
+      "action": "keep",
+      "reasons": [
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/download/Page.astro"
+      ]
+    },
+    {
+      "path": "public/images/platforms/dingtalk-app_V1.0.webp",
+      "bytes": 6878,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/platforms/dingtalk-original_V1.0.png",
+      "bytes": 11431,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/assets/anywhere/workspace-input-scene-en_V1.0.svg",
+        "src/assets/anywhere/workspace-input-scene_V1.29.svg"
+      ]
+    },
+    {
+      "path": "public/images/platforms/feishu_V1.0.svg",
+      "bytes": 6206,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/assets/anywhere/workspace-input-scene-en_V1.0.svg",
+        "src/assets/anywhere/workspace-input-scene_V1.29.svg",
+        "src/features/download/Page.astro"
+      ]
+    },
+    {
+      "path": "public/images/platforms/feishu-app_V1.0.webp",
+      "bytes": 4984,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/platforms/harmonyos_V1.0.svg",
+      "bytes": 2281,
+      "action": "keep",
+      "reasons": [
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/download/Page.astro"
+      ]
+    },
+    {
+      "path": "public/images/platforms/ios_V1.0.svg",
+      "bytes": 978,
+      "action": "keep",
+      "reasons": [
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/download/Page.astro"
+      ]
+    },
+    {
+      "path": "public/images/platforms/linux_V1.0.svg",
+      "bytes": 3794,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/download/Page.astro"
+      ]
+    },
+    {
+      "path": "public/images/platforms/qq_V1.0.svg",
+      "bytes": 673,
+      "action": "keep",
+      "reasons": [
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/download/Page.astro"
+      ]
+    },
+    {
+      "path": "public/images/platforms/qq-app_V1.0.webp",
+      "bytes": 9668,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/platforms/qq-original_V1.0.png",
+      "bytes": 1167,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/assets/anywhere/workspace-input-scene-en_V1.0.svg",
+        "src/assets/anywhere/workspace-input-scene_V1.29.svg"
+      ]
+    },
+    {
+      "path": "public/images/platforms/wecom_V1.0.svg",
+      "bytes": 1974,
+      "action": "keep",
+      "reasons": [
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/download/Page.astro"
+      ]
+    },
+    {
+      "path": "public/images/platforms/wecom-app_V1.0.webp",
+      "bytes": 7454,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/platforms/wecom-original_V1.0.png",
+      "bytes": 5308,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/assets/anywhere/workspace-input-scene-en_V1.0.svg",
+        "src/assets/anywhere/workspace-input-scene_V1.29.svg"
+      ]
+    },
+    {
+      "path": "public/images/platforms/weixin_V1.0.svg",
+      "bytes": 1324,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/assets/anywhere/workspace-input-scene-en_V1.0.svg",
+        "src/assets/anywhere/workspace-input-scene_V1.29.svg",
+        "src/features/download/Page.astro"
+      ]
+    },
+    {
+      "path": "public/images/platforms/weixin-app_V1.0.webp",
+      "bytes": 6224,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/platforms/windows_V1.0.svg",
+      "bytes": 441,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/download/Page.astro"
+      ]
+    },
+    {
+      "path": "public/images/pricing/business-configuration_V1.1.webp",
+      "bytes": 78202,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/pricing/business-configuration-selected_V1.1.png",
+      "bytes": 1516612,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/pricing/business-configuration-source_V1.1.png",
+      "bytes": 1793948,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/pricing/configurable-platform_V1.0.webp",
+      "bytes": 29196,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/pricing/configurable-platform-source_V1.0.png",
+      "bytes": 1687727,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/pricing/pricing-laptop-left-en_V1.2.webp",
+      "bytes": 55900,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/pricing/pricing-laptop-left-source_V1.2.png",
+      "bytes": 1377317,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/pricing/pricing-laptop-left-zh_V1.2.webp",
+      "bytes": 54826,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/pricing/pricing-laptop-roi_V1.3.png",
+      "bytes": 932178,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/pricing/pricing-laptop-roi_V1.3.webp",
+      "bytes": 61020,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/collaboration/capability-visual-en_V1.1.webp",
+      "bytes": 100442,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/collaboration/capability-visual-en-mobile_V1.0.webp",
+      "bytes": 61532,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/collaboration/capability-visual-zh_V1.1.webp",
+      "bytes": 76356,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/collaboration/capability-visual-zh-mobile_V1.0.webp",
+      "bytes": 68514,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/collaboration/experience-hero-en_V2.0.webp",
+      "bytes": 201246,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/collaboration/experience-hero-en_V3.0.webp",
+      "bytes": 108722,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/collaboration/experience-hero-en_V3.1.webp",
+      "bytes": 522188,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/collaboration/experience-hero-en_V3.2.webp",
+      "bytes": 517226,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/product/visuals.ts"
+      ]
+    },
+    {
+      "path": "public/images/product/collaboration/experience-hero-zh_V2.0.webp",
+      "bytes": 183210,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/collaboration/experience-hero-zh_V3.0.webp",
+      "bytes": 105284,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/collaboration/experience-hero-zh_V3.1.webp",
+      "bytes": 448302,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs",
+        "src/features/product/visuals.ts"
+      ]
+    },
+    {
+      "path": "public/images/product/collaboration/experience-hero-zh-Hant_V3.0.webp",
+      "bytes": 255220,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/collaboration/experience-hero-zh-Hant_V3.1.webp",
+      "bytes": 452576,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs"
+      ]
+    },
+    {
+      "path": "public/images/product/digital-employees/capability-visual-en_V1.1.webp",
+      "bytes": 126524,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/capability-visual-en-mobile_V1.0.webp",
+      "bytes": 80334,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/capability-visual-zh_V1.1.webp",
+      "bytes": 126666,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/capability-visual-zh-mobile_V1.0.webp",
+      "bytes": 67170,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.0.png",
+      "bytes": 1737765,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.0.webp",
+      "bytes": 1010090,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.1.png",
+      "bytes": 2103344,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.1.webp",
+      "bytes": 1198894,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.10.png",
+      "bytes": 1750971,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.10.webp",
+      "bytes": 849402,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.11.png",
+      "bytes": 1683938,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.11.webp",
+      "bytes": 823332,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.12.png",
+      "bytes": 1537191,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.12.webp",
+      "bytes": 869754,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.13.png",
+      "bytes": 1543247,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.13.webp",
+      "bytes": 871970,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.14.png",
+      "bytes": 1619141,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.14.webp",
+      "bytes": 923702,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.15.png",
+      "bytes": 1848948,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.15.webp",
+      "bytes": 1161260,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/product/visuals.ts"
+      ]
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.2.png",
+      "bytes": 2200479,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.2.webp",
+      "bytes": 1097200,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.3.png",
+      "bytes": 2455379,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.3.webp",
+      "bytes": 1526812,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.4.png",
+      "bytes": 1742752,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.4.webp",
+      "bytes": 869908,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.5.png",
+      "bytes": 1781766,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.5.webp",
+      "bytes": 886286,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.6.png",
+      "bytes": 1653831,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.6.webp",
+      "bytes": 781498,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.7.png",
+      "bytes": 1654633,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.7.webp",
+      "bytes": 781130,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.8.png",
+      "bytes": 1818828,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.8.webp",
+      "bytes": 895688,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.9.png",
+      "bytes": 1794198,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-en_V1.9.webp",
+      "bytes": 880042,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.0.png",
+      "bytes": 1733139,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.0.webp",
+      "bytes": 1007756,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.1.png",
+      "bytes": 1936783,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.1.webp",
+      "bytes": 1102684,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.10.png",
+      "bytes": 1637580,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.10.webp",
+      "bytes": 786304,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.11.png",
+      "bytes": 1576623,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.11.webp",
+      "bytes": 760672,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.12.png",
+      "bytes": 1455598,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.12.webp",
+      "bytes": 799234,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.13.png",
+      "bytes": 1461921,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.13.webp",
+      "bytes": 800962,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.14.png",
+      "bytes": 1533123,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.14.webp",
+      "bytes": 840716,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.15.png",
+      "bytes": 1557733,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.15.webp",
+      "bytes": 905390,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs",
+        "src/features/product/visuals.ts"
+      ]
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.2.png",
+      "bytes": 2160863,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.2.webp",
+      "bytes": 1049118,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.3.png",
+      "bytes": 2326286,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.3.webp",
+      "bytes": 1418202,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.4.png",
+      "bytes": 1677960,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.4.webp",
+      "bytes": 818136,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.5.png",
+      "bytes": 1713734,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.5.webp",
+      "bytes": 830164,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.6.png",
+      "bytes": 1538704,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.6.webp",
+      "bytes": 713166,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.7.png",
+      "bytes": 1538159,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.7.webp",
+      "bytes": 716898,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.8.png",
+      "bytes": 1708952,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.8.webp",
+      "bytes": 834588,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.9.png",
+      "bytes": 1680145,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh_V1.9.webp",
+      "bytes": 816448,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-market-zh-Hant_V1.15.webp",
+      "bytes": 904262,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs"
+      ]
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-portrait-claims_V1.0.webp",
+      "bytes": 7794,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-portrait-claims_V1.1.webp",
+      "bytes": 8880,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-portrait-ecommerce_V1.0.webp",
+      "bytes": 8750,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-portrait-ecommerce_V1.1.webp",
+      "bytes": 8946,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-portrait-equipment_V1.0.webp",
+      "bytes": 11174,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-portrait-equipment_V1.1.webp",
+      "bytes": 9112,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-portrait-finance_V1.0.webp",
+      "bytes": 8512,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-portrait-finance_V1.1.webp",
+      "bytes": 9694,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-portrait-hr_V1.0.webp",
+      "bytes": 9814,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-portrait-hr_V1.1.webp",
+      "bytes": 8994,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-portrait-public-service_V1.0.webp",
+      "bytes": 9970,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-portrait-public-service_V1.1.webp",
+      "bytes": 9654,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/components/product/GovernanceCapabilityArt.astro"
+      ]
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-portrait-retail_V1.0.webp",
+      "bytes": 10580,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-portrait-retail_V1.1.webp",
+      "bytes": 10492,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-portrait-teaching_V1.0.webp",
+      "bytes": 10548,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/employee-portrait-teaching_V1.1.webp",
+      "bytes": 10482,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/experience-hero-en_V2.0.webp",
+      "bytes": 203976,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/experience-hero-zh_V2.0.webp",
+      "bytes": 180660,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/intro-continuity-en_V6.0.webp",
+      "bytes": 169322,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/intro-continuity-en_V7.2.webp",
+      "bytes": 145730,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/intro-continuity-zh_V6.0.webp",
+      "bytes": 152060,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/intro-continuity-zh_V7.2.webp",
+      "bytes": 190250,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/intro-hero-en_V13.1.webp",
+      "bytes": 265946,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/intro-hero-en_V18.4.webp",
+      "bytes": 259160,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/intro-hero-en_V6.0.webp",
+      "bytes": 198350,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/intro-hero-zh_V13.1.webp",
+      "bytes": 269114,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/intro-hero-zh_V18.4.webp",
+      "bytes": 293686,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/intro-hero-zh_V6.0.webp",
+      "bytes": 184620,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/intro-recruit-en_V6.0.webp",
+      "bytes": 154902,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/intro-recruit-en_V7.0.webp",
+      "bytes": 156560,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/intro-recruit-zh_V6.0.webp",
+      "bytes": 146896,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/intro-recruit-zh_V7.0.webp",
+      "bytes": 149204,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/intro-work-en_V6.0.webp",
+      "bytes": 164534,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/intro-work-en_V7.1.webp",
+      "bytes": 158852,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/intro-work-zh_V6.0.webp",
+      "bytes": 150368,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/intro-work-zh_V7.1.webp",
+      "bytes": 146666,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/product-conversation_V1.0.webp",
+      "bytes": 58190,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/product-recruitment_V1.0.webp",
+      "bytes": 21268,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/product-scheduled-task_V1.0.webp",
+      "bytes": 18090,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/product-workbench_V1.0.webp",
+      "bytes": 144256,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/product-workbench-mobile_V1.0.webp",
+      "bytes": 37906,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/role-concept-en_V1.4.webp",
+      "bytes": 137216,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/role-concept-en-mobile_V1.4.webp",
+      "bytes": 153598,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/role-concept-zh_V1.6.webp",
+      "bytes": 127950,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/digital-employees/role-concept-zh-mobile_V1.4.webp",
+      "bytes": 129520,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/governance/capability-visual-en_V1.1.webp",
+      "bytes": 73772,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/governance/capability-visual-en-mobile_V1.0.webp",
+      "bytes": 63992,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/governance/capability-visual-zh_V1.1.webp",
+      "bytes": 102422,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/governance/capability-visual-zh-mobile_V1.0.webp",
+      "bytes": 52720,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/governance/experience-hero-en_V2.2.webp",
+      "bytes": 125678,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/governance/experience-hero-en_V3.0.webp",
+      "bytes": 801978,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/governance/experience-hero-en_V3.1.webp",
+      "bytes": 439670,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/product/visuals.ts"
+      ]
+    },
+    {
+      "path": "public/images/product/governance/experience-hero-zh_V2.1.webp",
+      "bytes": 125898,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/governance/experience-hero-zh_V3.0.webp",
+      "bytes": 785658,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/governance/experience-hero-zh_V3.1.webp",
+      "bytes": 437036,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs",
+        "src/features/product/visuals.ts"
+      ]
+    },
+    {
+      "path": "public/images/product/governance/experience-hero-zh-Hant_V3.0.webp",
+      "bytes": 439824,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/governance/experience-hero-zh-Hant_V3.1.webp",
+      "bytes": 444796,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs"
+      ]
+    },
+    {
+      "path": "public/images/product/integrations/capability-visual-en_V1.1.webp",
+      "bytes": 51610,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/integrations/capability-visual-zh_V1.1.webp",
+      "bytes": 46206,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/integrations/experience-hero-en_V2.1.webp",
+      "bytes": 156462,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/integrations/experience-hero-en_V3.0.webp",
+      "bytes": 154746,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/integrations/experience-hero-en_V3.1.webp",
+      "bytes": 314438,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/integrations/experience-hero-en_V3.2.webp",
+      "bytes": 317816,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/product/visuals.ts"
+      ]
+    },
+    {
+      "path": "public/images/product/integrations/experience-hero-zh_V2.1.webp",
+      "bytes": 144184,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/integrations/experience-hero-zh_V3.0.webp",
+      "bytes": 136052,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/integrations/experience-hero-zh_V3.1.webp",
+      "bytes": 319762,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs",
+        "src/features/product/visuals.ts"
+      ]
+    },
+    {
+      "path": "public/images/product/integrations/experience-hero-zh-Hant_V3.0.webp",
+      "bytes": 301274,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/integrations/experience-hero-zh-Hant_V3.1.webp",
+      "bytes": 323830,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs"
+      ]
+    },
+    {
+      "path": "public/images/product/knowledge/capability-visual-en_V1.1.webp",
+      "bytes": 109120,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/knowledge/capability-visual-en-mobile_V1.0.webp",
+      "bytes": 73552,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/knowledge/capability-visual-zh_V1.1.webp",
+      "bytes": 92448,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/knowledge/capability-visual-zh-mobile_V1.0.webp",
+      "bytes": 67386,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/knowledge/experience-hero-en_V2.0.webp",
+      "bytes": 215638,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/knowledge/experience-hero-en_V3.0.webp",
+      "bytes": 139038,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/knowledge/experience-hero-en_V3.1.webp",
+      "bytes": 462900,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/knowledge/experience-hero-en_V3.2.webp",
+      "bytes": 455968,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/product/visuals.ts"
+      ]
+    },
+    {
+      "path": "public/images/product/knowledge/experience-hero-zh_V2.0.webp",
+      "bytes": 180542,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/knowledge/experience-hero-zh_V3.0.webp",
+      "bytes": 116362,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/knowledge/experience-hero-zh_V3.1.webp",
+      "bytes": 453044,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs",
+        "src/features/product/visuals.ts"
+      ]
+    },
+    {
+      "path": "public/images/product/knowledge/experience-hero-zh-Hant_V3.0.webp",
+      "bytes": 442014,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/knowledge/experience-hero-zh-Hant_V3.1.webp",
+      "bytes": 460772,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs"
+      ]
+    },
+    {
+      "path": "public/images/product/multi-agent/capability-visual-en_V1.1.webp",
+      "bytes": 77478,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/multi-agent/capability-visual-en-mobile_V1.0.webp",
+      "bytes": 53246,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/multi-agent/capability-visual-zh_V1.1.webp",
+      "bytes": 76744,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/multi-agent/capability-visual-zh-mobile_V1.0.webp",
+      "bytes": 51992,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/multi-agent/experience-hero-en_V2.0.webp",
+      "bytes": 139556,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/multi-agent/experience-hero-en_V3.0.webp",
+      "bytes": 178936,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/multi-agent/experience-hero-en_V3.1.webp",
+      "bytes": 383664,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/product/visuals.ts"
+      ]
+    },
+    {
+      "path": "public/images/product/multi-agent/experience-hero-zh_V2.0.webp",
+      "bytes": 140768,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/multi-agent/experience-hero-zh_V3.0.webp",
+      "bytes": 166350,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/multi-agent/experience-hero-zh_V3.1.webp",
+      "bytes": 336738,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs",
+        "src/features/product/visuals.ts"
+      ]
+    },
+    {
+      "path": "public/images/product/multi-agent/experience-hero-zh-Hant_V3.0.webp",
+      "bytes": 178982,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/product/multi-agent/experience-hero-zh-Hant_V3.1.webp",
+      "bytes": 339792,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs"
+      ]
+    },
+    {
+      "path": "public/images/saaslauncher/collaborative-review_V1.2.webp",
+      "bytes": 61734,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/saaslauncher/enterprise-connections_V1.2.webp",
+      "bytes": 61386,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/saaslauncher/knowledge-research_V1.2.webp",
+      "bytes": 59462,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/saaslauncher/team-workspace_V1.2.webp",
+      "bytes": 75462,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-digital-workflow_V1.0.png",
+      "bytes": 1833230,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-digital-workflow_V1.1.png",
+      "bytes": 2083636,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-digital-workflow_V1.2.png",
+      "bytes": 2160380,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-digital-workflow_V1.3.png",
+      "bytes": 2220532,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-digital-workflow_V1.5.png",
+      "bytes": 1967485,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-evidence-en_V1.0.webp",
+      "bytes": 205386,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-evidence-zh_V1.0.webp",
+      "bytes": 192872,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-landscape_V1.0-source.png",
+      "bytes": 2193337,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-landscape_V1.0.webp",
+      "bytes": 188864,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-landscape_V1.1-source.png",
+      "bytes": 1983509,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-landscape_V1.1.webp",
+      "bytes": 77358,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-landscape_V1.2-source.png",
+      "bytes": 2154221,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-landscape_V1.2.webp",
+      "bytes": 181292,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-landscape_V1.3-source.png",
+      "bytes": 2125099,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-landscape_V1.3.webp",
+      "bytes": 185590,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-landscape_V1.4-source.png",
+      "bytes": 2103654,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-landscape_V1.4.webp",
+      "bytes": 126624,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-landscape_V1.5-source.png",
+      "bytes": 2487562,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-landscape_V1.5.webp",
+      "bytes": 833126,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-planar-concept-en_V1.2.webp",
+      "bytes": 524298,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-planar-concept-zh_V1.2.webp",
+      "bytes": 523006,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-team-value-en_V9.1.webp",
+      "bytes": 243994,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-team-value-en_V9.3.webp",
+      "bytes": 198390,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-team-value-en_V9.5.webp",
+      "bytes": 186130,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-team-value-zh_V9.0.webp",
+      "bytes": 212996,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-team-value-zh_V9.3.webp",
+      "bytes": 182580,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-team-value-zh_V9.5.webp",
+      "bytes": 163814,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-value-1_V2.0.webp",
+      "bytes": 194576,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/banking/banking-value-2_V2.0.webp",
+      "bytes": 206628,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/banking/banking-value-3_V2.0.webp",
+      "bytes": 141716,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/banking/banking-value-4_V2.0.webp",
+      "bytes": 179912,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/banking/banking-value-scene-1-en_V11.0.webp",
+      "bytes": 175472,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-value-scene-1-zh_V11.0.webp",
+      "bytes": 130544,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-value-scene-2-en_V11.0.webp",
+      "bytes": 185544,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-value-scene-2-zh_V11.0.webp",
+      "bytes": 139002,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-value-scene-3-en_V11.0.webp",
+      "bytes": 132612,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-value-scene-3-zh_V11.0.webp",
+      "bytes": 132578,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-value-scene-4-en_V11.0.webp",
+      "bytes": 146632,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/banking-value-scene-4-zh_V11.0.webp",
+      "bytes": 152044,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/credit-workbench-en_V1.0.png",
+      "bytes": 1350336,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/credit-workbench-en_V1.0.webp",
+      "bytes": 123050,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/credit-workbench-en-source_V1.0.png",
+      "bytes": 1574344,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/credit-workbench-zh_V1.0.png",
+      "bytes": 1349121,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/credit-workbench-zh_V1.0.webp",
+      "bytes": 126318,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/credit-workbench-zh-source_V1.0.png",
+      "bytes": 1571120,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/value-client_V1.0-source.png",
+      "bytes": 2045223,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/value-client_V1.0.webp",
+      "bytes": 112542,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/value-review_V1.0-source.png",
+      "bytes": 2074007,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/value-review_V1.0.webp",
+      "bytes": 122892,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/value-risk_V1.0-source.png",
+      "bytes": 1909652,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/banking/value-risk_V1.0.webp",
+      "bytes": 101252,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/general/general-hero_V2.0.webp",
+      "bytes": 222042,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/components/SolutionExplorer.astro",
+        "src/components/SolutionsPage.astro",
+        "src/features/solutions/general/page-content.ts"
+      ]
+    },
+    {
+      "path": "public/images/solutions/general/general-team-value-en_V9.1.webp",
+      "bytes": 208988,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/general/general-team-value-en_V9.3.webp",
+      "bytes": 186672,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/general/general-team-value-en_V9.5.webp",
+      "bytes": 170156,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/general/general-team-value-zh_V9.1.webp",
+      "bytes": 198562,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/general/general-team-value-zh_V9.3.webp",
+      "bytes": 168656,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/general/general-team-value-zh_V9.5.webp",
+      "bytes": 147888,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/general/general-value-1_V2.0.webp",
+      "bytes": 147288,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/general/general-value-2_V2.0.webp",
+      "bytes": 147892,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/general/general-value-3_V2.0.webp",
+      "bytes": 187190,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/general/general-value-4_V2.0.webp",
+      "bytes": 227962,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/general/general-value-scene-1-en_V11.0.webp",
+      "bytes": 168612,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/general/general-value-scene-1-zh_V11.0.webp",
+      "bytes": 149842,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/general/general-value-scene-2-en_V11.0.webp",
+      "bytes": 173404,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/general/general-value-scene-2-zh_V11.0.webp",
+      "bytes": 154674,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/general/general-value-scene-3-en_V11.0.webp",
+      "bytes": 161102,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/general/general-value-scene-3-zh_V11.0.webp",
+      "bytes": 151884,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/general/general-value-scene-4-en_V11.0.webp",
+      "bytes": 169492,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/general/general-value-scene-4-zh_V11.0.webp",
+      "bytes": 149058,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-civic-landscape_V1.0-source.png",
+      "bytes": 3097016,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-civic-landscape_V1.0.webp",
+      "bytes": 435744,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-landscape_V1.0-source.png",
+      "bytes": 1916177,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-landscape_V1.0.webp",
+      "bytes": 88592,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-service-hall_V1.0-source.png",
+      "bytes": 2422079,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-service-hall_V1.0.webp",
+      "bytes": 255818,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-service-hall_V1.1.webp",
+      "bytes": 240944,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-team-value-en_V9.1.webp",
+      "bytes": 207292,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-team-value-en_V9.3.webp",
+      "bytes": 174568,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-team-value-en_V9.5.webp",
+      "bytes": 163304,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-team-value-zh_V9.1.webp",
+      "bytes": 214552,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-team-value-zh_V9.3.webp",
+      "bytes": 183940,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-team-value-zh_V9.5.webp",
+      "bytes": 166690,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-value-1_V2.0.webp",
+      "bytes": 224174,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/government/government-value-2_V2.0.webp",
+      "bytes": 166052,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/government/government-value-3_V2.0.webp",
+      "bytes": 216240,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/government/government-value-4_V2.0.webp",
+      "bytes": 143200,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/government/government-value-scene-1-en_V11.0.webp",
+      "bytes": 190676,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-value-scene-1-zh_V11.0.webp",
+      "bytes": 139538,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-value-scene-2-en_V11.0.webp",
+      "bytes": 185970,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-value-scene-2-zh_V11.0.webp",
+      "bytes": 173880,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-value-scene-3-en_V11.0.webp",
+      "bytes": 151524,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-value-scene-3-zh_V11.0.webp",
+      "bytes": 139594,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-value-scene-4-en_V11.0.webp",
+      "bytes": 169292,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/government/government-value-scene-4-zh_V11.0.webp",
+      "bytes": 163838,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/insurance/insurance-landscape_V1.0-source.png",
+      "bytes": 2187873,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/insurance/insurance-landscape_V1.0.webp",
+      "bytes": 136746,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/insurance/insurance-team-value-en_V9.1.webp",
+      "bytes": 278100,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/insurance/insurance-team-value-en_V9.3.webp",
+      "bytes": 235988,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/insurance/insurance-team-value-en_V9.7.webp",
+      "bytes": 217408,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/insurance/insurance-team-value-zh_V9.1.webp",
+      "bytes": 275690,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/insurance/insurance-team-value-zh_V9.3.webp",
+      "bytes": 235060,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/insurance/insurance-team-value-zh_V9.5.webp",
+      "bytes": 208768,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/insurance/insurance-value-1_V2.0.webp",
+      "bytes": 154464,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/insurance/insurance-value-2_V2.1.webp",
+      "bytes": 139984,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/insurance/page-content.ts"
+      ]
+    },
+    {
+      "path": "public/images/solutions/insurance/insurance-value-3_V2.0.webp",
+      "bytes": 171068,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/insurance/insurance-value-4_V2.0.webp",
+      "bytes": 158702,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/insurance/insurance-value-scene-1-en_V11.0.webp",
+      "bytes": 157056,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/insurance/insurance-value-scene-1-zh_V11.0.webp",
+      "bytes": 136226,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/insurance/insurance-value-scene-2-en_V11.0.webp",
+      "bytes": 181556,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/insurance/insurance-value-scene-2-zh_V11.0.webp",
+      "bytes": 154654,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/insurance/insurance-value-scene-3-en_V11.0.webp",
+      "bytes": 136330,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/insurance/insurance-value-scene-3-zh_V11.0.webp",
+      "bytes": 67056,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/insurance/insurance-value-scene-4-en_V11.0.webp",
+      "bytes": 169220,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/insurance/insurance-value-scene-4-zh_V11.0.webp",
+      "bytes": 132978,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/internet/internet-digital-service-landscape_V1.0-source.png",
+      "bytes": 2766282,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/internet/internet-digital-service-landscape_V1.0.webp",
+      "bytes": 319914,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/internet/internet-digital-service-landscape_V1.1.webp",
+      "bytes": 315130,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/internet/internet-product-studio_V1.0-source.png",
+      "bytes": 2250608,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/internet/internet-product-studio_V1.0.webp",
+      "bytes": 170936,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/internet/internet-product-studio_V1.1.webp",
+      "bytes": 168838,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/internet/internet-technology-network_V1.0-source.png",
+      "bytes": 1620555,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/internet/internet-technology-network_V1.0.webp",
+      "bytes": 69338,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/securities/securities-financial-city_V1.0-source.png",
+      "bytes": 2283374,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/securities/securities-financial-city_V1.0.webp",
+      "bytes": 277034,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/securities/securities-financial-city_V1.1.webp",
+      "bytes": 1009236,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/securities/securities-landscape_V1.0-source.png",
+      "bytes": 1930624,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/securities/securities-landscape_V1.0.webp",
+      "bytes": 95654,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/securities/securities-team-value-en_V9.1.webp",
+      "bytes": 264822,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/securities/securities-team-value-en_V9.3.webp",
+      "bytes": 230246,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/securities/securities-team-value-en_V9.6.webp",
+      "bytes": 206472,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/securities/securities-team-value-zh_V9.1.webp",
+      "bytes": 271466,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/securities/securities-team-value-zh_V9.3.webp",
+      "bytes": 231728,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/securities/securities-team-value-zh_V9.5.webp",
+      "bytes": 206254,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/securities/securities-value-1_V2.0.webp",
+      "bytes": 196564,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/securities/securities-value-2_V2.0.webp",
+      "bytes": 140824,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/securities/securities-value-3_V2.0.webp",
+      "bytes": 137888,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/securities/securities-value-4_V2.0.webp",
+      "bytes": 174622,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/securities/securities-value-scene-1-en_V11.0.webp",
+      "bytes": 141872,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/securities/securities-value-scene-1-zh_V11.0.webp",
+      "bytes": 132806,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/securities/securities-value-scene-2-en_V11.0.webp",
+      "bytes": 174252,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/securities/securities-value-scene-2-zh_V11.0.webp",
+      "bytes": 142488,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/securities/securities-value-scene-3-en_V11.0.webp",
+      "bytes": 79348,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/securities/securities-value-scene-3-zh_V11.0.webp",
+      "bytes": 68490,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/securities/securities-value-scene-4-en_V11.0.webp",
+      "bytes": 140540,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/securities/securities-value-scene-4-zh_V11.0.webp",
+      "bytes": 109520,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-industrial-aerial_V1.0-source.png",
+      "bytes": 2696169,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-industrial-aerial_V1.0.webp",
+      "bytes": 318988,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-industrial-aerial_V1.1.webp",
+      "bytes": 1149244,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-industrial-site_V1.0-source.png",
+      "bytes": 2504427,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-industrial-site_V1.0.webp",
+      "bytes": 305860,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-industrial-site_V1.1.webp",
+      "bytes": 290764,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-landscape_V1.0-source.png",
+      "bytes": 1868245,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-landscape_V1.0.webp",
+      "bytes": 85216,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-team-value-en_V9.1.webp",
+      "bytes": 204290,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-team-value-en_V9.3.webp",
+      "bytes": 174328,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-team-value-en_V9.5.webp",
+      "bytes": 160192,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-team-value-zh_V9.1.webp",
+      "bytes": 214740,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-team-value-zh_V9.3.webp",
+      "bytes": 181540,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-team-value-zh_V9.5.webp",
+      "bytes": 160806,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-value-1_V2.0.webp",
+      "bytes": 243942,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-value-2_V2.0.webp",
+      "bytes": 172554,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-value-3_V2.0.webp",
+      "bytes": 235422,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-value-4_V2.0.webp",
+      "bytes": 161398,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-value-scene-1-en_V11.0.webp",
+      "bytes": 143060,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-value-scene-1-zh_V11.0.webp",
+      "bytes": 119584,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-value-scene-2-en_V11.0.webp",
+      "bytes": 188568,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-value-scene-2-zh_V11.0.webp",
+      "bytes": 184316,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-value-scene-3-en_V11.0.webp",
+      "bytes": 173124,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-value-scene-3-zh_V11.0.webp",
+      "bytes": 155930,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-value-scene-4-en_V11.0.webp",
+      "bytes": 143502,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/state-owned/state-owned-value-scene-4-zh_V11.0.webp",
+      "bytes": 159330,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/trust/trust-team-value-en_V9.2.webp",
+      "bytes": 278780,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/trust/trust-team-value-en_V9.3.webp",
+      "bytes": 239598,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/trust/trust-team-value-en_V9.5.webp",
+      "bytes": 218582,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/trust/trust-team-value-zh_V9.2.webp",
+      "bytes": 276798,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/trust/trust-team-value-zh_V9.3.webp",
+      "bytes": 245252,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/trust/trust-team-value-zh_V9.5.webp",
+      "bytes": 218032,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/trust/trust-value-1_V2.0.webp",
+      "bytes": 228846,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/trust/trust-value-2_V2.0.webp",
+      "bytes": 219762,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/trust/trust-value-3_V2.0.webp",
+      "bytes": 142798,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/trust/trust-value-4_V2.0.webp",
+      "bytes": 144210,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/features/solutions/shared/IndustrySolutionPage.astro",
+        "tests/industry-solutions.test.mjs"
+      ]
+    },
+    {
+      "path": "public/images/solutions/trust/trust-value-scene-1-en_V11.0.webp",
+      "bytes": 158172,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/trust/trust-value-scene-1-zh_V11.0.webp",
+      "bytes": 109416,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/trust/trust-value-scene-2-en_V11.0.webp",
+      "bytes": 160850,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/trust/trust-value-scene-2-zh_V11.0.webp",
+      "bytes": 104568,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/trust/trust-value-scene-3-en_V11.0.webp",
+      "bytes": 129318,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/trust/trust-value-scene-3-zh_V11.0.webp",
+      "bytes": 118462,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/trust/trust-value-scene-4-en_V11.0.webp",
+      "bytes": 149348,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/solutions/trust/trust-value-scene-4-zh_V11.0.webp",
+      "bytes": 125774,
+      "action": "delete",
+      "reasons": [
+        "unreferenced-by-published-graph-current-source-and-active-generators"
+      ],
+      "referencedBy": []
+    },
+    {
+      "path": "public/images/workforce/workforce-matrix-en_V3.4.webp",
+      "bytes": 325324,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/components/WorkforceMatrix.astro",
+        "src/layouts/Layout.astro"
+      ]
+    },
+    {
+      "path": "public/images/workforce/workforce-matrix-zh_V3.4.webp",
+      "bytes": 322612,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input",
+        "active-artwork-generator-dependency"
+      ],
+      "referencedBy": [
+        "artwork/export-workforce-localized_V1.0/align-workforce-planes_V1.4.py",
+        "artwork/export-workforce-localized_V1.0/compose-workforce-matrix_V1.1.py",
+        "artwork/export-workforce-localized_V1.0/export-traditional_V1.0.py",
+        "scripts/prepare-traditional.mjs",
+        "src/components/WorkforceMatrix.astro",
+        "src/layouts/Layout.astro"
+      ]
+    },
+    {
+      "path": "public/images/workforce/workforce-matrix-zh-Hant_V1.0.webp",
+      "bytes": 326380,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "scripts/prepare-traditional.mjs"
+      ]
+    },
+    {
+      "path": "public/images/zhama-logo_V1.0.webp",
+      "bytes": 21334,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/components/Brand.astro"
+      ]
+    },
+    {
+      "path": "public/images/zhama-symbol_V1.0.png",
+      "bytes": 4758,
+      "action": "keep",
+      "reasons": [
+        "reachable-published-resource",
+        "current-source-or-build-input"
+      ],
+      "referencedBy": [
+        "src/layouts/Layout.astro"
+      ]
+    }
+  ],
+  "appliedAt": "2026-11-21T14:14:29.383Z"
+}

@@ -1,0 +1,37 @@
+---
+import Icon from '../Icon.astro';
+import type { Locale } from '../../data/types';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const zh = locale === 'zh';
+const connections = [
+  { icon: 'users', name: 'CRM', object: zh ? '客户与商机' : 'Customers & deals', method: zh ? '业务插件' : 'Business plugin' },
+  { icon: 'plug', name: 'MCP', object: zh ? '工具与文件' : 'Tools & files', method: zh ? '工具调用' : 'Tool calls' },
+  { icon: 'chart', name: zh ? '业务数据库' : 'Business database', object: zh ? '查询与结果' : 'Queries & results', method: zh ? '数据库连接' : 'Database connection' },
+  { icon: 'folder', name: zh ? '招投标系统' : 'Bidding system', object: zh ? '项目与材料' : 'Projects & files', method: 'RESTful API' },
+  { icon: 'file-check', name: 'EHS', object: zh ? '检查与隐患' : 'Inspections & hazards', method: zh ? '业务插件' : 'Business plugin' },
+];
+const tiles = Array.from({length: 15}, (_, index) => connections[index % connections.length]);
+---
+<div class="ib-backdrop" aria-hidden="true">
+  <div class="ib-field">
+    {tiles.map((connection, index) => <div class:list={['ib-connection', `ib-tone-${index % connections.length}`]}>
+      <div class="ib-system"><span class="ib-icon"><Icon name={connection.icon} size={22}/></span><div><strong>{connection.name}</strong><span>{connection.object}</span></div></div>
+      <div class="ib-route"><span>{connection.method}</span><Icon name="arrow" size={13}/></div>
+    </div>)}
+  </div>
+</div>
+<style>
+  .ib-backdrop{position:absolute;z-index:0;inset:0;overflow:clip;pointer-events:none;mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 82%,transparent)}
+  .ib-backdrop::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,18,30,.93),rgba(7,18,30,.76) 34%,rgba(7,18,30,.43) 72%,rgba(7,18,30,.59))}
+  .ib-field{position:absolute;top:50%;left:58%;display:grid;grid-template-columns:repeat(5,220px);gap:76px 82px;width:1428px;transform:translate(-50%,-50%) rotateX(50deg) rotateZ(-28deg);transform-origin:center;transform-style:preserve-3d}
+  .ib-connection{--ib-accent:#729cce;position:relative;display:flex;flex-direction:column;justify-content:space-between;height:140px;box-sizing:border-box;padding:18px 16px;border:1px solid color-mix(in srgb,var(--ib-accent) 35%,transparent);border-radius:8px;color:#dbe5f3;background:linear-gradient(145deg,color-mix(in srgb,var(--ib-accent) 14%,#102034),rgba(9,21,36,.92));box-shadow:0 24px 42px -20px #000c;opacity:.72}
+  .ib-connection::after{content:'';position:absolute;top:50%;left:100%;width:82px;height:1px;background:linear-gradient(90deg,#729cce50,#729cce26)}
+  .ib-connection:nth-child(5n)::after{content:none}
+  .ib-tone-0{transform:translateZ(30px)}.ib-tone-1{--ib-accent:#9b92c9;transform:translateZ(12px)}.ib-tone-2{--ib-accent:#769fc3;transform:translateZ(22px)}.ib-tone-3{transform:translateZ(8px)}.ib-tone-4{--ib-accent:#928bc1;transform:translateZ(26px)}
+  .ib-system{display:flex;align-items:center;gap:10px;min-width:0}
+  .ib-icon{display:grid;place-items:center;width:35px;height:35px;flex-shrink:0;border:1px solid color-mix(in srgb,var(--ib-accent) 36%,transparent);border-radius:6px;background:color-mix(in srgb,var(--ib-accent) 10%,transparent);color:var(--ib-accent)}
+  .ib-system strong{display:block;font-size:13px;line-height:1.5;font-weight:550}.ib-system div>span{display:block;margin-top:4px;font-size:10px;color:#91a6bf;line-height:1.5}
+  .ib-route{display:flex;align-items:center;justify-content:flex-end;gap:10px;font-size:10px;color:var(--ib-accent)}
+  @media(max-width:720px){.ib-field{top:42%;left:52%;width:1130px;grid-template-columns:repeat(5,174px);gap:56px 65px}.ib-connection{height:124px;padding:14px 12px}.ib-connection::after{width:65px}.ib-icon{width:30px;height:30px}.ib-system strong{font-size:12px}.ib-backdrop::after{background:linear-gradient(rgba(7,18,30,.85),rgba(7,18,30,.65) 48%,rgba(7,18,30,.78))}}
+</style>

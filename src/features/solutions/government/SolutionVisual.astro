@@ -1,0 +1,251 @@
+---
+import type { Locale } from '../../../data/types';
+
+interface Props { locale: Locale; index: number; }
+const { locale, index } = Astro.props;
+const zh = locale === 'zh';
+const copy = zh ? {
+  cover: '企业信息变更“一件事”', coverType: 'TeGo 申报预审卷宗', coverItems: ['关联事项清单', '共用信息核对', '集中补正清单'],
+  journey: ['关联事项确认', 'TeGo 材料预审', '集中补正准备', '窗口受理审核'],
+  caseTitle: '企业信息变更“一件事”', caseProduct: 'TeGo 材料预审',
+  caseFields: [
+    ['共用信息', '企业名称、主体类型、变更前后事项'],
+    ['关联办理', '社会保险登记、住房公积金缴存登记'],
+    ['资料核对', '登记变更记录、营业执照信息、专项附件'],
+  ],
+  materialTitle: '申报材料卷宗', materialItems: ['关联事项与部门要求', '共性字段及材料复用关系', '专项附件和材料版本'],
+  corrections: '集中补正清单', checks: [
+    ['附件缺项', '按部门清单定位缺失的证明与附件'],
+    ['字段差异', '标出同一主体前后不一致的信息'],
+    ['版本核对', '对应申请表与证明材料的版本'],
+  ],
+  acceptance: '交接受理岗位', acceptanceItems: '材料卷宗 · 补正事项 · 待确认差异',
+  policyProduct: 'TeGo 政策匹配工作单', policyTitle: '政策核对要点',
+  clauses: [
+    { title: '适用主体', content: '对照企业登记、资质条件与经营范围。', mark: '企业登记与资质' },
+    { title: '支持事项', content: '对照项目内容、所属领域与投入资料。', mark: '项目事实与证明' },
+    { title: '申报要求', content: '对照材料目录、专项附件与提交条件。', mark: '申报材料与条件' },
+  ],
+  evidence: '政策条件与企业事实', preparation: '申报准备工作单', preparationItems: ['保留命中的政策原文', '关联对应的企业与项目资料', '区分缺失证明和待核实事实'],
+  verification: '待核实项', verificationBody: '未覆盖事实与缺失证明随工作单交接，由服务人员核验。',
+  requestTitle: 'TeGo 诉求分办工作单', requestFields: [['诉求要素', '事实、地点、办理事项'], ['分办依据', '权责清单、职责目录']],
+  handling: [
+    ['受理事实', '提取原始工单要素，关联重复诉求和已有办理记录。'],
+    ['TeGo 分办建议', '提出主办、协办岗位与分派依据，职责争议列入待协调。'],
+    ['责任岗位确认', '接续接收、退回、改派及主协办协调意见。'],
+    ['办理反馈与督办', '对照办理进展、答复依据与待复核事项，持续整理办理记录。'],
+  ],
+  requestOutputs: ['主协办建议', '办理反馈依据', '责任督办事项'],
+} : {
+  cover: 'Business information changes', coverType: 'TeGo application review file', coverItems: ['Linked service requirements', 'Shared record checks', 'Consolidated correction list'],
+  journey: ['Confirm related services', 'TeGo document pre-checks', 'Prepare corrections', 'Service-window review'],
+  caseTitle: 'Business information changes', caseProduct: 'TeGo application pre-checks',
+  caseFields: [
+    ['Shared facts', 'Company name, entity type and changes requested'],
+    ['Related services', 'Social insurance and housing fund registration'],
+    ['Records to check', 'Registration changes, business license details and specialist attachments'],
+  ],
+  materialTitle: 'Application case file', materialItems: ['Services and departmental requirements', 'Shared fields and record reuse', 'Specialist attachments and versions'],
+  corrections: 'Consolidated correction list', checks: [
+    ['Missing attachments', 'Locate missing proof against each departmental list'],
+    ['Field differences', 'Identify inconsistent information for the same applicant'],
+    ['Version checks', 'Match application forms to the supporting record versions'],
+  ],
+  acceptance: 'Handover to the acceptance team', acceptanceItems: 'Case file · Corrections · Differences to confirm',
+  policyProduct: 'TeGo policy matching worksheet', policyTitle: 'Policy review criteria',
+  clauses: [
+    { title: 'Eligible applicants', content: 'Compare registration, credentials and operating scope.', mark: 'Registration and credentials' },
+    { title: 'Supported activities', content: 'Compare project scope, sector and supporting investment records.', mark: 'Project facts and proof' },
+    { title: 'Application requirements', content: 'Compare document lists, specialist attachments and submission conditions.', mark: 'Records and conditions' },
+  ],
+  evidence: 'Policy conditions and company facts', preparation: 'Application preparation worksheet', preparationItems: ['Retain relevant policy provisions', 'Link company and project evidence', 'Separate missing proof and verification needs'],
+  verification: 'Verification needs', verificationBody: 'Unconfirmed facts and missing proof stay with the worksheet for service staff review.',
+  requestTitle: 'TeGo request routing worksheet', requestFields: [['Request details', 'Facts, locations and requested actions'], ['Routing basis', 'Responsibility lists and duty directories']],
+  handling: [
+    ['Request intake', 'Extract the original facts and connect repeated requests with existing handling records.'],
+    ['TeGo routing proposal', 'Propose lead and partner teams with supporting duties; identify responsibility disputes for coordination.'],
+    ['Accountable team confirmation', 'Continue with acceptance, return, reassignment and coordination decisions.'],
+    ['Handling feedback and follow-up', 'Compare progress, response evidence and review needs, retaining a continuous handling record.'],
+  ],
+  requestOutputs: ['Lead and partner proposals', 'Handling feedback evidence', 'Accountable follow-up actions'],
+};
+---
+
+<div class:list={['government-dossier', `dossier-view-${index}`, { 'government-dossier-en': !zh }]}>
+  {index === -1 && <div class="dossier-cover">
+    <span class="cover-product">{copy.coverType}</span>
+    <h3>{copy.cover}</h3>
+    <ul>{copy.coverItems.map(item => <li><svg viewBox="0 0 18 20" fill="none" aria-hidden="true"><path d="M4 2h7l3 3v13H4zM11 2v3h3M7 9h4M7 12h4"/></svg>{item}</li>)}</ul>
+  </div>}
+
+  {index === 1 && <div class="application-story">
+    <ol class="application-journey">{copy.journey.map((step, stepIndex) => <li class:list={{ 'tego-stage': stepIndex === 1 }}><span>{step}</span>{stepIndex < copy.journey.length - 1 && <svg viewBox="0 0 30 20" fill="none" aria-hidden="true"><path d="M2 10h25m-6-6 6 6-6 6"/></svg>}</li>)}</ol>
+    <div class="application-dossier">
+      <article class="application-document">
+        <header><h3>{copy.caseTitle}</h3><span>{copy.caseProduct}</span></header>
+        <dl class="case-facts">{copy.caseFields.map(field => <div><dt>{field[0]}</dt><dd>{field[1]}</dd></div>)}</dl>
+        <section class="material-record"><h4>{copy.materialTitle}</h4><ul>{copy.materialItems.map(item => <li><svg viewBox="0 0 19 20" fill="none" aria-hidden="true"><path d="M4 2h7l4 4v12H4zM11 2v4h4M7 10h5M7 13h5"/></svg><span>{item}</span></li>)}</ul></section>
+      </article>
+      <aside class="correction-record"><h4>{copy.corrections}</h4><dl>{copy.checks.map(check => <div><dt>{check[0]}</dt><dd>{check[1]}</dd></div>)}</dl></aside>
+      <div class="acceptance-handoff"><strong>{copy.acceptance}</strong><span>{copy.acceptanceItems}</span><svg viewBox="0 0 30 20" fill="none" aria-hidden="true"><path d="M2 10h25m-6-6 6 6-6 6"/></svg></div>
+    </div>
+  </div>}
+
+  {index === 0 && <div class="policy-dossier">
+    <div class="policy-spine"><span class="policy-symbol" aria-hidden="true"><svg viewBox="0 0 30 34" fill="none"><path d="M6 3h13l6 6v22H6zM19 3v6h6M11 15h9M11 21h9"/></svg></span><h3>{copy.policyProduct}</h3><span>{copy.evidence}</span></div>
+    <article class="policy-reading"><h4>{copy.policyTitle}</h4>{copy.clauses.map(clause => <section class="policy-clause"><h5>{clause.title}</h5><p>{clause.content}</p><span class="clause-evidence">{clause.mark}</span></section>)}</article>
+    <aside class="policy-findings"><h4>{copy.preparation}</h4><ul>{copy.preparationItems.map(item => <li><span aria-hidden="true"></span>{item}</li>)}</ul><div class="verification-record"><h5>{copy.verification}</h5><p>{copy.verificationBody}</p></div></aside>
+  </div>}
+
+  {index === 2 && <article class="request-dossier">
+    <header class="request-header"><h3>{copy.requestTitle}</h3><dl>{copy.requestFields.map(field => <div><dt>{field[0]}</dt><dd>{field[1]}</dd></div>)}</dl></header>
+    <ol class="handling-journal">{copy.handling.map((entry, entryIndex) => <li class:list={{ 'journal-tego': entryIndex === 1 }}><span class="journal-mark" aria-hidden="true"></span><h4>{entry[0]}</h4><p>{entry[1]}</p></li>)}</ol>
+    <div class="request-deliverables">{copy.requestOutputs.map(output => <span><svg viewBox="0 0 19 20" fill="none" aria-hidden="true"><path d="M4 2h7l4 4v12H4zM11 2v4h4M7 10h5M7 13h5"/></svg>{output}</span>)}</div>
+  </article>}
+</div>
+
+<style>
+  .government-dossier { width: 100%; color: #dce7e8; font-family: inherit; font-size: 15px; line-height: 1.7; container-type: inline-size; }
+  .government-dossier *, .government-dossier *::before, .government-dossier *::after { box-sizing: border-box; }
+  .government-dossier h3, .government-dossier h4, .government-dossier h5 { margin: 0; font-weight: 550; line-height: 1.5; }
+  .government-dossier ul, .government-dossier ol { margin: 0; padding: 0; list-style: none; }
+  .government-dossier p { margin: 0; }
+  .government-dossier svg { flex: 0 0 auto; width: 20px; height: 22px; stroke: currentColor; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
+  .dossier-cover { padding: 27px 30px 28px; color: #213f48; background: #e0e7df; border: 1px solid #d9e6dfb3; border-radius: 3px 14px 4px 4px; box-shadow: 0 19px 44px #0000003b; }
+  .cover-product { display: block; color: #557b78; font-size: 13px; }
+  .dossier-cover h3 { max-width: 260px; margin-top: 15px; color: #23414a; font-size: 24px; line-height: 1.5; }
+  .dossier-cover ul { display: grid; gap: 11px; margin-top: 23px; }
+  .dossier-cover li { display: flex; gap: 9px; align-items: center; color: #526d70; font-size: 13px; }
+  .dossier-cover li svg { width: 16px; height: 18px; color: #608c86; }
+  .application-journey { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 0 10px 28px !important; }
+  .application-journey li { display: flex; gap: 14px; align-items: center; justify-content: space-between; min-width: 0; color: #5c7b70; font-size: 15px; }
+  .application-journey li > span { min-width: 0; }
+  .application-journey svg { width: 28px; height: 20px; color: #769183; }
+  .application-journey .tego-stage { color: #2e6556; }
+  .application-dossier { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, .85fr); background: #e9eee7; border: 1px solid #b8cabd; border-radius: 5px; overflow: hidden; box-shadow: 0 24px 60px #2a493b1f; }
+  .application-document { min-width: 0; padding: 34px 40px 30px; color: #354e55; }
+  .application-document > header { display: flex; gap: 20px; align-items: baseline; justify-content: space-between; margin-bottom: 29px; }
+  .application-document h3 { color: #203e47; font-size: 25px; }
+  .application-document > header > span { color: #5e827a; font-size: 13px; white-space: nowrap; }
+  .case-facts { display: grid; gap: 22px; margin: 0; }
+  .case-facts > div { display: grid; grid-template-columns: 5em minmax(0, 1fr); gap: 21px; }
+  .case-facts dt { color: #687e7e; font-size: 14px; }
+  .case-facts dd { margin: 0; color: #37555b; font-size: 15px; line-height: 1.8; }
+  .material-record { margin-top: 29px; padding: 20px 22px; background: #bccfc140; border-radius: 3px; }
+  .material-record h4 { color: #36594f; font-size: 15px; }
+  .material-record ul { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 12px; }
+  .material-record li { display: flex; align-items: center; gap: 7px; color: #54716b; font-size: 13px; }
+  .material-record li svg { width: 16px; height: 18px; }
+  .correction-record { min-width: 0; padding: 34px 30px; background: #173c43; color: #d1e4df; }
+  .correction-record h4 { font-size: 20px; }
+  .correction-record dl { display: grid; gap: 23px; margin: 28px 0 0; }
+  .correction-record dt { color: #a5cebf; font-size: 14px; }
+  .correction-record dd { margin: 6px 0 0; color: #91b3b3; font-size: 14px; line-height: 1.8; }
+  .acceptance-handoff { display: flex; flex-wrap: wrap; gap: 8px 21px; align-items: center; grid-column: 1 / -1; padding: 18px 40px; background: #becfc6; color: #3b615c; }
+  .acceptance-handoff strong { font-size: 15px; font-weight: 550; }
+  .acceptance-handoff > span { color: #5d7a73; font-size: 13px; }
+  .acceptance-handoff > svg { width: 28px; height: 20px; margin-left: auto; }
+  .policy-dossier { display: grid; grid-template-columns: .6fr 1.05fr 1fr; background: #dfe5de; border: 1px solid #cfdbd542; border-radius: 5px; overflow: hidden; box-shadow: 0 23px 60px #020c1330; }
+  .policy-spine { display: flex; flex-direction: column; justify-content: space-between; gap: 30px; padding: 37px 29px 31px; color: #b3d5cb; background: #1d4548; }
+  .policy-symbol { display: flex; color: #8bb9aa; }
+  .policy-symbol svg { width: 36px; height: 40px; }
+  .policy-spine h3 { margin-bottom: auto; color: #d1e5dd; font-size: 26px; line-height: 1.6; }
+  .policy-spine > span:last-child { color: #85aaa5; font-size: 13px; }
+  .policy-reading { padding: 35px 32px 32px; color: #365058; }
+  .policy-reading > h4 { margin-bottom: 27px; color: #2b484e; font-size: 21px; }
+  .policy-clause + .policy-clause { margin-top: 25px; }
+  .policy-clause h5 { color: #315b52; font-size: 15px; }
+  .policy-clause p { margin-top: 7px; color: #607674; font-size: 14px; line-height: 1.8; }
+  .clause-evidence { display: inline; color: #466d62; background: #9bbca03d; font-size: 13px; line-height: 2.7; }
+  .policy-findings { margin-block: 30px; padding: 4px 32px 5px; border-left: 1px solid #6b918027; }
+  .policy-findings > h4 { color: #2b5149; font-size: 20px; }
+  .policy-findings ul { display: grid; gap: 16px; margin-top: 27px; }
+  .policy-findings li { display: flex; gap: 9px; align-items: baseline; color: #54736b; font-size: 14px; }
+  .policy-findings li > span { width: 5px; height: 5px; flex: 0 0 auto; background: #658f7c; border-radius: 50%; }
+  .verification-record { margin-top: 33px; padding: 20px 18px; background: #bdcfc14a; border-radius: 3px; }
+  .verification-record h5 { color: #3f6b5b; font-size: 15px; }
+  .verification-record p { margin-top: 8px; color: #638073; font-size: 14px; line-height: 1.8; }
+  .request-dossier { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); background: #e8eee6; border: 1px solid #b4c7b8; border-radius: 5px; color: #355159; box-shadow: 0 22px 56px #294d3a1a; overflow: hidden; }
+  .request-header { padding: 36px 38px; background: #c5d5ca; }
+  .request-header > h3 { max-width: 290px; color: #294f48; font-size: 29px; line-height: 1.5; }
+  .request-header dl { display: grid; gap: 24px; margin: 30px 0 0; }
+  .request-header dt { color: #54786b; font-size: 14px; }
+  .request-header dd { margin: 7px 0 0; color: #698574; font-size: 14px; line-height: 1.8; }
+  .handling-journal { display: grid; gap: 25px; padding: 37px 40px 35px 63px !important; }
+  .handling-journal li { position: relative; padding-left: 22px; }
+  .handling-journal li:not(:last-child)::after { position: absolute; top: 11px; left: 2px; bottom: -34px; width: 1px; background: #8ca89a59; content: ''; }
+  .journal-mark { position: absolute; z-index: 1; top: 8px; left: -1px; width: 7px; height: 7px; background: #98b5a4; border-radius: 50%; }
+  .journal-tego .journal-mark { background: #3e7d68; box-shadow: 0 0 0 4px #86ab9140; }
+  .handling-journal h4 { color: #335c50; font-size: 16px; }
+  .handling-journal p { max-width: 550px; margin-top: 6px; color: #6a8075; font-size: 14px; line-height: 1.85; }
+  .request-deliverables { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; grid-column: 1 / -1; padding: 18px 38px; background: #b9cec1; }
+  .request-deliverables > span { display: flex; gap: 8px; align-items: center; color: #4c7462; font-size: 14px; }
+  .request-deliverables svg { width: 17px; height: 19px; }
+  .government-dossier-en .application-document > header { align-items: start; flex-direction: column; gap: 9px; }
+  .government-dossier-en .case-facts > div { grid-template-columns: 6.1em minmax(0, 1fr); }
+  .government-dossier-en .policy-spine { padding-inline: 25px; }
+  .government-dossier-en .policy-spine h3 { font-size: 23px; }
+  .government-dossier-en .policy-reading { padding-inline: 27px; }
+  .government-dossier-en .policy-findings { padding-inline: 26px; }
+  .government-dossier-en .request-header > h3 { font-size: 27px; }
+  @container (max-width: 850px) {
+    .application-document { padding: 28px; }
+    .application-document > header { flex-direction: column; align-items: start; gap: 9px; }
+    .application-document h3 { font-size: 23px; }
+    .case-facts > div { grid-template-columns: 1fr; gap: 5px; }
+    .correction-record { padding: 29px 24px; }
+    .material-record { padding: 17px 18px; }
+    .acceptance-handoff { padding-inline: 28px; }
+    .policy-dossier { grid-template-columns: .95fr 1fr; }
+    .policy-spine { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: start; gap: 17px; padding: 22px 28px; }
+    .policy-spine h3 { margin: 0; font-size: 23px; }
+    .policy-spine > span:last-child { margin-left: auto; max-width: 180px; }
+    .policy-symbol svg { width: 29px; height: 33px; }
+    .request-header { padding: 30px; }
+    .handling-journal { padding: 31px 29px 29px 36px !important; }
+    .government-dossier-en .case-facts > div { grid-template-columns: 1fr; }
+    .government-dossier-en .policy-spine { padding-inline: 28px; }
+  }
+  @container (max-width: 600px) {
+    .application-journey { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 22px; margin: 0 3px 24px !important; }
+    .application-journey li { font-size: 14px; }
+    .application-journey li:nth-child(2) svg { display: none; }
+    .application-dossier { grid-template-columns: 1fr; }
+    .application-document { padding: 26px 23px; }
+    .application-document h3 { font-size: 22px; }
+    .application-document > header { margin-bottom: 24px; }
+    .case-facts { gap: 18px; }
+    .case-facts dd { font-size: 14px; }
+    .material-record { margin-top: 24px; }
+    .material-record ul { display: grid; gap: 10px; }
+    .correction-record { padding: 25px 23px; }
+    .correction-record dl { gap: 17px; margin-top: 21px; }
+    .correction-record dl > div { display: grid; grid-template-columns: 4.2em minmax(0, 1fr); gap: 14px; }
+    .correction-record dd { margin: 0; }
+    .acceptance-handoff { align-items: start; gap: 7px; padding: 19px 23px; }
+    .acceptance-handoff > span { width: calc(100% - 40px); }
+    .acceptance-handoff > svg { align-self: center; margin-left: 0; }
+    .policy-dossier { grid-template-columns: 1fr; }
+    .policy-spine { grid-column: auto; flex-wrap: wrap; gap: 12px; padding: 23px; }
+    .policy-spine h3 { max-width: calc(100% - 50px); font-size: 23px; }
+    .policy-spine > span:last-child { max-width: none; width: 100%; margin-left: 0; }
+    .policy-reading { padding: 27px 25px 24px; }
+    .policy-reading > h4 { margin-bottom: 22px; }
+    .policy-clause + .policy-clause { margin-top: 20px; }
+    .policy-findings { margin: 0; padding: 25px; background: #c4d5c854; border: 0; }
+    .policy-findings ul { gap: 13px; margin-top: 21px; }
+    .verification-record { margin-top: 23px; padding: 17px; }
+    .request-dossier { grid-template-columns: 1fr; }
+    .request-header { padding: 27px 25px; }
+    .request-header > h3 { max-width: none; font-size: 25px; }
+    .request-header dl { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 23px; }
+    .handling-journal { gap: 24px; padding: 28px 25px 28px 32px !important; }
+    .request-deliverables { grid-column: auto; gap: 10px; padding: 19px 25px; }
+    .request-deliverables > span { width: 100%; }
+    .government-dossier-en .policy-spine { padding: 23px; }
+    .government-dossier-en .policy-spine h3 { font-size: 23px; }
+    .government-dossier-en .request-header > h3 { font-size: 25px; }
+    .government-dossier-en .request-header dl { grid-template-columns: 1fr; }
+    .government-dossier-en .correction-record dl > div { grid-template-columns: 1fr; gap: 6px; }
+  }
+</style>

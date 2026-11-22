@@ -1,0 +1,223 @@
+---
+import type { Locale } from '../../../data/types';
+interface Props { index: number; locale: Locale; }
+const { index, locale } = Astro.props;
+const zh = locale === 'zh';
+const copy = zh ? {
+  policy: '授信审查制度', policyGroup: '授权知识库', policyItems: ['企业资料要求', '财务核验清单', '合同审阅规范'],
+  citations: '引用依据', citationItems: [['制度原文', '问题位置'], ['合同条款', '核对事项']],
+  skills: ['财务比对', '合同核对'], review: '财务核查底稿', reviewItems: ['财务口径差异', '合同约束条款', '制度引用依据'], humanReview: '人员复核',
+  systems: ['预警系统', '资料系统', '经营数据库'], authorized: '授权接入', protocols: ['MCP', 'RESTful API', '数据库'],
+  task: ['定时任务', '数字员工协作'], riskOutputs: [{ title: '客户风险摘要', rows: ['归并预警线索', '关联客户背景'] }, { title: '贷后核查清单', rows: ['核查依据', '岗位跟进事项'] }],
+  project: '项目会话 · 经营分析', assignment: '分析经营变化，整理重点客户与跟进事项。', collaboration: '数字员工协作',
+  employeeRoles: ['客户经营', '资料分析'], clientDocuments: [{ title: '客户服务准备材料', rows: ['客户背景', '沟通重点', '服务事项'] }, { title: '客户经理跟进表', rows: ['重点客户', '跟进事项', '责任岗位'] }],
+  versions: '文档版本', drafts: ['初稿', '复核稿'], clientReview: '人工复核',
+} : {
+  policy: 'Credit review policy', policyGroup: 'Authorized knowledge base', policyItems: ['Company records', 'Financial checklist', 'Contract review rules'],
+  citations: 'Source evidence', citationItems: [['Policy text', 'Finding location'], ['Contract terms', 'Review item']],
+  skills: ['Financial checks', 'Contract checks'], review: 'Financial review workbook', reviewItems: ['Reporting differences', 'Contract restrictions', 'Policy references'], humanReview: 'Human review',
+  systems: ['Alert system', 'Record system', 'Operating database'], authorized: 'Authorized access', protocols: ['MCP', 'RESTful API', 'Database'],
+  task: ['Scheduled tasks', 'Employee collaboration'], riskOutputs: [{ title: 'Client risk brief', rows: ['Group risk signals', 'Connect client history'] }, { title: 'Post-loan checklist', rows: ['Supporting evidence', 'Team follow-up actions'] }],
+  project: 'Project conversation · Business analysis', assignment: 'Analyze business changes and prepare client priorities and follow-up actions.', collaboration: 'Digital employee collaboration',
+  employeeRoles: ['Client management', 'Record analysis'], clientDocuments: [{ title: 'Client service materials', rows: ['Client context', 'Discussion priorities', 'Service actions'] }, { title: 'RM follow-up list', rows: ['Priority clients', 'Follow-up actions', 'Responsible team'] }],
+  versions: 'Document versions', drafts: ['Draft', 'Reviewed'], clientReview: 'Human review',
+};
+---
+<div class:list={['value-concept', `value-concept-${index}`, { 'value-concept-en': !zh }]}>
+  {index === 0 && <div class="knowledge-illustration">
+    <svg class="concept-connections knowledge-lines" aria-hidden="true" viewBox="0 0 560 380" fill="none"><path d="M203 80H318q18 0 18 18v11h43M278 231h47q14 0 14 14v14h32"/><path d="m371 105 8 4-8 4m-8 142 8 4-8 4"/></svg>
+    <div class="concept-document policy-document">
+      <span class="document-group">{copy.policyGroup}</span>
+      <div class="document-heading"><svg aria-hidden="true" viewBox="0 0 20 22" fill="none"><path d="M4 2h8l4 4v14H4zM12 2v4h4M7 10h6M7 14h6"/></svg><h5>{copy.policy}</h5></div>
+      <div class="document-rows">{copy.policyItems.map(item => <span><i aria-hidden="true"></i>{item}</span>)}</div>
+    </div>
+    <div class="concept-document citation-document">
+      <h5>{copy.citations}</h5>
+      <div class="citation-mappings">{copy.citationItems.map(item => <div><span>{item[0]}</span><svg aria-hidden="true" viewBox="0 0 20 16" fill="none"><path d="M2 8h16m-4-4 4 4-4 4"/></svg><strong>{item[1]}</strong></div>)}</div>
+      <span class="citation-link" aria-hidden="true"><svg viewBox="0 0 18 18" fill="none"><path d="m7 6 2-2a3 3 0 0 1 4 4l-2 2M11 12l-2 2a3 3 0 0 1-4-4l2-2M6 12l6-6"/></svg></span>
+    </div>
+    <div class="skill-bridge">{copy.skills.map((skill, skillIndex) => <div><span class="skill-symbol" aria-hidden="true">{skillIndex === 0 ? <svg viewBox="0 0 20 20" fill="none"><path d="M4 5h12M4 10h5M4 15h9M13 9l3 3-3 3"/></svg> : <svg viewBox="0 0 20 20" fill="none"><path d="M5 2h8l3 3v13H5zM13 2v3h3M8 10l2 2 3-4"/></svg>}</span><strong>{skill}</strong></div>)}</div>
+    <div class="concept-document review-document">
+      <h5>{copy.review}</h5>
+      <div class="document-rows">{copy.reviewItems.map(item => <span><i aria-hidden="true"></i>{item}</span>)}</div>
+      <div class="review-seal"><svg aria-hidden="true" viewBox="0 0 18 18" fill="none"><path d="m4 9 3 3 7-7"/></svg>{copy.humanReview}</div>
+    </div>
+  </div>}
+
+  {index === 1 && <div class="system-illustration">
+    <div class="business-systems">{copy.systems.map((system, systemIndex) => <div class="business-system"><span class="system-symbol" aria-hidden="true">{systemIndex === 2 ? <svg viewBox="0 0 26 26" fill="none"><ellipse cx="13" cy="6" rx="8" ry="3"/><path d="M5 6v13c0 1.7 3.6 3 8 3s8-1.3 8-3V6M5 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg> : <svg viewBox="0 0 26 26" fill="none"><rect x="3" y="4" width="20" height="15" rx="2"/><path d="M9 23h8M13 19v4M7 9h5M7 13h11"/></svg>}</span><strong>{system}</strong></div>)}</div>
+    <svg class="system-lines" aria-hidden="true" viewBox="0 0 500 22" fill="none"><path d="M78 0v11h344V0M250 0v22"/></svg>
+    <div class="access-route"><span>{copy.authorized}</span><div>{copy.protocols.map(protocol => <strong>{protocol}</strong>)}</div></div>
+    <svg class="system-arrow" aria-hidden="true" viewBox="0 0 24 22" fill="none"><path d="M12 0v19m-4-4 4 4 4-4"/></svg>
+    <div class="tego-task"><span class="tego-mark">TeGo</span><div>{copy.task.map(item => <span>{item}</span>)}</div></div>
+    <svg class="system-lines output-lines" aria-hidden="true" viewBox="0 0 500 25" fill="none"><path d="M250 0v10H120v15m130-15h130v15"/></svg>
+    <div class="risk-documents">{copy.riskOutputs.map(document => <div class="risk-document"><span class="risk-doc-symbol" aria-hidden="true"><svg viewBox="0 0 20 24" fill="none"><path d="M4 2h8l4 4v16H4zM12 2v4h4M7 11h6M7 15h6"/></svg></span><div><h5>{document.title}</h5>{document.rows.map(row => <span>{row}</span>)}</div></div>)}</div>
+  </div>}
+
+  {index === 2 && <div class="conversation-illustration">
+    <svg class="concept-connections conversation-lines" aria-hidden="true" viewBox="0 0 560 380" fill="none"><path d="M167 122v30m33 44h113q18 0 18 18v28"/><path d="m163 144 4 8 4-8m156 90 4 8 4-8"/></svg>
+    <div class="conversation-entry"><span>{copy.project}</span><div class="conversation-bubble">{copy.assignment}</div></div>
+    <div class="employee-collaboration"><h5>{copy.collaboration}</h5><div>{copy.employeeRoles.map((role, roleIndex) => <span><img src={`/images/home/employee-avatar-${roleIndex === 0 ? 'business' : 'research'}_V1.0.webp`} alt="" width="36" height="36" loading="lazy" decoding="async"/><strong>{role}</strong></span>)}</div></div>
+    {copy.clientDocuments.map((document, documentIndex) => <div class:list={['concept-document', 'client-document', `client-document-${documentIndex}`]}><h5>{document.title}</h5><div class="document-rows">{document.rows.map(row => <span><i aria-hidden="true"></i>{row}</span>)}</div></div>)}
+    <div class="version-trail"><span>{copy.versions}</span><div><span>{copy.drafts[0]}</span><svg aria-hidden="true" viewBox="0 0 20 16" fill="none"><path d="M2 8h16m-4-4 4 4-4 4"/></svg><strong>{copy.drafts[1]}</strong></div><span class="human-review"><svg aria-hidden="true" viewBox="0 0 18 18" fill="none"><path d="m4 9 3 3 7-7"/></svg>{copy.clientReview}</span></div>
+  </div>}
+</div>
+
+<style>
+  .value-concept { position: relative; width: 100%; max-width: 560px; min-height: 380px; container-type: inline-size; color: #c8ddef; font-family: inherit; isolation: isolate; }
+  .value-concept::before { position: absolute; z-index: -1; inset: 8% -4%; background: radial-gradient(ellipse at 55% 55%, #235c8c27, transparent 67%); content: ''; pointer-events: none; }
+  .value-concept *, .value-concept *::before, .value-concept *::after { box-sizing: border-box; }
+  .value-concept svg { flex: 0 0 auto; stroke: currentColor; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round; }
+  .value-concept h5 { margin: 0; color: #e1effb; font-size: 13px; font-weight: 550; line-height: 1.5; }
+  .concept-document { padding: 17px 18px; background: linear-gradient(140deg, #152b40f5, #101e30f2); border: 1px solid #7b9bb237; border-radius: 6px; box-shadow: 0 13px 28px #00060f30; }
+  .document-group { display: block; margin-bottom: 10px; color: #6f9bbc; font-size: 11px; line-height: 1.5; }
+  .document-heading { display: flex; gap: 8px; align-items: center; }
+  .document-heading svg { width: 17px; height: 20px; color: #7bb5d8; }
+  .document-rows { display: grid; gap: 9px; margin-top: 15px; }
+  .document-rows > span { display: flex; gap: 7px; align-items: center; color: #9bb8d1; font-size: 11px; line-height: 1.5; }
+  .document-rows i { flex: 0 0 auto; width: 3px; height: 3px; background: #6096bd; border-radius: 50%; }
+  .concept-connections { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; color: #548aaf6b; }
+  .knowledge-illustration { position: relative; min-height: 380px; }
+  .policy-document { position: absolute; top: 7px; left: 6px; width: 226px; padding-bottom: 24px; transform: rotate(-2deg); box-shadow: 0 14px 30px #00061135; }
+  .policy-document .document-rows { gap: 7px; margin-top: 12px; }
+  .citation-document { position: absolute; top: 175px; left: 57px; width: 224px; padding-bottom: 20px; background: linear-gradient(140deg, #173248f5, #122339fa); transform: rotate(1deg); box-shadow: 0 15px 30px #00071340; }
+  .citation-mappings { display: grid; gap: 13px; margin-top: 16px; }
+  .citation-mappings > div { display: flex; gap: 9px; align-items: center; justify-content: space-between; font-size: 11px; }
+  .citation-mappings > div > span { color: #a0c4de; }
+  .citation-mappings svg { width: 17px; height: 14px; color: #628eaf; }
+  .citation-mappings strong { color: #bcd8eb; font-size: 11px; font-weight: 500; }
+  .citation-link { display: flex; margin-top: 17px; color: #76b4d8; }
+  .citation-link svg { width: 17px; height: 17px; }
+  .skill-bridge { position: absolute; top: 38px; right: 11px; display: grid; gap: 13px; width: 164px; }
+  .skill-bridge > div { display: flex; gap: 10px; align-items: center; }
+  .skill-symbol { display: grid; width: 33px; height: 33px; place-items: center; color: #8bc2e1; background: #30658d20; border: 1px solid #6299bf2b; border-radius: 7px; }
+  .skill-symbol svg { width: 21px; height: 21px; }
+  .skill-bridge strong { color: #afd0e9; font-size: 12px; font-weight: 500; }
+  .review-document { position: absolute; right: 9px; bottom: 13px; width: 237px; background: linear-gradient(140deg, #1c3b55ed, #142b43f7); border-color: #74b1d454; transform: rotate(2deg); box-shadow: 0 17px 33px #00071145; }
+  .review-document .document-rows { gap: 8px; }
+  .review-seal { display: flex; align-items: center; gap: 5px; margin-top: 15px; color: #86bdce; font-size: 11px; }
+  .review-seal svg { width: 14px; height: 14px; }
+  .system-illustration { display: flex; flex-direction: column; align-items: center; padding: 9px 9px 0; }
+  .business-systems { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; gap: 14px; }
+  .business-system { display: flex; gap: 9px; align-items: center; justify-content: center; min-height: 46px; }
+  .system-symbol { display: flex; color: #6e9fbe; }
+  .system-symbol svg { width: 27px; height: 27px; }
+  .business-system strong { color: #aac8df; font-size: 11px; font-weight: 500; line-height: 1.5; }
+  .system-lines { width: 100%; height: 25px; color: #4f799854; }
+  .access-route { display: flex; flex-direction: column; gap: 10px; align-items: center; padding: 3px 0 0; }
+  .access-route > span { color: #648eaf; font-size: 11px; }
+  .access-route > div { display: flex; gap: 13px; }
+  .access-route strong { min-width: 84px; padding: 6px 12px; color: #a1cbe5; font-size: 11px; font-weight: 500; text-align: center; border: 1px solid #5e8cad35; border-radius: 5px; background: #22577d14; }
+  .system-arrow { width: 23px; height: 25px; color: #507f9c; }
+  .tego-task { display: flex; gap: 17px; align-items: center; padding: 13px 20px; background: linear-gradient(110deg, #16476a75, #12344e50); border: 1px solid #68a0c245; border-radius: 9px; box-shadow: 0 9px 24px #00060f1a; }
+  .tego-mark { color: #9ed8f0; font-size: 20px; font-weight: 650; letter-spacing: -.04em; }
+  .tego-task > div { display: grid; gap: 6px; }
+  .tego-task > div > span { color: #a9c6db; font-size: 11px; }
+  .output-lines { height: 25px; }
+  .risk-documents { display: grid; grid-template-columns: 1fr 1fr; width: 100%; gap: 20px; }
+  .risk-document { display: flex; gap: 11px; padding: 14px; background: linear-gradient(130deg, #172d43d9, #10223591); border: 1px solid #779db530; border-radius: 5px; }
+  .risk-doc-symbol { display: flex; margin-top: 1px; color: #6da5c7; }
+  .risk-doc-symbol svg { width: 19px; height: 23px; }
+  .risk-document h5 { margin-bottom: 9px; font-size: 13px; }
+  .risk-document > div { display: grid; gap: 5px; }
+  .risk-document > div > span { color: #7e9fb9; font-size: 11px; line-height: 1.5; }
+  .conversation-illustration { position: relative; min-height: 380px; }
+  .conversation-entry { position: absolute; top: 4px; left: 5px; width: 299px; }
+  .conversation-entry > span { color: #7099b8; font-size: 11px; line-height: 1.5; }
+  .conversation-bubble { position: relative; margin-top: 10px; padding: 15px 19px; color: #bfdef1; font-size: 13px; line-height: 1.8; background: linear-gradient(120deg, #1d4f75ab, #13324d8f); border: 1px solid #6395b537; border-radius: 10px 10px 10px 2px; }
+  .employee-collaboration { position: absolute; top: 148px; left: 28px; }
+  .employee-collaboration h5 { color: #7fa8c6; font-size: 11px; font-weight: 500; }
+  .employee-collaboration > div { display: flex; gap: 20px; margin-top: 11px; }
+  .employee-collaboration > div > span { display: flex; flex-direction: column; gap: 7px; align-items: center; }
+  .employee-collaboration img { width: 33px; height: 33px; object-fit: cover; border-radius: 50%; box-shadow: 0 0 0 3px #89b7d009; }
+  .employee-collaboration strong { color: #8babca; font-size: 11px; font-weight: 500; }
+  .client-document { position: absolute; width: 233px; }
+  .client-document-0 { top: 112px; right: 3px; background: linear-gradient(145deg, #142b40f2, #102034f7); transform: rotate(1deg); }
+  .client-document-1 { right: 39px; bottom: 0; width: 245px; background: linear-gradient(140deg, #1d3b53f5, #142b41f7); border-color: #7ba4c04a; transform: rotate(-1.5deg); box-shadow: 0 17px 33px #00071140; }
+  .client-document .document-rows { gap: 8px; margin-top: 12px; }
+  .version-trail { position: absolute; left: 30px; bottom: 26px; display: grid; gap: 10px; }
+  .version-trail > span:first-child { color: #678ba9; font-size: 11px; }
+  .version-trail > div { display: flex; gap: 8px; align-items: center; color: #839fba; font-size: 11px; }
+  .version-trail > div > strong { color: #a6ccdf; font-size: 11px; font-weight: 500; }
+  .version-trail > div > svg { width: 17px; height: 14px; color: #5e859f; }
+  .human-review { display: flex; gap: 4px; align-items: center; color: #8cb9c8; font-size: 11px; }
+  .human-review svg { width: 14px; height: 14px; }
+  .value-concept-en .policy-document { width: 229px; }
+  .value-concept-en .citation-document { width: 232px; left: 43px; }
+  .value-concept-en .citation-mappings { gap: 11px; }
+  .value-concept-en .citation-mappings > div { gap: 5px; font-size: 11px; }
+  .value-concept-en .citation-mappings strong { font-size: 11px; }
+  .value-concept-en .skill-bridge { width: 177px; }
+  .value-concept-en .skill-bridge strong { font-size: 11px; }
+  .value-concept-en .review-document h5 { font-size: 13px; }
+  .value-concept-en .review-document .document-rows > span { font-size: 11px; }
+  .value-concept-en .business-system strong { font-size: 11px; }
+  .value-concept-en .conversation-entry { width: 310px; }
+  .value-concept-en .conversation-entry > span { font-size: 11px; }
+  .value-concept-en .conversation-bubble { font-size: 11px; }
+  .value-concept-en .employee-collaboration > div { gap: 14px; }
+  .value-concept-en .employee-collaboration strong { font-size: 11px; }
+  .value-concept-en .client-document h5 { font-size: 13px; }
+  @container (max-width: 510px) {
+    .concept-connections { display: none; }
+    .knowledge-illustration { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; min-height: 0; padding: 4px; }
+    .policy-document, .citation-document, .review-document, .skill-bridge { position: relative; inset: auto; width: auto; }
+    .concept-document { padding: 14px 13px; }
+    .value-concept h5 { font-size: 13px; }
+    .document-group { font-size: 11px; }
+    .document-heading { gap: 5px; }
+    .document-heading svg { width: 14px; height: 17px; }
+    .document-rows > span { font-size: 11px; }
+    .citation-document { margin-top: 21px; }
+    .citation-mappings > div { gap: 4px; flex-wrap: wrap; font-size: 11px; }
+    .citation-mappings strong { font-size: 11px; }
+    .citation-mappings svg { width: 13px; height: 12px; }
+    .citation-link { margin-top: 14px; }
+    .skill-bridge { grid-column: 1 / -1; display: flex; justify-content: center; gap: 19px; padding: 5px 0; }
+    .skill-bridge > div { gap: 7px; }
+    .skill-bridge strong { font-size: 11px; }
+    .skill-symbol { width: 29px; height: 29px; }
+    .review-document { grid-column: 1 / -1; margin: 0 25px; }
+    .review-document .document-rows { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .review-seal { margin-top: 12px; }
+    .system-illustration { padding: 3px 0; }
+    .business-systems { gap: 8px; }
+    .business-system { flex-direction: column; gap: 6px; }
+    .business-system strong { font-size: 11px; text-align: center; }
+    .system-symbol svg { width: 25px; height: 25px; }
+    .access-route > div { gap: 7px; }
+    .access-route strong { min-width: 72px; padding: 6px 9px; font-size: 11px; }
+    .tego-task { gap: 15px; padding: 12px 18px; }
+    .tego-task > div > span { font-size: 11px; }
+    .tego-mark { font-size: 19px; }
+    .risk-documents { gap: 12px; }
+    .risk-document { gap: 7px; padding: 12px 10px; }
+    .risk-doc-symbol svg { width: 15px; height: 19px; }
+    .risk-document h5 { font-size: 13px; }
+    .risk-document > div > span { font-size: 11px; }
+    .conversation-illustration { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; min-height: 0; padding: 4px; }
+    .conversation-entry, .employee-collaboration, .client-document, .version-trail { position: relative; inset: auto; width: auto; }
+    .conversation-entry { grid-column: 1 / -1; }
+    .conversation-bubble { max-width: 285px; padding: 13px 16px; font-size: 12px; }
+    .employee-collaboration { grid-column: 1 / -1; padding: 3px 0 8px; }
+    .employee-collaboration > div { gap: 20px; margin-top: 10px; }
+    .client-document-0 { align-self: start; }
+    .client-document-1 { margin-top: 22px; }
+    .client-document .document-rows > span { font-size: 11px; }
+    .version-trail { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 10px 17px; align-items: center; padding: 3px 0; }
+    .value-concept-en .policy-document, .value-concept-en .citation-document, .value-concept-en .skill-bridge, .value-concept-en .conversation-entry { width: auto; left: auto; }
+    .value-concept-en .knowledge-illustration { grid-template-columns: 1fr; }
+    .value-concept-en .policy-document { margin-right: 39px; }
+    .value-concept-en .citation-document { margin-top: 0; margin-left: 39px; }
+    .value-concept-en .citation-mappings > div { flex-wrap: nowrap; font-size: 11px; }
+    .value-concept-en .citation-mappings strong { font-size: 11px; }
+    .value-concept-en .skill-bridge { gap: 14px; }
+    .value-concept-en .review-document { margin: 0 15px; }
+    .value-concept-en .review-document .document-rows { grid-template-columns: 1fr; }
+    .value-concept-en .business-system strong { font-size: 11px; }
+    .value-concept-en .risk-document { flex-direction: column; }
+    .value-concept-en .conversation-entry > span { font-size: 11px; }
+    .value-concept-en .client-document h5 { font-size: 13px; }
+    .value-concept-en .client-document .document-rows > span { font-size: 11px; }
+  }
+</style>

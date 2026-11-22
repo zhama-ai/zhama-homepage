@@ -1,0 +1,46 @@
+---
+// Static field renders with HTML. Only the small foreground stars breathe.
+const stars = Array.from({ length: 72 }, (_, i) => ({
+  x: 12 + ((i * 397 + i * i * 13) % 1416),
+  y: 9 + ((i * 173 + i * i * 7) % 782),
+  radius: i % 23 === 0 ? 1.05 : i % 5 === 0 ? .7 : .4,
+  opacity: i % 23 === 0 ? .7 : i % 5 === 0 ? .45 : .24,
+}));
+const nearStars = [
+ [8,18],[24,9],[43,7],[70,8],[95,15],[4,43],
+ [97,45],[7,86],[25,79],[48,82],[78,87],[91,94],
+].map(([x,y],i)=>({x,y,size:8,delay:-(i*1.73),duration:7.8+(i%7)*.85,warm:false,flare:false}));
+// Fine strands share the lower horizon; their light stays behind the content.
+const fiberY = (x:number, strand:number) => 657
+ + 31 * Math.sin(x / 248 - .45)
+ + 12 * Math.sin(x / 139 + strand * .035)
+ - 174 * Math.exp(-Math.pow((x - 1490) / 255, 2))
+ + (strand - 11) * (1.25 + .55 * Math.sin(x / 310));
+const fibers = Array.from({length:24}, (_,strand) => ({
+ path: Array.from({length:97}, (_,point) => {
+  const x = point * 15;
+  return `${point === 0 ? 'M' : 'L'}${x},${fiberY(x,strand).toFixed(2)}`;
+ }).join(' '),
+ opacity: .2 + (strand % 5) * .04,
+}));
+const fiberDust = Array.from({length:186}, (_,i) => {
+ const x = (i * 197 + i * i * 17) % 1440;
+ return {x, y:fiberY(x,i % 24) + ((i * 29) % 43 - 21), radius:i % 13 === 0 ? .8 : .38, opacity:.12 + (i % 7) * .035};
+});
+---
+<div class="hero-starfield hero-deep-space" aria-hidden="true">
+ <div class="hero-nebula"></div>
+ <svg class="hero-fiber-field" viewBox="0 0 1440 800" preserveAspectRatio="none" fill="none">
+  <defs>
+   <linearGradient id="hero-fiber-light"><stop stop-color="#598cac" stop-opacity=".1"/><stop offset=".26" stop-color="#85c7e5" stop-opacity=".7"/><stop offset=".58" stop-color="#4e9bc9" stop-opacity=".45"/><stop offset="1" stop-color="#89c9e8" stop-opacity=".65"/></linearGradient>
+   <filter id="hero-fiber-diffusion" x="-10%" y="-100%" width="120%" height="300%"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+  <g stroke="url(#hero-fiber-light)" stroke-width="9" opacity=".16" filter="url(#hero-fiber-diffusion)">{fibers.filter((_,i)=>i%6===0).map(fiber=><path d={fiber.path}/>)}</g>
+  <g stroke="url(#hero-fiber-light)" stroke-width=".65">{fibers.map(fiber=><path d={fiber.path} opacity={fiber.opacity}/>)}</g>
+  <g fill="#9ccce3">{fiberDust.map(point=><circle cx={point.x} cy={point.y} r={point.radius} opacity={point.opacity}/>)}</g>
+ </svg>
+ <svg viewBox="0 0 1440 800" preserveAspectRatio="none" fill="none">
+  <g class="hero-far-stars">{stars.map(star=><circle cx={star.x} cy={star.y} r={star.radius} style={`opacity:${star.opacity}`}/>)}</g>
+ </svg>
+ {nearStars.map(star=><span class:list={['hero-star',{'is-warm':star.warm,'has-flare':star.flare}]} style={`left:${star.x}%;top:${star.y}%;--star-size:${star.size}px;--star-delay:${star.delay}s;--star-duration:${star.duration}s`}></span>)}
+</div>

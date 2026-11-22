@@ -1,0 +1,22 @@
+.capability-artwork {
+  min-width: 0;
+  width: 112%;
+  margin: 0 -6%;
+  aspect-ratio: 3 / 2;
+  align-self: center;
+}
+.capability-artwork img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+  mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent), linear-gradient(to bottom, transparent, #000 5%, #000 94%, transparent);
+  mask-composite: intersect;
+}
+.capability-artwork picture { display: block; }
+@media (max-width: 760px) {
+  .capability-artwork { width: calc(100% + 30px); margin: 30px -15px 0; aspect-ratio: 1; }
+  .capability-artwork img { aspect-ratio: 1; }
+}

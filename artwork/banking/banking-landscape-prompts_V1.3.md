@@ -1,0 +1,9 @@
+# Banking client conversation pose V1.3
+
+API: configured image server; model: gpt-image-2; masked image edit of the rightmost client.
+
+Use case: precise-object-edit
+Asset type: premium realistic banking business photograph, website hero background.
+Edit target: supplied bank-office panorama. Modify ONLY the rightmost seated client and his foreground chair, within the mask.
+Primary request: change the rightmost client from an unattractive broad BACK VIEW to a natural SIDE / THREE-QUARTER FRONT VIEW. He remains a middle-aged Chinese male business client in a professional dark suit, seated at the same meeting table and talking with the bank relationship manager on his LEFT. His face must be clearly visible near the right edge, looking left toward the banker, not looking at the camera. Show the side of his face and some jacket lapels / shirt front, with open shoulders, rather than a large expanse of his back. Turn his torso and chair about 50 degrees toward the camera. Place him a little farther back so his head and shoulders are proportional to the banker. Relaxed engaged posture, one natural hand on the table. Reduce the visual mass of the large foreground chair back; use a simple elegant side-visible chair at a realistic scale.
+Preserve the banker opposite him, their conversation and table. Preserve the left foreground female and male credit staff reviewing financial papers, the clean empty central stone wall, existing architecture, lighting, skyline, camera angle and the entire rest of the image. Keep a natural banking consultation scene with realistic people and anatomy. Do not add any extra people. No back-facing customer, no oversized shoulders, no oversized head, no direct gaze into the camera, no exaggerated smile, no deformed hands or faces. No new screens, charts, text, logos, page numbers, watermarks or page labels. Absolutely no independent decorative line, color stripe or accent bar along the top edge.

@@ -1,0 +1,46 @@
+/* Reading text uses a shared scale; artwork and product visualizations keep theirs. */
+:root {
+  --text-body: 16px;
+  --text-control: 15px;
+  --text-secondary: 14px;
+}
+
+body:not(.is-home) { font-size: var(--text-body); }
+
+body:not(.is-home) #main :is(
+  .inner-hero-copy > p:not(.eyebrow),
+  .inner-detail-section .detail-intro > p,
+  .feature-card p,
+  .industry-task-card dd,
+  .industry-scope p,
+  .detail-intro > p,
+  .capability-concept-copy > p,
+  .capability-feature-row p,
+  .capability-scenario-detail > p,
+  .capability-benefit-grid p,
+  .pricing-description,
+  .pricing-card li,
+  .capability-row dt,
+  .capability-row dd,
+  .station-description,
+  .station-feature p,
+  .station-specs dt,
+  .station-specs dd,
+  .support-section-heading p,
+  .support-context p,
+  .support-accordion details > p,
+  .resource-card p:not(.eyebrow),
+  .article-card p,
+  .prose
+) { font-size: var(--text-body); }
+
+body:not(.is-home) #main :is(
+  .button, .text-link, .capability-index > a,
+  .capability-inline-link, .installer-download,
+  .support-nav a, .support-filters button
+) { font-size: var(--text-control); }
+body:not(.is-home) #main :is(
+  .pricing-includes, .pricing-quote > span,
+  .pricing-card-icon > span, .installer-version,
+  .capability-scenario-flow li, .prose table
+) { font-size: var(--text-secondary); }

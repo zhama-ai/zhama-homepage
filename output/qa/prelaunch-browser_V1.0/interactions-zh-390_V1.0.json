@@ -1,0 +1,63 @@
+{
+  "locale": "zh",
+  "width": 390,
+  "checks": [
+    {
+      "ok": true,
+      "kind": "download-filter",
+      "detail": "desktop"
+    },
+    {
+      "ok": true,
+      "kind": "download-filter",
+      "detail": "mobile"
+    },
+    {
+      "ok": true,
+      "kind": "download-filter",
+      "detail": "studio"
+    },
+    {
+      "ok": true,
+      "kind": "download-filter",
+      "detail": "all"
+    },
+    {
+      "ok": true,
+      "kind": "menu-open"
+    },
+    {
+      "ok": true,
+      "kind": "menu-close"
+    },
+    {
+      "ok": true,
+      "kind": "release-links",
+      "detail": "v5.12.0"
+    },
+    {
+      "ok": true,
+      "kind": "language-keeps-version",
+      "detail": "v5.12.0"
+    },
+    {
+      "ok": true,
+      "kind": "release-links",
+      "detail": "v3.9.8"
+    },
+    {
+      "ok": true,
+      "kind": "language-keeps-version",
+      "detail": "v3.9.8"
+    },
+    {
+      "ok": true,
+      "kind": "faq-empty"
+    },
+    {
+      "ok": true,
+      "kind": "faq-reset"
+    }
+  ],
+  "failures": []
+}

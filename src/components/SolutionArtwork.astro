@@ -1,0 +1,125 @@
+---
+import '../styles/solution-artwork.css';
+
+interface Props {
+  src: string;
+  alt: string;
+  sizes?: string;
+  width?: number;
+  height?: number;
+}
+
+const { src, alt, sizes, width = 1200, height = 800 } = Astro.props;
+const english = Astro.url.pathname.startsWith('/en/');
+---
+
+<button class="solution-artwork" type="button" data-solution-artwork data-solution-artwork-src={src} aria-haspopup="dialog" aria-label={english ? `Preview ${alt}` : `预览：${alt}`}>
+  <img class="solution-artwork-image" src={src} alt={alt} width={width} height={height} sizes={sizes} loading="lazy" decoding="async"/>
+  <span class="solution-artwork-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5"/><path d="m3 3 6 6m12-6-6 6m6 12-6-6M3 21l6-6"/></svg>
+  </span>
+</button>
+
+<script>
+  import { onPageMount } from '../lib/page-lifecycle';
+  onPageMount(signal => {
+  if (!document.querySelector('[data-solution-artwork]')) return;
+  let preview: HTMLDialogElement | undefined;
+  let previewImage: HTMLImageElement;
+  let viewport: HTMLDivElement;
+  let zoomButton: HTMLButtonElement;
+  let closeButton: HTMLButtonElement;
+  let activeTrigger: HTMLButtonElement | undefined;
+  let previousOverflow = '';
+
+  const labels = () => document.documentElement.lang.startsWith('en')
+    ? { preview: 'Image preview', close: 'Close preview', zoom: 'View full size', fit: 'Fit to window' }
+    : { preview: '图片预览', close: '关闭预览', zoom: '查看原始尺寸', fit: '适应窗口' };
+
+  const setZoom = (zoomed: boolean) => {
+    if (!preview) return;
+    preview.dataset.zoomed = String(zoomed);
+    zoomButton.setAttribute('aria-pressed', String(zoomed));
+    zoomButton.setAttribute('aria-label', zoomed ? labels().fit : labels().zoom);
+    viewport.scrollTop = 0;
+    viewport.scrollLeft = 0;
+  };
+
+  const createPreview = () => {
+    const dialog = document.createElement('dialog');
+    dialog.className = 'solution-art-preview';
+    dialog.setAttribute('data-solution-art-preview', '');
+    dialog.innerHTML = `
+      <div class="solution-art-preview-toolbar">
+        <button class="solution-art-preview-control" type="button" data-solution-art-preview-zoom aria-pressed="false">
+          <svg class="solution-art-preview-zoom-in" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M7.5 10.5h6m-3-3v6"/></svg>
+          <svg class="solution-art-preview-zoom-out" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M7.5 10.5h6"/></svg>
+        </button>
+        <button class="solution-art-preview-control" type="button" data-solution-art-preview-close autofocus>
+          <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <div class="solution-art-preview-viewport" tabindex="0" role="region">
+        <img class="solution-art-preview-image" alt="" decoding="async"/>
+      </div>`;
+
+    previewImage = dialog.querySelector<HTMLImageElement>('.solution-art-preview-image')!;
+    viewport = dialog.querySelector<HTMLDivElement>('.solution-art-preview-viewport')!;
+    zoomButton = dialog.querySelector<HTMLButtonElement>('[data-solution-art-preview-zoom]')!;
+    closeButton = dialog.querySelector<HTMLButtonElement>('[data-solution-art-preview-close]')!;
+
+    zoomButton.addEventListener('click', () => setZoom(dialog.dataset.zoomed !== 'true'), { signal });
+    closeButton.addEventListener('click', () => dialog.close(), { signal });
+    dialog.addEventListener('click', event => {
+      if (event.target !== dialog) return;
+      const bounds = dialog.getBoundingClientRect();
+      if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
+    }, { signal });
+    dialog.addEventListener('close', () => {
+      document.documentElement.style.overflow = previousOverflow;
+      setZoom(false);
+      if (activeTrigger?.isConnected) activeTrigger.focus({ preventScroll: true });
+      activeTrigger = undefined;
+    }, { signal });
+
+    document.body.append(dialog);
+    return dialog;
+  };
+
+  document.addEventListener('click', event => {
+    if (!(event.target instanceof Element)) return;
+    const trigger = event.target.closest<HTMLButtonElement>('button[data-solution-artwork]');
+    if (!trigger) return;
+    const source = trigger.querySelector<HTMLImageElement>('.solution-artwork-image');
+    if (!source) return;
+
+    if (!preview?.isConnected) preview = createPreview();
+    if (preview.open) return;
+    const text = labels();
+    activeTrigger = trigger;
+    previewImage.src = trigger.dataset.solutionArtworkSrc || source.src;
+    previewImage.alt = source.alt;
+    const fullWidth = Number(source.getAttribute('width')) || 1200;
+    previewImage.width = fullWidth;
+    previewImage.height = Number(source.getAttribute('height')) || 800;
+    previewImage.style.setProperty('--solution-art-preview-width', `${fullWidth}px`);
+    preview.setAttribute('aria-label', `${text.preview}：${source.alt}`);
+    viewport.setAttribute('aria-label', text.preview);
+    closeButton.setAttribute('aria-label', text.close);
+    setZoom(false);
+    previousOverflow = document.documentElement.style.overflow;
+    document.documentElement.style.overflow = 'hidden';
+    preview.showModal();
+    closeButton.focus({ preventScroll: true });
+  }, { signal });
+  signal.addEventListener('abort', () => {
+    if (preview?.open) {
+      preview.close();
+      document.documentElement.style.overflow = previousOverflow;
+    }
+    preview?.remove();
+    preview = undefined;
+    activeTrigger = undefined;
+  }, { once: true });
+  });
+</script>

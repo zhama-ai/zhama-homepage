@@ -1,0 +1,300 @@
+{
+  "validatedAt": "2026-11-16T06:00:01.352Z",
+  "version": "V1.5",
+  "sourceProof": [
+    {
+      "locale": "zh",
+      "businessDomAndGsapIdenticalToV14": true,
+      "animationScriptSha256": "1356a8c3aef4e8370fe6bbb4aa9a9ac2593f22dba34c00b428d1628d1c3b0b96",
+      "sharedThemeCssSha256": "275d5cad8318201ead802d75552f54a7517042bf109d3175ec0601c58973f402",
+      "durationSeconds": 18
+    },
+    {
+      "locale": "en",
+      "businessDomAndGsapIdenticalToV14": true,
+      "animationScriptSha256": "eb33b07fe7f68aa74481b224d8f4f956d0743b09118fae0080e260f9656aed84",
+      "sharedThemeCssSha256": "275d5cad8318201ead802d75552f54a7517042bf109d3175ec0601c58973f402",
+      "durationSeconds": 18
+    }
+  ],
+  "checks": [
+    {
+      "locale": "zh",
+      "cliVersion": "0.9.56",
+      "ok": true,
+      "layoutSampleTimes": [
+        0,
+        1.5,
+        7.9,
+        15,
+        17.9
+      ],
+      "sections": {
+        "lint": {
+          "ok": true,
+          "findings": 1
+        },
+        "runtime": {
+          "ok": true,
+          "findings": 0
+        },
+        "layout": {
+          "ok": true,
+          "findings": 0
+        },
+        "motion": {
+          "ok": true,
+          "findings": 0
+        },
+        "contrast": {
+          "ok": true,
+          "findings": 0
+        },
+        "craft": {
+          "ok": true,
+          "findings": 4
+        }
+      },
+      "scope": "Full check before final selected-gradient saturation alignment; final output subsequently decoded and inspected",
+      "visualInspection": "Source and 15-second decoded output inspected by agent; human usability testing not claimed"
+    },
+    {
+      "locale": "en",
+      "cliVersion": "0.9.52",
+      "ok": true,
+      "layoutSampleTimes": [
+        0,
+        1.5,
+        7.9,
+        15,
+        17.9
+      ],
+      "sections": {
+        "lint": {
+          "ok": true,
+          "findings": 1
+        },
+        "runtime": {
+          "ok": true,
+          "findings": 0
+        },
+        "layout": {
+          "ok": true,
+          "findings": 0
+        },
+        "motion": {
+          "ok": true,
+          "findings": 0
+        },
+        "contrast": {
+          "ok": true,
+          "findings": 0
+        },
+        "craft": {
+          "ok": true,
+          "findings": 3
+        }
+      },
+      "scope": "Final source full check",
+      "visualInspection": "Source and 15-second decoded output inspected by agent; human usability testing not claimed"
+    }
+  ],
+  "render": {
+    "cliVersion": "0.9.52",
+    "fps": 30,
+    "crf": 10,
+    "workers": 2,
+    "pixelFormat": "yuva420p",
+    "capture": "screenshot",
+    "gpu": "hardware",
+    "localSeconds": {
+      "zh": {
+        "total": 1436.1,
+        "capture": 656.2,
+        "encode": 775.5
+      },
+      "en": {
+        "total": 989.8,
+        "capture": 605,
+        "encode": 381
+      }
+    },
+    "versionDecision": "Freshness checked 0.9.56; its Chinese full check passed. Original 0.9.52 rendering pin retained after a slow streaming attempt under high machine load; no causal version-regression claim."
+  },
+  "media": [
+    {
+      "path": "public/images/hero/task-execution-zh_V1.5.webm",
+      "locale": "zh",
+      "kind": "desktop",
+      "bytes": 7684292,
+      "sha256": "deb36dca4991f7513c8319e304656cd985a13470387661265c29c0cdd9b16be3",
+      "codec": "vp9",
+      "width": 3200,
+      "height": 2000,
+      "fps": 30,
+      "durationSeconds": 18,
+      "decodedFrames": 540,
+      "alphaMode": 1,
+      "alphaAt15Seconds": {
+        "width": 3200,
+        "height": 2000,
+        "min": 0,
+        "max": 255,
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "center": 182
+      },
+      "alphaValidation": "Forced libvpx-vp9 RGBA decode at 15 seconds",
+      "source": "HyperFrames 0.9.52 transparent PNG capture"
+    },
+    {
+      "path": "public/images/hero/task-execution-zh-compact_V1.5.webm",
+      "locale": "zh",
+      "kind": "compact",
+      "bytes": 2678838,
+      "sha256": "6cfe37c208c19ab5f82c96f854ba0ce35cddafd844f5c73f6d21db51e537f08d",
+      "codec": "vp9",
+      "width": 1600,
+      "height": 1000,
+      "fps": 30,
+      "durationSeconds": 18,
+      "decodedFrames": 540,
+      "alphaMode": 1,
+      "alphaAt15Seconds": {
+        "width": 1600,
+        "height": 1000,
+        "min": 0,
+        "max": 255,
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "center": 182,
+        "zero": 34312,
+        "opaque": 20339,
+        "partial": 1545349
+      },
+      "alphaValidation": "Forced libvpx-vp9 alphaextract at 15 seconds by integration agent",
+      "source": "Desktop VP9 decode; Lanczos downsample"
+    },
+    {
+      "path": "public/images/hero/task-execution-zh-poster_V1.5.webp",
+      "locale": "zh",
+      "kind": "poster",
+      "bytes": 1643710,
+      "sha256": "3749a451e518dbdda720a72f241ea8d53641f098d505bbff676ebda6b5d4a262",
+      "format": "webp",
+      "width": 3200,
+      "height": 2000,
+      "lossless": true,
+      "alpha": {
+        "width": 3200,
+        "height": 2000,
+        "min": 0,
+        "max": 255,
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "center": 182
+      },
+      "source": "Forced libvpx-vp9 desktop decode at 15 seconds",
+      "encoder": "Sharp lossless WebP effort 6"
+    },
+    {
+      "path": "public/images/hero/task-execution-en_V1.5.webm",
+      "locale": "en",
+      "kind": "desktop",
+      "bytes": 8312407,
+      "sha256": "3996f12cd15b4312035f4a98f38e9a39577c52e18e5304a17c3588ca2c93f3df",
+      "codec": "vp9",
+      "width": 3200,
+      "height": 2000,
+      "fps": 30,
+      "durationSeconds": 18,
+      "decodedFrames": 540,
+      "alphaMode": 1,
+      "alphaAt15Seconds": {
+        "width": 3200,
+        "height": 2000,
+        "min": 0,
+        "max": 255,
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "center": 182
+      },
+      "alphaValidation": "Forced libvpx-vp9 RGBA decode at 15 seconds",
+      "source": "HyperFrames 0.9.52 transparent PNG capture"
+    },
+    {
+      "path": "public/images/hero/task-execution-en-compact_V1.5.webm",
+      "locale": "en",
+      "kind": "compact",
+      "bytes": 2954926,
+      "sha256": "61e342cc52211be54f5b8756143cd5957aff97ea053537c616dee01a994fefdf",
+      "codec": "vp9",
+      "width": 1600,
+      "height": 1000,
+      "fps": 30,
+      "durationSeconds": 18,
+      "decodedFrames": 540,
+      "alphaMode": 1,
+      "alphaAt15Seconds": {
+        "width": 1600,
+        "height": 1000,
+        "min": 0,
+        "max": 255,
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "center": 182,
+        "zero": 34344,
+        "opaque": 23731,
+        "partial": 1541925
+      },
+      "alphaValidation": "Forced libvpx-vp9 alphaextract at 15 seconds by integration agent",
+      "source": "Original transparent PNG sequence; Lanczos downsample"
+    },
+    {
+      "path": "public/images/hero/task-execution-en-poster_V1.5.webp",
+      "locale": "en",
+      "kind": "poster",
+      "bytes": 2191810,
+      "sha256": "bf19448a9ecb7c8135c81b1346bea83b69971b48a272e0d87440dffa8351f678",
+      "format": "webp",
+      "width": 3200,
+      "height": 2000,
+      "lossless": true,
+      "alpha": {
+        "width": 3200,
+        "height": 2000,
+        "min": 0,
+        "max": 255,
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "center": 181
+      },
+      "source": "Original transparent capture frame_000450.png at 15 seconds",
+      "encoder": "Sharp lossless WebP effort 6"
+    }
+  ]
+}

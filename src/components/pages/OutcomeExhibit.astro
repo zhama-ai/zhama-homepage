@@ -1,0 +1,17 @@
+---
+import type { OutcomeExhibit } from '../../features/solutions/types';
+import type { Locale } from '../../data/types';
+import '../../styles/solution-story.css';
+interface Props { exhibit: OutcomeExhibit; locale: Locale; compact?: boolean; }
+const { exhibit, locale, compact = false } = Astro.props;
+---
+<figure class:list={['outcome-exhibit', { 'outcome-exhibit--compact': compact }]} aria-label={exhibit.title}>
+  {!compact && <div class="outcome-request"><span class="outcome-request-mark" aria-hidden="true"></span><p>{exhibit.request}</p></div>}
+  <ul class="outcome-sources" aria-label={locale === 'zh' ? '任务资料' : 'Task sources'}>{exhibit.sources.map(source => <li>{source}</li>)}</ul>
+  <svg class="outcome-connector" viewBox="0 0 600 38" preserveAspectRatio="none" aria-hidden="true"><path d="M90 0v12q0 6 6 6h198q6 0 6 6v14M300 0v38M510 0v12q0 6-6 6H306q-6 0-6 6"/></svg>
+  <div class="outcome-sheet">
+    <div class="outcome-sheet-heading"><span class="outcome-brand" aria-hidden="true">T</span><strong class="outcome-title">{exhibit.title}</strong></div>
+    <table><thead><tr>{exhibit.columns.map(column => <th scope="col">{column}</th>)}</tr></thead><tbody>{exhibit.rows.map(row => <tr>{row.map((cell, index) => index === 0 ? <th scope="row">{cell}</th> : <td>{cell}</td>)}</tr>)}</tbody></table>
+    <ul class="outcome-deliverables" aria-label={locale === 'zh' ? '工作成果' : 'Deliverables'}>{exhibit.deliverables.map(item => <li>{item}</li>)}</ul>
+  </div>
+</figure>

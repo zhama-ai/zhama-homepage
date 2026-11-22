@@ -1,0 +1,26 @@
+.inner-overview { color: #e3eaf5; }
+.overview-hero { padding: 58px 0 66px; }
+.overview-hero-grid { display: grid; grid-template-columns: .95fr 1.05fr; align-items: center; gap: 70px; }
+.overview-hero-copy h1 { font-size: clamp(34px,3.2vw,46px); font-weight: 600; letter-spacing: -.035em; line-height: 1.5; max-width: 540px; }
+.overview-hero-copy > p { font-size: 16px; line-height: 1.95; color: #a7b8ce; margin: 25px 0 31px; max-width: 490px; }
+.overview-hero .capability-evidence { padding-top: 16px; }
+.overview-evidence { max-width: 900px; margin: 38px auto 0; }
+.overview-evidence > .capability-evidence { max-width: 660px; margin-inline: auto; }
+.inner-overview .feature-icon { background: none; border: 0; box-shadow: none; color: #7fa7cf; height: auto; width: auto; justify-content: flex-start; }
+.inner-overview .feature-card h3 { font-size: 21px; }
+.inner-overview .detail-intro h2 { font-size: clamp(27px,2.5vw,35px); }
+.inner-overview > section { background: transparent; }
+.inner-overview .solution-panel:not(.home-solutions .solution-panel) { align-items: center; }
+.inner-overview .solution-outcome { min-width: 0; width: 100%; padding: 30px 16px 22px 0; }
+.inner-overview .solution-panel .solution-copy { padding-left: 20px; }
+.inner-overview .sl-solutions-page .solution-tabs { margin-bottom: 24px; }
+@media (max-width: 1100px) { .overview-hero-grid { gap: 35px; }.overview-hero-copy h1 { font-size: 35px; } }
+@media (max-width: 760px) { .overview-hero { padding: 48px 0 28px; }.overview-hero-grid { grid-template-columns: 1fr; gap: 35px; }.overview-hero-copy h1 { font-size: clamp(29px,6.9vw,39px); }.overview-hero-copy > p { margin-top: 22px; }.inner-overview .solution-outcome { padding: 20px 10px 15px; }.inner-overview .solution-panel .solution-copy { padding-left: 25px; }.overview-evidence { margin-top: 24px; } }
+.inner-overview .container { width: min(1280px, calc(100% - 96px)); }
+.inner-overview .solution-panel { background: rgba(132,162,202,.035); border-color: rgba(131,161,202,.16); }
+.inner-overview .solution-tabs button[aria-selected='true'] { background: #23384c; border-color: #49647c; color: #dfebf6; }
+.inner-overview .solution-copy > p { font-size: 16px; line-height: 1.9; color: #a8b8ce; }
+.inner-overview .task-chips { gap: 12px 20px; }
+.inner-overview .task-chips li { font-size: 13px; color: #9bb5ce; }
+@media (max-width: 1100px) { .inner-overview .container { width: calc(100% - 64px); } }
+@media (max-width: 760px) { .inner-overview .container { width: calc(100% - 40px); } }

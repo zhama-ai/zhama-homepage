@@ -1,0 +1,21 @@
+---
+import type { Locale } from '../data/types';
+import { renderTaskSceneDocument } from '../features/home/hero-task-scene-document';
+import '../styles/hero-task-scene.css';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const zh = locale === 'zh';
+const visualVersion = 'V1.11';
+const description = zh
+  ? '语音交办客户经营分析任务并转成文字，数字员工跨系统取数、分析资产变化、识别跟进客户，交付经营简报与客户清单。'
+  : 'A voice request becomes a written client analysis task. The digital employee retrieves data across systems, analyzes asset changes, identifies clients for follow-up, and delivers a business briefing and client list.';
+const poster = `/images/hero/task-execution-${locale}-poster_${visualVersion}.webp`;
+const sceneDocument = JSON.stringify(renderTaskSceneDocument(locale)).replaceAll('<', '\\u003c');
+---
+<div class="banner-execution-visual banner-visual" data-task-visual>
+  <div class="execution-concept" role="img" aria-label={description}>
+    <img class="execution-video-poster" data-hero-src={poster} alt="" width="4000" height="2500" loading="lazy" decoding="async" />
+    <iframe class="execution-task-scene" data-task-scene title="TeGo" width="4000" height="2500" aria-hidden="true" tabindex="-1"></iframe>
+    <script type="application/json" data-task-scene-document set:html={sceneDocument}></script>
+  </div>
+</div>

@@ -1,0 +1,1404 @@
+<template
+  ><style>
+    @font-face {
+      font-family: TegoUI;
+      src: local("HiraginoSansGB-W3"), local("Hiragino Sans GB");
+      font-display: block;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: transparent;
+      color: #e8f0fc;
+      font-family: TegoUI, Arial, sans-serif;
+    }
+    #root {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .clip {
+      position: absolute;
+      inset: 0;
+    }
+    .app {
+      position: absolute;
+      left: 64px;
+      top: 62px;
+      width: 1472px;
+      height: 876px;
+      border: 1px solid #6c96bf66;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #101e31;
+      box-shadow: 0 28px 48px #0005;
+    }
+    .topbar {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      background: #1b2e47;
+      border-bottom: 1px solid #6682a82b;
+    }
+    .brand {
+      font-size: 29px;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+    .top-title {
+      font-size: 23px;
+      color: #cbd7e8;
+    }
+    .window-tools {
+      display: flex;
+      gap: 8px;
+    }
+    .window-tools i {
+      width: 6px;
+      height: 6px;
+      background: #8297af;
+      border-radius: 50%;
+    }
+    .body {
+      display: flex;
+      height: 806px;
+    }
+    .sidebar {
+      width: 190px;
+      flex-shrink: 0;
+      background: #0d192a;
+      padding: 30px 18px;
+    }
+    .sidebar-label {
+      font-size: 17px;
+      color: #99adc7;
+      margin: 0 9px 25px;
+    }
+    .nav {
+      font-size: 21px;
+      color: #b1c2d8;
+      padding: 14px 12px;
+      border-radius: 9px;
+      margin-bottom: 10px;
+    }
+    .nav.active {
+      background: #244770;
+      color: #cce8ff;
+    }
+    .employee {
+      margin: 46px 8px 0;
+      border-top: 1px solid #526b8a33;
+      padding-top: 26px;
+    }
+    .avatar {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      background: #3d6caa;
+      border-radius: 12px;
+      color: #d8f3ff;
+      font-size: 25px;
+      font-weight: 700;
+    }
+    .employee strong {
+      display: block;
+      font-size: 18px;
+      margin-top: 13px;
+    }
+    .employee small {
+      display: block;
+      color: #85ddc8;
+      font-size: 16px;
+      margin-top: 6px;
+    }
+    .content {
+      position: relative;
+      flex: 1;
+      min-width: 0;
+    }
+    .content-head {
+      position: absolute;
+      left: 32px;
+      right: 32px;
+      top: 27px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .content-head h1 {
+      font-size: 26px;
+      font-weight: 600;
+      margin: 0;
+    }
+    .status {
+      font-size: 17px;
+      color: #a4b8cf;
+      background: #23364d;
+      border-radius: 20px;
+      padding: 8px 15px;
+    }
+    .thread {
+      position: absolute;
+      left: 32px;
+      top: 105px;
+      width: 654px;
+      bottom: 155px;
+    }
+    .source-row {
+      display: flex;
+      gap: 12px;
+    }
+    .file-source {
+      font-size: 18px;
+      color: #bdd4ee;
+      padding: 13px 16px;
+      background: #1c304a;
+      border: 1px solid #6685aa44;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .file-mark {
+      font-size: 14px;
+      color: #b3caff;
+      background: #3a5084;
+      padding: 6px;
+      border-radius: 5px;
+    }
+    .source-caption {
+      font-size: 17px;
+      color: #92aac5;
+      margin: 0 0 12px;
+    }
+    .user-message {
+      margin-top: 24px;
+      margin-left: 42px;
+      background: #2d5082;
+      border: 1px solid #7090c33d;
+      border-radius: 15px 15px 3px 15px;
+      padding: 19px 22px;
+      font-size: 24px;
+      line-height: 1.6;
+      color: #f0f6ff;
+    }
+    .assistant {
+      margin-top: 23px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .assistant .avatar {
+      width: 33px;
+      height: 33px;
+      border-radius: 9px;
+      font-size: 18px;
+    }
+    .assistant strong {
+      font-size: 21px;
+      font-weight: 600;
+    }
+    .intro {
+      font-size: 20px;
+      color: #bccde0;
+      margin: 16px 0 18px;
+      line-height: 1.6;
+    }
+    .steps {
+      display: grid;
+      gap: 16px;
+    }
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      min-height: 52px;
+    }
+    .step-icon {
+      display: grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      border: 1px solid #5b86b4;
+      border-radius: 50%;
+      color: #9cdeff;
+      font-size: 16px;
+      flex-shrink: 0;
+      background: #162d46;
+    }
+    .step-title {
+      font-size: 21px;
+      color: #d3e2f4;
+      line-height: 1.35;
+    }
+    .step-detail {
+      font-size: 16px;
+      line-height: 1.55;
+      color: #9cafc8;
+      margin-top: 4px;
+    }
+    .check {
+      position: absolute;
+      left: 0;
+      top: 13px;
+      background: #19443f;
+      border-color: #56bca7;
+      color: #9effdf;
+    }
+    .step-done {
+      margin-left: auto;
+      font-size: 16px;
+      color: #8ee4c8;
+      flex-shrink: 0;
+      padding-left: 8px;
+    }
+    .result-area {
+      position: absolute;
+      right: 28px;
+      top: 105px;
+      width: 500px;
+      bottom: 29px;
+    }
+    .sources-preview {
+      background: #13243a;
+      border: 1px solid #6c86a633;
+      border-radius: 15px;
+      padding: 26px;
+    }
+    .sources-preview h2 {
+      font-size: 22px;
+      margin: 0 0 23px;
+    }
+    .source-preview-entry {
+      padding: 20px 0;
+      border-top: 1px solid #6c86a633;
+    }
+    .source-preview-entry strong {
+      font-size: 20px;
+      font-weight: 500;
+    }
+    .source-preview-entry p {
+      font-size: 18px;
+      line-height: 1.7;
+      margin: 12px 0 0;
+      color: #a6bad2;
+    }
+    .report {
+      position: absolute;
+      inset: 0;
+      background: #182c45;
+      border: 1px solid #7395bb66;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+    .report-header {
+      padding: 24px 26px 18px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 1px solid #8cadce26;
+    }
+    .report-header h2 {
+      font-size: 28px;
+      margin: 0;
+    }
+    .report-header span {
+      font-size: 15px;
+      color: #9cb5ce;
+    }
+    .report-body {
+      padding: 22px 24px;
+    }
+    .metrics {
+      display: flex;
+      gap: 12px;
+    }
+    .metric {
+      flex: 1;
+      background: #203b58;
+      border-radius: 10px;
+      padding: 15px;
+    }
+    .metric strong {
+      display: block;
+      font-size: 34px;
+      font-weight: 600;
+      color: #c7ecff;
+      line-height: 1.1;
+    }
+    .metric span {
+      display: block;
+      font-size: 16px;
+      color: #abc1d8;
+      margin-top: 9px;
+    }
+    .chart-title {
+      margin: 22px 0 12px;
+      color: #c0d4e8;
+      font-size: 18px;
+    }
+    .chart {
+      height: 119px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      border-bottom: 1px solid #6485a155;
+      padding-bottom: 24px;
+      position: relative;
+    }
+    .chart-group {
+      position: relative;
+      width: 86px;
+      height: 90px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .bar {
+      width: 44px;
+      background: linear-gradient(0deg, #2e67ad, #75c6fa);
+      border-radius: 4px 4px 0 0;
+      transform-origin: center bottom;
+    }
+    .bar-label {
+      position: absolute;
+      bottom: -23px;
+      left: -10px;
+      right: -10px;
+      text-align: center;
+      font-size: 15px;
+      color: #a7bfd5;
+    }
+    .bar-value {
+      position: absolute;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 17px;
+      color: #c0e6ff;
+    }
+    .summary {
+      font-size: 18px;
+      line-height: 1.65;
+      color: #cad9e8;
+      margin: 22px 0 18px;
+    }
+    .actions-title {
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0 0 10px;
+      color: #b9d2eb;
+    }
+    .action-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      font-size: 16px;
+      border-bottom: 1px solid #6283a125;
+      gap: 8px;
+    }
+    .action-item span:last-child {
+      font-size: 14px;
+      color: #95adc6;
+      white-space: nowrap;
+    }
+    .files {
+      display: flex;
+      gap: 9px;
+      margin-top: 18px;
+    }
+    .output-file {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex: 1;
+      padding: 12px 9px;
+      border: 1px solid #739bc54d;
+      background: #213b58;
+      border-radius: 9px;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+    .output-file .file-mark {
+      font-size: 12px;
+      padding: 5px;
+    }
+    .output-file:last-child .file-mark {
+      background: #6a5470;
+      color: #f0d4bc;
+    }
+    .receipt {
+      margin-top: 15px;
+      background: #173b3b;
+      border: 1px solid #58a79d55;
+      border-radius: 10px;
+      padding: 13px 14px;
+    }
+    .receipt strong {
+      font-size: 17px;
+      color: #a7eadc;
+      font-weight: 500;
+    }
+    .receipt p {
+      font-size: 15px;
+      color: #9fcbc5;
+      margin: 6px 0 0;
+      line-height: 1.5;
+    }
+    .composer {
+      position: absolute;
+      left: 32px;
+      bottom: 28px;
+      width: 654px;
+      height: 111px;
+      border: 1px solid #668cc18c;
+      background: #152c48;
+      border-radius: 15px;
+      padding: 18px 18px;
+      box-shadow: 0 0 0 4px #477ab009;
+    }
+    .input-text {
+      font-size: 23px;
+      line-height: 1.5;
+      width: 510px;
+      min-height: 68px;
+      color: #eef5ff;
+      white-space: pre-wrap;
+    }
+    .caret {
+      display: inline-block;
+      width: 2px;
+      height: 26px;
+      background: #8bd8ff;
+      vertical-align: -4px;
+      margin-left: 3px;
+    }
+    .send {
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+      background: #408deb;
+      color: #fff;
+      padding: 11px 18px;
+      border-radius: 9px;
+      font-size: 19px;
+    }
+    .final-note {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 6px;
+      padding: 15px 0;
+      color: #a6e9d4;
+      font-size: 19px;
+      line-height: 1.5;
+      background: #101e31;
+    }
+    .cursor {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 30px;
+      height: 37px;
+      z-index: 8;
+      filter: drop-shadow(0 3px 5px #0008);
+      pointer-events: none;
+    }
+    .click-ring {
+      position: absolute;
+      left: 801px;
+      top: 854px;
+      width: 38px;
+      height: 38px;
+      border: 2px solid #a4dcff;
+      border-radius: 50%;
+      z-index: 7;
+    }
+    .en .sidebar {
+      width: 195px;
+    }
+    .en .nav {
+      font-size: 18px;
+    }
+    .en .thread,
+    .en .composer {
+      width: 640px;
+    }
+    .en .user-message {
+      font-size: 21px;
+      line-height: 1.5;
+    }
+    .en .input-text {
+      font-size: 20px;
+      width: 510px;
+    }
+    .en .step-title {
+      font-size: 19px;
+    }
+    .en .step-detail {
+      font-size: 15px;
+    }
+    .en .report-header h2 {
+      font-size: 24px;
+    }
+    .en .report-header span {
+      font-size: 14px;
+    }
+    .en .summary {
+      font-size: 17px;
+    }
+    .en .action-item {
+      font-size: 14px;
+    }
+    .en .action-item span:last-child {
+      font-size: 12px;
+    }
+    .en .output-file {
+      font-size: 13px;
+    }
+    .en .employee strong {
+      font-size: 16px;
+    }
+    .en .final-note {
+      font-size: 18px;
+    }
+    .steps {
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .step {
+      min-height: 43px;
+    }
+    .step-title {
+      font-size: 20px;
+    }
+    .step-detail {
+      font-size: 15px;
+      line-height: 1.4;
+    }
+    .check {
+      top: 8px;
+    }
+    .assistant {
+      margin-top: 18px;
+    }
+    .user-message {
+      font-size: 22px;
+      line-height: 1.5;
+      padding: 15px 20px;
+      margin-top: 18px;
+    }
+    .report-body {
+      padding: 18px 22px;
+    }
+    .report-header {
+      padding: 20px 24px 16px;
+    }
+    .metric {
+      padding: 12px;
+    }
+    .metric strong {
+      font-size: 32px;
+    }
+    .chart {
+      height: 104px;
+    }
+    .chart-title {
+      margin: 17px 0 10px;
+    }
+    .summary {
+      font-size: 17px;
+      line-height: 1.55;
+      margin: 16px 0;
+    }
+    .files {
+      margin-top: 14px;
+    }
+    .receipt {
+      margin-top: 13px;
+      padding: 12px;
+    }
+    .en .step-detail {
+      font-size: 14px;
+    }
+    .en .user-message {
+      font-size: 20px;
+    }
+    .en .summary {
+      font-size: 16px;
+    }
+    .report {
+      opacity: 0;
+    }
+    .send {
+      background: #2469bd;
+    }
+    .thread {
+      top: 98px;
+    }
+    .source-caption {
+      margin-bottom: 8px;
+    }
+    .file-source {
+      padding: 10px 16px;
+    }
+    .user-message {
+      font-size: 21px;
+      line-height: 1.4;
+    }
+    .assistant {
+      margin-top: 14px;
+    }
+    .steps {
+      gap: 5px;
+      margin-top: 12px;
+    }
+    .chart {
+      height: 142px;
+    }
+    .chart-group {
+      height: 110px;
+    }
+    .source-row {
+      gap: 8px;
+    }
+    .file-source {
+      font-size: 16px;
+      padding: 10px;
+    }
+    .file-mark {
+      font-size: 11px;
+      padding: 5px;
+    }
+    .metric strong {
+      font-size: 27px;
+      letter-spacing: -0.9px;
+    }
+    .metric span {
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .metrics {
+      gap: 8px;
+    }
+    .metric {
+      padding: 11px 9px;
+    }
+    .summary {
+      font-size: 18px;
+    }
+    .en .metric strong {
+      font-size: 26px;
+    }
+    .en .metric span {
+      font-size: 11px;
+    }
+    .en .file-source {
+      font-size: 15px;
+    }
+    .en .report-header h2 {
+      font-size: 23px;
+    }
+    .en .report-header span {
+      font-size: 12px;
+    }
+    .voice-input {
+      position: absolute;
+      left: 18px;
+      top: 13px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #b8adff;
+      font-size: 16px;
+    }
+    .voice-input svg {
+      width: 20px;
+      height: 23px;
+    }
+    .voice-bars {
+      height: 30px;
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      margin-left: 5px;
+    }
+    .voice-bars i {
+      width: 3px;
+      border-radius: 4px;
+      background: #9c93fa;
+      transform-origin: center;
+    }
+    .input-text {
+      position: absolute;
+      left: 18px;
+      top: 51px;
+      font-size: 20px;
+      line-height: 1.4;
+      width: 535px;
+      min-height: 0;
+    }
+    .composer {
+      border-color: #7c82cf8c;
+      background: #192b48;
+    }
+    .source-row .file-source:nth-child(1) {
+      border-color: #58bfc66b;
+      background: #163b4d;
+    }
+    .source-row .file-source:nth-child(1) .file-mark {
+      background: #185363;
+      color: #dcfff5;
+    }
+    .source-row .file-source:nth-child(2) {
+      border-color: #9489dd55;
+      background: #2a3154;
+    }
+    .source-row .file-source:nth-child(2) .file-mark {
+      background: #665ba3;
+      color: #e4dfff;
+    }
+    .source-row .file-source:nth-child(3) {
+      border-color: #d3ad6f55;
+      background: #3c3541;
+    }
+    .source-row .file-source:nth-child(3) .file-mark {
+      background: #60472e;
+      color: #ffe6c1;
+    }
+    .report-header h2 {
+      color: #c3eaff;
+    }
+    .metric:nth-child(1) {
+      background: #1e435a;
+    }
+    .metric:nth-child(2) {
+      background: #353c60;
+    }
+    .metric:nth-child(2) strong {
+      color: #c8b8ff;
+    }
+    .metric:nth-child(3) {
+      background: #204d4c;
+    }
+    .metric:nth-child(3) strong {
+      color: #9be5cf;
+    }
+    .chart-group:nth-child(1) .bar {
+      background: linear-gradient(0deg, #317eae, #7dd9ed);
+    }
+    .chart-group:nth-child(2) .bar {
+      background: linear-gradient(0deg, #6255ab, #b5a1f1);
+    }
+    .chart-group:nth-child(3) .bar {
+      background: linear-gradient(0deg, #297d79, #72d9bd);
+    }
+    .output-file:first-child {
+      background: #3c3549;
+      border-color: #b28d7655;
+    }
+    .output-file:first-child .file-mark {
+      background: #68452c;
+      color: #ffe7c8;
+    }
+    .output-file:last-child {
+      background: #213e43;
+      border-color: #76b0a655;
+    }
+    .output-file:last-child .file-mark {
+      background: #21594a;
+      color: #d5ffec;
+    }
+    .en .input-text {
+      font-size: 18px;
+      line-height: 1.35;
+    }
+    .en .voice-input {
+      font-size: 15px;
+    }
+
+    /* Consistent key and ambient shadows establish UI elevation. */
+    #root {
+      --raised-shadow:
+        0 14px 24px rgba(2, 8, 18, 0.44), 0 3px 6px rgba(2, 8, 18, 0.34);
+      --raised-edge: rgba(155, 187, 223, 0.28);
+    }
+    #root .employee {
+      position: relative;
+      z-index: 3;
+      margin: 44px 0 0;
+      padding: 18px 14px 17px;
+      border: 1px solid var(--raised-edge);
+      border-radius: 13px;
+      background: #1d324e;
+      box-shadow:
+        var(--raised-shadow),
+        inset 0 1px rgba(217, 233, 255, 0.06);
+      transform: translate(5px, -7px);
+    }
+    #root .employee strong {
+      color: #f0f5ff;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+    #root .employee .avatar {
+      background: #3a6aab;
+      box-shadow: 0 4px 8px rgba(1, 8, 19, 0.25);
+    }
+    #root .employee small {
+      color: #9ce4cf;
+    }
+    #root .source-row {
+      position: relative;
+      z-index: 3;
+      gap: 10px;
+      margin-top: 11px;
+    }
+    #root .file-source {
+      transform: translateY(-5px);
+      color: #e0ebfb;
+      box-shadow:
+        var(--raised-shadow),
+        inset 0 1px rgba(225, 242, 255, 0.07);
+      border-color: rgba(143, 186, 215, 0.38);
+    }
+    #root .source-row .file-source:nth-child(1) {
+      background: #204557;
+      border-color: #579ca880;
+    }
+    #root .source-row .file-source:nth-child(2) {
+      background: #373b61;
+      border-color: #8b82be80;
+    }
+    #root .source-row .file-source:nth-child(3) {
+      background: #4a3f49;
+      border-color: #ac947a80;
+    }
+    #root .steps {
+      position: relative;
+      z-index: 2;
+      gap: 6px;
+      margin-top: 12px;
+    }
+    #root .step {
+      padding: 0 12px;
+      min-height: 52px;
+      border: 1px solid rgba(124, 160, 202, 0.2);
+      border-radius: 10px;
+      background: #1a2e48;
+      box-shadow:
+        0 7px 12px rgba(2, 8, 18, 0.26),
+        0 2px 3px rgba(2, 8, 18, 0.22);
+    }
+    #root .step-title {
+      color: #eef4ff;
+      font-size: 21px;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+    #root .step-detail {
+      color: #aebed3;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+    #root .step-done {
+      color: #9cdec9;
+      font-size: 15px;
+    }
+    #root .check {
+      left: 12px;
+      top: 12px;
+    }
+    #root .step-icon {
+      background: #1b3550;
+      border-color: #6796c3;
+    }
+    #root .step-icon.check {
+      background: #1d4b45;
+      border-color: #5eaf9c;
+      color: #b6f0df;
+    }
+    #root .result-area {
+      overflow: visible;
+    }
+    #root .report {
+      background: #162a42;
+      border-color: #7899bb66;
+      box-shadow: 0 15px 24px rgba(2, 8, 18, 0.2);
+    }
+    #root .report-header {
+      background: #1a304b;
+    }
+    #root .metrics {
+      position: relative;
+      z-index: 3;
+      gap: 11px;
+      margin-top: 8px;
+      margin-bottom: 3px;
+    }
+    #root .metric {
+      position: relative;
+      transform: translateY(-6px);
+      padding: 14px 11px 13px;
+      border: 1px solid rgba(164, 199, 222, 0.24);
+      border-radius: 11px;
+      box-shadow:
+        var(--raised-shadow),
+        inset 0 1px rgba(226, 243, 255, 0.07);
+    }
+    #root .metric:nth-child(1) {
+      background: #245268;
+    }
+    #root .metric:nth-child(2) {
+      background: #42456e;
+    }
+    #root .metric:nth-child(3) {
+      background: #225c57;
+    }
+    #root .metric strong {
+      font-size: 30px;
+      color: #e1f5ff;
+      letter-spacing: -0.7px;
+    }
+    #root .metric:nth-child(2) strong {
+      color: #e1d6ff;
+    }
+    #root .metric:nth-child(3) strong {
+      color: #b7f1dd;
+    }
+    #root .metric span {
+      font-size: 13px;
+      color: #c1d2e4;
+      white-space: nowrap;
+    }
+    #root.en .step-title {
+      font-size: 19px;
+    }
+    #root.en .step-detail {
+      font-size: 14px;
+    }
+    #root.en .metric strong {
+      font-size: 26px;
+    }
+    #root.en .metric span {
+      font-size: 11px;
+    }
+
+    #root .source-caption {
+      color: #b7c9df;
+    }
+    #root .sidebar-label {
+      color: #b4c7df;
+    }
+    #root .status {
+      color: #c0d0e3;
+    }
+    #root .step-detail {
+      color: #c3d1e2;
+    }
+    #root .bar-label {
+      color: #c4d5e6;
+    }
+    #root .receipt p {
+      color: #b7dfd7;
+    }
+    #root .steps {
+      gap: 0;
+      border-top: 1px solid rgba(125, 153, 187, 0.22);
+      margin-top: 14px;
+    }
+    #root .step {
+      min-height: 55px;
+      padding: 0 4px;
+      border: 0;
+      border-bottom: 1px solid rgba(125, 153, 187, 0.22);
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      gap: 12px;
+    }
+    #root .step-index {
+      width: 34px;
+      flex: 0 0 34px;
+      color: #7192b8;
+      font-size: 15px;
+      letter-spacing: 0.06em;
+      font-variant-numeric: tabular-nums;
+    }
+    #root .step-title {
+      color: #dbe6f3;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+    #root .step-done {
+      color: #8fa6c0;
+      font-size: 14px;
+      font-weight: 400;
+      padding-left: 8px;
+    }
+  </style>
+  <div
+    id="root"
+    class="zh"
+    data-composition-id="task-session"
+    data-width="1600"
+    data-height="1000"
+  >
+    <section
+      id="task-session"
+      class="clip"
+      data-start="0"
+      data-duration="18"
+      data-track-index="0"
+    >
+      <div class="app">
+        <header class="topbar">
+          <span class="brand">TeGo</span
+          ><span class="top-title">数字员工协作工作台</span
+          ><span class="window-tools"><i></i><i></i><i></i></span>
+        </header>
+        <div class="body">
+          <aside class="sidebar">
+            <p class="sidebar-label">TeGo</p>
+            <div class="nav active">工作会话</div>
+            <div class="nav">项目文件</div>
+            <div class="nav">企业知识</div>
+            <div class="nav">岗位技能</div>
+            <div class="employee">
+              <div class="avatar">T</div>
+              <strong>经营分析助理</strong><small>可协作</small>
+            </div>
+          </aside>
+          <main class="content">
+            <div class="content-head">
+              <h1>华东客户资产分析</h1>
+              <span class="status">3 个系统已连接</span>
+            </div>
+            <div class="thread">
+              <p class="source-caption">已连接业务系统</p>
+              <div class="source-row">
+                <div class="file-source">
+                  <span class="file-mark">CRM</span>客户资产
+                </div>
+                <div class="file-source">
+                  <span class="file-mark">DATA</span>产品交易
+                </div>
+                <div class="file-source">
+                  <span class="file-mark">KB</span>服务记录
+                </div>
+              </div>
+              <div class="user-message">
+                分析客户资产，识别赎回风险，生成客户清单。
+              </div>
+              <div class="assistant">
+                <span class="avatar">T</span><strong>经营分析助理</strong>
+              </div>
+              <div class="steps">
+                <div id="step-0" class="step">
+                  <span class="step-index">01</span>
+                  <div class="step-title">读取客户资产、产品交易与服务记录</div>
+                  <span id="done-0" class="step-done">已完成</span>
+                </div>
+                <div id="step-1" class="step">
+                  <span class="step-index">02</span>
+                  <div class="step-title">核对持仓与赎回，定位资产变化原因</div>
+                  <span id="done-1" class="step-done">已完成</span>
+                </div>
+                <div id="step-2" class="step">
+                  <span class="step-index">03</span>
+                  <div class="step-title">识别 23 位优先跟进客户</div>
+                  <span id="done-2" class="step-done">已完成</span>
+                </div>
+                <div id="step-3" class="step">
+                  <span class="step-index">04</span>
+                  <div class="step-title">生成经营简报与分层跟进清单</div>
+                  <span id="done-3" class="step-done">已完成</span>
+                </div>
+                <div id="step-4" class="step">
+                  <span class="step-index">05</span>
+                  <div class="step-title">同步成果至客户经理协作群</div>
+                  <span id="done-4" class="step-done">已完成</span>
+                </div>
+              </div>
+            </div>
+            <div class="result-area">
+              <div class="sources-preview">
+                <h2>跨系统数据</h2>
+                <div class="source-preview-entry">
+                  <strong>客户资产</strong>
+                  <p>客户持仓与资产变动，统一统计到上月末。</p>
+                </div>
+                <div class="source-preview-entry">
+                  <strong>产品交易</strong>
+                  <p>产品申赎流水、资金流向与品类分布。</p>
+                </div>
+                <div class="source-preview-entry">
+                  <strong>服务记录</strong>
+                  <p>客户联系记录与跟进状态，辅助识别服务缺口。</p>
+                </div>
+              </div>
+              <article class="report">
+                <header class="report-header">
+                  <h2>客户经营简报</h2>
+                  <span>2026 年 10 月 · 华东</span>
+                </header>
+                <div class="report-body">
+                  <div class="metrics">
+                    <div class="metric">
+                      <strong>12,863.42</strong><span>持仓规模 / 万</span>
+                    </div>
+                    <div class="metric">
+                      <strong>472.80</strong><span>产品赎回 / 万</span>
+                    </div>
+                    <div class="metric">
+                      <strong>23</strong><span>待跟进 / 人</span>
+                    </div>
+                  </div>
+                  <p class="chart-title">客户跟进优先级（人）</p>
+                  <div class="chart">
+                    <div class="chart-group">
+                      <div class="bar" style="height: 78px"></div>
+                      <span class="bar-value" style="bottom: 82px">9</span
+                      ><span class="bar-label">高优先</span>
+                    </div>
+                    <div class="chart-group">
+                      <div class="bar" style="height: 69px"></div>
+                      <span class="bar-value" style="bottom: 73px">8</span
+                      ><span class="bar-label">重点沟通</span>
+                    </div>
+                    <div class="chart-group">
+                      <div class="bar" style="height: 52px"></div>
+                      <span class="bar-value" style="bottom: 56px">6</span
+                      ><span class="bar-label">持续关注</span>
+                    </div>
+                  </div>
+                  <p class="summary">
+                    赎回集中于固收类产品。已识别 23
+                    位需跟进客户，按资产变化与服务记录分层，生成可直接执行的客户清单。
+                  </p>
+                  <div class="files">
+                    <div class="output-file">
+                      <span class="file-mark">P</span>经营简报.pptx
+                    </div>
+                    <div class="output-file">
+                      <span class="file-mark">X</span>跟进清单.xlsx
+                    </div>
+                  </div>
+                  <div class="receipt">
+                    <strong>✓ 客户经理群</strong>
+                    <p>经营简报与 23 位客户跟进清单已送达</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="composer">
+              <div class="voice-input">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <rect x="8" y="2" width="8" height="13" rx="4" />
+                  <path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8" /></svg
+                ><span>语音交办</span
+                ><span class="voice-bars"
+                  ><i style="height: 8px"></i><i style="height: 17px"></i
+                  ><i style="height: 26px"></i><i style="height: 15px"></i
+                  ><i style="height: 22px"></i><i style="height: 30px"></i
+                  ><i style="height: 18px"></i><i style="height: 12px"></i
+                  ><i style="height: 23px"></i><i style="height: 16px"></i
+                  ><i style="height: 7px"></i
+                ></span>
+              </div>
+              <div class="input-text">
+                <span id="typed"></span><i class="caret"></i>
+              </div>
+              <span class="send">发送</span>
+            </div>
+          </main>
+        </div>
+      </div>
+      <svg class="cursor" viewBox="0 0 30 37" aria-hidden="true">
+        <path
+          d="M2 1L26 22L16 23L11 34L6 32L11 21L2 23Z"
+          fill="#f4f9ff"
+          stroke="#244566"
+          stroke-width="1.5"
+        />
+      </svg>
+      <div class="click-ring"></div>
+    </section>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const prompt = "分析客户资产，识别赎回风险，生成客户清单。";
+    const typed = document.querySelector("#typed");
+    const inputDriver = { time: 0 };
+    const typingRows = Array.from(prompt).map((_, i) => ({
+      time: 0.45 + ((i + 1) * 2.7) / Array.from(prompt).length,
+      text: Array.from(prompt)
+        .slice(0, i + 1)
+        .join(""),
+    }));
+    function textAt(t) {
+      for (let i = typingRows.length - 1; i >= 0; i--) {
+        if (t >= typingRows[i].time - 0.001) return typingRows[i].text;
+      }
+      return "";
+    }
+    tl.to(
+      inputDriver,
+      {
+        time: 3.2,
+        duration: 3.2,
+        ease: "none",
+        onUpdate: () => {
+          typed.textContent = textAt(inputDriver.time);
+        },
+      },
+      0,
+    );
+    tl.fromTo(
+      ".caret",
+      { opacity: 1 },
+      { opacity: 0.15, duration: 0.35, repeat: 7, yoyo: true, ease: "none" },
+      0.25,
+    );
+    tl.to(".caret", { opacity: 0, duration: 0.1 }, 3.2);
+    tl.fromTo(
+      ".voice-input",
+      { opacity: 0, y: 5 },
+      { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" },
+      0,
+    );
+    tl.fromTo(
+      ".voice-bars i",
+      { scaleY: 0.35 },
+      {
+        scaleY: 1,
+        duration: 0.22,
+        repeat: 11,
+        yoyo: true,
+        stagger: 0.035,
+        ease: "sine.inOut",
+      },
+      0.2,
+    );
+    tl.to(".voice-input", { opacity: 0, duration: 0.2 }, 3.45);
+    tl.to(".voice-input", { opacity: 1, duration: 0.1 }, 17.85);
+    tl.fromTo(
+      ".cursor",
+      { x: 1180, y: 900, opacity: 0 },
+      { x: 808, y: 864, opacity: 1, duration: 0.65, ease: "power2.out" },
+      2.7,
+    );
+    tl.fromTo(
+      ".click-ring",
+      { scale: 0.4, opacity: 0 },
+      { scale: 1.8, opacity: 0.8, duration: 0.18, ease: "power1.out" },
+      3.4,
+    );
+    tl.to(".click-ring", { opacity: 0, duration: 0.2 }, 3.58);
+    tl.to(".send", { scale: 0.94, duration: 0.1, ease: "none" }, 3.4);
+    tl.to(".send", { scale: 1, duration: 0.1, ease: "none" }, 3.5);
+    tl.to(".cursor", { opacity: 0, duration: 0.3 }, 3.65);
+    tl.to("#typed", { opacity: 0, duration: 0.18 }, 3.7);
+    tl.fromTo(
+      ".user-message",
+      { opacity: 0, y: 12 },
+      { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" },
+      3.7,
+    );
+    tl.fromTo(
+      ".assistant",
+      { opacity: 0, y: 8 },
+      { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" },
+      4.05,
+    );
+    const starts = [4.65, 5.7, 6.8, 8.0, 13.6];
+    starts.forEach((start, i) => {
+      tl.fromTo(
+        "#step-" + i,
+        { opacity: 0, y: 9 },
+        { opacity: 1, y: 0, duration: 0.38, ease: "power2.out" },
+        start,
+      );
+      tl.fromTo(
+        "#done-" + i,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.2, ease: "none" },
+        start + 0.7,
+      );
+    });
+    tl.to(".sources-preview", { opacity: 0, duration: 0.32 }, 9.1);
+    tl.fromTo(
+      ".report",
+      { opacity: 0, x: 18 },
+      { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" },
+      9.35,
+    );
+    tl.fromTo(
+      ".metrics",
+      { opacity: 0, y: 8 },
+      { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" },
+      9.7,
+    );
+    tl.fromTo(
+      ".bar",
+      { scaleY: 0 },
+      { scaleY: 1, duration: 0.7, stagger: 0.1, ease: "power2.out" },
+      10.05,
+    );
+    tl.fromTo(
+      ".bar-value",
+      { opacity: 0 },
+      { opacity: 1, duration: 0.3, stagger: 0.1 },
+      10.7,
+    );
+    tl.fromTo(
+      ".summary",
+      { opacity: 0, y: 8 },
+      { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" },
+      10.9,
+    );
+    tl.fromTo(
+      ".output-file",
+      { opacity: 0, y: 8 },
+      { opacity: 1, y: 0, duration: 0.38, stagger: 0.15, ease: "power2.out" },
+      12.1,
+    );
+    tl.fromTo(
+      ".receipt",
+      { opacity: 0, y: 8 },
+      { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" },
+      14.0,
+    );
+    tl.to(".cursor", { x: 1440, y: 930, duration: 2, ease: "none" }, 15.4);
+    tl.to(
+      ".user-message,.assistant,.steps,.report",
+      { opacity: 0, duration: 0.2, ease: "none" },
+      17.55,
+    );
+    tl.to(
+      ".sources-preview",
+      { opacity: 1, duration: 0.2, ease: "none" },
+      17.78,
+    );
+    tl.set("#typed", { textContent: "", opacity: 1 }, 17.85);
+    tl.to(".caret", { opacity: 1, duration: 0.1 }, 17.85);
+    window.__timelines = window.__timelines || {};
+    window.__timelines["task-session"] = tl;
+  </script></template
+>

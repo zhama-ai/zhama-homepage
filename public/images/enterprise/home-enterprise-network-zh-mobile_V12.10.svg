@@ -1,0 +1,225 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="635" viewBox="0 0 400 635" fill="none" role="img" aria-labelledby="title description">
+  <title id="title">企业内网 · 私有化部署</title>
+  <desc id="description">企业知识库、Compose 或 Kubernetes 部署的 TeGo 平台与 vLLM、Qwen 本地模型服务连接同一企业内网，业务系统通过 MCP、RESTful API 或数据库接入，并纳入组织身份权限和审核审计。</desc>
+  <defs>
+    <linearGradient id="icon-page-left" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop stop-color="#96b4d0" />
+      <stop offset=".55" stop-color="#6085a8" />
+      <stop offset="1" stop-color="#2c4b6d" />
+    </linearGradient>
+    <linearGradient id="icon-page-right" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop stop-color="#b6cfe5" />
+      <stop offset=".55" stop-color="#7ba0c2" />
+      <stop offset="1" stop-color="#45698c" />
+    </linearGradient>
+    <linearGradient id="icon-surface" x1="0%" y1="0%" x2="75%" y2="100%">
+      <stop stop-color="#547da8" />
+      <stop offset=".5" stop-color="#345a82" />
+      <stop offset="1" stop-color="#1a3555" />
+    </linearGradient>
+    <linearGradient id="icon-ink" x1="0%" y1="0%" x2="80%" y2="100%">
+      <stop stop-color="#2e4c6d" />
+      <stop offset="1" stop-color="#142a43" />
+    </linearGradient>
+    <linearGradient id="icon-edge" x1="0%" y1="0%" x2="65%" y2="100%">
+      <stop stop-color="#a8c6e1" />
+      <stop offset=".45" stop-color="#789bc0" />
+      <stop offset="1" stop-color="#3e6189" />
+    </linearGradient>
+    <linearGradient id="icon-blue" x1="8%" y1="0%" x2="78%" y2="100%">
+      <stop stop-color="#6c99c9" />
+      <stop offset=".45" stop-color="#4879ac" />
+      <stop offset="1" stop-color="#2e5685" />
+    </linearGradient>
+    <linearGradient id="icon-ribbon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop stop-color="#4b80b6" />
+      <stop offset="1" stop-color="#1e446d" />
+    </linearGradient>
+    <linearGradient id="rack-frame" x1="0%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0" stop-color="#3f607e" />
+      <stop offset="0.48" stop-color="#2a425d" />
+      <stop offset="1" stop-color="#172c42" />
+    </linearGradient>
+    <linearGradient id="rack-edge" x1="0%" y1="0%" x2="60%" y2="100%">
+      <stop stop-color="#8aa9c5" />
+      <stop offset=".5" stop-color="#587996" />
+      <stop offset="1" stop-color="#35516d" />
+    </linearGradient>
+    <linearGradient id="rack-interior" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop stop-color="#0c1a2c" />
+      <stop offset="1" stop-color="#112439" />
+    </linearGradient>
+    <linearGradient id="rack-module" x1="0%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0" stop-color="#4d6e8d" />
+      <stop offset="0.42" stop-color="#35546f" />
+      <stop offset="1" stop-color="#213a53" />
+    </linearGradient>
+    <linearGradient id="rack-main" x1="0%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0" stop-color="#7b9fbc" />
+      <stop offset="0.42" stop-color="#5b83a6" />
+      <stop offset="1" stop-color="#345b7c" />
+    </linearGradient>
+    <linearGradient id="enterprise-room" x1="0%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0" stop-color="#385772" stop-opacity="0.95" />
+      <stop offset="0.48" stop-color="#263f58" stop-opacity="0.97" />
+      <stop offset="1" stop-color="#16293e" stop-opacity="0.98" />
+    </linearGradient>
+    <filter id="icon-shadow" x="-65%" y="-45%" width="230%" height="225%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="2" dy="4" stdDeviation="3.5" flood-color="#00040c" flood-opacity="0.34" />
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#00040c" flood-opacity="0.2" />
+    </filter>
+    <filter id="room-shadow" x="-65%" y="-45%" width="230%" height="225%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="4" dy="19" stdDeviation="13" flood-color="#00040c" flood-opacity="0.7" />
+      <feDropShadow dx="0" dy="3" stdDeviation="2.8" flood-color="#00040c" flood-opacity="0.38" />
+    </filter>
+    <filter id="rack-shadow-rear" x="-65%" y="-45%" width="230%" height="225%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="3" dy="8" stdDeviation="5" flood-color="#01050c" flood-opacity="0.55" />
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.35" flood-color="#000309" flood-opacity="0.36" />
+    </filter>
+    <filter id="rack-shadow-main" x="-65%" y="-45%" width="230%" height="225%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="6" dy="14" stdDeviation="8" flood-color="#00040c" flood-opacity="0.78" />
+      <feDropShadow dx="0" dy="2" stdDeviation="1.5" flood-color="#00040c" flood-opacity="0.46" />
+    </filter>
+    <linearGradient id="rack-frame-primary" x1="0%" y1="0%" x2="75%" y2="100%">
+      <stop offset="0" stop-color="#7899b3" />
+      <stop offset="0.42" stop-color="#486c8d" />
+      <stop offset="1" stop-color="#28465f" />
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M144 199V179Q144 173 138 173H112Q102 173 102 163V158M256 199V179Q256 173 262 173H288Q298 173 298 163V158M79.35 350H56Q46 350 46 360V465Q46 475 56 475H87Q100 475 100 488V490M320.65 350H344Q354 350 354 360V465Q354 475 344 475H313Q300 475 300 488V490" stroke="#94b9d7" stroke-opacity=".82" stroke-width="1.55" />
+    <path d="M98 162L102 158L106 162M294 162L298 158L302 162M96 486L100 490L104 486M296 486L300 490L304 486" stroke="#c4deef" stroke-width="1.45" />
+  </g>
+  <g stroke-linecap="round" stroke-linejoin="round" filter="url(#icon-shadow)" transform="translate(100 50) scale(0.76) translate(-146 -148)" opacity=".78">
+    <path d="M146 119C134 110 119 107 104 111V178C120 175 133 179 146 187Z" fill="url(#icon-page-left)" stroke="url(#icon-edge)" stroke-width="1.8" />
+    <path d="M146 119C159 110 174 107 188 111V178C173 175 159 179 146 187Z" fill="url(#icon-page-right)" stroke="url(#icon-edge)" stroke-width="1.8" />
+    <path d="M146 120V185" stroke="#203d5b" stroke-width="2.2" />
+    <path d="M143.5 121V182" stroke="#bdd1e3" stroke-opacity=".38" stroke-width="1" />
+    <path d="M115 127C123 127 130 129 136 132M115 139C123 139 130 141 136 144M115 151C123 151 130 153 136 156M115 163C122 163 129 165 135 168" stroke="#203e60" stroke-opacity=".65" stroke-width="1.65" />
+    <path d="M156 146C163 142 171 141 179 142M156 158C163 154 171 153 179 154M156 170C163 166 171 165 179 166" stroke="#345a7d" stroke-opacity=".8" stroke-width="1.65" />
+    <path d="M166 111V137L172 132L178 136V109" fill="url(#icon-ribbon)" stroke="#a7c6e2" stroke-opacity=".75" stroke-width="1.2" />
+  </g>
+  <g stroke-linecap="round" stroke-linejoin="round" filter="url(#icon-shadow)" transform="translate(300 50) scale(0.72) translate(-614 -147)" opacity=".78">
+    <path d="M593 103V114M607 103V114M621 103V114M635 103V114M593 180V191M607 180V191M621 180V191M635 180V191M570 126H581M570 140H581M570 154H581M570 168H581M647 126H658M647 140H658M647 154H658M647 168H658" stroke="#799abc" stroke-width="2.5" />
+    <rect x="580" y="113" width="68" height="68" rx="9" fill="url(#icon-ink)" stroke="url(#icon-edge)" stroke-width="1.8" />
+    <rect x="586" y="119" width="56" height="56" rx="5" stroke="#6f91b7" stroke-opacity=".36" stroke-width="1" />
+    <rect x="595" y="128" width="38" height="38" rx="4" fill="url(#icon-blue)" stroke="#9fbfe0" stroke-width="1.25" />
+    <path d="M607 140H621V154H607Z" fill="url(#icon-ink)" stroke="#bfd7ed" stroke-opacity=".8" stroke-width="1.2" />
+    <path d="M602 135H607M621 159H626M602 155V159H607M621 135H626V139" stroke="#c1d8ed" stroke-opacity=".58" stroke-width="1" />
+  </g>
+  <g stroke-linecap="round" stroke-linejoin="round" filter="url(#icon-shadow)" transform="translate(100 526) scale(0.86) translate(-146 -490)" opacity=".78">
+    <path d="M134 475H158M121 487V493M171 487V493M134 505H158" stroke="#6d94be" stroke-width="2" />
+    <rect x="109" y="463" width="25" height="24" rx="3" fill="url(#icon-blue)" stroke="url(#icon-edge)" stroke-width="1.6" />
+    <rect x="158" y="463" width="25" height="24" rx="3" fill="url(#icon-surface)" stroke="url(#icon-edge)" stroke-width="1.6" />
+    <rect x="109" y="493" width="25" height="24" rx="3" fill="url(#icon-surface)" stroke="url(#icon-edge)" stroke-width="1.6" />
+    <rect x="158" y="493" width="25" height="24" rx="3" fill="url(#icon-ink)" stroke="url(#icon-edge)" stroke-width="1.6" />
+    <path d="M117 470H121V474H117ZM123 476H127V480H123Z" fill="#c4daf0" fill-opacity=".6" />
+    <path d="M166 471H175M166 477H172M117 501L121 505L117 509M124 509H128M166 501H175V509H166Z" stroke="#bad2e8" stroke-opacity=".74" stroke-width="1.15" />
+  </g>
+  <g stroke-linecap="round" stroke-linejoin="round" filter="url(#icon-shadow)" transform="translate(300 526) scale(0.86) translate(-614 -489.5)" opacity=".78">
+    <circle cx="605" cy="475" r="12" fill="#6085a7" stroke="url(#icon-edge)" stroke-width="1.65" />
+    <path d="M582 515V509C582 496 592 490 605 490C617 490 628 496 628 509V515Z" fill="url(#icon-surface)" stroke="url(#icon-edge)" stroke-width="1.8" />
+    <path d="M598 494L605 503L612 494" stroke="#93b1d0" stroke-opacity=".6" stroke-width="1.2" />
+    <rect x="624" y="487" width="27" height="29" rx="5" fill="url(#icon-ink)" stroke="url(#icon-edge)" stroke-width="1.6" />
+    <path d="M631 501L636 506L645 496" stroke="#b5d4ee" stroke-width="2.3" />
+  </g>
+  <g id="enterprise-platform" transform="translate(200 295) scale(0.95) translate(-380 -257)">
+    <rect x="253" y="140" width="254" height="202" rx="12" fill="url(#enterprise-room)" stroke="#83a7c5" stroke-opacity=".8" stroke-width="1.2" filter="url(#room-shadow)" transform="translate(0 16)" />
+    <g stroke-linecap="round" stroke-linejoin="round" transform="translate(0 28)">
+      <g transform="translate(281 193) scale(.9) translate(-274 -300)" opacity=".86" filter="url(#rack-shadow-rear)">
+        <rect x="274" y="300" width="62" height="109" rx="3.5" fill="url(#rack-frame)" stroke="url(#rack-edge)" stroke-width="1.4" />
+        <rect x="280" y="313" width="50" height="84" rx="1.5" fill="url(#rack-interior)" />
+        <path d="M282 308H314M279 316V394M331 316V394" stroke="#6a89a5" stroke-opacity=".6" stroke-width=".8" />
+        <circle cx="323" cy="307" r="1.3" fill="#90b0cb" />
+        <rect x="283" y="317" width="44" height="15" rx="1.4" fill="url(#rack-module)" stroke="#7693ad" stroke-opacity=".7" stroke-width=".7" />
+        <rect x="287" y="321" width="10" height="7" rx=".7" fill="#162b40" stroke="#5d7c97" stroke-width=".55" />
+        <path d="M289 326H294" stroke="#7895ad" stroke-width=".6" />
+        <rect x="300" y="321" width="10" height="7" rx=".7" fill="#162b40" stroke="#5d7c97" stroke-width=".55" />
+        <path d="M302 326H307" stroke="#7895ad" stroke-width=".6" />
+        <rect x="313" y="321" width="10" height="7" rx=".7" fill="#162b40" stroke="#5d7c97" stroke-width=".55" />
+        <path d="M315 326H320" stroke="#7895ad" stroke-width=".6" />
+        <rect x="283" y="336" width="44" height="15" rx="1.4" fill="url(#rack-module)" stroke="#7693ad" stroke-opacity=".7" stroke-width=".7" />
+        <rect x="287" y="340" width="10" height="7" rx=".7" fill="#162b40" stroke="#5d7c97" stroke-width=".55" />
+        <path d="M289 345H294" stroke="#7895ad" stroke-width=".6" />
+        <rect x="300" y="340" width="10" height="7" rx=".7" fill="#162b40" stroke="#5d7c97" stroke-width=".55" />
+        <path d="M302 345H307" stroke="#7895ad" stroke-width=".6" />
+        <rect x="313" y="340" width="10" height="7" rx=".7" fill="#162b40" stroke="#5d7c97" stroke-width=".55" />
+        <path d="M315 345H320" stroke="#7895ad" stroke-width=".6" />
+        <rect x="283" y="355" width="44" height="15" rx="1.4" fill="url(#rack-module)" stroke="#7693ad" stroke-opacity=".7" stroke-width=".7" />
+        <rect x="287" y="359" width="10" height="7" rx=".7" fill="#162b40" stroke="#5d7c97" stroke-width=".55" />
+        <path d="M289 364H294" stroke="#7895ad" stroke-width=".6" />
+        <rect x="300" y="359" width="10" height="7" rx=".7" fill="#162b40" stroke="#5d7c97" stroke-width=".55" />
+        <path d="M302 364H307" stroke="#7895ad" stroke-width=".6" />
+        <rect x="313" y="359" width="10" height="7" rx=".7" fill="#162b40" stroke="#5d7c97" stroke-width=".55" />
+        <path d="M315 364H320" stroke="#7895ad" stroke-width=".6" />
+        <rect x="283" y="374" width="44" height="15" rx="1.4" fill="url(#rack-module)" stroke="#7693ad" stroke-opacity=".7" stroke-width=".7" />
+        <rect x="287" y="378" width="10" height="7" rx=".7" fill="#162b40" stroke="#5d7c97" stroke-width=".55" />
+        <path d="M289 383H294" stroke="#7895ad" stroke-width=".6" />
+        <rect x="300" y="378" width="10" height="7" rx=".7" fill="#162b40" stroke="#5d7c97" stroke-width=".55" />
+        <path d="M302 383H307" stroke="#7895ad" stroke-width=".6" />
+        <rect x="313" y="378" width="10" height="7" rx=".7" fill="#162b40" stroke="#5d7c97" stroke-width=".55" />
+        <path d="M315 383H320" stroke="#7895ad" stroke-width=".6" />
+        <path d="M287 403H296M300 403H309M313 403H322" stroke="#6d8ba5" stroke-opacity=".65" stroke-width="1" />
+      </g>
+      <g transform="translate(423 193) scale(.9) translate(-424 -300)" opacity=".86" filter="url(#rack-shadow-rear)">
+        <rect x="424" y="300" width="62" height="109" rx="3.5" fill="url(#rack-frame)" stroke="url(#rack-edge)" stroke-width="1.4" />
+        <rect x="430" y="313" width="50" height="84" rx="1.5" fill="url(#rack-interior)" />
+        <path d="M432 308H464M429 316V394M481 316V394" stroke="#6a89a5" stroke-opacity=".6" stroke-width=".8" />
+        <circle cx="473" cy="307" r="1.3" fill="#90b0cb" />
+        <rect x="433" y="317" width="44" height="15" rx="1.4" fill="url(#rack-module)" stroke="#7693ad" stroke-opacity=".7" stroke-width=".7" />
+        <path d="M438 321H444V328H438ZM439.5 323V325.5M442.5 323V325.5" fill="#14283c" stroke="#8daac0" stroke-width=".55" />
+        <path d="M449 321H455V328H449ZM450.5 323V325.5M453.5 323V325.5" fill="#14283c" stroke="#8daac0" stroke-width=".55" />
+        <path d="M460 321H466V328H460ZM461.5 323V325.5M464.5 323V325.5" fill="#14283c" stroke="#8daac0" stroke-width=".55" />
+        <circle cx="472" cy="324.5" r="1.2" fill="#94b2ca" />
+        <rect x="433" y="336" width="44" height="15" rx="1.4" fill="url(#rack-module)" stroke="#7693ad" stroke-opacity=".7" stroke-width=".7" />
+        <path d="M438 340H444V347H438ZM439.5 342V344.5M442.5 342V344.5" fill="#14283c" stroke="#8daac0" stroke-width=".55" />
+        <path d="M449 340H455V347H449ZM450.5 342V344.5M453.5 342V344.5" fill="#14283c" stroke="#8daac0" stroke-width=".55" />
+        <path d="M460 340H466V347H460ZM461.5 342V344.5M464.5 342V344.5" fill="#14283c" stroke="#8daac0" stroke-width=".55" />
+        <circle cx="472" cy="343.5" r="1.2" fill="#94b2ca" />
+        <rect x="433" y="355" width="44" height="15" rx="1.4" fill="url(#rack-module)" stroke="#7693ad" stroke-opacity=".7" stroke-width=".7" />
+        <path d="M438 359H444V366H438ZM439.5 361V363.5M442.5 361V363.5" fill="#14283c" stroke="#8daac0" stroke-width=".55" />
+        <path d="M449 359H455V366H449ZM450.5 361V363.5M453.5 361V363.5" fill="#14283c" stroke="#8daac0" stroke-width=".55" />
+        <path d="M460 359H466V366H460ZM461.5 361V363.5M464.5 361V363.5" fill="#14283c" stroke="#8daac0" stroke-width=".55" />
+        <circle cx="472" cy="362.5" r="1.2" fill="#94b2ca" />
+        <rect x="433" y="374" width="44" height="15" rx="1.4" fill="url(#rack-module)" stroke="#7693ad" stroke-opacity=".7" stroke-width=".7" />
+        <path d="M438 378H444V385H438ZM439.5 380V382.5M442.5 380V382.5" fill="#14283c" stroke="#8daac0" stroke-width=".55" />
+        <path d="M449 378H455V385H449ZM450.5 380V382.5M453.5 380V382.5" fill="#14283c" stroke="#8daac0" stroke-width=".55" />
+        <path d="M460 378H466V385H460ZM461.5 380V382.5M464.5 380V382.5" fill="#14283c" stroke="#8daac0" stroke-width=".55" />
+        <circle cx="472" cy="381.5" r="1.2" fill="#94b2ca" />
+        <path d="M437 403H446M450 403H459M463 403H472" stroke="#6d8ba5" stroke-opacity=".65" stroke-width="1" />
+      </g>
+      <g transform="translate(344 165) scale(1.16) translate(-349 -300)" filter="url(#rack-shadow-main)">
+        <rect x="349" y="300" width="62" height="109" rx="3.5" fill="url(#rack-frame-primary)" stroke="url(#rack-edge)" stroke-width="1.4" />
+        <rect x="355" y="313" width="50" height="84" rx="1.5" fill="url(#rack-interior)" />
+        <path d="M357 308H389M354 316V394M406 316V394" stroke="#6a89a5" stroke-opacity=".6" stroke-width=".8" />
+        <circle cx="398" cy="307" r="1.3" fill="#90b0cb" />
+        <rect x="358" y="317" width="44" height="15" rx="1.4" fill="url(#rack-main)" stroke="#7693ad" stroke-opacity=".7" stroke-width=".7" />
+        <path d="M362 322H374M362 326H374M380 321V328M383 321V328M386 321V328M389 321V328" stroke="#b1c8da" stroke-opacity=".62" stroke-width=".75" />
+        <circle cx="396" cy="324.5" r="1.25" fill="#b2cbdc" />
+        <rect x="358" y="336" width="44" height="15" rx="1.4" fill="url(#rack-main)" stroke="#7693ad" stroke-opacity=".7" stroke-width=".7" />
+        <path d="M362 341H374M362 345H374M380 340V347M383 340V347M386 340V347M389 340V347" stroke="#b1c8da" stroke-opacity=".62" stroke-width=".75" />
+        <circle cx="396" cy="343.5" r="1.25" fill="#b2cbdc" />
+        <rect x="358" y="355" width="44" height="15" rx="1.4" fill="url(#rack-main)" stroke="#7693ad" stroke-opacity=".7" stroke-width=".7" />
+        <path d="M362 360H374M362 364H374M380 359V366M383 359V366M386 359V366M389 359V366" stroke="#b1c8da" stroke-opacity=".62" stroke-width=".75" />
+        <circle cx="396" cy="362.5" r="1.25" fill="#b2cbdc" />
+        <rect x="358" y="374" width="44" height="15" rx="1.4" fill="url(#rack-main)" stroke="#7693ad" stroke-opacity=".7" stroke-width=".7" />
+        <path d="M362 379H374M362 383H374M380 378V385M383 378V385M386 378V385M389 378V385" stroke="#b1c8da" stroke-opacity=".62" stroke-width=".75" />
+        <circle cx="396" cy="381.5" r="1.25" fill="#b2cbdc" />
+        <path d="M362 403H371M375 403H384M388 403H397" stroke="#6d8ba5" stroke-opacity=".65" stroke-width="1" />
+      </g>
+    </g>
+    </g>
+  <g font-family="'PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle">
+    <text x="100" y="108" fill="#aebfd0" font-size="16" font-weight="500">企业知识库</text>
+    <text x="100" y="130" fill="#8ea2b7" font-size="12">制度文档 · 合同资料 · 业务台账</text>
+    <text x="300" y="108" fill="#aebfd0" font-size="16" font-weight="500">本地模型服务</text>
+    <text x="300" y="130" fill="#8ea2b7" font-size="12">vLLM / Qwen · 本地推理</text>
+    <text x="200" y="416" fill="#dbeaf7" font-size="19" font-weight="550">TeGo 平台</text>
+    <text x="200" y="438" fill="#a1b7cb" font-size="12">Compose / Kubernetes</text>
+    <text x="200" y="455" fill="#a1b7cb" font-size="12">数字员工 · 任务执行</text>
+    <text x="100" y="580" fill="#aebfd0" font-size="16" font-weight="500">业务系统</text>
+    <text x="100" y="602" fill="#8ea2b7" font-size="12">MCP / RESTful API / 数据库</text>
+    <text x="300" y="580" fill="#aebfd0" font-size="16" font-weight="500">组织身份与权限</text>
+    <text x="300" y="602" fill="#8ea2b7" font-size="12">审核与审计</text>
+  </g>
+</svg>

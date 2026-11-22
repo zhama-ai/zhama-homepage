@@ -1,0 +1,6 @@
+---
+import type { Locale } from '../data/types';
+interface Props { compact?: boolean; locale?: Locale; }
+const { compact = false, locale = 'zh' } = Astro.props;
+---
+<span class:list={['brand', {compact}]}><img class="official-wordmark" src="/images/zhama-logo_V1.0.webp" alt={locale==='zh'?'扎马星辰 ZHAMA':'ZHAMA'} width="640" height="125"/></span>

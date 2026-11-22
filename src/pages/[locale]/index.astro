@@ -1,0 +1,9 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HomePage from '../../components/HomePage.astro';
+import { languages, sourceLocaleFor, websiteLanguageFor } from '../../lib/languages';
+export function getStaticPaths() { return languages.map(({id:locale}) => ({ params:{locale} })); }
+const locale = sourceLocaleFor(websiteLanguageFor(Astro.params.locale));
+const meta = locale === 'zh' ? {title:'TeGo 数字员工协作平台',description:'让协作看得见，让成果可验收。TeGo 数字员工协作平台连接企业知识与业务系统，为政务、证券、央国企等行业组织数字员工与团队协作。'} : {title:'A shared workspace for people and digital employees',description:'TeGo connects enterprise knowledge, business tools and digital employees in a shared workspace, from the first task to the final deliverable.'};
+---
+<Layout locale={locale} title={meta.title} description={meta.description}><HomePage locale={locale}/></Layout>

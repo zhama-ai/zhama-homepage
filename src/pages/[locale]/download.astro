@@ -1,0 +1,9 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Page from '../../features/download/Page.astro';
+import { locales } from '../../lib/site';
+export function getStaticPaths() { return locales.map(locale => ({ params: { locale }, props: { locale } })); }
+const { locale } = Astro.props;
+const zh = locale === 'zh';
+---
+<Layout locale={locale} title={zh ? '资源下载' : 'Downloads'} description={zh ? '下载 TeGo 桌面端、移动端与 Tego Studio。' : 'Download TeGo Desktop, Mobile and Tego Studio.'} page="download"><Page locale={locale}/></Layout>

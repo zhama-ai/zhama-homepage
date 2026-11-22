@@ -1,0 +1,4 @@
+export const ui = {
+  zh: { try: '立即体验', contact: '预约交流', product: '产品能力', solutions: '解决方案', resources: '资源与支持', learn: '了解更多', docs: '文档中心', menu: '打开导航', close: '关闭导航', light: '浅色', dark: '深色', system: '跟随系统', theme: '外观', all: '查看全部', arrow: '探索产品能力', footer: '让协作看得见，让成果可验收', privacy: '隐私政策', terms: '服务协议', download: '资源下载', faq: '常见问题', blog: '产品博客', back: '返回首页' },
+  en: { try: 'Try TeGo', contact: 'Book a consultation', product: 'Product', solutions: 'Solutions', resources: 'Resources & Support', learn: 'Learn more', docs: 'Documentation', menu: 'Open navigation', close: 'Close navigation', light: 'Light', dark: 'Dark', system: 'System', theme: 'Appearance', all: 'View all', arrow: 'Explore the platform', footer: 'Make collaboration visible. Make outcomes verifiable.', privacy: 'Privacy', terms: 'Terms', download: 'Downloads', faq: 'FAQ', blog: 'Blog', back: 'Back to home' },
+};

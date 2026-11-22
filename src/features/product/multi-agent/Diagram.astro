@@ -1,0 +1,172 @@
+---
+import Icon from '../../../components/Icon.astro';
+import type { Locale } from '../../../data/types';
+import type { ExperienceSection } from '../experience-types';
+
+interface Props {
+  locale: Locale;
+  scene: 'overview' | 'delegate' | 'execute' | 'deliver';
+  data: ExperienceSection['visual'];
+}
+const { locale, scene, data } = Astro.props;
+const zh = locale === 'zh';
+const specialists = data.rows;
+const specialistIcons = ['chart', 'file-search', 'clipboard-check'];
+const stateClasses = ['active', 'done', 'waiting'];
+const overview = zh ? {
+  title: '多 Agent 协作', goal: '复杂目标', result: '完整成果',
+  delegate: '任务委派', returned: '进度与结果回传', context: '独立子任务上下文',
+  mainWork: '分派 · 协调 · 汇总', employee: '数字员工内的协作单元',
+  scopeTitle: '工作边界', scope: ['岗位目标', '权限边界', '交付要求'],
+  runtimeTitle: '受控运行', runtime: ['独立子任务上下文', '配置允许的能力', '进度与结果回主任务'],
+  agents: [
+    { icon: 'file-search', title: '研究 Agent' },
+    { icon: 'chart', title: '分析 Agent' },
+    { icon: 'layers', title: '执行 Agent' },
+    { icon: 'clipboard-check', title: '审阅 Agent' },
+  ],
+  alt: '数字员工在岗位目标、权限边界和交付要求下工作。主 Agent 向多个专业 Agent 委派任务，每项子任务单独保留消息与执行过程，并在配置允许的能力范围内推进。进度与结果回传给主 Agent，最终形成完整成果。',
+} : {
+  title: 'Multi-Agent collaboration', goal: 'Complex goal', result: 'Complete deliverable',
+  delegate: 'Task delegation', returned: 'Progress and results return', context: 'Isolated task context',
+  mainWork: 'Delegate · Coordinate · Assemble', employee: 'Collaboration within a digital employee',
+  scopeTitle: 'Work boundaries', scope: ['Role goal', 'Permission boundary', 'Delivery requirements'],
+  runtimeTitle: 'Controlled runtime', runtime: ['Isolated task contexts', 'Configured capabilities', 'Progress and results return to the main task'],
+  agents: [
+    { icon: 'file-search', title: 'Research Agent' },
+    { icon: 'chart', title: 'Analysis Agent' },
+    { icon: 'layers', title: 'Execution Agent' },
+    { icon: 'clipboard-check', title: 'Review Agent' },
+  ],
+  alt: 'A digital employee works within a role goal, permission boundary and delivery requirements. Its main Agent delegates work to specialist Agents. Each subtask keeps its own messages and execution process, uses configured capabilities, and returns progress and results so the main Agent can assemble a complete result.',
+};
+const labels = zh ? {
+  running: '协同任务进行中', specialists: '专业任务', main: '主 Agent', goal: '业务目标',
+  input: '输入', output: '返回', result: '完整成果', pending: '待处理事项',
+  pendingBody: '合同口径需要业务负责人确认', boundaries: ['独立子任务上下文', '并发限制', '协作层级', '超时策略'],
+  review: ['审阅', '批注', '发布版本'], mainTask: '主任务',
+  mainOwns: '明确目标 · 组织分工', separateContext: '独立子任务上下文',
+  returnsToMain: '持续接收各子任务的返回', returnTypes: ['进度快照', '异常', '结果'], policy: '协作策略',
+  waiting: '等待业务人员', humanJudgment: '需要专业判断', humanReturn: '处理结果回到原任务',
+} : {
+  running: 'Collaboration in progress', specialists: 'Specialist work', main: 'Main Agent', goal: 'Business goal',
+  input: 'Input', output: 'Returns', result: 'Complete deliverable', pending: 'Pending item',
+  pendingBody: 'A business owner must confirm the contract interpretation', boundaries: ['Isolated task context', 'Concurrency limit', 'Collaboration depth', 'Timeout policy'],
+  review: ['Review', 'Comment', 'Release version'], mainTask: 'Main task',
+  mainOwns: 'Define goal · Organize work', separateContext: 'Isolated task context',
+  returnsToMain: 'Receives progress and results from subtasks', returnTypes: ['Progress snapshot', 'Issue', 'Result'], policy: 'Collaboration policy',
+  waiting: 'Waiting for a colleague', humanJudgment: 'Professional judgment needed', humanReturn: 'The response returns to the original task',
+};
+---
+<figure class:list={['ma-diagram', `ma-diagram-${scene}`]} aria-label={scene === 'overview' ? overview.alt : data.response}>
+  {scene === 'overview' && <div class="ma-overview-panel">
+    <div class="ma-panel-header">
+      <div><span class="ma-status-dot"></span><strong>{overview.title}</strong></div>
+      <span>{zh ? `— ${overview.employee}` : overview.employee}</span>
+    </div>
+    <div class="ma-overview-flow">
+      <div class="ma-overview-scope">
+        <strong>{overview.scopeTitle}</strong>
+        <div>{overview.scope.map(label => <span>{label}</span>)}</div>
+      </div>
+      <div class="ma-overview-core">
+      <div class="ma-overview-goal ma-endpoint-node">
+        <Icon name="target" size={22}/><strong>{overview.goal}</strong>
+      </div>
+      <div class="ma-core-connector ma-core-connector-in"><Icon name="arrow" size={18}/></div>
+      <div class="ma-agent-system">
+        <svg class="ma-overview-routes" viewBox="0 0 400 188" preserveAspectRatio="none" aria-hidden="true">
+          <path class="ma-route-org" d="M200 72V96M50 96H350M50 96V119M150 96V119M250 96V119M350 96V119"/>
+        </svg>
+        <div class="ma-overview-main ma-flow-node">
+          <div class="ma-agent-symbol"><Icon name="workflow" size={21}/></div>
+          <div><strong>{labels.main}</strong><small>{overview.mainWork}</small></div>
+        </div>
+        <div class="ma-overview-legend" aria-hidden="true"><span>{overview.delegate}</span><span>{overview.returned}</span></div>
+        <div class="ma-overview-specialists">
+          {overview.agents.map((agent, index) => <div class:list={['ma-specialist-node', `ma-specialist-${index}`]}>
+            <Icon name={agent.icon} size={17}/><strong>{agent.title}</strong>
+          </div>)}
+        </div>
+      </div>
+      <div class="ma-core-connector ma-core-connector-out"><Icon name="arrow" size={18}/></div>
+      <div class="ma-overview-result ma-endpoint-node">
+        <Icon name="file-check" size={22}/><strong>{overview.result}</strong>
+      </div>
+      </div>
+      <div class="ma-overview-runtime">
+        <strong>{overview.runtimeTitle}</strong>
+        <div>{overview.runtime.map(label => <span>{label}</span>)}</div>
+      </div>
+    </div>
+  </div>}
+
+  {scene === 'delegate' && <div class="ma-delegate-panel ma-product-panel">
+    <div class="ma-panel-header">
+      <div><Icon name="workflow" size={19}/><strong>{data.title}</strong></div>
+      <span>{data.context}</span>
+    </div>
+    <div class="ma-delegate-stage">
+      <svg class="ma-delegate-routes" viewBox="0 0 700 360" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M350 142V174M112 174H588M112 174V199M350 174V199M588 174V199"/>
+      </svg>
+      <article class="ma-delegate-owner">
+        <div class="ma-owner-heading"><span class="ma-agent-symbol"><Icon name="workflow" size={20}/></span><div><strong>{labels.main}</strong><span>{labels.mainOwns}</span></div></div>
+        <div class="ma-owner-goal"><span>{labels.goal}</span><strong>{data.request}</strong></div>
+        <div class="ma-brief-files">{data.files.map(file => <span><Icon name="file" size={14}/>{file}</span>)}</div>
+      </article>
+      <div class="ma-work-orders">
+        {specialists.map((row, index) => <article>
+          <div class="ma-work-order-title"><span class:list={['ma-agent-marker', `ma-agent-marker-${index}`]}><Icon name={specialistIcons[index]} size={17}/></span><strong>{row[0]} Agent</strong></div>
+          <dl><div><dt>{labels.input}</dt><dd>{row[1]}</dd></div><div><dt>{labels.output}</dt><dd>{row[2]}</dd></div></dl>
+        </article>)}
+      </div>
+    </div>
+  </div>}
+
+  {scene === 'execute' && <div class="ma-execute-panel ma-product-panel">
+    <div class="ma-panel-header">
+      <div><Icon name="chart" size={19}/><strong>{data.title}</strong></div>
+      <span>{data.context}</span>
+    </div>
+    <div class="ma-execute-stage">
+      <div class="ma-execute-contexts">
+        {specialists.map((row, index) => <article class:list={['ma-context-card', `ma-context-card-${stateClasses[index]}`]}>
+          <div class="ma-context-heading"><span class:list={['ma-agent-marker', `ma-agent-marker-${index}`]}><Icon name={specialistIcons[index]} size={16}/></span><strong>{row[0]} Agent</strong><em class:list={[`ma-run-label-${stateClasses[index]}`]}>{row[1]}</em></div>
+          <span class="ma-context-label"><Icon name="message" size={13}/>{labels.separateContext}</span>
+          <div class="ma-context-current"><span class:list={['ma-run-state', `ma-run-state-${stateClasses[index]}`]}></span><strong>{row[2]}</strong></div>
+          {index === 2 && <div class="ma-context-handoff"><Icon name="user-check" size={15}/><span><strong>{labels.pending}</strong>{labels.waiting}</span></div>}
+        </article>)}
+      </div>
+      <div class="ma-execute-mainbar">
+        <div class="ma-execute-main-summary"><span class="ma-agent-symbol"><Icon name="workflow" size={19}/></span><div><strong>{labels.mainTask}</strong><span>{labels.returnsToMain}</span></div></div>
+        <div class="ma-execute-returns">{labels.returnTypes.map(label => <span>{label}</span>)}</div>
+      </div>
+      <div class="ma-execute-policy"><strong>{labels.policy}</strong>{labels.boundaries.map((label, index) => <span><Icon name={index === 0 ? 'message' : index === 1 ? 'network' : index === 2 ? 'layers' : 'clock'} size={13}/>{label}</span>)}</div>
+    </div>
+  </div>}
+
+  {scene === 'deliver' && <div class="ma-deliver-panel ma-product-panel">
+    <div class="ma-panel-header">
+      <div><Icon name="file-check" size={19}/><strong>{data.title}</strong></div>
+      <span>{data.context}</span>
+    </div>
+    <div class="ma-deliver-stage">
+      <svg class="ma-deliver-routes" viewBox="0 0 700 320" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M203 62H248M203 151H286M203 240H248M248 62V240"/>
+      </svg>
+      <div class="ma-return-stack">
+        {specialists.map((row, index) => <div class:list={['ma-return-item', `ma-return-item-${index}`]}>
+          <Icon name={specialistIcons[index]} size={18}/><div><strong>{row[0]}</strong><span>{row[1]}</span></div>
+        </div>)}
+      </div>
+      <div class="ma-deliver-agent"><Icon name="workflow" size={22}/><strong>{labels.main}</strong><span>{zh ? '归集 · 组织 · 交付' : 'Collect · Assemble · Deliver'}</span></div>
+      <article class="ma-deliver-document">
+        <div class="ma-document-title"><Icon name="file-check" size={22}/><div><span>{labels.result}</span><h3>{data.title}</h3></div></div>
+        <dl>{specialists.map(row => <div><dt>{row[2]}</dt><dd>{row[1]}</dd></div>)}</dl>
+        <div class="ma-document-actions">{labels.review.map(label => <span><Icon name={label === labels.review[2] ? 'file-check' : label === labels.review[1] ? 'message' : 'clipboard-check'} size={14}/>{label}</span>)}</div>
+      </article>
+      <div class="ma-human-loop"><div><Icon name="user-check" size={17}/><span><strong>{labels.humanJudgment}</strong>{specialists[2]?.[1]}</span></div><span>{labels.humanReturn}</span></div>
+    </div>
+  </div>}
+</figure>

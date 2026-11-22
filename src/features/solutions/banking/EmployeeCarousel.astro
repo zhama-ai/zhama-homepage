@@ -1,0 +1,382 @@
+---
+import Icon from '../../../components/Icon.astro';
+import type { Locale } from '../../../data/types';
+import type { BankingEmployee } from './page-content';
+import '../../../styles/banking-employee-carousel.css';
+
+interface Props {
+  locale: Locale;
+  employees: BankingEmployee[];
+  teamLabel?: string;
+}
+
+const { locale, employees, teamLabel } = Astro.props;
+const zh = locale === 'zh';
+const accents = ['110, 180, 234', '94, 191, 176', '151, 163, 222', '197, 171, 116', '117, 174, 205', '148, 185, 163'];
+---
+<div
+  class="banking-employees"
+  data-banking-employees
+  data-locale={locale}
+  role="region"
+  aria-roledescription={zh ? '轮播' : 'carousel'}
+  aria-label={teamLabel ?? (zh ? '银行数字员工团队' : 'Banking digital employee team')}
+>
+  <div class="banking-employees-stage" data-employee-stage>
+    {employees.map((employee, index) => <article
+      class="banking-employee-card"
+      style={`--employee-accent: ${accents[index % accents.length]};`}
+      data-employee-card={index}
+      role="group"
+      aria-roledescription={zh ? '数字员工' : 'digital employee'}
+      aria-label={employee.role}
+      tabindex="0"
+    >
+      <header class="banking-employee-identity">
+        <div class="banking-employee-avatar">
+          <img src={employee.avatar} alt="" width="96" height="96" loading="lazy" decoding="async" draggable="false"/>
+        </div>
+        <div class="banking-employee-identity-copy">
+          <h3>{employee.role}</h3>
+          <p class="banking-employee-value">{employee.value}</p>
+        </div>
+      </header>
+      <div class="banking-employee-skills">
+        <h4>{zh ? '岗位能力' : 'Role capabilities'}</h4>
+        <ul>{employee.skills.map(skill => <li>{skill}</li>)}</ul>
+      </div>
+      <div class="banking-employee-process">
+        <h4>{zh ? '工作内容' : 'Responsibilities'}</h4>
+        <ul>{employee.process.map(step => <li><span aria-hidden="true"></span><span>{step}</span></li>)}</ul>
+      </div>
+      <div class="banking-employee-outputs">
+        <h4>{zh ? '成果交付' : 'Deliverables'}</h4>
+        <ul>{employee.outputs.map(output => <li><Icon name="file" size={15}/><span>{output}</span></li>)}</ul>
+      </div>
+    </article>)}
+  </div>
+</div>
+
+<script>
+  import { onPageMount } from '../../../lib/page-lifecycle';
+  const employeeCarousels = new Map<HTMLElement, () => void>();
+
+  const initializeEmployeeCarousels = () => {
+    employeeCarousels.forEach((cleanup, root) => {
+      if (!root.isConnected) cleanup();
+    });
+
+    document.querySelectorAll<HTMLElement>('[data-banking-employees]').forEach(root => {
+      if (employeeCarousels.has(root)) return;
+      const stage = root.querySelector<HTMLElement>('[data-employee-stage]');
+      const cards = Array.from(root.querySelectorAll<HTMLElement>('[data-employee-card]'));
+      if (!stage || cards.length < 2) return;
+
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const listeners = new AbortController();
+      const { signal } = listeners;
+      const duration = 760;
+      const pauseDuration = 4000;
+      const normalize = (index: number) => (index % cards.length + cards.length) % cards.length;
+      const slotFor = (index: number, active: number) => {
+        let slot = normalize(index - active);
+        if (slot > cards.length / 2) slot -= cards.length;
+        return slot;
+      };
+
+      let selected = 0;
+      let pendingSteps = 0;
+      let transitioning = false;
+      let disposed = false;
+      const frameIds = new Set<number>();
+      const queueFrame = (callback: FrameRequestCallback) => {
+        const id = requestAnimationFrame(time => {
+          frameIds.delete(id);
+          if (!disposed) callback(time);
+        });
+        frameIds.add(id);
+        return id;
+      };
+      let hovered = window.matchMedia('(hover: hover)').matches && root.matches(':hover');
+      let focused = root.contains(document.activeElement);
+      let inView = root.getBoundingClientRect().bottom > 0 && root.getBoundingClientRect().top < window.innerHeight;
+      let focusAfterNavigation = false;
+      let autoplayTimer: ReturnType<typeof setTimeout> | undefined;
+      let transitionTimer: ReturnType<typeof setTimeout> | undefined;
+      let suppressClickUntil = 0;
+      let wheelDistance = 0;
+      let lastWheelTime = 0;
+      let lastWheelNavigation = 0;
+      let pointer: { id: number; x: number; y: number; dragging: boolean } | null = null;
+
+      const paintCard = (card: HTMLElement, slot: number) => {
+        const distance = Math.abs(slot);
+        card.style.setProperty('--employee-offset', String(slot));
+        card.style.setProperty('--employee-scale', String(Math.max(.64, 1 - distance * .105)));
+        card.style.setProperty('--employee-turn', `${Math.max(-20, Math.min(20, -slot * 9))}deg`);
+        card.style.setProperty('--employee-drop', `${distance * 12}px`);
+        card.style.setProperty('--employee-opacity', distance === 0 ? '1' : distance === 1 ? '.87' : distance === 2 ? '.47' : '0');
+        card.style.setProperty('--employee-order', String(10 - distance));
+        card.dataset.active = slot === 0 ? 'true' : 'false';
+        card.dataset.offstage = distance > 2 ? 'true' : 'false';
+      };
+
+      const updateAccessibility = () => {
+        if (focusAfterNavigation || cards.some(card => card.contains(document.activeElement))) {
+          cards[selected].setAttribute('aria-hidden', 'false');
+          cards[selected].tabIndex = 0;
+          cards[selected].focus({ preventScroll: true });
+        }
+        cards.forEach((card, index) => {
+          card.tabIndex = index === selected ? 0 : -1;
+          card.setAttribute('aria-hidden', index === selected ? 'false' : 'true');
+          if (index === selected) card.setAttribute('aria-current', 'true');
+          else card.removeAttribute('aria-current');
+        });
+      };
+
+      const stopAutoplay = () => {
+        clearTimeout(autoplayTimer);
+        autoplayTimer = undefined;
+      };
+
+      const scheduleAutoplay = () => {
+        stopAutoplay();
+        if (disposed || reducedMotion.matches || hovered || focused || pointer || !inView || document.hidden || transitioning || pendingSteps) return;
+        autoplayTimer = setTimeout(() => requestStep(1), pauseDuration);
+      };
+
+      const finishNavigation = () => {
+        transitioning = false;
+        if (pendingSteps) advance();
+        else {
+          if (focusAfterNavigation) cards[selected].focus({ preventScroll: true });
+          focusAfterNavigation = false;
+          scheduleAutoplay();
+        }
+      };
+
+      const advance = () => {
+        if (disposed || transitioning || !pendingSteps) return;
+        transitioning = true;
+        const direction = Math.sign(pendingSteps);
+        pendingSteps -= direction;
+        const previous = selected;
+        selected = normalize(selected + direction);
+        const rebases: Array<{ card: HTMLElement; slot: number }> = [];
+        const incoming: HTMLElement[] = [];
+        const positions: Array<{ card: HTMLElement; slot: number }> = [];
+
+        cards.forEach((card, index) => {
+          const previousSlot = slotFor(index, previous);
+          const nextSlot = slotFor(index, selected);
+          const travellingSlot = previousSlot - direction;
+          if (travellingSlot !== nextSlot && !reducedMotion.matches) {
+            if (Math.abs(previousSlot) > 2 && Math.abs(nextSlot) <= 2) {
+              card.dataset.rebasing = 'true';
+              paintCard(card, nextSlot + direction);
+              incoming.push(card);
+              positions.push({ card, slot: nextSlot });
+            } else {
+              positions.push({ card, slot: travellingSlot });
+              rebases.push({ card, slot: nextSlot });
+            }
+          } else positions.push({ card, slot: nextSlot });
+        });
+
+        const animateCards = () => {
+          if (disposed) return;
+          incoming.forEach(card => { delete card.dataset.rebasing; });
+          positions.forEach(({ card, slot }) => paintCard(card, slot));
+          updateAccessibility();
+          if (reducedMotion.matches) {
+            finishNavigation();
+            return;
+          }
+
+          transitionTimer = setTimeout(() => {
+            if (disposed) return;
+            rebases.forEach(({ card, slot }) => {
+              card.dataset.rebasing = 'true';
+              paintCard(card, slot);
+            });
+            queueFrame(() => queueFrame(() => {
+              if (disposed) return;
+              rebases.forEach(({ card }) => { delete card.dataset.rebasing; });
+              finishNavigation();
+            }));
+          }, duration);
+        };
+
+        if (incoming.length) queueFrame(() => queueFrame(animateCards));
+        else animateCards();
+      };
+
+      const requestStep = (step: number, focus = false) => {
+        stopAutoplay();
+        focusAfterNavigation ||= focus;
+        pendingSteps += step;
+        advance();
+      };
+
+      const requestIndex = (index: number, focus = false) => {
+        let difference = normalize(index - selected);
+        if (difference > cards.length / 2) difference -= cards.length;
+        stopAutoplay();
+        focusAfterNavigation ||= focus;
+        pendingSteps = difference;
+        if (difference) advance();
+        else if (focus && !transitioning) {
+          cards[selected].focus({ preventScroll: true });
+          focusAfterNavigation = false;
+        }
+      };
+
+      cards.forEach((card, index) => {
+        paintCard(card, slotFor(index, selected));
+        card.addEventListener('click', event => {
+          if (performance.now() < suppressClickUntil) {
+            event.preventDefault();
+            return;
+          }
+          requestIndex(index, true);
+        }, { signal });
+      });
+
+      root.addEventListener('keydown', event => {
+        if (event.ctrlKey || event.metaKey || event.altKey) return;
+        if (event.repeat && transitioning) return;
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+          event.preventDefault();
+          requestStep(event.key === 'ArrowRight' ? 1 : -1, true);
+        } else if (event.key === 'Home' || event.key === 'End') {
+          event.preventDefault();
+          requestIndex(event.key === 'Home' ? 0 : cards.length - 1, true);
+        }
+      }, { signal });
+
+      root.addEventListener('pointerenter', event => {
+        if (event.pointerType !== 'mouse') return;
+        hovered = true;
+        stopAutoplay();
+      }, { signal });
+      root.addEventListener('pointerleave', event => {
+        if (event.pointerType !== 'mouse') return;
+        hovered = false;
+        scheduleAutoplay();
+      }, { signal });
+      root.addEventListener('focusin', () => {
+        focused = true;
+        stopAutoplay();
+      }, { signal });
+      root.addEventListener('focusout', () => queueMicrotask(() => {
+        if (disposed) return;
+        focused = root.contains(document.activeElement);
+        scheduleAutoplay();
+      }), { signal });
+
+      stage.addEventListener('pointerdown', event => {
+        if (!event.isPrimary || event.button !== 0 || transitioning) return;
+        pointer = { id: event.pointerId, x: event.clientX, y: event.clientY, dragging: false };
+        stopAutoplay();
+      }, { signal });
+      stage.addEventListener('pointermove', event => {
+        if (!pointer || pointer.id !== event.pointerId) return;
+        const deltaX = event.clientX - pointer.x;
+        const deltaY = event.clientY - pointer.y;
+        if (!pointer.dragging && Math.abs(deltaX) > 10 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
+          pointer.dragging = true;
+          stage.setPointerCapture(event.pointerId);
+          root.dataset.dragging = 'true';
+        }
+        if (pointer.dragging) {
+          event.preventDefault();
+          root.style.setProperty('--employee-drag', `${Math.max(-100, Math.min(100, deltaX * .6))}px`);
+        }
+      }, { signal });
+
+      const endPointer = (event: PointerEvent, cancelled = false) => {
+        if (!pointer || pointer.id !== event.pointerId) return;
+        const deltaX = event.clientX - pointer.x;
+        const wasDragging = pointer.dragging;
+        pointer = null;
+        delete root.dataset.dragging;
+        root.style.removeProperty('--employee-drag');
+        if (stage.hasPointerCapture(event.pointerId)) stage.releasePointerCapture(event.pointerId);
+        if (wasDragging) {
+          suppressClickUntil = performance.now() + 400;
+          if (!cancelled && Math.abs(deltaX) > 42) requestStep(-Math.sign(deltaX));
+          else scheduleAutoplay();
+        } else scheduleAutoplay();
+      };
+      document.addEventListener('pointerup', event => endPointer(event), { signal });
+      document.addEventListener('pointercancel', event => endPointer(event, true), { signal });
+      stage.addEventListener('lostpointercapture', event => endPointer(event, true), { signal });
+
+      stage.addEventListener('wheel', event => {
+        if (event.ctrlKey || Math.abs(event.deltaX) < 2 || Math.abs(event.deltaX) <= Math.abs(event.deltaY) * 1.5) return;
+        event.preventDefault();
+        const now = performance.now();
+        if (transitioning || now - lastWheelNavigation < duration) return;
+        if (now - lastWheelTime > 220) wheelDistance = 0;
+        lastWheelTime = now;
+        wheelDistance += event.deltaX * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? stage.clientWidth : 1);
+        if (Math.abs(wheelDistance) >= 45) {
+          requestStep(Math.sign(wheelDistance));
+          wheelDistance = 0;
+          lastWheelNavigation = now;
+        }
+      }, { passive: false, signal });
+
+      const measureCards = () => {
+        if (disposed) return;
+        const height = Math.ceil(Math.max(...cards.map(card => card.offsetHeight))) + 56;
+        root.style.setProperty('--employee-stage-height', `${height}px`);
+      };
+      const resizeObserver = new ResizeObserver(measureCards);
+      cards.forEach(card => resizeObserver.observe(card));
+      const intersectionObserver = new IntersectionObserver(entries => {
+        inView = entries[0]?.isIntersecting ?? false;
+        scheduleAutoplay();
+      }, { threshold: .15 });
+      intersectionObserver.observe(root);
+      document.addEventListener('visibilitychange', scheduleAutoplay, { signal });
+      reducedMotion.addEventListener('change', scheduleAutoplay, { signal });
+
+      updateAccessibility();
+      measureCards();
+      root.dataset.ready = 'true';
+      queueFrame(() => queueFrame(() => {
+        if (!disposed) root.dataset.animated = 'true';
+      }));
+      document.fonts.ready.then(measureCards);
+      scheduleAutoplay();
+
+      employeeCarousels.set(root, () => {
+        disposed = true;
+        stopAutoplay();
+        clearTimeout(transitionTimer);
+        frameIds.forEach(cancelAnimationFrame);
+        frameIds.clear();
+        listeners.abort();
+        resizeObserver.disconnect();
+        intersectionObserver.disconnect();
+        employeeCarousels.delete(root);
+        delete root.dataset.ready;
+        delete root.dataset.animated;
+        cards.forEach(card => {
+          card.removeAttribute('aria-hidden');
+          card.removeAttribute('aria-current');
+          card.tabIndex = 0;
+        });
+      });
+    });
+  };
+
+  onPageMount(signal => {
+    initializeEmployeeCarousels();
+    signal.addEventListener('abort', () => {
+      employeeCarousels.forEach(cleanup => cleanup());
+    }, { once: true });
+  });
+</script>

@@ -1,0 +1,61 @@
+---
+import type { Locale } from '../data/types';
+import Icon from './Icon.astro';
+import Shell from '../features/resources/Shell.astro';
+import Hero from '../features/resources/Hero.astro';
+import { resourceCategories, resourceEntries } from '../features/resources/content';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const zh = locale === 'zh';
+const resources = resourceEntries(locale);
+const featured = resources.filter(item => item.featured);
+const directory = resources.filter(item => !item.featured);
+---
+<Shell locale={locale} page="resources">
+  <div data-resource-browser data-locale={locale}>
+    <Hero title={zh ? '找到工作需要的资源' : 'Resources to move your work forward.'}>
+      <div class="support-search"><Icon name="search" size={21}/><label class="sr-only" for="resource-query">{zh ? '搜索资源' : 'Search resources'}</label><input id="resource-query" type="search" placeholder={zh ? '搜索手册、视频、下载与部署资料' : 'Search guides, videos, downloads and deployment'} data-resource-query aria-controls="resource-featured resource-directory" autocomplete="off"/><button type="button" data-resource-clear hidden aria-label={zh ? '清除搜索' : 'Clear search'}><Icon name="close" size={17}/></button></div>
+    </Hero>
+    <section class="container resource-collection" id="manual" aria-label={zh ? '资源目录' : 'Resource directory'}>
+      <div class="support-toolbar"><div class="support-filters" role="group" aria-label={zh ? '资源分类' : 'Resource category'}>{resourceCategories[locale].map(([id, label]) => <button type="button" data-resource-filter={id} aria-pressed={id === 'all'} aria-controls="resource-featured resource-directory">{label}</button>)}</div></div>
+      <div class="resource-featured" id="resource-featured">{featured.map(item => <a class="resource-portal support-card" href={item.href} hreflang={item.href.startsWith('https://docs.zhama.com.cn/') ? 'zh-CN' : undefined} data-resource-item data-resource-id={item.id} data-category={item.category} data-search={`${item.title} ${item.description} ${item.tags}`.toLowerCase()}><span class="resource-portal-icon"><Icon name={item.icon} size={28}/></span><div><h2>{item.title}</h2><p>{item.description}</p></div></a>)}</div>
+      <div class="resource-directory" id="resource-directory">{directory.map(item => <a class="resource-entry" href={item.href} hreflang={item.href.startsWith('https://docs.zhama.com.cn/') ? 'zh-CN' : undefined} data-resource-item data-resource-id={item.id} data-category={item.category} data-search={`${item.title} ${item.description} ${item.tags}`.toLowerCase()}><span class="resource-entry-icon"><Icon name={item.icon} size={22}/></span><span><h2>{item.title}</h2><p>{item.description}</p></span></a>)}</div>
+      <div class="support-empty" data-resource-empty hidden><p>{zh ? '没有匹配的资源，请换个关键词或查看全部分类。' : 'No resources match. Try another term or browse all categories.'}</p><button type="button" class="button button-outline" data-resource-reset>{zh ? '查看全部资源' : 'Show all resources'}</button></div>
+    </section>
+  </div>
+</Shell>
+<style>
+  .resource-collection{padding-bottom:60px;scroll-margin-top:100px}.resource-featured{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.resource-featured:empty{display:none}.resource-portal{display:flex;align-items:center;gap:17px;padding:29px 22px;transition:background .2s,border-color .2s,transform .2s}.resource-portal:hover{background:#142e44;border-color:#5fafe960;transform:translateY(-3px)}.resource-portal-icon{display:grid;place-items:center;width:52px;height:52px;flex-shrink:0;border-radius:12px;background:#17324b;color:#8ab6dc}.resource-portal h2{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:22px;margin:0 0 9px}.resource-portal p{color:#a9bed1;font-size:15px;margin:0;line-height:1.8}.resource-directory{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:54px;margin-top:33px}.resource-entry{display:flex;align-items:flex-start;gap:17px;padding:25px 5px;border-bottom:1px solid #88b2d023}.resource-entry:hover h2{color:#7dceff}.resource-entry>span:nth-child(2){flex:1}.resource-entry-icon{color:#77c1f2;background:#10273d;display:grid;place-items:center;width:42px;height:42px;flex-shrink:0;border-radius:11px}.resource-entry h2{font-size:17px;line-height:1.7;margin:0 0 5px;transition:color .2s}.resource-entry p{font-size:15px;color:#96aec5;line-height:1.9;margin:0}
+  @media(max-width:1000px){.resource-portal{flex-direction:column;align-items:flex-start;padding:25px}.resource-portal h2{font-size:21px}.resource-directory{column-gap:30px}}
+  @media(max-width:700px){.resource-featured{grid-template-columns:1fr;gap:13px}.resource-portal{flex-direction:row;align-items:center;padding:22px 20px;gap:14px}.resource-portal>div{flex:1}.resource-portal h2{font-size:20px}.resource-directory{grid-template-columns:1fr;margin-top:17px}.resource-entry{padding-block:22px;gap:14px}.resource-collection{padding-bottom:42px}}
+</style>
+<script>
+  import { onPageMount } from '../lib/page-lifecycle';
+  onPageMount(signal => {
+    const root = document.querySelector<HTMLElement>('[data-resource-browser]');
+    if (root) {
+      const query = root.querySelector<HTMLInputElement>('[data-resource-query]')!;
+      const filters = [...root.querySelectorAll<HTMLButtonElement>('[data-resource-filter]')];
+      const items = [...root.querySelectorAll<HTMLElement>('[data-resource-item]')];
+      const clear = root.querySelector<HTMLButtonElement>('[data-resource-clear]')!;
+      let category = 'all';
+      const update = () => {
+        const terms = query.value.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+        let count = 0;
+        items.forEach(item => {
+          item.hidden = !(category === 'all' || item.dataset.category === category) || !terms.every(term => item.dataset.search?.includes(term));
+          if (!item.hidden) count++;
+        });
+        filters.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.resourceFilter === category)));
+        clear.hidden = !query.value;
+        root.querySelector<HTMLElement>('[data-resource-empty]')!.hidden = count > 0;
+        const featured = root.querySelector<HTMLElement>('#resource-featured')!;
+        featured.hidden = ![...featured.children].some(item => !(item as HTMLElement).hidden);
+      };
+      query.addEventListener('input', update, { signal });
+      filters.forEach(button => button.addEventListener('click', () => { category = button.dataset.resourceFilter!; update(); }, { signal }));
+      clear.addEventListener('click', () => { query.value = ''; update(); query.focus(); }, { signal });
+      root.querySelector('[data-resource-reset]')?.addEventListener('click', () => { category = 'all'; query.value = ''; update(); query.focus(); }, { signal });
+    }
+  });
+</script>

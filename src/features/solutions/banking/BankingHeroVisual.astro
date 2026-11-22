@@ -1,0 +1,97 @@
+---
+import type { Locale } from '../../../data/types';
+
+interface Props { locale: Locale; }
+
+const { locale } = Astro.props;
+const zh = locale === 'zh';
+---
+
+<figure
+  class="banking-hero-art"
+  role="img"
+  aria-label={zh
+    ? '银行数字员工协作核验信贷材料、识别贷后风险并形成核查成果'
+    : 'Banking digital employees verify credit materials, identify post-loan risks and prepare review deliverables'}
+>
+  <img
+    src="/images/solutions/banking/banking-digital-workflow_V1.5.png"
+    alt=""
+    width="1672"
+    height="941"
+    loading="eager"
+    decoding="async"
+  />
+</figure>
+
+<style>
+  .banking-hero-art {
+    position: relative;
+    width: 112%;
+    height: 520px;
+    margin: 0 0 0 -7%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .banking-hero-art::after {
+    content: '';
+    position: absolute;
+    inset: 12% 7% 10% 10%;
+    background: radial-gradient(ellipse at 53% 54%, #1488d52b 0%, transparent 67%);
+    filter: blur(28px);
+  }
+
+  .banking-hero-art::before {
+    content: '';
+    position: absolute;
+    inset: 7% 1% 6% 0;
+    background: radial-gradient(ellipse at 52% 51%, #06172999 0%, #071a2b62 43%, #071a2b20 66%, transparent 82%);
+    filter: blur(18px);
+  }
+
+  .banking-hero-art img {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 51% 50%;
+    opacity: .9;
+    filter: saturate(.9) contrast(1.02) brightness(.94);
+  }
+
+  @media (max-width: 1080px) {
+    .banking-hero-art {
+      width: min(820px, 112%);
+      height: 470px;
+      margin-inline: auto;
+      transform: translateX(-2%);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .banking-hero-art {
+      width: 116%;
+      height: 335px;
+      margin-left: -8%;
+      transform: none;
+    }
+
+    .banking-hero-art img {
+      object-position: 53% 50%;
+      opacity: .9;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .banking-hero-art img {
+      animation: banking-art-breathe 7s ease-in-out infinite alternate;
+    }
+  }
+
+  @keyframes banking-art-breathe {
+    to { opacity: .96; transform: scale(1.01); }
+  }
+</style>

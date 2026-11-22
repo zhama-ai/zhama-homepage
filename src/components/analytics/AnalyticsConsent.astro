@@ -1,0 +1,38 @@
+---
+import type { Locale } from '../../data/types';
+import { pathFor } from '../../lib/site';
+import '../../styles/analytics-consent.css';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const zh = locale === 'zh';
+---
+<span data-analytics-sdk transition:persist="tego-analytics-sdk" hidden aria-hidden="true"></span>
+<section
+  id="analytics-consent"
+  class="analytics-consent"
+  data-analytics-consent
+  data-storage-error={zh ? '未能保存选择，访问统计保持关闭。请重试。' : 'Could not save your choice. Analytics remains off. Please retry.'}
+  data-privacy-blocked={zh ? '选择已保存。浏览器隐私设置已阻止访问统计。' : 'Preference saved. Your browser’s privacy settings keep analytics off.'}
+  data-analytics-inactive={zh ? '选择已保存，访问统计保持关闭。' : 'Preference saved. Analytics remains off.'}
+  data-analytics-next-visit={zh ? '选择已保存，访问统计将在下次打开页面时启用。' : 'Preference saved. Analytics will start on your next page visit.'}
+  aria-labelledby="analytics-consent-question"
+  tabindex="-1"
+  hidden
+>
+  <div class="container analytics-consent-inner">
+    <p id="analytics-consent-question" class="analytics-consent-question">
+      {zh ? '允许使用百度统计分析网站访问与产品关注情况？' : 'Allow Baidu Analytics to measure website visits and interest in our products?'}
+      <a href={pathFor(locale, 'privacy')}>{zh ? '隐私政策' : 'Privacy policy'}</a>
+    </p>
+    <div class="analytics-consent-actions">
+      <button type="button" class="button button-small" data-analytics-allow>{zh ? '允许统计' : 'Allow analytics'}</button>
+      <button type="button" class="button button-outline button-small" data-analytics-deny>{zh ? '拒绝' : 'Reject'}</button>
+    </div>
+    <p class="analytics-consent-status" data-analytics-status role="status" aria-live="polite" hidden></p>
+  </div>
+</section>
+<script>
+  import { initAnalyticsConsent } from '../../features/analytics/consent.mjs';
+  initAnalyticsConsent();
+</script>

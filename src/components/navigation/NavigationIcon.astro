@@ -1,0 +1,37 @@
+---
+import Icon from '../Icon.astro';
+interface Props { name: string; }
+const { name } = Astro.props;
+const fills: Record<string, { body: string; accent: string }> = {
+  network: { body: 'M2 2h6v6H2ZM16 2h6v6h-6ZM2 16h6v6H2ZM16 16h6v6h-6Z', accent: 'M16 2h6v6h-6Z' },
+  layers: { body: 'M12 3 2 8l10 5 10-5-10-5ZM2 12l10 5 10-5v4l-10 5L2 16Z', accent: 'm12 3 10 5-10 5L2 8Z' },
+  plug: { body: 'M5 8h14v3a7 7 0 0 1-14 0V8Z', accent: 'M9 8h6v8H9Z' },
+  folder: { body: 'M3 7V5a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z', accent: 'M3 5a2 2 0 0 1 2-2h4l2 3H3Z' },
+  book: { body: 'M12 4C9 2 5 2 2 3v16c3-1 7-1 10 2 3-3 7-3 10-2V3c-3-1-7-1-10 1Z', accent: 'M12 4c3-2 7-2 10-1v16c-3-1-7-1-10 2V4Z' },
+  shield: { body: 'M12 22s9-4 9-11V5l-9-3-9 3v6c0 7 9 11 9 11Z', accent: 'M12 2v20s9-4 9-11V5Z' },
+  bank: { body: 'M3 9 12 3l9 6H3ZM4 18h16v3H4ZM5 10h2v8H5ZM10 10h2v8h-2ZM14 10h2v8h-2ZM18 10h2v8h-2Z', accent: 'M3 9 12 3l9 6H3Z' },
+  chart: { body: 'M7 14l4-5 4 3 6-8v17H7Z', accent: 'M15 12l6-8v17h-6Z' },
+  landmark: { body: 'M5 9h14v9H5ZM5 18h14v3H5Z', accent: 'M8 9V7a4 4 0 0 1 8 0v2Z' },
+  buildings: { body: 'M4 21V4h10v17ZM14 10h6v11Z', accent: 'M14 10h6v11h-6Z' },
+  globe: { body: 'M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z', accent: 'M12 2a17 17 0 0 1 0 20 17 17 0 0 1 0-20Z' },
+  cpu: { body: 'M4 4h16v16H4Z', accent: 'M8 8h8v8H8Z' },
+  download: { body: 'M3 16h18v5H3Z', accent: 'M11 3h2v9.6l3.3-3.3 1.4 1.4L12 16.4l-5.7-5.7 1.4-1.4 3.3 3.3V3Z' },
+  file: { body: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z', accent: 'M14 2v6h6Z' },
+};
+const iconName = Object.hasOwn(fills, name) ? name : 'layers';
+const fill = fills[iconName];
+---
+<span class="navigation-icon" aria-hidden="true">
+  <span class="navigation-icon-default" aria-hidden="true"><Icon name={iconName} size={20}/></span>
+  <span class="navigation-icon-active" aria-hidden="true">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d={fill.body} opacity=".18"/><path d={fill.accent} opacity=".32"/></svg>
+    <Icon name={iconName} size={20}/>
+  </span>
+</span>
+<style>
+.navigation-icon{position:relative;display:block;width:24px;height:24px;color:inherit;flex-shrink:0;pointer-events:none}
+.navigation-icon-default,.navigation-icon-active{position:absolute;inset:0;display:grid;place-items:center}
+.navigation-icon :global(svg){position:absolute;width:20px;height:20px}
+.navigation-icon-default :global(svg){stroke-width:1.45}
+.navigation-icon-active :global(svg){stroke-width:1.65}
+</style>

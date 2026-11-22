@@ -1,0 +1,204 @@
+---
+import Icon from '../Icon.astro';
+import Transfer from './IntegrationTransfer_V2.0.astro';
+import type { Locale } from '../../data/types';
+interface Props { locale: Locale; scene?: number; }
+const { locale, scene = -1 } = Astro.props;
+const zh = locale === 'zh';
+const t = (cn: string, en: string) => zh ? cn : en;
+const sources = [
+  {icon:'users',name:'CRM',object:t('客户与商机','Customers & deals'),method:t('CRM 插件','CRM plugin'),material:t('沟通记录与跟进事项','Conversations & follow-up')},
+  {icon:'folder',name:t('招投标系统','Bidding system'),object:t('项目与投标','Projects & bids'),method:t('招投标插件','Bidding plugin'),material:t('资质清单与项目材料','Qualifications & project files')},
+  {icon:'file-check',name:'EHS',object:t('检查与隐患','Inspections & hazards'),method:t('EHS 插件','EHS plugin'),material:t('检查记录与附件证据','Inspection records & evidence')},
+  {icon:'chart',name:t('业务数据库','Business database'),object:t('经营指标','Operating metrics'),method:t('数据库连接','Database connection'),material:t('查询结果与汇总指标','Query results & aggregates')},
+];
+const steps = [t('关联客户与商机','Match customers and deals'),t('归集沟通与项目资料','Collect conversations and files'),t('整理结论与后续事项','Prepare decisions and next actions')];
+const followupFiles = [t('客户跟进摘要.docx','Customer follow-up brief.docx'),t('商机行动清单.xlsx','Deal action list.xlsx')];
+const alt = scene < 0
+  ? t('CRM 与 TeGo 两个完整工作面。CRM 客户资料读入数字员工任务，MCP 与数据库参与处理，成果写回同一 CRM 客户时间线。','Two complete work surfaces: CRM records enter a TeGo digital employee task, MCP and database tools support the work, and results return to the same CRM timeline.')
+  : [t('左侧完整业务系统面板包含 CRM、招投标、EHS 与数据库。一支渐变箭头将资料汇入右侧 TeGo 任务上下文，所有资料保留来源。','One business systems panel groups CRM, bidding, EHS and database records. A single gradient arrow brings them into one TeGo task context panel with sources retained.'),t('TeGo 在一个完整任务面板中读取客户交流纪要、关联商机并整理事项；一支 RESTful API 箭头连接完整 CRM 跟进时间线。','Within one task panel, TeGo reads meeting notes, matches the deal and prepares next actions. One RESTful API arrow leads to the CRM follow-up timeline.'),t('企业业务系统提交任务与附件，TeGo 在绑定用户与作用域下处理；状态、人工事项和成果返回原业务系统。','The business system submits a task and files. TeGo executes under a bound user and scope, then returns status, human work items and deliverables to the original system.')][scene];
+---
+<figure class:list={['cp-art','i2-art',`i2-scene-${scene}`,{'i2-en':!zh}]} role="img" aria-label={alt}>
+  <div aria-hidden="true">
+    {scene < 0 && <div class="i2-hero">
+      <div class="i2-panel i2-hero-crm">
+        <div class="i2-crm-source">
+          <div class="i2-heading"><span class="i2-system-icon"><Icon name="users" size={19}/></span><strong>CRM</strong><span>{t('客户与商机','Customers & deals')}</span></div>
+          <div class="i2-body">
+            <span class="i2-label">{t('客户沟通','Customer conversation')}</span>
+            <strong class="i2-project">{t('设备巡检数字化','Equipment inspection')}</strong>
+            <p class="i2-quote">{t('补充巡检服务方案，准备下一次实施安排交流。','Expand the inspection proposal and prepare the implementation discussion.')}</p>
+            <div class="i2-file"><Icon name="file" size={15}/><span>{t('客户交流纪要.docx','Meeting notes.docx')}</span></div>
+          </div>
+        </div>
+        <div class="i2-crm-result">
+          <div class="i2-section-heading"><Icon name="clock" size={16}/><strong>{t('客户时间线','Customer timeline')}</strong></div>
+          <div class="i2-timeline">
+            <strong>{t('设备巡检方案跟进','Inspection proposal follow-up')}</strong>
+            <p>{t('完善巡检服务方案；准备实施安排。','Refine the inspection proposal and implementation plan.')}</p>
+            <div class="i2-file"><Icon name="file" size={14}/><span>{followupFiles[0]}</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="i2-hero-read"><Transfer label={t('读取资料','Read records')} method={t('业务插件','Business plugin')}/></div>
+      <div class="i2-panel i2-tego i2-hero-task">
+        <div class="i2-heading"><span class="i2-system-icon"><Icon name="layers" size={20}/></span><strong>TeGo</strong><span>{t('数字员工任务','Digital employee task')}</span></div>
+        <div class="i2-body">
+          <div class="i2-employee"><span><Icon name="user-check" size={20}/></span><div><strong>{t('客户经营数字员工','Customer operations digital employee')}</strong><p>{t('整理客户沟通与项目进展','Organize conversations and project progress')}</p></div></div>
+          <div class="i2-work-steps">{steps.map(step=><div><span class="i2-step-mark"><Icon name="check" size={12}/></span><span>{step}</span></div>)}</div>
+          <div class="i2-deliverables"><span class="i2-label">{t('任务成果','Task output')}</span>{followupFiles.map((file,index)=><div class="i2-file"><Icon name={index ? 'file-check':'file'} size={15}/><span>{file}</span></div>)}</div>
+        </div>
+        <div class="i2-tool-shelf">
+          <div><Icon name="plug" size={17}/><span><strong>{t('MCP 服务','MCP service')}</strong><span>{t('检索项目材料','Retrieve project files')}</span></span></div>
+          <div><Icon name="chart" size={17}/><span><strong>{t('业务数据库','Business database')}</strong><span>{t('查询经营数据','Query business data')}</span></span></div>
+        </div>
+      </div>
+      <div class="i2-hero-write"><Transfer reverse label={t('回写跟进','Write follow-up')} method="RESTful API"/></div>
+    </div>}
+
+    {scene === 0 && <div class="i2-context i2-duo">
+      <div class="i2-panel i2-systems">
+        <div class="i2-heading"><span class="i2-system-icon"><Icon name="buildings" size={19}/></span><strong>{t('现有业务系统','Business systems')}</strong></div>
+        <div class="i2-system-list">{sources.map(source=><div class="i2-object-row"><Icon name={source.icon} size={21}/><div><strong>{source.name}</strong><span>{source.object}</span></div><span class="i2-method">{source.method}</span></div>)}</div>
+        <div class="i2-panel-foot"><Icon name="key" size={14}/><span>{t('各连接使用对应身份与授权','Each connection uses its own identity and access')}</span></div>
+      </div>
+      <div class="i2-one-transfer"><Transfer label={t('汇入任务','Bring into task')}/></div>
+      <div class="i2-panel i2-tego i2-context-task">
+        <div class="i2-heading"><span class="i2-system-icon"><Icon name="layers" size={20}/></span><strong>{t('TeGo · 任务上下文','TeGo · Task context')}</strong></div>
+        <div class="i2-task-name"><Icon name="user-check" size={16}/><strong>{t('整理客户沟通与项目进展','Organize conversations and project progress')}</strong></div>
+        <div class="i2-material-list">{sources.map(source=><div class="i2-material-row"><Icon name={source.icon} size={16}/><div><strong>{source.material}</strong><span>{source.name}</span></div></div>)}</div>
+        <div class="i2-context-output i2-file"><Icon name="file-check" size={15}/><span>{t('商机跟进清单.xlsx','Deal follow-up list.xlsx')}</span></div>
+      </div>
+    </div>}
+
+    {scene === 1 && <div class="i2-action i2-duo">
+      <div class="i2-panel i2-tego i2-action-task">
+        <div class="i2-heading"><span class="i2-system-icon"><Icon name="layers" size={20}/></span><strong>TeGo</strong><span>{t('客户跟进任务','Customer follow-up')}</span></div>
+        <div class="i2-body">
+          <div class="i2-note"><div class="i2-file"><Icon name="file" size={15}/><span>{t('客户交流纪要.docx','Customer meeting notes.docx')}</span></div><p>{t('请补充设备巡检方案，下次交流重点看实施安排。','Expand the inspection proposal. Focus the next discussion on implementation.')}</p></div>
+          <div class="i2-read-method"><Icon name="plug" size={14}/><span>{t('MCP / 文件工具读取','Read with MCP / file tools')}</span></div>
+          <div class="i2-work-steps">{[t('匹配客户与商机资料','Match customer and deal records'),t('归纳沟通结论','Organize discussion outcomes'),t('生成后续跟进事项','Prepare follow-up actions')].map(step=><div><span class="i2-step-mark"><Icon name="check" size={12}/></span><span>{step}</span></div>)}</div>
+          <div class="i2-file i2-action-file"><Icon name="file-check" size={15}/><span>{followupFiles[1]}</span></div>
+        </div>
+        <div class="i2-panel-foot"><Icon name="key" size={14}/><span>{t('连接身份 · 接口授权 · 业务委托','Connection identity · API access · Delegation')}</span></div>
+      </div>
+      <div class="i2-one-transfer"><Transfer label={t('写入跟进','Write follow-up')} method="RESTful API"/></div>
+      <div class="i2-panel i2-action-crm">
+        <div class="i2-heading"><span class="i2-system-icon"><Icon name="users" size={19}/></span><strong>CRM</strong><span>{t('客户时间线','Customer timeline')}</span></div>
+        <div class="i2-body">
+          <span class="i2-label">{t('客户与商机','Customer & deal')}</span><strong class="i2-project">{t('设备巡检数字化','Equipment inspection')}</strong>
+          <div class="i2-timeline i2-action-timeline"><span class="i2-label">{t('跟进记录','Follow-up record')}</span><strong>{t('巡检方案与实施安排','Inspection proposal & implementation')}</strong><p>{t('完善巡检服务方案，接续下一次客户交流。','Refine the inspection proposal for the next customer discussion.')}</p><div class="i2-next-actions"><div><Icon name="check" size={13}/><span>{t('补充巡检服务方案','Expand the inspection proposal')}</span></div><div><Icon name="check" size={13}/><span>{t('准备实施安排','Prepare the implementation plan')}</span></div></div><div class="i2-file"><Icon name="file" size={15}/><span>{followupFiles[0]}</span></div></div>
+        </div>
+      </div>
+    </div>}
+
+    {scene === 2 && <div class="i2-api">
+      <div class="i2-panel i2-api-client">
+        <div class="i2-api-request">
+          <div class="i2-heading"><span class="i2-system-icon"><Icon name="buildings" size={19}/></span><strong>{t('企业业务系统','Business system')}</strong></div>
+          <div class="i2-body"><span class="i2-label">{t('任务请求','Task request')}</span><p class="i2-api-prompt">{t('根据项目附件编制服务方案，并整理交付事项清单。','Prepare a service proposal and delivery action list from the project attachments.')}</p><div class="i2-file"><Icon name="file-check" size={15}/><span>{t('项目需求清单.xlsx','Project requirements.xlsx')}</span></div></div>
+        </div>
+        <div class="i2-api-return"><div class="i2-section-heading"><Icon name="download" size={16}/><strong>{t('原业务入口接收','Back in the business app')}</strong></div><div class="i2-return-labels"><span>{t('执行状态','Task status')}</span><span>{t('人工事项与回应','Human work items & responses')}</span></div>{[t('项目服务方案.docx','Service proposal.docx'),t('交付事项清单.xlsx','Delivery action list.xlsx')].map((file,index)=><div class="i2-file"><Icon name={index ? 'file-check':'file'} size={15}/><span>{file}</span></div>)}</div>
+      </div>
+      <div class="i2-api-send"><Transfer label={t('提交任务','Submit task')} method={t('平台 OpenAPI','Platform OpenAPI')}/></div>
+      <div class="i2-panel i2-tego i2-api-task">
+        <div class="i2-heading"><span class="i2-system-icon"><Icon name="layers" size={20}/></span><strong>TeGo</strong><span>{t('数字员工任务','Digital employee task')}</span></div>
+        <div class="i2-body"><div class="i2-execution-identity"><Icon name="key" size={18}/><div><strong>{t('绑定执行用户','Bound execution user')}</strong><span>scope · {t('幂等信息','Idempotency')}</span></div></div><div class="i2-work-steps">{[t('接收任务与项目资料','Receive task and project files'),t('编制方案与交付清单','Prepare proposal and action list'),t('返回状态、回应与成果','Return status, responses and results')].map(step=><div><span class="i2-step-mark"><Icon name="check" size={12}/></span><span>{step}</span></div>)}</div><div class="i2-api-delivery"><Icon name="file-check" size={22}/><span><strong>{t('服务方案与交付清单','Proposal & delivery action list')}</strong><span>{t('成果回到原业务流程','Deliverables return to the workflow')}</span></span></div></div>
+        <div class="i2-api-modes"><span>{t('同步','Sync')}</span><span>{t('异步','Async')}</span><span>{t('流式','Stream')}</span></div>
+      </div>
+      <div class="i2-api-receive"><Transfer reverse label={t('状态与成果','Status & results')} method={t('平台 OpenAPI','Platform OpenAPI')}/></div>
+    </div>}
+  </div>
+</figure>
+<style>
+  .i2-art{container:integration-art / inline-size;--i2-line:#92aac02a;--i2-muted:#99afc5;--i2-ink:#e1ebf6;--i2-surface:#0b1623;font-size:12px;line-height:1.6;color:#c2d3e4;padding:8px 0}
+  .i2-art::before{content:none}.i2-art :is(div,span){min-width:0;box-sizing:border-box}.i2-art :global(svg){flex-shrink:0;color:#a0bfd9;stroke-width:1.55}
+  .i2-art strong{display:block;color:var(--i2-ink);font-size:12px;line-height:1.6;font-weight:550;overflow-wrap:anywhere}
+  .i2-art p{color:#b0c3d6;font-size:12px;line-height:1.8;margin:0;overflow-wrap:anywhere}
+  .i2-panel{min-width:0;border:1px solid #8dabc13c;border-radius:9px;background:linear-gradient(145deg,#192b3d,#111e2d 80%);box-shadow:0 22px 42px -28px #000d;overflow:hidden}
+  .i2-tego{border-color:#a0bed25c;background:linear-gradient(145deg,#213b54,#182c42 48%,#122134);box-shadow:0 26px 46px -25px #000e}
+  .i2-heading{display:flex;align-items:center;gap:8px;min-height:49px;padding:12px 15px;border-bottom:1px solid var(--i2-line);background:#9dbbd908}
+  .i2-heading>strong{font-size:13px}.i2-heading>span:last-child:not(.i2-system-icon){margin-left:auto;color:#9db4c9;font-size:10px;line-height:1.5;text-align:right}
+  .i2-system-icon{display:grid;place-items:center;width:23px;flex-shrink:0}
+  .i2-body{padding:18px 16px}.i2-label{display:block;font-size:10px;color:var(--i2-muted);line-height:1.6}
+  .i2-art .i2-project{font-size:14px;margin-top:5px;line-height:1.65}
+  .i2-art .i2-quote{margin-top:15px;padding-left:11px;border-left:2px solid #8aaec05c}
+  .i2-file{display:flex;align-items:flex-start;gap:7px;margin-top:15px;font-size:10.5px;color:#b8cfe2;line-height:1.65;overflow-wrap:anywhere}
+  .i2-file>svg{margin-top:1px}.i2-file>span{flex:1}
+  .i2-section-heading{display:flex;align-items:center;gap:8px}.i2-section-heading strong{font-size:11px;color:#aec4d9}
+  .i2-timeline{position:relative;margin:15px 0 0 5px;padding-left:15px;border-left:1px solid #7b9cbb7a}
+  .i2-timeline::before{content:'';position:absolute;left:-3px;top:7px;width:5px;height:5px;border-radius:50%;background:#a1c4e1}
+  .i2-timeline>p{margin-top:7px;font-size:11.5px}.i2-timeline .i2-file{margin-top:13px}
+  .i2-hero{display:grid;grid-template-columns:minmax(0,.95fr) 74px minmax(0,1.25fr);grid-template-rows:1fr 1fr;align-items:stretch}
+  .i2-hero-crm{grid-column:1;grid-row:1/3;display:grid;grid-template-rows:1fr 1fr}
+  .i2-crm-source{min-width:0}.i2-crm-result{min-width:0;padding:17px 16px 20px;border-top:1px solid var(--i2-line);background:#9fc3dd06}
+  .i2-hero-read{grid-column:2;grid-row:1;display:flex;align-items:center;padding:0 7px}
+  .i2-hero-write{grid-column:2;grid-row:2;display:flex;align-items:center;padding:0 7px}
+  .i2-hero-task{grid-column:3;grid-row:1/3;display:flex;flex-direction:column}.i2-hero-task>.i2-body{flex:1}
+  .i2-employee{display:flex;align-items:flex-start;gap:10px}.i2-employee>span{display:grid;place-items:center;flex-shrink:0;width:33px;height:36px;border:1px solid #9bbbd43b;border-radius:7px;background:linear-gradient(145deg,#6487ad35,#2c466019)}
+  .i2-employee strong{font-size:13px}.i2-employee p{font-size:11px;margin-top:5px;color:#a8c0d6}
+  .i2-work-steps{display:grid;gap:17px;margin-top:25px}.i2-work-steps>div{display:flex;align-items:center;gap:9px;font-size:11.5px;line-height:1.6;color:#c8d9e9}
+  .i2-step-mark{display:grid;place-items:center;width:20px;height:20px;flex-shrink:0;border:1px solid #a6c6df46;border-radius:50%;background:linear-gradient(145deg,#5f83a45c,#2c4c6759)}
+  .i2-deliverables{margin-top:24px;padding-top:15px;border-top:1px solid var(--i2-line)}.i2-deliverables .i2-file{margin-top:10px}
+  .i2-tool-shelf{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px 15px;border-top:1px solid var(--i2-line);background:#07162640}
+  .i2-tool-shelf>div{display:flex;align-items:center;gap:8px}.i2-tool-shelf>div+div{border-left:1px solid var(--i2-line);padding-left:12px}
+  .i2-tool-shelf strong{font-size:10.5px}.i2-tool-shelf span>span{display:block;font-size:9.5px;color:#92aec7;line-height:1.5;margin-top:4px}
+  .i2-duo{display:grid;grid-template-columns:minmax(0,1fr) 68px minmax(0,1.14fr);align-items:stretch}
+  .i2-one-transfer{display:flex;align-items:center;padding-inline:6px}
+  .i2-systems,.i2-context-task{display:flex;flex-direction:column;min-height:385px}
+  .i2-system-list{display:grid;grid-template-rows:repeat(4,1fr);flex:1;padding:0 15px}
+  .i2-object-row{display:flex;align-items:center;flex-wrap:wrap;gap:9px;padding:15px 0}.i2-object-row+.i2-object-row{border-top:1px solid var(--i2-line)}
+  .i2-object-row>div{flex:1}.i2-object-row strong{font-size:12px}.i2-object-row>div>span{display:block;font-size:10px;color:#9eb4c9;margin-top:4px}
+  .i2-object-row>.i2-method{font-size:9px;color:#88a6c0;line-height:1.5;text-align:right;max-width:60px}
+  .i2-panel-foot{display:flex;align-items:center;gap:7px;min-height:43px;padding:12px 15px;border-top:1px solid var(--i2-line);color:#8fa9c0;font-size:9.5px;line-height:1.6}
+  .i2-task-name{display:flex;align-items:flex-start;gap:8px;margin:15px 15px 0;padding-bottom:13px;border-bottom:1px solid var(--i2-line)}.i2-task-name>svg{margin-top:2px}.i2-task-name strong{font-size:11px}
+  .i2-material-list{display:grid;grid-template-rows:repeat(4,1fr);flex:1;padding:2px 15px 0}
+  .i2-material-row{display:flex;align-items:center;gap:9px;padding:11px 0}.i2-material-row strong{font-size:11px}.i2-material-row>div>span{display:block;font-size:9px;color:#8ea9c1;line-height:1.5;margin-top:3px}
+  .i2-material-row+.i2-material-row{border-top:1px solid #8da9c017}
+  .i2-context-output{margin:0;padding:13px 15px;border-top:1px solid var(--i2-line);background:#0a192b30}
+  .i2-action{grid-template-columns:minmax(0,1.18fr) 74px minmax(0,1fr)}
+  .i2-action-task{display:flex;flex-direction:column}.i2-action-task>.i2-body{flex:1}
+  .i2-note{padding:12px;border:1px solid #9cb9d327;border-radius:6px;background:#09172655}.i2-note .i2-file{margin:0;font-size:10.5px}.i2-note p{margin-top:9px;font-size:11px;line-height:1.8}
+  .i2-read-method{display:flex;align-items:center;gap:6px;margin-top:12px;color:#8fadc7;font-size:9.5px}.i2-action-task .i2-work-steps{margin-top:20px;gap:15px}
+  .i2-action-file{margin-top:20px;padding-top:14px;border-top:1px solid var(--i2-line)}
+  .i2-action-crm{background:linear-gradient(145deg,#22394e,#17283a 80%);border-color:#a0bed24d}
+  .i2-action-timeline{margin-top:23px;padding-bottom:3px}.i2-action-timeline>strong{margin-top:6px}.i2-action-timeline::before{top:8px}
+  .i2-next-actions{display:grid;gap:10px;margin-top:18px}.i2-next-actions>div{display:flex;gap:7px;align-items:flex-start;font-size:11px;color:#b9d0e3}.i2-next-actions svg{margin-top:2px}
+  .i2-action-timeline .i2-file{margin-top:22px;padding-top:14px;border-top:1px solid var(--i2-line)}
+  .i2-api{display:grid;grid-template-columns:minmax(0,1fr) 80px minmax(0,1.1fr);grid-template-rows:1fr 1fr;align-items:stretch}
+  .i2-api-client{grid-column:1;grid-row:1/3;display:grid;grid-template-rows:1fr 1fr}
+  .i2-api-send{grid-column:2;grid-row:1;display:flex;align-items:center;padding-inline:7px}.i2-api-receive{grid-column:2;grid-row:2;display:flex;align-items:center;padding-inline:7px}
+  .i2-api-task{grid-column:3;grid-row:1/3;display:flex;flex-direction:column}.i2-api-task>.i2-body{flex:1}
+  .i2-api-prompt{margin-top:9px!important}.i2-api-return{padding:17px 16px 20px;border-top:1px solid var(--i2-line);background:#a0c4e208}
+  .i2-return-labels{display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:13px;font-size:10px;line-height:1.6;color:#9fbad1}.i2-return-labels>span{display:block}
+  .i2-api-return .i2-file{margin-top:12px}
+  .i2-execution-identity{display:flex;align-items:center;gap:9px;padding-bottom:17px;border-bottom:1px solid var(--i2-line)}.i2-execution-identity strong{font-size:11px}.i2-execution-identity div>span{display:block;margin-top:4px;color:#91aec5;font-size:10px;line-height:1.6}
+  .i2-api-task .i2-work-steps{gap:22px;margin-top:26px}
+  .i2-api-delivery{display:flex;align-items:center;gap:10px;margin-top:26px;padding:14px 0 0;border-top:1px solid var(--i2-line)}.i2-api-delivery strong{font-size:11px}.i2-api-delivery span>span{display:block;margin-top:5px;font-size:10px;color:#8eaac3;line-height:1.6}
+  .i2-api-modes{display:grid;grid-template-columns:repeat(3,1fr);padding:14px 10px;border-top:1px solid var(--i2-line);background:#0818294d;color:#b1cbe1;text-align:center;font-size:11px}.i2-api-modes>span+span{border-left:1px solid var(--i2-line)}
+  .i2-scene--1{background:var(--i2-surface);border-radius:14px;box-shadow:0 0 24px 16px var(--i2-surface)}
+  :global([data-capability="integrations"] .cp-hero:lang(en) h1 span){white-space:normal}
+  :global([data-capability="integrations"] .cp-hero-field){background:linear-gradient(128deg,rgba(13,30,49,.7),transparent 45%),linear-gradient(24deg,transparent 60%,rgba(73,51,112,.19))}
+  :global([data-capability="integrations"] .cp-hero-field::before){content:none}
+  :global([data-capability="integrations"] .cp-hero){position:relative;z-index:1}
+  @container integration-art (max-width:620px) and (min-width:501px){
+    .i2-hero{grid-template-columns:minmax(0,1fr) 68px minmax(0,1.15fr)}.i2-heading{padding:12px 11px;flex-wrap:wrap;gap:6px}.i2-heading>span:last-child:not(.i2-system-icon){font-size:9px}
+    .i2-body{padding:16px 12px}.i2-crm-result,.i2-api-return{padding:16px 12px}.i2-tool-shelf{padding:13px 11px;gap:8px}.i2-tool-shelf>div{align-items:flex-start;gap:6px}.i2-tool-shelf>div+div{padding-left:8px}
+    .i2-object-row{gap:7px}.i2-object-row>.i2-method{flex-basis:100%;text-align:left;padding-left:28px;max-width:none;margin-top:-5px}.i2-system-list,.i2-material-list{padding-inline:12px}.i2-task-name{margin-inline:12px}
+  }
+  @container integration-art (max-width:500px){
+    .i2-hero,.i2-api{display:flex;flex-direction:column}.i2-hero-crm,.i2-api-client{display:contents}
+    .i2-crm-source,.i2-crm-result,.i2-api-request,.i2-api-return{border:1px solid #8dabc13c;border-radius:9px;background:linear-gradient(145deg,#192b3d,#111e2d 80%);box-shadow:0 22px 42px -28px #000d;overflow:hidden}
+    .i2-crm-source,.i2-api-request{order:0}.i2-hero-read,.i2-api-send{order:1}.i2-hero-task,.i2-api-task{order:2}.i2-hero-write,.i2-api-receive{order:3}.i2-crm-result,.i2-api-return{order:4}
+    .i2-hero-read,.i2-hero-write,.i2-api-send,.i2-api-receive{padding:0}
+    .i2-crm-result,.i2-api-return{padding:18px 16px}.i2-hero-task>.i2-body{padding:19px 16px}.i2-art .i2-project{font-size:14px}
+    .i2-duo{grid-template-columns:1fr}.i2-one-transfer{padding:0}.i2-systems,.i2-context-task{min-height:0}
+    .i2-heading{padding:12px 15px}.i2-heading>strong{font-size:13px}.i2-body{padding:18px 16px}
+    .i2-object-row{padding:15px 0}.i2-object-row strong{font-size:13px}.i2-object-row>.i2-method{font-size:10px;max-width:90px}
+    .i2-material-row{padding:13px 0}.i2-material-row strong{font-size:12px}.i2-material-row>div>span{font-size:10px}
+    .i2-task-name{margin-top:16px}.i2-task-name strong{font-size:12px}.i2-context-output{font-size:11px;padding-block:14px}
+    .i2-art p{font-size:12px}.i2-work-steps>div{font-size:12px}.i2-file{font-size:11px}.i2-timeline>p{font-size:12px}
+    .i2-action-timeline{margin-top:21px}.i2-action-timeline .i2-file{margin-top:18px}.i2-api-task .i2-work-steps{gap:20px}.i2-api-delivery{margin-top:24px}
+    .i2-tool-shelf strong{font-size:11px}.i2-tool-shelf span>span{font-size:10px}.i2-scene--1{border-radius:10px;box-shadow:0 0 16px 8px var(--i2-surface)}
+  }
+</style>

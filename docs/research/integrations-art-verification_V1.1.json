@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-22",
+  "version": "V1.1",
+  "source": "src/components/product/IntegrationsWorkArt_V1.1.astro",
+  "scope": "Four conceptual illustrations on integrations page; page copy unchanged",
+  "checks": {
+    "astro": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "tests": {
+      "passed": 200,
+      "skipped": 1,
+      "failed": 0
+    },
+    "build": "passed",
+    "verify": "passed",
+    "diffWhitespace": "passed"
+  },
+  "browser": {
+    "zh_and_en_widths": [
+      390,
+      580,
+      581,
+      850,
+      851,
+      1100,
+      1101,
+      1379
+    ],
+    "page_and_art_horizontal_overflow": 0,
+    "long_text_overflow": 0,
+    "traditional": "Built static page inspected at desktop; four illustrations converted to Traditional Chinese"
+  },
+  "limitations": [
+    "Conceptual work surfaces, not screenshots of the product UI",
+    "No human usability testing",
+    "Not deployed"
+  ],
+  "screenshots": {
+    "desktop": "review/integrations_V1.1/desktop-zh_V1.4.jpg",
+    "mobile_zh": "review/integrations_V1.1/mobile-zh_V1.2.jpg",
+    "mobile_en": "review/integrations_V1.1/mobile-en_V1.2.jpg",
+    "traditional": "review/integrations_V1.1/desktop-zh-Hant_V1.2.jpg"
+  },
+  "capture_note": "desktop-zh_V1.2/1.3 and hero-zh_V1.2/1.3 were captured at 390px despite filenames; final desktop capture is V1.4."
+}

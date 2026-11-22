@@ -1,6 +1,0 @@
-packages:
-  - '.'
-allowBuilds:
-  '@swc/core': true
-  sharp: true
-  unrs-resolver: true

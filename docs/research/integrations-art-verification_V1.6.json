@@ -1,0 +1,128 @@
+[
+  {
+    "arrows": 10,
+    "artOverflow": false,
+    "labelOverlap": false,
+    "lang": "zh-CN",
+    "pageOverflow": false,
+    "thinArrowCount": 0,
+    "width": 390
+  },
+  {
+    "arrows": 10,
+    "artOverflow": false,
+    "labelOverlap": false,
+    "lang": "zh-CN",
+    "pageOverflow": false,
+    "thinArrowCount": 0,
+    "width": 580
+  },
+  {
+    "arrows": 10,
+    "artOverflow": false,
+    "labelOverlap": false,
+    "lang": "zh-CN",
+    "pageOverflow": false,
+    "thinArrowCount": 0,
+    "width": 581
+  },
+  {
+    "arrows": 10,
+    "artOverflow": false,
+    "labelOverlap": false,
+    "lang": "zh-CN",
+    "pageOverflow": false,
+    "thinArrowCount": 0,
+    "width": 850
+  },
+  {
+    "arrows": 10,
+    "artOverflow": false,
+    "labelOverlap": false,
+    "lang": "zh-CN",
+    "pageOverflow": false,
+    "thinArrowCount": 0,
+    "width": 851
+  },
+  {
+    "arrows": 10,
+    "artOverflow": false,
+    "labelOverlap": false,
+    "lang": "zh-CN",
+    "pageOverflow": false,
+    "thinArrowCount": 0,
+    "width": 1100
+  },
+  {
+    "arrows": 10,
+    "artOverflow": false,
+    "labelOverlap": false,
+    "lang": "zh-CN",
+    "pageOverflow": false,
+    "thinArrowCount": 0,
+    "width": 1101
+  },
+  {
+    "arrows": 10,
+    "artOverflow": false,
+    "labelOverlap": false,
+    "lang": "en",
+    "pageOverflow": false,
+    "thinArrowCount": 0,
+    "width": 390
+  },
+  {
+    "arrows": 10,
+    "artOverflow": false,
+    "labelOverlap": false,
+    "lang": "en",
+    "pageOverflow": false,
+    "thinArrowCount": 0,
+    "width": 580
+  },
+  {
+    "arrows": 10,
+    "artOverflow": false,
+    "labelOverlap": false,
+    "lang": "en",
+    "pageOverflow": false,
+    "thinArrowCount": 0,
+    "width": 581
+  },
+  {
+    "arrows": 10,
+    "artOverflow": false,
+    "labelOverlap": false,
+    "lang": "en",
+    "pageOverflow": false,
+    "thinArrowCount": 0,
+    "width": 850
+  },
+  {
+    "arrows": 10,
+    "artOverflow": false,
+    "labelOverlap": false,
+    "lang": "en",
+    "pageOverflow": false,
+    "thinArrowCount": 0,
+    "width": 851
+  },
+  {
+    "arrows": 10,
+    "artOverflow": false,
+    "labelOverlap": false,
+    "lang": "en",
+    "pageOverflow": false,
+    "thinArrowCount": 0,
+    "width": 1100
+  },
+  {
+    "arrows": 10,
+    "artOverflow": false,
+    "labelOverlap": false,
+    "lang": "en",
+    "pageOverflow": false,
+    "thinArrowCount": 0,
+    "width": 1101
+  }
+]

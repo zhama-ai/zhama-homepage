@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="topology-links workspace-flow" viewBox="0 0 1948 760" aria-hidden="true" focusable="false">
+ <defs>
+  <linearGradient id="input-device-wire" gradientUnits="userSpaceOnUse" x1="0" y1="300" x2="0" y2="260">
+   <stop offset="0" stop-color="#55b7d8" stop-opacity=".78"/>
+   <stop offset=".65" stop-color="#508caa" stop-opacity=".34"/>
+   <stop offset="1" stop-color="#508caa" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="input-channel-wire" gradientUnits="userSpaceOnUse" x1="0" y1="401" x2="0" y2="505">
+   <stop offset="0" stop-color="#55b7d8" stop-opacity=".78"/>
+   <stop offset=".65" stop-color="#508caa" stop-opacity=".34"/>
+   <stop offset="1" stop-color="#508caa" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="input-device-wire-sweep" gradientUnits="userSpaceOnUse" x1="0" y1="244" x2="0" y2="260">
+   <stop offset="0" stop-color="#bdefff" stop-opacity="0"/>
+   <stop offset=".5" stop-color="#bdefff" stop-opacity=".28"/>
+   <stop offset="1" stop-color="#bdefff" stop-opacity="0"/>
+   <animate attributeName="y1" dur="10s" repeatCount="indefinite" values="244;244;304;304" keyTimes="0;.015;.13;1"/>
+   <animate attributeName="y2" dur="10s" repeatCount="indefinite" values="260;260;320;320" keyTimes="0;.015;.13;1"/>
+  </linearGradient>
+  <linearGradient id="input-channel-wire-sweep" gradientUnits="userSpaceOnUse" x1="0" y1="505" x2="0" y2="529">
+   <stop offset="0" stop-color="#bdefff" stop-opacity="0"/>
+   <stop offset=".5" stop-color="#bdefff" stop-opacity=".28"/>
+   <stop offset="1" stop-color="#bdefff" stop-opacity="0"/>
+   <animate attributeName="y1" dur="10s" repeatCount="indefinite" values="505;505;377;377" keyTimes="0;.015;.13;1"/>
+   <animate attributeName="y2" dur="10s" repeatCount="indefinite" values="529;529;401;401" keyTimes="0;.015;.13;1"/>
+  </linearGradient>
+
+  <linearGradient id="workspace-transfer-base" x1="0" y1="0" x2="1" y2="0">
+   <stop offset="0" stop-color="#4479a3" stop-opacity=".22"/>
+   <stop offset="1" stop-color="#79cedf" stop-opacity=".84"/>
+  </linearGradient>
+  <linearGradient id="workspace-request-sweep" gradientUnits="userSpaceOnUse" x1="415" y1="0" x2="449" y2="0">
+   <stop offset="0" stop-color="#c2f3ff" stop-opacity="0"/>
+   <stop offset=".5" stop-color="#c2f3ff" stop-opacity=".42"/>
+   <stop offset="1" stop-color="#c2f3ff" stop-opacity="0"/>
+   <animate attributeName="x1" dur="10s" repeatCount="indefinite" values="415;415;550;550" keyTimes="0;0.16;0.26;1"/>
+   <animate attributeName="x2" dur="10s" repeatCount="indefinite" values="449;449;584;584" keyTimes="0;0.16;0.26;1"/>
+  </linearGradient>
+  <linearGradient id="workspace-delivery-sweep" gradientUnits="userSpaceOnUse" x1="1144" y1="0" x2="1178" y2="0">
+   <stop offset="0" stop-color="#c2f3ff" stop-opacity="0"/>
+   <stop offset=".5" stop-color="#c2f3ff" stop-opacity=".42"/>
+   <stop offset="1" stop-color="#c2f3ff" stop-opacity="0"/>
+   <animate attributeName="x1" dur="10s" repeatCount="indefinite" values="1144;1144;1279;1279" keyTimes="0;0.67;0.77;1"/>
+   <animate attributeName="x2" dur="10s" repeatCount="indefinite" values="1178;1178;1313;1313" keyTimes="0;0.67;0.77;1"/>
+  </linearGradient>
+ </defs>
+ <g class="workspace-input-wiring">
+  <path d="M74.00 260.00 C166.40 260.00 221.84 271.20 221.84 293.60 L203.36 292.00 L242.00 300.00 L280.64 292.00 L262.16 293.60 C262.16 271.20 317.60 260.00 410.00 260.00 Z" fill="url(#input-device-wire)"/>
+  <path d="M60.00 505.00 C160.10 505.00 220.16 475.88 220.16 417.64 L200.14 421.80 L242.00 401.00 L283.86 421.80 L263.84 417.64 C263.84 475.88 323.90 505.00 424.00 505.00 Z" fill="url(#input-channel-wire)"/>
+ </g>
+ <g class="workspace-motion workspace-input-sweep" opacity="0">
+  <path d="M74.00 260.00 C166.40 260.00 221.84 271.20 221.84 293.60 L203.36 292.00 L242.00 300.00 L280.64 292.00 L262.16 293.60 C262.16 271.20 317.60 260.00 410.00 260.00 Z" fill="url(#input-device-wire-sweep)"/>
+  <path d="M60.00 505.00 C160.10 505.00 220.16 475.88 220.16 417.64 L200.14 421.80 L242.00 401.00 L283.86 421.80 L263.84 417.64 C263.84 475.88 323.90 505.00 424.00 505.00 Z" fill="url(#input-channel-wire-sweep)"/>
+  <animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;.015;.035;.10;.14;1"/>
+ </g>
+ <g class="workspace-connector">
+  <svg x="449" y="344" width="96" height="62" viewBox="0 0 96 62" overflow="visible">
+   <path d="M0 6 C17 6 26 24 43 24 H70 V15 L96 31 L70 47 V38 H43 C26 38 17 56 0 56 C9 43 9 19 0 6 Z" fill="url(#workspace-transfer-base)"/>
+  </svg>
+  <path class="workspace-motion" d="M449 350 C466 350 475 368 492 368 H519 V359 L545 375 L519 391 V382 H492 C475 382 466 400 449 400 C458 387 458 363 449 350 Z" fill="url(#workspace-request-sweep)" opacity="0">
+   <animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.16;0.17200000000000001;0.248;0.26;1"/>
+  </path>
+ </g>
+ <g class="workspace-connector">
+  <svg x="1178" y="344" width="96" height="62" viewBox="0 0 96 62" overflow="visible">
+   <path d="M0 6 C17 6 26 24 43 24 H70 V15 L96 31 L70 47 V38 H43 C26 38 17 56 0 56 C9 43 9 19 0 6 Z" fill="url(#workspace-transfer-base)"/>
+  </svg>
+  <path class="workspace-motion" d="M1178 350 C1195 350 1204 368 1221 368 H1248 V359 L1274 375 L1248 391 V382 H1221 C1204 382 1195 400 1178 400 C1187 387 1187 363 1178 350 Z" fill="url(#workspace-delivery-sweep)" opacity="0">
+   <animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.67;0.682;0.758;0.77;1"/>
+  </path>
+ </g>
+ <path class="workspace-motion" d="M645 456 H1070" fill="none" stroke="#9fd7cd" stroke-width="1.7" stroke-dasharray="425" stroke-dashoffset="425" opacity="0">
+  <animate attributeName="stroke-dashoffset" dur="10s" repeatCount="indefinite" values="425;425;0;0" keyTimes="0;.28;.64;1"/>
+  <animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;.45;.45;0;0" keyTimes="0;.275;.29;.90;.95;1"/>
+ </path>
+ <g class="workspace-motion workspace-stage-check" opacity="0">
+  <circle cx="645" cy="456" r="8" fill="#4e9388"/>
+  <path d="M641.5 456 L644 458.5 L649 453.5" fill="none" stroke="#ebfff9" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.272;0.290;.90;.95;1"/>
+ </g>
+ <g class="workspace-motion workspace-stage-check" opacity="0">
+  <circle cx="786" cy="456" r="8" fill="#4e9388"/>
+  <path d="M782.5 456 L785 458.5 L790 453.5" fill="none" stroke="#ebfff9" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.392;0.410;.90;.95;1"/>
+ </g>
+ <g class="workspace-motion workspace-stage-check" opacity="0">
+  <circle cx="929" cy="456" r="8" fill="#4e9388"/>
+  <path d="M925.5 456 L928 458.5 L933 453.5" fill="none" stroke="#ebfff9" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.512;0.530;.90;.95;1"/>
+ </g>
+ <g class="workspace-motion workspace-stage-check" opacity="0">
+  <circle cx="1070" cy="456" r="8" fill="#4e9388"/>
+  <path d="M1066.5 456 L1069 458.5 L1074 453.5" fill="none" stroke="#ebfff9" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.632;0.650;.90;.95;1"/>
+ </g>
+</svg>

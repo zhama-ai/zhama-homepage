@@ -1,0 +1,25 @@
+/* Full-width sections share one canvas. Cards keep their own surface hierarchy. */
+:root { --page-canvas: var(--page-bg, #060b12); }
+html, body { background: var(--page-canvas); }
+body #main.page-canvas,
+body #main.page-canvas > :is(div, article):not(.industry-solution-securities, .government-page, .soe-solution),
+body #main.page-canvas .value-depth { background: transparent; }
+
+body #main.page-canvas > :is(section, header),
+body #main.page-canvas > :is(div, article):not(.industry-solution-securities, .government-page, .soe-solution) > :is(section, header):not(.hero-carousel),
+body #main.page-canvas .value-depth > section,
+body #main.page-canvas .support-shell > div > :is(section, header) {
+  background: transparent;
+}
+
+body #main.page-canvas .sl-closing::before,
+body #main.page-canvas .sl-closing::after { content: none; }
+body .site-footer { background: var(--page-canvas); }
+
+/* The hero keeps its established atmosphere and fades into the same canvas. */
+body.is-home #main.page-canvas .hero-carousel {
+  background: linear-gradient(to bottom, transparent 76%, var(--page-canvas)),
+    radial-gradient(ellipse at 21% 52%, #174a7238, transparent 72%),
+    radial-gradient(ellipse at 85% 76%, #11467428, transparent 57%), var(--page-canvas);
+}
+.hero-starfield { mask-image: linear-gradient(#000 0%, #000 72%, transparent 100%); }

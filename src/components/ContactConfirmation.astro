@@ -1,0 +1,20 @@
+---
+interface Props { copy: { title: string; message: string; confirm: string }; }
+const { copy } = Astro.props;
+---
+<dialog id="contact-confirmation" class="contact-confirmation" aria-labelledby="contact-confirmation-title" aria-describedby="contact-confirmation-message">
+  <div class="confirmation-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6" /></svg></div>
+  <h2 id="contact-confirmation-title">{copy.title}</h2>
+  <p id="contact-confirmation-message">{copy.message}</p>
+  <button class="button confirmation-button" id="contact-confirm" type="button" autofocus>{copy.confirm}</button>
+</dialog>
+<style>
+  .contact-confirmation { width: min(420px, calc(100vw - 40px)); max-height: calc(100dvh - 40px); overflow: auto; margin: auto; padding: 36px 28px 30px; border: 1px solid rgb(255 255 255 / 12%); border-radius: 16px; background: #141a24; color: var(--ink); box-shadow: 0 24px 80px rgb(0 0 0 / 32%); text-align: center; }
+  .contact-confirmation::backdrop { background: rgb(0 0 0 / 62%); backdrop-filter: blur(3px); }
+  .confirmation-icon { display: grid; place-items: center; width: 58px; height: 58px; margin: 0 auto 22px; border: 1px solid rgb(66 145 245 / 24%); border-radius: 50%; background: rgb(51 112 229 / 10%); color: #80b4ff; }
+  .contact-confirmation h2 { margin: 0; font-size: 26px; font-weight: 600; letter-spacing: -.4px; line-height: 1.4; }
+  .contact-confirmation p { margin: 12px 0 26px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+  .confirmation-button { min-width: 160px; justify-content: center; }
+  :global(html:has(dialog.contact-confirmation[open])) { overflow: hidden; }
+  @media (max-width: 480px) { .contact-confirmation { padding: 30px 22px 26px; } .contact-confirmation h2 { font-size: 24px; } }
+</style>

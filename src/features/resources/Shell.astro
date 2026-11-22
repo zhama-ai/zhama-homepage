@@ -1,0 +1,33 @@
+---
+import type { Locale } from '../../data/types';
+import { pathFor, site } from '../../lib/site';
+import './styles.css';
+interface Props { locale: Locale; page: string; navigation?: boolean; }
+const { locale, page, navigation = true } = Astro.props;
+const zh = locale === 'zh';
+const links = [['resources', zh ? '资源中心' : 'Resources'], ['download', zh ? '客户端下载' : 'Downloads'], ['releases', zh ? '历史版本' : 'Release archive'], ['faq', zh ? '常见问题' : 'FAQ']];
+---
+<div class="support-shell" data-support-locale={locale}>
+  {navigation && <nav class="support-nav container" aria-label={zh ? '资源与支持导航' : 'Resources and support'}><div>{links.map(([slug, name]) => <a href={pathFor(locale, slug)} aria-current={page === slug ? 'page' : undefined}>{name}</a>)}</div><a class="support-docs-link" href={site.docs} hreflang="zh-CN">{zh ? '文档中心' : 'Documentation'}</a></nav>}
+  <slot/>
+</div>
+<script>
+  import { onPageMount } from '../../lib/page-lifecycle';
+  onPageMount(signal => {
+    if (document.querySelector('.support-shell')) {
+      document.querySelectorAll<HTMLAnchorElement>('[data-language-option]').forEach(languageLink => {
+        languageLink.addEventListener('click', () => {
+          const destination = new URL(languageLink.href, location.origin);
+          const current = new URL(location.href);
+          for (const key of ['version', 'product', 'platform']) {
+            const value = current.searchParams.get(key);
+            if (value) destination.searchParams.set(key, value);
+            else destination.searchParams.delete(key);
+          }
+          destination.hash = current.hash;
+          languageLink.href = destination.pathname + destination.search + destination.hash;
+        }, { signal });
+      });
+    }
+  });
+</script>

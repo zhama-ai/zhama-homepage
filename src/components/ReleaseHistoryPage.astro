@@ -1,0 +1,205 @@
+---
+import releaseIndex from '../../public/releases/index.json';
+import { releaseArchive } from '../data/legacy';
+import type { Locale } from '../data/types';
+import Shell from '../features/resources/Shell.astro';
+import { releasePackages, releaseStatus } from '../lib/releases';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const zh = locale === 'zh';
+const products: Record<string, string> = zh
+  ? { desktop: 'TeGo 桌面端', mobile: 'TeGo 移动端', studio: 'Tego Studio' }
+  : { desktop: 'TeGo Desktop', mobile: 'TeGo Mobile', studio: 'Tego Studio' };
+const clientFiles = releaseIndex.files.filter(file => Object.hasOwn(products, file.product));
+const versions = releaseIndex.versions.filter(version => clientFiles.some(file => file.version === version));
+const defaultVersion = versions.includes(releaseArchive.defaultVersion) ? releaseArchive.defaultVersion : versions[0];
+const manifestLabel = (file: (typeof clientFiles)[number]) => [products[file.product], file.arch || ''].filter(Boolean).join(' · ');
+const defaultFiles = clientFiles.filter(file => file.version === defaultVersion);
+const defaultFile = defaultFiles[0];
+if (!defaultFile || !defaultFile.path.startsWith('/releases/manifests/')) throw new Error('The default client release manifest is not listed.');
+const manifests = import.meta.glob('../../public/releases/manifests/**/clients/tego/*.json', { eager: true, import: 'default' });
+const defaultManifest = manifests[`../../public${defaultFile.path}`];
+const initialPackages = releasePackages(defaultManifest, defaultFile, zh);
+const initialStatus = releaseStatus(initialPackages, zh);
+const config = { versions, files: clientFiles.map(({ path, version, product, arch }) => ({ path, version, product, arch })), defaultVersion, initial: { path: defaultFile.path, ...initialPackages } };
+---
+<Shell locale={locale} page="releases" navigation={false}>
+<header class="support-hero release-hero"><div class="container"><h1>{zh ? '客户端历史版本' : 'Client release history'}</h1></div></header>
+<section class="container release-history inner-releases" data-release-config={JSON.stringify(config)} data-locale={locale} aria-label={zh ? '版本选择' : 'Release selection'}>
+  <div class="release-controls field-pair">
+    <div class="field"><label for="release-version">{zh ? '发布版本' : 'Release version'}</label><select id="release-version" aria-controls="release-items">{versions.map(version => <option value={version} selected={version === defaultVersion}>{version}</option>)}</select></div>
+    <div class="field"><label for="release-manifest">{zh ? '产品' : 'Product'}</label><select id="release-manifest" aria-controls="release-items">{defaultFiles.map(file => <option value={file.path}>{manifestLabel(file)}</option>)}</select></div>
+  </div>
+  <p class="release-notice" id="release-version-notice" hidden></p>
+  <div class="release-status-row" hidden={!initialStatus}><p id="release-status" role="status" aria-live="polite">{initialStatus}</p><button id="release-retry" class="button button-outline button-small" type="button" hidden>{zh ? '重试' : 'Retry'}</button></div>
+  <div class="release-items" id="release-items" aria-busy="false" data-release-path={defaultFile.path}>
+    {initialPackages.cards.map(card => <article class="download-card" aria-label={card.ariaLabel}>
+      <div class="release-card-heading"><h2>{card.title}</h2>{card.version && <span class="download-version">{card.version}</span>}</div>
+      {card.variants.map(variant => <div class="release-client-variant">
+        {!card.version && <span class="download-version">{variant.version}</span>}
+        <a class="button release-download" href={variant.url} aria-label={variant.ariaLabel}>{variant.label}</a>
+      </div>)}
+    </article>)}
+  </div>
+</section>
+</Shell>
+<style>
+.release-hero{padding:44px 0 36px}
+.release-history{padding:0 0 80px}
+.release-controls{display:grid;grid-template-columns:1fr 1.5fr;max-width:950px;gap:24px;margin-bottom:28px}
+.release-controls label{color:#b7cada;font-size:13px;margin-bottom:10px}
+.release-controls select{width:100%;min-height:49px;background:#0e2031;color:#e7f4ff;border:1px solid #799fbe55;border-radius:10px;font:inherit;font-size:14px;padding:10px 14px}
+.release-notice{font-size:14px;color:#a9c6dd;line-height:1.8;margin-top:18px}
+.release-status-row{display:flex;align-items:center;gap:18px;min-height:65px;margin:17px 0}
+.release-status-row p{font-size:14px;color:#a9bfd3;line-height:1.8}
+.release-status-row button{padding:7px 18px}
+.release-items{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.release-items :global(.download-card){min-width:0;display:flex;flex-direction:column;padding:22px;background:#0d1c2c;border:1px solid #94bdd324;border-radius:16px}
+.release-items :global(.release-card-heading){display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.release-items :global(.download-card h2){font-size:22px;margin:0;overflow-wrap:anywhere}
+.release-items :global(.download-version){display:block;font-size:13px;color:#aac5dc;margin:0 0 9px;padding:0;background:none;white-space:nowrap}
+.release-items :global(.release-card-heading>.download-version){margin:0}
+.release-items :global(.release-client-variant){margin-top:20px}
+/* Dynamic download links use the same CTA theme; only layout and size stay here. */
+.release-items :global(.release-download){width:100%;margin-top:0;justify-content:center;padding:11px 13px;min-height:46px;font-size:14px}
+@media(max-width:1100px){.release-items{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.release-hero{padding:32px 0 26px}.release-controls{grid-template-columns:1fr;gap:20px}.release-items{grid-template-columns:1fr}.release-history{padding-bottom:55px}.release-items :global(.download-card){padding:24px}.release-status-row{align-items:flex-start;flex-direction:column;gap:10px;padding-block:10px}}
+</style>
+<script>
+  import { onPageMount } from '../lib/page-lifecycle';
+  import { isReleaseManifest, releasePackages, releaseStatus as packageStatus, type ReleaseFile, type ReleasePackages } from '../lib/releases';
+  onPageMount(signal => {
+    interface ReleaseConfig { versions: string[]; files: ReleaseFile[]; defaultVersion: string; initial: ReleasePackages & { path: string }; }
+    const historyRoot = document.querySelector<HTMLElement>('[data-release-config]');
+    const versionSelect = document.querySelector<HTMLSelectElement>('#release-version');
+    const manifestSelect = document.querySelector<HTMLSelectElement>('#release-manifest');
+    const items = document.querySelector<HTMLElement>('#release-items');
+    const releaseStatus = document.querySelector<HTMLElement>('#release-status');
+    const versionNotice = document.querySelector<HTMLElement>('#release-version-notice');
+    const retry = document.querySelector<HTMLButtonElement>('#release-retry');
+    if (historyRoot && versionSelect && manifestSelect && items && releaseStatus && versionNotice && retry) {
+      const chinese = historyRoot.dataset.locale === 'zh';
+      const config = JSON.parse(historyRoot.dataset.releaseConfig || '{}') as ReleaseConfig;
+      const productLabels: Record<string, string> = chinese
+        ? { desktop: 'TeGo 桌面端', mobile: 'TeGo 移动端', studio: 'Tego Studio' }
+        : { desktop: 'TeGo Desktop', mobile: 'TeGo Mobile', studio: 'Tego Studio' };
+      let controller: AbortController | undefined;
+      signal.addEventListener('abort', () => controller?.abort(), { once: true });
+      const make = <K extends keyof HTMLElementTagNameMap>(tag: K, value = '', className = '') => {
+        const element = document.createElement(tag);
+        element.textContent = value;
+        if (className) element.className = className;
+        return element;
+      };
+      const link = (label: string, href: string) => {
+        // Keep the shared button class when rendering links after a version change.
+        const element = make('a', label, 'button release-download');
+        element.href = href;
+        return element;
+      };
+      const renderPackages = (packages: ReleasePackages, file: ReleaseFile) => {
+        const content = document.createDocumentFragment();
+        packages.cards.forEach(packageCard => {
+          const card = make('article', '', 'download-card');
+          card.setAttribute('aria-label', packageCard.ariaLabel);
+          const heading = make('div', '', 'release-card-heading');
+          heading.append(make('h2', packageCard.title));
+          if (packageCard.version) heading.append(make('span', packageCard.version, 'download-version'));
+          card.append(heading);
+          packageCard.variants.forEach(variant => {
+            const panel = make('div', '', 'release-client-variant');
+            if (!packageCard.version) panel.append(make('span', variant.version, 'download-version'));
+            const download = link(variant.label, variant.url);
+            download.setAttribute('aria-label', variant.ariaLabel);
+            panel.append(download);
+            card.append(panel);
+          });
+          content.append(card);
+        });
+        items.replaceChildren(content);
+        items.dataset.releasePath = file.path;
+        releaseStatus.textContent = packageStatus(packages, chinese);
+        releaseStatus.parentElement!.hidden = !releaseStatus.textContent;
+      };
+      const loadManifest = async () => {
+        controller?.abort();
+        const currentController = new AbortController();
+        controller = currentController;
+        const file = config.files.find(entry => entry.path === manifestSelect.value && entry.version === versionSelect.value);
+        retry.hidden = true;
+        if (file?.path === config.initial.path) {
+          if (items.dataset.releasePath !== file.path) renderPackages(config.initial, file);
+          items.setAttribute('aria-busy', 'false');
+          return;
+        }
+        releaseStatus.parentElement!.hidden = false;
+        items.replaceChildren();
+        delete items.dataset.releasePath;
+        items.setAttribute('aria-busy', 'true');
+        if (!file) {
+          releaseStatus.textContent = chinese ? '当前版本未收录所选产品，请选择其他产品或版本。' : 'This product is not listed. Choose another product or release.';
+          items.setAttribute('aria-busy', 'false'); return;
+        }
+        releaseStatus.textContent = chinese ? '正在读取所选版本的安装包。' : 'Retrieving packages for the selected release.';
+        try {
+          const url = new URL(file.path, location.origin);
+          if (url.origin !== location.origin || !url.pathname.startsWith('/releases/manifests/')) throw new Error(chinese ? '发布清单路径不在本站版本目录中' : 'Manifest path is outside the release directory');
+          const response = await fetch(url, { signal: currentController.signal, credentials: 'same-origin' });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          let manifest: unknown;
+          try { manifest = await response.json(); } catch { throw new Error(chinese ? '清单不是有效的 JSON' : 'Manifest is not valid JSON'); }
+          if (!isReleaseManifest(manifest)) throw new Error(chinese ? '清单结构无法识别' : 'Manifest schema is not supported');
+          if (!currentController.signal.aborted) renderPackages(releasePackages(manifest, file, chinese), file);
+        } catch (error) {
+          if (currentController.signal.aborted) return;
+          const reason = error instanceof Error ? error.message : (chinese ? '连接中断' : 'Connection interrupted');
+          releaseStatus.textContent = chinese ? `无法读取所选版本（${reason}）。请重试。` : `Could not retrieve the selected release (${reason}). Retry.`;
+          retry.hidden = false;
+        } finally {
+        if (!signal.aborted && controller === currentController) items.setAttribute('aria-busy', 'false');
+        }
+      };
+      const params = new URL(location.href).searchParams;
+      let preferredProduct = Object.hasOwn(productLabels, params.get('product') || '') ? params.get('product')! : '';
+      let preferredPath = '';
+      const selectVersion = (updateUrl: boolean) => {
+        const files = config.files.filter(file => file.version === versionSelect.value);
+        const options = document.createDocumentFragment();
+        files.forEach(file => {
+          const option = make('option', [productLabels[file.product], file.arch].filter(Boolean).join(' · '));
+          option.value = file.path; options.append(option);
+        });
+        manifestSelect.replaceChildren(options);
+        const preferred = files.find(file => file.path === preferredPath) || files.find(file => file.product === preferredProduct);
+        if(preferred) manifestSelect.value = preferred.path;
+        else if(preferredProduct && files.length){
+          const missing = make('option', chinese ? '该版本未收录所选产品，请选择其他产品' : 'This product is not listed; choose another product');
+          missing.value = ''; missing.disabled = true; missing.selected = true; manifestSelect.prepend(missing);
+        }
+        manifestSelect.disabled = files.length === 0;
+        if (updateUrl) {
+          const url = new URL(location.href); url.searchParams.set('version', versionSelect.value); history.replaceState(history.state, '', url);
+          versionNotice.hidden = true;
+        }
+        void loadManifest();
+      };
+      const requested = params.get('version');
+      versionSelect.value = requested && config.versions.includes(requested) ? requested : config.defaultVersion;
+      if (requested && !config.versions.includes(requested)) {
+        versionNotice.hidden = false;
+        versionNotice.textContent = chinese ? `链接中的版本未收录，当前显示 ${config.defaultVersion}。` : `The requested version is not listed. Showing ${config.defaultVersion}.`;
+      }
+      versionSelect.addEventListener('change', () => selectVersion(true), { signal });
+      manifestSelect.addEventListener('change', () => {
+        const file = config.files.find(entry => entry.path === manifestSelect.value);
+        preferredProduct = file?.product || ''; preferredPath = file?.path || '';
+        const url = new URL(location.href); url.searchParams.set('version',versionSelect.value);
+        if(preferredProduct)url.searchParams.set('product',preferredProduct); else url.searchParams.delete('product');
+        history.replaceState(history.state,'',url); void loadManifest();
+      }, { signal });
+      retry.addEventListener('click', () => { void loadManifest(); }, { signal });
+      selectVersion(false);
+    }
+  });
+</script>

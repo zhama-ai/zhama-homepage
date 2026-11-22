@@ -1,0 +1,24 @@
+---
+import type { Locale } from '../data/types';
+import WorkforceMatrix from './WorkforceMatrix.astro';
+import HeroCarousel from './HeroCarousel.astro';
+import SolutionExplorer from './SolutionExplorer.astro';
+import WorkAnywhere from './WorkAnywhere.astro';
+import HomeEnterprise from './HomeEnterprise.astro';
+import CallToAction from './CallToAction.astro';
+interface Props { locale: Locale; }
+const {locale} = Astro.props;
+
+---
+<div class="home-value-edition">
+<HeroCarousel locale={locale}/>
+<WorkAnywhere locale={locale}/>
+<HomeEnterprise locale={locale}/>
+<WorkforceMatrix locale={locale}/>
+<section class="value-section industry-section" id="solutions" aria-labelledby="industry-title">
+  <div class="container">
+    <SolutionExplorer locale={locale} home/>
+  </div>
+</section>
+<CallToAction locale={locale} home/>
+</div>

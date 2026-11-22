@@ -1,0 +1,165 @@
+---
+import Icon from '../Icon.astro';
+import type { ExperienceSection } from '../../features/product/experience-types';
+import type { Locale } from '../../data/types';
+import '../../styles/product-work-surface.css';
+
+interface Props { section: ExperienceSection; locale: Locale; variant?: 'wide' | 'compact'; }
+const { section, locale, variant = 'compact' } = Astro.props;
+const { visual: view, kind } = section;
+const zh = locale === 'zh';
+const kindIcon = { roster: 'users', execution: 'workflow', connections: 'plug', document: 'file', knowledge: 'book', governance: 'shield' }[kind];
+const avatarFor = (title: string) => /标书|bid/i.test(title) ? 'proposal' : /合规|compliance/i.test(title) ? 'admin' : /资料|document/i.test(title) ? 'knowledge' : undefined;
+const fileIcon = (name: string) => /\.xlsx?$/i.test(name) ? 'chart' : /记录|record|日志|log/i.test(name) ? 'clipboard-check' : 'file';
+const documentMode = section.id === 'conversation-versions' ? 'versions' : ['project-context', 'reuse'].includes(section.id) ? 'files' : 'prose';
+const completedResult = (value: string) => /^(已完成|已回应|已接手|已提交|Completed|Responded|Taken over|Submitted)$/i.test(value);
+---
+<figure class:list={['product-work-surface', `pws-${kind}`, `pws-${variant}`]} aria-label={view.title}>
+  <div class="pws-window-heading">
+    <span class="pws-app-mark"><Icon name={kindIcon} size={18}/></span>
+    <div><strong>{view.title}</strong><span class="pws-context">{view.context}</span></div>
+    <span class="pws-brand">TeGo</span>
+  </div>
+  <div class="pws-view-tabs" aria-label={zh ? '工作视图' : 'Workspace views'}>
+    {view.tabs.map((tab, index) => <span class:list={{ 'pws-view-active': index === 0 }}>{tab}</span>)}
+  </div>
+
+  {kind === 'roster' && <div class="pws-roster-layout">
+    <aside class="pws-role-list">
+      <span class="pws-region-label">{view.columns[0]}</span>
+      <ul>{view.rows.map((row, index) => <li class:list={{ 'pws-row-selected': index === 0 }}>
+        {avatarFor(row[0]) ? <img class="pws-person" src={`/images/home/employee-avatar-${avatarFor(row[0])}_V1.0.webp`} alt="" width="36" height="36" loading="lazy" decoding="async"/> : <span class="pws-role-symbol"><Icon name={section.id === 'continuity' ? 'clock' : 'folder'} size={19}/></span>}
+        <div><strong>{row[0]}</strong><span>{row[1]}</span><small>{row[2]}</small></div>
+      </li>)}</ul>
+    </aside>
+    <div class="pws-role-detail">
+      <div class="pws-request"><Icon name="message" size={16}/><p>{view.request}</p></div>
+      <section class="pws-focus"><span class="pws-region-label">{view.focus.label}</span><h4>{view.focus.title}</h4><p>{view.focus.body}</p></section>
+      <p class="pws-response">{view.response}</p>
+      <div class="pws-files">{view.files.map(file => <div><Icon name={fileIcon(file)} size={16}/><span>{file}</span></div>)}</div>
+    </div>
+  </div>}
+
+  {kind === 'execution' && <div class="pws-execution-layout">
+    <div class="pws-request"><Icon name="message" size={16}/><p>{view.request}</p></div>
+    <div class="pws-execution-columns">
+      <section class="pws-task-track">
+        <span class="pws-region-label">{view.columns[0]}</span>
+        <ol>{view.rows.map((row, index) => <li>
+          <span class="pws-step-index">{index + 1}</span>
+          <div class="pws-step-work"><strong>{row[0]}</strong><p>{row[1]}</p><span class:list={['pws-step-result', { 'pws-step-complete': completedResult(row[2]) }]}><Icon name={completedResult(row[2]) ? 'check' : fileIcon(row[2])} size={12}/>{row[2]}</span></div>
+        </li>)}</ol>
+      </section>
+      <section class="pws-execution-result">
+        <span class="pws-result-symbol"><Icon name={section.id === 'plan' ? 'target' : 'file-check'} size={24}/></span>
+        <span class="pws-region-label">{view.focus.label}</span>
+        <h4>{view.focus.title}</h4><p class="pws-response">{view.response}</p>
+        <div class="pws-files">{view.files.map(file => <div><Icon name={fileIcon(file)} size={16}/><span>{file}</span></div>)}</div>
+      </section>
+    </div>
+  </div>}
+
+  {kind === 'connections' && <div class="pws-connections-layout">
+    <aside class="pws-connector-list">
+      <span class="pws-region-label">{view.columns[0]}</span>
+      <ul>{view.rows.map((row, index) => <li class:list={{ 'pws-connection-selected': index === 0 }}>
+        <span class="pws-connector-symbol"><Icon name={section.id === 'platform-api' ? 'workflow' : /database|数据库/i.test(row.join(' ')) ? 'layers' : /api/i.test(row.join(' ')) ? 'terminal' : 'plug'} size={20}/></span>
+        <div><strong>{row[0]}</strong><span>{row[1]}</span><small>{row[2]}</small></div>
+        {section.id !== 'platform-api' && <span class="pws-connection-dot" aria-hidden="true"></span>}
+      </li>)}</ul>
+      <div class="pws-connector-rule"><Icon name={section.id === 'platform-api' ? 'file-check' : 'folder'} size={14}/><span>{view.focus.label}</span></div>
+    </aside>
+    <section class="pws-tool-result">
+      <div class="pws-request"><Icon name="message" size={16}/><p>{view.request}</p></div>
+      <div class="pws-tool-return"><span class="pws-tool-mark"><Icon name="terminal" size={18}/></span><p>{view.response}</p></div>
+      <section class="pws-focus"><h4>{view.focus.title}</h4><p>{view.focus.body}</p></section>
+      <div class="pws-files">{view.files.map(file => <div><Icon name={fileIcon(file)} size={16}/><span>{file}</span></div>)}</div>
+    </section>
+  </div>}
+
+  {kind === 'document' && documentMode === 'files' && <div class="pws-project-files-layout">
+    <section class="pws-directory">
+      <div class="pws-directory-heading"><Icon name="folder" size={17}/><strong>{view.context}</strong></div>
+      <div class="pws-directory-table"><table><thead><tr>{view.columns.map(column => <th scope="col">{column}</th>)}</tr></thead><tbody>{view.rows.map(row => <tr class:list={{ 'pws-file-selected': row[0] === view.files[0] }}>{row.map((cell, index) => index === 0 ? <th scope="row"><Icon name={fileIcon(cell)} size={15}/><span>{cell}</span></th> : <td>{cell}</td>)}</tr>)}</tbody></table></div>
+      <div class="pws-request"><Icon name="message" size={16}/><p>{view.request}</p></div>
+    </section>
+    <aside class="pws-file-preview">
+      <span class="pws-result-symbol"><Icon name="file" size={24}/></span>
+      <span class="pws-region-label">{view.focus.label}</span><h4>{view.focus.title}</h4>
+      <p>{view.response}</p><p class="pws-preview-context">{view.focus.body}</p>
+      <div class="pws-files">{view.files.map(file => <div><Icon name={fileIcon(file)} size={16}/><span>{file}</span></div>)}</div>
+    </aside>
+  </div>}
+
+  {kind === 'document' && documentMode === 'versions' && <div class="pws-versions-layout">
+    <div class="pws-request"><Icon name="message" size={16}/><p>{view.request}</p></div>
+    <div class="pws-version-columns">
+      <section class="pws-version-history">
+        <div class="pws-version-labels">{view.columns.map(column => <span>{column}</span>)}</div>
+        <ol>{view.rows.map((row, index) => <li class:list={{ 'pws-current-revision': index === view.rows.length - 1 }}><span class="pws-revision-name">{row[0]}</span><p>{row[1]}</p><span class="pws-revision-state"><Icon name={index === view.rows.length - 1 ? 'file-check' : 'file'} size={12}/>{row[2]}</span></li>)}</ol>
+        <p class="pws-version-response">{view.response}</p>
+      </section>
+      <aside class="pws-version-review">
+        <div class="pws-review-heading"><Icon name="message" size={16}/><span>{view.focus.label}</span></div>
+        <h4>{view.focus.title}</h4><p>{view.focus.body}</p>
+        <div class="pws-files">{view.files.map(file => <div><Icon name={fileIcon(file)} size={16}/><span>{file}</span></div>)}</div>
+      </aside>
+    </div>
+  </div>}
+
+  {kind === 'document' && documentMode === 'prose' && <div class="pws-document-layout">
+    <article class="pws-editor">
+      <div class="pws-editor-path"><Icon name="file" size={14}/><span>{view.files[0] || view.title}</span></div>
+      <h4>{view.focus.title}</h4>
+      <p class="pws-document-intro">{view.response}</p>
+      {view.rows.map(row => <section class="pws-document-section"><h5>{row[0]}</h5><p>{row[1]}</p><span>{row[2]}</span></section>)}
+    </article>
+    <aside class="pws-document-review">
+      <div class="pws-review-heading"><Icon name="message" size={16}/><span>{zh ? '工作要求' : 'Work brief'}</span></div>
+      <p>{view.request}</p>
+      <section class="pws-review-comment"><span class="pws-region-label">{view.focus.label}</span><p>{view.focus.body}</p></section>
+      <div class="pws-files">{view.files.map(file => <div><Icon name={fileIcon(file)} size={16}/><span>{file}</span></div>)}</div>
+    </aside>
+  </div>}
+
+  {kind === 'knowledge' && section.id === 'library' && <div class="pws-library-layout">
+    <section class="pws-library-materials">
+      <div class="pws-directory-heading"><Icon name="folder" size={17}/><strong>{view.context}</strong></div>
+      <div class="pws-library-table"><table><thead><tr>{view.columns.map(column => <th scope="col">{column}</th>)}</tr></thead><tbody>{view.rows.map(row => <tr>{row.map((cell, index) => index === 0 ? <th scope="row"><Icon name={fileIcon(cell)} size={15}/><span>{cell}</span></th> : <td>{index === 1 ? <span class="pws-source-status">{cell}</span> : cell}</td>)}</tr>)}</tbody></table></div>
+      <div class="pws-files">{view.files.map(file => <div><Icon name={fileIcon(file)} size={16}/><span>{file}</span></div>)}</div>
+    </section>
+    <aside class="pws-retrieval-panel">
+      <div class="pws-request"><Icon name="search" size={16}/><p>{view.request}</p></div>
+      <p class="pws-retrieval-response">{view.response}</p>
+      <section class="pws-retrieval-settings"><span class="pws-region-label">{view.focus.label}</span><h4>{view.focus.title}</h4><p>{view.focus.body}</p></section>
+    </aside>
+  </div>}
+
+  {kind === 'knowledge' && section.id !== 'library' && <div class="pws-knowledge-layout">
+    <section class="pws-answer">
+      <div class="pws-request"><Icon name="message" size={16}/><p>{view.request}</p></div>
+      <div class="pws-answer-heading"><span class="pws-app-mark"><Icon name="book" size={16}/></span><strong>{zh ? '数字员工答复' : 'Digital employee response'}</strong></div>
+      <p class="pws-answer-body">{view.response}</p>
+      <div class="pws-answer-points">{view.rows.map((row, index) => <div><span>{index + 1}</span><p>{row[2]}</p></div>)}</div>
+      <div class="pws-files">{view.files.map(file => <div><Icon name={fileIcon(file)} size={16}/><span>{file}</span></div>)}</div>
+    </section>
+    <aside class="pws-source-pane">
+      <div class="pws-source-heading"><Icon name="file-search" size={16}/><span>{zh ? '关联来源' : 'Connected sources'}</span></div>
+      <ul>{view.rows.map((row, index) => <li><span class="pws-source-index">{index + 1}</span><div><strong>{row[0]}</strong><p>{row[1]}</p></div></li>)}</ul>
+      <section class="pws-source-focus"><span class="pws-region-label">{view.focus.label}</span><h4>{view.focus.title}</h4><p>{view.focus.body}</p></section>
+    </aside>
+  </div>}
+
+  {kind === 'governance' && <div class="pws-governance-layout">
+    <div class="pws-governance-main">
+      <div class="pws-request"><Icon name="shield" size={16}/><p>{view.request}</p></div>
+      <div class="pws-permission-matrix"><table><thead><tr>{view.columns.map(column => <th scope="col">{column}</th>)}</tr></thead><tbody>{view.rows.map(row => <tr>{row.map((cell, index) => index === 0 ? <th scope="row">{cell}</th> : <td>{index === row.length - 1 && <Icon name={section.id === 'access' ? 'key' : 'clipboard-check'} size={12}/>}<span>{cell}</span></td>)}</tr>)}</tbody></table></div>
+      <p class="pws-governance-response"><Icon name="check" size={15}/><span>{view.response}</span></p>
+    </div>
+    <aside class="pws-governance-records">
+      <span class="pws-access-symbol"><Icon name="shield" size={26}/></span>
+      <span class="pws-region-label">{view.focus.label}</span><h4>{view.focus.title}</h4><p>{view.focus.body}</p>
+      <div class="pws-record-list">{view.files.map(file => <div><Icon name="clipboard-check" size={16}/><span>{file}</span></div>)}</div>
+    </aside>
+  </div>}
+</figure>

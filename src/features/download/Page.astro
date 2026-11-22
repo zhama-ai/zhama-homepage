@@ -1,0 +1,126 @@
+---
+import Icon from '../../components/Icon.astro';
+import { releaseDownloads } from '../../data/legacy';
+import type { Locale } from '../../data/types';
+import { site } from '../../lib/site';
+import Shell from '../resources/Shell.astro';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const zh = locale === 'zh';
+const products = zh ? { desktop: 'TeGo 桌面端', mobile: 'TeGo 移动端', studio: 'Tego Studio' } : { desktop: 'TeGo Desktop', mobile: 'TeGo Mobile', studio: 'Tego Studio' };
+const platforms: Record<string, string> = { macos: 'macOS', windows: 'Windows', linux: 'Linux', kylin: zh ? '银河麒麟' : 'Kylin', android: 'Android', ios: 'iOS' };
+const platformIcons: Record<string, string> = { macos: 'apple', windows: 'windows', linux: 'linux', android: 'android', ios: 'apple' };
+const architecture = (platform: string, arch: string) => platform === 'macos' ? (arch === 'arm64' ? 'Apple silicon · ARM64' : 'Intel · x64') : arch === 'x86' ? (zh ? 'x86 · 32 位' : 'x86 · 32-bit') : arch === 'x64' ? (zh ? 'x64 · 64 位' : 'x64 · 64-bit') : arch === 'arm64' ? 'ARM64' : '';
+type Download = (typeof releaseDownloads)[number];
+const sharesVersion = (files: Download[]) => files.every(file => file.version === files[0].version);
+const preferredFormats = ['dmg', 'exe', 'AppImage', 'flatpak', 'apk', 'appstore', 'testflight'];
+const primaryDownload = (files: Download[]) => preferredFormats.map(format => files.find(file => file.format === format)).find(Boolean) ?? files[0];
+const downloadLabel = (file: Download) => {
+  if (file.format === 'appstore') return zh ? 'App Store 下载' : 'Download on the App Store';
+  if (file.format === 'testflight') return zh ? '打开 TestFlight' : 'Open TestFlight';
+  return architecture(file.platform, file.architecture) || (zh ? '下载 Android' : 'Download Android');
+};
+const grouped = new Map<string, { product: Download['product']; platform: string; variants: { arch: string; files: Download[] }[] }>();
+const currentDownloads = releaseDownloads.map(file => file.platform === 'ios' ? { ...file, ...site.iosAppStore, format: 'appstore' } : file);
+currentDownloads.forEach(file => {
+  const key = `${file.product}-${file.platform}`;
+  if (!grouped.has(key)) grouped.set(key, { product: file.product, platform: file.platform, variants: [] });
+  const group = grouped.get(key)!;
+  let variant = group.variants.find(entry => entry.arch === file.architecture);
+  if (!variant) { variant = { arch: file.architecture, files: [] }; group.variants.push(variant); }
+  variant.files.push(file);
+});
+const productOrder: Download['product'][] = ['desktop', 'mobile', 'studio'];
+const platformOrder = ['macos', 'windows', 'linux', 'kylin', 'android', 'ios'];
+const groups = [...grouped.values()].sort((a, b) => productOrder.indexOf(a.product) - productOrder.indexOf(b.product) || platformOrder.indexOf(a.platform) - platformOrder.indexOf(b.platform));
+groups.forEach(group => {
+  const order = group.platform === 'macos' ? ['arm64', 'x64', 'x86'] : ['x64', 'arm64', 'x86'];
+  group.variants.sort((a, b) => order.indexOf(a.arch) - order.indexOf(b.arch));
+});
+const productGroups = productOrder.map(product => ({ product, groups: groups.filter(group => group.product === product) })).filter(group => group.groups.length);
+const filters = zh ? [['all', '全部'], ['desktop', '桌面端'], ['mobile', '移动端'], ['studio', 'Tego Studio']] : [['all', 'All'], ['desktop', 'Desktop'], ['mobile', 'Mobile'], ['studio', 'Tego Studio']];
+---
+<Shell locale={locale} page="download" navigation={false}>
+  <header class="support-hero download-hero"><div class="container"><h1>{zh ? '在熟悉的设备上，开始工作' : 'Your workspace. On your device.'}</h1></div></header>
+  <section class="container installer-section" id="clients" data-download-browser aria-label={zh ? '选择安装包' : 'Choose an installer'}>
+    <div class="installer-tabs" role="tablist" aria-label={zh ? '下载产品' : 'Download product'}>{filters.map(([id, label]) => <button id={`download-tab-${id}`} type="button" role="tab" data-download-filter={id} aria-selected={id === 'all'} tabindex={id === 'all' ? 0 : -1} aria-controls="download-list">{label}</button>)}</div>
+    <div class="installer-products" id="download-list" role="tabpanel" aria-labelledby="download-tab-all" tabindex="0">{productGroups.map(productGroup => <section class="installer-product-group" data-download-product={productGroup.product} aria-label={products[productGroup.product]}>
+      <h2 class="installer-group-title" data-download-group-title>{products[productGroup.product]}</h2>
+      <div class="installer-grid">{productGroup.groups.map(group => {
+        const files = group.variants.map(variant => primaryDownload(variant.files));
+        const sharedVersion = sharesVersion(files);
+        return <article class="installer-card support-card" data-download-platform={group.platform}>
+          <div class="installer-card-heading"><h3>{platformIcons[group.platform] ? <img class="installer-platform-icon" src={`/images/platforms/${platformIcons[group.platform]}_V1.0.svg`} width="28" height="28" alt="" aria-hidden="true"/> : <Icon class="installer-platform-icon" name="monitor" size={28}/>}<span>{platforms[group.platform]}</span></h3>{sharedVersion && <span class="installer-version">{files[0].version}</span>}</div>
+          <div class="installer-variants">{files.map(file => <div class="installer-variant">
+            {!sharedVersion && <p class="installer-version">{file.version}</p>}
+            <a class="button installer-download" href={file.url} data-download-architecture={file.architecture} data-download-version={file.version} data-download-format={file.format} aria-label={`${products[file.product]} ${platforms[file.platform]} ${downloadLabel(file)} ${file.version}`}>{downloadLabel(file)}</a>
+          </div>)}</div>
+        </article>;
+      })}</div>
+    </section>)}</div>
+  </section>
+</Shell>
+<style>
+  .download-hero{padding:44px 0 36px}
+  .installer-section{padding-bottom:65px;scroll-margin-top:100px}
+  .installer-tabs{display:flex;align-items:center;gap:36px;overflow-x:auto;scrollbar-width:none;white-space:nowrap;margin-bottom:28px}
+  .installer-tabs button{flex-shrink:0;background:none;border:0;border-bottom:2px solid transparent;border-radius:0;padding:10px 1px 14px;font:inherit;font-size:16px;color:#94acc2;cursor:pointer}
+  .installer-tabs button[aria-selected="true"]{color:#eaf7ff;border-bottom-color:#46b4ff}
+  .installer-tabs button:hover{color:#eaf7ff}
+  .installer-products{display:grid;gap:40px}
+  .installer-group-title{font-size:22px;margin:0 0 18px}
+  .installer-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+  .installer-card{padding:22px;display:flex;flex-direction:column}
+  .installer-card-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .installer-card h3{display:flex;align-items:center;gap:10px;font-size:22px;margin:0}
+  .installer-platform-icon{display:block;width:28px;height:28px;object-fit:contain;flex-shrink:0;color:#90d3ff}
+  .installer-variants{display:grid;gap:14px;margin-top:24px}
+  .installer-version{font-size:13px;color:#aac5dc;margin:0 0 9px;white-space:nowrap}
+  .installer-card-heading>.installer-version{margin:0}
+  /* Shared CTA theme: action-buttons.css. Architecture labels and links stay direct. */
+  .installer-download{width:100%;padding:11px 13px;min-height:46px;font-size:14px}
+  @media(max-width:1100px){.installer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.installer-card{padding:25px}}
+  @media(max-width:600px){.download-hero{padding:32px 0 26px}.installer-grid{grid-template-columns:1fr}.installer-section{padding-bottom:44px}.installer-tabs{gap:27px}.installer-tabs button{font-size:15px}.installer-products{gap:32px}.installer-card{padding:25px}}
+</style>
+<script>
+  import { onPageMount } from '../../lib/page-lifecycle';
+  onPageMount(signal => {
+    const root = document.querySelector<HTMLElement>('[data-download-browser]');
+    if (root) {
+      const tabs = [...root.querySelectorAll<HTMLButtonElement>('[data-download-filter]')];
+      const productGroups = [...root.querySelectorAll<HTMLElement>('[data-download-product]')];
+      const groupTitles = [...root.querySelectorAll<HTMLElement>('[data-download-group-title]')];
+      const panel = root.querySelector<HTMLElement>('#download-list')!;
+      const params = new URL(location.href).searchParams;
+      let product = tabs.some(tab => tab.dataset.downloadFilter === params.get('product')) ? params.get('product')! : 'all';
+      const update = (writeUrl: boolean) => {
+        productGroups.forEach(group => { group.hidden = product !== 'all' && group.dataset.downloadProduct !== product; });
+        groupTitles.forEach(title => { title.hidden = product !== 'all'; });
+        tabs.forEach(tab => {
+          const active = tab.dataset.downloadFilter === product;
+          tab.setAttribute('aria-selected', String(active)); tab.tabIndex = active ? 0 : -1;
+        });
+        panel.setAttribute('aria-labelledby', `download-tab-${product}`);
+        if (writeUrl) {
+          const url = new URL(location.href);
+          if (product === 'all') url.searchParams.delete('product'); else url.searchParams.set('product', product);
+          url.searchParams.delete('platform'); history.replaceState(history.state, '', url);
+        }
+      };
+      const activate = (tab: HTMLButtonElement) => { product = tab.dataset.downloadFilter!; update(true); };
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activate(tab), { signal });
+        tab.addEventListener('keydown', event => {
+          let next: number;
+          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+          else if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+          else if (event.key === 'Home') next = 0;
+          else if (event.key === 'End') next = tabs.length - 1;
+          else return;
+          event.preventDefault(); activate(tabs[next]); tabs[next].focus(); tabs[next].scrollIntoView({ block: 'nearest', inline: 'nearest' });
+        }, { signal });
+      });
+      update(false);
+    }
+  });
+</script>

@@ -1,0 +1,190 @@
+{
+  "date": "2026-11-22",
+  "source": "src/components/product/IntegrationsFlowArt_V1.3.astro",
+  "template_identical_to": "IntegrationsFlowArt_V1.2.astro",
+  "changes": [
+    "ambient blue background",
+    "surface shading",
+    "directional soft shadows",
+    "icon and process-node shading"
+  ],
+  "checks": {
+    "astro": "0 errors, 0 warnings, 0 hints",
+    "tests": "200 passed, 1 skipped",
+    "build": "passed",
+    "verify": "passed",
+    "diffWhitespace": "passed"
+  },
+  "responsive": [
+    {
+      "artOverflow": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "lang": "en",
+      "pageOverflow": 0,
+      "textOverflow": [],
+      "width": 390
+    },
+    {
+      "artOverflow": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "lang": "en",
+      "pageOverflow": 0,
+      "textOverflow": [],
+      "width": 580
+    },
+    {
+      "artOverflow": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "lang": "en",
+      "pageOverflow": 0,
+      "textOverflow": [],
+      "width": 581
+    },
+    {
+      "artOverflow": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "lang": "en",
+      "pageOverflow": 0,
+      "textOverflow": [],
+      "width": 850
+    },
+    {
+      "artOverflow": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "lang": "en",
+      "pageOverflow": 0,
+      "textOverflow": [],
+      "width": 851
+    },
+    {
+      "artOverflow": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "lang": "en",
+      "pageOverflow": 0,
+      "textOverflow": [],
+      "width": 1100
+    },
+    {
+      "artOverflow": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "lang": "en",
+      "pageOverflow": 0,
+      "textOverflow": [],
+      "width": 1101
+    },
+    {
+      "artOverflow": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "lang": "zh-CN",
+      "pageOverflow": 0,
+      "textOverflow": [],
+      "width": 390
+    },
+    {
+      "artOverflow": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "lang": "zh-CN",
+      "pageOverflow": 0,
+      "textOverflow": [],
+      "width": 580
+    },
+    {
+      "artOverflow": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "lang": "zh-CN",
+      "pageOverflow": 0,
+      "textOverflow": [],
+      "width": 581
+    },
+    {
+      "artOverflow": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "lang": "zh-CN",
+      "pageOverflow": 0,
+      "textOverflow": [],
+      "width": 850
+    },
+    {
+      "artOverflow": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "lang": "zh-CN",
+      "pageOverflow": 0,
+      "textOverflow": [],
+      "width": 851
+    },
+    {
+      "artOverflow": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "lang": "zh-CN",
+      "pageOverflow": 0,
+      "textOverflow": [],
+      "width": 1100
+    },
+    {
+      "artOverflow": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "lang": "zh-CN",
+      "pageOverflow": 0,
+      "textOverflow": [],
+      "width": 1101
+    }
+  ],
+  "traditional": "Built desktop page inspected; updated surface shading present",
+  "deployment": "local only"
+}

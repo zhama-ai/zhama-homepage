@@ -1,0 +1,66 @@
+---
+import ProductWorkSurface from '../product/ProductWorkSurface.astro';
+import Icon from '../Icon.astro';
+import type { Locale } from '../../data/types';
+import type { CapabilityModule } from '../../features/product/types';
+import type { LandingCopy } from '../../features/product/landing-types';
+import { capabilities } from '../../features/product';
+import { productExperiences } from '../../features/product/experiences';
+import { capabilityVisuals } from '../../features/product/visuals';
+import { pathFor, site, appFor, ui } from '../../lib/site';
+import '../../styles/product-experience.css';
+interface Props { locale: Locale; capability: CapabilityModule; copy: LandingCopy; }
+const { locale, capability, copy } = Astro.props;
+const zh = locale === 'zh';
+const slug = capability.slug;
+const experience = productExperiences[slug][locale];
+const visual = capabilityVisuals[slug];
+const wideHero = ['multi-agent', 'collaboration'].includes(slug);
+const related = copy.related.map(id => capabilities.find(item => item.slug === id)).filter((item): item is CapabilityModule => Boolean(item));
+const resource = capability.copy[locale].related.find(item => item.path !== 'product');
+const breadcrumb = {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: zh ? '首页' : 'Home', item: new URL(pathFor(locale), site.origin).href },
+    { '@type': 'ListItem', position: 2, name: zh ? '产品能力' : 'Product', item: new URL(pathFor(locale, 'product'), site.origin).href },
+    { '@type': 'ListItem', position: 3, name: capability.copy[locale].name, item: new URL(pathFor(locale, `product/${slug}`), site.origin).href },
+  ],
+};
+---
+<div class="product-experience" data-capability={slug}>
+  <section class:list={['pe-hero', { 'pe-hero-wide': wideHero }]} aria-labelledby="capability-title">
+    <div class="container pe-hero-grid">
+      <div class="pe-hero-copy">
+        <h1 id="capability-title">{copy.hero.lines.map((line, index) => <span class:list={{ 'pe-accent': index === copy.hero.lines.length - 1 }}>{line}</span>)}</h1>
+        <div class="pe-hero-description"><p>{copy.hero.summary}</p><a class="button pe-button" href={pathFor(locale, 'contact')}>{ui[locale].contact}</a></div>
+      </div>
+      <figure class="pe-hero-art"><img src={visual.src[locale]} alt={experience.heroAlt} width={visual.width} height={visual.height} sizes={wideHero ? '(max-width: 700px) calc(100vw - 32px), (max-width: 1350px) calc(100vw - 72px), 1280px' : '(max-width: 800px) calc(100vw - 32px), (max-width: 1350px) 62vw, 800px'} loading="eager" fetchpriority="high" decoding="async"/></figure>
+    </div>
+  </section>
+  <section class="pe-context" aria-labelledby="capability-concept-title"><div class="container">
+    <div class="pe-context-heading"><h2 id="capability-concept-title">{copy.concept.title}</h2><p>{copy.concept.body}</p></div>
+    <ul class="pe-needs" aria-label={copy.pain.title}>{copy.pain.items.map(item => <li>{item}</li>)}</ul>
+    <ol class="pe-method" aria-label={zh ? '工作链路' : 'Work sequence'}>{copy.concept.labels.map(label => <li>{label}</li>)}</ol>
+  </div></section>
+  <div class="pe-workflows" aria-label={experience.sectionTitle}>
+    {experience.sections.map((section, index) => <section id={`capability-${section.id}`} class:list={['pe-story', { 'pe-story-reverse': index === 0, 'pe-story-wide': index === 1 }]} aria-labelledby={`capability-${section.id}-title`}><div class="container pe-story-grid">
+      <div class="pe-story-copy"><h2 id={`capability-${section.id}-title`}>{section.title.split("，").map((clause, clauseIndex, clauses) => <span class="pe-title-clause">{clause}{clauseIndex < clauses.length - 1 ? "，" : ""}</span>)}</h2><p>{section.body}</p><dl class="pe-story-points">{section.points.map(point => <div><dt>{point.title}</dt><dd>{point.body}</dd></div>)}</dl></div>
+      <ProductWorkSurface section={section} locale={locale} variant={index === 1 ? 'wide' : 'compact'}/>
+    </div></section>)}
+  </div>
+  <section class="pe-capabilities" aria-labelledby="capability-features-title"><div class="container">
+    <h2 id="capability-features-title">{zh ? '围绕业务工作的完整能力' : 'Capabilities built around the work'}</h2>
+    <div class="pe-feature-grid">{copy.features.map(feature => <article><Icon name={feature.icon} size={24}/><div><h3>{feature.title}</h3><p>{feature.body}</p></div></article>)}</div>
+  </div></section>
+  <section class="pe-scenarios" id="capability-scenarios" aria-labelledby="capability-scenarios-title"><div class="container">
+    <h2 id="capability-scenarios-title">{zh ? '把能力放进具体业务' : 'Put capability to work'}</h2>
+    <div class="pe-scenario-grid">{copy.scenarios.map(scenario => <article><h3>{scenario.title}</h3><p>{scenario.body}</p><ol aria-label={zh ? '工作流程' : 'Workflow'}>{scenario.flow.map(step => <li>{step}</li>)}</ol></article>)}</div>
+    <div class="pe-outcomes">{copy.benefits.map(benefit => <div><h3>{benefit.title}</h3><p>{benefit.body}</p></div>)}</div>
+  </div></section>
+  <section class="pe-related" aria-labelledby="capability-related-title"><div class="container pe-related-inner">
+    <h2 id="capability-related-title">{zh ? '连接更多产品能力' : 'Connect more capabilities'}</h2>
+    <nav aria-label={zh ? '相关产品能力' : 'Related capabilities'}>{related.map(item => <a href={pathFor(locale, `product/${item.slug}`)}>{item.copy[locale].name}</a>)}</nav>
+  </div></section>
+  <section class="pe-closing" aria-labelledby="capability-closing-title"><div class="container pe-closing-inner"><h2 id="capability-closing-title">{copy.closing}</h2><div class="pe-closing-actions"><a class="button pe-button" href={appFor(locale)}>{ui[locale].try}</a><a class="pe-resource" href={resource ? pathFor(locale, resource.path) : site.docs} rel={resource ? undefined : 'external'}>{resource ? resource.label : zh ? '产品文档' : 'Product documentation'}</a></div></div></section>
+</div>
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumb)}/>

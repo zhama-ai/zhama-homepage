@@ -1,0 +1,77 @@
+---
+import DeliveryIcon from './DeliveryIcon.astro';
+import { appliancePage } from './content';
+import type { Locale } from '../../../data/types';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const copy = appliancePage[locale];
+const kinds = ['hardware', 'model', 'platform'] as const;
+const handover = copy.delivery[3];
+---
+<section class="station-delivery" aria-labelledby="station-delivery-title">
+  <div class="container">
+    <h2 id="station-delivery-title">{copy.titles.delivery}</h2>
+    <div class="delivery-composition">
+      <div class="delivery-stack">
+        {copy.delivery.slice(0, 3).map((item, index) => <article class={`delivery-layer delivery-layer-${kinds[index]}`}>
+          <div class="delivery-symbol"><DeliveryIcon kind={kinds[index]}/></div>
+          <div><h3>{item.title}</h3><p>{item.description}</p></div>
+        </article>)}
+      </div>
+      <svg class="delivery-join" viewBox="0 0 120 360" fill="none" aria-hidden="true" preserveAspectRatio="none">
+        <g class="delivery-branches">
+          <path d="M-48 64h81q15 0 15 15v98q0 15 15 15h45M-24 192h132M0 308h33q15 0 15-15v-86q0-15 15-15" stroke="#68add4" stroke-opacity=".5" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+          <path d="m99 184 9 8-9 8" stroke="#9edbfa" stroke-width="1.8" vector-effect="non-scaling-stroke"/>
+        </g>
+      </svg>
+      <svg class="delivery-down" viewBox="0 0 48 64" fill="none" aria-hidden="true"><path d="M24 6v48m-8-8 8 8 8-8" stroke="#78bddf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <article class="delivery-handover">
+        <div class="delivery-package"><DeliveryIcon kind="handover"/></div>
+        <h3>{handover.title}</h3>
+        <p>{handover.description}</p>
+      </article>
+    </div>
+  </div>
+</section>
+<style>
+  .station-delivery{padding:65px 0;background:transparent}
+  h2{margin:0 0 36px;color:#edf5ff;font-size:30px;line-height:1.5;font-weight:550;letter-spacing:-.6px}
+  .delivery-composition{display:grid;grid-template-columns:minmax(0,1.65fr) 120px minmax(0,.8fr);align-items:center;padding:8px 28px 20px 0}
+  .delivery-stack{display:grid;gap:14px;min-width:0}
+  .delivery-layer{position:relative;display:grid;grid-template-columns:62px minmax(0,1fr);align-items:center;gap:22px;min-height:108px;padding:20px 26px;border:1px solid #7badcf27;border-radius:10px;background:linear-gradient(110deg,#102337f2,#0b1726c9 65%,#0b17264d);box-shadow:0 12px 28px -15px #000b,inset 0 1px 0 #b7dfff08}
+  .delivery-layer-hardware{margin-right:48px;color:#8eb7e7}
+  .delivery-layer-model{margin-left:24px;margin-right:24px;color:#76c5db}
+  .delivery-layer-platform{margin-left:48px;color:#9cbfed}
+  .delivery-symbol :global(svg){display:block;width:62px;height:62px}
+  h3{margin:0;color:#e4effa;font-size:19px;line-height:1.5;font-weight:500}
+  p{margin:9px 0 0;color:#a9bacb;font-size:var(--text-body,16px);line-height:1.85}
+  .delivery-join{width:120px;height:100%;align-self:stretch;overflow:visible}
+  .delivery-down{display:none}
+  .delivery-handover{position:relative;isolation:isolate;min-width:0;padding:22px 0 22px 24px}
+  .delivery-handover::before{content:"";position:absolute;z-index:-1;inset:-38px 0 -38px -28px;background:radial-gradient(ellipse at 38% 42%,#207eb41a,transparent 68%);pointer-events:none}
+  .delivery-package{width:104px;height:104px;margin-bottom:26px;color:#86bddf;filter:drop-shadow(0 10px 20px #1384ba1f)}
+  .delivery-package :global(svg){width:100%;height:100%}
+  .delivery-handover h3{font-size:23px;color:#e7f5ff}
+  .delivery-handover p{max-width:310px;margin-top:14px}
+  @media(max-width:1100px){
+    .delivery-composition{grid-template-columns:minmax(0,1.6fr) 120px minmax(0,.85fr);padding-right:0}
+    .delivery-layer{grid-template-columns:48px minmax(0,1fr);gap:16px;padding:18px}
+    .delivery-symbol :global(svg){width:48px;height:48px}
+    .delivery-handover{padding-left:16px}
+  }
+  @media(max-width:800px){
+    .station-delivery{padding:46px 0}h2{font-size:27px;margin-bottom:26px}
+    .delivery-composition{grid-template-columns:minmax(0,1fr);padding:0}
+    .delivery-layer{min-height:108px;padding:20px 24px}
+    .delivery-layer-hardware{margin-right:32px}.delivery-layer-model{margin-left:16px;margin-right:16px}.delivery-layer-platform{margin-left:32px}
+    .delivery-join{display:none}.delivery-down{display:block;width:48px;height:64px;justify-self:center}
+    .delivery-handover{display:grid;grid-template-columns:80px minmax(0,1fr);column-gap:24px;align-items:center;padding:0 24px}
+    .delivery-package{width:80px;height:80px;grid-row:1/3;margin:0}.delivery-handover h3{font-size:21px}.delivery-handover p{max-width:none;margin-top:7px}
+  }
+  @media(max-width:480px){
+    .delivery-layer{grid-template-columns:44px minmax(0,1fr);gap:14px;padding:17px 16px}
+    .delivery-symbol :global(svg){width:44px;height:44px}
+    .delivery-layer-hardware{margin-right:16px}.delivery-layer-model{margin-left:8px;margin-right:8px}.delivery-layer-platform{margin-left:16px}
+    h3{font-size:18px}.delivery-handover{grid-template-columns:64px minmax(0,1fr);gap:0 17px;padding:0 8px}.delivery-package{width:64px;height:64px}
+  }
+</style>

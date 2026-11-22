@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="topology-links workspace-flow" viewBox="0 0 1948 760" aria-hidden="true" focusable="false">
+ <path class="workspace-motion" d="M645 456 H1070" fill="none" stroke="#9fd7cd" stroke-width="1.7" stroke-dasharray="425" stroke-dashoffset="425" opacity="0">
+  <animate attributeName="stroke-dashoffset" dur="10s" repeatCount="indefinite" values="425;425;0;0" keyTimes="0;.28;.64;1" />
+  <animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;.45;.45;0;0" keyTimes="0;.275;.29;.90;.95;1" />
+ </path>
+ <g class="workspace-motion workspace-stage-check" opacity="0">
+  <circle cx="645" cy="456" r="8" fill="#4e9388" />
+  <path d="M641.5 456 L644 458.5 L649 453.5" fill="none" stroke="#ebfff9" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+  <animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.272;0.290;.90;.95;1" />
+ </g>
+ <g class="workspace-motion workspace-stage-check" opacity="0">
+  <circle cx="786" cy="456" r="8" fill="#4e9388" />
+  <path d="M782.5 456 L785 458.5 L790 453.5" fill="none" stroke="#ebfff9" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+  <animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.392;0.410;.90;.95;1" />
+ </g>
+ <g class="workspace-motion workspace-stage-check" opacity="0">
+  <circle cx="929" cy="456" r="8" fill="#4e9388" />
+  <path d="M925.5 456 L928 458.5 L933 453.5" fill="none" stroke="#ebfff9" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+  <animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.512;0.530;.90;.95;1" />
+ </g>
+ <g class="workspace-motion workspace-stage-check" opacity="0">
+  <circle cx="1070" cy="456" r="8" fill="#4e9388" />
+  <path d="M1066.5 456 L1069 458.5 L1074 453.5" fill="none" stroke="#ebfff9" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+  <animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.632;0.650;.90;.95;1" />
+ </g>
+</svg>

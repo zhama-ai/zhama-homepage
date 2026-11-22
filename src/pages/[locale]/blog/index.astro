@@ -1,0 +1,68 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import Icon from '../../../components/Icon.astro';
+import { locales, pathFor } from '../../../lib/site';
+import type { Locale } from '../../../data/types';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale }, props: { locale } }));
+}
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const zh = locale === 'zh';
+const posts = (await getCollection('blog', ({ data }) => data.locale === locale))
+  .sort((left, right) => right.data.date.getTime() - left.data.date.getTime());
+const title = zh ? '产品博客' : 'Blog';
+const description = zh ? '产品发布、技术实践与数字员工的工作方式。' : 'Product releases, engineering practice, and how digital employees work.';
+const date = (value: Date) => new Intl.DateTimeFormat(zh ? 'zh-CN' : 'en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' }).format(value);
+---
+<Layout locale={locale} title={title} description={description} page="blog" entries={posts.map(({ data }) => ({ name: data.title, url: pathFor(locale, `blog/${data.legacySlug}`) }))}>
+  <section class="page-hero inner-page-hero inner-support-hero">
+    <div class="container inner-hero-content"><div class="inner-hero-copy">
+      <h1>{title}</h1>
+      <p>{description}</p>
+      <div class="blog-controls">
+        <label class="sr-only" for="blog-query">{zh ? '搜索文章标题或分类' : 'Search article titles or categories'}</label>
+        <input id="blog-query" class="faq-search blog-search" type="search" placeholder={zh ? '搜索标题或分类' : 'Search titles or categories'} autocomplete="off" aria-controls="blog-articles" />
+        <a class="text-link" href={`/${locale}/blog/rss.xml`}>RSS</a>
+      </div>
+    </div></div>
+  </section>
+  <section class="container inner-journal" aria-label={zh ? '文章列表' : 'Articles'}>
+    <div class="article-grid" id="blog-articles">
+      {posts.map(({ data }) => (
+        <article class="article-card" data-search={`${data.title} ${data.category}`.toLocaleLowerCase(locale)}>
+          {data.image ? <img src={data.image} alt="" width="640" height="400" loading="lazy" decoding="async" /> : <div class="resource-art"><Icon name="book" size={60}/></div>}
+          <div class="article-body">
+            <div class="article-meta"><span>{data.category}</span><time datetime={data.date.toISOString()}>{date(data.date)}</time></div>
+            <h2><a href={pathFor(locale, `blog/${data.legacySlug}`)}>{data.title}</a></h2>
+            <p>{data.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="faq-empty" role="status" aria-live="polite" hidden>{zh ? '没有匹配该标题或分类的文章。' : 'No articles match this title or category.'}</p>
+  </section>
+</Layout>
+
+<script>
+  import { onPageMount } from '../../../lib/page-lifecycle';
+  onPageMount(signal => {
+    const query = document.querySelector<HTMLInputElement>('#blog-query');
+    const articles = Array.from(document.querySelectorAll<HTMLElement>('#blog-articles .article-card'));
+    const empty = document.querySelector<HTMLElement>('.faq-empty');
+    const search = () => {
+      const term = query?.value.trim().toLocaleLowerCase() || '';
+      let count = 0;
+      articles.forEach((article) => {
+        article.hidden = !article.dataset.search?.includes(term);
+        if (!article.hidden) count += 1;
+      });
+      if (empty) empty.hidden = count > 0;
+    };
+    query?.addEventListener('input', search, { signal });
+    query?.addEventListener('search', search, { signal });
+  });
+</script>

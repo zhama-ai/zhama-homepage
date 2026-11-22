@@ -1,0 +1,29 @@
+.home-value-edition .sl-hero{background:radial-gradient(ellipse at 68% 13%,#00355180,transparent 56%),radial-gradient(ellipse at 88% 58%,#00315138,transparent 50%),#030910}
+.hero-starfield{position:absolute;inset:0;overflow:hidden;z-index:-1;pointer-events:none;mask-image:linear-gradient(#000 0%,#000 75%,#0005 100%)}
+.hero-starfield>svg{position:absolute;inset:0;width:100%;height:100%;opacity:.9}
+.hero-nebula{position:absolute;inset:-8%;background:radial-gradient(ellipse at 55% 34%,#0063a01c,transparent 43%),radial-gradient(ellipse at 85% 58%,#00788b12,transparent 36%);opacity:.65}
+.hero-far-stars circle{fill:#75a8cf;opacity:.24}.hero-star{position:absolute;width:10px;height:10px;margin:-5px;border-radius:50%;background:radial-gradient(circle,#b2dfff 0 7%,#40b5ff33 15%,#40b5ff0a 40%,transparent 70%);opacity:.6}
+.team-window-actions{display:flex;align-items:center;gap:8px}.hero-motion-toggle{display:grid;place-items:center;width:21px;height:21px;border:1px solid #9acbe42e;background:#081c2c55;border-radius:5px;color:#a9cfe8;padding:0;cursor:pointer}.hero-motion-toggle:hover{background:#0b5480;color:#fff}.hero-motion-toggle:focus-visible{outline:2px solid #9addff;outline-offset:3px}.hero-motion-toggle[hidden]{display:none}.hero-motion-toggle svg{fill:currentColor}.motion-play-icon{display:none}.hero-motion-toggle[aria-pressed='true'] .motion-play-icon{display:block}.hero-motion-toggle[aria-pressed='true'] .motion-pause-icon{display:none}
+/* One sequence reveals the existing result; the underlying business values stay fixed. */
+.sl-hero[data-hero-motion] .hero-star{animation:tego-near-star-breathe var(--star-duration) ease-in-out var(--star-delay) infinite}
+.sl-hero[data-hero-motion] .business-dashboard{--dashboard-cycle-duration:7s}
+.sl-hero[data-hero-motion] .chart-revenue{stroke-dasharray:100;animation:tego-trend-draw var(--dashboard-cycle-duration) ease-in-out infinite}
+.sl-hero[data-hero-motion] .chart-profit{animation:tego-profit-reveal var(--dashboard-cycle-duration) ease-in-out infinite}
+.sl-hero[data-hero-motion] .analytics-trend polygon{animation:tego-area-reveal var(--dashboard-cycle-duration) ease-in-out infinite}
+.sl-hero[data-hero-motion] .chart-dot{animation:tego-dot-reveal var(--dashboard-cycle-duration) ease-in-out infinite}
+.sl-hero[data-hero-motion] .chart-dot:last-of-type{animation:tego-trend-endpoint var(--dashboard-cycle-duration) ease-in-out infinite}
+.sl-hero[data-hero-motion] .order-bar{transform-box:fill-box;transform-origin:center bottom;animation:tego-orders-reveal var(--dashboard-cycle-duration) ease-in-out infinite}
+.sl-hero[data-hero-motion] .driver-bar{transform-origin:left center;animation:tego-driver-reveal var(--dashboard-cycle-duration) ease-in-out infinite}
+.sl-hero[data-hero-motion='paused'] :is(.hero-star,[data-hero-workspace] *),.sl-hero[data-motion-suspended='true'] *{animation-play-state:paused!important}
+.sl-hero[data-hero-motion='reduced'] *{animation:none!important}
+@keyframes tego-near-star-breathe{0%,100%{opacity:.26}50%{opacity:.85}}
+/* The three business charts enter together, finish together, then hold for review. */
+@keyframes tego-trend-draw{0%,6%{stroke-dashoffset:100;opacity:.3}50%,94%{stroke-dashoffset:0;opacity:1}99%,100%{stroke-dashoffset:0;opacity:.3}}
+@keyframes tego-profit-reveal{0%,14%,100%{opacity:.2}54%,94%{opacity:1}}
+@keyframes tego-area-reveal{0%,20%,100%{opacity:.1}60%,94%{opacity:1}}
+@keyframes tego-dot-reveal{0%,36%,100%{opacity:.1}58%,94%{opacity:1}}
+@keyframes tego-trend-endpoint{0%,44%,100%{opacity:.1}60%,72%,86%,94%{opacity:1}66%,80%,90%{opacity:.55}}
+@keyframes tego-orders-reveal{0%,6%,100%{transform:scaleY(.18);opacity:.45}50%,94%{transform:scaleY(1);opacity:1}}
+@keyframes tego-driver-reveal{0%,6%,100%{transform:scaleX(.08);opacity:.3}50%,94%{transform:scaleX(1);opacity:1}}
+@media(prefers-reduced-motion:reduce){.sl-hero[data-hero-motion] *{animation:none!important}.hero-motion-toggle{display:none}}
+@media(max-width:700px){.hero-far-stars circle:nth-child(2n){display:none}.hero-starfield>svg{opacity:.7}.team-window-actions{gap:6px}.hero-motion-toggle{width:20px;height:20px}}

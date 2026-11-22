@@ -1,0 +1,542 @@
+{
+  "model": "gpt-image-2",
+  "api": "https://sub2.zhama.com/v1/images/generations",
+  "selected_count": 29,
+  "overrides": {
+    "insurance-2": "/images/solutions/insurance/insurance-value-2_V2.1.webp"
+  },
+  "assets": {
+    "banking-1": {
+      "title": "授信尽调与审查",
+      "image": "/images/solutions/banking/banking-value-1_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/banking-value-1_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/banking/banking-value-1_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 194576,
+      "sha256": "9013e2314a6f392edfbedff34c3e0aaa1246791591f2039b82ba52e4d89b8f5a"
+    },
+    "banking-2": {
+      "title": "贷后风险联动",
+      "image": "/images/solutions/banking/banking-value-2_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/banking-value-2_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/banking/banking-value-2_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 206628,
+      "sha256": "ffa35506f3649a9bcb8830bfe9729dc80ddc4de89ace9de1764d37d3b8411050"
+    },
+    "banking-3": {
+      "title": "对公客户经营",
+      "image": "/images/solutions/banking/banking-value-3_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/banking-value-3_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/banking/banking-value-3_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 141716,
+      "sha256": "171675e02a40b802d40effd00d78b0533a7e59496608b3b67ae0b19542a6b637"
+    },
+    "banking-4": {
+      "title": "网点运营分析",
+      "image": "/images/solutions/banking/banking-value-4_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/banking-value-4_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/banking/banking-value-4_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 179912,
+      "sha256": "c93e5731f69d5e6ff8576e2ff2fcffadcd0ab108ff9f4ec8cc5a51fa490f0197"
+    },
+    "insurance-1": {
+      "title": "渠道展业协同",
+      "image": "/images/solutions/insurance/insurance-value-1_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/insurance-value-1_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/insurance/insurance-value-1_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 154464,
+      "sha256": "208b74a0456927836869fbd181313202af2aec199d4745dcfaed42e926987c6e"
+    },
+    "insurance-2": {
+      "title": "核保资料审阅",
+      "image": "/images/solutions/insurance/insurance-value-2_V2.1.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/insurance-value-2_V2.1.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/insurance/insurance-value-2_V2.1.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 139984,
+      "sha256": "84d9ff6957ac2c55782766504b5186c2b8537f0f2dfb3e54746d62a5a42c5237"
+    },
+    "insurance-3": {
+      "title": "理赔案件处理",
+      "image": "/images/solutions/insurance/insurance-value-3_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/insurance-value-3_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/insurance/insurance-value-3_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 171068,
+      "sha256": "ab7da5478692d20c40d99452d42af5cfae604bc13a325f0c62f1c804ecb83262"
+    },
+    "insurance-4": {
+      "title": "保全续期服务",
+      "image": "/images/solutions/insurance/insurance-value-4_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/insurance-value-4_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/insurance/insurance-value-4_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 158702,
+      "sha256": "a69e7ec591e87f5cb248d8860b54d76668bc708762d3cac6947cd871a45640e5"
+    },
+    "securities-1": {
+      "title": "公司行业研究",
+      "image": "/images/solutions/securities/securities-value-1_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/securities-value-1_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/securities/securities-value-1_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 196564,
+      "sha256": "2bd38afc9245b2e3ca469b4e6a60d721a26b995781ef46b30ce7e38c8d4b6a10"
+    },
+    "securities-2": {
+      "title": "财富客户经营",
+      "image": "/images/solutions/securities/securities-value-2_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/securities-value-2_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/securities/securities-value-2_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 140824,
+      "sha256": "232a6b0eb5429b910bc05f9a286851f56496800abec8e86433969559d68d04d4"
+    },
+    "securities-3": {
+      "title": "合规适当性协同",
+      "image": "/images/solutions/securities/securities-value-3_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/securities-value-3_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/securities/securities-value-3_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 137888,
+      "sha256": "0c945d034975c3ff21c29835f6d295da192bb6ca1ebc34e96fec70c8e8689525"
+    },
+    "securities-4": {
+      "title": "分支机构经营",
+      "image": "/images/solutions/securities/securities-value-4_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/securities-value-4_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/securities/securities-value-4_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 174622,
+      "sha256": "8201350a2c09fd4c548d14b5ea865abb9806b3c543d153d4e878c68ea613d98a"
+    },
+    "government-1": {
+      "title": "政策找企惠企服务",
+      "image": "/images/solutions/government/government-value-1_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/government-value-1_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/government/government-value-1_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 224174,
+      "sha256": "d50cdd657543b1b59c20f170a9ca21b1c6a35eb44a020be9efa9cc2e16d8cc36"
+    },
+    "government-2": {
+      "title": "高效办成一件事跨部门协同",
+      "image": "/images/solutions/government/government-value-2_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/government-value-2_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/government/government-value-2_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 166052,
+      "sha256": "07b62cfd485611acd97b0588483a06a5c4db37ce7c4aafddd78239551064e454"
+    },
+    "government-3": {
+      "title": "12345诉求分办督办与治理",
+      "image": "/images/solutions/government/government-value-3_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/government-value-3_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/government/government-value-3_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 216240,
+      "sha256": "8d7eb8229a06a3d3fde46088803f4a4560427afad21da405ad4af30d44247900"
+    },
+    "government-4": {
+      "title": "机关文书采购协同基层减负",
+      "image": "/images/solutions/government/government-value-4_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/government-value-4_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/government/government-value-4_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 143200,
+      "sha256": "4f1bf573d5ea1dbdb29b3a60e18f0b09dba7bf083c519e91cac5faca62dcb8fa"
+    },
+    "state-owned-1": {
+      "title": "穿透式经营与司库资金",
+      "image": "/images/solutions/state-owned/state-owned-value-1_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/state-owned-value-1_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/state-owned/state-owned-value-1_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 243942,
+      "sha256": "647b9bcb3e5853b4e4db8b69bd7e9bce73f491d28b8ba4c6e81efa10df7f524e"
+    },
+    "state-owned-2": {
+      "title": "采购招投标合同供应链履约",
+      "image": "/images/solutions/state-owned/state-owned-value-2_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/state-owned-value-2_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/state-owned/state-owned-value-2_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 172554,
+      "sha256": "c56280e52bac009659d18292eeeba249bf2844e8b2dc866db7fc010e71a58a2a"
+    },
+    "state-owned-3": {
+      "title": "工程项目与EHS现场协作",
+      "image": "/images/solutions/state-owned/state-owned-value-3_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/state-owned-value-3_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/state-owned/state-owned-value-3_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 235422,
+      "sha256": "70d4b92e9914d303fae032fadffbf49b29fa34bfb4fbc2d4a65f82868251f20a"
+    },
+    "state-owned-4": {
+      "title": "监督审计与整改责任",
+      "image": "/images/solutions/state-owned/state-owned-value-4_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/state-owned-value-4_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/state-owned/state-owned-value-4_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 161398,
+      "sha256": "f42c8fe7a39c1437305e21db72be9971ce1d28b2c885aec09d93493f4daa6250"
+    },
+    "trust-1": {
+      "title": "资产服务与受益人管理",
+      "image": "/images/solutions/trust/trust-value-1_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/trust-value-1_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/trust/trust-value-1_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 228846,
+      "sha256": "abe1c1e5ea43c45fa70b0a53e06efe620b3c3a384da768a5d01ba37d05c1a16b"
+    },
+    "trust-2": {
+      "title": "项目全周期受托运营",
+      "image": "/images/solutions/trust/trust-value-2_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/trust-value-2_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/trust/trust-value-2_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 219762,
+      "sha256": "d55c05574de6ae8ee83a2832b623abef96e90413b958f35dbfe4be2c82fca976"
+    },
+    "trust-3": {
+      "title": "资产管理与投资研究",
+      "image": "/images/solutions/trust/trust-value-3_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/trust-value-3_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/trust/trust-value-3_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 142798,
+      "sha256": "cb7d3a2d6087c42fd40f2a01d305531890181107fc2775ff2fcc814fd2ff02c8"
+    },
+    "trust-4": {
+      "title": "信息披露与履职留痕",
+      "image": "/images/solutions/trust/trust-value-4_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/trust-value-4_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/trust/trust-value-4_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 144210,
+      "sha256": "4f17ba083cd3e973000061421f6d7ae3a5a662dc2aeb6657ed902e3200ad75d5"
+    },
+    "general-1": {
+      "title": "客户商机与销售行动",
+      "image": "/images/solutions/general/general-value-1_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/general-value-1_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/general/general-value-1_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 147288,
+      "sha256": "ff2e55982d8214e48c1bf3bd6d43b91895b83c1c66a54f48b944a255791fe08e"
+    },
+    "general-2": {
+      "title": "知识与岗位方法共享",
+      "image": "/images/solutions/general/general-value-2_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/general-value-2_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/general/general-value-2_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 147892,
+      "sha256": "45bdbf1c84983642d30738e6e4f4b1a9ee54907a6d3c5ac756fd37af5a72be99"
+    },
+    "general-3": {
+      "title": "方案文书与跨部门项目交付",
+      "image": "/images/solutions/general/general-value-3_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/general-value-3_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/general/general-value-3_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 187190,
+      "sha256": "c6cd60aa6caa5261db4abf6a06818adacaf44960bc8c9b2f0ec5fda3bd028c01"
+    },
+    "general-4": {
+      "title": "经营分析与周期管理",
+      "image": "/images/solutions/general/general-value-4_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/general-value-4_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/general/general-value-4_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 227962,
+      "sha256": "da55cd363493feb045741d39a4443a2eff6a896e506147dc7812584bbefbb7f0"
+    },
+    "general-hero": {
+      "title": "企业通用建筑主题",
+      "image": "/images/solutions/general/general-hero_V2.0.webp",
+      "source": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/output/imagegen/industry-value_V2.0/general-hero_V2.0.png",
+      "web": "/Users/xuguoyong/.codex/worktrees/digital-employee-curved-screen/home-page-new/public/images/solutions/general/general-hero_V2.0.webp",
+      "source_format": "PNG",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "web_format": "WEBP",
+      "web_size": [
+        1200,
+        800
+      ],
+      "bytes": 222042,
+      "sha256": "672e9eceaf0ee45e47a8c55aa88111a9f8f3935478debdc740213c94f1ea9844"
+    }
+  },
+  "total_web_bytes": 5227920,
+  "qa": {
+    "selected_images_visually_reviewed": true,
+    "distinct_hashes": true,
+    "all_dimensions_formats_verified": true,
+    "old_versions_preserved": true,
+    "excluded_old_version": "insurance-value-2_V2.0.webp (medical imagery superseded by V2.1)",
+    "screen_content": "Limited named business touchpoints; no fabricated client statistics or financial results",
+    "source_code_edits": false
+  }
+}

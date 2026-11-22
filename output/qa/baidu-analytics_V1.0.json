@@ -1,0 +1,57 @@
+{
+  "reviewedAt": "2026-11-21",
+  "baseCommit": "7e92176",
+  "analyticsId": "e6770cf50973b8dbda39ef528cf8a6ba",
+  "codeStatus": "implemented",
+  "productionDeployment": "not_performed",
+  "checks": {
+    "typecheck": {
+      "files": 264,
+      "errors": 0,
+      "warnings": 0
+    },
+    "tests": {
+      "passed": 180,
+      "failed": 0,
+      "skipped": 0
+    },
+    "build": "passed",
+    "publication": {
+      "site": 23731,
+      "locales": 53103,
+      "seo": 10134,
+      "analytics": 1302,
+      "analyticsPages": 145,
+      "failures": 0
+    }
+  },
+  "backend": {
+    "tier": "free",
+    "analysisCloudPermission": false,
+    "eventReportPermission": false,
+    "conversion": {
+      "name": "官网咨询已接收",
+      "targetId": "1557269",
+      "target": "https://www.zhama.com/virtual/contact-success/",
+      "type": "留言咨询",
+      "count": "按访问次数",
+      "status": "enabled",
+      "productionHitVerified": false
+    }
+  },
+  "browser": {
+    "backendSettingsVerified": true,
+    "localPreview": "blocked_by_saved_browser_access_policy",
+    "localPreviewVisualReviewCompleted": false
+  },
+  "privacy": {
+    "consentRequired": true,
+    "localTrafficDisabled": true,
+    "formValuesExcludedFromCustomEvents": true,
+    "liveVendorSdkExecutedForTesting": false,
+    "realContactSubmissionsForTesting": 0
+  },
+  "evidence": [
+    "output/qa/baidu-conversion-config_V1.1.jpg"
+  ]
+}

@@ -1,0 +1,113 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '@fontsource-variable/plus-jakarta-sans';
+import '../styles/global.css';
+import '../styles/saaslauncher.css';
+import '../styles/product-interface.css';
+import '../styles/home-rich.css';
+import '../styles/visual-craft.css';
+import '../styles/value-home.css';
+import '../styles/hero-workspace.css';
+import '../styles/business-dashboard.css';
+import '../styles/brand-nightblue.css';
+import '../styles/hero-landscape.css';
+import '../styles/hero-motion.css';
+import '../styles/insight-typewriter.css';
+import '../styles/render-quality.css';
+import '../styles/work-anywhere.css';
+import '../styles/hero-luminance.css';
+import '../styles/hero-spectrum.css';
+import '../styles/hero-space.css';
+import '../styles/navigation.css';
+import '../styles/industry-tabs.css';
+import '../styles/page-canvas.css';
+import '../styles/section-spacing.css';
+import '../styles/home-layout.css';
+import '../styles/typography.css';
+import '../styles/hero-workspace-theme.css';
+import '../styles/hero-duty-theme.css';
+// Keep the shared CTA theme last. New pages reuse .button instead of adding a local theme.
+import '../styles/action-buttons.css';
+import SiteHeader from '../components/navigation/SiteHeader.astro';
+import SiteFooter from '../components/navigation/SiteFooter.astro';
+import MotionRegions from '../components/MotionRegions.astro';
+import AnalyticsConsent from '../components/analytics/AnalyticsConsent.astro';
+import { site, pathFor } from '../lib/site';
+import { languages, languagePathFor, websiteLanguageFor } from '../lib/languages';
+import { buildSeo, serializeStructuredData, verificationToken } from '../lib/seo';
+import { socialImageMetadata } from '../lib/seo-images';
+import { faqs } from '../data/pages';
+import type { SeoArticle, SeoListEntry } from '../lib/seo';
+import type { Locale } from '../data/types';
+interface Props { locale: Locale; title: string; description: string; page?: string; noindex?: boolean; documentTitle?: string; socialImage?: string; article?: SeoArticle; entries?: SeoListEntry[]; }
+const { locale, title, description, page = '', noindex = false, documentTitle, socialImage, article, entries } = Astro.props;
+const zh = locale === 'zh';
+const language = websiteLanguageFor(Astro.params.locale || locale);
+const activeLanguage = languages.find(item => item.id === language)!;
+const image = await socialImageMetadata(socialImage || `/images/workforce/workforce-matrix-${locale}_V3.4.webp`, title);
+const seo = buildSeo({ origin: site.origin, locale, language, title, description, page, noindex, documentTitle, image, article, entries, questions: page === 'faq' ? faqs[locale] : undefined });
+const googleVerification = verificationToken(import.meta.env.GOOGLE_SITE_VERIFICATION || import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION);
+const bingVerification = verificationToken(import.meta.env.BING_SITE_VERIFICATION || import.meta.env.PUBLIC_BING_SITE_VERIFICATION);
+const baiduVerification = verificationToken(import.meta.env.BAIDU_SITE_VERIFICATION || import.meta.env.PUBLIC_BAIDU_SITE_VERIFICATION || 'codeva-z01CSON5KK');
+---
+<!doctype html>
+<html lang={activeLanguage.tag} data-theme="dark" transition:animate="none">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#060b12" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="robots" content={seo.robots} />
+    <meta name="author" content={article?.author || seo.organizationName} />
+    <ClientRouter fallback="swap" />
+    {googleVerification && <meta name="google-site-verification" content={googleVerification} />}
+    {bingVerification && <meta name="msvalidate.01" content={bingVerification} />}
+    {baiduVerification && <meta name="baidu-site-verification" content={baiduVerification} />}
+    <title>{seo.title}</title>
+    <link rel="icon" href="/images/zhama-symbol_V1.0.png" type="image/png" />
+    <link rel="canonical" href={seo.canonical} />
+    {languages.map(item => <link rel="alternate" hreflang={item.tag} href={new URL(languagePathFor(item.id, page), site.origin).href}/>)}
+    <link rel="alternate" hreflang="x-default" href={new URL(pathFor('zh', page), site.origin).href} />
+    <meta property="og:type" content={seo.openGraphType} />
+    <meta property="og:site_name" content="TeGo" />
+    <meta property="og:title" content={seo.title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={seo.canonical} />
+    <meta property="og:image" content={seo.image.src} />
+    <meta property="og:image:secure_url" content={seo.image.src} />
+    <meta property="og:image:alt" content={seo.image.alt} />
+    <meta property="og:image:type" content={seo.image.type} />
+    <meta property="og:image:width" content={seo.image.width?.toString()} />
+    <meta property="og:image:height" content={seo.image.height?.toString()} />
+    <meta property="og:locale" content={seo.openGraphLocale} />
+    {seo.alternateLocales.map(value => <meta property="og:locale:alternate" content={value} />)}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={seo.title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={seo.image.src} />
+    <meta name="twitter:image:alt" content={seo.image.alt} />
+    {article && <>
+      <meta property="article:published_time" content={article.published} />
+      {article.modified && <meta property="article:modified_time" content={article.modified} />}
+      {article.section && <meta property="article:section" content={article.section} />}
+      {article.tags?.map(tag => <meta property="article:tag" content={tag} />)}
+    </>}
+    {seo.structuredData && <script type="application/ld+json" set:html={serializeStructuredData(seo.structuredData)} />}
+    <link rel="alternate" type="application/rss+xml" title={zh ? 'TeGo 产品博客' : 'TeGo Blog'} href={`/${locale}/blog/rss.xml`} />
+  </head>
+  <body class:list={{'is-home':page === ''}} data-page-name={title}>
+    {page === '' && <div class="header-scroll-marker" aria-hidden="true"></div>}
+    <a class="skip-link" href="#main">{zh ? '跳转到正文' : 'Skip to content'}</a>
+    <SiteHeader locale={locale} page={page}/>
+    <main id="main" class="page-canvas"><slot/></main>
+    <SiteFooter locale={locale}/>
+    <AnalyticsConsent locale={locale}/>
+    <MotionRegions/>
+
+  </body>
+</html>
+<script>
+  import { initContactAttribution } from '../features/attribution/tracker';
+  initContactAttribution();
+</script>

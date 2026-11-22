@@ -1,0 +1,73 @@
+---
+import { pathFor, ui } from '../../../lib/site';
+import type { Locale } from '../../../data/types';
+import type { IndustrySolutionCopy } from './types';
+import EmployeeCarousel from '../banking/EmployeeCarousel.astro';
+import Icon from '../../../components/Icon.astro';
+import '../../../styles/industry-value-page.css';
+
+interface Props { locale: Locale; slug: string; presentation: IndustrySolutionCopy; }
+const { locale, slug, presentation: copy } = Astro.props;
+const zh = locale === 'zh';
+const whyReasons = (copy.reasons ?? []).map((reason) => {
+  const [title, ...body] = reason.split('——');
+  return { title, body: body.join('——') };
+});
+const whyReasonIcons = ['user-check', 'workflow', 'shield'];
+---
+<div class="industry-value-page" data-industry-solution={slug}>
+  <section class="industry-value-hero" aria-labelledby={`${slug}-title`}>
+    <img class="industry-value-landscape" src={copy.hero.background} alt="" width="1600" height="1067" loading="eager" decoding="async" fetchpriority="high" aria-hidden="true"/>
+    <div class="container industry-value-hero-content">
+      <h1 id={`${slug}-title`}>{copy.hero.lines.map(line => <span>{line}</span>)}</h1>
+      <p>{copy.home.value}</p>
+      <a class="button" href={pathFor(locale, 'contact')}>{ui[locale].contact}</a>
+      <ul class="industry-value-scenarios" aria-label={zh ? '业务场景' : 'Business scenarios'}>{copy.home.scenarios.map(item => <li>{item}</li>)}</ul>
+    </div>
+  </section>
+
+  {copy.features.map((feature, index) => <section class:list={['industry-value-section', { 'industry-value-reversed': index % 2 === 1 }]} aria-labelledby={`${slug}-feature-${index}`}>
+    <div class="container industry-value-grid">
+      <div class="industry-value-copy">
+        <h2 id={`${slug}-feature-${index}`}>{feature.title}</h2>
+        <p class="industry-value-problem"><strong>{zh ? '业务挑战' : 'Business challenge'}</strong>{feature.problem}</p>
+        <p class="industry-value-body"><strong>{zh ? '解决方案' : 'Solution'}</strong>{feature.body}</p>
+        {feature.value && <p class="industry-value-result"><strong>{zh ? '业务价值' : 'Business value'}</strong>{feature.value}</p>}
+        {feature.outcomes?.length && <ul class="industry-value-outcomes">{feature.outcomes.map(outcome => <li><Icon name="circle-check" size={18}/><span>{outcome}</span></li>)}</ul>}
+      </div>
+      <figure class="industry-value-image">
+        <img src={feature.image ?? `/images/solutions/${slug}/${slug}-value-${index + 1}_V2.0.webp`} alt={feature.title} width="1200" height="800" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1200px) 52vw, 650px" loading="lazy" decoding="async"/>
+      </figure>
+    </div>
+  </section>)}
+
+  <section class="industry-value-why" aria-labelledby={`${slug}-why-title`}>
+    <div class="container">
+      <div class="industry-value-why-heading">
+        <div class="industry-value-why-main">
+          <h2 id={`${slug}-why-title`}>{zh ? 'TeGo 数字员工协作平台' : 'TeGo Digital Employee Collaboration Platform'}</h2>
+          <div class="industry-value-why-summary">
+            <h3>{copy.deployment.title}</h3>
+            <p>{copy.deployment.body}</p>
+          </div>
+        </div>
+        <div class="industry-value-why-detail">
+          {whyReasons.length > 0 && <ul class="industry-value-why-reasons">
+            {whyReasons.map((reason, index) => <li>
+              <span class="industry-value-why-icon"><Icon name={whyReasonIcons[index]} size={18}/></span>
+              <div>
+                <h3>{reason.title}</h3>
+                <p>{reason.body}</p>
+              </div>
+            </li>)}
+          </ul>}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="industry-value-team" aria-labelledby={`${slug}-team-title`}>
+    <div class="container"><h2 id={`${slug}-team-title`}>{copy.teamTitle}</h2></div>
+    <EmployeeCarousel locale={locale} employees={copy.employees} teamLabel={copy.teamTitle}/>
+  </section>
+</div>

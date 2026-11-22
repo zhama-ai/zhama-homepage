@@ -1,0 +1,38 @@
+---
+import type { Locale } from '../data/types';
+import SolutionExplorer from './SolutionExplorer.astro';
+import CallToAction from './CallToAction.astro';
+import { pathFor, ui } from '../lib/site';
+import '../styles/industry-tabs.css';
+import '../styles/solutions-overview.css';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const zh = locale === 'zh';
+const pillars = zh ? [
+  ['深入核心业务', '从金融机构的客户经营与风险管理，到政企组织的服务、履约与经营分析，围绕关键业务建设数字员工团队。'],
+  ['复制专业能力', '将行业知识、岗位方法和成果标准封装为可复用能力，让成熟经验跨岗位、跨团队发挥价值。'],
+  ['融入企业体系', '连接现有系统与协作渠道，按业务流程定制技能与集成，以私有化部署、权限和审计支撑持续运行。'],
+] : [
+  ['Work on business priorities', 'Build digital employee teams around client relationships, risk management, public services, project delivery and business analysis.'],
+  ['Extend professional expertise', 'Make industry knowledge, role methods and delivery standards reusable, extending proven practices across roles and teams.'],
+  ['Fit your organization', 'Connect existing systems and channels. Tailor skills and integrations to your workflows, supported by private deployment, permissions and audit management.'],
+];
+---
+<div class="solutions-overview">
+  <section class="solutions-overview-hero" aria-labelledby="solutions-title">
+    <img class="solutions-overview-landscape" src="/images/solutions/general/general-hero_V2.0.webp" alt="" width="1200" height="800" loading="eager" decoding="async" fetchpriority="high" aria-hidden="true"/>
+    <div class="container">
+      <h1 id="solutions-title">{zh ? <>把行业经验<br/>转化为业务成果</> : <>Industry expertise.<br/>Business results.</>}</h1>
+      <p>{zh ? '面向银行、保险、证券、政务、央国企、信托与企业通用场景，把行业知识、专业方法和企业系统组织成数字员工团队，从专业作业到客户服务与经营管理，拓展组织的业务能力。' : 'Digital employee teams for banking, insurance, securities, government, state-owned enterprises, trust services and general business. Bring industry knowledge, professional methods and business systems together to expand what your organization can deliver.'}</p>
+      <a class="button" href={pathFor(locale, 'contact')}>{ui[locale].contact}</a>
+    </div>
+  </section>
+  <section class="solutions-overview-industries"><div class="container"><SolutionExplorer locale={locale}/></div></section>
+  <section class="solutions-overview-principles" aria-labelledby="solutions-value-title">
+    <div class="container">
+      <h2 id="solutions-value-title">{zh ? '从一项专业工作，走向全组织的业务协同' : 'From specialist work to collaboration across your organization'}</h2>
+      <div class="solutions-value-columns">{pillars.map(([title, body]) => <article><h3>{title}</h3><p>{body}</p></article>)}</div>
+    </div>
+  </section>
+  <CallToAction locale={locale}/>
+</div>

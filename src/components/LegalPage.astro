@@ -1,0 +1,44 @@
+---
+import { legalContent } from '../data/legacy';
+import type { Locale } from '../data/types';
+
+interface Props { locale: Locale; kind: 'privacy' | 'terms'; }
+interface LegalItem { title?: string; content?: string; url?: string; }
+type SectionValue = string | readonly string[] | readonly LegalItem[];
+interface LegalSection { title: string; [key: string]: SectionValue; }
+interface LegalDocument { title: string; lastUpdated: string; quickLinksLabel?: string; deletionLink?: string; contactLink?: string; sections: Record<string, LegalSection>; }
+
+const { locale, kind } = Astro.props;
+const document = legalContent[locale][kind] as unknown as LegalDocument;
+const anchors: Record<string, string> = kind === 'privacy' ? { deletion: 'account-deletion', rights: 'data-rights', contact: 'privacy-contact' } : {};
+const fields = (section: LegalSection) => Object.entries(section).filter(([key]) => !['title', 'emailAction', 'emailHref', 'emailLabel'].includes(key));
+---
+<section class="page-hero">
+  <div class="container legal-shell">
+    <h1>{document.title}</h1>
+    <p>{document.lastUpdated}</p>
+    {kind === 'privacy' && <nav class="legal-links" aria-label={document.quickLinksLabel}><a href="#account-deletion">{document.deletionLink}</a><a href="#privacy-contact">{document.contactLink}</a></nav>}
+  </div>
+</section>
+<div class="container legal-shell prose">
+  {Object.entries(document.sections).map(([name, section]) => (
+    <section id={anchors[name] || name} class="legal-section anchor-target">
+      <h2>{section.title}</h2>
+      {fields(section).map(([key, value]) => (
+        typeof value === 'string'
+          ? key.endsWith('Label') ? <h3>{value}</h3> : <p>{value}</p>
+          : key === 'steps'
+            ? <ol>{value.map((item) => <li>{typeof item === 'string' ? item : <><strong>{item.title}</strong>{item.content}</>}</li>)}</ol>
+            : <ul>{value.map((item) => <li>{typeof item === 'string' ? item : item.url ? <a href={item.url} rel="external">{item.title}</a> : <><strong>{item.title}</strong>{item.content}</>}</li>)}</ul>
+      ))}
+      {typeof section.emailAction === 'string' && typeof section.emailHref === 'string' && <p><a href={section.emailHref}>{section.emailAction}</a><br/>{typeof section.emailLabel === 'string' && section.emailLabel}<a href="mailto:contact@zhama.com">contact@zhama.com</a></p>}
+    </section>
+  ))}
+</div>
+
+<style>
+  .page-hero .legal-shell{padding-bottom:0}
+  .legal-links{display:flex;flex-wrap:wrap;gap:15px 28px;margin-top:25px;font-size:14px;color:var(--accent)}
+  .legal-links a{text-decoration:underline;text-underline-offset:4px}
+  .legal-section:first-child h2{margin-top:0}
+</style>

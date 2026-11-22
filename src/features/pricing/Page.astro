@@ -1,0 +1,144 @@
+---
+import { pricingPlans, capabilityGroups } from './content';
+import Icon from '../../components/Icon.astro';
+import Shell from '../resources/Shell.astro';
+import { pathFor } from '../../lib/site';
+import type { Locale } from '../../data/types';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const zh = locale === 'zh';
+const groups = capabilityGroups[locale];
+---
+<Shell locale={locale} page="pricing" navigation={false}>
+  <header class="support-hero pricing-hero" aria-labelledby="pricing-title"><div class="container pricing-hero-layout">
+    <div class="pricing-hero-copy">
+      <h1 id="pricing-title">{zh ? <>从业务需要出发，<br/>选择合适的投入方式</> : <>Start with your business needs.<br/>Choose how to invest.</>}</h1>
+      <p class="pricing-hero-description">{zh ? '按团队规模、部署方式与交付范围沟通报价。' : 'Discuss pricing based on team size, deployment and delivery scope.'}</p>
+      <a class="button pricing-hero-action" href={`${pathFor(locale, 'contact')}#enquiry-form`}>{zh ? '专属报价' : 'Get a tailored quote'}</a>
+    </div>
+  </div></header>
+  <section class="container pricing-plans" id="plans" aria-label={zh ? '方案选择' : 'Plan options'}>
+    <div class="pricing-grid">{pricingPlans[locale].map(plan => <article class="pricing-card" id={plan.id}>
+      <div class="pricing-card-icon"><Icon name={plan.icon} size={25}/><span>{plan.audience}</span></div>
+      <h2>{plan.name}</h2><p class="pricing-description">{plan.description}</p>
+      <div class="pricing-quote"><strong>{plan.price}</strong><span>{plan.unit}</span></div>
+      <a class="button pricing-plan-action" href={`${pathFor(locale, 'contact')}?plan=${plan.id}`}>{plan.action}</a>
+      <p class="pricing-includes">{plan.includes}</p><ul>{plan.items.map(item => <li><Icon name="check" size={16}/><span>{item}</span></li>)}</ul>
+    </article>)}</div>
+  </section>
+  <section class="support-section support-section-alt" id="capabilities" aria-labelledby="capabilities-title"><div class="container">
+    <div class="support-section-heading"><h2 id="capabilities-title">{zh ? '产品功能' : 'Product capabilities'}</h2></div>
+    <div class="capability-browser" data-capability-browser>
+      <nav class="capability-index" aria-label={zh ? '功能分类' : 'Capability categories'}>{groups.map((group, index) => <a href={`#capability-${group.id}`} data-capability-link={group.id} aria-current={index === 0 ? 'true' : undefined}><Icon name={group.icon} size={19}/><span>{group.title}</span></a>)}</nav>
+      <div class="capability-content">{groups.map(group => <section class="capability-group" id={`capability-${group.id}`} data-capability-group={group.id} aria-labelledby={`capability-title-${group.id}`}>
+        <h3 id={`capability-title-${group.id}`}>{group.title}</h3>
+        <dl>{group.rows.map(row => <div class="capability-row"><dt>{row.name}</dt><dd>{row.capability}</dd></div>)}</dl>
+      </section>)}</div>
+    </div>
+  </div></section>
+</Shell>
+<style>
+  .pricing-hero{position:relative;isolation:isolate;overflow:hidden;padding:48px 0 46px;text-align:left;background:#070f19}
+  .pricing-hero::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,#070f19f5 0%,#070f19b8 40%,#070f1926 78%),linear-gradient(180deg,#070f1999,transparent 48%,#070f19b3),url('../../assets/ocean-silk-critical_V1.0.webp') center 78%/cover no-repeat}
+  .pricing-hero .pricing-hero-layout{max-width:1280px}
+  .pricing-hero-copy{max-width:720px}
+  .pricing-hero h1{font-size:42px;line-height:1.45;letter-spacing:-1px;text-wrap:initial}
+  .pricing-hero-description{color:#aabccd;font-size:16px;line-height:1.85;margin:20px 0 0}
+  .pricing-hero .pricing-hero-action{margin-top:22px;min-height:44px;padding:10px 25px}
+  .pricing-plans{padding-bottom:40px;scroll-margin-top:100px}
+  .pricing-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+  .pricing-card{position:relative;isolation:isolate;display:flex;flex-direction:column;padding:22px 24px;background:linear-gradient(140deg,#112338,#0c1928);border:1px solid #a3c7df26;border-radius:18px;scroll-margin-top:100px;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+  .pricing-card::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;background:radial-gradient(ellipse at 50% 0,#078ed949,transparent 80%);opacity:0;transition:opacity .22s ease}
+  .pricing-card:focus-within{border-color:#55b8f5;box-shadow:0 16px 40px #008cff22,0 0 0 1px #55b8f52b}
+  .pricing-card:focus-within::before{opacity:1}
+  .pricing-card-icon{display:flex;align-items:center;gap:12px;color:#79c6fa}
+  .pricing-card-icon>span{font-size:11px;letter-spacing:.3px;color:#8fb0cc}
+  .pricing-card h2{font-size:24px;line-height:1.35;margin:12px 0 8px}
+  .pricing-description{color:#adbed0;font-size:14px;line-height:1.6;min-height:45px}
+  .pricing-quote{display:flex;flex-direction:column;margin:14px 0 16px;gap:2px}
+  .pricing-quote strong{font-size:34px;line-height:1.25;font-weight:550;letter-spacing:-.7px}
+  .pricing-quote>span{font-size:12px;line-height:1.6;color:#8eabc5}
+  .pricing-card>.button{width:100%;min-height:44px;padding-inline:12px}
+  .pricing-includes{font-size:12px;line-height:1.5;color:#a3bed3;margin:14px 0 0;padding-top:12px;border-top:1px solid #94bdd324}
+  .pricing-card ul{list-style:none;padding:12px 0 0;margin:0;display:grid;align-content:start;gap:8px}
+  .pricing-card li{display:flex;align-items:flex-start;gap:9px;color:#c5d6e6;font-size:13px;line-height:1.65}
+  .pricing-card li>svg{flex:0 0 16px;margin-top:3px;color:#67bdf4}
+  .pricing-card li>span{min-width:0}
+  .capability-browser{display:grid;grid-template-columns:240px minmax(0,1fr);gap:36px;align-items:start}
+  .capability-index{position:sticky;top:110px;display:grid;align-content:start;gap:6px;max-height:calc(100dvh - 130px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#35536c transparent}
+  .capability-index>a{display:flex;align-items:center;gap:12px;padding:14px;font-size:13px;color:#96b3cc;border-radius:10px;border:1px solid transparent}
+  .capability-index>a>:global(svg:last-child){margin-left:auto;opacity:0}
+  .capability-index>a:hover,.capability-index>a[aria-current]{color:#b8e2ff;background:#13344e;border-color:#3684b233}
+  .capability-index>a[aria-current]>:global(svg:last-child){opacity:1}
+  .capability-content{display:grid;gap:22px}
+  .capability-group{border:1px solid #90bddd22;background:#0d1e30;border-radius:14px;overflow:hidden;scroll-margin-top:80px}
+  .capability-group h3{font-size:19px;margin:0;padding:18px 24px;background:#102438;border-bottom:1px solid #90bddd22}
+  .capability-group dl{margin:0;padding:0 24px 18px}
+  .capability-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;padding:18px 0;border-bottom:1px solid #99bfda1c}
+  .capability-row:last-child{border-bottom:0;padding-bottom:0}
+  .capability-row dt{font-size:14px;font-weight:500;color:#d8e9f7}
+  .capability-row dd{font-size:14px;color:#bed0e1;margin:0;line-height:1.9}
+  @media(hover:hover) and (pointer:fine){
+    .pricing-card:hover{z-index:1;border-color:#55b8f5;box-shadow:0 16px 40px #008cff22,0 0 0 1px #55b8f52b}
+    .pricing-card:hover::before{opacity:1}
+  }
+  @media(min-width:761px) and (hover:hover) and (pointer:fine){
+    .pricing-card:is(:hover,:focus-within){transform:translateY(-4px) scale(1.025)}
+  }
+  @media(max-width:1000px){
+    .pricing-hero h1{font-size:34px}.pricing-hero-description{font-size:15px}
+    .pricing-card{padding:20px}.pricing-card h2{font-size:22px}
+    .pricing-card-icon{gap:9px;min-height:30px}.pricing-card-icon>span{line-height:1.5}
+    .capability-browser{grid-template-columns:210px minmax(0,1fr);gap:23px}.capability-row{grid-template-columns:1fr;gap:8px}
+  }
+  @media(max-width:760px){
+    .pricing-hero{padding:34px 0 36px}.pricing-hero::before{background-position:center,center,64% 78%}.pricing-hero h1{font-size:32px;line-height:1.45}.pricing-hero-description{font-size:15px;margin-top:16px}.pricing-hero .pricing-hero-action{margin-top:18px}
+    .pricing-grid{grid-template-columns:1fr;gap:16px}.pricing-card{padding:24px}.pricing-card-icon{min-height:0}
+    .pricing-description{min-height:0}.pricing-card h2{font-size:24px;margin-top:14px}.pricing-quote{margin-top:18px}
+    .capability-browser{grid-template-columns:1fr}.capability-index{position:static;display:flex;flex-wrap:wrap;gap:8px;max-height:none;overflow:visible}
+    .capability-index>a{padding:9px 11px;font-size:12px;border-color:#6695b433;border-radius:99px}.capability-index>a>:global(svg){display:none}
+    .capability-group h3{font-size:18px;padding:16px 20px}.capability-group dl{padding:0 20px 18px}.capability-row{padding-block:18px;gap:7px}
+    .pricing-plans{padding-bottom:45px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .pricing-card:is(:hover,:focus-within){transform:none}
+    .pricing-card::before{transition:none}
+  }
+</style>
+<script>
+  import { onPageMount } from '../../lib/page-lifecycle';
+  onPageMount(signal => {
+    const browser = document.querySelector('[data-capability-browser]');
+    if (browser) {
+      const links = [...browser.querySelectorAll<HTMLAnchorElement>('[data-capability-link]')];
+      const index = browser.querySelector<HTMLElement>('.capability-index');
+      const selectGroup = (id: string) => {
+        links.forEach(link => {
+          if (link.dataset.capabilityLink === id) link.setAttribute('aria-current', 'true');
+          else link.removeAttribute('aria-current');
+        });
+        const selected = links.find(link => link.dataset.capabilityLink === id);
+        if (!selected || !index || index.scrollHeight <= index.clientHeight) return;
+        if (selected.offsetTop < index.scrollTop) index.scrollTop = selected.offsetTop;
+        else if (selected.offsetTop + selected.offsetHeight > index.scrollTop + index.clientHeight) {
+          index.scrollTop = selected.offsetTop + selected.offsetHeight - index.clientHeight;
+        }
+      };
+      const syncHash = () => {
+        const link = links.find(item => item.hash === location.hash);
+        if (link?.dataset.capabilityLink) selectGroup(link.dataset.capabilityLink);
+      };
+      syncHash();
+      links.forEach(link => link.addEventListener('click', () => selectGroup(link.dataset.capabilityLink!), { signal }));
+      window.addEventListener('hashchange', syncHash, { signal });
+      const observer = new IntersectionObserver(entries => {
+        const current = entries.find(entry => entry.isIntersecting);
+        if (!current) return;
+        const id = (current.target as HTMLElement).dataset.capabilityGroup;
+        if (id) selectGroup(id);
+      }, { rootMargin: '-18% 0px -58% 0px' });
+      browser.querySelectorAll('[data-capability-group]').forEach(group => observer.observe(group));
+      signal.addEventListener('abort', () => observer.disconnect(), { once: true });
+    }
+  });
+</script>

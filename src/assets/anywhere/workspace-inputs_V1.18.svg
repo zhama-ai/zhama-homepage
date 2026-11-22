@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="topology-links workspace-flow" viewBox="0 0 1948 760" aria-hidden="true" focusable="false">
+ <defs>
+  <linearGradient id="input-device-wire" gradientUnits="userSpaceOnUse" x1="0" y1="300" x2="0" y2="260">
+   <stop offset="0" stop-color="#55b7d8" stop-opacity=".78" />
+   <stop offset=".65" stop-color="#508caa" stop-opacity=".34" />
+   <stop offset="1" stop-color="#508caa" stop-opacity="0" />
+  </linearGradient>
+  <linearGradient id="input-channel-wire" gradientUnits="userSpaceOnUse" x1="0" y1="401" x2="0" y2="505">
+   <stop offset="0" stop-color="#55b7d8" stop-opacity=".78" />
+   <stop offset=".65" stop-color="#508caa" stop-opacity=".34" />
+   <stop offset="1" stop-color="#508caa" stop-opacity="0" />
+  </linearGradient>
+  <linearGradient id="input-device-wire-sweep" gradientUnits="userSpaceOnUse" x1="0" y1="244" x2="0" y2="260">
+   <stop offset="0" stop-color="#bdefff" stop-opacity="0" />
+   <stop offset=".5" stop-color="#bdefff" stop-opacity=".28" />
+   <stop offset="1" stop-color="#bdefff" stop-opacity="0" />
+   <animate attributeName="y1" dur="10s" repeatCount="indefinite" values="244;244;304;304" keyTimes="0;.015;.13;1" />
+   <animate attributeName="y2" dur="10s" repeatCount="indefinite" values="260;260;320;320" keyTimes="0;.015;.13;1" />
+  </linearGradient>
+  <linearGradient id="input-channel-wire-sweep" gradientUnits="userSpaceOnUse" x1="0" y1="505" x2="0" y2="529">
+   <stop offset="0" stop-color="#bdefff" stop-opacity="0" />
+   <stop offset=".5" stop-color="#bdefff" stop-opacity=".28" />
+   <stop offset="1" stop-color="#bdefff" stop-opacity="0" />
+   <animate attributeName="y1" dur="10s" repeatCount="indefinite" values="505;505;377;377" keyTimes="0;.015;.13;1" />
+   <animate attributeName="y2" dur="10s" repeatCount="indefinite" values="529;529;401;401" keyTimes="0;.015;.13;1" />
+  </linearGradient>
+ </defs>
+ <g class="workspace-input-wiring">
+  <path d="M74.00 260.00 C166.40 260.00 221.84 271.20 221.84 293.60 L203.36 292.00 L242.00 300.00 L280.64 292.00 L262.16 293.60 C262.16 271.20 317.60 260.00 410.00 260.00 Z" fill="url(#input-device-wire)" />
+  <path d="M60.00 505.00 C160.10 505.00 220.16 475.88 220.16 417.64 L200.14 421.80 L242.00 401.00 L283.86 421.80 L263.84 417.64 C263.84 475.88 323.90 505.00 424.00 505.00 Z" fill="url(#input-channel-wire)" />
+ </g>
+ <g class="workspace-motion workspace-input-sweep" opacity="0">
+  <path d="M74.00 260.00 C166.40 260.00 221.84 271.20 221.84 293.60 L203.36 292.00 L242.00 300.00 L280.64 292.00 L262.16 293.60 C262.16 271.20 317.60 260.00 410.00 260.00 Z" fill="url(#input-device-wire-sweep)" />
+  <path d="M60.00 505.00 C160.10 505.00 220.16 475.88 220.16 417.64 L200.14 421.80 L242.00 401.00 L283.86 421.80 L263.84 417.64 C263.84 475.88 323.90 505.00 424.00 505.00 Z" fill="url(#input-channel-wire-sweep)" />
+  <animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;.015;.035;.10;.14;1" />
+ </g>
+</svg>

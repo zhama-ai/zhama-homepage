@@ -1,0 +1,46 @@
+.industry-solution {
+  --industry-accent: #9acbf5;
+  --industry-accent-rgb: 154, 203, 245;
+}
+.industry-solution-insurance {
+  --industry-accent: #96d5c5;
+  --industry-accent-rgb: 150, 213, 197;
+}
+.industry-solution-insurance .banking-banner-background { filter: brightness(1.06); }
+.industry-solution-securities {
+  --industry-accent: #a4c9f6;
+  --industry-accent-rgb: 164, 201, 246;
+}
+.industry-solution-government {
+  --industry-accent: #8ed5df;
+  --industry-accent-rgb: 142, 213, 223;
+}
+.industry-solution-state-owned {
+  --industry-accent: #dec89c;
+  --industry-accent-rgb: 222, 200, 156;
+}
+.industry-solution .banking-hero-copy h1 span:last-child { color: var(--industry-accent); }
+.industry-solution .banking-hero::before {
+  background: linear-gradient(90deg, #000000d6 0%, #000000b8 25%, #00000078 43%, #00000075 63%, #00000085 100%), linear-gradient(0deg, #080f19 0%, #080f1900 28%, #080f1926 80%, #080f195c 100%);
+}
+.industry-solution .banking-feature-section {
+  background: radial-gradient(ellipse at 90% 60%, rgba(var(--industry-accent-rgb), .035), transparent 65%), #080f19;
+}
+.industry-solution .banking-feature-reversed {
+  background: radial-gradient(ellipse at 12% 55%, rgba(var(--industry-accent-rgb), .04), transparent 65%), #0a121d;
+}
+.industry-solution .banking-feature-body dt { color: var(--industry-accent); }
+.industry-solution .banking-hero-grid { grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); }
+.industry-solution .banking-feature-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); gap: 64px; }
+.industry-solution .banking-feature-reversed .banking-feature-grid { grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); }
+.industry-solution .banking-hero-product { filter: drop-shadow(0 22px 34px #0005); }
+.industry-solution .industry-hero-overview { display: flex; justify-content: flex-end; }
+@media (max-width: 1080px) {
+  .industry-solution .banking-hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .industry-solution .banking-feature-grid,
+  .industry-solution .banking-feature-reversed .banking-feature-grid { gap: 34px; }
+}
+@media (max-width: 800px) {
+  .industry-solution .banking-feature-grid,
+  .industry-solution .banking-feature-reversed .banking-feature-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+}

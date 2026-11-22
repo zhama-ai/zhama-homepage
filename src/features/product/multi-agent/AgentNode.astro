@@ -1,0 +1,27 @@
+---
+import Icon from '../../../components/Icon.astro';
+import type { Locale } from '../../../data/types';
+interface Props { locale: Locale; kind?: 'main' | 'search' | 'extract' | 'analysis' | 'goal' | 'result'; compact?: boolean; }
+const { locale, kind = 'main', compact = false } = Astro.props;
+const zh = locale === 'zh';
+const nodes = zh ? {
+  main: { title:'主 Agent', icon:'workflow', body:'目标拆解 · 任务调度', detail:'调用子 Agent，归集返回结果' },
+  search: { title:'背景核对 Agent', icon:'file-search', body:'核对企业与项目资料', detail:'返回背景摘要与来源' },
+  extract: { title:'财务核对 Agent', icon:'chart', body:'核对财务报表与明细', detail:'返回财务要点与差异' },
+  analysis: { title:'业务审阅 Agent', icon:'clipboard-check', body:'审阅合同与业务说明', detail:'返回疑点与复核事项' },
+  goal: { title:'尽调材料', icon:'target', body:'企业资料 · 财报 · 合同', detail:'专业核对后汇总报告' },
+  result: { title:'主任务', icon:'folder', body:'归集子任务返回结果', detail:'继续整理与审阅' },
+} : {
+  main: { title:'Main Agent', icon:'workflow', body:'Plan and delegate', detail:'Collect results' },
+  search: { title:'Background Agent', icon:'file-search', body:'Company and project records', detail:'Background and sources' },
+  extract: { title:'Finance Agent', icon:'chart', body:'Statements and supporting records', detail:'Financial points and differences' },
+  analysis: { title:'Business Agent', icon:'clipboard-check', body:'Contracts and business descriptions', detail:'Questions for human review' },
+  goal: { title:'Due diligence', icon:'target', body:'Company records, statements, contracts', detail:'Review separately; assemble the report' },
+  result: { title:'Main task', icon:'folder', body:'Collect specialist results', detail:'Continue preparation and review' },
+};
+const node = nodes[kind];
+---
+<div class:list={['ma-product-node', `ma-product-node-${kind}`, {'ma-product-node-compact':compact}]}>
+  <div class="ma-product-node-heading"><Icon name={node.icon} size={20}/><strong>{node.title}</strong></div>
+  {!compact && <><p>{node.body}</p><span>{node.detail}</span></>}
+</div>

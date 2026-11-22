@@ -1,0 +1,19 @@
+/* The first painted frame already contains atmosphere and inline stars. */
+.is-home .home-value-edition .sl-hero{background:radial-gradient(ellipse 38% 48% at 21% 52%,#174a7238,transparent 78%),radial-gradient(ellipse at 85% 76%,#11467438,transparent 57%),#020b1b}
+.hero-deep-space{mask-image:linear-gradient(#000 0%,#000 85%,#000b 100%)}
+.hero-deep-space:after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 23% 17% at 21% 76%,#020b1b66,transparent),radial-gradient(ellipse 30% 50% at 76% 48%,#020b1b2b,transparent),radial-gradient(ellipse at 23% 43%,#020b1b55,transparent 45%),linear-gradient(0deg,#02061035,transparent 22%);pointer-events:none}
+.hero-deep-space .hero-nebula{inset:0;opacity:1;background:radial-gradient(ellipse at 90% 66%,#159bcc08,transparent 46%)}
+.hero-deep-space>svg{opacity:.3;z-index:1}
+.hero-deep-space>.hero-fiber-field{opacity:1;z-index:0}
+.home-value-edition .hero-title-zh>span{white-space:nowrap}
+@media(min-width:1101px){.home-value-edition .hero-message>.hero-title-zh{font-size:clamp(38px,3.3vw,42px)}}
+@media(max-width:700px){.home-value-edition .hero-message>.hero-title-zh{font-size:clamp(28px,7.9vw,38px)}}
+.hero-deep-space .hero-far-stars circle{fill:#b7dcf7}
+.hero-deep-space .hero-star{--star-core:#e5f7ff;--star-halo:#51baff;z-index:2;width:var(--star-size);height:var(--star-size);margin:0;transform:translate(-50%,-50%);background:radial-gradient(circle,var(--star-core) 0 7%,#c9efff99 10%,#56bbff40 19%,#4bafff12 36%,transparent 70%);opacity:.65;filter:none}
+.hero-deep-space .hero-star.is-warm{--star-core:#fff1d3;background:radial-gradient(circle,var(--star-core) 0 7%,#ffe2ad99 10%,#f4be7b38 20%,#e7b5790a 40%,transparent 70%)}
+.hero-deep-space .hero-star.has-flare:before,.hero-deep-space .hero-star.has-flare:after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:linear-gradient(90deg,transparent,#d1efffb3,transparent);width:9px;height:1px}
+.hero-deep-space .hero-star.has-flare:after{width:1px;height:9px;background:linear-gradient(transparent,#d1efff99,transparent)}
+.sl-hero[data-hero-motion] .hero-deep-space .hero-star{animation:tego-starlight-breathe var(--star-duration) ease-in-out var(--star-delay) infinite}
+@keyframes tego-starlight-breathe{0%,100%{opacity:.22;transform:translate(-50%,-50%) scale(.84)}46%{opacity:.96;transform:translate(-50%,-50%) scale(1.1)}64%{opacity:.57;transform:translate(-50%,-50%) scale(.96)}}
+@media(max-width:700px){.hero-deep-space:after{background:linear-gradient(0deg,#02061035,transparent 28%)}.hero-deep-space>svg{opacity:.24}.hero-deep-space>.hero-fiber-field{opacity:.8}.hero-deep-space .hero-star:nth-of-type(3n){display:none}}
+@media(prefers-reduced-motion:reduce){.sl-hero[data-hero-motion] .hero-deep-space .hero-star{animation:none;opacity:.65}}

@@ -1,0 +1,48 @@
+<template><style>#root{position:absolute;inset:0;background:#04182a;font-family:Arial,sans-serif}*{box-sizing:border-box}.anywhere-topology{position:relative;isolation:isolate;width:100%;aspect-ratio:8/3;container-type:inline-size;color:#fff}
+.topology-inputs{position:absolute;z-index:3;left:1%;top:10%;width:28%;height:80%}
+.topology-channels{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.65cqw;align-items:center}
+.topology-channel{display:flex;align-items:center;justify-content:center;min-height:4cqw;border:1px solid #62b7e66b;border-radius:1cqw;background:linear-gradient(140deg,#16456a99,#0c2946cc);}
+
+.topology-channel img,.topology-oa{width:2.8cqw;height:2.8cqw;object-fit:contain;flex-shrink:0}
+.topology-oa{fill:none;stroke:#84bbeb;stroke-width:1.8;stroke-linejoin:round}
+.topology-devices{position:absolute;inset:6cqw 0 auto;height:20cqw}
+.topology-device-stack{display:block;width:100%;height:auto;filter:drop-shadow(0 12px 20px #0004)}
+.topology-os{position:absolute;left:0;right:0;top:27cqw;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8cqw}
+.topology-os>div{display:flex;flex-direction:column;align-items:center;gap:.7cqw;white-space:nowrap;color:#cde3f5;font-size:1.05cqw;line-height:1.5}
+.topology-os img,.topology-os svg{width:2.6cqw;height:2.6cqw;object-fit:contain}
+.topology-os svg{fill:none;stroke:#aed6f2;stroke-width:1.2}
+.topology-platform{position:absolute;z-index:1;left:34%;top:17%;width:41%;height:66%;padding:1.8cqw 1.7cqw;border:1px solid #9bd6f076;border-radius:24px;background:linear-gradient(155deg,#1d4e73b3,#12324a99 65%,#1c6692a3);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.home-value-edition .topology-platform h3,.topology-platform h3{font-size:1.94cqw;line-height:1.5;letter-spacing:.01em;font-weight:650;text-align:center;margin:0;color:#fff}
+.topology-dispatch{text-align:center;margin:1.2cqw 0 2.6cqw;font-size:1.15cqw;color:#aabdd1;line-height:1.5}
+.topology-employees{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9cqw}
+.topology-employee{display:flex;align-items:center;justify-content:center;min-height:4.2cqw;padding:.7cqw .3cqw;border:1px solid transparent;border-radius:10px;background:#b5e7f7;color:#102a42;font-size:1.26cqw;line-height:1.5;white-space:nowrap;}
+.topology-employee-0,.topology-employee-4{background:linear-gradient(155deg,#b9edfa,#7ecbf0)}
+.topology-employee-1,.topology-employee-3{background:linear-gradient(155deg,#c5f5f0,#98e3dc)}
+.topology-employee-2,.topology-employee-5{background:linear-gradient(155deg,#d5dcff,#b8b4f4)}
+
+.topology-status{position:relative;min-height:1.8cqw;margin-top:1.3cqw;font-size:1.15cqw;line-height:1.6;text-align:center;color:#b4cada}
+.topology-phase{position:absolute;inset:0;opacity:0}
+.topology-links{position:absolute;z-index:2;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.topology-links path{fill:none;stroke:#23c5ec;stroke-opacity:.45;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+#topology-flow-route{stroke:none}.topology-flow-dot{opacity:0}
+.topology-results{position:absolute;z-index:3;left:78%;top:8%;width:22%;height:85%}
+.topology-outcomes{position:absolute;z-index:1;left:0;top:0;width:21cqw;height:auto;filter:drop-shadow(0 14px 22px #0003)}
+.topology-presentation{position:absolute;left:.8cqw;top:21.1cqw;width:20cqw;padding:1.1cqw 1.4cqw .8cqw;border-radius:1cqw;background:#d2dff6;box-shadow:0 20px 40px #0005;transform:rotate(-3deg);color:#143651}
+.topology-presentation>strong{font-size:1.35cqw;line-height:1.5;font-weight:650}
+.topology-presentation>svg{display:block;width:100%;height:5.2cqw;margin-top:.4cqw}
+@media(max-width:700px){
+ .anywhere-topology{aspect-ratio:auto;display:flex;flex-direction:column;gap:38px;container-type:normal}
+ .topology-inputs,.topology-platform,.topology-results{position:relative;left:auto;top:auto;width:100%;height:auto}
+ .topology-inputs{max-width:440px;margin:auto;height:390px}
+ .topology-channels{gap:8px}.topology-channel{min-height:47px;border-radius:12px}.topology-channel img,.topology-oa{width:31px;height:31px}
+ .topology-devices{left:0;right:0;top:75px;height:240px}.topology-device-stack{width:100%;height:auto}
+ .topology-os{top:auto;bottom:0;gap:12px}.topology-os>div{gap:9px;font-size:13px}.topology-os img,.topology-os svg{width:30px;height:30px}
+ .topology-platform{padding:24px 15px;border-radius:20px}.home-value-edition .topology-platform h3,.topology-platform h3{font-size:20px}.topology-dispatch{font-size:14px;margin:14px 0 23px}.topology-employees{gap:9px}.topology-employee{min-height:55px;padding:8px 2px;font-size:12px;border-radius:8px}.topology-status{margin-top:16px;min-height:25px;font-size:14px}
+ .topology-links{display:none}.topology-results{max-width:320px;min-height:430px;margin:auto}.topology-outcomes{width:100%;max-width:320px}.topology-presentation{left:5%;top:310px;width:92%;padding:16px 20px 12px;border-radius:14px}.topology-presentation>strong{font-size:18px}.topology-presentation>svg{height:70px;margin-top:6px}
+}
+</style><div id="root" data-composition-id="workflow" data-width="1920" data-height="720" data-duration="10"><div class="anywhere-topology" data-topology-motion="paused">
+  <div class="topology-inputs"><div class="topology-channels" aria-label="IM 入口"><div class="topology-channel" title="微信" aria-label="微信"><img src="assets/weixin.svg" width="56" height="56" alt=""/></div><div class="topology-channel" title="QQ" aria-label="QQ"><img src="assets/qq.svg" width="56" height="56" alt=""/></div><div class="topology-channel" title="企业微信" aria-label="企业微信"><img src="assets/wecom.svg" width="56" height="56" alt=""/></div><div class="topology-channel" title="钉钉" aria-label="钉钉"><img src="assets/dingtalk.svg" width="56" height="56" alt=""/></div><div class="topology-channel" title="飞书" aria-label="飞书"><img src="assets/feishu.svg" width="56" height="56" alt=""/></div><div class="topology-channel" title="OA" aria-label="OA"><svg class="topology-oa" viewBox="0 0 40 40" aria-hidden="true"><path d="M10 10h8v8h-8zm12 0h8v8h-8zM10 22h8v8h-8zm12 0h8v8h-8zM18 14h4M14 18v4m12-4v4m-8 4h4"/></svg></div></div><div class="topology-devices" role="img" aria-label="PC、iPad 与移动端前后叠放"><img class="topology-device-stack" src="assets/devices-front_V1.0.webp" width="1400" height="875" alt=""/></div><div class="topology-os"><div><img src="assets/android.svg" width="32" height="32" alt=""/><span>Android</span></div><div><img src="assets/ios.svg" width="32" height="32" alt=""/><span>iOS</span></div><div><img src="assets/harmonyos.svg" width="32" height="32" alt=""/><span>鸿蒙</span></div><div><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12"/><ellipse cx="16" cy="16" rx="5" ry="12"/><path d="M4 16h24M6 10h20M6 22h20"/></svg><span>Web</span></div></div></div>
+  <div class="topology-platform"><h3>TeGo 数字员工协同平台</h3><div class="topology-dispatch">统一调度</div><div class="topology-employees"><div class="topology-employee topology-employee-0">经营分析助理</div><div class="topology-employee topology-employee-1">方案文书助理</div><div class="topology-employee topology-employee-2">知识管理助理</div><div class="topology-employee topology-employee-3">客户经营助理</div><div class="topology-employee topology-employee-4">研究支持助理</div><div class="topology-employee topology-employee-5">会议协同助理</div></div><div class="topology-status" aria-hidden="true"><span class="topology-phase topology-phase-0">理解任务</span><span class="topology-phase topology-phase-1">协同分析</span><span class="topology-phase topology-phase-2">生成成果</span></div></div>
+  <svg class="topology-links" viewBox="0 0 1920 720" aria-hidden="true"><path id="topology-flow-route" d="M550 120 H580 Q600 120 600 140 V330 Q600 350 620 350 H1030 H1440 H1585"/><path class="topology-input-brace" d="M550 120 H600 V610 H550 M550 350 H652"/><path class="topology-output-brace" d="M1585 190 H1470 V510 H1585 M1440 350 H1585"/><circle class="topology-flow-dot" r="3.5" fill="#acdfff"></circle></svg>
+  <div class="topology-results" role="img" aria-label="分析洞察、业务表格、方案文书与经营汇报"><div class="topology-presentation"><strong>经营汇报</strong><svg viewBox="0 0 260 74" aria-hidden="true"><path d="M12 61h236" stroke="#6593bb" stroke-opacity=".3"/><g fill="#5599d4"><rect x="22" y="35" width="20" height="26" rx="2"/><rect x="58" y="26" width="20" height="35" rx="2"/><rect x="94" y="13" width="20" height="48" rx="2"/></g><path d="M143 21h93m-93 13h76m-76 13h89" stroke="#a6b8e3" stroke-width="5" stroke-linecap="round"/></svg></div><img class="topology-outcomes" src="assets/outcomes-restored_V1.0.png" width="476" height="472" alt=""/></div>
+ </div></div><script>gsap.registerPlugin(MotionPathPlugin);const tl=gsap.timeline({paused:true});gsap.set('.topology-flow-dot',{opacity:0});const route={path:'#topology-flow-route',align:'#topology-flow-route',alignOrigin:[.5,.5],autoRotate:false};tl.set('.topology-flow-dot',{motionPath:{...route,start:0,end:0}});tl.to('.topology-flow-dot',{opacity:.65,duration:.2},.3);tl.to('.topology-flow-dot',{motionPath:{...route,start:0,end:.48},duration:1.65,ease:'none'},.5);const steps=[2,0,1];steps.forEach((node,i)=>{const at=2.2+i*1.8;tl.to('.topology-employee-'+node,{borderColor:'rgba(162,198,227,.3)',duration:.2},at);tl.to('.topology-phase-'+i,{opacity:1,duration:.2},at);tl.to('.topology-phase-'+i,{opacity:0,duration:.2},at+1.1);tl.to('.topology-employee-'+node,{borderColor:'rgba(162,198,227,0)',duration:.2},at+1.1);});tl.to('.topology-flow-dot',{motionPath:{...route,start:.48,end:1},duration:1.15,ease:'none'},6.9);tl.to('.topology-flow-dot',{opacity:0,duration:.35},8.15);window.__timelines['workflow']=tl;</script></template>

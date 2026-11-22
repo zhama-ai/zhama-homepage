@@ -1,0 +1,94 @@
+---
+import Icon from './Icon.astro';
+import type { Locale } from '../data/types';
+import { dashboardScenario as data, dashboardRevenue as revenue, dashboardProfit as profit, dashboardCurrent as current, dashboardGrowth as growth, dashboardMargin as margin, dashboardAverage as average, dashboardContributions as contributions } from '../data/home-dashboard';
+interface Props { locale: Locale; }
+const {locale}=Astro.props;
+const zh=locale==='zh';
+const chartId=`revenue-${locale}`;
+const line=(values:number[])=>values.map((value,index)=>`${28+index*49},${86-value/110*72}`).join(' ');
+const revenueLine=line(revenue), profitLine=line(profit);
+const orderGrowth = (Number(data.orders.at(-1)) / Number(data.orders.at(-2)) - 1) * 100;
+let ringOffset=0;
+const segments=data.categories.map((category,index)=>{const size=Number(category.amounts.at(-1))/current*100;const segment={...category,index,size,offset:ringOffset};ringOffset+=size;return segment;});
+const netRevenueChange=contributions.reduce((total,category)=>total+category.change,0);
+const subscriptionShare=(contributions.find(category=>category.id==='subscription')!.change/netRevenueChange*100).toFixed(1);
+const insightLines = [
+ { label: zh ? '判断' : 'Finding', text: zh ? `收入增长 ${growth.toFixed(1)}%，订阅贡献 ${subscriptionShare}% 净增量，是本月增长的核心驱动力。` : `Revenue +${growth.toFixed(1)}%; subscriptions drove ${subscriptionShare}% of net growth.` },
+ { label: zh ? '建议' : 'Action', text: zh ? '优先推进临期客户续约增购，排查渠道收入缺口，明确下月重点客户与跟进责任。' : 'Prioritize expiring renewals and upsells; check channel gaps; assign next month’s clients and owners.' },
+];
+const metricValues=[
+ {label:zh?'营业收入':'Revenue',value:current.toFixed(1),unit:zh?'万元':'CNY 10k',note:`+${growth.toFixed(1)}%`,icon:'chart'},
+ {label:zh?'订单数量':'Orders',value:String(data.orders.at(-1)),unit:zh?'笔':'',note:`+${orderGrowth.toFixed(1)}%`,icon:'file'},
+ {label:zh?'平均客单价':'Avg. order value',value:Math.round(average).toLocaleString('en-US'),unit:zh?'元':'¥',note:zh?'按订单核算':'Per order',icon:'layers'},
+ {label:zh?'毛利率':'Gross margin',value:margin.toFixed(1),unit:'%',note:zh?'收入与成本':'Revenue and costs',icon:'network'},
+];
+---
+<div class="business-dashboard" aria-label={zh?'经营分析任务场景的看板重绘':'Illustrated business analysis task dashboard'}>
+ <div class="analytics-heading"><h2>{zh?'经营趋势与原因分析':'Business trends & drivers'}</h2><span>{zh?'任务成果预览':'Deliverable preview'}<i></i>2026.05—10</span></div>
+ <div class="analytics-metrics">{metricValues.map(metric=><div><span>{metric.label}<Icon name={metric.icon} size={10}/></span><strong>{metric.value}<small>{metric.unit}</small></strong><em>{metric.note}</em></div>)}</div>
+ <div class="analytics-primary">
+  <section class="analytics-panel revenue-panel"><div class="analytics-panel-heading"><h3>{zh?'收入与毛利趋势':'Revenue & gross profit'}</h3><span>{zh?'万元':'CNY 10k'}</span></div><div class="analytics-legend"><span><i class="legend-revenue"></i>{zh?'营业收入':'Revenue'}</span><span><i class="legend-profit"></i>{zh?'毛利':'Gross profit'}</span></div>
+   <svg viewBox="0 0 286 103" class="analytics-trend" role="img" aria-label={zh?'2026年5月至10月营业收入与毛利趋势，单位万元':'Revenue and gross profit, May to October 2026, ten thousand yuan'}>
+    <defs><linearGradient id={chartId} x1="0" y1="0" x2="0" y2="1"><stop stop-color="#16b8ff" stop-opacity=".28"/><stop offset="1" stop-color="#16b8ff" stop-opacity="0"/></linearGradient></defs>
+    {[0,50,100].map(value=><g><line x1="27" x2="274" y1={86-value/110*72} y2={86-value/110*72} class="chart-grid"/><text x="19" y={89-value/110*72} text-anchor="end">{value}</text></g>)}
+    <polygon points={`28,86 ${revenueLine} 273,86`} fill={`url(#${chartId})`}/><polyline points={profitLine} pathLength="100" class="chart-profit"/><polyline points={revenueLine} pathLength="100" class="chart-revenue"/>
+    {revenue.map((value,index)=><circle cx={28+index*49} cy={86-value/110*72} r={index===5?2.9:1.7} class="chart-dot"/>)}
+    {data.months.map((month,index)=><text x={28+index*49} y="100" text-anchor="middle">{zh?`${Number(month.slice(-2))}月`:['May','Jun','Jul','Aug','Sep','Oct'][index]}</text>)}
+   </svg>
+  </section>
+  <section class="analytics-panel mix-panel"><div class="analytics-panel-heading"><h3>{zh?'收入结构':'Revenue mix'}</h3><Icon name="layers" size={10}/></div><div class="analytics-mix-body"><svg viewBox="0 0 100 100" class="analytics-donut" role="img" aria-label={zh?'10月三类业务收入结构，单位万元':'October revenue by business, ten thousand yuan'}><circle cx="50" cy="50" r="36" class="donut-track"/>{segments.map(segment=><circle cx="50" cy="50" r="36" pathLength="100" stroke-dasharray={`${segment.size-.8} ${100-segment.size+.8}`} stroke-dashoffset={-segment.offset} class={`donut-segment donut-${segment.index}`}/>)}<text x="50" y="48" text-anchor="middle" class="donut-value">{current.toFixed(1)}</text><text x="50" y="61" text-anchor="middle" class="donut-caption">{zh?'万元 / 10月':'CNY 10k / Oct'}</text></svg><div class="analytics-mix-legend">{segments.map(segment=><div><span><i class={`mix-key mix-${segment.index}`}></i>{segment.name[locale]}</span><strong>{Number(segment.amounts.at(-1)).toFixed(1)}</strong></div>)}</div></div></section>
+ </div>
+ <div class="analytics-secondary">
+  <section class="analytics-panel orders-panel"><div class="analytics-panel-heading"><h3>{zh?'订单变化':'Order trend'}</h3><span>{zh?'笔':'Orders'}</span></div><svg viewBox="0 0 210 64" role="img" aria-label={zh?'5月至10月订单变化':'Orders from May to October'}>{[0,80,160].map(value=><g><line x1="23" x2="204" y1={49-value/160*40} y2={49-value/160*40} class="chart-grid"/><text x="17" y={52-value/160*40} text-anchor="end">{value}</text></g>)}{data.orders.map((value,index)=><g><rect x={29+index*29} y={49-value/160*40} width="15" height={value/160*40} rx="2" class:list={['order-bar',{'order-bar-current':index===5}]}/><text x={36.5+index*29} y="61" text-anchor="middle">{zh?`${index+5}月`:['May','Jun','Jul','Aug','Sep','Oct'][index]}</text></g>)}</svg></section>
+  <section class="analytics-panel drivers-panel"><div class="analytics-panel-heading"><h3>{zh?'收入增量拆解':'Revenue drivers'}</h3><span>{zh?'万元':'CNY 10k'}</span></div><div class="analytics-drivers">{contributions.map(category=><div data-category={category.id}><span>{category.name[locale]}</span><div class="driver-track"><i class:list={['driver-bar',{'driver-negative':category.change<0}]} style={`width:${Math.abs(category.change)/8.6*100}%`}></i></div><strong class:list={{'driver-value-negative':category.change<0}}>{category.change>0?'+':''}{category.change.toFixed(1)}</strong></div>)}</div><span class="analytics-driver-period">{zh?'10月较9月':'October vs September'}</span></section>
+ </div>
+ <section class="analytics-insights"><div class="analytics-insight-heading"><span><Icon name="chart" size={12}/>{zh?'分析结论与行动建议':'Findings & recommended actions'}</span><span><Icon name="file" size={10}/>{zh?'经营分析报告.docx':'Business analysis.docx'}</span></div>{insightLines.map(line=><p aria-label={`${line.label}：${line.text}`}><strong aria-hidden="true">{line.label}</strong><span class="insight-copy" aria-hidden="true" data-insight-copy={line.text}><span class="insight-text-layout">{line.text}</span><span class="insight-typed">{line.text}</span></span></p>)}</section>
+</div>
+
+<script>
+ import { onPageMount } from '../lib/page-lifecycle';
+ onPageMount(signal => {
+ document.querySelectorAll<HTMLElement>('.business-dashboard').forEach(dashboard=>{
+  const scene=dashboard.closest<HTMLElement>('[data-hero-motion]');
+  const panel=dashboard.closest<HTMLElement>('[role="tabpanel"]');
+  const slide=dashboard.closest<HTMLElement>('[data-hero-slide]');
+  const chart=dashboard.querySelector<SVGElement>('.chart-revenue');
+  const lines=[...dashboard.querySelectorAll<HTMLElement>('[data-insight-copy]')].map(copy=>({
+   text:Array.from(copy.dataset.insightCopy || ''),
+   output:copy.querySelector<HTMLElement>('.insight-typed'),
+   copy,
+  }));
+  if(!scene || !chart)return;
+  let timer:ReturnType<typeof setTimeout>|undefined;
+  const update=()=>{
+   clearTimeout(timer);
+   const reduced=scene.dataset.heroMotion==='reduced';
+   const animation=chart.getAnimations()[0];
+   const cycle=Number(animation?.effect?.getComputedTiming().duration);
+   if(!reduced && (!Number.isFinite(cycle) || cycle<=0))return;
+   const phase=reduced?0:Number(animation?.currentTime ?? 0)%cycle;
+   let start=560;
+   const step=Math.min(34,3400/lines.reduce((total,line)=>total+line.text.length,0));
+   let next=cycle;
+   lines.forEach(line=>{
+    const count=reduced?line.text.length:Math.max(0,Math.min(line.text.length,Math.floor((phase-start)/step)));
+    const text=line.text.slice(0,count).join('');
+    if(line.output && line.output.textContent!==text)line.output.textContent=text;
+    line.copy.dataset.insightState=count===0 && !reduced?'pending':count<line.text.length?'typing':'complete';
+    line.copy.classList.toggle('is-typing',!reduced && count>0 && count<line.text.length);
+    if(count<line.text.length)next=Math.min(next,start+(count+1)*step);
+    start+=line.text.length*step+220;
+   });
+   if(!reduced && scene.dataset.heroMotion==='running' && scene.dataset.motionSuspended!=='true' && !panel?.hidden && slide?.dataset.active!=='false'){
+    timer=setTimeout(update,Math.max(16,next-phase));
+   }
+  };
+  scene.addEventListener('hero-motion-change',update,{ signal });
+  chart.addEventListener('animationstart',update,{ signal });
+  chart.addEventListener('animationiteration',update,{ signal });
+  signal.addEventListener('abort',()=>clearTimeout(timer),{ once:true });
+  update();
+ });
+ });
+</script>

@@ -1,0 +1,741 @@
+{
+  "version": "3.1",
+  "date": "2026-11-20",
+  "model": "gpt-image-2",
+  "themesPerIndustry": 4,
+  "locales": [
+    "zh",
+    "en"
+  ],
+  "processing": "Preserved complete content and directional shadows; removed unused top/bottom margins; no stretching or changes to business text. Dark exterior keyed to transparency with a smooth luminance mask; foreground business content preserved.",
+  "artworks": {
+    "government-1-zh": {
+      "path": "/images/solutions/government/government-value-scene-1-zh_V11.0.webp",
+      "width": 1200,
+      "height": 560,
+      "source": "output/imagegen/industry-value-stories_V10.5/government-1-zh_V10.5.png",
+      "crop": [
+        0,
+        129,
+        1536,
+        846
+      ],
+      "sha256": "d2c82e80e5f879b6fec77b74e92544446d518f409a118c86db966b634b41a19f"
+    },
+    "government-1-en": {
+      "path": "/images/solutions/government/government-value-scene-1-en_V11.0.webp",
+      "width": 1200,
+      "height": 800,
+      "source": "output/imagegen/industry-value-stories_V10.5/government-1-en_V10.5.png",
+      "crop": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "sha256": "5c7919a1b084c2005508d3a5bba4d3689ac721da7d1e2346a713ea6ba48ab186"
+    },
+    "government-2-zh": {
+      "path": "/images/solutions/government/government-value-scene-2-zh_V11.0.webp",
+      "width": 1200,
+      "height": 722,
+      "source": "output/imagegen/industry-value-stories_V10.5/government-2-zh_V10.5.png",
+      "crop": [
+        0,
+        34,
+        1536,
+        958
+      ],
+      "sha256": "ac27fbaccf1ec105cffb00bb869667593b00c858c3b8828285e21cdd68f6c633"
+    },
+    "government-2-en": {
+      "path": "/images/solutions/government/government-value-scene-2-en_V11.0.webp",
+      "width": 1200,
+      "height": 800,
+      "source": "output/imagegen/industry-value-stories_V10.5/government-2-en_V10.5.png",
+      "crop": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "sha256": "c447413fc3174cdb721509de68c1f6a143cff9b6f5d23a33d3027f9ab6f92671"
+    },
+    "government-3-zh": {
+      "path": "/images/solutions/government/government-value-scene-3-zh_V11.0.webp",
+      "width": 1200,
+      "height": 591,
+      "source": "output/imagegen/industry-value-stories_V10.6/government-3-zh_V10.6.png",
+      "crop": [
+        0,
+        147,
+        1536,
+        903
+      ],
+      "sha256": "a25745829ede585230a0edfe96df4929841678c4d108b5488d95c1f86b723592"
+    },
+    "government-3-en": {
+      "path": "/images/solutions/government/government-value-scene-3-en_V11.0.webp",
+      "width": 1200,
+      "height": 549,
+      "source": "output/imagegen/industry-value-stories_V10.5/government-3-en_V10.5.png",
+      "crop": [
+        0,
+        178,
+        1536,
+        881
+      ],
+      "sha256": "bca18e35a06df106167ae1cc44887d4401e0b809ff3aa7cc98d467b42c0f7471"
+    },
+    "government-4-zh": {
+      "path": "/images/solutions/government/government-value-scene-4-zh_V11.0.webp",
+      "width": 1200,
+      "height": 800,
+      "source": "output/imagegen/industry-value-stories_V10.6/government-4-zh_V10.6.png",
+      "crop": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "sha256": "8841103247225d2f306374273fce53fb5b435ba891ffb24782af0fd4775924ea"
+    },
+    "government-4-en": {
+      "path": "/images/solutions/government/government-value-scene-4-en_V11.0.webp",
+      "width": 1200,
+      "height": 800,
+      "source": "output/imagegen/industry-value-stories_V10.5/government-4-en_V10.5.png",
+      "crop": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "sha256": "29cdeb67599107fdc8606b07b4fc94c8c154b6935f181f195f023814f5849a8c"
+    },
+    "state-owned-1-zh": {
+      "path": "/images/solutions/state-owned/state-owned-value-scene-1-zh_V11.0.webp",
+      "width": 1200,
+      "height": 698,
+      "source": "output/imagegen/industry-value-stories_V10.6/state-owned-1-zh_V10.6.png",
+      "crop": [
+        0,
+        40,
+        1536,
+        934
+      ],
+      "sha256": "450fdefcdc469446b1478f39c5efd7101f03e1df5c62b6776620a02c2daf4a56"
+    },
+    "state-owned-1-en": {
+      "path": "/images/solutions/state-owned/state-owned-value-scene-1-en_V11.0.webp",
+      "width": 1200,
+      "height": 800,
+      "source": "output/imagegen/industry-value-stories_V10.5/state-owned-1-en_V10.5.png",
+      "crop": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "sha256": "d204356d4167b21214af67ee6897aa273130f33a228a228b0dd273c28fe6950b"
+    },
+    "state-owned-2-zh": {
+      "path": "/images/solutions/state-owned/state-owned-value-scene-2-zh_V11.0.webp",
+      "width": 1200,
+      "height": 800,
+      "source": "output/imagegen/industry-value-stories_V10.5/state-owned-2-zh_V10.5.png",
+      "crop": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "sha256": "22b4e185c7e57c60d19700ef9e15b583e278b1950010fc6e6172523c365b4a05"
+    },
+    "state-owned-2-en": {
+      "path": "/images/solutions/state-owned/state-owned-value-scene-2-en_V11.0.webp",
+      "width": 1200,
+      "height": 800,
+      "source": "output/imagegen/industry-value-stories_V10.5/state-owned-2-en_V10.5.png",
+      "crop": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "sha256": "557172bb8990458752cbdbaa74e6782aad8c4de288653befbe9e61836a2d5532"
+    },
+    "state-owned-3-zh": {
+      "path": "/images/solutions/state-owned/state-owned-value-scene-3-zh_V11.0.webp",
+      "width": 1200,
+      "height": 655,
+      "source": "output/imagegen/industry-value-stories_V10.5/state-owned-3-zh_V10.5.png",
+      "crop": [
+        0,
+        88,
+        1536,
+        927
+      ],
+      "sha256": "dcc5af9f74be5be0f8817cf30ccd733c51af777b37512438325a72669e6680b9"
+    },
+    "state-owned-3-en": {
+      "path": "/images/solutions/state-owned/state-owned-value-scene-3-en_V11.0.webp",
+      "width": 1200,
+      "height": 800,
+      "source": "output/imagegen/industry-value-stories_V10.5/state-owned-3-en_V10.5.png",
+      "crop": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "sha256": "0ac54a6385a59824201a63ac64c1133d4efd44d9cfbbef4b10334ad2d4dc07e0"
+    },
+    "state-owned-4-zh": {
+      "path": "/images/solutions/state-owned/state-owned-value-scene-4-zh_V11.0.webp",
+      "width": 1200,
+      "height": 800,
+      "source": "output/imagegen/industry-value-stories_V10.5/state-owned-4-zh_V10.5.png",
+      "crop": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "sha256": "5e574d4a5472736cadf815b484b2b9f1c1939151d371846d512c7dd03bf782ab"
+    },
+    "state-owned-4-en": {
+      "path": "/images/solutions/state-owned/state-owned-value-scene-4-en_V11.0.webp",
+      "width": 1200,
+      "height": 800,
+      "source": "output/imagegen/industry-value-stories_V10.5/state-owned-4-en_V10.5.png",
+      "crop": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "sha256": "7fb07b53711745de3b88788ccda94827179f448e869b0ecfe563441b8a1315b9"
+    },
+    "general-1-zh": {
+      "path": "/images/solutions/general/general-value-scene-1-zh_V11.0.webp",
+      "width": 1200,
+      "height": 800,
+      "source": "output/imagegen/industry-value-stories_V10.5/general-1-zh_V10.5.png",
+      "crop": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "sha256": "0d94b8fe10d7a98db2cac72d7a6b9472f8ec197210768cf8353a7f8383e74655"
+    },
+    "general-1-en": {
+      "path": "/images/solutions/general/general-value-scene-1-en_V11.0.webp",
+      "width": 1200,
+      "height": 800,
+      "source": "output/imagegen/industry-value-stories_V10.5/general-1-en_V10.5.png",
+      "crop": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "sha256": "159c1dbb54fd3357a298d234388e9ca9d331db20163863bf4cfc44fbda79c301"
+    },
+    "general-2-zh": {
+      "path": "/images/solutions/general/general-value-scene-2-zh_V11.0.webp",
+      "width": 1200,
+      "height": 718,
+      "source": "output/imagegen/industry-value-stories_V10.5/general-2-zh_V10.5.png",
+      "crop": [
+        0,
+        50,
+        1536,
+        969
+      ],
+      "sha256": "1ac6559383a3d19b35ec3bac83846d1d0797ef32f3162528241185e5360348b9"
+    },
+    "general-2-en": {
+      "path": "/images/solutions/general/general-value-scene-2-en_V11.0.webp",
+      "width": 1200,
+      "height": 800,
+      "source": "output/imagegen/industry-value-stories_V10.5/general-2-en_V10.5.png",
+      "crop": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "sha256": "bd47075d04b74ed8cca724651a615749503f59f465cfef8714143bc326bbafef"
+    },
+    "general-3-zh": {
+      "path": "/images/solutions/general/general-value-scene-3-zh_V11.0.webp",
+      "width": 1200,
+      "height": 715,
+      "source": "output/imagegen/industry-value-stories_V10.5/general-3-zh_V10.5.png",
+      "crop": [
+        0,
+        58,
+        1536,
+        973
+      ],
+      "sha256": "50d2ef5107af0e7388f45b105af83644826f7a1e73eab5c2e5d32de7ac4cad73"
+    },
+    "general-3-en": {
+      "path": "/images/solutions/general/general-value-scene-3-en_V11.0.webp",
+      "width": 1200,
+      "height": 800,
+      "source": "output/imagegen/industry-value-stories_V10.6/general-3-en_V10.6.png",
+      "crop": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "sha256": "9ecf6d549e97be5cd1f13fdde0f9a445db373832187655feab21d0c12d20f6c1"
+    },
+    "general-4-zh": {
+      "path": "/images/solutions/general/general-value-scene-4-zh_V11.0.webp",
+      "width": 1200,
+      "height": 713,
+      "source": "output/imagegen/industry-value-stories_V10.5/general-4-zh_V10.5.png",
+      "crop": [
+        0,
+        62,
+        1536,
+        975
+      ],
+      "sha256": "5f48c4a7c4e4814f2c8588d77e6ded2415a47824656665e84b0f9442bd4cb414"
+    },
+    "general-4-en": {
+      "path": "/images/solutions/general/general-value-scene-4-en_V11.0.webp",
+      "width": 1200,
+      "height": 800,
+      "source": "output/imagegen/industry-value-stories_V10.5/general-4-en_V10.5.png",
+      "crop": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "sha256": "841d82fa49e3fabdb0139c8fdd3883fb36462e800b14918295d0ccd12847dea7"
+    },
+    "banking-1-zh": {
+      "path": "/images/solutions/banking/banking-value-scene-1-zh_V11.0.webp",
+      "width": 1200,
+      "height": 580,
+      "source": "output/imagegen/industry-value-stories_V10.5/banking-1-zh_V10.5.png",
+      "crop": [
+        0,
+        128,
+        1536,
+        871
+      ],
+      "sha256": "dd4bbcce6ee2584a128fb7bc58b2e1b963a88b4c720ced09598c657e07df9dba"
+    },
+    "banking-1-en": {
+      "path": "/images/solutions/banking/banking-value-scene-1-en_V11.0.webp",
+      "width": 1200,
+      "height": 649,
+      "source": "output/imagegen/industry-value-stories_V10.5/banking-1-en_V10.5.png",
+      "crop": [
+        0,
+        64,
+        1536,
+        895
+      ],
+      "sha256": "c740ccf3a5740778639501810a6100bee2d2f7740eceb6d1ed92e1ff20785967"
+    },
+    "banking-2-zh": {
+      "path": "/images/solutions/banking/banking-value-scene-2-zh_V11.0.webp",
+      "width": 1200,
+      "height": 699,
+      "source": "output/imagegen/industry-value-stories_V10.5/banking-2-zh_V10.5.png",
+      "crop": [
+        0,
+        42,
+        1536,
+        937
+      ],
+      "sha256": "090c19799f988879e7248fce07346422b75578f170174f07492e6e4d76f5e653"
+    },
+    "banking-2-en": {
+      "path": "/images/solutions/banking/banking-value-scene-2-en_V11.0.webp",
+      "width": 1200,
+      "height": 800,
+      "source": "output/imagegen/industry-value-stories_V10.5/banking-2-en_V10.5.png",
+      "crop": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "sha256": "6d739100b6950665c8425fb8a22c145a37d7aa1185cb9c1e4a13d0a9d51a8eb5"
+    },
+    "banking-3-zh": {
+      "path": "/images/solutions/banking/banking-value-scene-3-zh_V11.0.webp",
+      "width": 1200,
+      "height": 701,
+      "source": "output/imagegen/industry-value-stories_V10.5/banking-3-zh_V10.5.png",
+      "crop": [
+        0,
+        56,
+        1536,
+        953
+      ],
+      "sha256": "540015a97ac3f8525bfd7e97e9ea7b55dba173c033df8d41ab751dbd420d7394"
+    },
+    "banking-3-en": {
+      "path": "/images/solutions/banking/banking-value-scene-3-en_V11.0.webp",
+      "width": 1200,
+      "height": 545,
+      "source": "output/imagegen/industry-value-stories_V10.5/banking-3-en_V10.5.png",
+      "crop": [
+        0,
+        164,
+        1536,
+        862
+      ],
+      "sha256": "fcc7ccbbc91c76dfa6efe7a85b720d5f612cfec5d0de4472a5022201e7a871b5"
+    },
+    "banking-4-zh": {
+      "path": "/images/solutions/banking/banking-value-scene-4-zh_V11.0.webp",
+      "width": 1200,
+      "height": 594,
+      "source": "output/imagegen/industry-value-stories_V10.5/banking-4-zh_V10.5.png",
+      "crop": [
+        0,
+        153,
+        1536,
+        913
+      ],
+      "sha256": "e7a419ca78644cb8a5792d7989c01c18661f4aafb563851cd61e0fb552614c3c"
+    },
+    "banking-4-en": {
+      "path": "/images/solutions/banking/banking-value-scene-4-en_V11.0.webp",
+      "width": 1200,
+      "height": 680,
+      "source": "output/imagegen/industry-value-stories_V10.5/banking-4-en_V10.5.png",
+      "crop": [
+        0,
+        84,
+        1536,
+        955
+      ],
+      "sha256": "954b12e2f980016e6cd0f4c162e42c4263b02b5896ff29875ca5dae45f734939"
+    },
+    "insurance-1-zh": {
+      "path": "/images/solutions/insurance/insurance-value-scene-1-zh_V11.0.webp",
+      "width": 1200,
+      "height": 555,
+      "source": "output/imagegen/industry-value-stories_V10.5/insurance-1-zh_V10.5.png",
+      "crop": [
+        0,
+        130,
+        1536,
+        841
+      ],
+      "sha256": "cc044d7a431a69caa2d81304e36dc19b834b2fa2a1d18d6e42a58671ed6b82f1"
+    },
+    "insurance-1-en": {
+      "path": "/images/solutions/insurance/insurance-value-scene-1-en_V11.0.webp",
+      "width": 1200,
+      "height": 536,
+      "source": "output/imagegen/industry-value-stories_V10.5/insurance-1-en_V10.5.png",
+      "crop": [
+        0,
+        190,
+        1536,
+        876
+      ],
+      "sha256": "39f33e79608db8bd9ce0ac9467a311065295767622d6a89ef6475c2a5e2217a4"
+    },
+    "insurance-2-zh": {
+      "path": "/images/solutions/insurance/insurance-value-scene-2-zh_V11.0.webp",
+      "width": 1200,
+      "height": 721,
+      "source": "output/imagegen/industry-value-stories_V10.5/insurance-2-zh_V10.5.png",
+      "crop": [
+        0,
+        56,
+        1536,
+        979
+      ],
+      "sha256": "e344ce72f453352b868fb9afce540e6a67c9b8cbb71bb59b6807c5b4d111b60e"
+    },
+    "insurance-2-en": {
+      "path": "/images/solutions/insurance/insurance-value-scene-2-en_V11.0.webp",
+      "width": 1200,
+      "height": 677,
+      "source": "output/imagegen/industry-value-stories_V10.5/insurance-2-en_V10.5.png",
+      "crop": [
+        0,
+        50,
+        1536,
+        916
+      ],
+      "sha256": "ba2192b3874c2543fe930d538758c85e06719e093118569d806d3364c9b8d746"
+    },
+    "insurance-3-zh": {
+      "path": "/images/solutions/insurance/insurance-value-scene-3-zh_V11.0.webp",
+      "width": 1200,
+      "height": 321,
+      "source": "output/imagegen/industry-value-stories_V10.5/insurance-3-zh_V10.5.png",
+      "crop": [
+        0,
+        304,
+        1536,
+        715
+      ],
+      "sha256": "91a49441ec2438df32b78f0c4cf25f6fbe4e206ae3cb9b570314f7a516924b4a"
+    },
+    "insurance-3-en": {
+      "path": "/images/solutions/insurance/insurance-value-scene-3-en_V11.0.webp",
+      "width": 1200,
+      "height": 662,
+      "source": "output/imagegen/industry-value-stories_V10.5/insurance-3-en_V10.5.png",
+      "crop": [
+        0,
+        112,
+        1536,
+        959
+      ],
+      "sha256": "abab2ef378ad741573195cd6869ae9c40b4d75cd6bb2c34925e400b30718a1ca"
+    },
+    "insurance-4-zh": {
+      "path": "/images/solutions/insurance/insurance-value-scene-4-zh_V11.0.webp",
+      "width": 1200,
+      "height": 630,
+      "source": "output/imagegen/industry-value-stories_V10.5/insurance-4-zh_V10.5.png",
+      "crop": [
+        0,
+        127,
+        1536,
+        933
+      ],
+      "sha256": "af12fa702209149059e174e066ac7c853b6e37a9e6edf1e13de2d79240335286"
+    },
+    "insurance-4-en": {
+      "path": "/images/solutions/insurance/insurance-value-scene-4-en_V11.0.webp",
+      "width": 1200,
+      "height": 670,
+      "source": "output/imagegen/industry-value-stories_V10.5/insurance-4-en_V10.5.png",
+      "crop": [
+        0,
+        151,
+        1536,
+        1009
+      ],
+      "sha256": "0183e0cb667ac24f632a508093335bb344e32bfc209d931eb5f164242473321c"
+    },
+    "securities-1-zh": {
+      "path": "/images/solutions/securities/securities-value-scene-1-zh_V11.0.webp",
+      "width": 1200,
+      "height": 510,
+      "source": "output/imagegen/industry-value-stories_V10.5/securities-1-zh_V10.5.png",
+      "crop": [
+        0,
+        185,
+        1536,
+        838
+      ],
+      "sha256": "f8357585be40a01d20b2a526b9d77f9b39d128ad611e3c71347ac773cdd6fcc9"
+    },
+    "securities-1-en": {
+      "path": "/images/solutions/securities/securities-value-scene-1-en_V11.0.webp",
+      "width": 1200,
+      "height": 559,
+      "source": "output/imagegen/industry-value-stories_V10.5/securities-1-en_V10.5.png",
+      "crop": [
+        0,
+        137,
+        1536,
+        852
+      ],
+      "sha256": "9bdf23d9070af82f67cc6448ea78ca7aea8d49483777d28b43169489c1f73e05"
+    },
+    "securities-2-zh": {
+      "path": "/images/solutions/securities/securities-value-scene-2-zh_V11.0.webp",
+      "width": 1200,
+      "height": 555,
+      "source": "output/imagegen/industry-value-stories_V10.5/securities-2-zh_V10.5.png",
+      "crop": [
+        0,
+        138,
+        1536,
+        848
+      ],
+      "sha256": "0405bc1a891b4e36e266c98f37c3f572fb2d613db6e7f7c08490072056aca993"
+    },
+    "securities-2-en": {
+      "path": "/images/solutions/securities/securities-value-scene-2-en_V11.0.webp",
+      "width": 1200,
+      "height": 709,
+      "source": "output/imagegen/industry-value-stories_V10.7/securities-2-en_V10.7.png",
+      "crop": [
+        0,
+        36,
+        1536,
+        944
+      ],
+      "sha256": "3e4b292acaa1923a92b47dac4b52ce1314eade57a6dbed4e7a2159ac189ebdf6"
+    },
+    "securities-3-zh": {
+      "path": "/images/solutions/securities/securities-value-scene-3-zh_V11.0.webp",
+      "width": 1200,
+      "height": 441,
+      "source": "output/imagegen/industry-value-stories_V10.7/securities-3-zh_V10.7.png",
+      "crop": [
+        0,
+        226,
+        1536,
+        791
+      ],
+      "sha256": "138394f918b4587128707750140dc7085b75d24b043c382f50bc155c2264afbe"
+    },
+    "securities-3-en": {
+      "path": "/images/solutions/securities/securities-value-scene-3-en_V11.0.webp",
+      "width": 1200,
+      "height": 443,
+      "source": "output/imagegen/industry-value-stories_V10.7/securities-3-en_V10.7.png",
+      "crop": [
+        0,
+        194,
+        1536,
+        761
+      ],
+      "sha256": "f2af5177ba33a46f4bff51db475fcdfaa1fa036b92a81774c03a24fb2e0b0480"
+    },
+    "securities-4-zh": {
+      "path": "/images/solutions/securities/securities-value-scene-4-zh_V11.0.webp",
+      "width": 1200,
+      "height": 473,
+      "source": "output/imagegen/industry-value-stories_V10.5/securities-4-zh_V10.5.png",
+      "crop": [
+        0,
+        201,
+        1536,
+        806
+      ],
+      "sha256": "f18adee7ddb9b3476427c3b499af034e5e91e683737b0b9f925e064a26322233"
+    },
+    "securities-4-en": {
+      "path": "/images/solutions/securities/securities-value-scene-4-en_V11.0.webp",
+      "width": 1200,
+      "height": 625,
+      "source": "output/imagegen/industry-value-stories_V10.5/securities-4-en_V10.5.png",
+      "crop": [
+        0,
+        99,
+        1536,
+        899
+      ],
+      "sha256": "f4f451dbc6450ce14f3866fc2cee4343cc1546ebfaa89d7ef4dc79e7b63ea462"
+    },
+    "trust-1-zh": {
+      "path": "/images/solutions/trust/trust-value-scene-1-zh_V11.0.webp",
+      "width": 1200,
+      "height": 545,
+      "source": "output/imagegen/industry-value-stories_V10.5/trust-1-zh_V10.5.png",
+      "crop": [
+        0,
+        144,
+        1536,
+        842
+      ],
+      "sha256": "15353709e0a4ae1cea4a615a6f402bdf7c74dee5bdd2eac8676cc0816f545436"
+    },
+    "trust-1-en": {
+      "path": "/images/solutions/trust/trust-value-scene-1-en_V11.0.webp",
+      "width": 1200,
+      "height": 666,
+      "source": "output/imagegen/industry-value-stories_V10.5/trust-1-en_V10.5.png",
+      "crop": [
+        0,
+        84,
+        1536,
+        937
+      ],
+      "sha256": "b43d18926c77adf822e8ca25afdbfb129393925298cd112345e51bf188ac870f"
+    },
+    "trust-2-zh": {
+      "path": "/images/solutions/trust/trust-value-scene-2-zh_V11.0.webp",
+      "width": 1200,
+      "height": 558,
+      "source": "output/imagegen/industry-value-stories_V10.5/trust-2-zh_V10.5.png",
+      "crop": [
+        0,
+        121,
+        1536,
+        835
+      ],
+      "sha256": "1549d98f1234e5433b501623daa14d3891c696ba1a125a27321b549a4b3faf79"
+    },
+    "trust-2-en": {
+      "path": "/images/solutions/trust/trust-value-scene-2-en_V11.0.webp",
+      "width": 1200,
+      "height": 800,
+      "source": "output/imagegen/industry-value-stories_V10.5/trust-2-en_V10.5.png",
+      "crop": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "sha256": "b60825710efc7438d5617acd0939a10201d05d3bfff8a589db57d16466b453aa"
+    },
+    "trust-3-zh": {
+      "path": "/images/solutions/trust/trust-value-scene-3-zh_V11.0.webp",
+      "width": 1200,
+      "height": 665,
+      "source": "output/imagegen/industry-value-stories_V10.8/trust-3-zh_V10.8.png",
+      "crop": [
+        0,
+        21,
+        1536,
+        872
+      ],
+      "sha256": "d92074eb0483ec983bda645a0a88813b1d19d50a10f2e7361f88ea9ea1d1ec53"
+    },
+    "trust-3-en": {
+      "path": "/images/solutions/trust/trust-value-scene-3-en_V11.0.webp",
+      "width": 1200,
+      "height": 654,
+      "source": "output/imagegen/industry-value-stories_V10.8/trust-3-en_V10.8.png",
+      "crop": [
+        0,
+        86,
+        1536,
+        923
+      ],
+      "sha256": "4d9d5f51610f0524184180f5278828c8da1dbf4da076c5bd68b66ccbd13bb5ad"
+    },
+    "trust-4-zh": {
+      "path": "/images/solutions/trust/trust-value-scene-4-zh_V11.0.webp",
+      "width": 1200,
+      "height": 623,
+      "source": "output/imagegen/industry-value-stories_V10.8/trust-4-zh_V10.8.png",
+      "crop": [
+        0,
+        126,
+        1536,
+        924
+      ],
+      "sha256": "488b31bd3b5b081e3e05f8e07579fde6869b6702a84a9d3e5bb6ae3211bd931a"
+    },
+    "trust-4-en": {
+      "path": "/images/solutions/trust/trust-value-scene-4-en_V11.0.webp",
+      "width": 1200,
+      "height": 670,
+      "source": "output/imagegen/industry-value-stories_V10.8/trust-4-en_V10.8.png",
+      "crop": [
+        0,
+        77,
+        1536,
+        935
+      ],
+      "sha256": "fd30323622353ae289974d2c043cadf833b04cf07eb9f87336b413519ff0c6e3"
+    }
+  }
+}

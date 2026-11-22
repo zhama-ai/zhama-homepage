@@ -1,0 +1,53 @@
+services:
+  web:
+    image: nginx:1.27-alpine
+    ports:
+      - "${SITE_PREVIEW_PORT:-8090}:80"
+    volumes:
+      - ../../dist:/usr/share/nginx/html:ro
+      - ./preview.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./preview-routes.conf:/etc/nginx/preview-routes.conf:ro
+    depends_on:
+      contact:
+        condition: service_healthy
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /var/cache/nginx
+      - /var/run
+      - /tmp
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1/healthz"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+  contact:
+    image: "${CONTACT_IMAGE:?Set CONTACT_IMAGE to the release image tag}"
+    build:
+      context: ../..
+      dockerfile: deploy/contact/Dockerfile
+    env_file:
+      - "${CONTACT_ENV_FILE:-../../.env.contact.local}"
+    environment:
+      NODE_ENV: production
+      CONTACT_HOST: 0.0.0.0
+      CONTACT_PORT: 4351
+      CONTACT_DATA_DIR: /app/.contact-data
+      CONTACT_ALLOWED_ORIGINS: "${CONTACT_PREVIEW_ORIGIN:?Set CONTACT_PREVIEW_ORIGIN to the HTTP preview origin}"
+      CONTACT_TRUST_PROXY: "true"
+    volumes:
+      - contact-leads:/app/.contact-data
+    restart: unless-stopped
+    init: true
+    stop_grace_period: 90s
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+volumes:
+  contact-leads:
+    name: zhama-website-contact-leads

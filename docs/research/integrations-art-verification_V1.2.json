@@ -1,0 +1,290 @@
+{
+  "date": "2026-11-22",
+  "version": "V1.2",
+  "source": "src/components/product/IntegrationsFlowArt_V1.2.astro",
+  "checks": {
+    "astro": {
+      "errors": 0,
+      "warnings": 0,
+      "hints": 0
+    },
+    "tests": {
+      "passed": 200,
+      "skipped": 1,
+      "failed": 0
+    },
+    "build": "passed",
+    "verify": "passed",
+    "diffWhitespace": "passed"
+  },
+  "responsive": {
+    "zh": [
+      {
+        "artOverflow": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "clipped": [],
+        "lang": "zh-CN",
+        "pageOverflow": 0,
+        "width": 390
+      },
+      {
+        "artOverflow": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "clipped": [],
+        "lang": "zh-CN",
+        "pageOverflow": 0,
+        "width": 580
+      },
+      {
+        "artOverflow": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "clipped": [],
+        "lang": "zh-CN",
+        "pageOverflow": 0,
+        "width": 581
+      },
+      {
+        "artOverflow": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "clipped": [],
+        "lang": "zh-CN",
+        "pageOverflow": 0,
+        "width": 850
+      },
+      {
+        "artOverflow": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "clipped": [],
+        "lang": "zh-CN",
+        "pageOverflow": 0,
+        "width": 851
+      },
+      {
+        "artOverflow": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "clipped": [],
+        "lang": "zh-CN",
+        "pageOverflow": 0,
+        "width": 1100
+      },
+      {
+        "artOverflow": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "clipped": [],
+        "lang": "zh-CN",
+        "pageOverflow": 0,
+        "width": 1101
+      },
+      {
+        "artOverflow": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "clipped": [],
+        "lang": "zh-CN",
+        "pageOverflow": 0,
+        "width": 1379
+      }
+    ],
+    "en": [
+      {
+        "artOverflow": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "clipped": [],
+        "headingOverflow": [
+          0,
+          0
+        ],
+        "lang": "en",
+        "pageOverflow": 0,
+        "reversed": [
+          "none",
+          "none"
+        ],
+        "width": 390
+      },
+      {
+        "artOverflow": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "clipped": [],
+        "headingOverflow": [
+          0,
+          0
+        ],
+        "lang": "en",
+        "pageOverflow": 0,
+        "reversed": [
+          "none",
+          "none"
+        ],
+        "width": 580
+      },
+      {
+        "artOverflow": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "clipped": [],
+        "headingOverflow": [
+          0,
+          0
+        ],
+        "lang": "en",
+        "pageOverflow": 0,
+        "reversed": [
+          "matrix(-1, 0, 0, -1, 0, 0)",
+          "matrix(-1, 0, 0, -1, 0, 0)"
+        ],
+        "width": 581
+      },
+      {
+        "artOverflow": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "clipped": [],
+        "headingOverflow": [
+          0,
+          0
+        ],
+        "lang": "en",
+        "pageOverflow": 0,
+        "reversed": [
+          "matrix(-1, 0, 0, -1, 0, 0)",
+          "matrix(-1, 0, 0, -1, 0, 0)"
+        ],
+        "width": 850
+      },
+      {
+        "artOverflow": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "clipped": [],
+        "headingOverflow": [
+          0,
+          0
+        ],
+        "lang": "en",
+        "pageOverflow": 0,
+        "reversed": [
+          "matrix(-1, 0, 0, -1, 0, 0)",
+          "matrix(-1, 0, 0, -1, 0, 0)"
+        ],
+        "width": 851
+      },
+      {
+        "artOverflow": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "clipped": [],
+        "headingOverflow": [
+          0,
+          0
+        ],
+        "lang": "en",
+        "pageOverflow": 0,
+        "reversed": [
+          "matrix(-1, 0, 0, -1, 0, 0)",
+          "matrix(-1, 0, 0, -1, 0, 0)"
+        ],
+        "width": 1100
+      },
+      {
+        "artOverflow": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "clipped": [],
+        "headingOverflow": [
+          0,
+          0
+        ],
+        "lang": "en",
+        "pageOverflow": 0,
+        "reversed": [
+          "matrix(-1, 0, 0, -1, 0, 0)",
+          "matrix(-1, 0, 0, -1, 0, 0)"
+        ],
+        "width": 1101
+      },
+      {
+        "artOverflow": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "clipped": [],
+        "headingOverflow": [
+          0,
+          0
+        ],
+        "lang": "en",
+        "pageOverflow": 0,
+        "reversed": [
+          "matrix(-1, 0, 0, -1, 0, 0)",
+          "matrix(-1, 0, 0, -1, 0, 0)"
+        ],
+        "width": 1379
+      }
+    ]
+  },
+  "traditional": {
+    "desktop_and_mobile_inspected": true,
+    "four_flow_illustrations_localized": true,
+    "mobile_return_arrows": "downward"
+  },
+  "scope": "Conceptual system connection and workflow diagrams; page copy unchanged. No connection or API call made to business systems.",
+  "deployment": "local only",
+  "human_usability_test": "not performed"
+}

@@ -1,0 +1,8 @@
+/* Homepage sections, navigation and footer share one responsive content grid. */
+.is-home {
+  --home-content-max: 1240px;
+}
+
+.is-home .container:not(.hero-carousel-controls) {
+  width: min(var(--home-content-max), calc(100% - var(--gutter) * 2));
+}

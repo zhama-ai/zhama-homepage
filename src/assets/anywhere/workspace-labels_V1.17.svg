@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="workspace-labels" viewBox="0 0 1948 760" aria-hidden="true" focusable="false" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+ <g fill="#bed3e4" font-size="25" font-weight="500">
+  <text x="56" y="119">任务入口</text>
+  <text x="1320" y="119">业务成果</text>
+ </g>
+ <g fill="none" stroke="#c4d9e9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="89" y="192" width="34" height="24" rx="2"/>
+  <path d="M86 219 H126 L123 222 H89 Z"/>
+  <circle cx="202" cy="205" r="15"/>
+  <ellipse cx="202" cy="205" rx="6.5" ry="15"/>
+  <path d="M188 199 H216 M188 211 H216"/>
+  <rect x="280" y="190" width="28" height="31" rx="2.5"/>
+  <path d="M293 216 H295"/>
+  <rect x="377" y="190" width="20" height="31" rx="2.5"/>
+  <path d="M386 216 H388"/>
+ </g>
+ <g fill="#bed3e4" font-size="18.5" font-weight="400" text-anchor="middle">
+  <text x="106" y="246">PC</text>
+  <text x="202" y="246">Web</text>
+  <text x="294" y="246">平板</text>
+  <text x="387" y="246">移动端</text>
+  <text x="71" y="570">微信</text>
+  <text x="138" y="570">QQ</text>
+  <text x="206" y="570">企业微信</text>
+  <text x="275" y="570">钉钉</text>
+  <text x="342" y="570">飞书</text>
+  <text x="409" y="570">OA</text>
+ </g>
+ <g fill="none" stroke="#c4d9e9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M61 339 H79 Q83 339 83 343 V354 Q83 358 79 358 H71 L65 364 V358 H61 Q57 358 57 354 V343 Q57 339 61 339 Z"/>
+  <path d="M64 348 H64.1 M70 348 H70.1 M76 348 H76.1" stroke-width="2.4"/>
+  <path d="M99 334 V367" stroke="#86a6bc" stroke-opacity=".55"/>
+ </g>
+ <text x="113" y="355" fill="#e3edf5" font-size="20" font-weight="500">整理项目资料，生成建设方案</text>
+ <path d="M388 348 L411 338 L403 362 L399 352 L388 348 Z M399 352 L411 338" fill="none" stroke="#76cbf0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+ <g fill="#c8dce9" font-size="20" font-weight="400">
+  <text x="598" y="110" font-size="24">数字员工协同</text>
+  <text x="1055" y="110" font-size="22" fill="#8de3bb">已完成</text>
+  <text x="600" y="175" font-size="34" font-weight="500" fill="#edf5fb">业务建设方案</text>
+  <text x="658" y="231">项目资料</text>
+  <text x="658" y="286">需求清单.xlsx</text>
+  <text x="663" y="378" font-size="19">资料整理</text>
+  <text x="850" y="378" font-size="19">方案文书</text>
+  <text x="1041" y="378" font-size="19">项目协作</text>
+  <text x="665" y="566">企业知识库</text>
+  <text x="868" y="566">技能</text>
+  <text x="1024" y="566">系统连接</text>
+  <text x="716" y="633" font-size="19">Agent 协同调度</text>
+  <text x="955" y="633" font-size="19">权限审计</text>
+ </g>
+ <g fill="#bcd3e3" font-size="18" text-anchor="middle">
+  <text x="645" y="490">接收任务</text>
+  <text x="786" y="490">理解规划</text>
+  <text x="929" y="490">协同执行</text>
+  <text x="1070" y="490">输出结果</text>
+ </g>
+ <g fill="#d1e2ed" font-size="20" font-weight="400">
+  <text x="1368" y="195">方案文书</text>
+  <text x="1328" y="254" font-size="32" font-weight="500" fill="#e3f0f8">服务推广计划</text>
+  <text x="1329" y="300" font-size="18">传播主题</text>
+  <text x="1329" y="326" font-size="18">让协作更高效</text>
+  <text x="1329" y="365" font-size="18">内容规划</text>
+  <text x="1329" y="392" font-size="16">客户案例 · 场景长图 · 活动文案</text>
+  <text x="1367" y="450">推广计划.pdf</text>
+  <text x="1655" y="195">经营分析</text>
+  <text x="1617" y="233" font-size="18">收入（万元）</text>
+  <text x="1356" y="536">资料归档</text>
+  <text x="1328" y="575" font-size="23">合同与附件已归档</text>
+  <text x="1373" y="609" font-size="19">归档记录.xlsx</text>
+  <text x="1678" y="536">客户跟进</text>
+  <text x="1633" y="580" font-size="23">方案与资料清单已备齐</text>
+ </g>
+ <g fill="#b9d1e2" font-size="15" text-anchor="end">
+  <text x="1639" y="270">100</text>
+  <text x="1639" y="341">50</text>
+  <text x="1639" y="405">0</text>
+ </g>
+ <g fill="#bfd6e5" font-size="16" text-anchor="middle">
+  <text x="1660" y="425">7月</text>
+  <text x="1716" y="425">8月</text>
+  <text x="1771" y="425">9月</text>
+  <text x="1827" y="425">10月</text>
+  <text x="1883" y="425">11月</text>
+ </g>
+</svg>

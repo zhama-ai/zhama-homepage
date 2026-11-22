@@ -1,0 +1,9 @@
+---
+import CapabilityLanding from '../../../components/pages/EnterpriseCapability.astro';
+import content from './content';
+import landing from './landing';
+import type { Locale } from '../../../data/types';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+---
+<CapabilityLanding locale={locale} capability={content} copy={landing[locale]}/>

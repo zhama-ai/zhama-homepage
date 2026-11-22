@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="workspace-foreground-labels" viewBox="35 302 396 97" aria-hidden="true" focusable="false" font-family="'PingFang SC','Microsoft YaHei',sans-serif"><g >
+ <g fill="none" stroke="#c4d9e9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M61 339 H79 Q83 339 83 343 V354 Q83 358 79 358 H71 L65 364 V358 H61 Q57 358 57 354 V343 Q57 339 61 339 Z"/>
+  <path d="M64 348 H64.1 M70 348 H70.1 M76 348 H76.1" stroke-width="2.4"/>
+  <path d="M99 334 V367" stroke="#86a6bc" stroke-opacity=".55"/>
+ </g>
+ <text x="113" y="355" fill="#e3edf5" font-size="20" font-weight="500">整理项目资料，生成建设方案</text>
+ <path d="M388 348 L411 338 L403 362 L399 352 L388 348 Z M399 352 L411 338" fill="none" stroke="#76cbf0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+</g></svg>

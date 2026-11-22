@@ -1,0 +1,11 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Page from '../../features/about/Page.astro';
+import { aboutContent } from '../../features/about/content';
+import type { Locale } from '../../data/types';
+
+export function getStaticPaths() { return ['zh', 'en'].map(locale => ({ params: { locale } })); }
+const locale = Astro.params.locale as Locale;
+const copy = aboutContent[locale];
+---
+<Layout locale={locale} title={copy.title} description={copy.meta} page="about" documentTitle={locale === 'zh' ? '关于我们 · 扎马星辰' : 'About us · Zhama Xingchen'}><Page locale={locale}/></Layout>

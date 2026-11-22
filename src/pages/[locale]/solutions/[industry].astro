@@ -1,0 +1,16 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { solutionModules } from '../../../features/solutions';
+import { locales } from '../../../lib/site';
+const views = import.meta.glob('../../../features/solutions/*/Page.astro', { eager: true, import: 'default' });
+export function getStaticPaths() {
+  return locales.flatMap(locale => solutionModules.map(entry => ({ params: { locale, industry: entry.slug }, props: { locale, entry } })));
+}
+const { locale, entry } = Astro.props;
+const content = entry.copy[locale];
+const Page = views[`../../../features/solutions/${entry.slug}/Page.astro`] as typeof import('../../../features/solutions/general/Page.astro').default;
+if (!Page) throw new Error(`Missing solution view: ${entry.slug}`);
+---
+<Layout locale={locale} title={content.name} description={content.description} page={`solutions/${entry.slug}`}>
+  <Page locale={locale}/>
+</Layout>

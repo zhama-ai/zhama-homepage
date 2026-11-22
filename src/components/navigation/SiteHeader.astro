@@ -1,0 +1,312 @@
+---
+import Brand from '../Brand.astro';
+import Icon from '../Icon.astro';
+import NavigationItems from './NavigationItems.astro';
+import { appFor, pathFor, ui } from '../../lib/site';
+import { languages, languagePathFor, websiteLanguageFor } from '../../lib/languages';
+import type { Locale } from '../../data/types';
+interface Props { locale: Locale; page: string; }
+const { locale, page } = Astro.props;
+const zh = locale === 'zh';
+const t = ui[locale];
+const language = websiteLanguageFor(Astro.params.locale || locale);
+const activeLanguage = languages.find(item => item.id === language)!;
+---
+<header class="site-header tego-header" data-site-header transition:persist={`site-header-${language}`} transition:animate="none">
+  <div class="header-inner container">
+    <a class="brand-link" href={languagePathFor(language)} data-astro-prefetch="hover" aria-label={zh ? 'TeGo 数字员工协作平台首页' : 'TeGo home'}><Brand locale={locale}/></a>
+    <nav class="desktop-nav" aria-label={zh ? '主导航' : 'Main navigation'}><NavigationItems locale={locale} page={page} prefix="desktop"/></nav>
+    <div class="header-tools">
+      <div class="tego-language-group" data-nav-group>
+        <button type="button" class="language-link" aria-label={zh ? '选择语言' : 'Choose language'} aria-expanded="false" aria-controls="language-options" data-nav-disclosure><Icon name="globe" size={15}/><span>{activeLanguage.short}</span><Icon name="chevron" size={11}/></button>
+        <div id="language-options" class="tego-language-panel" hidden><ul>{languages.map(item => <li><a href={languagePathFor(item.id,page)} lang={item.tag} hreflang={item.tag} aria-current={language === item.id ? 'true' : undefined} data-language-option data-astro-reload>{item.label}{language === item.id && <Icon name="check" size={15}/>}</a></li>)}</ul></div>
+      </div>
+      <a class="button button-outline button-small header-contact" href={pathFor(locale, 'contact')} data-astro-prefetch="hover" aria-current={page === 'contact' ? 'page' : undefined}>{zh ? '联系我们' : 'Contact us'}</a>
+      <a class="button button-small header-cta" href={appFor(locale)}>{t.try}</a>
+      <button type="button" class="menu-toggle icon-button" aria-label={t.menu} data-open-label={t.menu} data-close-label={t.close} aria-expanded="false" aria-controls="mobile-nav"><Icon name="menu"/></button>
+    </div>
+  </div>
+  <nav id="mobile-nav" class="mobile-nav" aria-label={zh ? '移动端导航' : 'Mobile navigation'} inert><NavigationItems locale={locale} page={page} prefix="mobile"/><a class="button button-small mobile-login" href={appFor(locale)}>{t.try}</a></nav>
+</header>
+<script>
+  import type { TransitionBeforePreparationEvent, TransitionBeforeSwapEvent } from 'astro:transitions/client';
+  import { onPageMount } from '../../lib/page-lifecycle';
+
+  const header = document.querySelector<HTMLElement>('[data-site-header]');
+  if (header) {
+    onPageMount(signal => {
+      const marker = document.querySelector('.header-scroll-marker');
+      header.dataset.scrolled = String(Boolean(marker) && window.scrollY > 24);
+      if (!marker) return;
+      const observer = new IntersectionObserver(([entry]) => { header.dataset.scrolled = String(!entry.isIntersecting); });
+      observer.observe(marker);
+      signal.addEventListener('abort', () => observer.disconnect(), { once: true });
+    });
+    const toggles = [...header.querySelectorAll<HTMLButtonElement>('[data-nav-disclosure]')];
+    const mobileToggle = header.querySelector<HTMLButtonElement>('.menu-toggle');
+    const mobile = header.querySelector<HTMLElement>('#mobile-nav');
+    const desktopMode = window.matchMedia('(min-width: 1101px)');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const hoverMode = window.matchMedia('(min-width: 1101px) and (hover: hover) and (pointer: fine)');
+    const panelAnimations = new Map<HTMLElement, Animation>();
+    let closeTimer: ReturnType<typeof setTimeout> | undefined;
+    let hoverOpenedButton: HTMLButtonElement | null = null;
+    const cancelClose = () => {
+      clearTimeout(closeTimer);
+      closeTimer = undefined;
+    };
+    const positionPointer = (button: HTMLButtonElement, panel: HTMLElement) => {
+      const trigger = button.getBoundingClientRect();
+      const bounds = panel.getBoundingClientRect();
+      const center = trigger.left + trigger.width / 2 - bounds.left - panel.clientLeft;
+      panel.style.setProperty('--nav-pointer-x', `${Math.max(18, Math.min(center, panel.clientWidth - 18))}px`);
+    };
+    const positionHighlight = (panel: HTMLElement, item: HTMLElement | null) => {
+      const body = panel.querySelector<HTMLElement>('.tego-nav-panel-body');
+      if (!body) return;
+      if (item) {
+        const origin = body.getBoundingClientRect();
+        const bounds = item.getBoundingClientRect();
+        body.style.setProperty('--nav-highlight-x', `${bounds.left - origin.left + body.scrollLeft}px`);
+        body.style.setProperty('--nav-highlight-y', `${bounds.top - origin.top + body.scrollTop}px`);
+        body.style.setProperty('--nav-highlight-width', `${bounds.width}px`);
+        body.style.setProperty('--nav-highlight-height', `${bounds.height}px`);
+      }
+      body.style.setProperty('--nav-highlight-opacity', item ? '1' : '0');
+      body.dataset.highlightReady = '';
+    };
+    const setDisclosure = (button: HTMLButtonElement, open: boolean, animated = true) => {
+      const panel = document.getElementById(button.getAttribute('aria-controls')!);
+      if (button.getAttribute('aria-expanded') === String(open) && (animated || panel?.hidden === !open)) return;
+      button.setAttribute('aria-expanded', String(open));
+      if (panel) {
+        const previous = panelAnimations.get(panel);
+        const current = previous ? getComputedStyle(panel) : null;
+        const start = { opacity: panel.hidden ? '0' : current?.opacity || '1', translate: panel.hidden ? '0 -6px' : current?.translate || '0 0' };
+        previous?.cancel();
+        panelAnimations.delete(panel);
+        panel.inert = !open;
+        if (open) {
+          syncLanguageLinks();
+          panel.hidden = false;
+          if (desktopMode.matches) panel.dataset.artReady = '';
+          positionPointer(button, panel);
+          positionHighlight(panel, panel.querySelector<HTMLElement>('.tego-nav-item[aria-current="page"]'));
+        }
+        if (animated && desktopMode.matches && !reducedMotion.matches && typeof panel.animate === 'function' && !panel.hidden) {
+          const animation = panel.animate([start, { opacity: open ? '1' : '0', translate: open ? '0 0' : '0 -4px' }], {
+            duration: open ? 160 : 100,
+            easing: 'cubic-bezier(.16, 1, .3, 1)',
+          });
+          panelAnimations.set(panel, animation);
+          animation.finished.then(() => {
+            if (panelAnimations.get(panel) !== animation) return;
+            panelAnimations.delete(panel);
+            if (!open) panel.hidden = true;
+          }, () => {
+            if (panelAnimations.get(panel) === animation) panelAnimations.delete(panel);
+          });
+        } else panel.hidden = !open;
+      }
+      header.dataset.dropdownOpen = String(toggles.some(item => item.getAttribute('aria-expanded') === 'true'));
+    };
+    const closeDisclosures = (animated = true) => {
+      cancelClose();
+      hoverOpenedButton = null;
+      toggles.forEach(button => setDisclosure(button, false, animated));
+    };
+    const openDisclosure = (button: HTMLButtonElement) => {
+      cancelClose();
+      toggles.forEach(item => {
+        if (item !== button) setDisclosure(item, false, false);
+      });
+      if (button.getAttribute('aria-expanded') !== 'true') setDisclosure(button, true);
+    };
+    const scheduleClose = () => {
+      cancelClose();
+      hoverOpenedButton = null;
+      closeTimer = setTimeout(() => {
+        const expanded = toggles.find(button => button.getAttribute('aria-expanded') === 'true');
+        const panel = expanded && document.getElementById(expanded.getAttribute('aria-controls')!);
+        if (!panel?.contains(document.activeElement)) closeDisclosures();
+      }, 120);
+    };
+    const closeMobile = (animated = true) => {
+      mobileToggle?.setAttribute('aria-expanded', 'false');
+      if (mobileToggle) mobileToggle.setAttribute('aria-label', mobileToggle.dataset.openLabel!);
+      mobile?.classList.remove('is-open');
+      if (mobile) mobile.inert = true;
+      closeDisclosures(animated);
+    };
+    toggles.forEach(button => {
+      button.addEventListener('click', event => {
+        cancelClose();
+        const mouseClick = event.detail > 0 && hoverMode.matches && (!('pointerType' in event) || event.pointerType === 'mouse');
+        if (mouseClick && hoverOpenedButton === button) {
+          hoverOpenedButton = null;
+          return;
+        }
+        hoverOpenedButton = null;
+        if (button.getAttribute('aria-expanded') === 'true') closeDisclosures();
+        else openDisclosure(button);
+      });
+      if (button.closest('#mobile-nav')) return;
+      const panel = document.getElementById(button.getAttribute('aria-controls')!);
+      const canHover = (event: PointerEvent) => hoverMode.matches && event.pointerType === 'mouse';
+      button.addEventListener('pointerenter', event => {
+        if (!canHover(event)) return;
+        const wasOpen = button.getAttribute('aria-expanded') === 'true';
+        openDisclosure(button);
+        if (!wasOpen) hoverOpenedButton = button;
+      });
+      button.addEventListener('pointerleave', event => { if (canHover(event)) scheduleClose(); });
+      panel?.addEventListener('pointerenter', event => { if (canHover(event)) cancelClose(); });
+      panel?.addEventListener('pointerleave', event => { if (canHover(event)) scheduleClose(); });
+    });
+    header.querySelectorAll<HTMLAnchorElement>('.desktop-nav > .tego-nav-direct').forEach(link => {
+      link.addEventListener('pointerenter', event => {
+        if (hoverMode.matches && event.pointerType === 'mouse') closeDisclosures();
+      });
+    });
+    header.querySelectorAll<HTMLElement>('.tego-nav-panel').forEach(panel => {
+      const body = panel.querySelector<HTMLElement>('.tego-nav-panel-body');
+      if (!body) return;
+      const restoreHighlight = () => positionHighlight(panel, body.querySelector<HTMLElement>('.tego-nav-item:focus-visible') || body.querySelector<HTMLElement>('.tego-nav-item[aria-current="page"]'));
+      body.querySelectorAll<HTMLElement>('.tego-nav-item').forEach(item => {
+        item.addEventListener('pointerenter', event => {
+          if (hoverMode.matches && event.pointerType === 'mouse') positionHighlight(panel, item);
+        });
+        item.addEventListener('focus', () => positionHighlight(panel, item));
+      });
+      body.addEventListener('pointerleave', event => { if (event.pointerType === 'mouse') restoreHighlight(); });
+    });
+    hoverMode.addEventListener('change', () => { if (!hoverMode.matches) closeDisclosures(false); });
+    reducedMotion.addEventListener('change', () => {
+      if (reducedMotion.matches) panelAnimations.forEach(animation => animation.finish());
+    });
+    mobileToggle?.addEventListener('click', () => {
+      const open = mobileToggle.getAttribute('aria-expanded') !== 'true';
+      closeDisclosures();
+      mobileToggle.setAttribute('aria-expanded', String(open));
+      mobileToggle.setAttribute('aria-label', open ? mobileToggle.dataset.closeLabel! : mobileToggle.dataset.openLabel!);
+      mobile?.classList.toggle('is-open', open);
+      if (mobile) mobile.inert = !open;
+    });
+    document.addEventListener('click', event => { if (event.target instanceof Node && !header.contains(event.target)) closeMobile(); });
+    header.addEventListener('focusout', event => { if (event.relatedTarget instanceof Node && !header.contains(event.relatedTarget)) closeMobile(); });
+    document.addEventListener('keydown', event => {
+      if (event.key !== 'Escape') return;
+      const expanded = toggles.find(button => button.getAttribute('aria-expanded') === 'true');
+      if (expanded) { closeDisclosures(); expanded.focus(); }
+      else if (mobileToggle?.getAttribute('aria-expanded') === 'true') { closeMobile(); mobileToggle.focus(); }
+    });
+    header.querySelectorAll('a').forEach(link => link.addEventListener('click', () => closeMobile()));
+    let cancelPending: (() => void) | undefined;
+    document.addEventListener('astro:before-preparation', event => {
+      const navigation = event as TransitionBeforePreparationEvent;
+      const { from, to, signal, formData } = navigation;
+      if (event.defaultPrevented || signal.aborted || formData || from.pathname === to.pathname) return;
+      const [, locale, ...segments] = to.pathname.split('/');
+      if (locale !== from.pathname.split('/')[1]) return;
+      const page = segments.join('/').replace(/\/$/, '');
+      const entry = page === 'releases' ? 'download' : segments[0] === 'blog' ? 'blog' : page;
+      const group = ['product', 'solutions'].includes(segments[0]) ? segments[0]
+        : ['download', 'blog'].includes(entry) ? 'resources' : '';
+
+      closeMobile(false);
+      const links = [...header.querySelectorAll<HTMLAnchorElement>('a')].filter(link => {
+        const href = link.getAttribute('href');
+        return href?.startsWith(`/${locale}/`) && !link.hasAttribute('data-language-option') && !link.classList.contains('brand-link');
+      });
+      const previousLinks = links.filter(link => link.getAttribute('aria-current') === 'page');
+      const previousGroups = toggles.filter(button => button.classList.contains('is-current'));
+      links.forEach(link => {
+        if (link.getAttribute('href') === `/${locale}/${entry}/`) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      });
+      toggles.forEach(button => {
+        const id = button.getAttribute('aria-controls');
+        button.classList.toggle('is-current', Boolean(group && id?.endsWith(`-${group}`)));
+      });
+
+      const clearPending = (restoreSelection: boolean) => {
+        if (cancelPending !== cancel) return;
+        cancelPending = undefined;
+        signal.removeEventListener('abort', cancel);
+        document.removeEventListener('astro:after-swap', complete);
+        if (!restoreSelection) return;
+        links.forEach(link => {
+          if (previousLinks.includes(link)) link.setAttribute('aria-current', 'page');
+          else link.removeAttribute('aria-current');
+        });
+        toggles.forEach(button => button.classList.toggle('is-current', previousGroups.includes(button)));
+      };
+      const cancel = () => clearPending(true);
+      const complete = () => clearPending(false);
+      cancelPending = cancel;
+      signal.addEventListener('abort', cancel, { once: true });
+      document.addEventListener('astro:after-swap', complete, { once: true });
+      if (navigation.loader) {
+        const load = navigation.loader;
+        navigation.loader = async () => {
+          try { await load(); }
+          catch (error) { cancel(); throw error; }
+          if (navigation.defaultPrevented) cancel();
+        };
+      }
+    });
+    document.addEventListener('astro:before-swap', event => {
+      closeMobile(false);
+      const next = (event as TransitionBeforeSwapEvent).newDocument.querySelector<HTMLElement>('[data-site-header]');
+      if (!next || next.getAttribute('data-astro-transition-persist') !== header.getAttribute('data-astro-transition-persist')) return;
+
+      // Keep the existing controls and listeners; take route-specific state from the new page.
+      const currentLinks = header.querySelectorAll<HTMLAnchorElement>('a');
+      next.querySelectorAll<HTMLAnchorElement>('a').forEach((link, index) => {
+        const current = currentLinks[index];
+        if (!current) return;
+        const href = link.getAttribute('href');
+        const active = link.getAttribute('aria-current');
+        if (href !== null) current.setAttribute('href', href);
+        if (active === null) current.removeAttribute('aria-current');
+        else current.setAttribute('aria-current', active);
+      });
+      toggles.forEach(button => {
+        const panel = button.getAttribute('aria-controls');
+        const incoming = [...next.querySelectorAll('[data-nav-disclosure]')].find(node => node.getAttribute('aria-controls') === panel);
+        button.classList.toggle('is-current', Boolean(incoming?.classList.contains('is-current')));
+      });
+    });
+    desktopMode.addEventListener('change', () => { closeMobile(); closeDisclosures(false); });
+    window.addEventListener('resize', () => {
+      const button = toggles.find(item => item.getAttribute('aria-expanded') === 'true');
+      const panel = button && document.getElementById(button.getAttribute('aria-controls')!);
+      if (button && panel) {
+        positionPointer(button, panel);
+        positionHighlight(panel, panel.querySelector<HTMLElement>('.tego-nav-item:hover, .tego-nav-item:focus-visible') || panel.querySelector<HTMLElement>('.tego-nav-item[aria-current="page"]'));
+      }
+    });
+    function syncLanguageLinks() {
+      header!.querySelectorAll<HTMLAnchorElement>('[data-language-option]').forEach(languageLink => {
+        const destination = new URL(languageLink.href);
+        if (destination.pathname.split('/').slice(2).join('/') === location.pathname.split('/').slice(2).join('/')) destination.hash = location.hash;
+        if (location.pathname.endsWith('/releases/')) {
+          const current = new URLSearchParams(location.search);
+          for (const parameter of ['version', 'product']) {
+            const value = current.get(parameter);
+            if (value) destination.searchParams.set(parameter, value);
+            else destination.searchParams.delete(parameter);
+          }
+        }
+        languageLink.href = destination.pathname + destination.search + destination.hash;
+      });
+    }
+    syncLanguageLinks();
+    document.addEventListener('astro:after-swap', syncLanguageLinks);
+    window.addEventListener('hashchange', syncLanguageLinks);
+    window.addEventListener('popstate', syncLanguageLinks);
+    document.addEventListener('change', event => {
+      if (event.target instanceof HTMLSelectElement && ['release-version', 'release-manifest'].includes(event.target.id)) syncLanguageLinks();
+    });
+  }
+</script>

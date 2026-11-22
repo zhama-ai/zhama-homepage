@@ -1,0 +1,21 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { capabilities } from '../../../features/product';
+import { capabilityLandings } from '../../../features/product/landing';
+import { capabilityVisuals } from '../../../features/product/visuals';
+import { locales } from '../../../lib/site';
+const views = import.meta.glob('../../../features/product/*/Page.astro', { eager: true, import: 'default' });
+export function getStaticPaths() {
+  return locales.flatMap(locale => capabilities.map(entry => ({ params: { locale, capability: entry.slug }, props: { locale, entry } })));
+}
+const { locale, entry } = Astro.props;
+const content = entry.copy[locale];
+const landing = capabilityLandings[entry.slug][locale];
+const documentTitle = locale === 'zh' ? `${content.name}｜TeGo 数字员工协作平台` : `${content.name} | TeGo Digital Employee Collaboration Platform`;
+const socialImage = capabilityVisuals[entry.slug].src[locale];
+const Page = views[`../../../features/product/${entry.slug}/Page.astro`] as typeof import('../../../features/product/knowledge/Page.astro').default;
+if (!Page) throw new Error(`Missing capability view: ${entry.slug}`);
+---
+<Layout locale={locale} title={content.name} documentTitle={documentTitle} description={landing.hero.summary} socialImage={socialImage} page={`product/${entry.slug}`}>
+  <Page locale={locale}/>
+</Layout>

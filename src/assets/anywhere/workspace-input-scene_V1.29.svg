@@ -1,0 +1,297 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="topology-links workspace-flow workspace-input-scene" viewBox="0 0 477 570" aria-hidden="true" focusable="false" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+ <style>
+  .input-animated{display:none}
+  .input-motion-active .input-animated{display:inline}
+  .input-motion-active .input-static{display:none}
+  .input-device-label{font-size:18px;fill:#9db2c7}
+  .input-channel-label{font-size:17px;fill:#a9bdd0}
+  @media(prefers-reduced-motion:reduce){.input-animated{display:none!important}.input-static{display:inline!important}}
+ </style>
+ <defs>
+  <linearGradient id="input-surface" x1="0" y1="0" x2=".8" y2="1">
+   <stop stop-color="#233e58" />
+   <stop offset=".5" stop-color="#14293e" />
+   <stop offset="1" stop-color="#102034" />
+  </linearGradient>
+  <linearGradient id="input-edge" x1="0" y1="0" x2="1" y2="1">
+   <stop stop-color="#9bb7cf" stop-opacity=".7" />
+   <stop offset=".48" stop-color="#3a6489" stop-opacity=".7" />
+   <stop offset="1" stop-color="#72afdb" stop-opacity=".35" />
+  </linearGradient>
+  <linearGradient id="input-wire" x1="0" y1="0" x2="0" y2="1">
+   <stop stop-color="#6399c6" stop-opacity=".30" />
+   <stop offset=".5" stop-color="#78b7e7" stop-opacity=".75" />
+   <stop offset="1" stop-color="#6399c6" stop-opacity=".30" />
+  </linearGradient>
+  <radialGradient id="input-send-glow">
+   <stop stop-color="#209ee9" stop-opacity=".75" />
+   <stop offset="1" stop-color="#168cdd" stop-opacity="0" />
+  </radialGradient>
+  <filter id="input-shadow" x="-30%" y="-70%" width="160%" height="260%">
+   <feDropShadow dx="0" dy="13" stdDeviation="12" flood-color="#00040a" flood-opacity=".65" />
+  </filter>
+  <filter id="input-soft-light" x="-30%" y="-100%" width="160%" height="300%">
+   <feGaussianBlur stdDeviation="15" />
+  </filter>
+  <filter id="input-signal-light" x="-300%" y="-300%" width="700%" height="700%">
+   <feGaussianBlur stdDeviation="2" />
+  </filter>
+  <clipPath id="input-text-reveal">
+   <rect x="88" y="282" width="285" height="37">
+    <animateTransform attributeName="transform" type="translate" values="-292 0;-292 0;0 0;0 0;-292 0;-292 0" keyTimes="0;.02;.12;.94;.97;1" dur="10s" repeatCount="indefinite" />
+   </rect>
+  </clipPath>
+ </defs>
+ <text x="40" y="49" fill="#bfd1e1" font-size="25" font-weight="500">任务入口</text>
+ <g fill="none" stroke="url(#input-wire)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M90 200V210Q90 218 98 218H363Q371 218 371 210V200M186 200V218M278 200V218M212 218V254" />
+  <path d="M32 436V412Q32 404 40 404H424Q432 404 432 412V436M112 436V404M192 436V404M272 436V404M352 436V404M212 404V354" />
+ </g>
+ <g class="input-animated" fill="#a6dfff">
+  <g opacity="0">
+   <animate attributeName="opacity" values="0;0;.9;.9;0;0" keyTimes="0;.025;.04;.10;.115;1" dur="10s" repeatCount="indefinite" />
+   <g>
+    <circle r="7" fill="#7bcfff" opacity=".18" />
+    <circle r="3.5" fill="#c1ecff" />
+    <animateMotion path="M212 218V254" dur="10s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;.04;.1075;1" />
+   </g>
+  </g>
+  <g opacity="0">
+   <animate attributeName="opacity" values="0;0;.9;.9;0;0" keyTimes="0;.01;.025;.10;.115;1" dur="10s" repeatCount="indefinite" />
+   <g>
+    <circle r="7" fill="#7bcfff" opacity=".18" />
+    <circle r="3.5" fill="#c1ecff" />
+    <animateMotion path="M212 404V354" dur="10s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="0;.0125;.1075;1" />
+   </g>
+  </g>
+ </g>
+ <g transform="translate(90 113)">
+  <g class="input-device" fill="none" stroke="#a8c3da" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+
+   <g transform="scale(1.25)">
+    <rect x="-20" y="-18" width="40" height="28" rx="3" />
+    <path d="M0 10V18M-13 18H13M-23 23H23" />
+   </g>
+   <animateTransform attributeName="transform" type="translate" values="0 12;0 12;0 0;0 0;0 12" keyTimes="0;0.015;0.070;.94;1" dur="10s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.22 .7 .2 1;0 0 1 1;.4 0 .8 1" />
+  </g>
+ </g>
+ <text x="90" y="183" class="input-device-label" text-anchor="middle">PC</text>
+ <g transform="translate(186 113)">
+  <g class="input-device" fill="none" stroke="#a8c3da" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+
+   <g transform="scale(1.25)">
+    <rect x="-22" y="-18" width="44" height="34" rx="4" />
+    <path d="M-22-8H22" />
+    <path d="M-15-13H-14M-9-13H-8M-3-13H-2" stroke-width="2.6" />
+   </g>
+   <animateTransform attributeName="transform" type="translate" values="0 12;0 12;0 0;0 0;0 12" keyTimes="0;0.023;0.078;.94;1" dur="10s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.22 .7 .2 1;0 0 1 1;.4 0 .8 1" />
+  </g>
+ </g>
+ <text x="186" y="183" class="input-device-label" text-anchor="middle">Web</text>
+ <g transform="translate(278 113)">
+  <g class="input-device" fill="none" stroke="#a8c3da" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+
+   <g transform="scale(1.25)">
+    <rect x="-15" y="-23" width="30" height="43" rx="4" />
+    <path d="M-2 14H2" />
+   </g>
+   <animateTransform attributeName="transform" type="translate" values="0 12;0 12;0 0;0 0;0 12" keyTimes="0;0.031;0.086;.94;1" dur="10s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.22 .7 .2 1;0 0 1 1;.4 0 .8 1" />
+  </g>
+ </g>
+ <text x="278" y="183" class="input-device-label" text-anchor="middle">平板</text>
+ <g transform="translate(371 113)">
+  <g class="input-device" fill="none" stroke="#a8c3da" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+
+   <g transform="scale(1.25)">
+    <rect x="-11" y="-23" width="22" height="43" rx="4" />
+    <path d="M-4-17H4M-2 14H2" />
+   </g>
+   <animateTransform attributeName="transform" type="translate" values="0 12;0 12;0 0;0 0;0 12" keyTimes="0;0.039;0.094;.94;1" dur="10s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.22 .7 .2 1;0 0 1 1;.4 0 .8 1" />
+  </g>
+ </g>
+ <text x="371" y="183" class="input-device-label" text-anchor="middle">移动端</text>
+ <g transform="translate(32 478)">
+  <g class="input-channel" data-channel="weixin">
+
+   <image x="-28" y="-28" width="56" height="56" preserveAspectRatio="xMidYMid meet" href="/images/platforms/weixin_V1.0.svg" />
+   <animateTransform attributeName="transform" type="translate" values="0 10;0 10;0 0;0 0;0 10" keyTimes="0;0.025;0.080;.94;1" dur="10s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.22 .7 .2 1;0 0 1 1;.4 0 .8 1" />
+  </g>
+ </g>
+ <text x="32" y="544" class="input-channel-label" text-anchor="middle">微信</text>
+ <g transform="translate(112 478)">
+  <g class="input-channel" data-channel="qq">
+
+   <image x="-28" y="-28" width="56" height="56" preserveAspectRatio="xMidYMid meet" href="/images/platforms/qq-original_V1.0.png" />
+   <animateTransform attributeName="transform" type="translate" values="0 10;0 10;0 0;0 0;0 10" keyTimes="0;0.033;0.088;.94;1" dur="10s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.22 .7 .2 1;0 0 1 1;.4 0 .8 1" />
+  </g>
+ </g>
+ <text x="112" y="544" class="input-channel-label" text-anchor="middle">QQ</text>
+ <g transform="translate(192 478)">
+  <g class="input-channel" data-channel="wecom">
+
+   <image x="-28" y="-28" width="56" height="56" preserveAspectRatio="xMidYMid meet" href="/images/platforms/wecom-original_V1.0.png" />
+   <animateTransform attributeName="transform" type="translate" values="0 10;0 10;0 0;0 0;0 10" keyTimes="0;0.041;0.096;.94;1" dur="10s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.22 .7 .2 1;0 0 1 1;.4 0 .8 1" />
+  </g>
+ </g>
+ <text x="192" y="544" class="input-channel-label" text-anchor="middle">企业微信</text>
+ <g transform="translate(272 478)">
+  <g class="input-channel" data-channel="dingtalk">
+
+   <image x="-28" y="-28" width="56" height="56" preserveAspectRatio="xMidYMid meet" href="/images/platforms/dingtalk-original_V1.0.png" />
+   <animateTransform attributeName="transform" type="translate" values="0 10;0 10;0 0;0 0;0 10" keyTimes="0;0.049;0.104;.94;1" dur="10s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.22 .7 .2 1;0 0 1 1;.4 0 .8 1" />
+  </g>
+ </g>
+ <text x="272" y="544" class="input-channel-label" text-anchor="middle">钉钉</text>
+ <g transform="translate(352 478)">
+  <g class="input-channel" data-channel="feishu">
+
+   <image x="-28" y="-28" width="56" height="56" preserveAspectRatio="xMidYMid meet" href="/images/platforms/feishu_V1.0.svg" />
+   <animateTransform attributeName="transform" type="translate" values="0 10;0 10;0 0;0 0;0 10" keyTimes="0;0.057;0.112;.94;1" dur="10s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.22 .7 .2 1;0 0 1 1;.4 0 .8 1" />
+  </g>
+ </g>
+ <text x="352" y="544" class="input-channel-label" text-anchor="middle">飞书</text>
+ <g transform="translate(432 478)">
+  <g class="input-channel" data-channel="oa">
+
+   <g fill="#929ee4" transform="scale(1.375)">
+    <rect x="-16" y="-16" width="14" height="14" rx="4" />
+    <rect x="2" y="-16" width="14" height="14" rx="4" />
+    <rect x="-16" y="2" width="14" height="14" rx="4" />
+    <rect x="2" y="2" width="14" height="14" rx="4" />
+   </g>
+   <animateTransform attributeName="transform" type="translate" values="0 10;0 10;0 0;0 0;0 10" keyTimes="0;0.065;0.120;.94;1" dur="10s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.22 .7 .2 1;0 0 1 1;.4 0 .8 1" />
+  </g>
+ </g>
+ <text x="432" y="544" class="input-channel-label" text-anchor="middle">OA</text>
+ <g class="input-animated" opacity="0">
+  <ellipse cx="212" cy="306" rx="192" ry="35" fill="#137bce" filter="url(#input-soft-light)" />
+  <animate attributeName="opacity" values="0;0;.34;.34;0;0" keyTimes="0;.025;.09;.15;.23;1" dur="10s" repeatCount="indefinite" />
+ </g>
+ <g class="input-command">
+  <rect x="12" y="254" width="400" height="100" rx="17" fill="url(#input-surface)" stroke="url(#input-edge)" stroke-width="1.6" filter="url(#input-shadow)" />
+  <g fill="none" stroke="#b0cde4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+   <rect x="42" y="288" width="13" height="22" rx="6.5" />
+   <path d="M36 302V304C36 319 61 319 61 304V302M48.5 316V324M42 324H55" />
+   <path d="M77 284V324" stroke="#688aa9" stroke-opacity=".5" />
+  </g>
+  <text class="input-static" x="94" y="311" fill="#e2eef9" font-size="20" font-weight="500">整理项目资料，生成建设方案</text>
+  <g class="input-animated">
+   <text x="94" y="311" fill="#e2eef9" font-size="20" font-weight="500" clip-path="url(#input-text-reveal)">整理项目资料，生成建设方案</text>
+   <g opacity="0">
+    <animate attributeName="opacity" values="0;0;.95;.95;0;0" keyTimes="0;.025;.04;.10;.13;1" dur="10s" repeatCount="indefinite" />
+    <g transform="translate(96 333)">
+     <rect x="0" y="-2.5" width="3" height="5" rx="1.5" fill="#75d5ff">
+      <animateTransform attributeName="transform" type="scale" values="1 .2;1 .2;1 0.80;1 .3;1 1;1 .4;1 .2;1 .2" keyTimes="0;.02;.045;.065;.085;.11;.13;1" dur="10s" repeatCount="indefinite" />
+     </rect>
+    </g>
+    <g transform="translate(101 333)">
+     <rect x="0" y="-5.0" width="3" height="10" rx="1.5" fill="#75d5ff">
+      <animateTransform attributeName="transform" type="scale" values="1 .2;1 .2;1 0.89;1 .3;1 1;1 .4;1 .2;1 .2" keyTimes="0;.02;.045;.065;.085;.11;.13;1" dur="10s" repeatCount="indefinite" />
+     </rect>
+    </g>
+    <g transform="translate(106 333)">
+     <rect x="0" y="-3.5" width="3" height="7" rx="1.5" fill="#75d5ff">
+      <animateTransform attributeName="transform" type="scale" values="1 .2;1 .2;1 0.98;1 .3;1 1;1 .4;1 .2;1 .2" keyTimes="0;.02;.045;.065;.085;.11;.13;1" dur="10s" repeatCount="indefinite" />
+     </rect>
+    </g>
+    <g transform="translate(111 333)">
+     <rect x="0" y="-7.5" width="3" height="15" rx="1.5" fill="#75d5ff">
+      <animateTransform attributeName="transform" type="scale" values="1 .2;1 .2;1 1.07;1 .3;1 1;1 .4;1 .2;1 .2" keyTimes="0;.02;.045;.065;.085;.11;.13;1" dur="10s" repeatCount="indefinite" />
+     </rect>
+    </g>
+    <g transform="translate(116 333)">
+     <rect x="0" y="-10.0" width="3" height="20" rx="1.5" fill="#75d5ff">
+      <animateTransform attributeName="transform" type="scale" values="1 .2;1 .2;1 1.16;1 .3;1 1;1 .4;1 .2;1 .2" keyTimes="0;.02;.045;.065;.085;.11;.13;1" dur="10s" repeatCount="indefinite" />
+     </rect>
+    </g>
+    <g transform="translate(121 333)">
+     <rect x="0" y="-6.0" width="3" height="12" rx="1.5" fill="#75d5ff">
+      <animateTransform attributeName="transform" type="scale" values="1 .2;1 .2;1 0.80;1 .3;1 1;1 .4;1 .2;1 .2" keyTimes="0;.02;.045;.065;.085;.11;.13;1" dur="10s" repeatCount="indefinite" />
+     </rect>
+    </g>
+    <g transform="translate(126 333)">
+     <rect x="0" y="-12.5" width="3" height="25" rx="1.5" fill="#75d5ff">
+      <animateTransform attributeName="transform" type="scale" values="1 .2;1 .2;1 0.89;1 .3;1 1;1 .4;1 .2;1 .2" keyTimes="0;.02;.045;.065;.085;.11;.13;1" dur="10s" repeatCount="indefinite" />
+     </rect>
+    </g>
+    <g transform="translate(131 333)">
+     <rect x="0" y="-8.5" width="3" height="17" rx="1.5" fill="#75d5ff">
+      <animateTransform attributeName="transform" type="scale" values="1 .2;1 .2;1 0.98;1 .3;1 1;1 .4;1 .2;1 .2" keyTimes="0;.02;.045;.065;.085;.11;.13;1" dur="10s" repeatCount="indefinite" />
+     </rect>
+    </g>
+    <g transform="translate(136 333)">
+     <rect x="0" y="-14.5" width="3" height="29" rx="1.5" fill="#75d5ff">
+      <animateTransform attributeName="transform" type="scale" values="1 .2;1 .2;1 1.07;1 .3;1 1;1 .4;1 .2;1 .2" keyTimes="0;.02;.045;.065;.085;.11;.13;1" dur="10s" repeatCount="indefinite" />
+     </rect>
+    </g>
+    <g transform="translate(141 333)">
+     <rect x="0" y="-9.0" width="3" height="18" rx="1.5" fill="#75d5ff">
+      <animateTransform attributeName="transform" type="scale" values="1 .2;1 .2;1 1.16;1 .3;1 1;1 .4;1 .2;1 .2" keyTimes="0;.02;.045;.065;.085;.11;.13;1" dur="10s" repeatCount="indefinite" />
+     </rect>
+    </g>
+    <g transform="translate(146 333)">
+     <rect x="0" y="-11.5" width="3" height="23" rx="1.5" fill="#75d5ff">
+      <animateTransform attributeName="transform" type="scale" values="1 .2;1 .2;1 0.80;1 .3;1 1;1 .4;1 .2;1 .2" keyTimes="0;.02;.045;.065;.085;.11;.13;1" dur="10s" repeatCount="indefinite" />
+     </rect>
+    </g>
+    <g transform="translate(151 333)">
+     <rect x="0" y="-7.0" width="3" height="14" rx="1.5" fill="#75d5ff">
+      <animateTransform attributeName="transform" type="scale" values="1 .2;1 .2;1 0.89;1 .3;1 1;1 .4;1 .2;1 .2" keyTimes="0;.02;.045;.065;.085;.11;.13;1" dur="10s" repeatCount="indefinite" />
+     </rect>
+    </g>
+    <g transform="translate(156 333)">
+     <rect x="0" y="-10.0" width="3" height="20" rx="1.5" fill="#75d5ff">
+      <animateTransform attributeName="transform" type="scale" values="1 .2;1 .2;1 0.98;1 .3;1 1;1 .4;1 .2;1 .2" keyTimes="0;.02;.045;.065;.085;.11;.13;1" dur="10s" repeatCount="indefinite" />
+     </rect>
+    </g>
+    <g transform="translate(161 333)">
+     <rect x="0" y="-5.0" width="3" height="10" rx="1.5" fill="#75d5ff">
+      <animateTransform attributeName="transform" type="scale" values="1 .2;1 .2;1 1.07;1 .3;1 1;1 .4;1 .2;1 .2" keyTimes="0;.02;.045;.065;.085;.11;.13;1" dur="10s" repeatCount="indefinite" />
+     </rect>
+    </g>
+    <g transform="translate(166 333)">
+     <rect x="0" y="-7.5" width="3" height="15" rx="1.5" fill="#75d5ff">
+      <animateTransform attributeName="transform" type="scale" values="1 .2;1 .2;1 1.16;1 .3;1 1;1 .4;1 .2;1 .2" keyTimes="0;.02;.045;.065;.085;.11;.13;1" dur="10s" repeatCount="indefinite" />
+     </rect>
+    </g>
+    <g transform="translate(171 333)">
+     <rect x="0" y="-4.0" width="3" height="8" rx="1.5" fill="#75d5ff">
+      <animateTransform attributeName="transform" type="scale" values="1 .2;1 .2;1 0.80;1 .3;1 1;1 .4;1 .2;1 .2" keyTimes="0;.02;.045;.065;.085;.11;.13;1" dur="10s" repeatCount="indefinite" />
+     </rect>
+    </g>
+    <g transform="translate(176 333)">
+     <rect x="0" y="-5.5" width="3" height="11" rx="1.5" fill="#75d5ff">
+      <animateTransform attributeName="transform" type="scale" values="1 .2;1 .2;1 0.89;1 .3;1 1;1 .4;1 .2;1 .2" keyTimes="0;.02;.045;.065;.085;.11;.13;1" dur="10s" repeatCount="indefinite" />
+     </rect>
+    </g>
+    <g transform="translate(181 333)">
+     <rect x="0" y="-3.0" width="3" height="6" rx="1.5" fill="#75d5ff">
+      <animateTransform attributeName="transform" type="scale" values="1 .2;1 .2;1 0.98;1 .3;1 1;1 .4;1 .2;1 .2" keyTimes="0;.02;.045;.065;.085;.11;.13;1" dur="10s" repeatCount="indefinite" />
+     </rect>
+    </g>
+    <g transform="translate(186 333)">
+     <rect x="0" y="-2.0" width="3" height="4" rx="1.5" fill="#75d5ff">
+      <animateTransform attributeName="transform" type="scale" values="1 .2;1 .2;1 1.07;1 .3;1 1;1 .4;1 .2;1 .2" keyTimes="0;.02;.045;.065;.085;.11;.13;1" dur="10s" repeatCount="indefinite" />
+     </rect>
+    </g>
+   </g>
+   <g opacity="0">
+    <path d="M94 290V315" stroke="#84d4ff" stroke-width="1.4" />
+    <animateTransform attributeName="transform" type="translate" values="0 0;0 0;260 0;260 0" keyTimes="0;.02;.12;1" dur="10s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.02;.025;.12;.13;1" dur="10s" repeatCount="indefinite" />
+   </g>
+  </g>
+  <g transform="translate(380 304)">
+   <g class="input-animated" opacity="0">
+    <circle r="35" fill="url(#input-send-glow)" />
+    <animate attributeName="opacity" values="0;0;.85;0;0" keyTimes="0;.135;.155;.205;1" dur="10s" repeatCount="indefinite" />
+   </g>
+   <g fill="none" stroke="#85bfe9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-13-1L11-12L3 13L-1 3L-13-1ZM-1 3L11-12" />
+    <animateTransform attributeName="transform" type="scale" values="1;1;.86;1.08;1;1" keyTimes="0;.138;.15;.165;.19;1" dur="10s" repeatCount="indefinite" />
+    <animate attributeName="stroke" values="#85bfe9;#85bfe9;#d1efff;#85bfe9;#85bfe9" keyTimes="0;.13;.155;.21;1" dur="10s" repeatCount="indefinite" />
+   </g>
+  </g>
+  <animateTransform attributeName="transform" type="translate" values="0 4;0 4;0 -4;0 -4;0 0;0 0;0 4" keyTimes="0;.02;.09;.14;.21;.94;1" dur="10s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.22 .7 .2 1;0 0 1 1;.3 0 .5 1;0 0 1 1;.4 0 .8 1" />
+ </g>
+</svg>

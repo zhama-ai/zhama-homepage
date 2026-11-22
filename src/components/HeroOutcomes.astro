@@ -1,0 +1,52 @@
+---
+import type { Locale } from '../data/types';
+import Icon from './Icon.astro';
+import { dutyCopy, DUTY_CYCLE_DURATION } from '../features/home/outcomes-data';
+import '../styles/hero-outcomes.css';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const copy = dutyCopy(locale);
+const zh = locale === 'zh';
+---
+<div class="banner-outcomes-visual banner-visual" data-duty-visual data-duty-duration={DUTY_CYCLE_DURATION} data-duty-scene="1" data-duty-delivered="true" data-duty-playback="paused">
+  <div class="duty-workspace">
+    <div class="duty-window-heading"><strong>{copy.title}</strong><span class="duty-online"><i></i>{copy.online}</span></div>
+    <div class="duty-employee">
+      <div class="duty-person"><img data-hero-src="/images/hero/always-on-portrait_V1.0.webp" width="56" height="56" decoding="async" alt=""/><span><strong>{copy.employee}</strong><span>{copy.service} <b>7×24</b></span></span></div>
+      <div class="duty-current-time"><span data-duty-period data-day-label={copy.day} data-night-label={copy.night}>{copy.day}</span><time data-duty-current-time>06:30</time></div>
+    </div>
+    <div class="duty-dayline" aria-hidden="true"><div class="duty-dayline-hours">{['00:00','06:00','12:00','18:00','24:00'].map(time=><span>{time}</span>)}</div><div class="duty-dayline-track"><div class="duty-dayline-elapsed"></div><i class="duty-dayline-position"></i></div><div class="duty-dayline-periods"><Icon name="moon" size={11}/><Icon name="sun" size={12}/><Icon name="moon" size={11}/></div></div>
+    <div class="duty-working-area">
+      <ol class="duty-assignments" aria-label={zh?'值守任务':'Recurring assignments'}>{copy.scenes.map((scene,index)=><li data-duty-assignment={index} data-current={String(index===1)}><time>{scene.time}</time><span><Icon name={scene.icon} size={15}/>{scene.name}</span><i class="duty-assignment-progress"></i></li>)}</ol>
+      <div class="duty-results">
+        {copy.scenes.map((scene,index)=><section class="duty-result" data-duty-result={index} data-duty-minute={scene.minute} data-duty-time={scene.time} hidden={index!==1} aria-label={scene.title}>
+          <div class="duty-result-heading"><h3>{scene.title}</h3><span class="duty-result-state" data-duty-result-state data-delivered-label={copy.delivered} data-running-label={copy.running}><Icon name="check" size={12}/><span>{copy.delivered}</span></span></div>
+          {scene.id==='reconciliation'?<div class="duty-artifact duty-reconciliation">
+            <div class="duty-source-name" data-duty-reveal="0:350">{copy.reconciliation.source}</div>
+            <div class="duty-metrics"><div data-duty-reveal="100:600"><span>{copy.reconciliation.checked}</span><strong>3,842</strong></div><div class="is-amber" data-duty-reveal="250:750"><span>{copy.reconciliation.differences}</span><strong>17</strong></div></div>
+            <table><thead><tr data-duty-reveal="450:700">{copy.reconciliation.columns.map(label=><th>{label}</th>)}</tr></thead><tbody>{copy.reconciliation.rows.map((row,rowIndex)=><tr data-duty-reveal={`${650+rowIndex*400}:${1050+rowIndex*400}`}>{row.map((value,column)=><td class:list={{'is-amber':column===0}}>{value}</td>)}</tr>)}</tbody></table>
+            <p class="duty-conclusion" data-duty-reveal="1850:2200"><Icon name="check" size={12}/>{copy.reconciliation.conclusion}</p>
+          </div>:scene.id==='report'?<div class="duty-artifact duty-report">
+            <div class="duty-metrics"><div data-duty-reveal="0:500"><span>{copy.report.sales}</span><strong>186.74</strong></div><div data-duty-reveal="120:620"><span>{copy.report.orders}</span><strong>312</strong></div><div data-duty-reveal="240:740"><span>{copy.report.collection}</span><strong>96.8<small>%</small></strong></div></div>
+            <div class="duty-chart"><span data-duty-reveal="500:850">{copy.report.chartTitle}</span><div class="duty-chart-plot"><div class="duty-chart-scale" data-duty-reveal="500:850"><span>60</span><span>30</span><span>0</span></div><div class="duty-bars">{[18.46,27.92,43.68,56.17,40.51].map((value,bar)=><div data-duty-reveal={`${750+bar*150}:${1300+bar*150}`} style={`--bar-height:${value/60*100}%`}><span>{value.toFixed(2)}</span><i></i><time>{['06','10','14','18','22'][bar]}:00</time></div>)}</div></div></div>
+            <p class="duty-conclusion" data-duty-reveal="1850:2200"><Icon name="chart" size={12}/>{copy.report.conclusion}</p>
+          </div>:scene.id==='monitoring'?<div class="duty-artifact duty-monitoring">
+            <div class="duty-service-name" data-duty-reveal="0:400"><span><i></i>{copy.monitoring.service}</span><b>{copy.monitoring.severity}</b></div>
+            <div class="duty-metrics"><div class="is-amber" data-duty-reveal="100:600"><span>{copy.monitoring.latency}</span><strong>2.84</strong></div><div data-duty-reveal="250:750"><span>{copy.monitoring.errors}</span><strong>38</strong></div></div>
+            <ol class="duty-event-log">{copy.monitoring.events.map(([time,title],eventIndex)=><li data-duty-reveal={`${700+eventIndex*400}:${1100+eventIndex*400}`}><time>{time}</time><span>{title}</span><Icon name="check" size={12}/></li>)}</ol>
+          </div>:<div class="duty-artifact duty-trends">
+            <div class="duty-trend-summary" data-duty-reveal="0:650"><span>{copy.trends.source}</span><strong>61<small>{copy.trends.count}</small></strong><span>{copy.trends.topics} <b>3</b></span></div>
+            <ol class="duty-topic-list">{copy.trends.rows.map(([topic,count,title],topicIndex)=><li data-duty-reveal={`${650+topicIndex*500}:${1100+topicIndex*500}`}><div><span>{topic}</span><b>{count}</b></div><p>{title}</p></li>)}</ol>
+          </div>}
+          <div class="duty-process" aria-label={zh?'执行过程':'Execution steps'}>{scene.steps.map((step,stepIndex)=><span data-duty-step={stepIndex}><i></i>{step}</span>)}</div>
+          <div class="duty-delivery" data-duty-reveal="2100:2400"><Icon name="check" size={13}/><span>{scene.destination}</span><span class="duty-delivery-file">{scene.file}</span></div>
+        </section>)}
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  import { initializeDutyVisuals } from '../features/home/hero-outcomes';
+  import { onPageMount } from '../lib/page-lifecycle';
+  onPageMount(signal => initializeDutyVisuals(signal));
+</script>

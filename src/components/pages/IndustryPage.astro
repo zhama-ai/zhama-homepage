@@ -1,0 +1,24 @@
+---
+import { pathFor, ui } from '../../lib/site';
+import type { Locale } from '../../data/types';
+import type { Industry } from '../../features/solutions/types';
+import OutcomeExhibit from './OutcomeExhibit.astro';
+import '../../styles/solution-story.css';
+interface Props { locale: Locale; industry: Industry; }
+const { locale, industry } = Astro.props;
+const zh = locale === 'zh';
+const story = industry.story;
+---
+<div class="solution-story">
+  <section class="solution-story-hero" aria-labelledby="solution-title">
+    <div class="container">
+      <div class="solution-story-hero-grid">
+        <div class="solution-story-copy"><h1 id="solution-title">{(story?.lines ?? [industry.title]).map(line => <span>{line}</span>)}</h1><p>{industry.description}</p><a class="button" href={pathFor(locale, 'contact')}>{ui[locale].contact}</a></div>
+        {story && <OutcomeExhibit exhibit={story.exhibit} locale={locale}/>}
+      </div>
+    </div>
+  </section>
+  {story && <section class="solution-story-section solution-priorities" aria-labelledby="solution-priorities-title"><div class="container"><h2 id="solution-priorities-title">{zh ? '优先解决这些业务问题' : 'The work that needs to move forward'}</h2><div class="solution-priority-grid">{story.priorities.map(item => <article><h3>{item.title}</h3><p>{item.body}</p></article>)}</div></div></section>}
+  <section class="solution-story-section" aria-labelledby="solution-work-title"><div class="container"><h2 id="solution-work-title">{zh ? '把数字员工用到关键业务中' : 'Put digital employees to work where it matters'}</h2><div class="solution-work-grid">{industry.tasks.map(task => <article class="solution-work-card"><h3>{task.title}</h3>{task.problem && <p class="solution-work-problem">{task.problem}</p>}<dl><div><dt>{zh ? '业务资料' : 'Sources'}</dt><dd>{task.input}</dd></div><div><dt>{zh ? '执行过程' : 'Work'}</dt><dd>{task.action}</dd></div></dl><div class="solution-work-output"><span>{zh ? '交付成果' : 'Deliverables'}</span><h4>{task.output}</h4>{task.value && <p>{task.value}</p>}</div></article>)}</div></div></section>
+  <section class="solution-story-section solution-foundation" aria-labelledby="solution-delivery-title"><div class="container"><h2 id="solution-delivery-title">{zh ? '与现有知识、系统和团队一起落地' : 'Work with your knowledge, systems and people'}</h2>{story ? <div class="solution-foundation-grid">{story.foundation.map(item => <article><h3>{item.title}</h3><p>{item.body}</p></article>)}</div> : <p>{industry.scope}</p>}</div></section>
+</div>

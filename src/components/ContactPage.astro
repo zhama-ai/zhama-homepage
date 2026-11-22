@@ -1,0 +1,82 @@
+---
+import { contactContent } from '../features/contact/content';
+import ContactReplyPicker from './ContactReplyPicker.astro';
+import ContactConfirmation from './ContactConfirmation.astro';
+import { site } from '../lib/site';
+import type { Locale } from '../data/types';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const copy = contactContent[locale];
+const contactApi = import.meta.env.PUBLIC_CONTACT_API_URL || '/api/contact/';
+---
+<section class="page-hero inner-page-hero contact-hero">
+  <div class="container"><h1>{copy.title}</h1></div>
+</section>
+<section class="container contact-page">
+  <form class="contact-form" id="enquiry-form" data-locale={locale} data-contact-api={contactApi} aria-label={copy.title}>
+    <div class="contact-sections">
+      <fieldset class="contact-section enquiry-section">
+        <legend>{copy.sections.enquiry}</legend>
+        <div class="contact-section-fields">
+          <div class="field"><label for="enquiry-title">{copy.form.title.label} <span aria-hidden="true">*</span></label><input id="enquiry-title" name="title" maxlength="160" placeholder={copy.form.title.placeholder} aria-describedby="enquiry-title-error" required /><p class="field-error" id="enquiry-title-error" aria-live="polite" hidden></p></div>
+          <div class="field enquiry-message"><label for="enquiry-content">{copy.form.content.label} <span aria-hidden="true">*</span></label><textarea id="enquiry-content" name="content" rows="7" maxlength="6000" placeholder={copy.form.content.placeholder} aria-describedby="enquiry-content-error" required></textarea><p class="field-error" id="enquiry-content-error" aria-live="polite" hidden></p></div>
+        </div>
+      </fieldset>
+      <fieldset class="contact-section details-section">
+        <legend>{copy.sections.contact}</legend>
+        <div class="contact-section-fields">
+          <div class="field"><label for="enquiry-contact">{copy.form.contact.label} <span aria-hidden="true">*</span></label><input id="enquiry-contact" name="contact" type="text" maxlength="254" spellcheck="false" placeholder={copy.form.contact.placeholder} aria-describedby="enquiry-contact-error" required /><p class="field-error" id="enquiry-contact-error" aria-live="polite" hidden></p></div>
+          <ContactReplyPicker copy={copy.form.expectedReplyTime} />
+          <div class="field"><label for="enquiry-nickname">{copy.form.nickname.label}</label><input id="enquiry-nickname" name="nickname" autocomplete="nickname" maxlength="80" placeholder={copy.form.nickname.placeholder} aria-describedby="enquiry-nickname-error" /><p class="field-error" id="enquiry-nickname-error" aria-live="polite" hidden></p></div>
+        </div>
+      </fieldset>
+    </div>
+    <div class="contact-trap" aria-hidden="true"><label for="enquiry-website">Website</label><input id="enquiry-website" name="website" tabindex="-1" autocomplete="off" /></div>
+    <div class="contact-submit-row"><button class="button form-submit" type="submit">{copy.form.submit}</button><p class="contact-result" id="enquiry-status" role="status" aria-live="polite" tabindex="-1" hidden></p></div>
+    <noscript><p>{copy.noScript} <a href={`mailto:${site.email}`}>{site.email}</a></p></noscript>
+    <div class="contact-methods">
+      <div><h2>{copy.info.email.title}</h2><a href={`mailto:${site.email}`}>{site.email}</a></div>
+      <div><h2>{copy.info.phone.title}</h2><a href="tel:18819810701">18819810701</a></div>
+      <div><h2>{copy.info.response.title}</h2><p>{copy.info.response.time}</p></div>
+    </div>
+  </form>
+</section>
+<ContactConfirmation copy={copy.confirmation} />
+<style>
+  .contact-hero { padding-block: clamp(48px, 6vw, 88px) 40px; }
+  .contact-hero h1 { max-width: none; margin: 0; text-align: center; }
+  .contact-page { max-width: 1120px; padding-bottom: clamp(64px, 8vw, 112px); }
+  .contact-form { position: relative; min-width: 0; padding: clamp(24px, 4vw, 44px); gap: 32px; }
+  .contact-sections { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 52px); }
+  .contact-section { min-width: 0; margin: 0; padding: 0; border: 0; }
+  .contact-section legend { padding: 0; margin-bottom: 28px; font-size: 22px; font-weight: 600; letter-spacing: -.4px; }
+  .contact-section-fields { display: grid; gap: 24px; }
+  .field { min-width: 0; }
+  .enquiry-section .contact-section-fields { height: calc(100% - 54px); grid-template-rows: auto minmax(0, 1fr); }
+  .enquiry-message { display: flex; flex-direction: column; }
+  .enquiry-message textarea { flex: 1; min-height: 240px; }
+  .field input, .field textarea { font-family: inherit; }
+  .field input::placeholder, .field textarea::placeholder { color: var(--muted); opacity: .72; }
+  .field input:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .field input[aria-invalid="true"], .field textarea[aria-invalid="true"] { border-color: #e5a29a; }
+  .field input[aria-invalid="true"]:focus-visible, .field textarea[aria-invalid="true"]:focus-visible { outline-color: #e5a29a; }
+  .field-error { margin: 8px 0 0; color: #ffb2a8; font-size: 12px; line-height: 1.6; }
+  .field-error[hidden] { display: none; }
+  .contact-submit-row { display: grid; gap: 18px; }
+  .form-submit { width: 100%; justify-content: center; }
+  .contact-result { color: var(--ink); font-size: 14px; line-height: 1.7; overflow-wrap: anywhere; }
+  .contact-result[hidden] { display: none; }
+  .contact-result[data-state="error"] { color: #ffb2a8; }
+  .contact-methods { display: grid; grid-template-columns: 1.1fr .9fr 1.2fr; gap: 24px; padding-top: 12px; }
+  .contact-methods h2 { font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+  .contact-methods a, .contact-methods p { font-size: 13px; color: var(--muted); line-height: 1.8; overflow-wrap: anywhere; }
+  .contact-methods a:hover { color: var(--accent); }
+  .contact-trap { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  @media (max-width: 760px) { .contact-sections { grid-template-columns: 1fr; gap: 38px; } .contact-section legend { margin-bottom: 22px; font-size: 20px; } .enquiry-section .contact-section-fields { height: auto; } .enquiry-message textarea { min-height: 190px; } }
+  @media (max-width: 600px) { .contact-methods { grid-template-columns: 1fr; gap: 22px; } .contact-hero { padding-bottom: 30px; } }
+</style>
+<script>
+  import { onPageMount } from '../lib/page-lifecycle';
+  import { initContactForm } from '../features/contact/form';
+  onPageMount(signal => initContactForm(signal));
+</script>

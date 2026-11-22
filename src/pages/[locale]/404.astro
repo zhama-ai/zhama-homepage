@@ -1,0 +1,15 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { locales, pathFor } from '../../lib/site';
+import type { Locale } from '../../data/types';
+
+export function getStaticPaths() {
+  return locales.map(locale => ({ params: { locale }, props: { locale } }));
+}
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const zh = locale === 'zh';
+const title = zh ? '页面未找到' : 'Page not found';
+const description = zh ? '访问 TeGo 官网，查阅产品、资源与下载。' : 'Visit the TeGo website for products, resources and downloads.';
+---
+<Layout locale={locale} title={title} description={description} page="404" noindex><section class="not-found container"><h1>{zh ? '这个页面已不在这里。' : 'This page is no longer here.'}</h1><p>{zh ? '从官网首页继续查找产品、文档和下载资源。' : 'Continue from the homepage to find products, documentation and downloads.'}</p><a class="button" href={pathFor(locale)}>{zh ? '返回首页' : 'Back to home'}</a></section></Layout>

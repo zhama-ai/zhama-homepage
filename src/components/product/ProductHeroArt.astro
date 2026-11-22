@@ -1,0 +1,35 @@
+---
+import '../../styles/product-banner.css';
+interface Props { canvasWidth?: number; }
+const { canvasWidth = 640 } = Astro.props;
+---
+<div class="product-hero-art" data-product-hero-art>
+  <div class="product-hero-art-content" data-product-hero-art-content style={`--product-art-width:${canvasWidth}px`}><slot/></div>
+</div>
+
+<script>
+  let dispose = () => {};
+
+  function fitProductArtwork() {
+    dispose();
+    const observers: ResizeObserver[] = [];
+    document.querySelectorAll<HTMLElement>('[data-product-hero-art]').forEach(stage => {
+      const content = stage.querySelector<HTMLElement>('[data-product-hero-art-content]');
+      if (!content) return;
+      const fit = () => {
+        const scale = Math.min(1, stage.clientWidth / content.offsetWidth, stage.clientHeight / content.offsetHeight);
+        if (Number.isFinite(scale) && scale > 0) content.style.setProperty('--product-art-scale', String(scale));
+      };
+      const observer = new ResizeObserver(fit);
+      observer.observe(stage);
+      observer.observe(content);
+      observers.push(observer);
+      fit();
+    });
+    dispose = () => observers.forEach(observer => observer.disconnect());
+  }
+
+  fitProductArtwork();
+  document.addEventListener('astro:page-load', fitProductArtwork);
+  document.addEventListener('astro:before-swap', () => dispose());
+</script>

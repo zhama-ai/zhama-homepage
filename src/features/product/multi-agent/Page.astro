@@ -1,0 +1,54 @@
+---
+import Diagram from './Diagram.astro';
+import ProductHeroArt from '../../../components/product/ProductHeroArt.astro';
+import MultiAgentBackdrop from './MultiAgentBackdrop.astro';
+import landing from './landing';
+import experience from './experience';
+import content from './content';
+import { appFor, pathFor, site, ui } from '../../../lib/site';
+import type { Locale } from '../../../data/types';
+import '../../../styles/multi-agent-product.css';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const zh = locale === 'zh';
+const copy = landing[locale];
+const stories = experience[locale].sections;
+const breadcrumb = {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: zh ? '首页' : 'Home', item: new URL(pathFor(locale), site.origin).href },
+    { '@type': 'ListItem', position: 2, name: zh ? '产品能力' : 'Product', item: new URL(pathFor(locale, 'product'), site.origin).href },
+    { '@type': 'ListItem', position: 3, name: content.copy[locale].name, item: new URL(pathFor(locale, 'product/multi-agent'), site.origin).href },
+  ],
+};
+---
+<div class="orchestration-page" data-capability="multi-agent">
+  <div class="ma-hero-field">
+    <MultiAgentBackdrop locale={locale}/>
+    <section class="ma-hero ma-wrap product-banner" aria-labelledby="capability-title">
+      <div class="ma-hero-copy">
+        <h1 id="capability-title">{copy.hero.lines.map(line => <span>{line}</span>)}</h1>
+        <p>{copy.hero.summary}</p>
+        <div class="ma-hero-actions">
+          <a class="button" href={pathFor(locale, 'contact')}>{ui[locale].contact}</a>
+          <a class="ma-text-link" href={appFor(locale)}>{ui[locale].try}</a>
+        </div>
+      </div>
+      <ProductHeroArt><Diagram locale={locale} scene="overview" data={stories[0].visual}/></ProductHeroArt>
+    </section>
+  </div>
+
+  <div class="ma-features ma-wrap">
+    {stories.map((story, index) => <section id={`capability-${story.id}`} class:list={['ma-feature', `ma-feature-${story.id}`, {'ma-feature-reverse':index % 2 === 1}]} aria-labelledby={`capability-${story.id}-title`}>
+      <div class="ma-feature-copy">
+        <h2 id={`capability-${story.id}-title`}>{story.title}</h2>
+        <p>{story.body}</p>
+        <dl class="ma-feature-details">{story.points.map(point => <div><dt>{point.title}</dt><dd>{point.body}</dd></div>)}</dl>
+      </div>
+      <Diagram locale={locale} scene={story.id as 'delegate' | 'execute' | 'deliver'} data={story.visual}/>
+    </section>)}
+  </div>
+
+</div>
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumb)}/>

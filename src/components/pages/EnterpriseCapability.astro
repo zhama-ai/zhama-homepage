@@ -1,0 +1,47 @@
+---
+import Diagram from '../product/CapabilityDiagram.astro';
+import ProductHeroArt from '../product/ProductHeroArt.astro';
+import IntegrationsBackdrop from '../product/IntegrationsBackdrop_V1.0.astro';
+import type { Locale } from '../../data/types';
+import type { CapabilityModule } from '../../features/product/types';
+import type { LandingCopy } from '../../features/product/landing-types';
+import { productExperiences } from '../../features/product/experiences';
+import { appFor, pathFor, site, ui } from '../../lib/site';
+import '../../styles/enterprise-capability.css';
+interface Props { locale: Locale; capability: CapabilityModule; copy: LandingCopy; }
+const { locale, capability, copy } = Astro.props;
+const zh = locale === 'zh';
+const experience = productExperiences[capability.slug][locale];
+const breadcrumb = {'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[
+  {'@type':'ListItem',position:1,name:zh?'首页':'Home',item:new URL(pathFor(locale),site.origin).href},
+  {'@type':'ListItem',position:2,name:zh?'产品能力':'Product',item:new URL(pathFor(locale,'product'),site.origin).href},
+  {'@type':'ListItem',position:3,name:capability.copy[locale].name,item:new URL(pathFor(locale,`product/${capability.slug}`),site.origin).href},
+]};
+---
+<div class="capability-product" data-capability={capability.slug}>
+  <div class="cp-hero-field">
+    {capability.slug === 'integrations' && <IntegrationsBackdrop locale={locale}/>}
+    <section class="cp-hero cp-wrap product-banner" aria-labelledby="capability-title">
+      <div class="cp-hero-copy">
+        <h1 id="capability-title">{copy.hero.lines.map(line=><span>{line}</span>)}</h1>
+        <p>{copy.hero.summary}</p>
+        <div class="cp-hero-actions">
+          <a class="button" href={pathFor(locale,'contact')}>{ui[locale].contact}</a>
+          <a class="cp-text-link" href={appFor(locale)}>{ui[locale].try}</a>
+        </div>
+      </div>
+      <ProductHeroArt><Diagram locale={locale} capability={capability.slug}/></ProductHeroArt>
+    </section>
+  </div>
+  <div class="cp-stories cp-wrap">
+    {experience.sections.map((section,index)=><section class:list={['cp-story',{'cp-story-reverse':index % 2 === 1}]} id={`capability-${section.id}`} aria-labelledby={`capability-${section.id}-title`}>
+      <div class="cp-story-copy">
+        <h2 id={`capability-${section.id}-title`}>{section.title}</h2>
+        <p>{section.body}</p>
+        <dl class="cp-story-points">{section.points.map(point=><div><dt>{point.title}</dt><dd>{point.body}</dd></div>)}</dl>
+      </div>
+      <Diagram locale={locale} capability={capability.slug} scene={index}/>
+    </section>)}
+  </div>
+</div>
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumb)}/>

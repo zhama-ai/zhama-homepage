@@ -1,0 +1,51 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DetailPage from '../../components/DetailPage.astro';
+import SolutionsPage from '../../components/SolutionsPage.astro';
+import ResourcesPage from '../../components/ResourcesPage.astro';
+import FaqPage from '../../components/FaqPage.astro';
+import ContactPage from '../../components/ContactPage.astro';
+import LegalPage from '../../components/LegalPage.astro';
+import ReleaseHistoryPage from '../../components/ReleaseHistoryPage.astro';
+import { detailPages } from '../../data/pages';
+import { legalContent } from '../../data/legacy';
+import type { Locale, DetailPageId } from '../../data/types';
+
+export function getStaticPaths() {
+  const pages = ['product','solutions','ecosystem','enterprise','resources','faq','contact','releases','privacy','terms'];
+  return ['zh','en'].flatMap(locale => pages.map(page => ({params:{locale,page}})));
+}
+const locale = Astro.params.locale as Locale;
+const page = Astro.params.page as string;
+const detail = detailPages[locale][page as DetailPageId];
+const otherMeta = {
+  zh: {
+    resources: {title:'资源中心',description:'TeGo 产品文档、部署资料、客户端、博客与开发资源。'},
+    faq: {title:'常见问题',description:'了解 TeGo 的数字员工、团队协作、知识授权、办公成果与企业部署。'},
+    contact: {title:'联系我们',description:'联系 TeGo 团队，咨询产品体验、业务集成、企业部署与技术支持。'},
+    download: {title:'下载中心',description:'下载 TeGo 数字员工协作平台桌面端、移动端与开发工具。'},
+    releases: {title:'历史版本',description:'查找 TeGo 桌面端、移动端与 Tego Studio 的历史版本客户端安装包。'},
+    privacy: {title:legalContent.zh.privacy.title,description:'TeGo 数字员工协作平台个人信息与数据处理、访问和删除政策。'},
+    terms: {title:legalContent.zh.terms.title,description:'TeGo 数字员工协作平台官网与产品服务使用协议。'},
+  },
+  en: {
+    resources: {title:'Resources',description:'Find TeGo documentation, deployment guides, clients, product updates, and developer resources.'},
+    faq: {title:'Frequently asked questions',description:'Learn about digital employees, shared projects, knowledge permissions, editable deliverables, and deployment.'},
+    contact: {title:'Contact Us',description:'Contact the TeGo team about product access, business integrations, enterprise deployment, and technical support.'},
+    download: {title:'Downloads',description:'Download desktop and mobile clients and development tools for the TeGo digital employee collaboration platform.'},
+    releases: {title:'Release history',description:'Find previous releases of TeGo desktop and mobile clients and Tego Studio.'},
+    privacy: {title:legalContent.en.privacy.title,description:'How the TeGo digital employee collaboration platform handles personal information, data access, and deletion.'},
+    terms: {title:legalContent.en.terms.title,description:'Terms governing the use of the TeGo digital employee collaboration platform website and services.'},
+  },
+};
+const meta = page === 'solutions' ? (locale === 'zh' ? {title:'行业解决方案',description:'面向银行、保险、证券、政务、央国企、信托与企业通用场景，让岗位能力融入业务链，推动客户经营、专业作业与组织协作。'} : {title:'Industry solutions',description:'Connect digital employees to the business priorities of banking, insurance, securities, government, state-owned enterprises, trust services and general business.'}) : detail || otherMeta[locale][page as keyof typeof otherMeta.zh];
+---
+<Layout locale={locale} title={meta.title} description={meta.description} page={page}>
+  {page === 'solutions' && <SolutionsPage locale={locale}/>}
+  {detail && page !== 'solutions' && <DetailPage locale={locale} page={page as DetailPageId}/>}
+  {page === 'resources' && <ResourcesPage locale={locale}/>}
+  {page === 'faq' && <FaqPage locale={locale}/>}
+  {page === 'contact' && <ContactPage locale={locale}/>}
+  {page === 'releases' && <ReleaseHistoryPage locale={locale}/>}
+  {(page === 'privacy' || page === 'terms') && <LegalPage locale={locale} kind={page}/>}
+</Layout>

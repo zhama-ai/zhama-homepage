@@ -1,0 +1,24 @@
+---
+import type { DetailPageId, Locale } from '../data/types';
+import { detailPages } from '../data/pages';
+import { pathFor, ui } from '../lib/site';
+import Icon from './Icon.astro';
+import CallToAction from './CallToAction.astro';
+import ProductInterface, {type InterfaceScene} from './ProductInterface.astro';
+import CapabilityEvidence from './pages/CapabilityEvidence.astro';
+import '../styles/inner-overview.css';
+interface Props {locale: Locale; page: DetailPageId;}
+const {locale,page}=Astro.props;
+const content=detailPages[locale][page];
+const t=ui[locale];
+const zh=locale==='zh';
+const scenes:Partial<Record<string,InterfaceScene>> = page==='product'?{collaboration:'workforce',execution:'knowledge',delivery:'document'}:page==='ecosystem'?{reuse:'skills',integrations:'integrations'}:page==='enterprise'?{access:'access',operations:'audit'}:{};
+---
+<div class="inner-overview">
+<section class="overview-hero"><div class="container overview-hero-grid"><div class="overview-hero-copy"><h1>{content.title}</h1><p>{content.description}</p><a class="button" href={pathFor(locale,'contact')}>{t.contact}</a></div><CapabilityEvidence slug={page==='enterprise'?'governance':page==='ecosystem'?'integrations':'collaboration'} locale={locale}/></div></section>
+{content.sections.map((section,index)=><section id={section.id} class:list={['detail-section','anchor-target',{'sl-alt':index%2===1}]} aria-labelledby={`${section.id}-title`}><div class="container"><div class="detail-intro"><div><h2 id={`${section.id}-title`}>{section.title}</h2></div><p>{section.body}</p></div><div class="feature-grid">{section.items.map(item=><article class="feature-card"><div class="feature-icon"><Icon name={item.icon} size={26}/></div><h3>{item.title}</h3><p>{item.body}</p></article>)}</div>{scenes[section.id]&&<div class="overview-evidence">{scenes[section.id]==='knowledge'?<CapabilityEvidence slug="knowledge" locale={locale}/>:scenes[section.id]==='integrations'?<CapabilityEvidence slug="integrations" locale={locale}/>:scenes[section.id]==='skills'?<CapabilityEvidence slug="digital-employees" locale={locale}/>:scenes[section.id]==='access'?<CapabilityEvidence slug="governance" locale={locale}/>:<ProductInterface scene={scenes[section.id]!} locale={locale} class={scenes[section.id]==='audit'?'interface-focus':''}/>}</div>}</div></section>)}
+{page==='enterprise'&&<section class="detail-section"><div class="container enterprise-extra"><article id="cloud" class="anchor-target"><Icon name="globe" size={28}/><h2>{zh?'SaaS 与私有化部署':'SaaS and private deployment'}</h2><p>{zh?'通过 SaaS 使用平台，或结合 Compose、Kubernetes 部署工程在企业环境中交付。根据模型、网络策略与基础设施确定连接范围。':'Use SaaS or deploy in your environment through Compose or Kubernetes. Define the connection scope according to your models, network policies and infrastructure.'}</p><a class="text-link" href={pathFor(locale,'contact')}>{zh?'沟通部署需求':'Discuss deployment'}</a></article><article id="station" class="anchor-target"><Icon name="cpu" size={28}/><h2>TeGo Station</h2><p>{zh?'围绕平台、模型与算力的一体机交付方案，结合企业网络、资料与终端环境，沟通配置、交付范围和安装方式。':'An appliance delivery brings together the platform, models and compute. Agree on its configuration, delivery scope and installation for your enterprise network, materials and devices.'}</p><a class="text-link" href={pathFor(locale,'contact')}>{zh?'咨询一体机方案':'Discuss an appliance'}</a></article></div></section>}
+{page==='enterprise'&&<section class="detail-section sl-alt"><div class="container"><div class="detail-intro"><div><h2>{zh?'从使用情况，了解团队的工作方式':'Understand how your team uses the platform'}</h2></div><p>{zh?'查看 AI 用量、采用与互动、知识与技能等信息，结合执行记录管理平台使用。':'Review AI usage, adoption and interaction, knowledge and skills alongside execution records.'}</p></div><div class="detail-product-interface"><ProductInterface scene="operations" locale={locale} class="interface-focus"/></div></div></section>}
+<CallToAction locale={locale}/>
+
+</div>

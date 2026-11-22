@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="workspace-labels" viewBox="0 0 1948 760" aria-hidden="true" focusable="false" font-family="Arial,'PingFang SC',sans-serif">
+ <g fill="#bed3e4" font-size="25" font-weight="500">
+  <text x="56" y="119">Task entry</text>
+  <text x="1320" y="119">Business outcomes</text>
+ </g>
+ <g fill="none" stroke="#c4d9e9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="89" y="192" width="34" height="24" rx="2"/>
+  <path d="M86 219 H126 L123 222 H89 Z"/>
+  <circle cx="202" cy="205" r="15"/>
+  <ellipse cx="202" cy="205" rx="6.5" ry="15"/>
+  <path d="M188 199 H216 M188 211 H216"/>
+  <rect x="280" y="190" width="28" height="31" rx="2.5"/>
+  <path d="M293 216 H295"/>
+  <rect x="377" y="190" width="20" height="31" rx="2.5"/>
+  <path d="M386 216 H388"/>
+ </g>
+ <g fill="#bed3e4" font-size="18.5" font-weight="400" text-anchor="middle">
+  <text x="106" y="246">PC</text>
+  <text x="202" y="246">Web</text>
+  <text x="294" y="246">Tablet</text>
+  <text x="387" y="246">Mobile</text>
+  <text x="71" y="570">WeChat</text>
+  <text x="138" y="570">QQ</text>
+  <text x="206" y="570">WeCom</text>
+  <text x="275" y="570">DingTalk</text>
+  <text x="342" y="570">Feishu</text>
+  <text x="409" y="570">OA</text>
+ </g>
+
+ <g fill="#c8dce9" font-size="20" font-weight="400">
+  <text x="598" y="110" font-size="24">Digital employee collaboration</text>
+  <text x="1055" y="110" font-size="22" fill="#8de3bb">Complete</text>
+  <text x="600" y="175" font-size="34" font-weight="500" fill="#edf5fb">Business rollout plan</text>
+  <text x="658" y="231">Project files</text>
+  <text x="658" y="286">Requirements.xlsx</text>
+  <text x="665" y="566" font-size="17">Enterprise knowledge</text>
+  <text x="868" y="566">Skills</text>
+  <text x="1024" y="566">Connections</text>
+  <text x="716" y="633" font-size="19">Agent coordination</text>
+  <text x="955" y="633" font-size="19">Access audit</text>
+ </g>
+ <g fill="#bcd3e3" font-size="18" text-anchor="middle">
+  <text x="645" y="490">Receive task</text>
+  <text x="786" y="490">Understand &amp; plan</text>
+  <text x="929" y="490">Execute together</text>
+  <text x="1070" y="490">Deliver results</text>
+ </g>
+ <g fill="#d1e2ed" font-size="20" font-weight="400">
+  <text x="1655" y="195">Business analysis</text>
+  <text x="1617" y="233" font-size="18">Revenue (CNY 10k)</text>
+  <text x="1356" y="536">File archiving</text>
+  <text x="1328" y="575" font-size="23">Contract &amp; files archived</text>
+  <text x="1373" y="609" font-size="19">Archive log.xlsx</text>
+  <text x="1678" y="536">Client follow-up</text>
+  <text x="1633" y="580" font-size="23">Proposal &amp; files ready</text>
+ </g>
+ <g fill="#b9d1e2" font-size="15" text-anchor="end">
+  <text x="1639" y="270">100</text>
+  <text x="1639" y="341">50</text>
+  <text x="1639" y="405">0</text>
+ </g>
+ <g fill="#bfd6e5" font-size="16" text-anchor="middle">
+  <text x="1660" y="425">Jul</text>
+  <text x="1716" y="425">Aug</text>
+  <text x="1771" y="425">Sep</text>
+  <text x="1827" y="425">Oct</text>
+  <text x="1883" y="425">Nov</text>
+ </g>
+</svg>
