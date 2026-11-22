@@ -35,7 +35,7 @@ services:
       CONTACT_HOST: 0.0.0.0
       CONTACT_PORT: 4351
       CONTACT_DATA_DIR: /app/.contact-data
-      CONTACT_ALLOWED_ORIGINS: ${CONTACT_ALLOWED_ORIGINS:-https://www.zhama.com,https://zhama.com}
+      CONTACT_ALLOWED_ORIGINS: ${CONTACT_ALLOWED_ORIGINS:-https://www.zhama.com,https://zhama.com,https://zhama.com.cn,https://www.zhama.com.cn}
       CONTACT_TRUST_PROXY: "true"
     volumes:
       - contact-leads:/app/.contact-data

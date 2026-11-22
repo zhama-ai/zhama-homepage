@@ -1,11 +1,14 @@
-# Every push to main is verified, packaged as two arm64 images and deployed to
-# the zhama.ai host. The images go straight over SSH, so the host needs no
-# registry credentials.
+# A v* tag is verified once, then packaged and deployed to both hosts:
+# - zhama.ai (arm64, www.zhama.com): images go straight over SSH.
+# - zhama.com.cn (amd64, zhama.com.cn / www.zhama.com.cn): slow to reach from
+#   GitHub, so the images go through Aliyun OSS as in tego-docs.
+# Each host's deploy job is independent; one failing does not undo the other.
 name: Deploy website
 
 on:
   push:
-    branches: [main]
+    tags:
+      - "v*"
   workflow_dispatch:
 
 concurrency:
@@ -17,14 +20,11 @@ permissions:
 
 env:
   PUBLIC_SITE_URL: ${{ vars.WEBSITE_PUBLIC_SITE_URL || 'https://www.zhama.com' }}
-  DEPLOY_DIR: ${{ vars.WEBSITE_DEPLOY_DIR || '/opt/zhama-website' }}
-  SSH_PORT: ${{ vars.WEBSITE_SSH_PORT || '22' }}
 
 jobs:
-  deploy:
-    # The host is arm64; a native runner builds the contact image without emulation.
-    runs-on: ubuntu-24.04-arm
-    timeout-minutes: 45
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
     env:
       ASTRO_TELEMETRY_DISABLED: "1"
       NGINX_BIN: /usr/sbin/nginx
@@ -41,33 +41,48 @@ jobs:
       - run: npm ci --no-audit
       - run: npm audit --registry=https://registry.npmjs.org --audit-level=high
       - run: npm run release:check
+      # Both hosts ship exactly this verified build.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ github.run_id }}-${{ github.run_attempt }}
+          path: dist/
+          retention-days: 7
+          if-no-files-found: error
+
+  deploy-zhama-ai:
+    needs: verify
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 30
+    env:
+      DEPLOY_DIR: ${{ vars.WEBSITE_DEPLOY_DIR || '/opt/zhama-website' }}
+      SSH_PORT: ${{ vars.WEBSITE_SSH_PORT || '22' }}
+      INCOMING: ${{ vars.WEBSITE_DEPLOY_DIR || '/opt/zhama-website' }}/.incoming/${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: "24"
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist-${{ github.run_id }}-${{ github.run_attempt }}
+          path: dist
 
       - name: Build images
         id: images
         run: |
           tag="${GITHUB_SHA::12}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-          web="zhama-website-web:$tag"
-          contact="zhama-website-contact:$tag"
-          sh deploy/website/build-images.sh "$web" "$contact"
-          echo "web=$web" >> "$GITHUB_OUTPUT"
-          echo "contact=$contact" >> "$GITHUB_OUTPUT"
+          echo "web=zhama-website-web:$tag" >> "$GITHUB_OUTPUT"
+          echo "contact=zhama-website-contact:$tag" >> "$GITHUB_OUTPUT"
+          sh deploy/website/build-images.sh "zhama-website-web:$tag" "zhama-website-contact:$tag"
 
       - name: Validate deployment configuration
         env:
           DEPLOY_HOST: ${{ secrets.WEBSITE_DEPLOY_HOST }}
           DEPLOY_USER: ${{ secrets.WEBSITE_DEPLOY_USER }}
           DEPLOY_KEY: ${{ secrets.WEBSITE_DEPLOY_KEY }}
-        run: |
-          python3 - <<'PY'
-          import os, re
-          missing = [name for name in ('DEPLOY_HOST', 'DEPLOY_USER', 'DEPLOY_KEY') if not os.environ.get(name)]
-          if not re.fullmatch(r'/[A-Za-z0-9_./-]+', os.environ['DEPLOY_DIR']) or '..' in os.environ['DEPLOY_DIR']:
-              missing.append('valid WEBSITE_DEPLOY_DIR')
-          if not os.environ['SSH_PORT'].isdigit():
-              missing.append('numeric WEBSITE_SSH_PORT')
-          if missing:
-              raise SystemExit('Missing or invalid deployment settings: ' + ', '.join(missing))
-          PY
+        run: python3 deploy/website/check-settings.py DEPLOY_HOST DEPLOY_USER DEPLOY_KEY
 
       - name: Configure deployment SSH
         uses: ./.github/actions/deploy-ssh
@@ -80,7 +95,6 @@ jobs:
 
       - name: Upload deployment files and images
         env:
-          INCOMING: ${{ env.DEPLOY_DIR }}/.incoming/${{ github.run_id }}-${{ github.run_attempt }}
           WEB_IMAGE: ${{ steps.images.outputs.web }}
           CONTACT_IMAGE: ${{ steps.images.outputs.contact }}
         run: |
@@ -92,8 +106,124 @@ jobs:
 
       - name: Publish and verify
         env:
-          INCOMING: ${{ env.DEPLOY_DIR }}/.incoming/${{ github.run_id }}-${{ github.run_attempt }}
           WEB_IMAGE: ${{ steps.images.outputs.web }}
           CONTACT_IMAGE: ${{ steps.images.outputs.contact }}
         run: |
-          ssh deploy "DEPLOY_DIR='$DEPLOY_DIR' sh '$INCOMING/deploy/website/remote-publish.sh' '$INCOMING' '$WEB_IMAGE' '$CONTACT_IMAGE'"
+          ssh deploy "DEPLOY_DIR='$DEPLOY_DIR' SITE_HOST=www.zhama.com sh '$INCOMING/deploy/website/remote-publish.sh' '$INCOMING' '$WEB_IMAGE' '$CONTACT_IMAGE'"
+
+  deploy-zhama-com-cn:
+    needs: verify
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      DEPLOY_DIR: ${{ vars.HOMEPAGE_DEPLOY_DIR || '/mnt/data/zhama/website' }}
+      SSH_PORT: ${{ vars.HOMEPAGE_SSH_PORT || '22' }}
+      INCOMING: ${{ vars.HOMEPAGE_DEPLOY_DIR || '/mnt/data/zhama/website' }}/.incoming/${{ github.run_id }}-${{ github.run_attempt }}
+      OSS_REGION: cn-heyuan
+      OSS_OBJECT: oss://${{ vars.HOMEPAGE_OSS_BUCKET || 'zhama-public' }}/zhama-homepage/deploy-images/${{ github.run_id }}-${{ github.run_attempt }}/image.tar.gz
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: "24"
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist-${{ github.run_id }}-${{ github.run_attempt }}
+          path: dist
+
+      - name: Build images
+        id: images
+        run: |
+          tag="${GITHUB_SHA::12}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          echo "web=zhama-website-web:$tag" >> "$GITHUB_OUTPUT"
+          echo "contact=zhama-website-contact:$tag" >> "$GITHUB_OUTPUT"
+          sh deploy/website/build-images.sh "zhama-website-web:$tag" "zhama-website-contact:$tag"
+
+      # Same SSH and OSS secrets as the previous zhama.com.cn homepage pipeline.
+      - name: Validate deployment configuration
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+          ALIYUN_OSS_ACCESS_KEY_ID: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
+          ALIYUN_OSS_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
+        run: python3 deploy/website/check-settings.py DEPLOY_HOST DEPLOY_USER DEPLOY_KEY ALIYUN_OSS_ACCESS_KEY_ID ALIYUN_OSS_ACCESS_KEY_SECRET
+
+      - name: Configure deployment SSH
+        uses: ./.github/actions/deploy-ssh
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          port: ${{ env.SSH_PORT }}
+          user: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+
+      - name: Upload deployment files
+        run: |
+          set -o pipefail
+          ssh deploy "mkdir -p '$INCOMING'"
+          tar czf - deploy/website/compose.yml deploy/website/deploy.sh deploy/website/remote-publish.sh deploy/website/fetch-image.sh \
+            | ssh deploy "tar xzf - -C '$INCOMING'"
+
+      - name: Set up ossutil
+        uses: ./.github/actions/setup-ossutil
+
+      - name: Stage images on OSS
+        id: stage
+        timeout-minutes: 20
+        env:
+          OSS_ACCESS_KEY_ID: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
+          OSS_ENDPOINT: oss-accelerate.aliyuncs.com
+          WEB_IMAGE: ${{ steps.images.outputs.web }}
+          CONTACT_IMAGE: ${{ steps.images.outputs.contact }}
+        run: |
+          set -euo pipefail
+          archive="$RUNNER_TEMP/image.tar.gz"
+          docker save "$WEB_IMAGE" "$CONTACT_IMAGE" | gzip -n -6 > "$archive"
+          ls -lh "$archive"
+          echo "sha256=$(sha256sum "$archive" | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+          for attempt in 1 2 3; do
+            if ossutil cp "$archive" "$OSS_OBJECT" --force \
+                --checkpoint-dir "$RUNNER_TEMP/ossutil-checkpoint" \
+                --parallel 4 --part-size 16M \
+                --connect-timeout 60 --read-timeout 300 --retry-times 20; then
+              exit 0
+            fi
+            echo "::warning::OSS upload attempt $attempt of 3 failed."
+            sleep "$((attempt * 10))"
+          done
+          echo '::error::Uploading the images to OSS failed.'
+          exit 1
+
+      - name: Download images on the host
+        timeout-minutes: 20
+        env:
+          OSS_ACCESS_KEY_ID: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
+          OSS_ENDPOINT: ${{ vars.HOMEPAGE_OSS_DOWNLOAD_ENDPOINT || 'oss-cn-heyuan.aliyuncs.com' }}
+          IMAGE_SHA256: ${{ steps.stage.outputs.sha256 }}
+          WEB_IMAGE: ${{ steps.images.outputs.web }}
+        run: |
+          set -euo pipefail
+          url=$(ossutil presign "$OSS_OBJECT" --expires-duration 2h | grep -m1 '^https://')
+          echo "::add-mask::$url"
+          # The URL goes over stdin, not the SSH command line.
+          printf '%s\n' "$url" \
+            | ssh deploy "sh '$INCOMING/deploy/website/fetch-image.sh' '$INCOMING' '$WEB_IMAGE' '$IMAGE_SHA256'"
+
+      - name: Remove staged images from OSS
+        if: always() && steps.stage.outcome != 'skipped'
+        env:
+          OSS_ACCESS_KEY_ID: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
+          OSS_ENDPOINT: oss-accelerate.aliyuncs.com
+        run: ossutil rm "$OSS_OBJECT" --force || echo "::warning::Could not remove $OSS_OBJECT; delete it by hand."
+
+      - name: Publish and verify
+        env:
+          WEB_IMAGE: ${{ steps.images.outputs.web }}
+          CONTACT_IMAGE: ${{ steps.images.outputs.contact }}
+        run: |
+          ssh deploy "DEPLOY_DIR='$DEPLOY_DIR' SITE_HOST=zhama.com.cn sh '$INCOMING/deploy/website/remote-publish.sh' '$INCOMING' '$WEB_IMAGE' '$CONTACT_IMAGE'"

@@ -15,11 +15,13 @@ export function publishedHtmlPaths(directory) {
 
 /**
  * Include in both HTTP and HTTPS website servers, after setting their static root.
- * Behind a TLS-terminating proxy, pass the variable holding the visitor's scheme
- * (for example `$site_scheme` mapped from X-Forwarded-Proto) as `scheme`.
+ * With `proxy`, the server sits behind a TLS-terminating edge and serves every
+ * host that `$site_served_host` maps to 1, reading the visitor's scheme from
+ * `$site_scheme`; both maps live in deploy/website/site.conf. Moved paths then
+ * redirect on the requested host, and other hosts go to the canonical origin.
  */
-export function renderNginxSeoConfig(pages, canonicalOrigin = 'https://www.zhama.com', { preview = false, scheme = '$scheme' } = {}) {
-  if (!/^\$[a-z_]+$/.test(scheme)) throw new Error('scheme must be an Nginx variable name.');
+export function renderNginxSeoConfig(pages, canonicalOrigin = 'https://www.zhama.com', { preview = false, proxy = false } = {}) {
+  if (preview && proxy) throw new Error('Choose either preview or proxy routes.');
   const origin = new URL(normalizeSiteOrigin(canonicalOrigin));
   const canonicalPages = [...new Set(pages)].filter(page => page.endsWith('/') && isIndexableSeoPath(page)).sort();
   const redirects = new Map();
@@ -47,12 +49,15 @@ export function renderNginxSeoConfig(pages, canonicalOrigin = 'https://www.zhama
   if (preview) lines.push('absolute_redirect off;', '');
   for (const [from, to] of [...redirects].sort(([a], [b]) => a.localeCompare(b))) {
     const destination = new URL(to, origin);
-    lines.push(`location = ${from} { return 301 "${preview ? '' : origin.origin}${destination.pathname}$is_args$args${destination.hash}"; }`);
+    lines.push(`location = ${from} { return 301 "${preview || proxy ? '' : origin.origin}${destination.pathname}$is_args$args${destination.hash}"; }`);
   }
   lines.push('');
-  const canonicalRules = preview ? [] : [
+  const canonicalRules = preview ? [] : proxy ? [
+    `    if ($site_served_host = 0) { return 301 ${origin.origin}$request_uri; }`,
+    `    if ($site_scheme != ${origin.protocol.slice(0, -1)}) { return 301 ${origin.protocol}//$host$request_uri; }`,
+  ] : [
     `    if ($host != ${origin.hostname}) { return 301 ${origin.origin}$request_uri; }`,
-    `    if (${scheme} != ${origin.protocol.slice(0, -1)}) { return 301 ${origin.origin}$request_uri; }`,
+    `    if ($scheme != ${origin.protocol.slice(0, -1)}) { return 301 ${origin.origin}$request_uri; }`,
   ];
   const localeFor = page => seoLocales.find(locale => page.startsWith(`/${locale}/`)) || 'zh';
   const errorRule = locale => `    error_page 404 =404 @seo_not_found_${locale.replace('-', '_')};`;
@@ -76,9 +81,8 @@ export function renderNginxSeoConfig(pages, canonicalOrigin = 'https://www.zhama
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const args = process.argv.slice(2);
-  // --behind-proxy reads the visitor's scheme from $site_scheme, defined in deploy/website/site.conf.
-  if (args.length > 1 || (args.length === 1 && !['--preview', '--behind-proxy'].includes(args[0]))) throw new Error('Usage: node deploy/website/generate-nginx.mjs [--preview | --behind-proxy]');
+  if (args.length > 1 || (args.length === 1 && !['--preview', '--proxy'].includes(args[0]))) throw new Error('Usage: node deploy/website/generate-nginx.mjs [--preview | --proxy]');
   const root = fileURLToPath(new URL('../../', import.meta.url));
-  const options = { preview: args[0] === '--preview', scheme: args[0] === '--behind-proxy' ? '$site_scheme' : '$scheme' };
+  const options = { preview: args[0] === '--preview', proxy: args[0] === '--proxy' };
   process.stdout.write(renderNginxSeoConfig(publishedHtmlPaths(path.join(root, 'dist')), process.env.PUBLIC_SITE_URL, options));
 }

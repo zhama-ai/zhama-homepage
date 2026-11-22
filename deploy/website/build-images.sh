@@ -13,7 +13,7 @@ root=$(cd "$(dirname "$0")/../.." && pwd)
 # gets its own context holding only what it serves.
 stage=$(mktemp -d)
 trap 'rm -rf "$stage"' EXIT
-node "$root/deploy/website/generate-nginx.mjs" --behind-proxy > "$stage/site-routes.conf"
+node "$root/deploy/website/generate-nginx.mjs" --proxy > "$stage/site-routes.conf"
 cp "$root/deploy/website/Dockerfile" "$root/deploy/website/site.conf" "$stage/"
 cp -R "$root/dist" "$stage/dist"
 
