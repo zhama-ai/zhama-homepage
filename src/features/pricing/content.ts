@@ -1,6 +1,6 @@
 import type { Locale } from '../../data/types';
 
-interface PricingPlan {
+export interface PricingPlan {
   id: string; icon: string; name: string; audience: string; description: string;
   price: string; unit: string; includes: string; items: string[]; action: string;
 }
@@ -83,7 +83,7 @@ export const pricingPlans: Record<Locale, PricingPlan[]> = {
   ],
 };
 
-interface CapabilityGroup {
+export interface CapabilityGroup {
   id: string; icon: string; title: string;
   rows: { name: string; capability: string }[];
 }

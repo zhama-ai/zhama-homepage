@@ -3,21 +3,21 @@ interface Props { home: boolean; }
 const { home } = Astro.props;
 ---
 {home ? <>
-  <div class="industry-introduction">
+  <div class="explorer-introduction">
     <slot name="scene"/>
-    <div class="industry-introduction-copy">
-      <slot name="action"/>
+    <div class="explorer-column">
       <slot name="context"/>
       <slot name="work"/>
+      <slot name="action"/>
     </div>
   </div>
   <slot name="results"/>
 </> : <>
-  <div class="industry-scene-column">
+  <div class="explorer-column">
     <slot name="scene"/>
     <slot name="context"/>
   </div>
-  <div class="industry-delivery">
+  <div class="explorer-column">
     <slot name="work"/>
     <slot name="results"/>
     <slot name="action"/>

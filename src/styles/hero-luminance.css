@@ -1,9 +1,4 @@
 /* At the top, the hero continues behind navigation without moving its content. */
-.header-scroll-marker{position:absolute;top:24px;left:0;width:1px;height:1px;pointer-events:none;visibility:hidden}
-.is-home .site-header{margin-bottom:-80px;background:transparent;box-shadow:none;backdrop-filter:none;transition:background-color .2s ease}
-.is-home .site-header[data-scrolled='true'],.is-home .site-header:has(.mobile-nav.is-open){background:#060e18f7}
-.is-home .home-value-edition .sl-hero{padding-top:80px}
-@media(max-width:700px){.is-home .site-header{margin-bottom:-72px}.is-home .home-value-edition .sl-hero{padding-top:72px}}
 /* Dark neutral surfaces separate the silver active role from colored data. */
 .hero-team-composition{--workspace-surface:linear-gradient(145deg,#1b2b3d,#101d2c);--workspace-edge:#c7e3f426;--workspace-shadow:inset 0 1px 0 #e4f3ff09,0 5px 12px -6px #000a}
 .home-value-edition .hero-team-composition:before{background:radial-gradient(ellipse at 52% 48%,#a5cde912,transparent 65%)}
@@ -68,4 +63,4 @@
  .hero-team-composition .analytics-metrics>div:first-child{transform:translateY(-1px);box-shadow:inset 0 1px 0 #d9f2ff1a,0 4px 8px -3px #000c}
  .hero-team-composition .analytics-insights{margin-inline:0;transform:translateY(-2px);box-shadow:inset 0 1px 0 #e4f3ff21,0 5px 10px -4px #000d}
 }
-@media(prefers-reduced-motion:reduce){.is-home .site-header,.hero-team-composition .team-employees>button{transition:none}}
+@media(prefers-reduced-motion:reduce){.hero-team-composition .team-employees>button{transition:none}}

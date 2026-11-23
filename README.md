@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-默认入口为 [简体中文](http://127.0.0.1:4350/zh/)、[英文](http://127.0.0.1:4350/en/) 和 [繁体中文](http://127.0.0.1:4350/zh-Hant/)。开发与发布预览默认监听本机 4350 端口，提供 `/api/contact/` 接口。端口被占用时，先确认现有站点进程；开发模式可用 `npm run dev -- --port 4354` 另选端口。
+默认入口为 [简体中文](http://127.0.0.1:4350/zh/)、[英文](http://127.0.0.1:4350/en/) 和 [繁体中文](http://127.0.0.1:4350/zh-Hant/)。开发与发布预览默认监听本机 4350 端口，提供 `/api/contact/` 接口。端口被占用时，开发模式用 `npm run dev -- --port 4354`，发布预览用 `PREVIEW_PORT=4369 npm run preview`。
 
 繁体页面由构建流程从简体内容转换，最终检查以 `dist/zh-Hant/` 为准。开发服务器不代替繁体发布产物验收。
 
@@ -75,14 +75,15 @@ PUBLIC_SITE_URL=https://www.zhama.com node deploy/website/generate-nginx.mjs
 
 ## 代码分工与目录
 
-页面按功能隔离，协作约定见 [多人协作开发约定](docs/多人协作开发约定_V1.1.md)。
+页面按功能隔离。新增页面或改版时遵循 [官网设计与组件规范](docs/website-design-system_V1.0.md) 和 [多人协作开发约定](docs/多人协作开发约定_V1.1.md)。
 
 | 目录 | 维护内容 |
 | --- | --- |
 | `src/pages/` | 统一路由与页面元数据 |
 | `src/features/` | 产品、行业、价格、下载、咨询与统计模块 |
 | `src/components/navigation/` | 共享导航、语言入口与页脚 |
-| `src/components/product/`、`src/styles/product-banner.css` | 产品配图与统一首屏尺寸 |
+| `src/styles/design-system.css`、`src/components/ui/` | 共用版心、间距、字号、画框和基础组件 |
+| `src/components/product/` | 共用产品首屏、正文结构与配图 |
 | `src/lib/seo.ts`、`shared/seo-*.mjs` | SEO 元数据、规范地址与迁移映射 |
 | `src/features/analytics/`、`shared/analytics.mjs` | 百度统计授权、PV、事件和目标分类 |
 | `src/data/`、`src/content/` | 页面内容、历史文章、发行资料 |

@@ -1,0 +1,16 @@
+.prose { font-size: var(--type-body); line-height: var(--leading-body); overflow-wrap: anywhere; color: var(--color-copy); }
+.prose :is(h2,h3,h4) { color: var(--color-heading); font-weight: 600; line-height: var(--leading-heading); margin: var(--space-8) 0 var(--space-4); }
+.prose h2 { font-size: var(--type-section); }
+.prose h3 { font-size: var(--type-subhead); }
+.prose h4 { font-size: var(--type-card); }
+.prose p, .prose :is(ul,ol) { margin-block: var(--space-4); }
+.prose :is(ul,ol) { padding-inline-start: var(--space-6); list-style: revert; }
+.prose li + li { margin-top: var(--space-2); }
+.prose a { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; }
+.prose strong { color: var(--color-heading); font-weight: 600; }
+.prose blockquote { border-inline-start: 2px solid var(--color-edge); padding-inline-start: var(--space-4); margin-inline-start: 0; }
+.prose pre { overflow: auto; padding: var(--space-card); background: var(--surface-card); border-radius: var(--radius-card); font-size: var(--type-meta); }
+.prose table { border-collapse: collapse; display: block; overflow: auto; font-size: var(--type-meta); margin-block: var(--space-6); }
+.prose :is(th,td) { border: 1px solid var(--color-edge); padding: var(--space-3) var(--space-4); text-align: start; vertical-align: top; }
+.prose img { max-width: 100%; height: auto; border-radius: var(--radius-card); }
+.prose hr { border: 0; margin-block: var(--space-8); }

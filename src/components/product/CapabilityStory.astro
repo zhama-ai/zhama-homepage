@@ -1,0 +1,68 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  body: string;
+  lead?: string;
+  points?: readonly { title: string; body: string }[];
+  reverse?: boolean;
+}
+
+const { id, title, body, lead, points, reverse = false } = Astro.props;
+const anchor = `capability-${id}`;
+---
+<section id={anchor} class:list={['capability-story ui-section', { 'capability-story-reverse': reverse }]} aria-labelledby={`${anchor}-title`}>
+  <div class="capability-story-copy">
+    <h2 id={`${anchor}-title`}>{title}</h2>
+    {lead && <p class="capability-story-lead">{lead}</p>}
+    <p>{body}</p>
+    {points && points.length > 0 && <dl class="capability-story-points">
+      {points.map(point => <div><dt>{point.title}</dt><dd>{point.body}</dd></div>)}
+    </dl>}
+  </div>
+  <div class="capability-story-media"><slot/></div>
+</section>
+
+<style>
+  .capability-story {
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    gap: var(--space-grid);
+    align-items: center;
+    scroll-margin-top: var(--space-20);
+  }
+  .capability-story-reverse { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); }
+  .capability-story-reverse .capability-story-copy { grid-column: 2; grid-row: 1; }
+  .capability-story-reverse .capability-story-media { grid-column: 1; grid-row: 1; }
+  .capability-story-copy { display: grid; min-width: 0; gap: var(--space-4); }
+  .capability-story-copy h2 {
+    margin: 0;
+    font-size: var(--type-section);
+    font-weight: 600;
+    line-height: var(--leading-heading);
+    letter-spacing: 0;
+    text-wrap: balance;
+  }
+  .capability-story-copy > p {
+    margin: 0;
+    color: var(--product-copy, #b5c2cf);
+    font-size: var(--type-body);
+    line-height: var(--leading-body);
+    text-wrap: pretty;
+  }
+  .capability-story-copy .capability-story-lead { color: #dce6ef; font-size: var(--type-lead); }
+  .capability-story-points { display: grid; gap: var(--space-4); margin: var(--space-2) 0 0; }
+  .capability-story-points > div { position: relative; padding-inline-start: var(--space-4); }
+  .capability-story-points > div::before {
+    position: absolute; inset-inline-start: 0; top: .7em; width: var(--space-1); height: var(--space-1);
+    border-radius: 50%; background: #85a5bf; content: '';
+  }
+  .capability-story-points dt { color: #dce6ef; font-size: var(--type-body); font-weight: 600; }
+  .capability-story-points dd { margin: var(--space-1) 0 0; color: #a9bbcc; font-size: var(--type-body); line-height: var(--leading-body); }
+  .capability-story-media { display: grid; align-items: center; min-width: 0; aspect-ratio: var(--ratio-product-story); }
+  @media (max-width: 900px) {
+    .capability-story, .capability-story-reverse { grid-template-columns: minmax(0, 1fr); gap: var(--space-6); }
+    .capability-story-reverse :is(.capability-story-copy, .capability-story-media) { grid-column: auto; grid-row: auto; }
+    .capability-story-media { aspect-ratio: auto; }
+  }
+</style>

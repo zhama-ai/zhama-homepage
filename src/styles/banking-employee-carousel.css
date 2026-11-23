@@ -11,9 +11,9 @@
   position: relative;
   display: flex;
   align-items: flex-start;
-  gap: 22px;
+  gap: var(--space-grid);
   overflow-x: auto;
-  padding: 18px 2px 38px;
+  padding: var(--space-4) var(--space-1) var(--space-10);
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
   scrollbar-color: #6082a1 #142331;
@@ -26,9 +26,9 @@
   box-sizing: border-box;
   width: var(--employee-card-width);
   min-width: 0;
-  padding: 27px 28px 26px;
+  padding: var(--space-card);
   border: 1px solid rgba(var(--employee-accent), .24);
-  border-radius: 22px;
+  border-radius: var(--radius-card);
   background:
     radial-gradient(ellipse at 86% 3%, rgba(var(--employee-accent), .16), transparent 53%),
     radial-gradient(ellipse at 0% 90%, rgba(var(--employee-accent), .055), transparent 60%),
@@ -57,7 +57,7 @@
   grid-template-columns: 88px minmax(0, 1fr);
   gap: 16px;
   align-items: center;
-  margin-bottom: 23px;
+  margin-bottom: var(--space-6);
 }
 
 .banking-employee-avatar {
@@ -82,29 +82,28 @@
 .banking-employee-card h3 {
   margin: 0;
   color: #f0f5fc;
-  font-size: 22px;
-  font-weight: 560;
-  line-height: 1.5;
-  letter-spacing: -.025em;
+  font-size: var(--type-card);
+  font-weight: 600;
+  line-height: var(--leading-heading);
+  letter-spacing: 0;
   text-wrap: balance;
 }
 
 .banking-employee-value {
   margin: 8px 0 0;
   color: #ccdeed;
-  font-size: 13px;
-  font-weight: 430;
-  line-height: 1.7;
+  font-size: var(--type-meta);
+  line-height: var(--leading-body);
   text-wrap: pretty;
 }
 
 .banking-employee-card h4 {
-  margin: 0 0 10px;
+  margin: 0 0 var(--space-2);
   color: rgba(var(--employee-accent), 1);
-  font-size: 13px;
-  font-weight: 550;
-  line-height: 1.5;
-  letter-spacing: .055em;
+  font-size: var(--type-ui);
+  font-weight: 600;
+  line-height: var(--leading-heading);
+  letter-spacing: 0;
 }
 
 .banking-employee-card ul {
@@ -116,36 +115,36 @@
 .banking-employee-skills ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
+  gap: var(--space-2);
 }
 
 .banking-employee-skills li {
-  padding: 4px 9px;
+  padding: var(--space-1) var(--space-2);
   border: 1px solid rgba(var(--employee-accent), .2);
-  border-radius: 6px;
+  border-radius: var(--space-1);
   background: rgba(var(--employee-accent), .07);
   color: #d0e0ed;
-  font-size: 12px;
+  font-size: var(--type-meta);
   line-height: 1.5;
 }
 
 .banking-employee-process {
-  margin-top: 18px;
+  margin-top: var(--space-4);
 }
 
 .banking-employee-process ul {
   display: grid;
-  gap: 9px;
+  gap: var(--space-2);
 }
 
 .banking-employee-process li {
   display: grid;
-  grid-template-columns: 6px minmax(0, 1fr);
-  gap: 10px;
+  grid-template-columns: var(--space-1) minmax(0, 1fr);
+  gap: var(--space-2);
   align-items: start;
   color: #b6c9da;
-  font-size: 13px;
-  line-height: 1.65;
+  font-size: var(--type-meta);
+  line-height: var(--leading-body);
 }
 
 .banking-employee-process li > span:first-child {
@@ -158,23 +157,22 @@
 
 .banking-employee-outputs {
   position: relative;
-  margin-top: 18px;
-  padding: 13px 16px;
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-4);
   border: 1px solid rgba(var(--employee-accent), .15);
-  border-radius: 10px;
+  border-radius: var(--radius-card);
   background: rgba(var(--employee-accent), .055);
 }
 
-.banking-employee-outputs h4 { margin-bottom: 9px; }
-.banking-employee-outputs ul { display: grid; gap: 7px; }
+.banking-employee-outputs ul { display: grid; gap: var(--space-2); }
 .banking-employee-outputs li {
   display: grid;
   grid-template-columns: 15px minmax(0, 1fr);
   align-items: start;
   gap: 8px;
   color: #d6e4ef;
-  font-size: 12px;
-  line-height: 1.55;
+  font-size: var(--type-meta);
+  line-height: var(--leading-body);
 }
 .banking-employee-outputs svg { margin-top: 2px; color: rgba(var(--employee-accent), .85); }
 
@@ -221,47 +219,27 @@
   outline-offset: 4px;
 }
 
-html[lang='en'] .banking-employee-card h3 { font-size: 19px; line-height: 1.4; }
-html[lang='en'] .banking-employee-value { font-size: 13px; line-height: 1.65; }
-html[lang='en'] .banking-employee-skills li { font-size: 11px; }
-html[lang='en'] .banking-employee-process li { font-size: 12px; }
-
 @media (hover: hover) {
   .banking-employees[data-ready='true'] .banking-employee-card[data-active='false']:hover { border-color: rgba(var(--employee-accent), .55); }
 }
 
 @media (max-width: 1100px) {
   .banking-employees { --employee-card-width: 362px; --employee-step: 288px; }
-  .banking-employee-card { padding: 25px; }
-  .banking-employee-card h3 { font-size: 22px; }
-  .banking-employee-identity { grid-template-columns: 80px minmax(0, 1fr); gap: 17px; }
+  .banking-employee-identity { grid-template-columns: 80px minmax(0, 1fr); }
   .banking-employee-avatar { width: 80px; height: 80px; }
 }
 
 @media (max-width: 680px) {
   .banking-employees { --employee-card-width: min(330px, calc(100vw - 72px)); --employee-step: 270px; }
-  .banking-employees-stage { gap: 14px; }
   .banking-employees[data-ready='true'] .banking-employees-stage { perspective: 1800px; }
-  .banking-employee-card { padding: 22px; border-radius: 18px; }
-  .banking-employee-identity { grid-template-columns: 72px minmax(0, 1fr); gap: 15px; }
+  .banking-employee-identity { grid-template-columns: 72px minmax(0, 1fr); gap: var(--space-3); }
   .banking-employee-avatar { width: 72px; height: 72px; }
-  .banking-employee-card h3 { font-size: 20px; }
-  .banking-employee-value { margin: 7px 0 0; font-size: 12px; }
-  .banking-employee-process { margin-top: 18px; }
-  .banking-employee-process li { font-size: 12px; }
-  .banking-employee-outputs { margin-top: 19px; padding: 13px; }
-  .banking-employee-skills ul { gap: 6px; }
-  .banking-employee-skills li { padding: 4px 7px; font-size: 11px; }
-  html[lang='en'] .banking-employee-card h3 { font-size: 18px; }
-  html[lang='en'] .banking-employee-value { font-size: 13px; }
 }
 
 @media (max-width: 380px) {
   .banking-employees { --employee-step: 248px; }
-  .banking-employee-card { padding: 19px; }
-  .banking-employee-identity { grid-template-columns: 66px minmax(0, 1fr); gap: 12px; }
-  .banking-employee-avatar { width: 66px; height: 66px; }
-  .banking-employee-card h3 { font-size: 18px; }
+  .banking-employee-identity { grid-template-columns: var(--space-16) minmax(0, 1fr); }
+  .banking-employee-avatar { width: var(--space-16); height: var(--space-16); }
 }
 
 @media (prefers-reduced-motion: reduce) {

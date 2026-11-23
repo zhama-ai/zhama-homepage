@@ -1,0 +1,47 @@
+---
+import Icon from '../Icon.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  category: string;
+  href: string;
+  date: string;
+  datetime: string;
+  image?: string;
+  withMedia?: boolean;
+  search?: string;
+  level?: 2 | 3;
+}
+const { title, description, category, href, date, datetime, image, withMedia = false, search, level = 2 } = Astro.props;
+const Heading = level === 2 ? 'h2' : 'h3';
+---
+<article class="article-card ui-surface" data-search={search}>
+  {withMedia && <div class="article-card-media ui-media" aria-hidden="true">
+    {image ? <img src={image} alt="" width="640" height="400" loading="lazy" decoding="async" /> : <Icon name="book" size={36} />}
+  </div>}
+  <div class="article-body ui-stack">
+    <div class="article-meta ui-meta"><span>{category}</span><time datetime={datetime}>{date}</time></div>
+    <Heading class="ui-card-title"><a href={href}>{title}</a></Heading>
+    <p class="ui-copy">{description}</p>
+  </div>
+</article>
+
+<style>
+  .article-card { min-width: 0; overflow: hidden; display: flex; flex-direction: column; }
+  .article-card[hidden] { display: none; }
+  .article-card:focus-within, .article-card:hover { border-color: var(--accent); transform: none; }
+  .article-card-media {
+    --media-ratio: var(--ratio-thumbnail);
+    --media-fit: contain;
+    display: grid;
+    place-items: center;
+    border-radius: 0;
+    background: var(--surface-raised);
+  }
+  .article-card .article-body { --stack-gap: var(--space-2); padding: var(--space-card); align-content: start; }
+  .article-card .article-meta { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); }
+  .article-card :is(h2, h3) { margin: 0; }
+  .article-card p { display: block; overflow: visible; }
+  .article-card a:hover { color: var(--accent); }
+</style>

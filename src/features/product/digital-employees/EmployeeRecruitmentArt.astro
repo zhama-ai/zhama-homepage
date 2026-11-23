@@ -38,46 +38,46 @@ const skills = zh ? ['招标解读', '标书编制'] : ['Tender analysis', 'Bid 
   </div>
 </div>
 <style>
-  .recruitment-art { position:relative; isolation:isolate; display:grid; grid-template-columns:minmax(0,.56fr) 86px minmax(0,1fr); align-items:center; width:100%; max-width:740px; margin-inline:auto; padding:24px 2px 30px; box-sizing:border-box; color:#e1eaf5; font-size:13px; line-height:1.5; }
+  .recruitment-art { position:relative; isolation:isolate; display:grid; grid-template-columns:minmax(0,.56fr) 86px minmax(0,1fr); align-items:center; width:100%; max-width:740px; margin-inline:auto; padding:24px 2px 30px; box-sizing:border-box; color:#e1eaf5; font-size: var(--art-type-body); line-height:1.5; }
   .recruitment-art::before { content:''; position:absolute; z-index:-1; inset:3% -7%; background:radial-gradient(ellipse at 54% 46%,#398fd43b 0%,#23639726 36%,transparent 72%); filter:blur(25px); pointer-events:none; }
   .role-template { background:linear-gradient(145deg,#1b2e45,#111d2e 70%); border:1px solid #93b6df3b; border-radius:10px; box-shadow:0 16px 32px -12px #000b,0 2px 10px #0005; overflow:hidden; }
-  .template-heading { display:flex; align-items:center; gap:7px; padding:14px 16px; color:#a7c5e6; background:#95bded06; border-bottom:1px solid #a5c9f019; white-space:nowrap; font-size:12px; }
+  .template-heading { display:flex; align-items:center; gap:7px; padding:14px 16px; color:#a7c5e6; background:#95bded06; border-bottom:1px solid #a5c9f019; white-space:nowrap; font-size: var(--art-type-body); }
   .template-person { display:flex; align-items:center; gap:12px; padding:24px 16px 22px; }
   .template-person img { width:48px; height:48px; object-fit:cover; border-radius:7px; box-shadow:0 4px 12px #0005; flex-shrink:0; }
-  .template-person strong,.instance-person strong { display:block; font-size:16px; font-weight:550; line-height:1.5; }
+  .template-person strong,.instance-person strong { display:block; font-size: var(--art-type-title); font-weight:550; line-height:1.5; }
   .template-content { padding:0 16px 24px; display:grid; gap:20px; }
-  .template-part { display:flex; gap:9px; align-items:center; color:#bed0e4; font-size:13px; }
+  .template-part { display:flex; gap:9px; align-items:center; color:#bed0e4; font-size: var(--art-type-body); }
   .template-part :global(svg) { flex-shrink:0; color:#92b9e6; }
-  .recruit-transfer { position:relative; height:304px; display:grid; place-items:center; color:#b6cde8; font-size:12px; }
+  .recruit-transfer { position:relative; height:304px; display:grid; place-items:center; color:#b6cde8; font-size: var(--art-type-body); }
   .recruit-transfer>span { position:absolute; left:50%; top:calc(50% - 49px); transform:translateX(-50%); white-space:nowrap; }
   .recruit-transfer>svg { width:100%; height:100%; display:block; }
   .recruited-employees { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px 14px; }
   .employee-instance { position:relative; min-width:0; background:linear-gradient(125deg,#20364c,#132434 75%); border:1px solid #93bad63b; border-radius:7px; padding:16px 12px; box-shadow:0 9px 19px -7px #0009,0 1px 7px #0004; }
   .employee-instance:nth-child(even) { background:linear-gradient(125deg,#26334a,#172032 75%); border-color:#9facdb30; }
-  .instance-team { display:flex; align-items:center; gap:5px; color:#a7bed6; font-size:11px; }
+  .instance-team { display:flex; align-items:center; gap:5px; color:#a7bed6; font-size: var(--art-type-label); }
   .instance-team>:global(svg) { flex-shrink:0; }
-  .instance-workspace { display:block; margin-top:4px; color:#8ca6bd; font-size:10px; }
+  .instance-workspace { display:block; margin-top:4px; color:#8ca6bd; font-size: var(--art-type-label); }
   .instance-person { display:flex; align-items:center; gap:9px; margin-top:16px; }
   .instance-person>div { min-width:0; }
   .instance-person img { width:40px; height:40px; flex-shrink:0; object-fit:cover; border-radius:6px; box-shadow:0 3px 9px #0005; }
-  .instance-person strong { font-size:15px; }
+  .instance-person strong { font-size: var(--art-type-title); }
   .instance-person strong>span { display:block; }
-  .instance-skills { display:flex; flex-wrap:wrap; gap:4px 9px; margin-top:16px; color:#b7cce0; font-size:11px; }
+  .instance-skills { display:flex; flex-wrap:wrap; gap:4px 9px; margin-top:16px; color:#b7cce0; font-size: var(--art-type-label); }
   .instance-skills>span { display:flex; align-items:center; gap:3px; }
   .instance-skills :global(svg) { color:#8bbeb7; }
-  .recruitment-art-en .template-heading { font-size:11px; }
+  .recruitment-art-en .template-heading { font-size: var(--art-type-label); }
   .recruitment-art-en .template-person { gap:8px; padding-inline:12px; }
-  .recruitment-art-en .template-person strong { font-size:14px; }
+  .recruitment-art-en .template-person strong { font-size: var(--art-type-body); }
   .recruitment-art-en .template-person img { width:32px; height:32px; }
-  .recruitment-art-en .template-part { font-size:11px; gap:7px; }
-  .recruitment-art-en .instance-person strong { font-size:14px; }
+  .recruitment-art-en .template-part { font-size: var(--art-type-label); gap:7px; }
+  .recruitment-art-en .instance-person strong { font-size: var(--art-type-body); }
   .recruitment-art-en .instance-person img { width:36px; height:36px; }
   .recruitment-art-en .instance-team { align-items:flex-start; min-height:33px; }
   .recruitment-art-en .instance-team :global(svg) { margin-top:2px; }
   .recruitment-art-en .instance-skills { gap:4px 8px; }
   @media(max-width:1200px) { .recruitment-art::before { inset:3% 0; } }
   @media(min-width:601px) and (max-width:760px) {
-    .recruitment-art-en .instance-person strong { font-size:12px; }
+    .recruitment-art-en .instance-person strong { font-size: var(--art-type-body); }
     .recruitment-art-en .instance-person img { width:28px; height:28px; }
   }
   @media(max-width:600px) {
@@ -87,20 +87,20 @@ const skills = zh ? ['招标解读', '标书编制'] : ['Tender analysis', 'Bid 
     .template-person { padding-block:14px; }
     .template-person img { width:40px; height:40px; }
     .template-content { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px 14px; }
-    .template-part { font-size:12px; }
+    .template-part { font-size: var(--art-type-body); }
     .recruit-transfer { height:100px; padding:0; }
     .recruit-transfer>span { left:auto; right:16px; top:50%; transform:translateY(-50%); }
     .recruit-transfer>svg { position:absolute; width:90px; height:280px; left:50%; top:50%; transform:translate(-50%,-50%) rotate(90deg); }
     .recruited-employees { gap:12px; }
     .employee-instance { padding:11px 9px; }
-    .instance-team { font-size:10px; }
+    .instance-team { font-size: var(--art-type-label); }
     .instance-person { gap:7px; margin-top:12px; }
-    .instance-person strong { font-size:14px; }
+    .instance-person strong { font-size: var(--art-type-body); }
     .instance-person strong>span { display:inline-block; }
     .instance-person img { width:26px; height:26px; }
     .instance-workspace { margin-top:2px; }
-    .instance-skills { gap:4px 8px; margin-top:11px; font-size:10px; }
-    .recruitment-art-en .instance-person strong { font-size:12px; }
+    .instance-skills { gap:4px 8px; margin-top:11px; font-size: var(--art-type-label); }
+    .recruitment-art-en .instance-person strong { font-size: var(--art-type-body); }
     .recruitment-art-en .instance-person img { width:26px; height:26px; }
   }
 </style>

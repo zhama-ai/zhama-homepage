@@ -10,6 +10,22 @@ const { locale } = Astro.props;
 const zh = locale === 'zh';
 const t = ui[locale];
 const entries = navigationEntriesFor(locale);
+const footerGroups = [
+  {
+    path: 'product',
+    label: t.product,
+    links: [
+      ...entries.products.map(entry => ({ label: entry.label, href: pathFor(locale, entry.path), external: false })),
+      { label: zh ? '私有化部署' : 'Private deployment', href: pathFor(locale, 'enterprise'), external: false },
+    ],
+  },
+  {
+    path: 'solutions',
+    label: t.solutions,
+    links: entries.solutions.map(entry => ({ label: entry.label, href: pathFor(locale, entry.path), external: false })),
+  },
+  { path: 'resources', label: t.resources, links: entries.resources },
+];
 const contactCodes = [
   {
     src: '/images/contact/wechat-community_V1.0.png',
@@ -26,7 +42,7 @@ const contactCodes = [
 ];
 ---
 
-<footer class="site-footer">
+<footer class="site-footer tego-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
       <a href={pathFor(locale)}><Brand locale={locale}/></a>
@@ -49,19 +65,14 @@ const contactCodes = [
         ))}
       </div>
     </div>
-    <div>
-      <h2><a href={pathFor(locale, 'product')}>{t.product}</a></h2>
-      {entries.products.map(entry => <a href={pathFor(locale, entry.path)}>{entry.label}</a>)}
-      <a href={pathFor(locale, 'enterprise')}>{zh ? '私有化部署' : 'Private deployment'}</a>
-    </div>
-    <div>
-      <h2><a href={pathFor(locale, 'solutions')}>{t.solutions}</a></h2>
-      {entries.solutions.map(entry => <a href={pathFor(locale, entry.path)}>{entry.label}</a>)}
-    </div>
-    <div>
-      <h2><a href={pathFor(locale, 'resources')}>{t.resources}</a></h2>
-      {entries.resources.map(entry => <a href={entry.href} hreflang={entry.external ? 'zh-CN' : undefined} rel={entry.external ? 'external' : undefined}>{entry.label}</a>)}
-    </div>
+    {footerGroups.map(group => (
+      <div class="footer-link-group">
+        <h2><a href={pathFor(locale, group.path)}>{group.label}</a></h2>
+        <ul>
+          {group.links.map(entry => <li><a href={entry.href} hreflang={entry.external ? 'zh-CN' : undefined} rel={entry.external ? 'external' : undefined}>{entry.label}</a></li>)}
+        </ul>
+      </div>
+    ))}
     <div class="footer-contact">
       <h2>{zh ? '联系我们' : 'Contact us'}</h2>
       <div class="footer-contact-details" style={{ '--contact-label-width': zh ? '3em' : '4.5em' }}>
@@ -73,8 +84,8 @@ const contactCodes = [
           <span class="footer-contact-label">{zh ? '邮箱：' : 'Email:'}</span>
           <span class="footer-contact-value">{site.email}</span>
         </a>
+        <a class="footer-contact-entry" href={pathFor(locale, 'contact')}>{zh ? '联系我们' : 'Contact us'}</a>
       </div>
-      <a class="footer-contact-entry" href={pathFor(locale, 'contact')}>{zh ? '联系我们' : 'Contact us'}</a>
     </div>
   </div>
   <div class="container footer-bottom">
@@ -119,53 +130,66 @@ const contactCodes = [
 </script>
 
 <style>
-  .site-footer .footer-grid {
-    grid-template-columns: minmax(300px, 1.35fr) minmax(0, 1fr) minmax(0, 1.1fr) minmax(0, .9fr) minmax(220px, 1.15fr);
-    gap: 28px;
+  .tego-footer { padding-block: var(--space-section) var(--space-6); background: var(--page-canvas); }
+  .tego-footer .footer-grid {
+    display: grid;
+    grid-template-columns: minmax(210px, 1.35fr) repeat(3, minmax(0, 1fr)) minmax(180px, 1.2fr);
+    gap: var(--space-grid);
   }
-
-  .site-footer .footer-grid > div:not(.footer-brand) { text-align: center; }
-  .site-footer .footer-grid > div:not(.footer-brand) > a { justify-content: center; }
-
-  .site-footer .footer-grid h2 > a { display: inline; font: inherit; color: inherit; margin: 0; }
-  .site-footer .footer-grid h2 > a:is(:hover, :focus-visible) { color: var(--accent); }
-
-  .site-footer .footer-contact-entry {
-    display: block;
-    margin: 15px 0 9px;
-    color: #adbed0;
-    font-size: 14px;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1.85;
+  .tego-footer :global(.footer-brand .official-wordmark) { display: block; width: 172px; max-width: 100%; height: auto; }
+  .tego-footer .footer-brand > p {
+    margin: var(--space-4) 0 0;
+    color: var(--muted);
+    font-size: var(--type-ui);
+    line-height: var(--leading-body);
   }
-
-  .footer-contact-details { width: min(100%, 260px); margin-inline: auto; }
-
-  .site-footer .footer-contact-field {
+  .tego-footer .footer-grid h2 {
+    margin: 0 0 var(--space-3);
+    font-size: var(--type-body);
+    font-weight: 600;
+    line-height: var(--leading-heading);
+    letter-spacing: 0;
+  }
+  .footer-link-group ul,
+  .footer-contact-details {
+    display: grid;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .footer-link-group li > a,
+  .footer-contact-details,
+  .footer-bottom {
+    color: var(--muted);
+    font-size: var(--type-meta);
+    line-height: var(--leading-body);
+  }
+  .footer-contact-field {
     display: grid;
     grid-template-columns: var(--contact-label-width) minmax(0, 1fr);
-    column-gap: 4px;
+    column-gap: var(--space-1);
     align-items: start;
-    text-align: left;
+    font-style: normal;
   }
-
-  .footer-contact-label { white-space: nowrap; }
   .footer-contact-value { min-width: 0; overflow-wrap: anywhere; }
-
-  .site-footer .footer-contact-email:is(:hover, :focus-visible) { color: var(--accent); }
-
-  .footer-contact-email:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 4px;
+  .tego-footer .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-5);
+    margin-top: var(--space-8);
   }
+  .tego-footer a:is(:hover, :focus-visible),
+  .tego-footer .footer-analytics-preferences:is(:hover, :focus-visible) { color: var(--accent); }
+  .tego-footer :is(a, button):focus-visible { outline: 2px solid var(--accent); outline-offset: var(--space-1); }
 
   .footer-contact-codes {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 104px));
-    gap: 12px;
+    gap: var(--space-3);
     width: min(100%, 220px);
-    margin-top: 20px;
+    margin-top: var(--space-5);
   }
 
   .footer-contact-code {
@@ -177,10 +201,10 @@ const contactCodes = [
   .footer-qr-image {
     display: block;
     width: 100%;
-    padding: 4px;
+    padding: var(--space-1);
     background: #fff;
     border: 0;
-    border-radius: 6px;
+    border-radius: var(--radius-card);
     aspect-ratio: 1;
     cursor: zoom-in;
     transition: transform .2s ease, box-shadow .2s ease;
@@ -210,10 +234,10 @@ const contactCodes = [
   }
 
   .footer-contact-code figcaption {
-    margin-top: 9px;
+    margin-top: var(--space-2);
     color: var(--muted);
-    font-size: 12px;
-    line-height: 1.6;
+    font-size: var(--type-meta);
+    line-height: var(--leading-body);
     transition: color .2s ease;
   }
 
@@ -228,15 +252,15 @@ const contactCodes = [
     width: min(440px, calc(100vw - 32px));
     max-height: calc(100dvh - 32px);
     margin: auto;
-    padding: 24px;
+    padding: var(--space-card);
     color: #eff8ff;
     background: #0c1928;
     border: 1px solid #9acbff38;
-    border-radius: 18px;
+    border-radius: var(--radius-card);
     box-shadow: 0 24px 90px #0009;
   }
 
-  .footer-qr-preview[open] { display: grid; gap: 20px; }
+  .footer-qr-preview[open] { display: grid; gap: var(--space-5); }
 
   .footer-qr-preview::backdrop {
     background: #010813d9;
@@ -247,10 +271,10 @@ const contactCodes = [
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: var(--space-5);
   }
 
-  .footer-qr-preview h2 { font-size: 20px; font-weight: 500; line-height: 1.5; }
+  .footer-qr-preview h2 { font-size: var(--type-card); font-weight: 600; line-height: var(--leading-heading); }
 
   .footer-qr-close {
     display: grid;
@@ -274,25 +298,25 @@ const contactCodes = [
     height: auto;
     aspect-ratio: 1;
     margin-inline: auto;
-    padding: 12px;
+    padding: var(--space-3);
     background: #fff;
-    border-radius: 10px;
+    border-radius: var(--radius-card);
   }
 
   @media (prefers-reduced-motion: reduce) {
     .footer-qr-image { transform: none !important; }
   }
 
-  @media (max-width: 1100px) {
-    .site-footer .footer-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .site-footer .footer-brand { grid-column: 1 / -1; }
+  @media (max-width: 1000px) {
+    .tego-footer .footer-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .tego-footer .footer-contact { grid-column: span 2; }
   }
-
-  @media (max-width: 800px) {
-    .site-footer .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (max-width: 650px) {
+    .tego-footer .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .tego-footer .footer-brand { grid-column: 1 / -1; }
+    .tego-footer .footer-contact { grid-column: auto; }
   }
-
-  @media (max-width: 600px) {
-    .footer-contact { grid-column: 1 / -1; }
+  @media (max-width: 440px) {
+    .tego-footer .footer-contact { grid-column: 1 / -1; }
   }
 </style>

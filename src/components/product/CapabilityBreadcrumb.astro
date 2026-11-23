@@ -1,0 +1,21 @@
+---
+import type { Locale } from '../../data/types';
+import { pathFor, site } from '../../lib/site';
+
+interface Props { locale: Locale; slug: string; name: string; }
+const { locale, slug, name } = Astro.props;
+const zh = locale === 'zh';
+const links = [
+  { name: zh ? '首页' : 'Home', path: '' },
+  { name: zh ? '产品能力' : 'Product', path: 'product' },
+  { name, path: `product/${slug}` },
+];
+const breadcrumb = {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: links.map(({ name, path }, index) => ({
+    '@type': 'ListItem', position: index + 1, name,
+    item: new URL(pathFor(locale, path), site.origin).href,
+  })),
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumb)}/>

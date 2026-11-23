@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  align?: 'start' | 'center';
+  id?: string;
+}
+const { title, description, align = 'center', id = 'page-title' } = Astro.props;
+---
+<header class="page-intro" data-align={align} aria-labelledby={id}>
+  <div class="container">
+    <div class="page-intro-copy ui-stack">
+      <h1 class="ui-display" id={id}>{title}</h1>
+      {description && <p class="ui-lead">{description}</p>}
+      <slot />
+    </div>
+  </div>
+</header>
+
+<style>
+  .page-intro { padding-block: var(--space-hero) calc(var(--space-section) / 2); }
+  .page-intro-copy { max-width: var(--width-reading); }
+  .page-intro[data-align='center'] .page-intro-copy {
+    margin-inline: auto;
+    text-align: center;
+    justify-items: center;
+  }
+</style>

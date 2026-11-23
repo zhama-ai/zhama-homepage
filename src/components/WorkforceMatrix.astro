@@ -1,5 +1,6 @@
 ---
 import type { Locale } from '../data/types';
+import HomeSectionHeading from './home/HomeSectionHeading.astro';
 
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
@@ -39,8 +40,13 @@ const domains = [
   },
 ];
 ---
-<section class="workforce-matrix" id="work-scenarios" aria-labelledby="domain-title">
-  <div class="container matrix-layout">
+<section class="ui-section workforce-matrix" id="work-scenarios" aria-labelledby="domain-title">
+  <div class="container matrix-section">
+    <HomeSectionHeading id="domain-title">
+      {zh ? '让数字员工融入业务作业体系' : 'Bring digital employees into your business workflows'}
+      <Fragment slot="description">{zh ? '八大业务域，将智能能力沉淀为可复用的岗位能力矩阵，贯通全岗位业务流程' : 'Across eight business domains, turn intelligent capabilities into a reusable matrix of role capabilities and connect workflows across every role.'}</Fragment>
+    </HomeSectionHeading>
+    <div class="matrix-layout">
     <div class="matrix-art">
       <img
         src={`/images/workforce/workforce-matrix-${locale}_V3.4.webp`}
@@ -50,9 +56,6 @@ const domains = [
           : 'Eight business domains in parallel, layered panels: knowledge management, proposals and writing, business analysis, customer operations, bidding collaboration, meeting collaboration, project collaboration and research support.'}
       />
     </div>
-    <div class="matrix-copy">
-      <h2 id="domain-title">{zh ? <><span>让数字员工</span><span>融入业务作业体系</span></> : <><span>Bring digital employees</span><span>into your business workflows</span></>}</h2>
-      <p class="matrix-description">{zh ? '八大业务域，将智能能力沉淀为可复用的岗位能力矩阵，贯通全岗位业务流程' : 'Across eight business domains, turn intelligent capabilities into a reusable matrix of role capabilities and connect workflows across every role.'}</p>
       <ul class="matrix-domains" aria-label={zh ? '数字员工业务领域' : 'Digital employee business areas'}>
         {domains.map(domain => (
           <li>
@@ -66,133 +69,44 @@ const domains = [
 </section>
 
 <style>
-  .workforce-matrix {
-    position: relative;
-    overflow: clip;
-    background: #060b12;
-    padding: var(--section-space) 0;
-    padding-top: calc(var(--section-space) - 30px);
-  }
+  .matrix-section { display: grid; gap: var(--space-grid); }
   .matrix-layout {
-    position: relative;
-    min-height: 640px;
-    isolation: isolate;
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-grid);
   }
-  .matrix-art { width: min(76%, 980px); }
   .matrix-art img {
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: var(--ratio-editorial);
     object-fit: contain;
-    mask-image: linear-gradient(to bottom, transparent, #000 3%, #000 97%, transparent);
-  }
-  @media (hover: hover) and (pointer: fine) {
-    .matrix-art img { transition: filter 240ms ease-out; }
-    .matrix-art:hover img { filter: brightness(1.12); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .matrix-art img { transition: none; }
-  }
-  .matrix-copy {
-    position: absolute;
-    z-index: 1;
-    right: 0;
-    top: 50%;
-    width: 42%;
-    max-width: 560px;
-    transform: translateY(-50%);
-  }
-  .workforce-matrix .matrix-copy h2 {
-    margin: 0;
-    color: #edf5fc;
-    font-size: clamp(26px, 2.45vw, 38px);
-    line-height: 1.5;
-    font-weight: 500;
-    letter-spacing: -.7px;
-  }
-  .matrix-copy h2 span { display: block; }
-  .matrix-description {
-    margin: 18px 0 0;
-    max-width: 440px;
-    color: #a4b7ca;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1.9;
-    text-wrap: pretty;
+    border-radius: var(--radius-card);
   }
   .matrix-domains {
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0 28px;
-    margin: 24px 0 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4) var(--space-6);
+    margin: 0;
     padding: 0;
     list-style: none;
   }
-  .matrix-domains li {
-    display: grid;
-    grid-template-columns: 76px minmax(0, 1fr);
-    align-items: baseline;
-    gap: 12px;
-    min-width: 0;
-    padding-block: 12px;
-    border-bottom: 1px solid rgb(140 166 191 / .12);
-  }
-  .matrix-domains li:last-child { border-bottom: 0; }
   .matrix-domains h3 {
     margin: 0;
-    color: #d0e0ed;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.8;
+    font-size: var(--type-body);
+    font-weight: 600;
+    line-height: var(--leading-heading);
+    letter-spacing: 0;
   }
   .matrix-domains p {
-    margin: 0;
-    color: #91a7ba;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 1.8;
+    margin: var(--space-1) 0 0;
+    color: var(--muted);
+    font-size: var(--type-meta);
+    line-height: var(--leading-body);
     text-wrap: pretty;
   }
-  :global(html[lang^="en"]) .matrix-layout { min-height: 760px; }
-  :global(html[lang^="en"]) .matrix-domains li {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2px;
-  }
-  @media (min-width: 1001px) {
-    .matrix-art { transform: translateX(-8%); }
-  }
-  @media (min-width: 1200px) {
-    .matrix-copy { width: 44%; }
-    .matrix-domains {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .matrix-domains li:nth-last-child(-n + 2) { border-bottom: 0; }
-  }
-  @media (max-width: 1000px) {
-    .matrix-layout { min-height: 0; }
-    .matrix-art { width: 80%; }
-    .matrix-copy { position: relative; right: auto; top: auto; width: min(70%, 600px); margin: -110px 0 0 auto; transform: none; }
-    .workforce-matrix .matrix-copy h2 { font-size: 27px; }
-    .matrix-domains {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      margin-top: 22px;
-    }
-    .matrix-domains li:nth-last-child(-n + 2) { border-bottom: 0; }
-    .matrix-description { margin-top: 14px; font-size: 14px; line-height: 1.8; }
-    :global(html[lang^="en"]) .matrix-layout { min-height: 0; }
-  }
-  @media (max-width: 700px) {
-    .matrix-art { width: 100%; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: thin; scrollbar-color: #37536b transparent; }
-    .matrix-art img { width: 840px; max-width: none; margin-left: -28px; }
-    .matrix-copy { width: auto; margin: -58px 0 0 12%; text-align: right; }
-    .workforce-matrix .matrix-copy h2 { font-size: 28px; line-height: 1.5; }
-    .matrix-description { margin-left: auto; }
-    .matrix-domains { grid-template-columns: minmax(0, 1fr); margin-top: 24px; text-align: left; }
-    .matrix-domains li:nth-last-child(2) { border-bottom: 1px solid rgb(140 166 191 / .12); }
-    :global(html[lang^="en"]) .matrix-copy { margin-top: -52px; }
-  }
-  @media (max-width: 380px) {
-    .matrix-copy { margin-left: 0; }
+  @media (max-width: 900px) {
+    .matrix-layout { grid-template-columns: minmax(0, 1fr); }
   }
 </style>

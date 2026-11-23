@@ -8,12 +8,11 @@
 .home-value-edition .analytics-insights p>strong{flex:0 0 26px;font-size:10.5px;line-height:2.11;margin:0;font-weight:500}
 .insight-copy{display:grid;flex:1;min-width:0;overflow-wrap:anywhere}
 .insight-text-layout,.insight-typed{grid-area:1/1;min-width:0}
-@media(min-width:701px){.home-value-edition .analytics-insights p,.insight-text-layout,.insight-typed{white-space:nowrap;overflow-wrap:normal}}
 .insight-text-layout{visibility:hidden;pointer-events:none;user-select:none}
 .insight-typed:after{content:'';display:inline-block;vertical-align:-.12em;margin-left:2px;width:1px;height:1em;background:currentColor;opacity:0}
 .insight-copy.is-typing .insight-typed:after{opacity:.8}
 .analytics-insights p:has(.insight-copy[data-insight-state="pending"]){visibility:hidden}
-html[lang="en"] .analytics-insights p>strong{flex-basis:46px}
+html[lang="en"] .home-value-edition .analytics-insights p>strong{flex-basis:46px}
 @media(max-width:700px){
  .home-value-edition .analytics-insights{padding:9px}
  .home-value-edition .analytics-insight-heading{margin-bottom:5px;gap:5px}

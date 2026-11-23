@@ -1,0 +1,27 @@
+.product-hero-art {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  justify-self: center;
+  width: min(100%, 600px);
+  min-width: 0;
+}
+
+.product-hero-art::before {
+  grid-area: 1 / 1;
+  width: 100%;
+  aspect-ratio: var(--ratio-product-hero);
+  content: '';
+}
+
+.product-hero-art > :first-child {
+  grid-area: 1 / 1;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .product-hero-art::before { display: none; }
+}

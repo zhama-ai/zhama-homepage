@@ -4,6 +4,7 @@ import { releaseDownloads } from '../../data/legacy';
 import type { Locale } from '../../data/types';
 import { site } from '../../lib/site';
 import Shell from '../resources/Shell.astro';
+import Hero from '../resources/Hero.astro';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const zh = locale === 'zh';
@@ -41,7 +42,7 @@ const productGroups = productOrder.map(product => ({ product, groups: groups.fil
 const filters = zh ? [['all', '全部'], ['desktop', '桌面端'], ['mobile', '移动端'], ['studio', 'Tego Studio']] : [['all', 'All'], ['desktop', 'Desktop'], ['mobile', 'Mobile'], ['studio', 'Tego Studio']];
 ---
 <Shell locale={locale} page="download" navigation={false}>
-  <header class="support-hero download-hero"><div class="container"><h1>{zh ? '在熟悉的设备上，开始工作' : 'Your workspace. On your device.'}</h1></div></header>
+  <Hero title={zh ? '在熟悉的设备上，开始工作' : 'Your workspace. On your device.'} />
   <section class="container installer-section" id="clients" data-download-browser aria-label={zh ? '选择安装包' : 'Choose an installer'}>
     <div class="installer-tabs" role="tablist" aria-label={zh ? '下载产品' : 'Download product'}>{filters.map(([id, label]) => <button id={`download-tab-${id}`} type="button" role="tab" data-download-filter={id} aria-selected={id === 'all'} tabindex={id === 'all' ? 0 : -1} aria-controls="download-list">{label}</button>)}</div>
     <div class="installer-products" id="download-list" role="tabpanel" aria-labelledby="download-tab-all" tabindex="0">{productGroups.map(productGroup => <section class="installer-product-group" data-download-product={productGroup.product} aria-label={products[productGroup.product]}>
@@ -61,26 +62,25 @@ const filters = zh ? [['all', '全部'], ['desktop', '桌面端'], ['mobile', '�
   </section>
 </Shell>
 <style>
-  .download-hero{padding:44px 0 36px}
-  .installer-section{padding-bottom:65px;scroll-margin-top:100px}
-  .installer-tabs{display:flex;align-items:center;gap:36px;overflow-x:auto;scrollbar-width:none;white-space:nowrap;margin-bottom:28px}
-  .installer-tabs button{flex-shrink:0;background:none;border:0;border-bottom:2px solid transparent;border-radius:0;padding:10px 1px 14px;font:inherit;font-size:16px;color:#94acc2;cursor:pointer}
+  .installer-section{padding-bottom:var(--space-section);scroll-margin-top:100px}
+  .installer-tabs{display:flex;align-items:center;gap:var(--space-8);overflow-x:auto;scrollbar-width:none;white-space:nowrap;margin-bottom:var(--space-8)}
+  .installer-tabs button{flex-shrink:0;background:none;border:0;border-bottom:2px solid transparent;border-radius:0;padding:var(--space-3) 1px var(--space-3);font:inherit;font-size: var(--type-body);color:#94acc2;cursor:pointer}
   .installer-tabs button[aria-selected="true"]{color:#eaf7ff;border-bottom-color:#46b4ff}
   .installer-tabs button:hover{color:#eaf7ff}
-  .installer-products{display:grid;gap:40px}
-  .installer-group-title{font-size:22px;margin:0 0 18px}
-  .installer-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-  .installer-card{padding:22px;display:flex;flex-direction:column}
-  .installer-card-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-  .installer-card h3{display:flex;align-items:center;gap:10px;font-size:22px;margin:0}
+  .installer-products{display:grid;gap:var(--space-10)}
+  .installer-group-title{font-size: var(--type-subhead);margin:0 0 var(--space-4)}
+  .installer-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-grid)}
+  .installer-card{padding:var(--space-card);display:flex;flex-direction:column}
+  .installer-card-heading{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);flex-wrap:wrap}
+  .installer-card h3{display:flex;align-items:center;gap:var(--space-3);font-size: var(--type-subhead);margin:0}
   .installer-platform-icon{display:block;width:28px;height:28px;object-fit:contain;flex-shrink:0;color:#90d3ff}
-  .installer-variants{display:grid;gap:14px;margin-top:24px}
-  .installer-version{font-size:13px;color:#aac5dc;margin:0 0 9px;white-space:nowrap}
+  .installer-variants{display:grid;gap:var(--space-3);margin-top:var(--space-6)}
+  .installer-version{font-size: var(--type-meta);color:#aac5dc;margin:0 0 var(--space-2);white-space:nowrap}
   .installer-card-heading>.installer-version{margin:0}
   /* Shared CTA theme: action-buttons.css. Architecture labels and links stay direct. */
-  .installer-download{width:100%;padding:11px 13px;min-height:46px;font-size:14px}
-  @media(max-width:1100px){.installer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.installer-card{padding:25px}}
-  @media(max-width:600px){.download-hero{padding:32px 0 26px}.installer-grid{grid-template-columns:1fr}.installer-section{padding-bottom:44px}.installer-tabs{gap:27px}.installer-tabs button{font-size:15px}.installer-products{gap:32px}.installer-card{padding:25px}}
+  .installer-download{width:100%;padding:var(--space-3) var(--space-3);min-height:46px;font-size: var(--type-meta)}
+  @media(max-width:1100px){.installer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:700px){.installer-grid{grid-template-columns:1fr}.installer-tabs{gap:var(--space-grid)}.installer-tabs button{font-size:var(--type-ui)}.installer-products{gap:var(--space-8)}}
 </style>
 <script>
   import { onPageMount } from '../../lib/page-lifecycle';

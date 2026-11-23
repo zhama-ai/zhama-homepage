@@ -1,11 +1,11 @@
 ---
-import { pathFor, site, ui } from '../../../lib/site';
 import EmployeeMarketArt from './EmployeeMarketArt.astro';
-import ProductHeroArt from '../../../components/product/ProductHeroArt.astro';
+import CapabilityBreadcrumb from '../../../components/product/CapabilityBreadcrumb.astro';
+import CapabilityHero from '../../../components/product/CapabilityHero.astro';
 import EmployeeBannerBackdrop from './EmployeeBannerBackdrop.astro';
 import EmployeeFeatureArt from './EmployeeFeatureArt.astro';
 import EmployeeConfigurationArt from './EmployeeConfigurationArt.astro';
-import Icon from '../../../components/Icon.astro';
+import EmployeeDetailList from './EmployeeDetailList.astro';
 import experience from './experience';
 import landing from './landing';
 import type { Locale } from '../../../data/types';
@@ -16,7 +16,6 @@ const { locale } = Astro.props;
 const zh = locale === 'zh';
 const copy = landing[locale];
 const scenes = experience[locale];
-const product = 'product/digital-employees';
 const compositionParts = zh ? [
   {
     "icon": "user-check",
@@ -56,64 +55,41 @@ const compositionParts = zh ? [
   { icon: 'book', title: 'Knowledge and business systems', body: 'Search knowledge within permissions. Connect plugins and systems with configuration and authorization.' },
   { icon: 'folder', title: 'Workspace and work memory', body: 'Keep files, conversations, and deliverables, with work memory isolated by user.' },
 ];
-const breadcrumb = {
-  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: zh ? '首页' : 'Home', item: new URL(pathFor(locale), site.origin).href },
-    { '@type': 'ListItem', position: 2, name: zh ? '产品能力' : 'Product', item: new URL(pathFor(locale, 'product'), site.origin).href },
-    { '@type': 'ListItem', position: 3, name: copy.hero.lines[0], item: new URL(pathFor(locale, product), site.origin).href },
-  ],
-};
 ---
 <div class="employee-page" data-capability="digital-employees">
-  <div class="employee-hero-banner">
-    <EmployeeBannerBackdrop locale={locale}/>
-  <section class="employee-hero employee-wrap product-banner" aria-labelledby="capability-title">
-    <div class="employee-hero-intro">
-      <h1 id="capability-title">{copy.hero.lines[0]}</h1>
-      <div class="employee-hero-copy">
-        <p>{copy.hero.summary}</p>
-        <a class="button employee-action" href={pathFor(locale, 'contact')}>{ui[locale].contact}</a>
-      </div>
-    </div>
-    <ProductHeroArt canvasWidth={880}><figure class="employee-hero-art">
-      <EmployeeMarketArt locale={locale}/>
-    </figure></ProductHeroArt>
-  </section>
-  </div>
+  <CapabilityHero locale={locale} copy={copy.hero} showTrial={false}>
+    <EmployeeBannerBackdrop slot="backdrop" locale={locale}/>
+    <EmployeeMarketArt locale={locale}/>
+  </CapabilityHero>
 
-  <div class="employee-work employee-wrap">
+  <div class="container">
     {scenes.sections.map(scene => {
       const { id, title, body } = scene;
       const subtitle = 'subtitle' in scene ? scene.subtitle : undefined;
       return (
-        <section id={`capability-${id}`} class:list={['employee-story', `employee-story-${id}`]} aria-labelledby={`capability-${id}-title`}>
+        <section id={`capability-${id}`} class:list={['employee-story ui-section', `employee-story-${id}`]} aria-labelledby={`capability-${id}-title`}>
           <div class="employee-story-text">
             <h2 id={`capability-${id}-title`}>{zh ? title.split('，').map((phrase, index, phrases) => <span class="employee-title-phrase">{phrase}{index < phrases.length - 1 ? '，' : ''}</span>) : title}</h2>
             {id === 'work' ? <p class="employee-composition-description">{body}</p> : <>{subtitle && <p class="employee-story-subtitle">{subtitle}</p>}<p class="employee-story-body">{body}</p></>}
           </div>
-          {id === 'work' && <dl class="employee-composition-parts">
-            {compositionParts.map(part => <div><dt><Icon name={part.icon} size={18}/><span>{part.title}</span></dt><dd>{part.body}</dd></div>)}
-          </dl>}
           <figure class="employee-story-art">
             <EmployeeFeatureArt locale={locale} scene={id}/>
           </figure>
+          {id === 'work' && <EmployeeDetailList items={compositionParts}/>}
         </section>
       );
     })}
   </div>
 
-  <section id="capability-management" class="employee-management employee-wrap" aria-labelledby="capability-features-title">
+  <section id="capability-management" class="employee-management container ui-section" aria-labelledby="capability-features-title">
     <div class="employee-management-intro">
       <h2 id="capability-features-title">{zh ? '数字员工的配置与运行，统一管理' : 'Manage digital employee configuration and operations'}</h2>
       <p class="employee-story-subtitle">{zh ? '岗位文件、技能、知识与插件按需配置，员工授权、启停状态与任务计划集中管理，运行与投递记录沿任务可查。' : 'Configure role files, skills, knowledge, and plugins. Manage employee access, enablement, and schedules, with run and delivery records traceable by task.'}</p>
     </div>
     <div class="employee-management-layout">
       <div class="employee-management-visual"><EmployeeConfigurationArt locale={locale}/></div>
-      <dl class="employee-management-summary">
-        {copy.features.map(feature => <div><dt><Icon name={feature.icon} size={18}/>{feature.title}</dt><dd>{feature.body}</dd></div>)}
-      </dl>
+      <EmployeeDetailList items={copy.features}/>
     </div>
   </section>
 </div>
-<script type="application/ld+json" set:html={JSON.stringify(breadcrumb)}/>
+<CapabilityBreadcrumb locale={locale} slug="digital-employees" name={copy.hero.lines[0]}/>

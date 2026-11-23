@@ -1,6 +1,7 @@
 ---
 import type { Locale } from '../data/types';
 import Icon from './Icon.astro';
+import HomeSectionHeading from './home/HomeSectionHeading.astro';
 
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
@@ -19,18 +20,16 @@ const governance = [
 ];
 ---
 
-<section class="home-enterprise" id="enterprise-control" aria-labelledby="enterprise-control-title">
-  <div class="container">
-    <header class="enterprise-heading">
-      <h2 id="enterprise-control-title">{zh
-        ? <><span>按企业边界部署，</span><span>按组织规则运行</span></>
-        : <><span>Deploy within your boundaries.</span><span>Follow your organization’s rules.</span></>}
-      </h2>
-      <p class="enterprise-intro">{zh
+<section class="ui-section home-enterprise" id="enterprise-control" aria-labelledby="enterprise-control-title">
+  <div class="container enterprise-section">
+    <HomeSectionHeading id="enterprise-control-title">
+      {zh
+        ? '按企业边界部署，按组织规则运行'
+        : 'Deploy within your boundaries. Follow your organization’s rules.'}
+      <Fragment slot="description">{zh
         ? '私有化部署，数据不出域，全程可审计'
-        : 'Private deployment. Data stays within your boundary. Auditable from start to finish.'}
-      </p>
-    </header>
+        : 'Private deployment. Data stays within your boundary. Auditable from start to finish.'}</Fragment>
+    </HomeSectionHeading>
 
     <div class="enterprise-layout">
       <div class="enterprise-topics">
@@ -75,186 +74,59 @@ const governance = [
 </section>
 
 <style>
-  .home-enterprise {
-    position: relative;
-    padding-block: clamp(48px, 5vw, 76px);
-    overflow: clip;
-  }
-  :global(body #main.page-canvas) .home-enterprise {
-    background: transparent;
-  }
-  .enterprise-heading {
-    max-width: 1180px;
-    margin-inline: auto;
-  }
-  .enterprise-heading h2 {
-    margin: 0;
-    color: #edf3fb;
-    font-size: clamp(28px, 2.5vw, 38px);
-    font-weight: 500;
-    line-height: 1.5;
-    letter-spacing: -.8px;
-    text-wrap: balance;
-  }
-  .enterprise-heading h2 > span {
-    display: inline-block;
-  }
-  .enterprise-heading h2 > span + span {
-    margin-left: .2em;
-  }
-  .enterprise-intro {
-    max-width: 880px;
-    margin: 16px 0 0;
-    color: #a6b5c8;
-    font-size: 14px;
-    line-height: 1.9;
-    text-wrap: pretty;
-  }
+  .enterprise-section, .enterprise-topics { display: grid; gap: var(--space-grid); }
   .enterprise-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.58fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
     align-items: center;
-    gap: clamp(32px, 4vw, 58px);
-    max-width: 1180px;
-    margin: 38px auto 0;
+    gap: var(--space-grid);
   }
-  .enterprise-environment::before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    inset: 0 -6%;
-    pointer-events: none;
-    background: radial-gradient(
-      ellipse 55% 51% at 50% 48%,
-      rgb(39 81 131 / .17) 0%,
-      rgb(27 58 95 / .11) 42%,
-      rgb(17 34 56 / .04) 72%,
-      transparent 100%
-    );
-  }
-  .enterprise-environment {
-    position: relative;
-    isolation: isolate;
-    min-width: 0;
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  .enterprise-environment picture {
-    display: block;
-  }
-  .enterprise-environment img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
+  .enterprise-environment { min-width: 0; margin: 0; }
+  .enterprise-environment img { display: block; width: 100%; height: auto; }
   .enterprise-environment figcaption {
-    margin-top: 10px;
-    color: #899db2;
-    font-size: 13px;
-    line-height: 1.6;
+    margin-top: var(--space-2);
+    color: var(--muted);
+    font-size: var(--type-meta);
+    line-height: var(--leading-body);
     text-align: center;
-  }
-  .enterprise-topics {
-    display: grid;
-    gap: clamp(30px, 3vw, 46px);
-    min-width: 0;
-  }
-  .enterprise-topic {
-    min-width: 0;
   }
   .enterprise-topic h3 {
     margin: 0;
-    color: #e8eff8;
-    font-size: 22px;
-    font-weight: 500;
-    line-height: 1.45;
-    letter-spacing: -.35px;
+    font-size: var(--type-subhead);
+    font-weight: 600;
+    line-height: var(--leading-heading);
+    letter-spacing: 0;
   }
   .enterprise-topic p {
-    margin: 12px 0 0;
-    color: #a6b5c8;
-    font-size: 15px;
-    line-height: 1.85;
+    margin: var(--space-2) 0 0;
+    color: var(--muted);
+    font-size: var(--type-body);
+    line-height: var(--leading-body);
     text-wrap: pretty;
   }
   .enterprise-capabilities {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px 22px;
-    list-style: none;
-    margin: 21px 0 0;
+    gap: var(--space-2) var(--space-4);
+    margin: var(--space-4) 0 0;
     padding: 0;
+    list-style: none;
   }
   .enterprise-capabilities li {
     display: flex;
     align-items: center;
-    gap: 9px;
+    gap: var(--space-2);
     min-width: 0;
     color: #b8c8dd;
-    font-size: 13px;
-    line-height: 1.6;
+    font-size: var(--type-meta);
+    line-height: var(--leading-heading);
   }
-  .enterprise-capabilities li > span {
-    min-width: 0;
-    overflow-wrap: anywhere;
-  }
-  .enterprise-capabilities :global(svg) {
-    flex-shrink: 0;
-    width: 22px;
-    height: 22px;
-    color: #8cabe0;
-  }
+  .enterprise-capabilities :global(svg) { flex-shrink: 0; width: 20px; height: 20px; color: #91b4e0; }
   @media (max-width: 900px) {
-    .enterprise-layout {
-      grid-template-columns: minmax(0, 1fr);
-      gap: 36px;
-      margin-top: 28px;
-    }
-    .enterprise-environment {
-      max-width: 640px;
-    }
-    .enterprise-topics {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+    .enterprise-layout { grid-template-columns: minmax(0, 1fr); }
+    .enterprise-topics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
-  @media (max-width: 760px) {
-    .enterprise-heading h2 > span {
-      display: block;
-    }
-    .enterprise-heading h2 > span + span {
-      margin-left: 0;
-    }
-    .enterprise-topics {
-      grid-template-columns: minmax(0, 1fr);
-      gap: 34px;
-    }
-    .enterprise-topic h3 {
-      font-size: 21px;
-    }
-    .enterprise-topic p {
-      margin-top: 10px;
-    }
-    .enterprise-capabilities {
-      gap: 12px 18px;
-      margin-top: 18px;
-    }
-    .enterprise-capabilities li {
-      font-size: 12px;
-    }
-  }
-  @media (max-width: 560px) {
-    .enterprise-environment {
-      max-width: 420px;
-    }
-  }
-  @media (max-width: 420px) {
-    .enterprise-capabilities li {
-      gap: 7px;
-    }
-    .enterprise-capabilities :global(svg) {
-      width: 19px;
-      height: 19px;
-    }
+  @media (max-width: 600px) {
+    .enterprise-topics { grid-template-columns: minmax(0, 1fr); }
   }
 </style>

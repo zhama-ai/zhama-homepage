@@ -1,0 +1,15 @@
+---
+interface Props { src: string; alt: string; sizes?: string; }
+const { src, alt, sizes } = Astro.props;
+---
+<figure class="editorial-figure">
+  <img src={src} alt={alt} width="1200" height="800" sizes={sizes} loading="lazy" decoding="async"/>
+</figure>
+
+<style>
+  .editorial-figure { min-width: 0; margin: 0; aspect-ratio: var(--ratio-editorial); }
+  img {
+    display: block; width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-card);
+    box-shadow: 0 0 0 1px #a0bbd417, 0 18px 45px -20px #0009;
+  }
+</style>

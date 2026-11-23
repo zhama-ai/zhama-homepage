@@ -8,7 +8,6 @@
 .team-rail svg{stroke-width:1.9}
 .team-rail-item svg{width:19px;height:19px}
 .team-employee-icon svg{stroke-width:1.8}
-.site-header{backdrop-filter:none}
-.home-value-edition .source-orbit>span,.home-value-edition .source-result,.home-value-edition .industry-deliverables{backdrop-filter:none}
+.home-value-edition .source-orbit>span,.home-value-edition .source-result{backdrop-filter:none}
 @media(min-width:1101px){.home-value-edition .home-product-frame{transform:perspective(1600px) rotateY(-16deg)}}
 @media(max-width:700px){.team-rail-item svg{width:16px;height:16px}}

@@ -1,0 +1,54 @@
+---
+import Icon from '../../components/Icon.astro';
+import type { Locale } from '../../data/types';
+import { pathFor } from '../../lib/site';
+import type { PricingPlan } from './content';
+
+interface Props { locale: Locale; plan: PricingPlan; }
+const { locale, plan } = Astro.props;
+---
+<article class="pricing-card ui-surface" id={plan.id}>
+  <div class="pricing-card-icon ui-meta"><Icon name={plan.icon} size={24}/><span>{plan.audience}</span></div>
+  <h2 class="ui-subhead">{plan.name}</h2>
+  <p class="pricing-description ui-copy">{plan.description}</p>
+  <div class="pricing-quote"><strong>{plan.price}</strong><span class="ui-meta">{plan.unit}</span></div>
+  <a class="button pricing-plan-action" href={`${pathFor(locale, 'contact')}?plan=${plan.id}`}>{plan.action}</a>
+  <div class="pricing-plan-features">
+    <p class="pricing-includes ui-meta">{plan.includes}</p>
+    <ul>{plan.items.map(item => <li><Icon name="check" size={16}/><span>{item}</span></li>)}</ul>
+  </div>
+</article>
+
+<style>
+  .pricing-card {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 6;
+    gap: var(--space-4);
+    min-width: 0;
+    padding: var(--space-card);
+    background: linear-gradient(140deg, #112338, #0c1928);
+    scroll-margin-top: var(--space-20);
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  .pricing-card:focus-within { border-color: #55b8f5; box-shadow: 0 12px 32px #008cff1f; }
+  .pricing-card-icon { display: flex; align-items: center; gap: var(--space-2); }
+  .pricing-card-icon :global(svg), li :global(svg) { flex: none; color: #79c6fa; }
+  h2, p { margin: 0; }
+  .pricing-quote { display: grid; gap: var(--space-1); }
+  .pricing-quote strong { font-size: var(--type-subhead); font-weight: 650; line-height: var(--leading-heading); }
+  .pricing-plan-action { width: 100%; }
+  .pricing-plan-features { align-self: stretch; padding-top: var(--space-3); border-top: 1px solid var(--color-edge); }
+  ul { display: grid; gap: var(--space-2); padding: 0; margin: var(--space-2) 0 0; list-style: none; }
+  li { display: flex; align-items: start; gap: var(--space-2); color: #c5d6e6; font-size: var(--type-body); line-height: var(--leading-body); }
+  li :global(svg) { margin-top: var(--space-1); }
+  @media (max-width: 800px) {
+    .pricing-card { grid-row: auto; grid-template-rows: none; }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .pricing-card:hover { border-color: #55b8f5; box-shadow: 0 12px 32px #008cff1f; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pricing-card { transition: none; }
+  }
+</style>

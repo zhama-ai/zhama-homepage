@@ -4,6 +4,7 @@ import type { Locale } from '../../../data/types';
 import type { IndustrySolutionCopy } from './types';
 import EmployeeCarousel from '../banking/EmployeeCarousel.astro';
 import Icon from '../../../components/Icon.astro';
+import EditorialFigure from '../../../components/EditorialFigure.astro';
 import '../../../styles/industry-value-page.css';
 
 interface Props { locale: Locale; slug: string; presentation: IndustrySolutionCopy; }
@@ -16,7 +17,7 @@ const whyReasons = (copy.reasons ?? []).map((reason) => {
 const whyReasonIcons = ['user-check', 'workflow', 'shield'];
 ---
 <div class="industry-value-page" data-industry-solution={slug}>
-  <section class="industry-value-hero" aria-labelledby={`${slug}-title`}>
+  <section class="industry-value-hero ui-section" aria-labelledby={`${slug}-title`}>
     <img class="industry-value-landscape" src={copy.hero.background} alt="" width="1600" height="1067" loading="eager" decoding="async" fetchpriority="high" aria-hidden="true"/>
     <div class="container industry-value-hero-content">
       <h1 id={`${slug}-title`}>{copy.hero.lines.map(line => <span>{line}</span>)}</h1>
@@ -26,22 +27,20 @@ const whyReasonIcons = ['user-check', 'workflow', 'shield'];
     </div>
   </section>
 
-  {copy.features.map((feature, index) => <section class:list={['industry-value-section', { 'industry-value-reversed': index % 2 === 1 }]} aria-labelledby={`${slug}-feature-${index}`}>
+  {copy.features.map((feature, index) => <section class:list={['industry-value-section ui-section', { 'industry-value-reversed': index % 2 === 1 }]} aria-labelledby={`${slug}-feature-${index}`}>
     <div class="container industry-value-grid">
       <div class="industry-value-copy">
         <h2 id={`${slug}-feature-${index}`}>{feature.title}</h2>
         <p class="industry-value-problem"><strong>{zh ? '业务挑战' : 'Business challenge'}</strong>{feature.problem}</p>
         <p class="industry-value-body"><strong>{zh ? '解决方案' : 'Solution'}</strong>{feature.body}</p>
         {feature.value && <p class="industry-value-result"><strong>{zh ? '业务价值' : 'Business value'}</strong>{feature.value}</p>}
-        {feature.outcomes?.length && <ul class="industry-value-outcomes">{feature.outcomes.map(outcome => <li><Icon name="circle-check" size={18}/><span>{outcome}</span></li>)}</ul>}
+        {feature.outcomes && feature.outcomes.length > 0 && <ul class="industry-value-outcomes">{feature.outcomes.map(outcome => <li><Icon name="circle-check" size={18}/><span>{outcome}</span></li>)}</ul>}
       </div>
-      <figure class="industry-value-image">
-        <img src={feature.image ?? `/images/solutions/${slug}/${slug}-value-${index + 1}_V2.0.webp`} alt={feature.title} width="1200" height="800" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1200px) 52vw, 650px" loading="lazy" decoding="async"/>
-      </figure>
+      <EditorialFigure src={feature.image ?? `/images/solutions/${slug}/${slug}-value-${index + 1}_V2.0.webp`} alt={feature.title} sizes="(max-width: 800px) calc(100vw - 40px), (max-width: 1296px) 50vw, 642px"/>
     </div>
   </section>)}
 
-  <section class="industry-value-why" aria-labelledby={`${slug}-why-title`}>
+  <section class="industry-value-why ui-section" aria-labelledby={`${slug}-why-title`}>
     <div class="container">
       <div class="industry-value-why-heading">
         <div class="industry-value-why-main">
@@ -66,7 +65,7 @@ const whyReasonIcons = ['user-check', 'workflow', 'shield'];
     </div>
   </section>
 
-  <section class="industry-value-team" aria-labelledby={`${slug}-team-title`}>
+  <section class="industry-value-team ui-section" aria-labelledby={`${slug}-team-title`}>
     <div class="container"><h2 id={`${slug}-team-title`}>{copy.teamTitle}</h2></div>
     <EmployeeCarousel locale={locale} employees={copy.employees} teamLabel={copy.teamTitle}/>
   </section>

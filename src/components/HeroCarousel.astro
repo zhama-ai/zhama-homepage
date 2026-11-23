@@ -18,17 +18,21 @@ const href=(value:string)=>value.startsWith('#')?value:pathFor(locale,value);
   <HeroStarfield/>
   <div class="hero-slides" data-hero-slides aria-live="off">
     {slides.map((slide,index)=><div id={`hero-slide-${index}`} class:list={['hero-slide',{'is-active':index===0,'hero-slide-execution':index===1}]} data-hero-slide data-duration={slide.duration} data-active={String(index===0)} role="group" aria-roledescription={zh?'幻灯片':'slide'} aria-label={slide.label} aria-hidden={index!==0} inert={index!==0}>
-      <div class="container hero-center">
+      <div class="container home-hero-layout">
         <div class="hero-message">
-          {index===0?<h1 id="home-title" class:list={['hero-banner-title',{'hero-title-zh':zh}]}><span>{slide.title[0]}</span><br/><span>{slide.title[1]}</span></h1>:<h2 class="hero-banner-title">{slide.title[0]}<br/>{slide.title[1]}</h2>}
-          <p class="sl-hero-description">{slide.description}</p>
-          <div class="sl-actions"><a class="button" href={href(links[index])}>{slide.primary}</a></div>
+          {index === 0
+            ? <h1 id="home-title" class="hero-banner-title">{zh
+              ? slide.title.split(/(?=协作平台)/).map(part => <span class="hero-title-phrase">{part}</span>)
+              : slide.title}</h1>
+            : <h2 class="hero-banner-title">{slide.title}</h2>}
+          <p class="hero-banner-description">{slide.description}</p>
+          <div class="hero-banner-actions"><a class="button" href={href(links[index])}>{slide.primary}</a></div>
         </div>
         <div class="hero-visual-stage">{index===0?<HeroWorkspace locale={locale}/>:index===1?<HeroTaskDemo locale={locale}/>:<HeroOutcomes locale={locale}/>}</div>
       </div>
     </div>)}
   </div>
-  <div class="container hero-carousel-controls" aria-label={zh?'轮播控制':'Carousel controls'}>
+  <div class="hero-carousel-controls" aria-label={zh?'轮播控制':'Carousel controls'}>
     <div class="hero-slide-selectors">{slides.map((slide,index)=><button type="button" data-slide-to={index} aria-label={slide.label} aria-controls={`hero-slide-${index}`} aria-current={index===0?'true':undefined} style={`--slide-duration:${slide.duration}ms`}><i aria-hidden="true"></i></button>)}</div>
     <button class="hero-carousel-playback" type="button" data-carousel-toggle aria-label={zh?'暂停轮播':'Pause carousel'} data-pause-label={zh?'暂停轮播':'Pause carousel'} data-play-label={zh?'播放轮播':'Play carousel'} aria-pressed="false"><svg class="carousel-pause" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3h3v10H4zM10 3h3v10h-3z" fill="currentColor"/></svg><svg class="carousel-play" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="m5 3 8 5-8 5z" fill="currentColor"/></svg></button>
   </div>

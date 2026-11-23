@@ -1,4 +1,4 @@
-/* Navigation owns its type scale independently of page content. */
+:root { --header-height: 80px; }
 .tego-header {
   --nav-text: #b5bfcd;
   --nav-title: #d4dce7;
@@ -6,23 +6,41 @@
   --nav-icon: #8591a3;
   --nav-highlight: #76a4de;
   --nav-panel-border: #8aa9d55c;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #060e18f5;
+  backdrop-filter: blur(16px);
 }
 
-.tego-header .desktop-nav { gap: 24px; align-items: center; }
-.tego-header .header-inner { gap: 26px; }
+.tego-header .desktop-nav { display: flex; gap: var(--space-6); align-items: center; margin-inline: auto; }
+.tego-header .header-inner { display: flex; align-items: center; height: var(--header-height); gap: var(--space-6); }
+.tego-header .brand-link { flex-shrink: 0; }
+.tego-header .brand .official-wordmark { display: block; width: 146px; height: auto; }
+.tego-header .header-tools { display: flex; align-items: center; gap: var(--space-4); }
+.tego-header :is(.mobile-nav, .menu-toggle) { display: none; }
+.header-scroll-marker { position: absolute; top: 24px; left: 0; width: 1px; height: 1px; visibility: hidden; }
+.is-home .tego-header {
+  margin-bottom: calc(-1 * var(--header-height));
+  background: transparent;
+  backdrop-filter: none;
+  transition: background-color .2s ease;
+}
+.is-home .tego-header[data-scrolled='true'],
+.is-home .tego-header:has(.mobile-nav.is-open) { background: #060e18f7; }
 .tego-header .tego-nav-group { position: relative; }
 .tego-header .tego-nav-trigger,
 .tego-header .tego-nav-direct {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: var(--space-1);
   min-height: 44px;
   padding: 0;
   border: 0;
   background: none;
   color: var(--nav-text);
   font: inherit;
-  font-size: 15px;
+  font-size: var(--type-ui);
   font-weight: 500;
   white-space: nowrap;
   cursor: pointer;
@@ -38,15 +56,15 @@
 
 .tego-header .tego-nav-panel {
   position: absolute;
-  top: calc(100% + 14px);
-  left: -18px;
-  width: 360px;
-  max-width: calc(100vw - 64px);
-  padding: 12px;
+  top: calc(100% + var(--space-4));
+  left: calc(-1 * var(--space-4));
+  width: 400px;
+  max-width: calc(100vw - var(--space-gutter) * 2);
+  padding: var(--space-3);
   isolation: isolate;
   background: linear-gradient(135deg, #111c2a, #0d1622);
   border: 1px solid var(--nav-panel-border);
-  border-radius: 14px;
+  border-radius: var(--radius-card);
   box-shadow: 0 22px 60px -16px #000b, 0 5px 16px #0004, 0 0 24px -12px #729ed733;
   color: var(--nav-title);
 }
@@ -96,7 +114,7 @@
   z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 4px 12px;
+  gap: var(--space-1) var(--space-3);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -106,13 +124,13 @@
   display: grid;
   grid-template-columns: 24px minmax(0, 1fr);
   align-items: start;
-  gap: 12px;
-  min-height: 58px;
-  padding: 10px;
+  gap: var(--space-3);
+  min-height: 56px;
+  padding: var(--space-2);
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: var(--radius-card);
   color: var(--nav-title);
-  font-size: 13px;
+  font-size: var(--type-ui);
   font-weight: 500;
   line-height: 1.5;
   white-space: normal;
@@ -129,19 +147,14 @@
   background: transparent;
   border-color: transparent;
 }
-.tego-header .tego-nav-label { display: grid; gap: 3px; min-width: 0; }
+.tego-header .tego-nav-label { display: grid; gap: var(--space-1); min-width: 0; }
 .tego-header .tego-nav-label small {
   display: block;
   color: var(--nav-description);
-  font-size: 11px;
+  font-size: var(--type-meta);
   font-weight: 400;
   line-height: 1.6;
   white-space: normal;
-}
-.tego-header .tego-nav-product .tego-nav-label small {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .tego-header .tego-nav-icon {
   display: grid;
@@ -155,8 +168,8 @@
 .tego-header :is(.navigation-icon-default, .navigation-icon-active) { transition: opacity .06s ease-out; }
 .tego-header .tego-nav-item:is(:hover, :focus-visible, [aria-current='page']) .navigation-icon-default { opacity: 0; }
 .tego-header .tego-nav-item:is(:hover, :focus-visible, [aria-current='page']) .navigation-icon-active { opacity: 1; }
-.tego-header .tego-nav-resources { width: 280px; }
-.tego-header .header-contact { min-height: 36px; padding-inline: 18px; font-size: 13px; white-space: nowrap; justify-content: center; }
+.tego-header .tego-nav-resources { width: 320px; }
+.tego-header .header-contact { min-height: 40px; padding-inline: var(--space-4); font-size: var(--type-meta); white-space: nowrap; justify-content: center; }
 .tego-header .tego-nav-resources .tego-nav-grid { grid-template-columns: minmax(0, 1fr); }
 
 .tego-header :is(a, button):not(:where(.button, .capability-button, .dei-button)):focus-visible { outline: 2px solid #779ed2; outline-offset: 5px; }
@@ -190,38 +203,42 @@
   .tego-header :is(.tego-nav-panel, .tego-language-panel)::before {
     content: '';
     position: absolute;
-    inset: -14px 0 100%;
+    inset: calc(-1 * var(--space-4)) 0 100%;
   }
 }
 @media (min-width: 1101px) and (max-width: 1250px) {
-  .tego-header .desktop-nav { gap: 18px; }
-  .tego-header .header-inner { gap: 18px; }
-  .tego-header .header-tools { gap: 12px; }
+  .tego-header .desktop-nav { gap: var(--space-4); }
+  .tego-header .header-inner { gap: var(--space-4); }
+  .tego-header .header-tools { gap: var(--space-3); }
 }
 @media (max-width: 1100px) {
   .tego-header .header-tools > .header-cta { display: none; }
-  .tego-header .mobile-login { align-self: flex-start; justify-content: center; min-width: 92px; margin-top: 12px; }
+  .tego-header .header-tools { margin-left: auto; }
+  .tego-header .menu-toggle { display: grid; }
+  .tego-header .mobile-login { align-self: flex-start; justify-content: center; min-width: 92px; margin-top: var(--space-3); }
   .tego-header .desktop-nav { display: none; }
   .tego-header .mobile-nav.is-open {
     display: flex;
+    position: absolute;
+    inset-inline: 0;
     flex-direction: column;
     gap: 0;
     top: 100%;
-    max-height: calc(100dvh - 80px);
-    padding: 10px var(--gutter) 24px;
+    max-height: calc(100dvh - var(--header-height));
+    padding: var(--space-3) var(--space-gutter) var(--space-6);
     overflow: auto;
     overscroll-behavior: contain;
     background: #0b1420;
   }
   .tego-header .tego-nav-trigger,
-  .tego-header .tego-nav-direct { min-height: 48px; width: 100%; justify-content: space-between; font-size: 15px; }
+  .tego-header .tego-nav-direct { min-height: 48px; width: 100%; justify-content: space-between; }
   .tego-header .tego-nav-panel {
     position: static;
     width: 100%;
     max-width: none;
-    padding: 4px;
+    padding: var(--space-1);
     border: 0;
-    border-radius: 10px;
+    border-radius: var(--radius-card);
     background: #8ab6ff04;
     box-shadow: none;
   }
@@ -230,25 +247,24 @@
     overflow: visible;
     overscroll-behavior: auto;
   }
-  .tego-header .tego-nav-grid { grid-template-columns: minmax(0, 1fr); gap: 2px; }
-  .tego-header .tego-nav-item { min-height: 56px; padding: 10px 8px; gap: 10px; }
+  .tego-header .tego-nav-grid { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 700px) {
-  .tego-header .mobile-nav.is-open { max-height: calc(100dvh - 72px); }
+  :root { --header-height: 72px; }
 }
 
 .tego-language-group { position: relative; }
 .tego-header .language-link {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: var(--space-1);
   min-height: 40px;
   padding: 0;
   border: 0;
   background: none;
   color: var(--nav-text);
   font: inherit;
-  font-size: 13px;
+  font-size: var(--type-meta);
   white-space: nowrap;
   cursor: pointer;
 }
@@ -257,12 +273,12 @@
 .tego-language-panel {
   --nav-pointer-surface: #0f1927;
   position: absolute;
-  top: calc(100% + 14px);
+  top: calc(100% + var(--space-4));
   right: 0;
   width: 152px;
-  padding: 6px;
+  padding: var(--space-2);
   border: 1px solid var(--nav-panel-border);
-  border-radius: 12px;
+  border-radius: var(--radius-card);
   background: #0f1927;
   box-shadow: 0 18px 44px -12px #000a;
 }
@@ -272,33 +288,33 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: var(--space-3);
   min-height: 40px;
-  padding: 9px 10px;
-  border-radius: 7px;
+  padding: var(--space-2);
+  border-radius: var(--radius-card);
   color: #bbc7d7;
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: var(--type-ui);
+  line-height: var(--leading-heading);
 }
 .tego-language-panel a:hover,
 .tego-language-panel a:focus-visible,
 .tego-language-panel a[aria-current] { color: #f1f5fb; background: #82a9df0e; }
 .tego-language-panel a > svg { color: #76a4de; }
-.tego-header .header-cta { min-width: 92px; padding-inline: 24px; justify-content: center; font-size: 13px; font-weight: 500; white-space: nowrap; }
+.tego-header .header-cta { min-width: 92px; padding-inline: var(--space-6); justify-content: center; font-size: var(--type-meta); font-weight: 500; white-space: nowrap; }
 @media (max-width: 480px) {
-  .tego-header .header-contact { min-height: 34px; padding-inline: 12px; font-size: 12px; }
+  .tego-header .header-contact { padding-inline: var(--space-3); }
   .tego-header .brand .official-wordmark { width: 106px; }
   .tego-header .header-cta { display: flex; min-width: 72px; min-height: 34px; padding-inline: 16px; }
   .tego-header .header-cta > svg { display: none; }
-  .tego-header .header-tools { gap: 8px; }
-  .tego-header .language-link { gap: 4px; }
+  .tego-header .header-tools { gap: var(--space-2); }
   .tego-header .language-link > svg:last-child { display: none; }
-  .tego-header .header-inner { gap: 14px; }
+  .tego-header .header-inner { gap: var(--space-3); }
 }
 @media (max-width: 380px) {
   .tego-header .brand .official-wordmark { width: 88px; }
   .tego-header .header-inner,
-  .tego-header .header-tools { gap: 10px; }
+  .tego-header .header-tools { gap: var(--space-2); }
+  .tego-header .header-contact { padding-inline: var(--space-2); }
 }
 @media (prefers-reduced-motion: reduce) {
   .tego-header * { transition: none !important; animation: none !important; }

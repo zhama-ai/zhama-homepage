@@ -1,7 +1,10 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
+import ArticleCard from '../../../components/ui/ArticleCard.astro';
 import { pathFor } from '../../../lib/site';
+import '../../../styles/blog.css';
+import '../../../styles/reading.css';
 
 export async function getStaticPaths() {
   const entries = await getCollection('blog');
@@ -24,19 +27,21 @@ const related = (await getCollection('blog', ({ data: other }) => other.locale =
 ---
 <Layout locale={locale} title={data.title} description={data.description} page={`blog/${data.legacySlug}`} socialImage={data.image} article={{ author: data.author, authorType: 'Organization', published: data.date.toISOString(), section: data.category, tags: data.tags }}>
   <div class="container">
-    <article class="article-shell">
+    <article class="article-shell ui-reading">
       <a class="text-link" href={pathFor(locale, 'blog')}>{zh ? '返回产品博客' : 'Back to blog'}</a>
-      <h1>{data.title}</h1>
-      <div class="article-meta"><time datetime={data.date.toISOString()}>{date}</time><span>{data.category}</span><span>{data.author}</span></div>
-      <p class="article-historical">{zh ? `本文发布于 ${date}。产品当前能力参见` : `Published ${date}. For current capabilities, see the `}<a href={pathFor(locale, 'product')}>{zh ? '产品能力' : 'product overview'}</a>{zh ? '。' : '.'}</p>
+      <h1 class="ui-display">{data.title}</h1>
+      <div class="article-meta ui-meta"><time datetime={data.date.toISOString()}>{date}</time><span>{data.category}</span><span>{data.author}</span></div>
+      <p class="article-historical ui-meta">{zh ? `本文发布于 ${date}。产品当前能力参见` : `Published ${date}. For current capabilities, see the `}<a href={pathFor(locale, 'product')}>{zh ? '产品能力' : 'product overview'}</a>{zh ? '。' : '.'}</p>
       {data.image && <img class="article-cover" src={data.image} alt={data.title} width="1200" height="750" decoding="async" />}
       <div class="prose"><Content/></div>
       <nav class="article-tags" aria-label={zh ? '文章标签' : 'Article tags'}>{data.tags.map((tag) => <span>{tag}</span>)}</nav>
     </article>
-    <section aria-labelledby="related-title">
-      <div class="section-heading"><h2 class="section-title" id="related-title">{zh ? '继续阅读' : 'Keep reading'}</h2></div>
+    <section class="article-related" aria-labelledby="related-title">
+      <h2 class="ui-section-title" id="related-title">{zh ? '继续阅读' : 'Keep reading'}</h2>
       <div class="article-grid">
-        {related.map(({ data: post }) => <article class="article-card"><div class="article-body"><div class="article-meta"><span>{post.category}</span><time datetime={post.date.toISOString()}>{post.date.toISOString().slice(0, 10)}</time></div><h2><a href={pathFor(locale, `blog/${post.legacySlug}`)}>{post.title}</a></h2><p>{post.description}</p></div></article>)}
+        {related.map(({ data: post }) => <ArticleCard title={post.title} description={post.description} category={post.category}
+          datetime={post.date.toISOString()} date={post.date.toISOString().slice(0, 10)}
+          href={pathFor(locale, `blog/${post.legacySlug}`)} level={3} />)}
       </div>
     </section>
   </div>
@@ -44,15 +49,15 @@ const related = (await getCollection('blog', ({ data: other }) => other.locale =
 
 <style>
   .article-historical a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
-  .article-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:35px}
-  .article-tags span{font-size:11px;color:var(--muted);padding:6px 10px;background:var(--soft);border-radius:5px}
-  .prose :global(.article-diagram){margin:28px 0;padding:22px;background:var(--soft);border-radius:10px;overflow:auto}
+  .article-tags{display:flex;flex-wrap:wrap;gap:var(--space-2);margin-top:var(--space-8)}
+  .article-tags span{font-size:var(--type-meta);color:var(--color-meta);padding:var(--space-1) var(--space-3);background:var(--soft);border-radius:var(--radius-card)}
+  .prose :global(.article-diagram){margin:var(--space-6) 0;padding:var(--space-card);background:var(--surface-card);border-radius:var(--radius-card);overflow:auto}
   .prose :global(.article-diagram-output){text-align:center;min-width:0}
   .prose :global(.article-diagram-output svg){height:auto;max-width:100%}
-  .prose :global(.article-diagram details){font-size:12px;color:var(--muted);margin-top:15px}
+  .prose :global(.article-diagram details){font-size:var(--type-meta);color:var(--color-meta);margin-top:var(--space-4)}
   .prose :global(.article-diagram summary){cursor:pointer;width:fit-content}
   .prose :global(.article-diagram pre){margin-bottom:0;padding-inline:0}
-  .prose :global(.article-diagram-status){font-size:12px;line-height:1.8;color:var(--muted)}
+  .prose :global(.article-diagram-status){font-size:var(--type-meta);line-height:var(--leading-body);color:var(--color-meta)}
   .prose :global(.article-diagram-output[hidden]),.prose :global(.article-diagram-status[hidden]){display:none}
 </style>
 

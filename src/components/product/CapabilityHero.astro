@@ -1,0 +1,71 @@
+---
+import ProductHeroArt from './ProductHeroArt.astro';
+import type { Locale } from '../../data/types';
+import type { LandingCopy } from '../../features/product/landing-types';
+import { appFor, pathFor, ui } from '../../lib/site';
+
+interface Props {
+  locale: Locale;
+  copy: LandingCopy['hero'];
+  fieldClass?: string;
+  showTrial?: boolean;
+}
+
+const { locale, copy, fieldClass, showTrial = true } = Astro.props;
+---
+<div class:list={['product-banner-field', fieldClass]}>
+  <slot name="backdrop"/>
+  <section class="container product-banner ui-section" aria-labelledby="capability-title">
+    <div class="product-banner-copy">
+      <h1 id="capability-title">{copy.lines.map(line => <span>{line}</span>)}</h1>
+      <p>{copy.summary}</p>
+      <div class="product-banner-actions">
+        <a class="button" href={pathFor(locale, 'contact')}>{ui[locale].contact}</a>
+        {showTrial && <a class="product-banner-trial" href={appFor(locale)}>{ui[locale].try}</a>}
+      </div>
+    </div>
+    <ProductHeroArt><slot/></ProductHeroArt>
+  </section>
+</div>
+
+<style>
+  .product-banner-field { position: relative; isolation: isolate; }
+  .product-banner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-grid);
+    align-items: center;
+  }
+  .product-banner-copy { display: grid; min-width: 0; gap: var(--space-6); }
+  .product-banner-copy h1 {
+    margin: 0;
+    font-size: var(--type-display);
+    font-weight: 600;
+    line-height: var(--leading-display);
+    overflow-wrap: break-word;
+    letter-spacing: 0;
+    text-wrap: balance;
+  }
+  .product-banner-copy h1 span { display: block; }
+  .product-banner-copy h1 span:last-child:not(:first-child) { color: #a9cdf6; }
+  .product-banner-copy > p {
+    max-width: 52ch;
+    margin: 0;
+    color: var(--product-copy, #b5c2cf);
+    font-size: var(--type-lead);
+    line-height: var(--leading-body);
+    text-wrap: pretty;
+  }
+  .product-banner-actions { display: flex; align-items: center; gap: var(--space-6); flex-wrap: wrap; }
+  .product-banner-trial { display: inline-flex; align-items: center; min-height: 44px; color: #c4dcf4; font-size: var(--type-ui); }
+  .product-banner-trial:hover { color: #fff; }
+  @media (max-width: 1100px) {
+    .product-banner { grid-template-columns: minmax(0, 1fr); }
+    .product-banner-copy > p { max-width: 62ch; }
+  }
+  @media (max-width: 640px) {
+    .product-banner-copy, .product-banner-actions { gap: var(--space-4); }
+  }
+</style>

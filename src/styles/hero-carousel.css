@@ -1,6 +1,6 @@
 /* The first slide keeps the established hero composition. All slides reserve the
    same space, so rotating never moves the following section. */
-.home-value-edition .hero-carousel{position:relative;padding-bottom:var(--section-hero-tail)}
+.home-value-edition .hero-carousel{position:relative;padding-top:var(--header-height);padding-bottom:var(--space-16)}
 .hero-slides{display:grid;isolation:isolate;overflow:clip;padding-bottom:64px;margin-bottom:-64px;touch-action:pan-y pinch-zoom;cursor:grab;user-select:none;-webkit-user-select:none}
 .hero-carousel[data-carousel-dragging='true'] .hero-slides{cursor:grabbing}
 .hero-slide{grid-area:1/1;min-width:0;visibility:hidden;pointer-events:none}
@@ -8,10 +8,7 @@
 .hero-slide.is-leaving{visibility:visible}
 .hero-slide:is(.is-active,.is-leaving){will-change:transform}
 .hero-slide[data-active='false'] *{animation-play-state:paused!important}
-.hero-carousel .hero-center{min-height:0}
-.hero-carousel .hero-message{min-width:0}
-.hero-carousel .sl-hero-description{max-width:440px;text-wrap:pretty}
-.hero-carousel-controls{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center;width:auto;gap:0;z-index:3}
+.hero-carousel-controls{position:absolute;bottom:var(--space-2);left:50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center;width:auto;gap:var(--space-2);z-index:3}
 .hero-slide-selectors{display:flex;align-items:center;gap:0}
 .hero-slide-selectors>button{display:grid;place-items:center;width:22px;height:36px;padding:0;border:0;background:none;position:relative;cursor:pointer;transition:width .4s cubic-bezier(.22,1,.36,1)}
 .hero-slide-selectors>button[aria-current]{width:40px}
@@ -21,32 +18,14 @@
 .hero-slide-selectors>button[aria-current]>i{width:32px;height:4px;background:#a4c8e3}
 .hero-slide-selectors>button[aria-current]>i:after{animation:hero-carousel-progress var(--slide-duration) linear forwards}
 .hero-carousel[data-carousel-paused='true'] .hero-slide-selectors>button>i:after{animation-play-state:paused}
-.hero-carousel-playback{position:absolute;left:calc(100% + 8px);width:1px;height:1px;overflow:hidden;clip-path:inset(50%);border:0;background:none;color:#b9dbf5;padding:0}
-.hero-carousel-playback:focus-visible{width:32px;height:32px;clip-path:none;display:grid;place-items:center;background:#112940;border-radius:50%}
+.hero-carousel-playback{display:grid;place-items:center;width:36px;height:36px;border:0;border-radius:var(--radius-card);background:none;color:#b9dbf5;padding:0;cursor:pointer}
+.hero-carousel-playback:is(:hover,:focus-visible){background:#112940}
 .hero-carousel-controls button:focus-visible{outline:2px solid #7bc9ff;outline-offset:5px}
 .carousel-play{display:none}
 [data-carousel-toggle][aria-pressed='true'] .carousel-play{display:block}
 [data-carousel-toggle][aria-pressed='true'] .carousel-pause{display:none}
 .banner-visual{width:calc(100% + 30px);min-width:0;position:relative;font-family:inherit;color:#d9e9ff;text-align:left}
 @keyframes hero-carousel-progress{to{transform:scaleX(1)}}
-@media(min-width:1101px){
- .hero-carousel-controls{width:auto}
- .home-value-edition .hero-carousel .hero-center{min-height:0}
-}
-@media(max-width:1100px){
- .hero-carousel .hero-center{min-height:0;grid-template-rows:auto 1fr;align-items:start}
- .hero-carousel .hero-message{max-width:760px}
- .hero-carousel .sl-hero-description{max-width:650px}
- .banner-visual{width:100%;max-width:820px;margin:36px auto 0}
- .hero-carousel-controls{bottom:20px}
-}
-@media(max-width:700px){
- .hero-slide .hero-center{gap:0}
- .hero-carousel .hero-message{padding:0}
- .hero-carousel .sl-hero-description{min-height:92px}
- .hero-carousel-controls{bottom:24px}
-
-}
 @media(prefers-reduced-motion:reduce){
  .hero-slide-selectors>button[aria-current]>i:after{animation:none;transform:scaleX(1)}
 }
@@ -59,21 +38,48 @@
 @media(prefers-reduced-motion:reduce){
  .hero-slide-selectors>button>i{transition:none}
 }
-@media(min-width:1101px){
- .home-value-edition .hero-carousel .hero-center{height:536px;min-height:0;padding-top:76px}
- .hero-slide-execution .banner-execution-visual{width:100%}
-}
 @media(max-width:700px){
  .execution-concept{margin-inline:-9px;transform:none}
 }
 
 
-/* A shared stage and copy grid keep all three slides on the same baselines. */
-.home-value-edition .hero-carousel .hero-message{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:120px 92px 48px;gap:24px;align-content:center;text-align:left}
-.home-value-edition .hero-carousel .hero-message>.hero-banner-title{grid-column:1;grid-row:1;align-self:start;margin:0;max-width:none;width:auto;color:#fcfdfc;font-size:40px;font-weight:550;letter-spacing:-1px;line-height:1.5;text-align:left}
-.home-value-edition .hero-carousel .hero-slide:not(:first-child) .hero-banner-title{font-size:36px;letter-spacing:-.8px}
-.home-value-edition .hero-carousel .hero-message>.sl-hero-description{grid-column:1;grid-row:2;align-self:start;margin:0;max-width:none;font-size:16px!important;line-height:1.9}
-.home-value-edition .hero-carousel .hero-message>.sl-actions{grid-column:1;grid-row:3;margin:0;height:48px;justify-content:flex-start;align-items:center}
+/* Matching grid tracks keep the action and the visual in place when slides change. */
+.hero-carousel .home-hero-layout {
+ display: grid;
+ grid-template-columns: minmax(0, .86fr) minmax(0, 1fr);
+ gap: var(--space-grid);
+ align-items: center;
+ padding-block-start: var(--space-hero);
+}
+.hero-carousel .hero-message {
+ display: grid;
+ grid-template-columns: minmax(0, 1fr);
+ grid-template-rows: minmax(calc(var(--type-display) * 2.4), auto) minmax(calc(var(--type-lead) * 5.1), auto) auto;
+ gap: var(--space-4);
+ min-width: 0;
+ text-align: start;
+}
+.home-value-edition .hero-carousel .hero-message > .hero-banner-title {
+ margin: 0;
+ align-self: end;
+ color: var(--color-heading);
+ font-size: var(--type-display);
+ font-weight: 600;
+ letter-spacing: 0;
+ line-height: var(--leading-display);
+ text-align: start;
+ text-wrap: balance;
+}
+.hero-carousel .hero-message > .hero-banner-description {
+ max-width: var(--width-reading);
+ margin: 0;
+ color: var(--color-copy);
+ font-size: var(--type-lead);
+ line-height: var(--leading-body);
+ text-wrap: pretty;
+}
+.hero-title-phrase { display: inline-block; white-space: nowrap; }
+.hero-carousel .hero-banner-actions { display: flex; align-items: center; }
 .hero-visual-stage{min-width:0;position:relative;width:100%;height:460px;text-align:left}
 .home-value-edition .hero-carousel .hero-visual-stage>.home-product-frame,.hero-visual-stage>.banner-visual{width:100%;height:100%;max-width:none;min-height:0;margin:0}
 .home-value-edition .hero-carousel .hero-visual-stage>.home-product-frame{transform:perspective(1600px) rotateY(-10deg);transform-origin:center}
@@ -81,34 +87,39 @@
 .hero-visual-stage .execution-concept{height:100%;overflow:clip;border-radius:0}
 .hero-visual-stage .execution-video-poster{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;object-fit:contain}
 .hero-visual-stage .banner-outcomes-visual{display:flex;flex-direction:column;transform:perspective(1600px) rotateY(-10deg);transform-origin:center}
-@media(min-width:1101px){
- .home-value-edition .hero-carousel .hero-center{grid-template-columns:.81fr 1.35fr;grid-template-rows:1fr;column-gap:clamp(48px,5vw,80px);align-items:center}
- .hero-carousel .hero-message{grid-column:1;grid-row:1}
- .hero-visual-stage{grid-column:2;grid-row:1}
-}
-@media(min-width:701px) and (max-width:1100px){
- .home-value-edition .hero-carousel .hero-center{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;gap:36px;padding-top:51px}
- .hero-carousel .hero-message{width:100%;max-width:760px}
- .hero-visual-stage{width:100%;max-width:820px;margin:0 auto;height:540px}
+@media(max-width:1100px){
+ .hero-carousel .home-hero-layout{grid-template-columns:minmax(0,1fr)}
+ .hero-carousel .hero-message{max-width:var(--width-reading)}
+ .hero-visual-stage{width:100%;max-width:var(--width-reading);margin:0 auto;height:460px}
  .hero-visual-stage .team-content{zoom:.68}
- .hero-visual-stage>.banner-visual{margin:0}
 }
 @media(max-width:700px){
- .home-value-edition .hero-carousel .hero-center{padding-top:44px}
- .home-value-edition .hero-carousel .hero-message{grid-template-rows:90px 92px 46px;gap:20px}
- .home-value-edition .hero-carousel .hero-message>.hero-banner-title{font-size:30px;letter-spacing:-.7px;line-height:1.5}
- .home-value-edition .hero-carousel .hero-slide:not(:first-child) .hero-banner-title{font-size:28px}
- .home-value-edition .hero-carousel .hero-message>.sl-actions{height:46px}
- .hero-visual-stage{height:420px;margin-top:32px}
+ .hero-carousel .home-hero-layout{gap:var(--space-6)}
+ .hero-visual-stage{height:420px}
  .home-value-edition .hero-carousel .hero-visual-stage>.home-product-frame,.hero-visual-stage .execution-concept,.hero-visual-stage .banner-outcomes-visual{transform:none;margin:0}
-}
-@media(max-width:700px){
  .hero-visual-stage .team-content{zoom:.65}
 }
-:root[lang="en"] .home-value-edition .hero-carousel .hero-message>.hero-banner-title{font-size:34px}
-:root[lang="en"] .home-value-edition .hero-carousel .hero-slide:not(:first-child) .hero-banner-title{font-size:32px}
-@media(max-width:700px){
- :root[lang="en"] .home-value-edition .hero-carousel .hero-message{grid-template-rows:90px 124px 46px}
- :root[lang="en"] .home-value-edition .hero-carousel .hero-message>.hero-banner-title{font-size:26px}
- :root[lang="en"] .home-value-edition .hero-carousel .hero-slide:not(:first-child) .hero-banner-title{font-size:26px}
+
+@supports (grid-template-rows: subgrid) {
+ .home-value-edition .hero-carousel { padding-top: calc(var(--header-height) + var(--space-hero)); }
+ .hero-slides {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: [heading] auto [description] auto [action] auto [end];
+  row-gap: var(--space-4);
+ }
+ .hero-slide,
+ .hero-carousel .home-hero-layout { grid-area: heading / 1 / end / -1; }
+ .hero-slide { display: grid; }
+ .hero-slide,
+ .hero-carousel .home-hero-layout,
+ .hero-carousel .hero-message { grid-template-rows: subgrid; }
+ .hero-carousel .home-hero-layout { padding-block-start: 0; row-gap: inherit; }
+ .hero-carousel .hero-message { grid-area: heading / 1 / end / 2; align-items: start; row-gap: inherit; }
+ .hero-carousel .hero-visual-stage { grid-area: heading / 2 / end / 3; }
+ .hero-carousel .hero-banner-actions { align-self: start; }
+ @media (max-width: 1100px) {
+  .hero-slides { grid-template-rows: [heading] auto [description] auto [action] auto [visual] auto [end]; }
+  .hero-carousel .hero-message { grid-area: heading / 1 / visual / 2; }
+  .hero-carousel .hero-visual-stage { grid-area: visual / 1 / end / 2; }
+ }
 }

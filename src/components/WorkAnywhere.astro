@@ -1,20 +1,24 @@
 ---
 import type { Locale } from '../data/types';
 import { renderAnywhereTopology } from '../lib/anywhere-topology';
+import HomeSectionHeading from './home/HomeSectionHeading.astro';
 import '../styles/anywhere-topology.css';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const zh = locale === 'zh';
 ---
-<section class="work-anywhere" aria-labelledby="anywhere-title">
- <div class="container">
-  <header class="anywhere-heading">
-   <h2 id="anywhere-title">{zh?<><span>随时随地，</span><span>把任务交给数字员工</span></>:'Your work moves forward, wherever you are.'}</h2>
-   <p>{zh?'支持 PC、Web、平板、移动端与常用 IM 入口。一句话交办任务，让数字员工协同完成处理，把沟通转成可交付的业务成果。':'Delegate through desktop, web, tablet, mobile, and familiar messaging tools. Digital employees work together to turn each request into a usable business deliverable.'}</p>
-  </header>
+<section class="ui-section work-anywhere" aria-labelledby="anywhere-title">
+ <div class="container anywhere-layout">
+  <HomeSectionHeading id="anywhere-title">
+   {zh ? '随时随地，把任务交给数字员工' : 'Your work moves forward, wherever you are.'}
+   <Fragment slot="description">{zh ? '支持 PC、Web、平板、移动端与常用 IM 入口。一句话交办任务，让数字员工协同完成处理，把沟通转成可交付的业务成果。' : 'Delegate through desktop, web, tablet, mobile, and familiar messaging tools. Digital employees work together to turn each request into a usable business deliverable.'}</Fragment>
+  </HomeSectionHeading>
   <div set:html={renderAnywhereTopology(locale)} />
  </div>
 </section>
+<style>
+ .work-anywhere .anywhere-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-grid); }
+</style>
 <script>
  import { observeMotion } from '../lib/motion';
  import { onPageMount } from '../lib/page-lifecycle';

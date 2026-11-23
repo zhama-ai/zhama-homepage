@@ -9,6 +9,8 @@ import { serveSeoRedirect } from '../../shared/seo-routes.mjs';
 
 const directory = path.join(projectRoot, 'dist');
 if (!existsSync(path.join(directory, 'index.html'))) throw new Error('Run npm run build before npm run preview.');
+const previewPort = Number(process.env.PREVIEW_PORT ?? 4350);
+if (!Number.isInteger(previewPort) || previewPort < 1 || previewPort > 65535) throw new Error('PREVIEW_PORT must be an integer between 1 and 65535.');
 const files = sirv(directory, { dev: true, extensions: ['html'], etag: true });
 const app = createContactApp(loadContactConfig());
 const server = createServer((request, response) => {
@@ -23,7 +25,7 @@ const server = createServer((request, response) => {
 server.requestTimeout = 20000;
 server.headersTimeout = 10000;
 server.on('error', error => { console.error('Preview could not start:', error.code); void app.close(); process.exitCode = 1; });
-server.listen(4350, '127.0.0.1', () => console.info('Website and contact API: http://127.0.0.1:4350/zh/contact/'));
+server.listen(previewPort, '127.0.0.1', () => console.info(`Website and contact API: http://127.0.0.1:${previewPort}/zh/`));
 let stopping = false;
 async function shutdown() {
   if (stopping) return;

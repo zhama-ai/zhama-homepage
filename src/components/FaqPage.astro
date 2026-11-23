@@ -18,7 +18,7 @@ const groups = ['work','work','deploy','work','knowledge','knowledge','knowledge
 const questions = faqs[locale];
 ---
 <Shell locale={locale} page="faq">
-  <Hero title={zh ? '找到产品与使用问题的答案' : 'Answers about working with TeGo'} compact>
+  <Hero title={zh ? '找到产品与使用问题的答案' : 'Answers about working with TeGo'}>
     <div class="support-search"><Icon name="search" size={19}/><label class="sr-only" for="faq-query">{zh ? '搜索问题与答案' : 'Search questions and answers'}</label><input id="faq-query" type="search" placeholder={zh ? '搜索问题与答案' : 'Search questions and answers'} autocomplete="off" aria-controls="faq-results" data-faq-query/><button type="button" aria-label={zh ? '清除搜索' : 'Clear search'} data-faq-clear hidden><Icon name="close" size={17}/></button></div>
   </Hero>
   <section class="container support-section faq-content" data-faq-search data-locale={locale} aria-label={zh ? '产品问题与答案' : 'Product questions and answers'}>
@@ -29,7 +29,7 @@ const questions = faqs[locale];
     <div class="support-empty" data-faq-empty hidden><p>{zh ? '没有找到匹配的问题。' : 'No questions match these filters.'}</p><button type="button" class="button button-outline" data-faq-reset>{zh ? '重置筛选' : 'Reset filters'}</button></div>
   </section>
 </Shell>
-<style>.faq-content{max-width:1080px;padding-top:22px}@media(max-width:600px){.faq-content{padding-top:14px}}</style>
+<style>.faq-content{max-width:var(--width-reading);padding-top:0}</style>
 <script>
   import { onPageMount } from '../lib/page-lifecycle';
   onPageMount(signal => {

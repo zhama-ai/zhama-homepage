@@ -1,6 +1,7 @@
 ---
 import Icon from './Icon.astro';
 import type { Locale } from '../data/types';
+import '../styles/product-interface.css';
 export type InterfaceScene = 'workforce'|'knowledge'|'skills'|'document'|'integrations'|'audit'|'access'|'operations';
 interface Props { scene: InterfaceScene; locale: Locale; class?: string; }
 const {scene,locale,class:className}=Astro.props;

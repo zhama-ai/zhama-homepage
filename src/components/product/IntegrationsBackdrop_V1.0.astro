@@ -31,7 +31,7 @@ const tiles = Array.from({length: 15}, (_, index) => connections[index % connect
   .ib-tone-0{transform:translateZ(30px)}.ib-tone-1{--ib-accent:#9b92c9;transform:translateZ(12px)}.ib-tone-2{--ib-accent:#769fc3;transform:translateZ(22px)}.ib-tone-3{transform:translateZ(8px)}.ib-tone-4{--ib-accent:#928bc1;transform:translateZ(26px)}
   .ib-system{display:flex;align-items:center;gap:10px;min-width:0}
   .ib-icon{display:grid;place-items:center;width:35px;height:35px;flex-shrink:0;border:1px solid color-mix(in srgb,var(--ib-accent) 36%,transparent);border-radius:6px;background:color-mix(in srgb,var(--ib-accent) 10%,transparent);color:var(--ib-accent)}
-  .ib-system strong{display:block;font-size:13px;line-height:1.5;font-weight:550}.ib-system div>span{display:block;margin-top:4px;font-size:10px;color:#91a6bf;line-height:1.5}
-  .ib-route{display:flex;align-items:center;justify-content:flex-end;gap:10px;font-size:10px;color:var(--ib-accent)}
-  @media(max-width:720px){.ib-field{top:42%;left:52%;width:1130px;grid-template-columns:repeat(5,174px);gap:56px 65px}.ib-connection{height:124px;padding:14px 12px}.ib-connection::after{width:65px}.ib-icon{width:30px;height:30px}.ib-system strong{font-size:12px}.ib-backdrop::after{background:linear-gradient(rgba(7,18,30,.85),rgba(7,18,30,.65) 48%,rgba(7,18,30,.78))}}
+  .ib-system strong{display:block;font-size: var(--art-type-body);line-height:1.5;font-weight:550}.ib-system div>span{display:block;margin-top:4px;font-size: var(--art-type-label);color:#91a6bf;line-height:1.5}
+  .ib-route{display:flex;align-items:center;justify-content:flex-end;gap:10px;font-size: var(--art-type-label);color:var(--ib-accent)}
+  @media(max-width:720px){.ib-field{top:42%;left:52%;width:1130px;grid-template-columns:repeat(5,174px);gap:56px 65px}.ib-connection{height:124px;padding:14px 12px}.ib-connection::after{width:65px}.ib-icon{width:30px;height:30px}.ib-system strong{font-size: var(--art-type-body)}.ib-backdrop::after{background:linear-gradient(rgba(7,18,30,.85),rgba(7,18,30,.65) 48%,rgba(7,18,30,.78))}}
 </style>

@@ -1,0 +1,29 @@
+---
+interface Props { id: string; }
+const { id } = Astro.props;
+---
+<header class="home-section-heading">
+  <h2 id={id}><slot /></h2>
+  {Astro.slots.has('description') && <p><slot name="description" /></p>}
+</header>
+
+<style>
+  .home-section-heading { display: grid; gap: var(--space-4); min-width: 0; }
+  .home-section-heading h2 {
+    margin: 0;
+    font-size: var(--type-section);
+    font-weight: 600;
+    line-height: var(--leading-heading);
+    letter-spacing: 0;
+    text-wrap: balance;
+  }
+  .home-section-heading h2 :global(.title-line) { display: block; }
+  .home-section-heading p {
+    max-width: var(--width-reading);
+    margin: 0;
+    color: var(--muted);
+    font-size: var(--type-lead);
+    line-height: var(--leading-body);
+    text-wrap: pretty;
+  }
+</style>

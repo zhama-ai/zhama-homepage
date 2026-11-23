@@ -213,6 +213,17 @@ for(const document of documents.values()) {
 const industries=['government','securities','general','insurance','state-owned','banking','trust','appliance'];
 const capabilities=['digital-employees','collaboration','multi-agent','knowledge','integrations','governance'];
 const routes=['','product','solutions','ecosystem','enterprise','resources','download','releases','faq','contact','privacy','terms','blog'];
+const findElements = (root, predicate) => {
+ const attrs = Object.fromEntries((root.attrs ?? []).map(({ name, value }) => [name, value]));
+ return [...(predicate(attrs) ? [attrs] : []), ...(root.childNodes ?? []).flatMap(child => findElements(child, predicate))];
+};
+const findExplorer = root => {
+ if (root.attrs?.some(({ name }) => name === 'data-solution-explorer')) return root;
+ for (const child of root.childNodes ?? []) {
+  const explorer = findExplorer(child);
+  if (explorer) return explorer;
+ }
+};
 for(const locale of ['zh','en','zh-Hant']){
  check(!existsSync(path.join(dist,locale,'solutions/internet/index.html')),`${locale} 互联网方案页面未移除`);
  for(const route of [...routes,...industries.map(i=>`solutions/${i}`), 'pricing', ...capabilities.map(i=>`product/${i}`)])check(existsSync(path.join(dist,locale,route,'index.html')),`${locale}/${route} 页面缺失`);
@@ -222,8 +233,14 @@ for(const locale of ['zh','en','zh-Hant']){
  check(home.tags.some(t=>t.name==='a'&&t.attrs.href===`/${locale}/blog/`),`${locale} 博客链接没有保持当前语言`);
  for(const slug of capabilities)check(home.tags.some(t=>t.name==='a'&&t.attrs.href===`/${locale}/product/${slug}/`),`${locale} 能力菜单缺失 ${slug}`);
 
- check(home.tags.filter(t=>t.attrs.role==='tab'&&t.attrs.id?.startsWith('tab-')).length===6,`${locale} 首页应保留六类行业方案`);
- check(home.tags.filter(t=>t.attrs.role==='tabpanel'&&t.attrs.id?.startsWith('panel-')&&t.attrs.hidden===undefined).length===1,`${locale} 首页行业页签初始选中不唯一`);
+ const explorer = findExplorer(parse(home.markup));
+ const tabs = explorer ? findElements(explorer, attrs => attrs.role === 'tab') : [];
+ const panels = explorer ? findElements(explorer, attrs => attrs.role === 'tabpanel') : [];
+ const selected = tabs.filter(tab => tab['aria-selected'] === 'true');
+ const visiblePanels = panels.filter(panel => panel.hidden === undefined);
+ check(tabs.length === 6 && panels.length === 6,`${locale} 首页应保留六类行业方案`);
+ check(selected.length === 1 && visiblePanels.length === 1 && selected[0]['aria-controls'] === visiblePanels[0].id
+   && visiblePanels[0]['aria-labelledby'] === selected[0].id,`${locale} 首页行业页签初始选中或面板关联不正确`);
  const visible=decodeEntities(home.markup.replace(/<[^>]+>/g,' '));
  check(!/example\.com|TODO|FIXME|仅供演示|占位数据|100%|零风险/.test(visible),`${locale} 首页存在未完成或绝对化文案`);
 }

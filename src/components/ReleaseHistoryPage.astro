@@ -3,6 +3,7 @@ import releaseIndex from '../../public/releases/index.json';
 import { releaseArchive } from '../data/legacy';
 import type { Locale } from '../data/types';
 import Shell from '../features/resources/Shell.astro';
+import Hero from '../features/resources/Hero.astro';
 import { releasePackages, releaseStatus } from '../lib/releases';
 
 interface Props { locale: Locale; }
@@ -25,7 +26,7 @@ const initialStatus = releaseStatus(initialPackages, zh);
 const config = { versions, files: clientFiles.map(({ path, version, product, arch }) => ({ path, version, product, arch })), defaultVersion, initial: { path: defaultFile.path, ...initialPackages } };
 ---
 <Shell locale={locale} page="releases" navigation={false}>
-<header class="support-hero release-hero"><div class="container"><h1>{zh ? '客户端历史版本' : 'Client release history'}</h1></div></header>
+<Hero title={zh ? '客户端历史版本' : 'Client release history'} />
 <section class="container release-history inner-releases" data-release-config={JSON.stringify(config)} data-locale={locale} aria-label={zh ? '版本选择' : 'Release selection'}>
   <div class="release-controls field-pair">
     <div class="field"><label for="release-version">{zh ? '发布版本' : 'Release version'}</label><select id="release-version" aria-controls="release-items">{versions.map(version => <option value={version} selected={version === defaultVersion}>{version}</option>)}</select></div>
@@ -45,26 +46,26 @@ const config = { versions, files: clientFiles.map(({ path, version, product, arc
 </section>
 </Shell>
 <style>
-.release-hero{padding:44px 0 36px}
-.release-history{padding:0 0 80px}
-.release-controls{display:grid;grid-template-columns:1fr 1.5fr;max-width:950px;gap:24px;margin-bottom:28px}
-.release-controls label{color:#b7cada;font-size:13px;margin-bottom:10px}
-.release-controls select{width:100%;min-height:49px;background:#0e2031;color:#e7f4ff;border:1px solid #799fbe55;border-radius:10px;font:inherit;font-size:14px;padding:10px 14px}
-.release-notice{font-size:14px;color:#a9c6dd;line-height:1.8;margin-top:18px}
-.release-status-row{display:flex;align-items:center;gap:18px;min-height:65px;margin:17px 0}
-.release-status-row p{font-size:14px;color:#a9bfd3;line-height:1.8}
-.release-status-row button{padding:7px 18px}
-.release-items{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-.release-items :global(.download-card){min-width:0;display:flex;flex-direction:column;padding:22px;background:#0d1c2c;border:1px solid #94bdd324;border-radius:16px}
-.release-items :global(.release-card-heading){display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.release-items :global(.download-card h2){font-size:22px;margin:0;overflow-wrap:anywhere}
-.release-items :global(.download-version){display:block;font-size:13px;color:#aac5dc;margin:0 0 9px;padding:0;background:none;white-space:nowrap}
+
+.release-history{padding-bottom:var(--space-section)}
+.release-controls{display:grid;grid-template-columns:1fr 1.5fr;max-width:950px;gap:var(--space-6);margin-bottom:var(--space-8)}
+.release-controls label{color:#b7cada;font-size: var(--type-meta);margin-bottom:var(--space-3)}
+.release-controls select{width:100%;min-height:48px;background:#0e2031;color:#e7f4ff;border:1px solid #799fbe55;border-radius:var(--radius-card);font:inherit;font-size:var(--type-ui);padding:var(--space-3)}
+.release-notice{font-size: var(--type-meta);color:#a9c6dd;line-height: var(--leading-body);margin-top:var(--space-4)}
+.release-status-row{display:flex;align-items:center;gap:var(--space-4);min-height:65px;margin:var(--space-4) 0}
+.release-status-row p{font-size: var(--type-meta);color:#a9bfd3;line-height: var(--leading-body)}
+.release-status-row button{padding:var(--space-2) var(--space-4)}
+.release-items{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-grid)}
+.release-items :global(.download-card){min-width:0;display:flex;flex-direction:column;padding:var(--space-card);background:var(--surface-card);border:1px solid var(--color-edge);border-radius:var(--radius-card)}
+.release-items :global(.release-card-heading){display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);flex-wrap:wrap}
+.release-items :global(.download-card h2){font-size: var(--type-subhead);margin:0;overflow-wrap:anywhere}
+.release-items :global(.download-version){display:block;font-size: var(--type-meta);color:#aac5dc;margin:0 0 var(--space-2);padding:0;background:none;white-space:nowrap}
 .release-items :global(.release-card-heading>.download-version){margin:0}
-.release-items :global(.release-client-variant){margin-top:20px}
+.release-items :global(.release-client-variant){margin-top:var(--space-5)}
 /* Dynamic download links use the same CTA theme; only layout and size stay here. */
-.release-items :global(.release-download){width:100%;margin-top:0;justify-content:center;padding:11px 13px;min-height:46px;font-size:14px}
+.release-items :global(.release-download){width:100%;margin-top:0;justify-content:center;padding:var(--space-3) var(--space-3);min-height:46px;font-size: var(--type-meta)}
 @media(max-width:1100px){.release-items{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:650px){.release-hero{padding:32px 0 26px}.release-controls{grid-template-columns:1fr;gap:20px}.release-items{grid-template-columns:1fr}.release-history{padding-bottom:55px}.release-items :global(.download-card){padding:24px}.release-status-row{align-items:flex-start;flex-direction:column;gap:10px;padding-block:10px}}
+@media(max-width:700px){.release-controls,.release-items{grid-template-columns:1fr}.release-status-row{align-items:flex-start;flex-direction:column;gap:var(--space-grid)}}
 </style>
 <script>
   import { onPageMount } from '../lib/page-lifecycle';

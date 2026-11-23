@@ -53,15 +53,15 @@ const systems = zh ? ['财务', 'OA', 'CRM', '…'] : ['Finance', 'OA', 'CRM', '
   .employee-assembly :global(svg) { flex-shrink:0; }
   .assembly-identity { display:flex; align-items:center; justify-content:center; gap:9px; margin-bottom:24px; }
   .assembly-identity img { width:30px; height:30px; object-fit:cover; border-radius:50%; box-shadow:0 0 0 3px #5fa9e815,0 5px 12px #0005; }
-  .assembly-identity strong { font-size:16px; color:#edf5ff; }
-  .assembly-identity > span { font-size:13px; color:#91aec6; }
+  .assembly-identity strong { font-size: var(--art-type-title); color:#edf5ff; }
+  .assembly-identity > span { font-size: var(--art-type-body); color:#91aec6; }
   .assembly-structure { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.12fr) minmax(0,1fr); gap:var(--assembly-gap); align-items:start; }
-  .employee-assembly h3 { display:flex; align-items:center; gap:7px; margin:0 0 12px; font-size:15px; line-height:1.5; font-weight:550; color:#d1e2f3; }
+  .employee-assembly h3 { display:flex; align-items:center; gap:7px; margin:0 0 12px; font-size: var(--art-type-title); line-height:1.5; font-weight:550; color:#d1e2f3; }
   .employee-assembly h3 :global(svg) { color:#8dbbdf; }
   .assembly-role,.assembly-workspace { position:relative; }
   .assembly-role-file { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px 12px; padding:14px; border-radius:5px; background:linear-gradient(135deg,#1b3044,#112130); box-shadow:inset 0 0 0 1px #a6c7df26,0 8px 20px -8px #000b; }
-  .assembly-config strong { display:block; font-family:ui-monospace,SFMono-Regular,Consolas,monospace; font-size:12px; color:#bacbdd; }
-  .assembly-config span { display:block; margin-top:4px; font-size:12px; color:#91a9c0; }
+  .assembly-config strong { display:block; font-family:ui-monospace,SFMono-Regular,Consolas,monospace; font-size: var(--art-type-body); color:#bacbdd; }
+  .assembly-config span { display:block; margin-top:4px; font-size: var(--art-type-body); color:#91a9c0; }
   .assembly-file-current strong { color:#87c7ff; }
   .assembly-role::after,.assembly-workspace::before { content:''; position:absolute; z-index:-1; top:49px; width:calc(var(--assembly-gap) + 12px); height:22px; background-image:linear-gradient(90deg,transparent,#c9f1ffad,transparent),linear-gradient(90deg,#1e668510,#50b6ef85); background-size:42% 100%,100% 100%; background-position:-80% 0,0 0; background-repeat:no-repeat; clip-path:polygon(0 36%,74% 36%,74% 12%,100% 50%,74% 88%,74% 64%,0 64%); animation:assembly-flow 5s ease-in-out infinite; }
   .assembly-role::after { left:calc(100% - 3px); }
@@ -69,38 +69,37 @@ const systems = zh ? ['财务', 'OA', 'CRM', '…'] : ['Finance', 'OA', 'CRM', '
   .assembly-execution { position:relative; }
   .assembly-execution::before { content:''; position:absolute; z-index:-1; pointer-events:none; inset:10px -12px 20px; background:radial-gradient(ellipse at 50% 30%,#249de927,transparent 70%); }
   .assembly-execution > h3 { justify-content:center; }
-  .assembly-agent-main { position:relative; display:flex; align-items:center; justify-content:center; gap:8px; min-height:48px; border:1px solid #78caff8c; border-radius:5px; color:#e1f2ff; font-size:16px; background:linear-gradient(135deg,#19466a,#102b43); box-shadow:0 0 16px #2379bd22,0 8px 18px -6px #000c; }
+  .assembly-agent-main { position:relative; display:flex; align-items:center; justify-content:center; gap:8px; min-height:48px; border:1px solid #78caff8c; border-radius:5px; color:#e1f2ff; font-size: var(--art-type-title); background:linear-gradient(135deg,#19466a,#102b43); box-shadow:0 0 16px #2379bd22,0 8px 18px -6px #000c; }
   .assembly-agent-main :global(svg) { color:#99d9ff; }
   .assembly-agent-branches { position:relative; height:18px; }
   .assembly-agent-branches::before { content:''; position:absolute; top:0; left:50%; height:9px; border-left:1px solid #82c6ee8c; }
   .assembly-agent-branches::after { content:''; position:absolute; top:8px; bottom:0; left:16.666667%; right:16.666667%; border:1px solid #82c6ee80; border-bottom:0; }
   .assembly-agent-children { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
-  .assembly-agent-children > span { position:relative; display:grid; place-items:center; min-height:32px; padding:4px 3px; border-radius:4px; background:#152c3e; box-shadow:inset 0 0 0 1px #91cae833,0 6px 12px -7px #000b; color:#bbd0e3; font-size:12px; text-align:center; }
+  .assembly-agent-children > span { position:relative; display:grid; place-items:center; min-height:32px; padding:4px 3px; border-radius:4px; background:#152c3e; box-shadow:inset 0 0 0 1px #91cae833,0 6px 12px -7px #000b; color:#bbd0e3; font-size: var(--art-type-body); text-align:center; }
   .assembly-agent-children > span:nth-child(2)::before { content:''; position:absolute; bottom:100%; left:50%; height:10px; border-left:1px solid #82c6ee80; }
   .assembly-skills { margin-top:18px; }
-  .employee-assembly .assembly-skills h3 { justify-content:center; margin-bottom:8px; font-size:13px; color:#a9c7dd; }
+  .employee-assembly .assembly-skills h3 { justify-content:center; margin-bottom:8px; font-size: var(--art-type-body); color:#a9c7dd; }
   .assembly-skills > div { display:flex; justify-content:center; flex-wrap:wrap; gap:5px 10px; }
-  .assembly-skills > div > span { color:#a8c1d5; font-size:12px; }
+  .assembly-skills > div > span { color:#a8c1d5; font-size: var(--art-type-body); }
   .assembly-workspace h3 :global(svg),.assembly-folder > :global(svg) { color:#bfae8b; }
-  .assembly-folder { display:flex; align-items:center; gap:7px; color:#c6d3e2; font-size:13px; }
+  .assembly-folder { display:flex; align-items:center; gap:7px; color:#c6d3e2; font-size: var(--art-type-body); }
   .assembly-deliverables { display:grid; grid-template-columns:minmax(0,1fr); gap:7px; margin-top:13px; }
-  .assembly-deliverables > strong { font-size:12px; color:#91afc7; }
-  .assembly-deliverables > span { display:flex; align-items:center; gap:6px; color:#bfd5e4; font-size:13px; }
+  .assembly-deliverables > strong { font-size: var(--art-type-body); color:#91afc7; }
+  .assembly-deliverables > span { display:flex; align-items:center; gap:6px; color:#bfd5e4; font-size: var(--art-type-body); }
   .assembly-deliverables :global(svg) { color:#85b8b2; }
   .assembly-memory { display:flex; flex-wrap:wrap; align-items:center; gap:5px 6px; margin-top:14px; padding-top:10px; border-top:1px dashed #93a5cf3b; color:#b5a8d0; }
-  .assembly-memory strong { font-size:12px; }
-  .assembly-memory span { color:#8fa7bd; font-size:12px; }
+  .assembly-memory strong { font-size: var(--art-type-body); }
+  .assembly-memory span { color:#8fa7bd; font-size: var(--art-type-body); }
   .assembly-resources { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; margin-top:24px; padding-top:16px; border-top:1px solid #8bb4d51c; }
   .assembly-resource-group { min-width:0; display:flex; align-items:center; gap:12px; }
-  .assembly-resource-group > strong { display:flex; align-items:center; gap:6px; flex-shrink:0; font-size:13px; color:#bdd3e5; }
+  .assembly-resource-group > strong { display:flex; align-items:center; gap:6px; flex-shrink:0; font-size: var(--art-type-body); color:#bdd3e5; }
   .assembly-resource-group > strong :global(svg) { color:#8dbbd5; }
   .assembly-resource-group > div { display:flex; flex-wrap:wrap; gap:4px 10px; }
-  .assembly-resource-group > div > span { font-size:12px; color:#90aabd; }
+  .assembly-resource-group > div > span { font-size: var(--art-type-body); color:#90aabd; }
   @keyframes assembly-flow { 0%,12% { background-position:-80% 0,0 0; } 56%,100% { background-position:180% 0,0 0; } }
   @container employee-composition (min-width:600px) and (max-width:760px) {
     .employee-assembly { --assembly-gap:22px; padding:20px; }
     .assembly-role-file { gap:14px 10px; padding:12px 10px; }
-    .assembly-config strong { letter-spacing:-.3px; }
     .assembly-agent-children > span { padding-inline:1px; }
     .assembly-resource-group { flex-direction:column; align-items:flex-start; gap:7px; }
   }
@@ -119,9 +118,9 @@ const systems = zh ? ['财务', 'OA', 'CRM', '…'] : ['Finance', 'OA', 'CRM', '
     .assembly-role-file { gap:14px; }
     .assembly-workspace { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 14px; }
     .assembly-workspace > h3 { grid-column:1 / -1; margin-bottom:0; }
-    .assembly-folder { align-self:start; font-size:12px; }
+    .assembly-folder { align-self:start; font-size: var(--art-type-body); }
     .assembly-deliverables { grid-column:2; grid-row:2 / 4; margin:0; }
-    .assembly-deliverables > span { font-size:12px; }
+    .assembly-deliverables > span { font-size: var(--art-type-body); }
     .assembly-memory { grid-column:1; margin:0; }
     .assembly-resources { grid-template-columns:minmax(0,1fr); margin-top:20px; gap:14px; }
     .assembly-resource-group { align-items:flex-start; flex-direction:column; gap:6px; }

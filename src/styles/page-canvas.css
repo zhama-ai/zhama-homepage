@@ -12,10 +12,6 @@ body #main.page-canvas .support-shell > div > :is(section, header) {
   background: transparent;
 }
 
-body #main.page-canvas .sl-closing::before,
-body #main.page-canvas .sl-closing::after { content: none; }
-body .site-footer { background: var(--page-canvas); }
-
 /* The hero keeps its established atmosphere and fades into the same canvas. */
 body.is-home #main.page-canvas .hero-carousel {
   background: linear-gradient(to bottom, transparent 76%, var(--page-canvas)),

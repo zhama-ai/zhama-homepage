@@ -75,14 +75,16 @@ const labels = zh ? {
       </div>
       <div class="ma-core-connector ma-core-connector-in"><Icon name="arrow" size={18}/></div>
       <div class="ma-agent-system">
-        <svg class="ma-overview-routes" viewBox="0 0 400 188" preserveAspectRatio="none" aria-hidden="true">
-          <path class="ma-route-org" d="M200 72V96M50 96H350M50 96V119M150 96V119M250 96V119M350 96V119"/>
-        </svg>
         <div class="ma-overview-main ma-flow-node">
           <div class="ma-agent-symbol"><Icon name="workflow" size={21}/></div>
           <div><strong>{labels.main}</strong><small>{overview.mainWork}</small></div>
         </div>
-        <div class="ma-overview-legend" aria-hidden="true"><span>{overview.delegate}</span><span>{overview.returned}</span></div>
+        <div class="ma-overview-branch" aria-hidden="true">
+          <svg class="ma-overview-routes" viewBox="0 0 400 38" preserveAspectRatio="none">
+            <path class="ma-route-org" d="M200 0V22M50 22H350M50 22V38M150 22V38M250 22V38M350 22V38"/>
+          </svg>
+          <div class="ma-overview-legend"><span>{overview.delegate}</span><span>{overview.returned}</span></div>
+        </div>
         <div class="ma-overview-specialists">
           {overview.agents.map((agent, index) => <div class:list={['ma-specialist-node', `ma-specialist-${index}`]}>
             <Icon name={agent.icon} size={17}/><strong>{agent.title}</strong>
@@ -107,14 +109,14 @@ const labels = zh ? {
       <span>{data.context}</span>
     </div>
     <div class="ma-delegate-stage">
-      <svg class="ma-delegate-routes" viewBox="0 0 700 360" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M350 142V174M112 174H588M112 174V199M350 174V199M588 174V199"/>
-      </svg>
       <article class="ma-delegate-owner">
         <div class="ma-owner-heading"><span class="ma-agent-symbol"><Icon name="workflow" size={20}/></span><div><strong>{labels.main}</strong><span>{labels.mainOwns}</span></div></div>
         <div class="ma-owner-goal"><span>{labels.goal}</span><strong>{data.request}</strong></div>
         <div class="ma-brief-files">{data.files.map(file => <span><Icon name="file" size={14}/>{file}</span>)}</div>
       </article>
+      <svg class="ma-delegate-routes" viewBox="0 0 700 32" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M350 0V32M115 16H585M115 16V32M585 16V32"/>
+      </svg>
       <div class="ma-work-orders">
         {specialists.map((row, index) => <article>
           <div class="ma-work-order-title"><span class:list={['ma-agent-marker', `ma-agent-marker-${index}`]}><Icon name={specialistIcons[index]} size={17}/></span><strong>{row[0]} Agent</strong></div>

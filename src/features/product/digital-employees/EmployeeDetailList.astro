@@ -1,0 +1,22 @@
+---
+import Icon from '../../../components/Icon.astro';
+
+interface Props { items: readonly { icon: string; title: string; body: string }[]; }
+const { items } = Astro.props;
+---
+<dl class="employee-detail-list">
+  {items.map(item => <div>
+    <dt><Icon name={item.icon} size={18}/><span>{item.title}</span></dt>
+    <dd>{item.body}</dd>
+  </div>)}
+</dl>
+
+<style>
+  .employee-detail-list { display: grid; gap: var(--space-5); margin: 0; align-content: start; }
+  dt { display: flex; align-items: center; gap: var(--space-2); color: #dce8f3; font-size: var(--type-body); font-weight: 600; }
+  dt :global(svg) { flex: none; color: #91bde5; }
+  dd { margin: var(--space-2) 0 0 var(--space-6); color: #b2c3d4; font-size: var(--type-body); line-height: var(--leading-body); text-wrap: pretty; }
+  @media (min-width: 641px) and (max-width: 900px) {
+    .employee-detail-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>

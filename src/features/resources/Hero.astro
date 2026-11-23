@@ -1,5 +1,6 @@
 ---
-interface Props { title: string; compact?: boolean; }
-const { title, compact = false } = Astro.props;
+import PageIntro from '../../components/ui/PageIntro.astro';
+interface Props { title: string; description?: string; }
+const { title, description } = Astro.props;
 ---
-<header class:list={['support-hero', { 'support-hero-compact': compact }]}><div class="container"><h1>{title}</h1><slot/></div></header>
+<PageIntro {title} {description}><slot /></PageIntro>

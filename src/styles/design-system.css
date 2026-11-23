@@ -1,0 +1,111 @@
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-section: var(--space-24);
+  --space-grid: var(--space-8);
+  --space-card: var(--space-6);
+  --space-gutter: var(--space-12);
+  --space-hero: var(--space-16);
+  --width-page: 1200px;
+  --width-reading: 760px;
+  --width-copy: 62ch;
+  --type-display: 3.25rem;
+  --type-section: 2.25rem;
+  --type-subhead: 1.5rem;
+  --type-card: 1.25rem;
+  --type-lead: 1.125rem;
+  --type-body: 1rem;
+  --type-ui: .9375rem;
+  --type-meta: .875rem;
+  --leading-display: 1.2;
+  --leading-heading: 1.35;
+  --leading-body: 1.7;
+  --surface-page: #060b12;
+  --surface-card: #111c29;
+  --surface-raised: #192838;
+  --color-heading: #f4f7fb;
+  --color-copy: #bac7d5;
+  --color-meta: #a1b0c0;
+  --color-edge: #7596b13b;
+  --radius-card: 8px;
+  --ratio-product-hero: 10 / 7;
+  --ratio-product-story: 16 / 10;
+  --ratio-editorial: 3 / 2;
+  --ratio-thumbnail: 16 / 9;
+  --art-type-title: 16px;
+  --art-type-body: 13px;
+  --art-type-label: 11px;
+  /* Existing components can move to the semantic names without changing their layout. */
+  --text-body: var(--type-body);
+  --text-control: var(--type-ui);
+  --text-secondary: var(--type-meta);
+  --section-space: calc(var(--space-section) / 2);
+  --section-hero-tail: var(--space-section);
+  --gutter: var(--space-gutter);
+}
+
+@media (max-width: 1100px) {
+  :root {
+    --space-section: 72px;
+    --space-grid: var(--space-6);
+    --space-gutter: var(--space-8);
+    --space-hero: var(--space-12);
+    --type-display: 2.75rem;
+    --type-section: 2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --space-section: 56px;
+    --space-grid: var(--space-4);
+    --space-card: var(--space-5);
+    --space-gutter: var(--space-5);
+    --space-hero: var(--space-8);
+    --type-display: 2.125rem;
+    --type-section: 1.75rem;
+    --type-subhead: 1.375rem;
+    --type-lead: var(--type-body);
+  }
+}
+
+body { font-size: var(--type-body); line-height: var(--leading-body); }
+.container { width: min(var(--width-page), calc(100% - var(--space-gutter) * 2)); margin-inline: auto; }
+.ui-section { padding-block: calc(var(--space-section) / 2); }
+.ui-stack { display: grid; gap: var(--stack-gap, var(--space-4)); }
+.ui-grid { display: grid; gap: var(--space-grid); }
+.ui-reading { max-width: var(--width-reading); margin-inline: auto; }
+.ui-display, .ui-section-title, .ui-subhead, .ui-card-title {
+  font-weight: 600;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+  color: var(--color-heading);
+}
+.ui-display { font-size: var(--type-display); line-height: var(--leading-display); text-wrap: balance; }
+.ui-section-title { font-size: var(--type-section); line-height: var(--leading-heading); }
+.ui-subhead { font-size: var(--type-subhead); line-height: var(--leading-heading); }
+.ui-card-title { font-size: var(--type-card); line-height: var(--leading-heading); }
+.ui-lead, .ui-copy { color: var(--color-copy); line-height: var(--leading-body); }
+.ui-lead { font-size: var(--type-lead); max-width: var(--width-copy); }
+.ui-copy { font-size: var(--type-body); }
+.ui-meta { font-size: var(--type-meta); line-height: var(--leading-body); color: var(--color-meta); }
+.ui-surface { border: 1px solid var(--color-edge); border-radius: var(--radius-card); background: var(--surface-card); }
+.ui-media {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  aspect-ratio: var(--media-ratio, var(--ratio-editorial));
+}
+.ui-media > img { display: block; width: 100%; height: 100%; object-fit: var(--media-fit, cover); }

@@ -1,8 +1,0 @@
-.home-value-edition .hero-message>h1{margin-top:0}
-.work-anywhere{padding:var(--section-space) 0;background:transparent}
-.anywhere-heading{text-align:left;margin-bottom:48px}
-.home-value-edition .anywhere-heading h2{font-size:36px;font-weight:500;line-height:1.5;letter-spacing:-.8px;margin:0;color:#f1f7ff}
-.anywhere-heading h2>span:first-child{color:#74c8ed}
-.home-value-edition .anywhere-heading>p{max-width:860px;margin:20px 0 0;font-size:18px;line-height:1.9;color:#b3c7db;text-wrap:pretty}
-@media(max-width:1100px){.home-value-edition .anywhere-heading h2{font-size:32px}.home-value-edition .anywhere-heading>p{font-size:17px;max-width:760px}}
-@media(max-width:600px){.home-value-edition .anywhere-heading h2{font-size:27px;line-height:1.55;letter-spacing:-.5px}.anywhere-heading h2>span{display:block;white-space:nowrap}.home-value-edition .anywhere-heading>p{font-size:15px;line-height:1.9;margin-top:18px;text-align:left}.anywhere-heading{margin-bottom:42px}}
