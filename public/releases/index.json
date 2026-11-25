@@ -1,8 +1,9 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-11-24T11:31:46.150Z",
-  "defaultVersion": "v5.21.0",
+  "updatedAt": "2026-11-25T02:03:16.981Z",
+  "defaultVersion": "v5.22.0",
   "versions": [
+    "v5.22.0",
     "v5.21.0",
     "v5.20.0",
     "v5.19.0",
@@ -2015,6 +2016,51 @@
     {
       "path": "/releases/manifests/v5.21.0/server/avatar/compose/arm64.json",
       "version": "v5.21.0",
+      "type": "server",
+      "product": "avatar",
+      "package": "compose",
+      "arch": "arm64",
+      "size": 456
+    },
+    {
+      "path": "/releases/manifests/v5.22.0/clients/tego/desktop.json",
+      "version": "v5.22.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "desktop",
+      "arch": null,
+      "size": 1879
+    },
+    {
+      "path": "/releases/manifests/v5.22.0/clients/tego/mobile.json",
+      "version": "v5.22.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "mobile",
+      "arch": null,
+      "size": 593
+    },
+    {
+      "path": "/releases/manifests/v5.22.0/clients/tego/studio.json",
+      "version": "v5.22.0",
+      "type": "client",
+      "brand": "tego",
+      "product": "studio",
+      "arch": null,
+      "size": 1818
+    },
+    {
+      "path": "/releases/manifests/v5.22.0/server/avatar/compose/amd64.json",
+      "version": "v5.22.0",
+      "type": "server",
+      "product": "avatar",
+      "package": "compose",
+      "arch": "amd64",
+      "size": 456
+    },
+    {
+      "path": "/releases/manifests/v5.22.0/server/avatar/compose/arm64.json",
+      "version": "v5.22.0",
       "type": "server",
       "product": "avatar",
       "package": "compose",
